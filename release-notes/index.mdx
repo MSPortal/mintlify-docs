@@ -3,6 +3,27 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## May 18, 2026
+
+### Per-Role Ticket Board Restriction
+
+Ticket Display Groups can now scope a role to specific PSA service boards or queues, so client-portal users only ever see tickets from the boards you choose for them. This extends the existing ticket visibility model (all, own, location) with a board-level dimension.
+
+**Key Features:**
+
+- **Board and queue scoping**: In a Display Group, pick the allowed service boards or queues from a dropdown populated by your synced PSA boards. No board IDs to type, no guesswork.
+- **Enforced everywhere**: The restriction applies to the ticket list, Ticket Trends drill-downs, and dashboard ticket counts and charts, so totals never expose boards a user cannot open.
+- **Opt-in and permissive by default**: A Display Group with no boards selected stays unrestricted. When a user has more than one role, they see the union of all allowed boards.
+- **Client users only**: Tenant and staff users are never board-restricted.
+
+[Documentation: Ticket Settings](/user-guides/settings/tickets)
+
+### Improvements
+
+- **Ticket visibility**: Client users with "own tickets" visibility now reliably see their assigned tickets. Previously some users could see an empty ticket list until their PSA next synced.
+- **Halo tickets**: Ticket discussions no longer show blank entries for automated Halo workflow actions like Claim, Assignment, and Hold.
+- **Ticket list**: Resolved an issue that could cause the tickets page to reload repeatedly, for faster and steadier loading.
+
 ## May 15, 2026
 
 ### Ticket Trends: Executive-First AI Analysis
