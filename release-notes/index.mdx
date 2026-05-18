@@ -7,14 +7,7 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 
 ### Per-Role Ticket Board Restriction
 
-Ticket Display Groups can now scope a role to specific PSA service boards or queues, so client-portal users only ever see tickets from the boards you choose for them. This extends the existing ticket visibility model (all, own, location) with a board-level dimension.
-
-**Key Features:**
-
-- **Board and queue scoping**: In a Display Group, pick the allowed service boards or queues from a dropdown populated by your synced PSA boards. No board IDs to type, no guesswork.
-- **Enforced everywhere**: The restriction applies to the ticket list, Ticket Trends drill-downs, and dashboard ticket counts and charts, so totals never expose boards a user cannot open.
-- **Opt-in and permissive by default**: A Display Group with no boards selected stays unrestricted. When a user has more than one role, they see the union of all allowed boards.
-- **Client users only**: Tenant and staff users are never board-restricted.
+A role's Ticket Display Group can now be limited to specific PSA service boards or queues, so client-portal users only see tickets from the boards you choose. The restriction applies everywhere ticket data shows up, including the ticket list, Ticket Trends drill-downs, and dashboard counts and charts. Display Groups with no boards selected stay unrestricted, and tenant and staff users are never board-restricted.
 
 [Documentation: Ticket Settings](/user-guides/settings/tickets)
 
