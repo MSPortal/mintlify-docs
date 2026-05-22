@@ -3,6 +3,148 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## May 22, 2026
+
+### Microsoft Teams App (Beta)
+
+<Note>
+The Microsoft Teams app is currently in **beta**. Functionality is complete but still being refined, so you may run into rough edges. If you would like to try it with your clients, [reach out to support](mailto:support@msportal.ai).
+</Note>
+
+MSPortal now ships as a **Microsoft Teams app** that you build for your clients, so your end users can open MSPortal directly inside Teams instead of a separate browser tab.
+
+- **You choose what your clients see**: The app ships with Home, Tickets, and Training tabs by default, and you can rename, reorder, enable, or disable any of the available views (Devices, Calendar, Projects, Planner, Reporting, Compliance, Surveys, Dashboards, and more) from the tab manager in **Settings, Integrations, Microsoft Teams**. Build a focused app with just the surfaces your clients actually use.
+- **Your brand, your app**: Each tenant gets its own Teams app carrying your name, your logo, your accent color, and your vanity domain, so it looks like a product you built. Download the generated app package and sideload it or publish it through your Teams app catalog.
+- **One sign-in**: End users sign in with their existing Microsoft 365 account and land straight on the home tab. The session is built to survive third-party-cookie restrictions in Chrome and Safari, so it just works.
+- **Deep links and channel tabs**: Pin MSPortal as a configurable channel tab, and link to any MSPortal screen from anywhere in Teams.
+
+If you would like a hand getting the app published to your clients, [reach out to support](mailto:support@msportal.ai).
+
+### Integrations Page Redesign
+
+The **Settings, Integrations** page has been rebuilt from a card grid into a single searchable, sortable table, so it stays easy to scan as you connect more tools.
+
+- **One row per integration**, with logo, name, category, status, and the date it last synced. Sort by **Last Sync** to immediately spot integrations that have gone stale.
+- **Expandable detail panel**: Click any row to open a panel showing per-data-type sync timestamps and, for any integration that is failing, a Health block with the pause reason, the last error, how many times it has failed in a row, and when it last synced successfully.
+- **Action buttons are always reachable**: Refresh, sync, and configuration buttons live in a pinned column on the right of each row.
+- The search box and category filter chips (PSA, RMM, Backup, Security, and so on) work exactly as before.
+
+[Documentation: Integrations](/user-guides/settings/integrations)
+
+### Surveys and NPS Improvements
+
+A round of improvements to NPS and general surveys, several of them driven directly by customer feedback.
+
+- **Scheduled surveys now actually send on schedule**: Picking a future date and time on a survey now reliably dispatches it at that time, in your tenant's time zone. This applies to both NPS and general surveys, including recurring campaigns.
+- **Branded response pages**: The public NPS and survey response pages now show your tenant logo and pick up your brand colors, so the experience your clients see matches the rest of your portal.
+- **Email templates respect your choice**: When you select an email template for a survey, its subject line is now used as-is. You no longer have to leave the subject field blank to stop the wizard from overriding it.
+- **Email variables always resolve**: Survey emails no longer arrive with unresolved placeholders like `{{sender_name}}` or `{{expires_date}}` in the body, and a missing company name no longer produces an awkward dangling comma.
+- **Insert your company logo into email templates**: The email template editor has a new "Insert Company Logo" button that drops your configured logo straight into the message.
+- **Clearer analytics**: Staff members who take their own survey are now labeled with your tenant name in NPS analytics instead of showing as "Unknown".
+
+[Documentation: Surveys](/user-guides/surveys)
+
+### Financial Reporting: Revenue Trends
+
+A new **Revenue Trends** tab on Financial Reporting shows month-over-month invoice revenue across all of your connected PSAs (Halo, ConnectWise, and Autotask) in one place.
+
+- Group revenue by **classification** (managed recurring, other recurring, non-recurring), by **provider**, or by **line type**.
+- Choose a window of the last 3, 6, 12, or 24 months, and filter down to a single PSA.
+- A stacked bar chart and pivot table are backed by summary cards for total revenue, month-over-month change, top category, and peak month.
+
+Halo PSA financial reporting also reaches feature parity with Autotask and ConnectWise: **Settings, Revenue Categories** now lets you map Halo revenue at four levels (per-contract overrides, services, line item types, and contract types), and Halo invoices are now broken out line by line so you can map individual products and services to the right revenue category.
+
+[Documentation: Financial Reporting](/user-guides/msp-tools/financial-reporting)
+
+### Ticket Trends: Exclude Noisy Data
+
+A new **Settings, Ticket Trends** page lets you exclude noisy boards, ticket types, categories, issue types, statuses, sources, and priorities from every Ticket Trends chart and AI analysis. Dropdowns show live ticket counts so the noisiest values float to the top. Saving recomputes the last 52 weeks of history automatically, so your charts reflect the change right away.
+
+[Documentation: Ticket Trends](/user-guides/msp-tools/ticket-trends)
+
+### Microsoft 365: License Renewal and Expiration Dates
+
+The Microsoft 365 Licenses page now shows when each subscription **renews or expires**.
+
+- A new **Renews / Expires** column shows the date and a friendly "in N days" / "expired N days ago" label, highlighted amber within 30 days and red once past due, plus a **Trial** badge where applicable.
+- The license details panel has a new **Subscriptions** section listing every subscription for that license, with its renewal date, status, trial flag, and seat count.
+- **Add to Planner** from the Licenses page now writes each license's expiry date into the planner item's notes, so a renewal task shows what is expiring and when at a glance.
+
+This uses a Microsoft 365 permission you have already granted, so no re-consent is needed. Clients billed through a CSP or partner simply show a dash where a date is not available.
+
+[Documentation: Microsoft 365 Licenses](/user-guides/microsoft-365/licenses)
+
+### Reporting: Export to Word
+
+Narrative reports can now be exported to **Word (.docx)** in addition to PDF. The report viewer's export button is now a dropdown with **Print / PDF** and **Word** options. The Word file is fully formatted, with the cover page, table of contents, all sections, action plans, and tables, so you can hand it off or tweak the wording before sending it to a client. You can also now insert a manual **page break** or **divider** anywhere in the report editor.
+
+[Documentation: Reporting](/user-guides/reporting)
+
+### Planner: AI Assistant
+
+The Planner has a new **AI assistant** that opens from a button on the right edge of every Planner page (available to users who can manage the Planner).
+
+- Ask it to find, summarize, or report on planner items in plain language.
+- Ask it to **create or update** items, or to **bulk-add a whole list** of items across multiple companies at once. The assistant never writes directly: it shows you an editable preview with Apply and Discard buttons, so nothing is saved until you review and confirm it.
+
+[Documentation: Planner](/user-guides/planner)
+
+### Compliance: Custom Statuses in Reports
+
+If you use custom compliance statuses (for example "Pending Vendor" or "Not Applicable"), they now flow all the way through to your reports. Previously every reporting surface collapsed statuses into a fixed three-bucket view and dropped anything custom.
+
+- Reporting blocks, the full compliance report, and the AI narrative report now show your **real custom status names and colors**.
+- A new per-status **Exclude From Scoring** toggle (in Settings, Status Lists) lets you mark "N/A"-style statuses so they are dropped from both the top and bottom of every compliance percentage, instead of silently counting as failures.
+
+[Documentation: Compliance](/user-guides/compliance)
+
+### New Integration: Sherweb (Beta)
+
+A new **Sherweb** integration is available in Beta. Connect your Sherweb account from **Settings, Integrations** with your Client ID, Client Secret, and Subscription Key to begin syncing your Sherweb customers into MSPortal.
+
+[Documentation: Integrations](/user-guides/integrations)
+
+### Improvements
+
+- **Rows per page**: The Devices, Tickets, Users, Companies, Compliance, and Invoices lists now have a "rows per page" selector, so you can show 25, 50, 100, or 250 rows at a time instead of paging through 25 at a time.
+- **Actions are always visible**: On every list page, the actions ("⋯") button now stays pinned to the right edge and can no longer be hidden by the column toggle.
+- **Faster company switching**: The company selector now selects the top match when you press Enter, so you can switch company scope with just the keyboard.
+- **Microsoft 365 renewal automation**: A new "Microsoft 365 Subscription" automation entity lets you build rules like "M365 subscription renews within 30 days, add to Planner."
+- **Device alerts focus on servers**: The Device Alerts widget on the dashboard and company pages no longer flags offline workstations and laptops (a laptop going to sleep is normal). Offline alerts are now limited to servers, which cuts the noise significantly. Warranty alerts are unchanged.
+
+### Bug Fixes
+
+- Fixed issues with the Planner page that could cause it to fail to load on larger tenants and show an unnecessary scrollbar.
+- Fixed parent and child company grouping not appearing in the company selector.
+- Fixed issues with Halo PSA financial reporting, including line-item revenue mappings and reactive hours not appearing.
+- Fixed an Acronis sync that could fail entirely when one client account was locked from parent-organization management.
+- Fixed an error that could occur when viewing a device list or appendix block on a saved dashboard.
+- Fixed minor display issues on the Companies settings list and the Microsoft Teams app package links.
+
+## May 19, 2026
+
+### Compliance List: Per-Column Search
+
+Every text column filter on the compliance list now searches only its own column. Previously the **Title** filter searched across every column at once, and applying two text filters at the same time returned no results at all. You can now filter on **Title**, **Public Notes**, **Private Notes**, **How to Check**, **Why Important**, **Remediation**, **Remediation Impact**, **References**, **Scope**, and **Check ID** independently, and combine several of them to narrow the list precisely. The "X of N" count at the bottom of the list now reflects whatever filters are active.
+
+[Documentation: Compliance](/user-guides/compliance)
+
+### Devices: Operating System Column
+
+The Devices list has a new **OS** column showing each device's operating system, for example "Windows 11 Pro" or "macOS". Show or hide it from the column toggle, sort by it, filter on it, and it is included in CSV exports alongside the existing columns.
+
+[Documentation: Devices](/user-guides/devices)
+
+### Bug Fixes
+
+- **Duplicate devices across RMMs**: When the same physical machine was imported from two different RMMs, it appeared as two separate devices because each tool names the machine differently (for example, the same Mac synced from both Addigy and NinjaOne). Devices are now matched by hardware serial number, and existing duplicates were merged automatically so device counts are accurate again. Cloned-image and virtual-desktop fleets that legitimately share a placeholder serial are deliberately left untouched. [Documentation: Importing Devices](/user-guides/integrations/import-devices)
+
+### Improvements
+
+- **Company dashboard**: The **Users** count on the company overview now matches the users list it links to. It previously counted only active users, so it under-reported when a company had imported, pending, or disabled users.
+- **Documentation settings**: The **Inherited** tag shown on folders and articles is now clearly legible. It was previously dim text on a dark background that was hard to read.
+- **Hudu Magic Dash**: Long compliance check titles no longer overflow into the neighboring columns on the compliance summary card pushed to Hudu.
+
 ## May 18, 2026
 
 ### Per-Role Ticket Board Restriction
