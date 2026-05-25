@@ -158,7 +158,8 @@
                 "pages": [
                   "user-guides/ticketing/index",
                   "user-guides/ticketing/how-to-create-a-ticket-template",
-                  "user-guides/ticketing/open-a-ticket-with-ai"
+                  "user-guides/ticketing/open-a-ticket-with-ai",
+                  "user-guides/ticketing/flow-webhook-recipient"
                 ]
               },
               {
