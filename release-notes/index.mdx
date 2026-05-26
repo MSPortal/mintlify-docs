@@ -47,6 +47,52 @@ Templates with a typed **subject template** (for example `New User - {{first-nam
 - **The AI no longer overrides it**: When a template has a subject template, the AI assistant on the home page now skips generating its own subject and lets the template render. Previously the AI would write a one-liner that quietly overwrote a configured template.
 - **Hand-typed subjects stay hand-typed**: On **New Ticket**, typing into the subject field stops automatic re-rendering when other fields change, so your wording isn't clobbered.
 
+## May 24, 2026
+
+### Planner Templates: Multi-Cost Rows and Auto-Link to Compliance
+
+Planner templates now mirror real planner items: store multiple cost rows (one-time, monthly, annual) instead of a single estimate, and tag the template with one or more compliance checks so bulk-applying the template automatically links the new planner item to the right assignment per company.
+
+- **Multiple cost rows**: Add as many one-time, monthly, or annual lines as you need to a template, just like a regular planner item.
+- **Auto-link on bulk apply**: Tag a template with one or more compliance checks. When you bulk-apply, MSPortal finds the newest matching assignment for each target company and links the new planner item to it. Companies without a matching assignment still get the item without the link, and a toast tells you how many were skipped.
+- **Validation fix**: Fixed a quiet bug where the bulk-apply "type" checkbox was sending the wrong field name and would have silently failed validation.
+
+### Scheduled Reports: View Reports and One-Click Generate
+
+The Scheduled tab gained two long-requested actions on the row menu, plus a stability fix:
+
+- **View Reports**: Opens a list of every report a schedule has generated, sorted newest first. Each entry links straight to the report, with the company name, generation date, and the data date range. Previously you could only jump to the most recent run.
+- **Generate Report**: Saved templates now have a one-click action to run the template against one or many companies with a chosen date range, without going through the full scheduling flow. Pick companies, pick dates (relative presets like Last 30 Days or Previous Quarter, or a custom range), and click Generate. Each finished report shows up in your notification center.
+- **Schedule dialog stability**: Fixed a bug where the Schedule dialog would occasionally close itself the moment it was opened from the row menu.
+
+### Template Variables in Text and Heading Blocks
+
+Text and Heading blocks can now use dynamic placeholders. Click **Insert Variable** in the toolbar and pick from Company name, your organization name, viewer name and email, report start / end / period / today / title, and Team Roles (CXM, TAM, SDM, and so on) which resolve to the assigned person's name with a matching `(email)` token. Variables fill in automatically at generate time, so a single template can be reused across every client with the right names, dates, and emails appearing in each one. Variables work in the editor preview, the published report, and the printed / PDF version.
+
+### Templates Stay Reusable
+
+Saving a report as a template no longer carries forward the original company, project, document picks, generated narrative text, or date range. This was the biggest "templates aren't really reusable" pain point: previously, saving a template from a report built for Company A would silently bake in Company A's data, so generating it later for Company B mixed the two. Templates are now truly company-agnostic. The company and date range are always chosen at generate time, and older templates are quietly cleaned up the next time they're saved.
+
+### Report Builder: Block-Level Improvements
+
+A broad round of polish across the block library:
+
+- **Compliance Report block**: Top spacing matches the rest of the blocks; items collapse into a cleaner flat list when "Show cards" is off (more items per page); the Configure panel now auto-saves; new Group and Run filters; full sort controls (title, priority, status, group, run, or due date, ascending or descending); option to hide the summary cards and the per-status badge row.
+- **Compliance Score Overview block**: New Order By dropdown (alphabetical, score high-to-low or low-to-high, total high-to-low or low-to-high). Fixed a crash when editing this block on certain older reports.
+- **By Compliance Group block**: The Sort By dropdown previously did nothing and now actually sorts the list, with a separate Sort Direction control.
+- **Planner Table block**: Collapsed the separate Start and End columns into a single Date column (Planner only has one date). Added custom block title, hide-summary toggle, and column picker (title, description, type, status, value, date, hours).
+- **Budget Detail block**: Custom block title, per-column toggles (Category, Description, Qty, Unit Price, Total, Status), item count and sort controls, status filter (Approved, Pending, Awaiting Approval, Draft), a new "% Spent" card with a progress bar, and toggles for budget notes and section headings.
+- **Device Inventory block**: Fixed the "+1 more" footer that appeared even when there was clearly room to show more device types. Added per-card on/off toggles for the Total / Active / Inactive summary cards. Translated all previously English-only checkbox labels.
+- **Score by Assessment Run and Group block**: No longer collapses to a tiny "79% · 1 run · 6 groups" summary at wide-but-short sizes (4x1, 3x1). The matrix renderer fits fine and is now shown.
+- **Universal title editor**: Every block in the report builder now has an editable title, including the ten (CSAT, Liongard, training, imported document) that previously opened to "No configuration options available" with no way to rename them.
+- **Block palette polish**: The category count numbers (next to TEXT, COMPLIANCE, etc.) sat partly hidden behind the scrollbar; they now sit clearly inside the panel with proper contrast.
+
+### Smaller Polish
+
+- The date-range picker no longer errors out on older reports with malformed dates.
+- Multi-select dropdowns in the block editor now visually match the rest of the form controls (was a slightly different shade of grey).
+- Switching companies in the top-bar selector no longer wipes out the report template you have open. This was actually a broader fix that protects URL state on every page when you change companies.
+
 ## May 22, 2026
 
 ### Microsoft Teams App (Beta)
