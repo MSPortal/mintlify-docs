@@ -3,6 +3,50 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## May 26, 2026
+
+### Smarter AI Ticket Routing
+
+The AI assistant on the home page is now much better at picking the right template when a user describes their issue in their own words.
+
+- **No more "New Computer" for monitor requests**: The selector now strictly matches specific-item templates only to the exact thing they describe. "I need a new monitor" no longer routes to a "New Computer" template when no peripheral template exists, it falls back to your catch-all template instead (whatever you call it: "Generic Issue", "Unlisted Issue", "Other Request", "Miscellaneous", and so on).
+- **The same rule applies to every specific-item template**: software licenses, phones, tablets, VPN access, Office 365, and anything else that names a particular product or service. The AI no longer generalizes.
+- **Three AI surfaces now share the same signal**: the home assistant, the assistant sidebar, and the AI flow on **New Ticket** all route on the same template data.
+
+### Ticket Templates: AI Description Field
+
+Templates now have a dedicated **AI Description** field that the AI selector reads when deciding which template fits an incoming request. This is separate from the human-facing **Description** field, so you can keep your client-visible blurb short while giving the AI a richer "what this is for and when to use it" summary.
+
+- **Generate button**: A new **Generate** button on the template editor reads the template's sections and fields and writes a 2-4 sentence AI description for you, including an explicit "use only for X, do not use for Y" sentence on specific-item templates so the AI doesn't misroute requests.
+- **Bulk Generate**: On **Settings, Ticket Templates**, select multiple templates and use the **Generate AI Descriptions** bulk action to fill them in in one pass. Templates that already have an AI description are skipped by default so hand-tuned wording isn't overwritten.
+- **Why this matters**: Tenants with 30+ templates were getting frequent misroutes because most descriptions were short or blank. With AI descriptions populated, the selector picks the right template far more reliably.
+
+[Documentation: Ticket Templates](/user-guides/msp-tools/tickets)
+
+### Ticket Templates: Label Fields
+
+A new **Label** field type lets you embed display-only text directly inside a ticket form, perfect for shipping address disclaimers, eligibility rules, safety notices, or any other guidance you want the user to read before submitting.
+
+- **Rich content**: Label content is edited with the full rich-text editor, so you can use headings, bold, lists, and links.
+- **Form-only**: Labels render in the form UI but never appear in the PSA ticket body, never get sent to the AI as a field to populate, and never block submission.
+- **The AI mentions them anyway**: When the AI assistant fills in a template that contains label fields, it relays the label text back to the user in its reply, so users on the AI flow see the same guidance they would on the form.
+
+### Ticket Templates: Default Values for Every Field Type
+
+The inline field editor now lets you set a sensible default value on any field type that supports one, with the right control for each type:
+
+- **Dropdowns, radio, multi-select, checkbox**: pick the default from the field's own options.
+- **Text, email, phone, URL, number, date**: native input matching the field type.
+- **Long text and label fields**: full rich-text editor so disclaimers and pre-filled responses look the way you want.
+- **Clear**: an inline **Clear** button removes any stored default, including legacy values left behind from prior field-type changes.
+
+### Subject Templates Work on Unlocked Templates
+
+Templates with a typed **subject template** (for example `New User - {{first-name}} {{last-name}}`) now apply that template whenever it is set, not only when the subject is also locked. If you leave the subject unlocked the user can still edit it before submitting and their hand-typed value wins; if they don't touch it, the rendered template is what lands on the ticket.
+
+- **The AI no longer overrides it**: When a template has a subject template, the AI assistant on the home page now skips generating its own subject and lets the template render. Previously the AI would write a one-liner that quietly overwrote a configured template.
+- **Hand-typed subjects stay hand-typed**: On **New Ticket**, typing into the subject field stops automatic re-rendering when other fields change, so your wording isn't clobbered.
+
 ## May 22, 2026
 
 ### Microsoft Teams App (Beta)
