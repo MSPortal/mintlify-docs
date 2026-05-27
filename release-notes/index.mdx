@@ -3,6 +3,20 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## May 27, 2026
+
+### Reports Imports: Folders, Global Folders, and Email Plus-Addressing
+
+The Reports, Imports tab now supports folders so you can organize emailed-in attachments instead of dumping everything into one company-wide bucket. Folders can live under a single company or apply tenant-wide ("global"), and every folder gets its own dedicated email address using plus-addressing so the routing happens automatically when a file arrives.
+
+- **Per-company folders**: Create folders inside any company's import bucket from the folder rail on the left. Drag-and-drop imports between folders, rename, move, or delete from the row menu.
+- **Global folders apply to every company**: When you create a root folder, check **Apply to all companies** and the folder mirrors out under every company section in the rail. One rename, move, or delete updates every company at once. Subfolders inherit their parent's scope, so a subfolder under a global folder is automatically global too.
+- **Each folder has its own email address**: Folders are routed via plus-addressing on your tenant's import code. `acme123+invoices@inbox.msportal.ai` lands in Acme's **Invoices** folder, `acme123+contracts@inbox.msportal.ai` lands in **Contracts**. Global folders use the same pattern under every company.
+- **Auto-create folders on unknown tags**: Send a file to `acme123+vendor-quotes@inbox.msportal.ai` for the first time and MSPortal auto-provisions a **Vendor Quotes** folder (global, named from the slug) instead of dropping the suffix and lumping the file in with everything else. The folder is reusable from that point on.
+- **One-click copy of any folder's address**: Use the copy icon next to a folder in the rail to grab its full address, then set up forwarding rules in Outlook or Gmail once and inbound documents land in the right folder from then on.
+
+[Documentation: Reports Imports](/user-guides/reporting/email-imports)
+
 ## May 26, 2026
 
 ### Planner: Project Recurring Costs Across the Timeline
@@ -10,8 +24,8 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 The Planner has a new optional filter that rolls monthly and annual costs forward through every future period on the timeline, so you can see what a client's recurring spend actually looks like quarter by quarter or year by year, not just the one column where the next renewal happens to land.
 
 - **Filter switch in the drawer**: A new **Project Recurring Costs** switch sits inside the Filters drawer, just under **Show Completed & Cancelled**. Off by default. Most tenants will leave it off; flip it on when you want a forward-looking spend view.
-- **Period-snapped projection**: A $1,500 per month subscription due February 2026 now contributes a full 3 months ($4,500) to Q1 2026, not 2 months ($3,000). Once a recurring cost is live, every column on or after the due column reflects a full period of it, so quarters and years don't look artificially smaller at the start.
-- **Annual costs anchor to the renewal month**: A $1,200 per year subscription due February 2026 shows in February of every future year on the monthly timeline, in Q1 of every future year on the quarterly timeline, and once per year on the yearly timeline.
+- **Period-snapped projection**: A \$1,500 per month subscription due February 2026 now contributes a full 3 months (\$4,500) to Q1 2026, not 2 months (\$3,000). Once a recurring cost is live, every column on or after the due column reflects a full period of it, so quarters and years don't look artificially smaller at the start.
+- **Annual costs anchor to the renewal month**: A \$1,200 per year subscription due February 2026 shows in February of every future year on the monthly timeline, in Q1 of every future year on the quarterly timeline, and once per year on the yearly timeline.
 - **New tooltip on each column's budget total**: Hover any column total and see a three-line breakdown: **Recurring** (monthly + annual contributions), **This Period** (one-time costs due in this column), and **Total**. The split works whether or not projection is on.
 
 [Documentation: Planner](/user-guides/planner)
@@ -20,9 +34,9 @@ The Planner has a new optional filter that rolls monthly and annual costs forwar
 
 Planner item cost rows now carry a structured **Quantity** and **Unit Cost**, with the line total computed automatically as `Qty × Unit`. You can finally answer "how many of what" instead of only seeing a single dollar total.
 
-- **New cost row layout**: Every row now reads `[Qty] × [$ Unit Cost] [Type] [Trash]`, with **Qty** and **Costs** column headers above their inputs. The previous single-amount field is preserved for any cost that doesn't need a quantity (just leave Qty at 1).
-- **Auto-computed total**: When Qty is anything other than 1 and Unit Cost is filled in, a small `= $total` subtitle appears under the row so you can see what the line sums to.
-- **Currency follows the tenant**: The line total now renders in the currency set under **Settings, Tenant** (previously hardcoded to US$).
+- **New cost row layout**: Every row now reads `[Qty] × [Unit Cost] [Type] [Trash]`, with **Qty** and **Costs** column headers above their inputs. The previous single-amount field is preserved for any cost that doesn't need a quantity (just leave Qty at 1).
+- **Auto-computed total**: When Qty is anything other than 1 and Unit Cost is filled in, a small "= total" subtitle appears under the row so you can see what the line sums to.
+- **Currency follows the tenant**: The line total now renders in the currency set under **Settings, Tenant** (previously hardcoded to US dollars).
 - **Edit-friendly inputs**: You can now clear the Qty or Unit Cost fields and retype without the field snapping back to a number mid-edit.
 
 ### M365 License -> Planner: Auto-Populated Cost and Renewal Date
@@ -635,7 +649,7 @@ A new background task syncs every UDF definition from your PSA into a dedicated 
 Financial Reporting's revenue classification was reworked so your managed, non-recurring, and other-recurring splits actually match how you bill. Instead of categorizing one line item at a time, the new engine walks through your setup in order:
 
 - **Contract-type defaults**: Map each contract type (e.g. "Fixed Price Managed Services" → Managed Recurring, "T&M" → Non-Recurring) so every line under that contract inherits the right category by default
-- **Period divisors**: Contracts billed annually, quarterly, or up-front automatically get divided into monthly revenue, so a $12,000 annual contract shows as $1,000/month instead of a spike
+- **Period divisors**: Contracts billed annually, quarterly, or up-front automatically get divided into monthly revenue, so a \$12,000 annual contract shows as \$1,000/month instead of a spike
 - **Line-type overrides**: Flag specific line types as non-recurring (e.g. one-off products or T&M lines on an otherwise managed contract) without changing the contract's overall category
 - **Per-contract overrides**: When a specific contract does not follow your type default, pin it to a different category without breaking every other contract of that type
 

@@ -216,7 +216,8 @@
               {
                 "group": "Reporting",
                 "pages": [
-                  "user-guides/reporting/index"
+                  "user-guides/reporting/index",
+                  "user-guides/reporting/email-imports"
                 ]
               },
               {
@@ -317,6 +318,12 @@
                 "group": "NinjaOne",
                 "pages": [
                   "user-guides/integrations/enable-ninjaone-integration"
+                ]
+              },
+              {
+                "group": "Benji Pays",
+                "pages": [
+                  "user-guides/integrations/enable-benjipays-integration"
                 ]
               },
               {

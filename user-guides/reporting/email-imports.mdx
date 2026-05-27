@@ -1,0 +1,214 @@
+---
+title: Reports Imports
+description: Email files into MSPortal, organize them with per-company and global folders, and route inbound attachments automatically with email plus-addressing.
+icon: inbox
+---
+
+The **Imports** tab on the **Reports** page is where MSPortal stores files that have been emailed in from your team, your clients, or third-party tools (insurance binders, vendor quotes, signed agreements, exported PDFs, and so on). Each tenant gets a dedicated import inbox per company, plus optional folders for organizing what lands there. Once a file is imported, you can reference it from a report block, drop it into a narrative, or hand it to a client as part of a QBR.
+
+## Accessing Imports
+
+1. Click **Reporting** in the sidebar
+2. Click the **Imports** tab at the top of the page
+
+Imports respect the global company selector. If a single company is selected, you only see imports for that company. If "All Companies" is selected, you see every company's imports grouped by company in the rail on the left.
+
+## How Inbound Email Routing Works
+
+Every company in your tenant has a unique import address that lives on the `inbox.msportal.ai` domain. The local part is a short, opaque code that identifies the company (it is generated automatically the first time a file is imported, and is the same code forever after for that company).
+
+A company's address looks like this:
+
+```
+acme123@inbox.msportal.ai
+```
+
+Where `acme123` is the company's import code. Anything sent to that address with a file attached gets imported into that company's bucket on the Imports tab.
+
+### Folders Use Email Plus-Addressing
+
+To route an inbound file directly into a folder, append `+folder-slug` to the import code:
+
+```
+acme123+invoices@inbox.msportal.ai      ← lands in the "Invoices" folder
+acme123+contracts@inbox.msportal.ai     ← lands in the "Contracts" folder
+acme123+vendor-quotes@inbox.msportal.ai ← lands in the "Vendor Quotes" folder
+```
+
+This is the same "plus-addressing" syntax that Gmail and most other mail servers support out of the box. The mail server still delivers to `acme123@inbox.msportal.ai`, but MSPortal reads the `+vendor-quotes` portion and drops the file into the matching folder automatically.
+
+<Tip>
+Plus-addressing means you can publish a single import address to your team and let the folder slug decide where the file ends up. Set up a forwarding rule in Outlook or Gmail once, and inbound documents land in the right folder forever after.
+</Tip>
+
+### Auto-Create Folders on Unknown Tags
+
+If a file arrives with a `+slug` that does not match an existing folder, MSPortal automatically provisions a **global folder** named from the slug instead of stripping the suffix off and dropping the file into the root.
+
+So if someone emails `acme123+vendor-quotes@inbox.msportal.ai` and you don't yet have a Vendor Quotes folder, MSPortal will:
+
+1. Create a folder called **Vendor Quotes** that applies to every company in your tenant (global)
+2. Route the file into Acme's instance of that folder
+3. Reuse the same folder for every future email tagged `+vendor-quotes`, for every company
+
+This means your team can start using a new folder tag immediately, without having to log in and create it first.
+
+## Folders
+
+Folders organize imports inside a company. A folder has a name (the display text) and a **slug** (the URL-safe form used in the email address). The slug is derived from the name automatically. Renaming a folder updates the slug, so any new forwarding rules you set up will need to point at the new address (existing files inside the folder stay put).
+
+### Per-Company Folders
+
+A per-company folder lives under one company and is only visible there. Create one from the folder rail on the left:
+
+<Steps>
+  <Step title="Open the company's section in the rail">
+    Each company you have access to has its own section. Click the company name to expand it.
+  </Step>
+  <Step title="Click 'New Folder' inside the company">
+    A dialog opens asking for a folder name.
+  </Step>
+  <Step title="Type the name and click Create">
+    Leave **Apply to all companies** unchecked. The folder appears in that company's section and nowhere else.
+  </Step>
+</Steps>
+
+### Global Folders (One Folder, Every Company)
+
+A global folder is the same folder mirrored under every company in your tenant. Create one once and it shows up in every company's section in the rail, with each company getting its own email address for that folder.
+
+<Steps>
+  <Step title="Click 'New Folder for All Companies' in the rail header">
+    This opens the create dialog with **Apply to all companies** pre-checked.
+
+    You can also start from any company's **New Folder** action and tick the **Apply to all companies** checkbox manually.
+  </Step>
+  <Step title="Name the folder">
+    For example, **Invoices**, **Insurance Documents**, **Contracts**, **Vendor Quotes**.
+  </Step>
+  <Step title="Click Create">
+    The folder now exists under every company. Each company gets a dedicated address for the folder using its own import code, e.g. `acme123+invoices@inbox.msportal.ai` for Acme and `globex456+invoices@inbox.msportal.ai` for Globex.
+  </Step>
+</Steps>
+
+<Tip>
+Global folders are the right pick whenever you want the **same** organizing scheme across every client (every client should have an Invoices folder, a Contracts folder, etc.). Use per-company folders for one-off categories that only matter for a single client.
+</Tip>
+
+### Rename, Move, or Delete
+
+Hover any folder in the rail and use the row menu (the three-dot icon) to:
+
+| Action | What it does |
+|--------|--------------|
+| **Rename** | Updates the folder name across every company (for global folders) and regenerates the slug. |
+| **Move** | Re-parents the folder under another folder. Parent and child must share scope (a global folder cannot become a subfolder of a company-scoped folder, and vice versa). |
+| **New Subfolder** | Creates a child folder. Subfolders inherit their parent's scope, so a subfolder under a global folder is automatically global too. |
+| **Delete** | Removes the folder. Files inside are moved back to the root of their company before the folder is deleted, never lost. |
+
+### Copy the Email Address
+
+Each folder shows a copy icon in the rail. Click it to grab the folder's full email address to your clipboard. Use this when setting up forwarding rules:
+
+- **Outlook**: Forward emails matching a rule (sender, subject keyword, etc.) to the folder address.
+- **Gmail**: Use **Filters and Blocked Addresses** to forward matching mail to the address.
+- **Third-party services**: Paste the address anywhere that asks for an email destination (Adobe Sign, DocuSign, vendor portals, etc.).
+
+## Sending Files In
+
+Any inbound email with one or more attachments will import each attachment as its own file. The `From` address, subject, and timestamp are captured alongside the file so you have context later.
+
+**What gets imported:**
+
+- PDF documents (invoices, contracts, signed forms)
+- Images (PNG, JPG screenshots, scanned receipts)
+- Word documents (.docx)
+- Excel spreadsheets (.xlsx)
+- Plain text files
+- Any other common file type
+
+**What does not get imported:**
+
+- Inline images embedded in the email body (signature logos, decorative banners)
+- The email body itself (only attachments are saved)
+- Anything over the per-file size limit (configured per tenant)
+
+<Tip>
+If you want to capture the email body too, save it as a PDF first (most mail clients have **Print, Save as PDF**) and forward the PDF as an attachment.
+</Tip>
+
+## Working with Imports
+
+The main table on the Imports tab shows every file you have access to, with one row per file:
+
+| Column | What it shows |
+|--------|---------------|
+| **Company** | Which company the file is under. |
+| **Folder** | Folder name, or empty for files at the company root. |
+| **File** | The original filename, with an icon for the file type. |
+| **From** | The email address the file was sent from. |
+| **Subject** | The original email subject. |
+| **Size** | File size in human-readable form. |
+| **Received** | When the file arrived. |
+| **Status** | Processing state (rare; almost always **Complete**). |
+
+### Selecting and Moving
+
+Tick rows in the table to bulk-select. With one or more rows selected you can:
+
+- **Move to Folder**: Pick a destination folder from a picker dialog. Works across companies for files that share a global folder.
+- **Download** the selected files in a single action.
+- **Delete** them (with a confirmation step).
+
+You can also drag a single row directly onto a folder in the rail to move it.
+
+### Previewing a File
+
+Click any row in the table to open the file viewer. Supported formats render inline (PDFs page-by-page, images, text). For everything else you get a download link.
+
+## Common Setups
+
+### Centralizing client invoices
+
+1. Create a global folder named **Invoices**.
+2. Copy the folder address for each client (e.g. `acme123+invoices@inbox.msportal.ai`).
+3. Send each client their address and ask them to email invoices directly to it (or forward from their accounting tool).
+4. Every invoice lands in the right Invoices folder under the right company, ready to attach to a QBR or budget review.
+
+### Routing signed agreements
+
+1. Create a global folder named **Signed Agreements**.
+2. In Adobe Sign or DocuSign, set the "completion email" recipient to the folder address for the client involved.
+3. When the agreement is signed, the signed PDF is delivered straight into MSPortal under the right company.
+
+### Catch-all for new categories
+
+You do not have to pre-create every folder. If your team uses a new tag (say `+security-reports`) on the fly, MSPortal will auto-create a **Security Reports** global folder the first time a file arrives, and reuse it from then on.
+
+## Permissions
+
+The Imports tab is gated by the **Reporting** permission. Users without read access to Reporting will not see the tab at all. Folder management (create, rename, move, delete) follows the same read/write permission as the rest of the reporting module.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="A file I emailed in never arrived">
+    Check the `From` address. Imports only accept email from senders that MSPortal can validate (your tenant team, the company's users, or addresses you have configured as allowed import senders). Mail from unverified senders is dropped silently.
+
+    If the `From` address is correct but the file still didn't land, check that the address you sent to matches your tenant's domain exactly (`inbox.msportal.ai`) and that the import code is correct (no typos).
+  </Accordion>
+  <Accordion title="A file landed at the root instead of in a folder">
+    The `+slug` part of the address either had a typo or did not match an existing folder slug. If you have **Auto-create folders on unknown tags** working, the file should have triggered a new global folder; if it didn't, double-check the slug format (lowercase, hyphens instead of spaces, no special characters).
+  </Accordion>
+  <Accordion title="I renamed a folder and my forwarding rules stopped working">
+    Renaming a folder updates its slug, which changes the address. Copy the new address from the rail and update any forwarding rules in Outlook, Gmail, or third-party tools that pointed at the old slug.
+  </Accordion>
+  <Accordion title="Can a company user send files to their own import address?">
+    Yes, as long as their email address is registered against the company in MSPortal. Their files land in their company's bucket. They cannot route to another company's import address (the import code is unique per company).
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+- [Reporting Overview](/user-guides/reporting/index) - Build reports from imported files and other MSPortal data.
+- [Settings, Email, Receiving](/user-guides/settings/integrations) - Manage import allowlists and tenant-wide email settings.
