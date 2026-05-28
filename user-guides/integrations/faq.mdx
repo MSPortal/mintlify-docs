@@ -38,16 +38,18 @@ After making configuration changes, use the **Sync Now** button on your integrat
 
 ## How often do syncs happen?
 
-MSPortal syncs data from your integrations on regular schedules:
+MSPortal syncs data from your integrations on regular schedules. Frequencies vary by integration and data type. As a general guide:
 
-| Data Type | Sync Frequency | Notes |
-|-----------|----------------|-------|
-| **Tickets** | Every 15 minutes | Incremental sync of recent changes |
-| **Companies & Contacts** | Every 30 minutes | Full sync of company data |
-| **Users & Resources** | Every 30 minutes | PSA technicians and resources |
-| **PSA Reference Data** | Every 30 minutes | Ticket types, priorities, statuses, etc. |
-| **Devices (RMM)** | Every 30 minutes | Device inventory from Datto, Asio, Syncro |
-| **Microsoft 365 Secure Score** | Every 30 minutes | Security posture metrics |
+| Data Type | Typical Frequency |
+|-----------|-------------------|
+| **Tickets** | Every 5-15 minutes |
+| **Companies & Contacts** | Every 1-4 hours |
+| **Users & Resources** | Every 2-4 hours |
+| **Devices (RMM)** | Every 30 minutes to daily |
+| **PSA Reference Data** | Daily |
+| **Microsoft 365** | Every 6 hours to daily |
+
+For the exact, per-integration breakdown, see the [Sync Schedules](/user-guides/integrations/sync-schedules) page.
 
 <Info>
 **Autotask Webhooks**: If you've enabled webhooks for your Autotask integration, ticket updates are received in near real-time rather than waiting for the scheduled sync.
@@ -61,7 +63,7 @@ If you need the changes immediately:
 
 <CardGroup cols={2}>
   <Card title="Wait for Auto-Sync" icon="clock">
-    Tickets sync every 15 minutes; other data syncs every 30 minutes. Simply wait for the next sync cycle.
+    Tickets sync every few minutes; other data syncs on its own schedule. See [Sync Schedules](/user-guides/integrations/sync-schedules) for the exact cadence by integration.
   </Card>
   <Card title="Force Manual Sync" icon="rotate">
     Click the **refresh icon** on your integration card at `/settings/integrations` to trigger an immediate sync.

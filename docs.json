@@ -234,6 +234,7 @@
             "pages": [
               "user-guides/integrations/index",
               "user-guides/integrations/faq",
+              "user-guides/integrations/sync-schedules",
               "user-guides/integrations/import-users",
               "user-guides/integrations/import-companies",
               "user-guides/integrations/import-devices",

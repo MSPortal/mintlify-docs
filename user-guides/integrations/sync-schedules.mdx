@@ -1,0 +1,256 @@
+---
+title: Sync Schedules
+description: How often MSPortal.ai refreshes data from each connected integration
+---
+
+MSPortal.ai keeps your data current by syncing automatically from every connected integration on a regular schedule. Higher-volume data that changes often (like tickets) refreshes frequently, while reference data that rarely changes (like product catalogs) refreshes once a day. Syncs are deliberately staggered throughout the day to keep the platform fast and responsive.
+
+<Info>
+All scheduled times below are in **UTC**. Frequencies are accurate as of the latest release and may be adjusted over time as we tune performance. You can always trigger an immediate refresh with **Sync Now**.
+</Info>
+
+## Need data updated right now?
+
+You don't have to wait for the next scheduled sync. On the **Integrations** page (`/settings/integrations`), click the **Sync Now** (refresh) icon on any integration card to pull the latest data immediately.
+
+<Warning>
+Manual syncs are rate-limited. If you've just triggered a sync, you may need to wait a few minutes before triggering another.
+</Warning>
+
+## Microsoft 365
+
+| Data Type | Frequency |
+|-----------|-----------|
+| Licenses & subscriptions | Every 6 hours |
+| Users & groups | Every 6 hours |
+| Domains | Daily |
+| Secure Score | Daily |
+
+## PSA integrations
+
+<AccordionGroup>
+  <Accordion title="ConnectWise Manage">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Tickets | Every 15 minutes |
+    | Ticket notes | Every 30 minutes |
+    | Time entries | Every 30 minutes |
+    | Companies | Every hour |
+    | Sites | Every hour |
+    | Configurations | Every hour |
+    | Users | Every 2 hours |
+    | Opportunities | Every 2 hours |
+    | Projects & project tickets | Every 2 hours |
+    | Project time entries | Every 30 minutes |
+    | Invoices | Every 2 hours |
+    | Agreements | Every 4 hours |
+    | Company teams | Daily |
+    | Products | Daily |
+    | Reference data (statuses, priorities, boards, etc.) | Daily |
+  </Accordion>
+
+  <Accordion title="Autotask">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Tickets | Every 10 minutes |
+    | Time entries | Every 10 minutes |
+    | Ticket notes | Every 30 minutes |
+    | Companies | Every hour |
+    | Users | Every 2 hours |
+    | Opportunities | Every 2 hours |
+    | Projects & project time entries | Every 2 hours |
+    | Invoices | Every 2 hours |
+    | Contracts | Every 4 hours |
+    | Billing items | Every 4 hours |
+    | Locations | Daily |
+    | Products | Daily |
+    | Picklists | Daily |
+    | Reference data | Daily |
+
+    <Info>
+    If you've enabled **Autotask webhooks**, ticket updates arrive in near real-time rather than waiting for the scheduled sync.
+    </Info>
+  </Accordion>
+
+  <Accordion title="Halo PSA">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Tickets | Every 15 minutes |
+    | Users | Every 2 hours |
+    | Invoices | Every 2 hours |
+    | Companies | Every 4 hours |
+    | Contracts | Every 4 hours |
+    | Catch-up reconciliation | Weekly |
+  </Accordion>
+
+  <Accordion title="Syncro">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Tickets | Every 5 minutes |
+    | Companies | Every 4 hours |
+    | Users | Every 4 hours |
+    | Assets | Every 4 hours |
+    | Reference data | Daily |
+  </Accordion>
+</AccordionGroup>
+
+## RMM integrations
+
+<AccordionGroup>
+  <Accordion title="Datto RMM">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Software inventory | Every 30 minutes |
+    | Device enrichment | Every hour |
+    | Devices | Every 2 hours |
+    | Sites | Every 2 hours |
+  </Accordion>
+
+  <Accordion title="NinjaOne">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Organizations | Daily |
+    | Devices | Daily |
+    | Backups | Daily |
+  </Accordion>
+
+  <Accordion title="ConnectWise Asio (RMM)">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Network device enrichment | Every 4 hours |
+    | Companies | Daily |
+    | Devices | Daily |
+    | Network devices | Daily |
+    | Tickets | Daily |
+    | Enriched data | Daily |
+  </Accordion>
+
+  <Accordion title="Addigy">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Devices | Every 4 hours |
+    | Policies | Daily |
+  </Accordion>
+
+  <Accordion title="Meraki">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Devices | Daily |
+  </Accordion>
+</AccordionGroup>
+
+## Backup & security integrations
+
+<AccordionGroup>
+  <Accordion title="Acronis">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Alerts | Every 15 minutes |
+    | Resources | Every 30 minutes |
+    | Activities | Every 30 minutes |
+    | Incidents | Every hour |
+    | Tenants | Every 4 hours |
+  </Accordion>
+
+  <Accordion title="Cove Backup">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Backups | Every 30 minutes |
+    | Devices | Every 30 minutes |
+    | Partners | Every 4 hours |
+  </Accordion>
+
+  <Accordion title="Cork">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Compliance | Every 30 minutes |
+    | Clients | Every hour |
+    | Endpoints | Every hour |
+    | Vulnerabilities | Every 2 hours |
+    | Inboxes | Every 2 hours |
+  </Accordion>
+
+  <Accordion title="Huntress">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Organizations | Daily |
+    | Agents | Daily |
+    | Security | Daily |
+    | Summary reports | Daily |
+  </Accordion>
+</AccordionGroup>
+
+## Documentation integrations
+
+<AccordionGroup>
+  <Accordion title="Hudu">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Companies | Every 2 hours |
+    | Assets | Every 4 hours |
+    | Articles | Every 4 hours |
+    | Passwords | Every 6 hours |
+    | Procedures | Every 6 hours |
+    | Magic Dash | Every 6 hours |
+  </Accordion>
+
+  <Accordion title="IT Glue">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Organizations | Every 2 hours |
+    | Flexible assets | Every 4 hours |
+    | Documents | Every 4 hours |
+    | Checklists | Every 6 hours |
+    | Passwords | Every 6 hours |
+  </Accordion>
+
+  <Accordion title="Liongard">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Metrics | Every 3 hours |
+    | Systems | Every 4 hours |
+    | Environments | Every 6 hours |
+    | Detections | Every 6 hours |
+    | Agents | Every 6 hours |
+    | Inspectors | Daily |
+  </Accordion>
+</AccordionGroup>
+
+## Billing & distribution integrations
+
+<AccordionGroup>
+  <Accordion title="Pax8">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Full sync | Daily |
+  </Accordion>
+
+  <Accordion title="Sherweb">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Full sync | Daily |
+  </Accordion>
+
+  <Accordion title="ScalePad">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Quotes | Every 4 hours |
+    | Clients | Daily |
+  </Accordion>
+
+  <Accordion title="DNSimple">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Domains | Daily |
+  </Accordion>
+</AccordionGroup>
+
+## I made a change in my source system and it's not showing up
+
+Changes appear in MSPortal after the next scheduled sync for that data type. For frequently-synced data like tickets, that's typically within a few minutes; for daily reference data, it may take until the next day. If you need it sooner, use **Sync Now** on the integration card.
+
+## Related Resources
+
+- [Integrations FAQ](/user-guides/integrations/faq) - Troubleshooting common sync issues
+- [Clear and Resync](/user-guides/integrations/clear-and-resync-integrations) - How to perform a full data resync
+- [Integration Settings](/user-guides/settings/integrations) - Configure integration options
