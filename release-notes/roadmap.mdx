@@ -7,17 +7,6 @@ We're constantly working to improve MSPortal.ai. Here's what's on our roadmap:
 
 ## In Active Development
 
-### Microsoft Teams App
-
-Announced in the May 15, 2026 release notes. Rolling out tenant-by-tenant over the two weeks following the announcement.
-
-Ship MSPortal as a **per-tenant branded Microsoft Teams app** for your clients. Your tenant gets its own manifest carrying your name, your logo, your accent color, and your vanity domain. You sideload the generated `.zip` or publish it through your tenant's Teams app catalog so the install appears under your brand, not MSPortal's.
-
-- **Per-tenant manifest + package generator** - Download a ready-to-upload `.zip` for your tenant from Settings, Integrations, Microsoft Teams. Manifest is regenerated on demand whenever you tweak branding so re-publishing is a one-click operation.
-- **Vanity-domain aware** - The manifest emits your vanity domain (e.g. portal.yourmsp.com) so end users see your URL, not ours, when they tap a tab.
-- **Single sign-on through Microsoft 365** - End users sign in through their existing M365 identity and land on the MSPortal home tab without a second login prompt. OAuth handoff is built on the standard Microsoft Teams app SDK.
-- **Phased rollout** - Gated behind a tenant-level `teams_app` feature flag so we can enable interested tenants in week 1 and broaden to general availability in week 2.
-
 ### CSAT Surveys
 
 Announced in the May 15, 2026 release notes. Rolling out tenant-by-tenant over the two weeks following the announcement.
@@ -92,13 +81,13 @@ New compliance and operational playbooks are coming soon:
 ### New Integrations
 We're expanding our integration ecosystem:
 - **N-Able N-Central** - RMM integration with device sync and monitoring
-- **Huntress** - Managed EDR integration with incident and agent sync
-- **Sherweb** - Cloud marketplace integration for license and subscription tracking
 - **Datto Backup** - Backup monitoring with agent status and job tracking
 - **Fortinet** - Network security integration with firewall and threat management
 - **Unifi** - Network infrastructure monitoring and device management
 - **Slide Backup** - SaaS backup monitoring for cloud workloads
 - **DNSFilter** - DNS security integration with threat and content filtering stats
+- **ScoutDNS** - DNS-layer content filtering and protective DNS with category policies and query activity reporting
+- **Breach Secure Now** - Security awareness training, phishing simulation, and dark web monitoring with per-employee risk scoring
 - **NinjaOne Dropsuite** - M365 SaaS backup monitoring via Dropsuite (pending API availability from NinjaOne)
 - **Watchguard** - Network security appliance monitoring and reporting
 - **Azure Device Sync** - Sync device information from Azure AD/Entra ID
@@ -144,7 +133,6 @@ Forecast workload and balance team capacity for upcoming quarters.
 - **Budget approver & sign-off** - Route budgets through an approver with legally-binding sign-off and a full approved-by audit trail
 - **Per-customer tool-stack cost** - Roll tool-stack cost up per customer, not just per line item
 - **License-to-budget mapping** - Map Halo and Microsoft 365 licenses directly to budgets and contracts
-- **Month-by-month budget breakdown** - A January-through-December grid alongside annual budget totals
 
 ### Meetings & Operations
 - **Meeting cadence grid** - A calendar grid with companies as rows and last/next-meeting columns, flagging clients overdue against their expected meeting cadence

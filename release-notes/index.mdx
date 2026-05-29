@@ -3,6 +3,81 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## May 28, 2026
+
+### Huntress Integration (Beta): Managed EDR
+
+Connect your Huntress account to bring managed EDR data into MSPortal: protected organizations, agents, escalations, incident reports, remediations, and summary reports, all mapped to the right client and visible alongside the rest of your stack.
+
+**Key Features:**
+- **Guided setup**: A guided wizard connects Huntress with your API keys, lets you choose what to sync, and maps Huntress organizations to your companies with auto-match suggestions.
+- **Security dashboard**: A new Huntress page under Security shows protected and active agent counts, open versus total escalations and incidents, pending remediations, and a searchable table of every escalation, incident, and remediation with links back into Huntress.
+- **Device coverage**: Devices protected by a Huntress agent now carry a Huntress badge on the Devices page, and Huntress becomes a device source filter. Agents link to your existing devices by serial number, MAC, or hostname before ever creating a duplicate.
+- **Reporting**: A Huntress tab in Reporting lists synced summary reports per company with direct HTML and PDF links.
+- Huntress data refreshes automatically on a daily sync.
+
+### DNSimple Integration (Beta): Domain Tracking
+
+Connect your DNSimple account to sync every domain you manage there into MSPortal, mapped to the right client, so registration and expiration details live alongside the rest of your stack.
+
+**Key Features:**
+- **Domain sync**: Connect with an account API token and MSPortal pulls in every domain with its state, auto-renew status, and registration and expiration dates. Map domains to companies with Quick Match.
+- **Domain automation**: Build automation rules on DNSimple domains, including expiration-date triggers, so you can open a ticket or add a Planner item before a domain lapses.
+- Domains refresh automatically on a daily sync.
+
+### BenjiPays Integration: One-Click Invoice Payments
+
+Add a **Pay Now** button to every unpaid invoice. Paste your BenjiPays payment link once and MSPortal renders a branded Pay Now button next to each unpaid invoice that opens a pre-filled checkout for that invoice and its outstanding balance.
+
+**Key Features:**
+- **One-time setup**: Paste your BenjiPays payment link template (with the invoice number and amount placeholders) and an optional button label. No API keys required.
+- **Pay Now on every unpaid invoice**: The button appears automatically on unpaid invoices and opens a pre-filled BenjiPays checkout for that invoice.
+- **Live preview**: The setup page shows exactly what the button and payment URL will look like before you save.
+
+[Documentation: BenjiPays](/user-guides/integrations/enable-benjipays-integration)
+
+### Company Domains: One Inventory Per Client
+
+A new **Domains** tab on each company brings every domain associated with a client into one verified list, pulled together from all your connected tools.
+
+**Key Features:**
+- **Every source in one place**: Consolidates domains from DNSimple, Microsoft 365, your PSA, Hudu, and IT Glue. The same domain reported by more than one tool collapses into a single row with a badge for each source.
+- **Expiry at a glance**: Tracks the soonest expiration date per domain, with color cues as renewals approach.
+- **Primary and manual domains**: Pin a primary domain or add domains by hand alongside the ones discovered automatically.
+
+### Budgets: Recurring Costs and a Monthly Breakdown View
+
+Budgets now understand recurring spend. Every line item can be set to one-time, monthly, every-few-months, or annual, and a new **Monthly Breakdown** tab spreads those costs across a full January-to-December view, so you can see what a client's spend actually looks like month by month instead of only as an annual total.
+
+**Key Features:**
+- **Recurring line items**: Set any line to one-time, monthly, every-N-months, or annual. Recurring costs spread automatically across the months they apply to.
+- **Monthly Breakdown tab**: A 12-month grid with per-month totals, a running balance, and category subtotals. Override any individual month's amount when a real cost doesn't match the even split.
+- **Import from Planner**: Pull existing Planner items into a budget as products or line items, carrying their cost, recurrence cadence, and category across so you don't re-key anything.
+- **Reorderable sections**: Drag budget sections into the order you want and the order sticks.
+- **Exports and API**: Excel and PDF exports now include the monthly breakdown, and the budgets public API returns the recurrence and monthly-breakdown data.
+
+[Documentation: Budgets](/user-guides/budgets)
+
+### Reporting: Attach Files, Insert PDF Pages, and Filter by Source
+
+The narrative report builder gained three ways to make client reports richer and more precise.
+
+**Key Features:**
+- **Attach files as an appendix**: Pull files from your Reports Imports inbox into a report as an "Attached Files" appendix. PDFs render inline so reviewers can read them without downloading.
+- **Insert a single PDF page**: Drop one specific page of an imported PDF into the report body, with a live preview so you confirm the right page before inserting. You can also paste a screenshot straight into the report.
+- **Per-source filters**: When you add a data source to a report, the filter dropdowns now show the values that actually exist for that client. Scope a source to exactly what you want (only critical non-compliant checks, only this fiscal year's budget, only at-risk projects, and so on) and your selections carry through to the generated report.
+
+[Documentation: Reporting](/user-guides/reporting)
+
+### Improvements
+
+- **Impersonation shows the right tickets**: While impersonating a user, ticket lists on the home page, the AI assistant, and the ticket pages now match exactly what that user can see, instead of occasionally showing too few tickets or every ticket in the tenant.
+- **Company Defaults for settings-only roles**: Roles scoped to settings can now open and save a company's defaults.
+- **Device imports show real names and OS**: ConnectWise Asio (Asio RMM) staged devices no longer show as "unknown device" with a blank operating system on the import screen.
+- **Forecasting category labels keep the full hierarchy**: PSA category breakdowns no longer collapse the middle of a category path, so a category like "Alert / Security / Investigation / Huntress" keeps its full context instead of rendering as just "Alert, Huntress".
+
+---
+
 ## May 27, 2026
 
 ### Reports Imports: Folders, Global Folders, and Email Plus-Addressing
