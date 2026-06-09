@@ -1,0 +1,137 @@
+---
+title: 'Client Pages'
+description: 'Write reusable client-facing documentation pages once and surface them inside onboarding portals'
+icon: 'book-open'
+---
+
+Client Pages are reusable, read-only documentation pages you write once and reference from your onboarding templates and portals. Instead of re-typing the same welcome message, support instructions, or security FAQ into every client's onboarding, build a tenant-level library of pages and attach the relevant ones to a template. Each new portal launched from that template includes the pages automatically, and clients read them as expandable articles inside their portal.
+
+<Note>
+Client Pages share the same content as the **Documentation Hub**. A page you create here also appears in your Documentation Hub library, and editing it in either place updates the same page. See [Documentation Hub sync](#documentation-hub-sync) below.
+</Note>
+
+## Why Use Client Pages
+
+- **Write standard content once** — support contact instructions, onboarding expectations, post-go-live next steps, security FAQs
+- **Keep every portal consistent** — the same vetted content appears across all clients
+- **Reference, don't re-type** — templates point at library pages rather than copying text into each task
+- **Give clients a reference area** — pages appear as guides in the client portal, separate from action items
+
+## Managing the Page Library
+
+The page library lives in **Settings > Onboarding > Pages**.
+
+<Steps>
+  <Step title="Open the Pages tab">
+    Go to **Settings > Onboarding** and click the **Pages** tab.
+  </Step>
+  <Step title="Add a page">
+    Click **Add Page** in the top right to open the page editor.
+  </Step>
+  <Step title="Fill in the page">
+    Complete the fields:
+    - **Title** (required) — the page name, e.g. "How to contact support"
+    - **Icon** — choose Guide, Support, Security, FAQ, or Info
+    - **Section label** (optional) — groups the page in the portal sidebar, e.g. "Support"
+    - **Summary** (optional) — a short description shown in the portal sidebar and page header
+    - **Page content** — the client-facing body, written in a rich text editor (formatting, images, alignment)
+  </Step>
+  <Step title="Save">
+    Click **Add Page**. The page is now in your library and ready to attach to templates.
+  </Step>
+</Steps>
+
+### The Pages Table
+
+The Pages tab lists every page with these columns:
+
+| Column | Shows |
+|--------|-------|
+| **Page** | Icon, title, and summary |
+| **Section** | The section label (defaults to "Documentation" when blank) |
+| **Usage** | How many templates and portals reference the page, or **Not referenced** when unused |
+| **Last Updated** | When the page was last edited |
+
+Each row has an actions menu with **Edit page** and **Delete page**.
+
+<Warning>
+Deleting a page removes it from every template and portal that references it. A confirmation dialog names the page before you confirm.
+</Warning>
+
+## Attaching Pages to a Template
+
+Pages reach a portal by being attached to a template first. In the template builder, open the **Client Pages** section.
+
+<Steps>
+  <Step title="Open Client Pages in the template builder">
+    Edit a template and expand the **Client Pages** section. Use **Manage pages** to jump to the page library if you need to create a page first.
+  </Step>
+  <Step title="Link a page">
+    Use the **Select custom page** combobox to search your library and add a page. Pages already linked are not shown again; when everything is linked you'll see "All custom pages are linked".
+  </Step>
+  <Step title="Set client visibility">
+    Each linked page has a **Visible to client portal** toggle. Turn it off to keep a page attached but hidden from clients (it shows a **Hidden** badge). Use the **Preview** (eye) icon to review the rendered page.
+  </Step>
+</Steps>
+
+<Info>
+Templates **reference** library pages — they don't copy the text. Update the page once in the library and every template that links it stays current. Removing a page from a template only removes the link; the library page and any existing portals are untouched.
+</Info>
+
+## Reviewing Pages on a Portal
+
+Each company's onboarding workspace has a **Pages** tab (alongside Overview, Tasks, Documents, and Activity). When a portal is created from a template, the template's visible pages are copied into the portal as a point-in-time snapshot.
+
+The Pages tab is a **review view**:
+
+- The left pane lists the portal's **Assigned pages** with counts of **Visible** and **Hidden** pages and a search box
+- The right pane previews the selected page's content
+- A source badge shows whether the page is still a **Shared page** (linked to the library) or a **Portal snapshot**
+- Use the **View as** dropdown to preview the page exactly as a specific client contact would see it
+
+<Note>
+Pages are copied into a portal when it is created. To change which pages appear, adjust the template's Client Pages section before creating (or appending to) the portal. Editing a library page later does not rewrite pages already snapshotted into existing portals.
+</Note>
+
+## What the Client Sees
+
+In the client portal, visible pages appear in a **Pages** section titled "Guides and reference information for this onboarding". Each page is an expandable article showing:
+
+- The icon and section label
+- The page title and summary
+- The full page content when expanded
+
+Pages are **read-only reference material** — there's no acknowledgement, sign-off, or completion required. Clients expand and read them at their own pace. Hidden pages never appear in the client portal.
+
+## Documentation Hub Sync
+
+Client Pages and Documentation Hub "inline" documents are the **same record**, not two synced copies:
+
+- A page you create in **Settings > Onboarding > Pages** automatically appears in your **Documentation Hub** library
+- An inline page you create in the Documentation Hub appears in your onboarding page library
+- Editing a page in either place updates the one shared page everywhere it's referenced
+
+This means your onboarding reference content and your internal documentation stay unified — there's a single source of truth for each page.
+
+## Permissions
+
+| Permission | Capability |
+|------------|------------|
+| `read_settings_onboarding` | View the page library |
+| `write_settings_onboarding` | Create and edit pages, link them to templates |
+| `manage_settings_onboarding` | Delete pages |
+
+<Note>
+Creating or editing pages requires an active subscription. No external integration is required for Client Pages.
+</Note>
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Onboarding Templates" icon="copy" href="/user-guides/client-onboarding/templates">
+    Attach pages to templates alongside phases and tasks
+  </Card>
+  <Card title="Client Portal" icon="browser" href="/user-guides/client-onboarding/client-portal">
+    How pages appear to your clients
+  </Card>
+</CardGroup>

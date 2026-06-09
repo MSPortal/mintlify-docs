@@ -3,6 +3,82 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## June 12, 2026
+
+### MSPortal in 15 Languages
+
+MSPortal is now officially live in 15 languages. Every page, form, notification, and label is translated, so you and your clients can work in the language you prefer. Switch your language from the selector in the top-right of the app, and set defaults per company so each client's portal speaks their language.
+
+**Supported Languages:** English, Czech, Danish, Dutch, Finnish, French (Canada), French (France), German, Italian, Norwegian, Polish, Portuguese, Slovak, Spanish, and Swedish.
+
+### EU Data Residency
+
+EU data residency is now available for MSPortal. Keep your tenant's data stored and processed within the European region, with full feature parity and no functional differences from the US region. Existing tenants can request migration to regional hosting.
+
+Interested in EU data residency? Email [info@msportal.ai](mailto:info@msportal.ai) and we'll get you set up.
+
+## June 5, 2026
+
+### Onboarding Portals: Reusable Forms, Knowledge Pages, and Automated Steps
+
+The biggest expansion of the client onboarding portal yet. Build a library of reusable forms and help pages once, drop them into any onboarding template, and let portals send emails and generate reports automatically as a client works through their onboarding.
+
+**Key Features:**
+- **Reusable forms**: Create a tenant-wide library of forms under Settings, Onboarding, Forms. Each form holds ordered fields (short and long text, single and multi-select, date, email, phone, number, URL, and yes/no) with required toggles, help text, and an option to allow repeat submissions. Attach a form to any onboarding task and the client fills it out right in their portal. The task completes on submit and admins get a response summary.
+- **Map form fields to Hudu and IT Glue**: Map a form field to a Hudu or IT Glue resource or field using real pickers, no typed IDs, so the answers a client submits during onboarding flow toward your documentation system.
+- **Knowledge pages**: Build reusable rich-text pages (guides, support info, security notes, FAQs) under Settings, Onboarding, Pages, then attach them to a template with their own order and client-visibility toggle. Clients see them as a clean documentation section inside the portal, and admins get a Pages tab on every portal to browse, preview, and view as a specific contact.
+- **Automated email steps**: Add an email step to a template, pick recipient roles and timing (on portal creation, when a dependency completes, or a set number of days later), and the portal sends it automatically.
+- **Automated report steps**: Add a report step that generates a narrative report at the right moment and optionally surfaces it to the client.
+- **Multi-module portals**: Build one portal from several templates at once (for example M365 plus Managed Services plus Security), so a client gets a single combined onboarding instead of several disconnected ones.
+- **Preview as a contact**: Open a live preview of any client's portal exactly as a chosen contact or role will see it.
+
+[Documentation: Client Onboarding](/user-guides/client-onboarding)
+
+### Custom Documentation Hub
+
+Documentation is no longer just a read-only mirror of Hudu or IT Glue. You can now author your own documentation, upload files, organize everything into folders, and curate a landing page, all inside MSPortal, even with no documentation integration connected.
+
+**Key Features:**
+- **Author your own pages**: Write documentation directly in MSPortal with a full rich-text editor, including inline images. Assign a page to a specific company or keep it global, and file it into a folder.
+- **Upload files**: Attach DOCX, XLS, XLSX, PDF, and CSV files (up to 50 MB), preview them in-app, and download them. Authored pages and uploaded files appear alongside your synced Hudu and IT Glue articles in one searchable list.
+- **Revision history**: Every authored page and uploaded file keeps a full version history. Open Revisions to review prior versions and restore any one of them.
+- **Folders**: Organize content into folders and nested sub-folders with a folder sidebar.
+- **Documentation Hub landing page**: Turn on a curated landing page with your own title and header text, then pin documents, folders, or external links to it. Pins can be scoped to a specific company or shown to everyone.
+- **Visibility control**: Share custom folders, documents, and hub pins, and restrict each to specific client roles, alongside the existing Hudu and IT Glue visibility controls.
+- **Domains tab**: The company domain inventory now lives as a Domains tab inside Documentation with its own permission, so you can grant domain access without opening up broader company settings.
+
+[Documentation: Documentation](/user-guides/documentation)
+
+### Device Standard Pricing Flows into the Planner
+
+Set a standard one-time price per device type once, with optional per-company overrides, and let the Planner do the math.
+
+**Key Features:**
+- **Standard prices per device type**: Set a tenant-default price for each device type under Settings, Device Types, and override it per company where pricing differs.
+- **Auto-built Planner cost rows**: When a Planner item is linked to devices, MSPortal automatically generates cost rows grouped by device type (for example, 3 Workstations at 1,500 each) and recalculates them as the linked devices change. These managed rows are read-only, so the numbers always match the linked devices.
+
+[Documentation: Planner](/user-guides/planner)
+
+### Autotask Configuration Items: Import as Devices
+
+Bring your Autotask configuration items into MSPortal as devices.
+
+**Key Features:**
+- **Browse and import CIs**: From the Autotask integration, browse configuration items grouped by configuration type with per-type counts, filter to the ones you have not imported yet, and scope by company.
+- **Map config types to device types**: Map each Autotask configuration type to an MSPortal device type, or ignore the types you do not want, then bulk-import the rest. Imported items carry their serial number, IP, MAC, operating system, and last user.
+
+[Documentation: Autotask Integration](/user-guides/integrations/enable-autotask-integration)
+
+### Improvements
+
+- **Dark mode reads cleanly across the app**: A broad readability pass fixed text boxes, form inputs, dropdowns, and reporting blocks that were hard to read in dark mode across onboarding, the Planner, reporting, surveys, compliance, and goals. The client onboarding portal now has its own dark-mode toggle too.
+- **Integrations auto-pause on repeated auth failures**: Autotask and Datto integrations that keep failing on a permanent authentication error now pause themselves instead of retrying dead credentials, and they notify your admins. A new Reactivate Integration button turns them back on once the credentials are fixed.
+- **Broadcasts show per-recipient delivery**: The broadcast detail view now lists every recipient with delivery status, plus search, sorting, and status and company filters, so you can see exactly who a broadcast reached.
+- **Planner items link from more places**: Link Planner items to and from goals, devices, compliance checks, and Microsoft 365 Secure Score findings, and see those linked items on each of those pages.
+- **Survey visibility for admin roles**: Admin roles now see the surveys they are entitled to.
+
+---
+
 ## May 28, 2026
 
 ### Huntress Integration (Beta): Managed EDR

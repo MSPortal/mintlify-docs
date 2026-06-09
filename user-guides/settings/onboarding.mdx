@@ -1,10 +1,10 @@
 ---
 title: 'Onboarding Settings'
-description: 'Configure templates, checklists, and portal settings for client onboarding'
+description: 'Configure templates, pages, forms, checklists, portals, and PSA defaults for client onboarding'
 icon: 'clipboard-check'
 ---
 
-The onboarding settings area is where you build and manage onboarding templates, checklist templates, and configure portal defaults.
+The onboarding settings area is where you build and manage everything reusable in client onboarding — templates, client pages, forms, checklists — and where you review portals and set PSA defaults.
 
 <Note>
 Client onboarding must be enabled at the tenant level before these settings appear. Contact your account administrator to enable it.
@@ -12,30 +12,57 @@ Client onboarding must be enabled at the tenant level before these settings appe
 
 ## Accessing Onboarding Settings
 
-Navigate to **Settings > Onboarding**. The settings area has two tabs:
+Navigate to **Settings > Onboarding**. The settings area has these tabs:
 
 ### Templates Tab
 
 Manage your onboarding templates:
 
 - **View all templates** with name, description, phase count, and task count
-- **Create new templates** with the template builder
-- **Edit existing templates** to update phases and tasks
+- **Create new templates** with the template builder, the AI designer, or a CSV import
+- **Edit existing templates** to update phases, tasks, pages, and dates
 - **Duplicate templates** to create variants
 - **Archive/unarchive templates** to manage your library
-- **Import/export templates** as JSON for backup or sharing
+- **Import/export templates** as JSON (updates in place) or CSV (creates a new template)
 
 See the [Templates guide](/user-guides/client-onboarding/templates) for detailed instructions on building templates.
+
+### Portals Tab
+
+A centralized list of every onboarding portal across all companies, grouped by company. Filter by **All**, **Active**, **Draft**, **Finished**, or **Archived**. Select a portal to see its tasks, documents, contacts, and pages at a glance, and to **Open** it, **Archive**/**Restore** it, **Delete** it, or preview it with **View as**.
+
+See [Managing Portals](/user-guides/client-onboarding/managing-portals) for the full portal lifecycle.
+
+### Pages Tab
+
+Build and manage **Client Pages** — reusable, client-facing reference pages (welcome notes, support instructions, security FAQs) that you attach to templates and that clients read inside their portal. Pages are unified with your Documentation Hub.
+
+See the [Client Pages guide](/user-guides/client-onboarding/pages).
+
+### Forms Tab
+
+Build reusable **Onboarding Forms** with typed fields, and optionally map their answers into Hudu or IT Glue. Forms attach to tasks in the template builder.
+
+See the [Onboarding Forms guide](/user-guides/client-onboarding/forms).
 
 ### Checklists Tab
 
 Manage reusable checklist templates:
 
 - **Create checklists** with named items that can be attached to any task
+- **Generate items with AI** or **import** a pasted list
 - **Edit checklist items** — add, remove, or reorder items
 - **Archive checklists** you no longer need
 
 Checklists are attached to tasks in the template builder and appear as checkable sub-items during onboarding.
+
+### PSA Projects Tab
+
+Set tenant-wide defaults for linking onboarding portals to your PSA — auto-create tickets, status sync, default billable, and per-provider board/priority/status/type defaults.
+
+<Note>
+The **PSA Projects** tab appears only when a PSA integration (Halo PSA, ConnectWise, or Autotask) is active.
+</Note>
 
 ## Permissions
 
@@ -53,5 +80,14 @@ Checklists are attached to tasks in the template builder and appear as checkable
   </Card>
   <Card title="Templates Guide" icon="copy" href="/user-guides/client-onboarding/templates">
     Detailed guide to building onboarding templates
+  </Card>
+  <Card title="Client Pages" icon="book-open" href="/user-guides/client-onboarding/pages">
+    Reusable client-facing reference pages
+  </Card>
+  <Card title="Onboarding Forms" icon="clipboard-list" href="/user-guides/client-onboarding/forms">
+    Structured forms with field mapping
+  </Card>
+  <Card title="Managing Portals" icon="bars-progress" href="/user-guides/client-onboarding/managing-portals">
+    Launch, track, and complete onboarding portals
   </Card>
 </CardGroup>

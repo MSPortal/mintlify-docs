@@ -41,7 +41,7 @@ Portals move through these stages:
 
 ## The Onboarding Tab
 
-The company onboarding page has four tabs for managing the portal:
+The company onboarding page has five tabs for managing the portal: **Overview**, **Tasks**, **Documents**, **Pages**, and **Activity**.
 
 ### Overview Tab
 
@@ -51,6 +51,8 @@ The main dashboard showing:
 - **Phase-by-phase progress bars** showing completion
 - **Task summary** with counts by status
 - **Quick actions** for managing the portal lifecycle
+
+The Overview action bar is also where you open **Manage dates** (custom milestones and the portal countdown) and link a **PSA project**. See [Custom Dates and Countdowns](/user-guides/client-onboarding/custom-dates).
 
 ### Tasks Tab
 
@@ -79,6 +81,12 @@ Tasks are grouped by phase in expandable accordions. Each phase header shows:
 
 Click a phase to expand it and see all tasks within.
 
+Each phase header also has status controls: **Start Phase**, **Complete Phase**, **Reopen Phase**, and **Complete All Tasks** to mark every task in the phase done at once.
+
+<Note>
+The Tasks tab manages an active portal's work — task and phase status, assignments, reminders, evidence, and comments. To change the structure (add, rename, reorder, or remove phases and tasks), edit the template before launching the portal.
+</Note>
+
 #### Task Rows
 
 Each task row displays:
@@ -92,10 +100,19 @@ Each task row displays:
 
 Click a task row to expand its detail panel, which shows:
 
-- Evidence content (signatures, credentials, uploaded files, survey responses)
+- Evidence content (signatures, credentials, uploaded files, form responses)
 - Task description
-- Comment thread for discussion
+- Comment threads — both client-facing comments and internal notes
 - Checklist items (if attached)
+
+#### Task Comments and Internal Notes
+
+Each task has two separate conversation streams:
+
+- **Client-facing comments** — shared between your team and the client. Both sides can post and read, enabling back-and-forth without leaving the portal.
+- **Internal notes** — visible only to your MSP team for tracking work, blockers, or handoff notes. Clients never see these.
+
+A toggle (**Client-facing** / **Both** / **Internal**) controls which stream you're viewing. A small indicator on each task shows the comment count and who posted last, color-coded by author so you can spot tasks awaiting a reply.
 
 #### Task Assignment
 
@@ -124,12 +141,20 @@ Each email includes task descriptions, status badges, due dates, and a link back
 
 ### Documents Tab
 
-The document triage inbox where you review files uploaded by clients.
+The **document review queue** where you triage files uploaded by clients. Summary tiles across the top show counts for **Uploaded** (needs review), **Approved**, **Requested** (still required), and **Rejected**. Documents are grouped by phase.
 
-- **Filter by status** — View all, pending review, approved, or rejected documents
-- **Search** — Find documents by name or phase
-- **Review actions** — Click a document to approve or reject it with optional notes
-- **Download** — Download the original uploaded file
+- **Search** — find documents by name, phase, or original filename
+- **Filter by status** — All Documents, Requested, Uploaded, Approved, or Rejected (each shows a count)
+- **Review** — for an uploaded document, click **Review**, optionally add notes, then **Approve** or **Reject**
+- **Download** — open the **Files** panel to download each uploaded file (with uploader and upload date)
+
+Required documents that haven't been uploaded are flagged so you can see what's still outstanding.
+
+### Pages Tab
+
+A review view of the **Client Pages** attached to this portal. The left pane lists the portal's assigned pages with **Visible** and **Hidden** counts and a search box; the right pane previews the selected page. A source badge shows whether a page is still a **Shared page** (linked to your library) or a **Portal snapshot**, and the **View as** dropdown previews a page exactly as a specific client contact would see it.
+
+Pages are copied into a portal from the template when it's created. To change which pages appear, edit the template's Client Pages before launching. See the [Client Pages guide](/user-guides/client-onboarding/pages).
 
 ### Activity Tab
 
@@ -182,6 +207,10 @@ Assign roles to help identify each contact's responsibility:
 - **Regenerate Token** — Create a new access link (invalidates the old one)
 
 Contact activity is tracked — you can see when each contact last accessed the portal and how many times.
+
+### Previewing as a Client
+
+Use the **View as** dropdown (on the Pages tab and in the Settings portals list) to open the live client portal exactly as a specific contact sees it. If a portal has no contacts yet, you can preview by contact role instead. The preview opens a real, time-limited client session in a new tab — a reliable way to check branding, visible pages, and task visibility before you send invites. Previewing requires onboarding write permission.
 
 ## Meeting Scheduling
 
@@ -277,8 +306,19 @@ Log time entries against onboarding tasks directly from the portal.
 </Steps>
 
 <Note>
-PSA integration works with Halo PSA, ConnectWise Manage, Autotask, and Syncro. The portal must be linked to a PSA project before you can create tickets or log time.
+PSA integration works with Halo PSA, ConnectWise Manage, and Autotask. The portal must be linked to a PSA project before you can create tickets or log time.
 </Note>
+
+### PSA Project Defaults
+
+Set tenant-wide defaults for how onboarding portals connect to your PSA in **Settings > Onboarding > PSA Projects** (this tab appears only when a PSA integration is active). You can configure:
+
+- **Auto-create tickets** — create a ticket for each task when a project is linked
+- **Status sync** — keep ticket status in sync bi-directionally
+- **Default billable** — whether new time entries default to billable
+- **Provider defaults** — the default board/team, priority, status, and ticket type per connected PSA (plus Halo category, impact, and urgency)
+
+All values are chosen from dropdowns populated from your synced PSA data — there are no IDs to type.
 
 ## Completing a Portal
 

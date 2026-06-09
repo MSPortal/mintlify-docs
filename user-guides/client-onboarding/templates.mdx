@@ -95,11 +95,13 @@ Embed training content directly in the task. Supports two modes:
 
 **Use for:** Security awareness training, platform walkthroughs, tool-specific training
 
-### Survey / Form
+### Form
 
-Link a survey or form from your Surveys module. Clients complete the survey inline within the portal.
+Attach a reusable onboarding form so clients submit structured, typed answers inline within the portal. Build forms once in **Settings > Onboarding > Forms** with fields like short text, select, date, email, and number, and optionally map answers into Hudu or IT Glue. You can override whether a specific task allows multiple form entries. If no form is attached, the task falls back to linking a survey from your Surveys module.
 
-**Use for:** IT environment questionnaires, user inventories, preference surveys, needs assessments
+**Use for:** IT environment questionnaires, user inventories, site/location inventories, needs assessments
+
+See the [Onboarding Forms guide](/user-guides/client-onboarding/forms) for building and mapping forms.
 
 ### Approval
 
@@ -161,6 +163,18 @@ In addition to tasks, phases can contain:
 
 These appear in dedicated sections of the client portal alongside tasks.
 
+## Client Pages
+
+Templates can also reference **Client Pages** — reusable, read-only reference pages (welcome notes, support instructions, security FAQs) that clients read inside their portal. In the template builder, open the **Client Pages** section and use **Select custom page** to link pages from your library. Each linked page has a **Visible to client portal** toggle so you can keep a page attached but hidden.
+
+Pages are referenced, not copied — update a page once in the library and every template that links it stays current. See the [Client Pages guide](/user-guides/client-onboarding/pages) for details.
+
+## Template Dates
+
+Define standard milestones on the template using **day offsets** from the portal start date. For example, "Kickoff = day 0, Hardware = day 14, Go-Live = day 45". When you launch a portal, the offsets resolve to real dates automatically, and you can mark one as the portal countdown.
+
+Open the **Template dates** section in the builder to add dates with a label, optional description, and **Offset from portal start (days)**. Leave the offset blank to require the admin to set that date manually on each portal. See [Custom Dates and Countdowns](/user-guides/client-onboarding/custom-dates) for how dates appear on a live portal.
+
 ## AI Template Designer
 
 Generate complete onboarding templates using AI. Describe your onboarding process in plain language and AI creates the phases, tasks, and structure for you.
@@ -186,10 +200,22 @@ The AI designer works best when you provide context about the client type, size,
 
 ## Import & Export
 
-Share templates across tenants or back them up using JSON import/export.
+Share templates across tenants, back them up, or build them in a spreadsheet using the **Import / Export** button in the template builder. The dialog has two formats:
 
-- **Export** — Click the **⋯** menu on a template and select **Export**. Downloads a JSON file containing the complete template structure.
-- **Import** — On the templates list page, click **Import** and upload a JSON template file. Review the imported structure before saving.
+<Tabs>
+  <Tab title="JSON">
+    JSON preserves the complete template structure — phases, tasks, documents, approvals, and client pages.
+
+    - **Export JSON** downloads the full template.
+    - **Select JSON File** then **Import Template** validates the file and **updates the current template in place**. A preview shows the phase, task, document, and page counts before you import.
+  </Tab>
+  <Tab title="CSV">
+    CSV gives you a flat task table that's easy to edit in a spreadsheet.
+
+    - **Export CSV** downloads the tasks as a spreadsheet.
+    - **Select CSV File** then **Import as New Template** **creates a brand-new template** (named after the original with "(imported)" appended) rather than overwriting the current one.
+  </Tab>
+</Tabs>
 
 ## Checklist Templates
 
@@ -219,7 +245,7 @@ Duplicate a template to create a variant. Click the **⋯** menu on any template
 
 ### Change History
 
-The template builder tracks changes over time. View the change history to see when modifications were made and by whom.
+The template builder records an audit trail of every change. Open the **Change History** panel to see what changed, who changed it, and when — phase and task additions, edits, and reorders; document, approval, survey, and checklist links; automation changes; and duplication, archive, or restore actions. Hover any entry for the exact timestamp, and use **Load More** to page through older history.
 
 ## Best Practices
 
