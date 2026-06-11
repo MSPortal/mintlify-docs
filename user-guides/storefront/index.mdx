@@ -1,0 +1,130 @@
+---
+title: 'Storefront'
+description: 'Give clients a curated catalog of products, self-service license management, and Azure usage visibility, all under your approval controls'
+icon: 'store'
+---
+
+The **Storefront** turns your distributor catalog into a controlled marketplace for your clients. You decide which products clients can see, whether they can change their own license quantities, and which requests need your approval. Clients get a clear view of their subscriptions, available products, and Azure consumption.
+
+The Storefront syncs from **Pax8** and/or **Sherweb**.
+
+## Overview
+
+The Storefront has three sections:
+
+<CardGroup cols={3}>
+  <Card title="Subscriptions" icon="layer-group">
+    Manage active software licenses and subscriptions.
+  </Card>
+  <Card title="Catalog" icon="book-open">
+    Browse available products and request new ones.
+  </Card>
+  <Card title="Azure Usage" icon="cloud">
+    Monitor Azure consumption by company.
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+- A connected **Pax8** or **Sherweb** integration. Without one, the Storefront shows *"Connect a Pax8 or Sherweb integration in Integrations to manage your storefront."*
+- **Permissions**: viewing requires read access to the storefront; requesting changes requires write access; configuring the catalog and self-service rules requires the storefront management/settings permission.
+- **Azure Usage** requires Azure subscriptions synced from Pax8.
+
+## For administrators: setting up the Storefront
+
+Configure the Storefront under **Settings → Storefront**, which has two tabs.
+
+### Catalog tab
+
+This controls what clients see in the catalog.
+
+<Steps>
+  <Step title="Review synced products">
+    Products synced from Pax8 (and Sherweb, if connected) appear in a table with **Product**, **Vendor**, **Category**, and **Retail Price**.
+  </Step>
+  <Step title="Set visibility">
+    Toggle **Visible** to show or hide each product from the client catalog. Hidden products never appear to clients.
+  </Step>
+  <Step title="Feature key products">
+    Toggle **Featured** to highlight products you want clients to notice.
+  </Step>
+  <Step title="Use bulk actions">
+    Select multiple rows and use **Show Selected**, **Hide Selected**, **Feature Selected**, or **Unfeature Selected** to update many products at once.
+  </Step>
+</Steps>
+
+### Self-Service tab
+
+This controls who gets notified about requests and whether clients can change their own quantities.
+
+- **Request Approvals** — choose the **Approver Role** (a company team role) whose members receive an in-app notification for every new product request or quantity change. This applies to both Pax8 and Sherweb.
+- **Self-Service Settings** (Pax8) — set global defaults with **Allow Self-Service by Default** and default **Min Qty** / **Max Qty**, then use **Apply to All** to push them to every subscription, or **Save Defaults**.
+- **Per-subscription overrides** — click a subscription to **Edit Settings** and control:
+  - **Allow Quantity Changes** — let clients request quantity changes for this subscription.
+  - **Require Approval** — require your approval before changes sync to Pax8.
+  - **Minimum Quantity** / **Maximum Quantity** — the allowed range.
+
+<Tip>
+Use per-subscription overrides to keep low-risk products fully self-service while requiring approval on expensive or sensitive licenses.
+</Tip>
+
+## For clients: using the Storefront
+
+Clients see the three tabs (Subscriptions, Catalog, Azure Usage) but no settings.
+
+### Subscriptions
+
+The **Subscriptions** view lists active licenses with product, vendor, company, quantity, billing term, status, and pricing, plus summary cards for total and active subscriptions, total licenses, companies, pending requests, and monthly cost.
+
+- Click **View Details** to see full subscription information.
+- Click **Change Quantity** to request more or fewer licenses. Enter a **New Quantity** (within the allowed min/max) and optional notes:
+  - If self-service is enabled, the change applies immediately.
+  - If approval is required, a request is submitted and the approver role is notified.
+
+### Catalog
+
+The **Catalog** view shows products you've made visible.
+
+- Click **Get Price** to see pricing for a specific company.
+- Click **Request** to ask for a product to be added. Add an optional note explaining the reason; the request notifies the approver role.
+
+### Azure Usage
+
+The **Azure Usage** view shows Azure consumption by company and resource group for recent months. Click **View Details** on a row to drill into individual usage line items (product, date, quantity, unit, unit price, total).
+
+## How requests flow
+
+<Steps>
+  <Step title="Client submits a request">
+    A client requests a new product or a quantity change from the Catalog or Subscriptions view.
+  </Step>
+  <Step title="Approver is notified">
+    Members of the configured **Approver Role** receive an in-app notification.
+  </Step>
+  <Step title="Change syncs to the distributor">
+    Once approved (or immediately, if self-service is enabled), the change syncs back to Pax8.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The Storefront says there's no integration">
+    Connect a Pax8 or Sherweb integration under Settings → Integrations. Products appear after the next sync.
+  </Accordion>
+  <Accordion title="No products appear in the catalog">
+    Products sync from the distributor on a schedule. On the settings Catalog tab, also confirm the products are toggled **Visible**, hidden products never reach clients.
+  </Accordion>
+  <Accordion title="A client can't change a quantity">
+    Quantity changes require **Allow Quantity Changes** to be enabled for that subscription (or by the global default), and the new quantity must fall within the configured min/max range.
+  </Accordion>
+  <Accordion title="No Azure usage data shows">
+    Azure consumption appears only once you have Azure subscriptions synced from Pax8.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
+
+- [Integrations](/user-guides/integrations/index) — connect Pax8 or Sherweb.
+- [Licensing](/user-guides/licensing/index) — Pax8 license management.
+- [Notifications](/user-guides/notifications/index) — where approvers see incoming requests.

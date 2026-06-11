@@ -1,0 +1,109 @@
+---
+title: 'Custom Fields'
+description: 'Extend devices, users, companies, and more with your own fields to capture organization-specific information'
+icon: 'table-list'
+---
+
+**Custom Fields** let you add your own fields to MSPortal records, capturing information that the built-in fields don't cover. Define a field once, and it appears on every record of that type for users to fill in.
+
+## What you can extend
+
+Custom fields can be added to seven entity types, each on its own tab:
+
+<CardGroup cols={3}>
+  <Card title="Devices" icon="desktop" />
+  <Card title="Compliance" icon="clipboard-check" />
+  <Card title="Goals" icon="bullseye" />
+  <Card title="Budgets" icon="wallet" />
+  <Card title="Planner" icon="list-check" />
+  <Card title="Users" icon="user" />
+  <Card title="Companies" icon="building" />
+</CardGroup>
+
+## Prerequisites
+
+- **Permissions**: managing custom fields requires the custom fields settings permission (read to view, write/manage to create, edit, reorder, and delete).
+
+## Supported field types
+
+When creating a field, choose from these types:
+
+| Type | Use for |
+|------|---------|
+| **Short Text** | Single-line text |
+| **Long Text** | Multi-line text / notes |
+| **Number** | Whole numbers |
+| **Decimal** | Numbers with decimals |
+| **Email** | Email addresses |
+| **Phone** | Phone numbers |
+| **URL** | Web links |
+| **Date** | A calendar date |
+| **Date & Time** | A date with a time |
+| **Checkbox** | Yes / no values |
+| **Dropdown** | Pick one from a list |
+| **Multi-Select** | Pick several from a list |
+| **Radio Buttons** | Pick one from a small set |
+
+## Creating a custom field
+
+<Steps>
+  <Step title="Open Custom Fields settings">
+    Go to **Settings → Custom Fields**. The page is titled **Field Definitions**.
+  </Step>
+  <Step title="Choose the entity tab">
+    Select the tab for the record type you want to extend (Devices, Compliance, Goals, Budgets, Planner, Users, or Companies).
+  </Step>
+  <Step title="Add a field">
+    Click **Add Field**. A new row appears.
+  </Step>
+  <Step title="Enter a label and type">
+    Type the **Label** (the name users will see) and choose a **Type** from the list above.
+  </Step>
+  <Step title="Add options (for choice fields)">
+    For **Dropdown**, **Multi-Select**, or **Radio Buttons**, expand the row to open **Field Options** and click **Add Option** for each choice. You can drag options to reorder them.
+  </Step>
+  <Step title="Set scope and visibility">
+    Configure how the field applies (see [Scoping](#scoping-and-visibility) below) and whether to hide it from company users.
+  </Step>
+  <Step title="Save">
+    Click the green checkmark to save the field, or the red X to cancel.
+  </Step>
+</Steps>
+
+<Note>
+The **Required** toggle for a choice field can only be enabled after you've added at least one option, you'll see *"Add options to this field before making it required."*
+</Note>
+
+## Scoping and visibility
+
+Custom fields can be targeted so they only appear where they're relevant.
+
+- **Type scoping** (Devices, Compliance, Goals, Budgets, Planner): set a field to **All Types**, or to a specific type (for example, a particular device type). Type-scoped fields appear only on records of that type; **All Types** fields appear on every record.
+- **User scoping** (Users): choose **Both**, **Tenant Users**, or **Company Users** to control which kind of user the field applies to.
+- **Company visibility**: tick **Hide from company users** to keep a field internal to your team. Hidden fields never appear to client portal users.
+
+### Compliance fields
+
+Compliance offers an extra scope that determines **where the value is filled in**:
+
+- **Filled on the check (pre-filled)** — the value is set once on the check definition and shown read-only on every run.
+- **Filled on compliance page** — the value is filled in per run.
+
+<Warning>
+The compliance fill-location scope is fixed once the field is created. To change it, delete the field and create a new one.
+</Warning>
+
+## Filling in values and reordering
+
+- Once defined, custom fields appear in a **Custom Fields** section on the relevant record's detail page or edit dialog, where users enter values. Required fields must be completed before saving.
+- Drag the handle on the left of any field row to **reorder** how fields appear on records.
+
+<Warning>
+Deleting a custom field permanently removes all values stored for it across every record. You'll be asked to confirm.
+</Warning>
+
+## Related resources
+
+- [Devices](/user-guides/devices/index)
+- [Compliance](/user-guides/compliance/index)
+- [Users & Roles](/user-guides/settings/users-roles)

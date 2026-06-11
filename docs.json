@@ -48,6 +48,14 @@
             ]
           },
           {
+            "group": "AI",
+            "pages": [
+              "user-guides/ai-assistant/index",
+              "user-guides/mcp-server/index",
+              "user-guides/mcp-server/tools-reference"
+            ]
+          },
+          {
             "group": "Overview & Planning",
             "pages": [
               {
@@ -82,6 +90,12 @@
                 "group": "Notifications",
                 "pages": [
                   "user-guides/notifications/index"
+                ]
+              },
+              {
+                "group": "Broadcasts",
+                "pages": [
+                  "user-guides/broadcasts/index"
                 ]
               },
               {
@@ -228,6 +242,12 @@
                   "user-guides/licensing/index",
                   "user-guides/licensing/setup"
                 ]
+              },
+              {
+                "group": "Storefront",
+                "pages": [
+                  "user-guides/storefront/index"
+                ]
               }
             ]
           },
@@ -351,6 +371,7 @@
                 "pages": [
                   "user-guides/settings/index",
                   "user-guides/settings/users-roles",
+                  "user-guides/settings/custom-fields",
                   "user-guides/settings/companies",
                   "user-guides/settings/projects",
                   "user-guides/settings/training",

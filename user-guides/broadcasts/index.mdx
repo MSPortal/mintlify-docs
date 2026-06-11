@@ -1,0 +1,128 @@
+---
+title: 'Broadcasts'
+description: 'Send urgent email messages to groups of clients and users, with an AI writer to help draft them fast'
+icon: 'tower-broadcast'
+---
+
+**Emergency Broadcast** lets your team send urgent email messages to groups of users, ideal for security incidents, service outages, scheduled maintenance, and important announcements. An AI Broadcast Writer helps you draft a clear message in seconds, and a delivery history tracks exactly who received each broadcast.
+
+## Overview
+
+The Broadcasts page has three tabs:
+
+<CardGroup cols={3}>
+  <Card title="Compose" icon="pen-to-square">
+    Write a broadcast, choose recipient groups, preview it, and send.
+  </Card>
+  <Card title="History" icon="clock-rotate-left">
+    See every broadcast sent, its delivery status, and per-recipient results.
+  </Card>
+  <Card title="Groups" icon="users">
+    Create and manage the recipient groups broadcasts are sent to.
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+- Broadcasts are for MSP team members. Client (company) users don't have access.
+- **Permissions**: viewing requires read access to broadcasts; sending requires write access; creating groups and managing drafts requires the manage permission. Ask an administrator if you don't see the Compose tools or the **Create Group** button.
+- **A verified sending domain** must be configured under [Email settings](/user-guides/settings/email). Without it, broadcasts can be drafted but will fail to send.
+
+## Sending a broadcast
+
+<Steps>
+  <Step title="Open the Compose tab">
+    Go to **Broadcasts** and make sure the **Compose** tab is selected. If you have saved drafts, they appear at the top, click one to load it.
+  </Step>
+  <Step title="Write the subject and message">
+    Enter a **Subject** and write your **Message** in the rich-text editor (bold, lists, links, and more are supported).
+  </Step>
+  <Step title="Choose recipients">
+    Click **Select groups** to open the **Select Groups** dialog. Search, use **Select All / Deselect All**, and tick the groups that should receive the message. Each group shows its member count, and a running **unique recipients** total is displayed. Selected groups appear as removable chips.
+  </Step>
+  <Step title="Pick a theme">
+    Choose a **Dark** or **Light** email theme (Dark is the default). This controls how the email looks in recipients' inboxes.
+  </Step>
+  <Step title="Preview and test (optional)">
+    Click **Preview** to see the email as recipients will, and toggle between light and dark. Click **Send Test to Me** to send a copy to your own inbox first.
+  </Step>
+  <Step title="Send">
+    Click **Send Broadcast**. A confirmation dialog tells you how many unique recipients across how many groups will receive it. Confirm to send. You're taken to the **History** tab to watch progress.
+  </Step>
+</Steps>
+
+<Warning>
+Sending cannot be undone, and broadcasts go out immediately (there is no scheduling). Always use **Send Test to Me** or **Preview** before sending to a large audience.
+</Warning>
+
+### Saving drafts
+
+Click **Save Draft** to store the current subject, message, selected groups, and theme. Drafts are personal to you and appear at the top of the Compose tab so you can pick up where you left off.
+
+## Using the AI Broadcast Writer
+
+The **AI Broadcast Writer** drafts both the subject line and the message body for you.
+
+<Steps>
+  <Step title="Open the writer">
+    Click the sparkle button on the right side of the Compose form to open the **AI Broadcast Writer** panel.
+  </Step>
+  <Step title="Describe the message, or pick a quick template">
+    Type what you want to communicate, or choose a **Quick template** to get started:
+    - **Security Incident** — alert users about a threat with actionable steps
+    - **Scheduled Maintenance** — notify users about planned downtime and impact
+    - **Service Outage** — communicate an ongoing disruption
+    - **General Announcement** — share an IT policy change or update
+  </Step>
+  <Step title="Apply and refine">
+    The assistant drafts a subject and message and fills them into the Compose form. Keep chatting to refine it, for example *"make it shorter"* or *"add more urgency."* The writer is aware of which groups you've selected and how many people will receive the broadcast.
+  </Step>
+</Steps>
+
+## Recipient groups
+
+Broadcasts are sent to **broadcast groups**, reusable lists of recipients you manage on the **Groups** tab. A group can include users from one or several companies, and the same person in multiple selected groups is only emailed once.
+
+Which groups you can target depends on your company scope:
+
+- **Tenant-wide access** can target groups across all companies.
+- **Single or assigned-company access** can only target groups for those companies.
+
+To create a group, open the **Groups** tab and click **Create Group** (requires the manage permission).
+
+## Tracking delivery
+
+The **History** tab lists every broadcast with its **Subject**, **Groups**, **Recipients**, **Status**, **Sent By**, and **Date**.
+
+Status values:
+
+| Status | Meaning |
+|--------|---------|
+| **Sending** | The broadcast is currently being delivered. |
+| **Completed** | All emails have been sent. |
+| **Failed** | Delivery failed. |
+| **Test** | A test sent to yourself. |
+
+Click any broadcast to open its details, including a **Recipients** tab (with each person's name, email, company, and individual **Sent / Pending / Failed** status) and a **Message** tab showing what was sent. Failed recipients display the reason, so you can follow up.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Send Broadcast is disabled">
+    The button stays disabled until you've entered a subject, written a message, and selected at least one group.
+  </Accordion>
+  <Accordion title="My broadcast failed to send">
+    Confirm a verified sending domain is set up under Settings → Email. Without a verified domain, broadcasts can be drafted but won't deliver. Open the broadcast in History to see per-recipient errors.
+  </Accordion>
+  <Accordion title="I don't see the Compose tools or Create Group button">
+    These require write and manage permissions respectively. Ask an administrator to grant the appropriate broadcasts permission.
+  </Accordion>
+  <Accordion title="Can I schedule a broadcast for later?">
+    No. Broadcasts send immediately after you confirm. Use Save Draft to prepare a message ahead of time and send it when you're ready.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
+
+- [Email settings](/user-guides/settings/email) — configure your verified sending domain.
+- [Notifications](/user-guides/notifications/index) — in-app notifications (separate from email broadcasts).

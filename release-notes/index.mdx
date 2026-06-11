@@ -5,6 +5,23 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 
 ## June 12, 2026
 
+### MSPortal MCP Server: Connect Claude, ChatGPT, and More to Your Data
+
+MSPortal now ships a secure, remote **MCP (Model Context Protocol) server**, so you can point an AI assistant like Claude, ChatGPT, Cursor, or Gemini straight at your MSPortal account and ask it to work across your whole portal. No exports, no copy-paste, no API keys to manage.
+
+Ask "which clients have device warranties expiring in the next 90 days," "build me a planner remediation plan for every failing compliance check," or "draft a QBR report for Acme and put it on the calendar," and the assistant reads your live data and takes action, all scoped to exactly what you can already see and do in MSPortal.
+
+**Key Features:**
+- **Browser-based sign-in, no keys**: Connection uses OAuth 2.1 with PKCE. The first time a client connects, your browser opens an MSPortal sign-in and consent screen. There are no API keys or secrets to copy, store, or rotate.
+- **Works with every major AI client**: One-click setup or a ready-made command for Claude Code, Claude Desktop and Web, Cursor, VS Code, OpenAI Codex, Gemini CLI, Windsurf, and any client that supports remote MCP servers.
+- **Built for the vCIO and account manager**: More than 150 tools spanning tickets, devices and fleet lifecycle, reporting, planner and goals, compliance, training, budgets, meetings (agendas, action items, participants), surveys, automation rules, Microsoft 365 and Secure Score, backup, projects, client health, financials, integrations, documentation, onboarding portals, technology standards, security posture (EDR incidents, vulnerabilities, and Huntress), broadcasts, and notifications.
+- **PSA write-through**: An assistant can add ticket notes and update ticket status directly in Halo, ConnectWise, Autotask, or Syncro through the same path the app uses, not just in MSPortal.
+- **Scoped to your permissions**: Every single tool call is checked against your role, tenant, and company visibility. The assistant never sees or changes more than you can yourself, and company users stay locked to their own company's data.
+- **Confirmation before every change**: Any action that writes data returns a confirmation step first, so the assistant tells you exactly what it is about to do before anything is committed.
+- **Managed and revocable**: A new Settings, MCP Server page lists every connected client, its sessions, and when it was last authorized, with one-click revoke. A dedicated MCP Server permission controls who in your organization can connect a client.
+
+[Documentation: MCP Server](/user-guides/mcp-server/index)
+
 ### MSPortal in 15 Languages
 
 MSPortal is now officially live in 15 languages. Every page, form, notification, and label is translated, so you and your clients can work in the language you prefer. Switch your language from the selector in the top-right of the app, and set defaults per company so each client's portal speaks their language.

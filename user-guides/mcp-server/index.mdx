@@ -1,0 +1,238 @@
+---
+title: 'MCP Server'
+description: 'Connect AI tools like Claude, ChatGPT, Cursor, and Gemini directly to your MSPortal data with a secure, OAuth-protected MCP server'
+icon: 'plug'
+---
+
+MSPortal exposes a remote **MCP (Model Context Protocol) server** that lets you connect AI tools directly to your MSPortal account. Once connected, an assistant like Claude or ChatGPT can read your tickets, devices, reports, compliance data, and more, and take actions on your behalf, all without copying data back and forth.
+
+Every request the AI tool makes is authenticated as **you** and checked against your MSPortal role, tenant, and company visibility. The AI never sees more than you can.
+
+## Overview
+
+The MCP server is a single secure URL you add to any MCP-compatible client. It uses **OAuth 2.1 with PKCE** for sign-in, so there are no API keys or secrets to copy and paste. The first time a client connects, your browser opens an MSPortal sign-in and consent screen; after you approve, the client is connected.
+
+<CardGroup cols={3}>
+  <Card title="OAuth 2.1 + PKCE" icon="lock">
+    Browser-based sign-in and consent. No keys or secrets to manage.
+  </Card>
+  <Card title="Streamable HTTP" icon="globe">
+    A standard remote MCP transport supported by all major clients.
+  </Card>
+  <Card title="Scoped to your permissions" icon="shield-check">
+    Every tool call is checked against your MSPortal role, tenant, and company visibility.
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+- An MSPortal account that you can sign in to.
+- The **MCP Server** write permission to connect new clients. Without it you can still view the page, but the setup cards are disabled. Ask an administrator to grant it if you see the message *"You have view-only access."*
+- An MCP-compatible AI client (Claude, ChatGPT/Codex, Cursor, VS Code, Gemini CLI, Windsurf, or any client that supports remote MCP servers).
+
+## Finding your server URL
+
+<Steps>
+  <Step title="Open MCP Server settings">
+    Go to **Settings → MCP Server**.
+  </Step>
+  <Step title="Copy the server URL">
+    At the top of the page you'll see your **Server URL**. Click the copy icon next to it. This is the address you'll paste into your AI client.
+  </Step>
+</Steps>
+
+<Note>
+The same server URL works for everyone in your organization, but each person signs in with their own MSPortal account. The data and actions an assistant can access always match the signed-in user's own permissions.
+</Note>
+
+## Connecting a client
+
+The **Connect your client** section lists the most common AI tools. Click any tool to open a setup dialog with step-by-step instructions, a ready-made command or config, and (where supported) a one-click install button.
+
+<Tabs>
+  <Tab title="Claude Code">
+    1. Run this command in your terminal (the server URL is filled in for you on the settings page):
+       ```bash
+       claude mcp add --transport http msportal <your-server-url>
+       ```
+    2. In Claude Code, run `/mcp` and select **msportal** to authenticate.
+    3. Approve access in the browser window that opens.
+  </Tab>
+  <Tab title="Claude Desktop & Web">
+    1. Open **Settings → Connectors**.
+    2. Click **Add custom connector**.
+    3. Name it **MSPortal** and paste the server URL, then click **Add**.
+    4. Click **Connect** and approve access in your browser.
+  </Tab>
+  <Tab title="Cursor">
+    1. Click **Add to Cursor** on the setup dialog (one-click install), or paste the provided config into `~/.cursor/mcp.json`.
+    2. Open **Cursor Settings → MCP** and click **Connect** next to **msportal**.
+    3. Approve access in the browser window that opens.
+  </Tab>
+  <Tab title="VS Code">
+    1. Click **Add to VS Code** (one-click install), or run the provided `code --add-mcp` command.
+    2. When prompted, allow VS Code to start the server and sign in.
+    3. Approve access in the browser window that opens.
+  </Tab>
+  <Tab title="OpenAI Codex">
+    1. Run the provided command, or add the snippet to `~/.codex/config.toml`:
+       ```bash
+       codex mcp add msportal --url <your-server-url>
+       ```
+    2. Run `codex mcp login msportal` to authenticate.
+    3. Approve access in the browser window that opens.
+  </Tab>
+  <Tab title="Gemini CLI">
+    1. Run this command in your terminal:
+       ```bash
+       gemini mcp add --transport http msportal <your-server-url>
+       ```
+    2. In Gemini CLI, run `/mcp auth msportal` and approve access in your browser.
+  </Tab>
+  <Tab title="Windsurf">
+    1. Open **Windsurf Settings → Cascade** and click **Add Server**.
+    2. Paste the provided config into `mcp_config.json` and save.
+    3. Refresh the server list and approve access in your browser.
+  </Tab>
+  <Tab title="Other clients">
+    Any client that supports remote MCP servers with OAuth can connect:
+    1. Add a remote MCP server in your client and paste the server URL.
+    2. Most clients accept a JSON entry like:
+       ```json
+       {
+         "mcpServers": {
+           "msportal": {
+             "type": "http",
+             "url": "<your-server-url>"
+           }
+         }
+       }
+       ```
+    3. Authenticate when prompted and approve access in your browser.
+  </Tab>
+</Tabs>
+
+<Tip>
+Tools that show a **One-click install** badge (Cursor and VS Code) can be set up with a single button. For everything else, copy the provided command or config; the server URL is already filled in.
+</Tip>
+
+## What an assistant can do
+
+Once connected, the assistant can call MSPortal tools that match your permissions, more than 150 of them, spanning most of the portal. The server is built around the **vCIO and account manager** workflow: pull a client's full picture, spot risks across the fleet, and turn them into planner items, reports, and meeting agendas. Common capabilities include:
+
+<CardGroup cols={2}>
+  <Card title="Tickets" icon="ticket">
+    List, read, and create tickets, read and add notes, and update ticket status. Note and status writes flow through to your PSA (Halo, ConnectWise, Autotask, or Syncro).
+  </Card>
+  <Card title="Devices & Fleet" icon="desktop">
+    List devices with fleet and lifecycle filters (operating system, warranty expiry, last seen, first seen), read device details, and surface device alerts such as offline servers and expiring warranties.
+  </Card>
+  <Card title="Reporting & Analytics" icon="chart-line">
+    Create, edit, publish, schedule, and read reports, and pull ticket trend analytics with forecasts.
+  </Card>
+  <Card title="Planner & Goals" icon="list-check">
+    Create and edit planner items and goals, and link planner items to goals, compliance checks, Secure Score controls, and devices.
+  </Card>
+  <Card title="Compliance" icon="clipboard-check">
+    List compliance checks, runs, and templates, kick off compliance runs, and update compliance status.
+  </Card>
+  <Card title="Meetings" icon="calendar">
+    Create and update meetings, manage agendas, action items, and participants, and attach planner items or compliance checks to a meeting.
+  </Card>
+  <Card title="Microsoft 365 & Secure Score" icon="microsoft">
+    Read licenses, subscriptions, users, and domains, and pull Secure Score summaries, trends, and prioritized recommendations.
+  </Card>
+  <Card title="Client Health & Projects" icon="heart-pulse">
+    Read client health scores, dimensions, NPS, and risk levels, and list or read projects with deliverables and milestones.
+  </Card>
+  <Card title="Financials" icon="file-invoice-dollar">
+    Read quotes, invoices, outstanding and overdue rollups, and monthly revenue by category.
+  </Card>
+  <Card title="Standards" icon="list-ol">
+    Read your technology standards catalog, per-company deployment status, and compliance rollups to find clients off-standard.
+  </Card>
+  <Card title="Security" icon="shield-halved">
+    Read a cross-provider security posture summary, EDR incidents, vulnerabilities by severity, and Huntress escalations and incident reports.
+  </Card>
+  <Card title="Surveys & Training" icon="graduation-cap">
+    Create and send surveys, manage status, read responses, and assign training, manage enrollments, and read training analytics.
+  </Card>
+  <Card title="Automation & Integrations" icon="gears">
+    Create, edit, and delete automation rules, read integration health, and pause or resume an integration.
+  </Card>
+  <Card title="Documentation & Onboarding" icon="book">
+    Read and author documentation pages, control page visibility, and create and launch client onboarding portals.
+  </Card>
+  <Card title="Broadcasts & Notifications" icon="bullhorn">
+    Read and send emergency broadcasts, and read or mark your notifications as read.
+  </Card>
+  <Card title="Backup" icon="database">
+    Read unified backup summaries, protected devices, and backup alerts across Cove, Acronis, and NinjaOne.
+  </Card>
+  <Card title="Search" icon="magnifying-glass">
+    Search across the portal to find the right record fast.
+  </Card>
+</CardGroup>
+
+<Note>
+The exact tools available to an assistant depend on your role, your tenant's enabled features, and (for company users) your assigned company. You only ever see tools and data you already have access to in MSPortal.
+</Note>
+
+<Tip>
+When a client connects, it asks you to approve a set of **scopes**, one per area of the portal (for example `tickets.read`, `compliance.write`, `m365.read`). The consent screen shows exactly what you're granting. You can connect a client for only the areas you need, and the assistant can never exceed the scopes you approved or the permissions your account holds.
+</Tip>
+
+<Card title="Full MCP tools reference" icon="screwdriver-wrench" href="/user-guides/mcp-server/tools-reference">
+  Browse every tool the server exposes, grouped by module, with the scope and access level each one requires.
+</Card>
+
+### Confirmation before changes
+
+Actions that change data return a confirmation step before anything is committed. The assistant will surface what it is about to do so you can approve it, rather than silently writing changes.
+
+## Managing connected clients
+
+The **Connected clients** section lists every application you've authorized.
+
+For each client you can see:
+
+- The **client name** and whether it's an **MSPortal** (first-party) app or an **External app**.
+- When it was **last authorized**.
+- The number of **active sessions** and **scopes** granted.
+
+### Revoking access
+
+To disconnect a client, click **Revoke** on its row and confirm. The client loses access immediately and its active sessions are invalidated. You can reconnect it at any time by setting it up again.
+
+<Warning>
+Revoking is the right move if a device is lost, a tool is no longer used, or you suspect a connection should no longer have access. Revocation takes effect immediately.
+</Warning>
+
+## Security
+
+- **No secrets to paste.** Authentication uses OAuth 2.1 with PKCE in your browser. There is nothing to store or rotate manually.
+- **Permission-scoped.** Every tool call is evaluated against your MSPortal role, tenant, and company visibility. Company users can only ever reach their own company's data.
+- **Auditable and revocable.** Connected clients, their sessions, and last-authorized times are visible on the settings page, and access can be revoked at any time.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The setup cards are greyed out / I can't connect a client">
+    You likely have view-only access. The page shows *"You have view-only access. Ask an administrator for the MCP Server write permission to connect clients."* Ask an administrator to grant you the **MCP Server** write permission.
+  </Accordion>
+  <Accordion title="The browser consent screen didn't open">
+    Most clients open your default browser automatically on first connect. If it doesn't, re-run the client's authenticate step (for example `/mcp` in Claude Code, `codex mcp login msportal` in Codex, or **Connect** in Cursor settings).
+  </Accordion>
+  <Accordion title="The assistant says it can't find a tool or data">
+    The assistant only has the tools and data your account can access. If a capability is missing, confirm the related feature is enabled for your tenant and that your role grants the permission. Company users are scoped to their assigned company only.
+  </Accordion>
+  <Accordion title="A connected client stopped working">
+    Open **Settings → MCP Server**, check the **Connected clients** list, and confirm the client still appears with active sessions. If needed, **Revoke** it and reconnect from your client to re-run the sign-in flow.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
+
+- [MCP Tools Reference](/user-guides/mcp-server/tools-reference) — the full list of every tool the server exposes, by module.
+- [AI Assistant](/user-guides/ai-assistant/index) — the built-in MSPortal assistant that uses the same secure tool layer inside the app.
+- [Users & Roles](/user-guides/settings/users-roles) — manage who can connect MCP clients.
