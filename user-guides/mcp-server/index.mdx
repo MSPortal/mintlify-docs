@@ -125,7 +125,7 @@ Once connected, the assistant can call MSPortal tools that match your permission
     List, read, and create tickets, read and add notes, and update ticket status. Note and status writes flow through to your PSA (Halo, ConnectWise, Autotask, or Syncro).
   </Card>
   <Card title="Devices & Fleet" icon="desktop">
-    List devices with fleet and lifecycle filters (operating system, warranty expiry, last seen, first seen), read device details, and surface device alerts such as offline servers and expiring warranties.
+    List devices with fleet and lifecycle filters (operating system, warranty expiry, last seen, first seen), read device details including custom fields, and surface device alerts such as offline servers and expiring warranties.
   </Card>
   <Card title="Reporting & Analytics" icon="chart-line">
     Create, edit, publish, schedule, and read reports, and pull ticket trend analytics with forecasts.
@@ -161,7 +161,7 @@ Once connected, the assistant can call MSPortal tools that match your permission
     Create, edit, and delete automation rules, read integration health, and pause or resume an integration.
   </Card>
   <Card title="Documentation & Onboarding" icon="book">
-    Read and author documentation pages, control page visibility, and create and launch client onboarding portals.
+    Read and author documentation pages, control page visibility, and run client onboarding end to end: create and launch portals, edit their phases, tasks, and contacts, and manage the onboarding forms, page library, and checklist templates behind them.
   </Card>
   <Card title="Broadcasts & Notifications" icon="bullhorn">
     Read and send emergency broadcasts, and read or mark your notifications as read.
@@ -176,6 +176,10 @@ Once connected, the assistant can call MSPortal tools that match your permission
 
 <Note>
 The exact tools available to an assistant depend on your role, your tenant's enabled features, and (for company users) your assigned company. You only ever see tools and data you already have access to in MSPortal.
+</Note>
+
+<Note>
+**Custom fields are included.** When an assistant reads a single record (a company, device, planner item, goal, budget, or user), the response includes your tenant's custom field values for that record, so the assistant can reason over the fields your team has defined, not just the built-in ones. Company users only see custom fields marked as client-visible.
 </Note>
 
 <Tip>
@@ -202,10 +206,10 @@ For each client you can see:
 
 ### Revoking access
 
-To disconnect a client, click **Revoke** on its row and confirm. The client loses access immediately and its active sessions are invalidated. You can reconnect it at any time by setting it up again.
+To disconnect a client, click **Revoke** on its row and confirm. The client's sessions are invalidated and it can no longer refresh its access; any in-flight access expires within 15 minutes. You can reconnect it at any time by setting it up again.
 
 <Warning>
-Revoking is the right move if a device is lost, a tool is no longer used, or you suspect a connection should no longer have access. Revocation takes effect immediately.
+Revoking is the right move if a device is lost, a tool is no longer used, or you suspect a connection should no longer have access. If you need access cut off instantly rather than within minutes, also remove the user's **MCP Server** permission; that is checked on every request.
 </Warning>
 
 ## Security

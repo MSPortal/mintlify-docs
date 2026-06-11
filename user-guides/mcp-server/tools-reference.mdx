@@ -16,7 +16,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_company` | Read | Get one company by ID. |
+| `get_company` | Read | Get one company by ID, including its custom field values (label → value). |
 | `get_current_user` | Read | Return the connected MSPortal user, tenant, user type, company, and OAuth grant summary. |
 | `list_companies` | Read | List companies visible to the connected user. |
 | `search_portal` | Read | Search across visible companies, tickets, goals, planner items, and reports with small capped result sets. |
@@ -42,7 +42,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_device` | Read | Get one device. |
+| `get_device` | Read | Get one device, including its custom field values (label → value). |
 | `list_device_alerts` | Read | List active device alerts: offline servers (status offline or not seen in 7 days; workstations are excluded as expected noise) and devices with warranties expiring within the next 30 days. The limit applies per alert category. |
 | `list_device_types` | Read | List device types. |
 | `list_devices` | Read | List devices with filters, including fleet/lifecycle queries: os contains-match (e.g. "server", "windows 10"), warranty expiry windows (warrantyExpiresBefore/After), stale devices (lastSeenBefore), and hardware age (firstSeenBefore). |
@@ -84,7 +84,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_planner_item` | Read | Get one planner item. |
+| `get_planner_item` | Read | Get one planner item, including its custom field values (label → value). |
 | `list_planner_item_links` | Read | List the goals, assigned compliance checks, secure score controls, and devices linked to a planner item. |
 | `list_planner_items` | Read | List planner items with filters. |
 | `list_planner_types` | Read | List planner item types. |
@@ -100,7 +100,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_goal` | Read | Get a goal with tasks and updates. |
+| `get_goal` | Read | Get a goal with tasks, updates, and custom field values (label → value). |
 | `list_goal_options` | Read | List goal status, priority, and category options. |
 | `list_goals` | Read | List goals with filters. |
 | `create_goal` | Write (confirm) | Stage or create a goal. |
@@ -163,7 +163,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_budget` | Read | Get one budget with line items. |
+| `get_budget` | Read | Get one budget with line items and custom field values (label → value). |
 | `list_budget_categories` | Read | List budget categories. |
 | `list_budget_products` | Read | List budget products. |
 | `list_budgets` | Read | List budgets. |
@@ -178,7 +178,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_nps_summary` | Read | Pre-computed NPS analytics rows (promoters/passives/detractors, NPS score, response rate) bucketed by period (daily/weekly/monthly/quarterly/yearly/all_time), tenant-wide and per company. Filter by companyId for 'NPS by client', by periodType for trend questions, or by surveyId for one NPS campaign. Newest periods first. |
+| `get_nps_summary` | Read | Pre-computed NPS analytics rows (promoters/passives/detractors, NPS score, response rate) bucketed by period (daily/weekly/monthly/quarterly/yearly/all_time), tenant-wide and per company. Filter by companyId for 'NPS by client', by periodType for trend questions, or by surveyId for one NPS campaign. Returns the newest 200 periods; narrow with periodType or a date window for longer histories. |
 | `get_survey` | Read | Get a general survey with questions. |
 | `get_survey_stats` | Read | Aggregated stats for one general survey: invites sent, completed responses, response rate, and per-question rollups (average value for numeric/likert/NPS/rating questions, option counts for select questions). Use instead of re-aggregating list_survey_responses. |
 | `list_survey_responses` | Read | List responses for a general survey. |
@@ -299,11 +299,38 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
+| `get_onboarding_checklist` | Read | Get one onboarding checklist template with its full ordered items array, tags, and archive status. |
+| `get_onboarding_form` | Read | Get one onboarding form with its full field definitions (label, field key, type, required flag, help text, placeholder, options, default value, display order). |
+| `get_onboarding_page` | Read | Get one onboarding documentation page including its full body HTML, summary, icon, section label, and template/portal usage counts. |
 | `get_onboarding_portal` | Read | Get the full detail of one onboarding portal: phases with tasks, documents, surveys, approvals, contacts, key dates, dependencies, and PSA project links. |
+| `list_onboarding_checklists` | Read | List reusable onboarding checklist templates with item counts, tags, and archive status. Use a checklist ID with get_onboarding_checklist to see its items. |
+| `list_onboarding_forms` | Read | List reusable client-facing onboarding forms with status, field counts, and multiple-entry settings. Filter by status (draft, active, archived). |
+| `list_onboarding_pages` | Read | List the standalone onboarding documentation page catalog with summaries, icon and section metadata, body length, and usage counts (templates and portals referencing each page). Use get_onboarding_page for the full body HTML. |
 | `list_onboarding_portals` | Read | List client onboarding portals with status, progress counts (phases, tasks, documents), and contact counts. Filter by company or status (draft, active, completed, converted, archived). |
 | `list_onboarding_templates` | Read | List client onboarding templates with phase/task counts and estimated duration. Use a template ID with create_onboarding_portal to spin up a portal for a new client. |
+| `add_onboarding_portal_contact` | Write (confirm) | Stage or add a client contact to an onboarding portal. No invite email is sent by this tool; invites are emailed when the portal is started, or from the app via Send invite. |
+| `add_onboarding_portal_phase` | Write (confirm) | Stage or add a phase to an onboarding portal. The phase is appended at the end in pending status. |
+| `add_onboarding_portal_task` | Write (confirm) | Stage or add a task to an onboarding portal phase. The task is appended at the end of the phase in pending status. |
+| `archive_onboarding_checklist` | Write (confirm) | Stage or apply archiving (archived: true) or restoring (archived: false) of an onboarding checklist template. Archived templates are hidden from pickers but existing task links keep working. |
+| `archive_onboarding_portal` | Write (confirm) | Stage or archive an onboarding portal (archived: true, revokes all active client portal sessions) or unarchive it back to draft (archived: false; only valid for archived portals). |
+| `complete_onboarding_portal` | Write (confirm) | Stage or mark an active onboarding portal as completed (active → completed). Logs a portal_completed event and fires portal-completion automations on commit. |
+| `create_onboarding_checklist` | Write (confirm) | Stage or create a reusable onboarding checklist template with ordered items and optional tags. Link the template to onboarding template tasks in the app to attach it to client portals. |
+| `create_onboarding_form` | Write (confirm) | Stage or create a reusable client-facing onboarding form, optionally with its fields. Forms are created in draft status by default; active forms can be attached to onboarding form tasks for clients to fill in. |
+| `create_onboarding_page` | Write (confirm) | Stage or create a standalone onboarding documentation page in the page catalog. The body HTML is sanitized on save. The page is not attached to any template until linked with link_onboarding_page_to_template. |
 | `create_onboarding_portal` | Write (confirm) | Stage or create a client onboarding portal from a template, with optional client contacts. The portal is created in draft status and no client emails are sent — use start_onboarding_portal to activate it and send invites. |
+| `delete_onboarding_page` | Write (confirm) | Stage or apply deletion (archival) of an onboarding documentation page. On commit the page is archived and removed from every template and portal that references it. This cannot be undone from the API. |
+| `delete_onboarding_portal_task` | Write (confirm) | Stage or permanently delete an onboarding portal task. This cannot be undone. Requires the manage onboarding permission. |
+| `link_onboarding_page_to_template` | Write (confirm) | Stage or apply linking a documentation page into an onboarding template. The page is appended at the end of the template's page list. Idempotent: linking an already linked page returns the existing link. |
 | `start_onboarding_portal` | Write (confirm) | Stage or activate a draft onboarding portal (draft → active). Sends real invite emails to all portal contacts on commit. |
+| `unlink_onboarding_page_from_template` | Write (confirm) | Stage or apply removal of a documentation page link from an onboarding template. The page itself stays in the catalog and remains linked to any other templates. |
+| `update_onboarding_checklist` | Write (confirm) | Stage or apply changes to an onboarding checklist template. Only the provided fields change; the items array, when provided, replaces ALL existing items. Use get_onboarding_checklist first to fetch the current items before editing them. |
+| `update_onboarding_form` | Write (confirm) | Stage or apply changes to an onboarding form: rename it, change its description, status (draft, active, archived), or multiple-entry setting, and add, update, or remove its fields in one call. |
+| `update_onboarding_page` | Write (confirm) | Stage or apply a partial update to an onboarding documentation page (title, summary, body HTML, icon, section label). At least one field besides pageId is required. Each update records a new page revision. |
+| `update_onboarding_portal` | Write (confirm) | Stage or apply an update to an onboarding portal's name and/or description. Pass description: null to clear it. |
+| `update_onboarding_portal_phase` | Write (confirm) | Stage or update an onboarding portal phase's name and/or description. Pass description: null to clear it. |
+| `update_onboarding_portal_task` | Write (confirm) | Stage or update an onboarding task's title, description, owner, priority, or due date. Use update_onboarding_task_status to change its status. |
+| `update_onboarding_task_status` | Write (confirm) | Stage or update an onboarding task's status (pending, in_progress, completed, blocked). Completing a task logs an event, fires task-completion automations, and syncs the status to a linked PSA ticket if one exists. |
+| `update_onboarding_template_page_link` | Write (confirm) | Stage or apply an update to a template page link: change its display order within the template or toggle client visibility. At least one field besides linkId is required. |
 
 ## Technology Standards
 
@@ -364,7 +391,7 @@ The MSPortal MCP server exposes **161 tools** across **28 modules**. An AI assis
 
 | Tool | Access | Description |
 |------|--------|-------------|
-| `get_user` | Read | Get one tenant user. |
+| `get_user` | Read | Get one tenant user, including their custom field values (label → value). |
 | `list_users` | Read | List tenant users. |
 
 ## Notes
