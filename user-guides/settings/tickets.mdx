@@ -52,37 +52,80 @@ Configure default values for new tickets:
 
 ## Display Groups
 
-Display Groups organize how tickets appear in the MSPortal interface. This helps users quickly find relevant tickets.
+Display Groups are reusable display-settings configurations that you assign to user **roles**. A single group controls three things at once for everyone holding that role:
+
+- **Ticket Visibility** - which tickets the role can see (all company tickets, only their own, or only their location's)
+- **Board, queue, and ticket-type scope** - which PSA boards/queues are visible and which ticket types are hidden
+- **Field Visibility** - which ticket fields (columns) appear in the tickets list
+
+This is how you restrict company (end-customer) users so that most people see only their own tickets, while specific roles can see everything for the company.
 
 <Frame>
   <img src="/images/settings/settings-tickets-display-groups.png" alt="Ticket Display Groups" />
 </Frame>
 
-### Creating Display Groups
+### Ticket Visibility Options
+
+When you create a Display Group, the **Ticket Visibility** dropdown sets the scope of tickets the assigned role can see:
+
+| Option | What the role sees |
+|--------|--------------------|
+| **All Tickets** | Every ticket for the company. Use for managers, owners, or anyone who needs full visibility. |
+| **Same Location Only** | All tickets opened at the user's assigned location. Use for site or branch managers. |
+| **Own Tickets Only** | Only tickets the user opened or is the contact on. Use for standard company users who should not see their coworkers' tickets. |
+
+<Note>
+**Same Location Only** relies on each company user having a **location** assigned on their profile. If a user has no location set, they will not see location-scoped tickets. Set a user's location from **Settings → Companies → (company) → Users**, or on the user's profile.
+</Note>
+
+### Creating a Display Group
 
 <Steps>
-  <Step title="Click Add Group">
-    Select the **+ Add Display Group** button
+  <Step title="Open Display Groups">
+    From **Settings → Tickets**, open the **Display Groups** tab, then click **Create Group**.
   </Step>
-  <Step title="Name the Group">
-    Enter a descriptive name (e.g., "Critical Issues", "Pending Approval")
+  <Step title="Name and describe the group">
+    Enter a **Name** (e.g., "Standard Technician" or "Manager View") and an optional **Description** explaining what the group shows and who should use it.
   </Step>
-  <Step title="Set Filter Criteria">
-    Define which tickets appear in this group based on status, priority, or type
+  <Step title="Choose Ticket Visibility">
+    Set **Ticket Visibility** to **All Tickets**, **Same Location Only**, or **Own Tickets Only** based on what this role should be able to see.
   </Step>
-  <Step title="Configure Display Order">
-    Drag groups to reorder how they appear in the tickets view
+  <Step title="Select the PSA provider">
+    If you have more than one PSA integration connected, choose the **PSA Provider** this group applies to. With a single PSA, this is selected automatically.
+  </Step>
+  <Step title="Assign roles">
+    Use **Assigned Roles** to pick one or more roles. Everyone holding an assigned role inherits this group's visibility and field settings. A role can be assigned to one group per PSA provider.
+  </Step>
+  <Step title="(Optional) Narrow boards and ticket types">
+    Use **Restrict to Boards / Queues** to limit the role to specific boards or queues (leave empty to allow all). Use **Hide Ticket Types** to keep selected ticket types out of this role's list (leave empty to show all). New boards and types added in your PSA stay visible automatically.
+  </Step>
+  <Step title="Choose Field Visibility">
+    In the **Field Visibility** panel, check the ticket fields (columns) that should appear for this role. Fields are grouped into sections such as Basic Information, Categories, Assets and Location, Timing and SLA, and Resolution. Use **Select All Fields** or a section's **All in...** checkbox to toggle groups quickly.
+  </Step>
+  <Step title="Save">
+    Click **Create Group** (or **Update Group** when editing). The settings apply to the assigned roles immediately.
   </Step>
 </Steps>
 
-### Common Display Group Examples
+### Example: Restrict Most Users to Their Own Tickets
 
-| Group Name | Filter Criteria | Use Case |
-|------------|-----------------|----------|
-| **Open Tickets** | Status = Open | All active tickets |
-| **Awaiting Response** | Status = Waiting on Customer | Tickets needing customer input |
-| **Escalated** | Priority = Critical | High-priority issues |
-| **Scheduled** | Status = Scheduled | Planned work |
+To let only certain company users see all company tickets while everyone else sees just their own, create two Display Groups for the same PSA provider:
+
+<Steps>
+  <Step title="Create a 'Standard User' group">
+    Set **Ticket Visibility** to **Own Tickets Only** and assign it to the role most company users hold (e.g., "Company User").
+  </Step>
+  <Step title="Create a 'Company Admin' group">
+    Set **Ticket Visibility** to **All Tickets** and assign it to the role your trusted contacts hold (e.g., "Company Admin").
+  </Step>
+  <Step title="Move users between roles as needed">
+    Promote a company user to the all-access role to give them full visibility, or move them back to the standard role to limit them to their own tickets. No per-user ticket configuration is required.
+  </Step>
+</Steps>
+
+<Tip>
+Visibility is enforced everywhere tickets appear - the tickets list, dashboards, and ticket trends - not just on the main tickets page.
+</Tip>
 
 ## Allowed Statuses
 
