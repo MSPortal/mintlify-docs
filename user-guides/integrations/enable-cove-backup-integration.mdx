@@ -31,7 +31,7 @@ Before connecting to MSPortal.ai, you need to create an API user in Cove with th
   </Step>
 
   <Step title="Select Customer">
-    In the customer selection dropdown, select your company/partner name. This is the account that the API user will be associated with.
+    In the customer selection dropdown, select your **top-level reseller name** (the account at the very top of the Customer hierarchy), not an individual client. This is the account that the API user will be associated with, and it gives the API user visibility into all of your sub-customers.
   </Step>
 
   <Step title="Configure User Details">
@@ -62,9 +62,23 @@ Before proceeding to MSPortal, ensure you have the following:
 
 | Information | Description |
 |-------------|-------------|
-| **Partner Name** | Your company name as shown in the Cove management console |
+| **Partner Name** | Your **top-level reseller name** exactly as shown in the Cove management console (see below) |
 | **API User Name** | The login name you created (e.g., `MSPortal`) |
 | **API Token** | The token generated when creating the API user |
+
+#### Finding your Partner Name
+
+The Partner Name is your **top-level reseller account**, found at the top of the **Customer** dropdown in the Cove management console. It is the parent account that your individual clients are nested under, not one of those clients.
+
+In the example below, the Partner Name is `MSPortal.ai` (the top-level reseller). `Acme Corp` is a sub-customer nested beneath it and would **not** be used as the Partner Name.
+
+<Frame>
+  <img src="/images/Cove/Cove Company.png" alt="Cove management console Customer dropdown showing the top-level reseller name above its nested sub-customers" />
+</Frame>
+
+<Warning>
+  Enter the **top-level reseller name**, not an individual client name. Using a sub-customer name is the most common cause of a failed connection test.
+</Warning>
 
 ---
 
@@ -96,12 +110,12 @@ Enter your Cove API credentials to establish the connection.
 
     | Field | Description |
     |-------|-------------|
-    | **Partner Name** | Your company name as shown in the Cove management console |
+    | **Partner Name** | Your **top-level reseller name** exactly as shown at the top of the Customer hierarchy in the Cove management console (e.g., `MSPortal.ai`), not an individual client |
     | **API User Name** | The login name of your API user (e.g., `MSPortal`) |
     | **API Token** | The token you copied when creating the API user |
 
     <Note>
-      The API User Name is the login name you created, not an email address.
+      The Partner Name is your top-level reseller account, not one of your individual clients. The API User Name is the login name you created, not an email address.
     </Note>
   </Step>
 
@@ -109,7 +123,7 @@ Enter your Cove API credentials to establish the connection.
     Click **Test Connection** to verify your credentials. You'll see a green "Connection successful" message when successful.
 
     If the connection fails:
-    - Verify your Partner Name matches exactly as shown in Cove
+    - Verify your Partner Name is your **top-level reseller name** (not an individual client) and matches exactly as shown in Cove
     - Check that your API User Name is correct (the login name, not email)
     - Ensure the API token is copied correctly without extra spaces
     - Verify the API user has the Supporter role
@@ -221,7 +235,7 @@ After setup, you can manage your integration from **Settings** > **Integrations*
 
 | Issue | Solution |
 |-------|----------|
-| Connection test fails | Verify Partner Name, API User Name, and Token are correct |
+| Connection test fails | Verify Partner Name (your top-level reseller name, not a client), API User Name, and Token are correct |
 | No partners appear | Click "Sync Partners" to fetch data from Cove |
 | Devices not showing | Ensure the partner is mapped to a company first |
 | Quick Match didn't work | Use manual mapping for partners with different names in Cove vs MSPortal |
