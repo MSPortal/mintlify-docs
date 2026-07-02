@@ -3,6 +3,108 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 3, 2026
+
+### Smarter Ticket Templates: PSA Classification and Conditional Sections
+
+Ticket templates can now route work into your PSA exactly the way your service board expects, and the form itself adapts as the requester answers.
+
+**Key Features:**
+- **PSA Classification field**: Add a classification field to any template so the requester picks the ticket Type and Subtype (ConnectWise and Autotask) or Category (Halo) right on the form. The selection is applied to the ticket created in your PSA.
+- **Control the choices**: Limit each field to an approved list of types or categories, decide whether requesters can pick a subtype, and scope ConnectWise options to the template's default board.
+- **Conditional sections**: Whole sections of a template now show or hide based on earlier answers, so you can build branching forms where entire tabs of questions only appear when they're relevant.
+- **Default subtype**: Template PSA settings now support a default ticket subtype alongside the existing default type and category.
+
+[Documentation: Ticket Templates](/user-guides/ticketing/how-to-create-a-ticket-template)
+
+### Documentation Hub Redesign
+
+The client-facing Documentation Hub gets a full redesign with a new layout builder, so you decide exactly how each client's resource portal looks and who sees what.
+
+**Key Features:**
+- **Layout builder with live preview**: Arrange resources into drag-and-drop sections with list, grid, compact, or spotlight styles, one to three columns, icons, and accent colors. Layout changes save automatically as you work.
+- **Featured resources**: Star your most important links and documents to surface them in a featured row at the top of the hub.
+- **Choose who sees each resource**: Every resource has a new "Who can see this" control, so you can show it to everyone, limit it to specific groups, or inherit the underlying document's visibility.
+- **Appearance controls**: Set the hub's density, hero style, and featured layout to match how much content each client has.
+- **A better everyday hub**: Faster search, company filters that work on every tab, clear loading and error states, and documents can now be moved into folders from a menu instead of drag-and-drop only.
+
+[Documentation: Documentation](/user-guides/documentation/index)
+
+### Customize Your Sidebar
+
+Arrange MSPortal's navigation the way your team and your clients work. One default flows from your tenant to each company to the individual user.
+
+**Key Features:**
+- **A default for everyone**: Set the sidebar order all users see, MSP staff and client users alike, from Settings, Navigation. Drag and drop items between sections, reorder sections, and create your own custom categories.
+- **Per-company overrides**: Pick a company to give it its own sidebar arrangement. Companies without a saved order follow the all-companies default, and a guarded Reset All Company Overrides action clears every override at once.
+- **Your own order**: Every user can still arrange their own sidebar from Settings, User Settings. A personal order takes priority over company and tenant defaults, and pinned items stay on top.
+- **Hide what you don't use**: Drag modules into a Disabled Modules zone to remove them from the sidebar. Modules hidden at a higher level are locked at the levels below, so companies and users cannot re-enable them. Hiding only affects the sidebar; access is still controlled by user roles.
+- **Delegate safely**: A new Navigation (Sidebar) permission in the role editor controls who can manage sidebar defaults, separate from full Tenant settings access.
+
+### A Guided Playbook Library, with 18 Deep Best-Practice Playbooks
+
+The Playbooks page is now a guided library instead of one long table, and the new Standard Playbooks arrive as full best-practice reviews: 274 ready-to-import compliance checks across 18 playbooks, each with how-to-check guidance, remediation steps, business impact, and references to NIST CSF 2.0, CIS Controls v8.1, UK Cyber Essentials, and ISO/IEC 27001.
+
+**Key Features:**
+- **Two clear paths**: Start with Best Practices, curated review checklists built for MSPs, or browse Security Frameworks for formal hardening baselines. CIS Benchmarks are available today, with NIST CSF 2.0, ISO/IEC 27001, and Cyber Essentials on the way.
+- **Cover the core MSP domains**: Workstations, Servers, Microsoft 365, Identity & Access, Email Security, Endpoint Security, Patch & Vulnerability Management, Backup & Recovery, Firewalls, Networking & Wi-Fi, Physical Security, Policies & Governance, Asset Inventory & Documentation, Incident Response, Vendor Risk, Cloud/SaaS Administration, Mobile/BYOD, and Security Awareness, each with 12 to 20 checks.
+- **CIS Benchmarks organized by product**: Browse benchmarks grouped into operating systems, cloud and productivity, servers and infrastructure, and browsers, with Level 1 and Level 2 profiles side by side and an explanation of when to use each.
+- **Search, multi-select, and import tracking**: Search the whole library, tick playbooks as you browse, and add them in one action. Playbooks you've already imported are badged, and re-importing warns you before it creates a second copy.
+- **Import with control**: The import dialog shows each playbook's destination folder and lets you pick the status list to use. Device playbooks suggest matching device types up front (fully adjustable), so imported check groups attach to the right equipment automatically.
+
+[Documentation: Playbooks](/user-guides/settings/playbooks)
+
+### Build Compliance Checks with AI, from a Single Sentence
+
+Tell MSPortal what you need, like "Build the compliance checks for a Sophos firewall", and AI plans the full set of checks for you. You stay in control: approve the plan before anything is generated, and fine-tune individual results with follow-up notes.
+
+**Key Features:**
+- **Two input styles**: Describe what you need and AI plans the right number of checks for the request, from a single requirement to a full product review (up to 40 per run). Or switch the input type to list mode, where each line becomes exactly one check.
+- **Approve the plan first**: For described requests, AI shows the planned check list before generating. Untick anything you don't want and only the approved checks are built, each written in the context of your original request. List input skips the review step entirely.
+- **Refine a single check**: Not happy with one result? Add a note like "Make the steps more general" and AI rewrites just that check while you review the rest.
+- **Region-aware references**: Generated checks cite the compliance frameworks that apply where you operate, detected from your tenant settings. UK organisations see Cyber Essentials and NCSC mappings, Australian organisations see the Essential Eight, US organisations see NIST and CIS, and other regions get their own frameworks instead of another country's scheme.
+- **Save into folders**: Send the generated checks straight to a compliance folder, or create a new folder without leaving the dialog.
+
+[Documentation: Compliance Settings](/user-guides/settings/compliance)
+
+### Compliance Checks: Bulk Actions Now Include AI Translation
+
+The compliance check browser's bulk tools get a major addition: translate your compliance library into any language without rewriting it by hand.
+
+**Key Features:**
+- **Translate in bulk**: Select up to 50 compliance checks and translate every field (title, description, how to check, why it matters, remediation, and more) in one run.
+- **Any language**: Pick one of the 15 supported portal languages or type a custom target language.
+- **Review before applying**: Translations stream into a side-by-side preview of original and translated text, and you choose exactly which rows to apply.
+- **Bulk actions in the header**: Translate, approve, and delete selected checks straight from the page header whenever checks are selected.
+
+### Language Defaults for Your Tenant, Companies, and Users
+
+Set the language once and let it flow to the right people. MSPortal now resolves language from the user, then their company, then your tenant default.
+
+**Key Features:**
+- **Tenant default**: Pick a tenant-wide default language in Tenant Settings.
+- **Per-company override**: Set or clear a language for one or many companies at once with the new bulk Set Language action in Company Settings, ideal for clients who work in a different language than your team.
+- **Users can inherit**: Users can now choose "Use company/tenant default" instead of a fixed language.
+- **Emails included**: Outgoing MSPortal emails now use each recipient's resolved language, not just the portal UI.
+
+### Improvements
+
+- **Tickets**: Autotask closed statuses are now detected correctly in any language, and a new Closed Statuses setting in the Autotask integration lets you define exactly which statuses count as closed. Fixes open-ticket counts for PSAs running in languages other than English.
+- **Client portal**: Contacts deactivated in ConnectWise, Halo, or Autotask now automatically lose portal access, and disabled users are hidden from company user lists by default.
+- **Client portal**: Per-role ticket visibility rules now apply everywhere tickets appear, including dashboards, widgets, and filters, not just the tickets list.
+- **Devices**: A new optional Device Age column shows each device's age in years based on its warranty start date. Sortable, filterable, and included in CSV export.
+- **Reporting**: Microsoft 365 license blocks and the Licenses page now exclude free, trial, and storage add-on SKUs and inflated tenant-level allocations, so license counts and utilization reflect reality. A new "All licensing info" option includes full per-SKU detail in generated reports.
+- **Reporting**: The report AI sidebar gains an Edit Scope selector, so an AI edit can target the best-matching section, a specific section you choose, or the full report. Report widgets also get a one-click size switcher, and the Completed Tickets by Priority block now aggregates parent and child companies correctly.
+- **Planner**: Attachments are easier to find with a paperclip and count badge on the item editor, and Ask AI answers now render with proper headings, bold text, and tables.
+- **Microsoft 365**: The Secure Score overview loads much faster for large client bases, adding a recommendation to the Planner now always carries its remediation steps, and users with read-only access can now export the Licenses and Users tables.
+- **Companies**: Import dialogs support fullscreen mode with a live selected count, and DNSimple domains and Acronis tenants can now be mapped to companies.
+- **Onboarding**: Portal admins can remove a contact from an onboarding portal, and client form submissions now show clear inline validation messages instead of failing silently.
+- **Branding**: Tenant logos now fall back to a default image instead of ever rendering broken, and MSPortal's support address is no longer shown to your client users anywhere in the portal.
+- **AI**: Generated lists render cleanly without stray bullets, Improve Text no longer inserts code markers, and report generation is upgraded to Claude Sonnet 5.
+- **AI assistant**: Questions about "today", "this week", or "this quarter" now resolve dates in your tenant's configured timezone instead of a fixed North American timezone, so answers match your working day wherever you are.
+- **Planner**: Due dates in the item selection dialog no longer display one day early, and quarter date filters in Planner Analytics now follow your tenant's timezone.
+- **MCP server**: Connected AI assistants can now read a company's synced Autotask account notes and work with ticket templates.
+
 ## June 26, 2026
 
 ### AI Ticket Summaries
