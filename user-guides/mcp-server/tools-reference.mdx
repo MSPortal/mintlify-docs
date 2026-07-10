@@ -4,7 +4,7 @@ description: "Every tool the MSPortal MCP server exposes, grouped by module, wit
 icon: "screwdriver-wrench"
 ---
 
-The MSPortal MCP server exposes **188 tools** across **28 modules**. An AI assistant only ever sees the tools that your granted [scopes](/user-guides/mcp-server/index#what-an-assistant-can-do) and MSPortal permissions allow, so the working set is a subset of the list below.
+The MSPortal MCP server exposes **192 tools** across **29 modules**. An AI assistant only ever sees the tools that your granted [scopes](/user-guides/mcp-server/index#what-an-assistant-can-do) and MSPortal permissions allow, so the working set is a subset of the list below.
 
 <Info>
 **Access column:** *Read* tools never change data. *Write (confirm)* tools return a confirmation step before anything is committed, so the assistant tells you what it is about to do first. *Write* tools apply immediately and are limited to low-risk, self-scoped actions (for example marking your own notifications as read).
@@ -12,15 +12,18 @@ The MSPortal MCP server exposes **188 tools** across **28 modules**. An AI assis
 
 ## Core
 
-**Scopes:** `companies.read`, `goals.read`, `planner.read`, `reports.read`, `tickets.read`
+**Scopes:** `companies.read`, `companies.write`, `goals.read`, `planner.read`, `reports.read`, `tickets.read`
 
 | Tool | Access | Description |
 |------|--------|-------------|
 | `get_company` | Read | Get one company by ID, including its custom field values (label → value). |
+| `get_company_defaults` | Read | Get one company's defaults: hardware/software standards, workplace and security defaults, ticket defaults, onboarding checklist, and the AI-context fields that feed the AI assistant and new-ticket generation. |
 | `get_current_user` | Read | Return the connected MSPortal user, tenant, user type, company, and OAuth grant summary. |
 | `list_companies` | Read | List companies visible to the connected user. |
+| `list_company_account_notes` | Read | List synced Autotask account/company notes for one company, newest activity first. |
 | `search_portal` | Read | Search across visible companies, tickets, goals, planner items, and reports with small capped result sets. |
 | `submit_feedback` | Read | Send product feedback to the MSPortal team. Use this whenever the user asks for something the MCP server cannot do (a missing tool, capability, or data set), or wants to report a bug or suggestion. Summarize what the user was trying to accomplish in the message. |
+| `update_company_defaults` | Write (confirm) | Stage or apply a partial update to one company's defaults (standards, workplace/security defaults, ticket defaults, AI context). Only the provided fields change; null clears a field. |
 
 ## Tickets
 
@@ -35,6 +38,14 @@ The MSPortal MCP server exposes **188 tools** across **28 modules**. An AI assis
 | `add_ticket_note` | Write (confirm) | Stage or post a note to a ticket. The note is written to the client's PSA (Halo, ConnectWise, Autotask, Syncro) via its API, not just locally. |
 | `create_ticket` | Write (confirm) | Stage or create a PSA ticket through the tenant's active PSA integration. |
 | `update_ticket_status` | Write (confirm) | Stage or update a ticket's status in the client's PSA via its API. statusExternalId must come from list_ticket_status_options. |
+
+## Ticket Templates
+
+**Scopes:** `ticket_templates.write`
+
+| Tool | Access | Description |
+|------|--------|-------------|
+| `create_ticket_template` | Write (confirm) | Stage or create a reusable parent ticket template definition with metadata, sections, fields, and optional rules. Does not submit a ticket and does not create template branches or visibility assignments. |
 
 ## Devices
 

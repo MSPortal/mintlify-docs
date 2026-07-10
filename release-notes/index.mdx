@@ -3,6 +3,110 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 10, 2026
+
+### Reporting: Redesigned Block Editing and Per-Block Date Ranges
+
+We reviewed the edit menu on every one of the 69 reporting blocks and rebuilt them around one consistent, more capable editing experience. Every block now shares the same top-level controls, more blocks are editable than before, and each block can set its own date range.
+
+**Key Features:**
+- **Per-block date range**: Any data block can override the report's date range on its own. Choose a relative preset (Last 7, 30, or 90 days, Last 6 or 12 months, previous week, month, or quarter, or month, quarter, and year to date), a custom rolling number of days, a fixed range, or "All available data". Relative presets stay rolling, so a scheduled report always shows the most recent window.
+- **Consistent controls on every block**: A shared General section now sits at the top of each block's editor with the title, title size, and header options (show header, show icon, show date subtitle). Settings that used to be missing on some blocks are now available everywhere.
+- **Editing unlocked on more blocks**: Blocks that previously had no options to change, including customer satisfaction (CSAT), Huntress detection trends, Liongard detections, training summaries, and the weekly hours and completed-ticket blocks, now have full edit menus.
+- **Cleaner charts and legends**: Chart legends were standardized so they stay compact and readable, giving the chart itself more room instead of floating in empty space.
+- **Autosave**: Block edits save as you make them, so there is no separate Save step to remember.
+
+[Documentation: Reporting](/user-guides/reporting/index)
+
+### Report Across a Parent Company and Its Children
+
+In the report builder, selecting a parent company now brings its direct child companies into the same report. Every block reflects the parent plus its children, so you can report on an entire company family at once.
+
+**Key Features:**
+- **Family-wide totals**: Compliance progress, Cork compliance and vulnerabilities, Microsoft 365 licensing and Secure Score, and budget forecasts all roll the parent and its direct children into combined figures.
+- **Consistent scope**: Blocks that used to look at a single company now honor the full parent-plus-children scope, matching how the company selector already handles parent companies.
+- **Everywhere a report renders**: Saved reports, shared links, PDF exports, and scheduled report emails all aggregate the family, not just the builder preview.
+- **Combined scheduled reports**: Schedules that target a dynamic set of companies can now send one combined report for the whole set, instead of a separate report per company.
+
+### Connect Multiple Accounts from the Same Integration
+
+You can now connect more than one account for the same integration. If you manage two Datto RMM instances, several backup tenants, or multiple accounts with any non-PSA provider, each one gets its own connection.
+
+**Key Features:**
+- **Multiple instances per provider**: Add as many connections as you need for RMM, backup, security, distributor, DNS, and payment providers.
+- **Name each connection**: Give every instance a nickname so they are easy to tell apart, and rename them anytime.
+- **Manage each one independently**: The integrations page lists every connection on its own row with its own status, last sync time, and disconnect action, next to an Add Integration catalog for connecting more.
+
+ConnectWise, Autotask, Halo, and Syncro, along with a few other single-account providers, stay one connection per tenant.
+
+[Documentation: Integrations](/user-guides/settings/integrations)
+
+### Three New Integrations
+
+MSPortal connects to three more platforms this release.
+
+**Key Features:**
+- **Breach Secure Now**: Sync security awareness training, phishing simulation, and breach-risk metrics into the Security Training area.
+- **QuoteWerks**: Sync quotes, customers, and line items from QuoteWerks alongside your other quoting data.
+- **Huntress Security Awareness Training**: Bring Huntress SAT accounts, training progress, phishing campaigns, and reporting into MSPortal. The Security Training page now brings Phin, Breach Secure Now, and Huntress SAT together in one place.
+
+[Documentation: Integrations](/user-guides/integrations/index)
+
+### Export All Your Data
+
+Settings, Import/Export now covers every data type created and managed in MSPortal, so you can pull a complete extract of your data at any time.
+
+**Key Features:**
+- **15 new export types**: Contacts & Users, Meetings (with agenda items, action items, and notes), Budgets and Budget Products, Survey Responses, Training Records, Custom Field Values, Tool Stack, Goal Updates, Onboarding Tasks, Broadcasts, and AI Assistant Conversations join the existing company, device, compliance, planner, and goals exports.
+- **Export All (ZIP)**: One click exports all 23 data types and downloads them as a single ZIP archive.
+- **Complete extracts for large tenants**: Exports no longer cap out at 1,000 rows per file.
+
+Data synced from your PSA (tickets, invoices) is not included by design: your PSA remains the system of record.
+
+[Documentation: Import & Export](/user-guides/settings/import-export)
+
+### Ticketing Audit Trail and Webhook Delivery Log
+
+Every ticket-producing action is now recorded where you can see it. When someone asks why a form submission never became a ticket, the answer is in the portal.
+
+**Key Features:**
+- **Ticketing tab on the Audit page**: Every PSA ticket creation (success and failure), Flow webhook delivery, and email fallback is listed, with filters for event type, status, company, and date.
+- **Recent deliveries in the template editor**: The Flow webhook section of each template shows its last 20 delivery attempts with HTTP status, response time, and the error returned, including test sends.
+- **Every source covered**: Tickets submitted from portal forms, the AI assistant, the Chrome extension, and the public API are all recorded.
+
+[Documentation: Flow Webhooks](/user-guides/ticketing/flow-webhook-recipient)
+
+### AI Assistant: Answers from Your Company Standards
+
+The AI assistant now knows each company's documented defaults. Everything you enter under Settings, Companies, Defaults (company description, hardware and software standards, business hours, security requirements, ticket defaults, and special instructions) is available to the assistant when it answers questions about that company.
+
+**Key Features:**
+- **Grounded answers**: Ask "what's the standard laptop for this client?" or "do they require MFA?" and the assistant answers from the company's documented standards.
+- **No guessing**: If a company's standards aren't filled in, the assistant says they aren't documented instead of inventing an answer.
+- **Manage defaults from MCP**: New get and update company defaults tools in the MCP server let you read and maintain the same records from Claude or any other MCP client.
+
+[Documentation: AI Assistant](/user-guides/ai-assistant/index)
+
+### Budgets: Import from Excel and Autosave
+
+Building a budget is faster this release. Start from a spreadsheet you already have, and stop worrying about saving as you work.
+
+**Key Features:**
+- **Import from Excel**: Upload an Excel budget and map its columns to bring an entire year of line items into MSPortal at once.
+- **Autosave**: Budget edits save automatically as you make them.
+
+[Documentation: Budgets](/user-guides/budgets/index)
+
+### Improvements
+
+- **Edit client company users**: Update a client portal user's email address, role, and company assignment directly from the company's Users list.
+- **Ticket Trends: choose your analysis window**: Ticket Trends now detects the weeks that have data and lets you pick the window to analyze, instead of always using a fixed 12 weeks.
+- **ConnectWise contacts created automatically**: When a client submits their first portal ticket before ConnectWise has created a contact for them, MSPortal now finds or creates the contact so the ticket is attributed to the right person instead of the company default.
+- **Security pages hide unmapped organizations**: The Huntress security pages and detection-trend reporting no longer show data for Huntress organizations that are not mapped to one of your companies.
+- **Planner import finds every opportunity**: Import Opportunities no longer hides opportunities that have no close date in your PSA, and the Select Opportunity picker now shows company, value, due date, and status for each result.
+- **Shared report links fixed**: Shared reports now render their blocks, show the correct company name, and export to PDF reliably.
+- **Reporting accessibility**: Chart drilldowns can be opened from the keyboard, and truncated labels reveal their full text on hover.
+
 ## July 3, 2026
 
 ### Smarter Ticket Templates: PSA Classification and Conditional Sections

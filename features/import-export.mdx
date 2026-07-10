@@ -25,6 +25,26 @@ The following data types can be exported and imported:
 - **Planner Items** - Project and task planning items
 - **Goals** - Business and technical goals
 
+These data types are export-only:
+
+- **Contacts & Users** - Portal users and company contacts
+- **Meetings** - Meeting records with notes and schedule
+- **Meeting Action Items** - Follow-up tasks from meetings
+- **Meeting Notes** - Per-user notes attached to meetings
+- **Meeting Agenda Items** - Agenda entries for meetings
+- **Budgets** - Budgets with one row per budget line item
+- **Budget Products** - Your budgeting product catalog
+- **Survey Responses** - CSAT, NPS, and general survey responses
+- **Training Records** - Training enrollments with progress and certificates
+- **Custom Field Values** - Values of your custom fields across all entity types
+- **Tool Stack** - Per-company tool stack status and notes
+- **Goal Updates** - Progress update history on goals
+- **Onboarding Tasks** - Client onboarding tasks with status and completion dates
+- **Broadcasts** - Broadcast messages with content and delivery counts
+- **AI Assistant Conversations** - AI assistant chat history
+
+Exports only include data created and managed in MSPortal. Data synced from your PSA (tickets, invoices) is not included: your PSA remains the system of record.
+
 ## Exporting Data
 
 ### How to Export
@@ -36,6 +56,10 @@ The following data types can be exported and imported:
 5. Click **Export Data**
 
 The system will generate a CSV file and automatically download it to your computer.
+
+### Export All
+
+Click **Export All (ZIP)** to download every data type at once as a single ZIP archive of CSV files (named `msportal_export_{company}_YYYYMMDD.zip`). Use this for backups, compliance evidence, or a complete copy of your data when offboarding.
 
 ### Export File Format
 

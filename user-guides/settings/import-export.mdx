@@ -84,6 +84,29 @@ Use "Create and update" for initial imports and migrations. Use "Update only" wh
 | **Planner** | Planner items and roadmap data |
 | **Goals** | Strategic goals and progress |
 | **Company Roles** | User assignments to company roles |
+| **Contacts & Users** | Portal users and company contacts (name, email, title, department, status) |
+| **Meetings** | Meeting records with notes, schedule, and status |
+| **Meeting Action Items** | Follow-up tasks from meetings with assignee, due date, and status |
+| **Meeting Notes** | Per-user notes attached to meetings |
+| **Meeting Agenda Items** | Agenda entries for meetings with type, content, and notes |
+| **Budgets** | Budgets with one row per budget line item |
+| **Budget Products** | Your budgeting product catalog (name, SKU, vendor, pricing) |
+| **Survey Responses** | CSAT, NPS, and general survey responses with scores and feedback |
+| **Training Records** | Training enrollments with progress, scores, and certificate numbers |
+| **Custom Field Values** | Values of your custom fields across all entity types |
+| **Tool Stack** | Per-company tool stack status and notes |
+| **Goal Updates** | Progress update history on goals |
+| **Onboarding Tasks** | Client onboarding tasks with status, evidence, and completion dates |
+| **Broadcasts** | Broadcast messages with content and delivery counts |
+| **AI Assistant Conversations** | AI assistant chat history (one row per message) |
+
+<Note>
+The types from Contacts & Users onward are export-only: they appear in the Export dropdown but cannot be imported. Exports only include data created and managed in MSPortal — data synced from your PSA (tickets, invoices) is not included because your PSA remains the system of record.
+
+Standards, Company Roles, Custom Field Values, and Broadcasts are tenant-level exports: the company selector does not apply to them, and their files are always labeled `all`.
+
+Onboarding exports cover task data only. Client credentials stored during onboarding are encrypted and are never included in any export. Uploaded files (documents, meeting uploads) are also not part of CSV exports.
+</Note>
 
 ### Export Process
 
@@ -101,6 +124,12 @@ Use "Create and update" for initial imports and migrations. Use "Update only" wh
   </Step>
 </Steps>
 
+### Export All
+
+Click **Export All (ZIP)** to download every data type in one operation. Each data type is exported as its own CSV file and bundled into a single ZIP archive. The selected company scope applies to the whole bundle.
+
+Use this when you need a complete copy of your MSPortal data, for example for backup, compliance evidence, or offboarding.
+
 ### Export File Naming
 
 Exported files are automatically named with the format:
@@ -110,6 +139,8 @@ Exported files are automatically named with the format:
 ```
 
 Example: `companies_export_all_20251230.csv`
+
+Export All bundles are named `msportal_export_{company}_{date}.zip`.
 
 ## Download Templates
 
