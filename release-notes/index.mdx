@@ -3,6 +3,73 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 14, 2026
+
+### The New Calendar
+
+The calendar was rebuilt this release, inside and out. Every view was redesigned, and scheduling now works the way you'd expect from a modern calendar: drafts, dependable Microsoft 365 sync, and one clean invitation per meeting.
+
+**Key Features:**
+- **Redesigned views**: Month, week, day, and year views were rebuilt with cleaner event cards, better tooltips, and a new filter drawer, so a busy week stays readable.
+- **Draft meetings**: Save keeps a meeting as a draft that only your team sees. Nothing goes out to participants until you choose Save & Send.
+- **One clean invitation**: Each meeting creates a single organizer-owned event in Microsoft 365 with deduplicated attendees and one Teams link, so participants no longer see duplicate invites or competing meeting links.
+- **Teams on your terms**: Turn the Teams meeting link on or off for each meeting.
+- **Smarter recurrence**: Quarterly recurrence joins the existing options, you control exactly when a series ends, and you can edit a single occurrence or the whole series.
+- **Timezone-safe scheduling**: Meetings land at the right local time for every participant, including across daylight saving transitions.
+- **Works without Microsoft 365**: Tenants without a connected calendar send standard email calendar invitations (ICS) instead.
+- **Book meetings from AI**: New MCP server tools let you list, create, update, and cancel your own meetings from Claude or any MCP client.
+
+[Documentation: Calendar](/user-guides/calendar/index)
+
+### Change Management
+
+A controlled path for risky work: a technician requests a change from a ticket, the client approves it, and the approved change lands on a shared change calendar where conflicts and freeze windows are visible before anything is touched.
+
+**Key Features:**
+- **Change approvals from the ticket**: Request approval right on the ticket. The people who hold the approver role at that client review it and decide, with a decision note, and everyone involved is notified.
+- **Change calendar**: Approved and scheduled changes appear on the calendar as their own layer, next to your meetings and appointments.
+- **Freeze windows**: Define periods when changes should not happen, such as a client's quarter-end close. Scheduling a change into one raises a warning first.
+- **Unscheduled changes**: A drawer lists approved changes that still need a slot on the calendar, so nothing approved falls through the cracks.
+- **PSA sync**: Approvals can be managed in MSPortal or synced with Autotask, and changes created directly in your PSA appear on the same calendar.
+
+[Documentation: Change Management](/user-guides/ticketing/change-management)
+
+### Client Portal Status Banners
+
+Post outage and maintenance notices straight to your client portal, with a status-page style update timeline as the incident evolves.
+
+**Key Features:**
+- **Severity, scheduling, and targeting**: Choose info, warning, or critical, show the banner immediately or schedule a window, target all clients or specific companies, and decide whether users can dismiss it.
+- **Update timeline**: Post updates as the situation changes. They render as a timeline on the banner, and posting an update brings the banner back for anyone who dismissed the earlier version.
+- **The assistant knows**: Active notices are shared with the AI assistant, so a client asking "is email down?" gets an answer from the known incident instead of filing another ticket.
+- **Managed from Broadcasts**: A new Portal Banner tab with a live preview, an active toggle, and the full update history.
+
+[Documentation: Broadcasts](/user-guides/broadcasts/index)
+
+### AI Assistant: Ticket Answers and Replies
+
+The assistant on the home page and in the Chrome extension can now work with existing tickets, not just create new ones.
+
+**Key Features:**
+- **Ask about any ticket**: "What's the status of my new computer request?" pulls up the ticket and answers from its latest updates.
+- **Search that finds everything**: Ticket search now matches title, ticket number, and company name, and closed tickets are searchable too.
+- **Reply without leaving chat**: Ask the assistant to post a response on a ticket. It shows you the exact note text and posts it only after you confirm.
+
+[Documentation: AI Assistant](/user-guides/ai-assistant/index)
+
+### Make the Sidebar Your Own
+
+The sidebar navigation editor now goes beyond reordering the built-in pages.
+
+**Key Features:**
+- **Custom links**: Add up to 20 of your own links, such as documentation sites, vendor portals, or internal tools, and drag them anywhere in the sidebar. They open in a new tab.
+- **Pinned dashboards**: Search your dashboards and drag any of them into a sidebar section for one-click access.
+
+### Improvements
+
+- **Meeting agenda ticket search**: Linking tickets to a meeting is much faster to search on large tenants.
+- **Public API**: The calendar meeting endpoints support the same meeting features as the portal, including drafts and recurrence.
+
 ## July 10, 2026
 
 ### Reporting: Redesigned Block Editing and Per-Block Date Ranges
