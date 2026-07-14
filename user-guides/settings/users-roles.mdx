@@ -149,6 +149,29 @@ Permissions are organized into three sections:
 - Impersonate (start user impersonation)
 - Types management
 
+### Calendar Visibility
+
+The Calendar resource has an extra control beyond Read/Write/Manage. Click the chevron next to its **Read** checkbox to open the **Calendar visibility** popover, where you set how much of each calendar layer the role can see.
+
+| Layer | Scopes |
+|-------|--------|
+| **Appointments** | Disabled, Mine, Site, All |
+| **Changes** | Disabled, Mine, Site, All |
+
+| Scope | What the role sees |
+|-------|--------------------|
+| **Disabled** | Nothing from that layer, and its toggle is hidden from the calendar |
+| **Mine** | Only records the user is involved in |
+| **Site** | Records involving anyone at the user's own site |
+| **All** | Everything within the companies the user is already scoped to |
+
+- Each layer takes one scope, and selecting any scope grants Read on Calendar automatically.
+- **Site** behaves as **Mine** for users with no site set on their profile.
+- **Manage** on Calendar means **All** for both layers, and locks the dropdowns.
+- Freeze windows require **Manage** on Calendar to create, edit, or delete.
+
+See [Change Management](/user-guides/ticketing/change-management) for how these scopes affect the change calendar.
+
 ### Role Options
 
 | Option | Description |

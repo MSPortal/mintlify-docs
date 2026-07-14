@@ -1,0 +1,369 @@
+---
+title: 'Change Management'
+description: 'Request, approve, schedule, and track changes with the change calendar, freeze windows, and approval workflow'
+icon: 'shield-check'
+---
+
+Change management gives you a controlled path for risky work: a technician requests a change from a ticket, the client approves it, and the approved change lands on a shared change calendar where conflicts and freeze windows are visible before anything is touched.
+
+## Overview
+
+<CardGroup cols={2}>
+  <Card title="Change approvals" icon="shield-check">
+    Technicians request approval from the ticket. The people who hold the approver role at that client review it, with a decision note.
+  </Card>
+  <Card title="Change calendar" icon="calendar-days">
+    Approved and scheduled changes appear on the calendar as their own layer, next to appointments.
+  </Card>
+  <Card title="Freeze windows" icon="snowflake">
+    Define periods when changes should not happen. Scheduling into one raises a warning.
+  </Card>
+  <Card title="PSA sync" icon="rotate">
+    Changes created directly in Autotask, ConnectWise, or Halo appear on the same calendar, so you see everything in one place.
+  </Card>
+</CardGroup>
+
+---
+
+## Part 1: Turn On Change Approvals
+
+<Steps>
+  <Step title="Open ticket settings">
+    Go to **Settings > Tickets** and select the **Change Approvals** tab.
+  </Step>
+
+  <Step title="Enable approvals">
+    Turn on **Enable change approvals**. Technicians can then request approval from the ticket.
+  </Step>
+
+  <Step title="Choose the approval owner">
+    | Option | What it means |
+    |--------|---------------|
+    | **MSPortal owned** | MSPortal records the request, notifies approvers, and stores the decision. |
+    | **Autotask owned** | The request is also created in Autotask as a ticket change request approval, and approvals or rejections are pushed back to Autotask. |
+
+    <Note>
+      Tickets that do not come from Autotask always use MSPortal approvals, even when **Autotask owned** is selected.
+    </Note>
+  </Step>
+
+  <Step title="Choose the approver company role">
+    Select the **Approver company role**. When a change is requested on a ticket, everyone assigned to that company role at that client becomes an approver for the request.
+  </Step>
+
+  <Step title="Select the Autotask integration">
+    Only needed when the approval owner is **Autotask owned**. Pick the Autotask integration that owns the tickets.
+  </Step>
+
+  <Step title="Save">
+    Click **Save**. The panel confirms who requests will notify.
+  </Step>
+</Steps>
+
+<Warning>
+If nobody is assigned to the approver company role at a client, a change request for that client has no approvers and cannot be decided. Assign users to the role first, under **Settings > Users & Roles**.
+</Warning>
+
+---
+
+## Part 2: Request a Change from a Ticket
+
+The **Change Approval** panel appears on the ticket details view. It shows the current status, how many requests are pending, and the full history for that ticket.
+
+<Steps>
+  <Step title="Open the ticket and click Request">
+    Click **Request** in the Change Approval panel. The **Request Change Approval** dialog opens.
+  </Step>
+
+  <Step title="Describe the change">
+    | Field | Purpose |
+    |-------|---------|
+    | **Title** | Short name for the change. Prefilled from the ticket title. |
+    | **Scheduled start** / **Scheduled end** | The proposed maintenance window. |
+    | **Reason** | Why the change is needed. |
+    | **Impact** | Who and what is affected while it runs. |
+    | **Risk** | What could go wrong. |
+    | **Rollback plan** | How you undo it if it fails. |
+    | **Implementation plan** | The steps you will take. |
+    | **Testing plan** | How you will confirm it worked. |
+  </Step>
+
+  <Step title="Check for conflicts">
+    As soon as a start and end time are both set, a **Conflicts** preview appears in the dialog. It lists any overlapping changes and any freeze window the proposed window collides with, or confirms "No scheduling conflicts detected." Adjust the window before submitting, or continue if the overlap is acceptable.
+  </Step>
+
+  <Step title="Submit">
+    Click **Request Approval**. Approvers are notified in MSPortal and by email, and the request appears in the panel as **pending**.
+  </Step>
+</Steps>
+
+<Note>
+Requesting a change requires permission to update tickets. If the **Request** button is disabled, your role lacks ticket write access. If you see "Change approvals are not enabled", finish Part 1 first.
+</Note>
+
+---
+
+## Part 3: Approve or Reject
+
+Approvers see the pending request on the ticket, and get an in-app notification and an email that links straight to it.
+
+<Steps>
+  <Step title="Review the request">
+    Read the reason, impact, risk, and the plans, then check the proposed window against the client's operations.
+  </Step>
+
+  <Step title="Add a decision note (optional)">
+    Enter a note explaining the decision. It is stored with the request and included in the history.
+  </Step>
+
+  <Step title="Approve or reject">
+    Click **Approve** or **Reject**.
+
+    - An approved request **with** a scheduled window becomes **scheduled**, and appears on the change calendar.
+    - An approved request **without** a scheduled window becomes **approved**, and waits in **Unscheduled Changes** on the calendar until you give it a window.
+    - A rejected request is closed out with the note attached.
+
+    When the approval owner is **Autotask owned**, the decision is written back to the Autotask change request approval as well.
+  </Step>
+</Steps>
+
+<Info>
+Only the users assigned to the approver company role for that client can approve or reject. Everyone else sees the request but has no decision buttons, even administrators.
+</Info>
+
+---
+
+## Part 4: Run the Change
+
+Once a change is approved, the Change Approval panel offers the lifecycle actions:
+
+- **Start change** moves an approved or scheduled change to **in progress**
+- **Complete change** moves an in-progress change to **completed**
+
+Every request keeps a full history: who requested it, who approved or rejected it with their note, when it started, and when it completed. The panel also shows a chip per approver so you can see who has responded.
+
+<Note>
+Changes that came from your PSA are **provider-owned** and read-only in MSPortal. The panel shows "Provider-owned changes are read-only in MSPortal." in place of the lifecycle buttons. You can view them and open them in the PSA, but you run them where they were created.
+</Note>
+
+---
+
+## Part 5: The Change Calendar
+
+The calendar carries two layers, each with its own toggle in the calendar header. Both are on by default.
+
+| Layer | Shows |
+|-------|-------|
+| **Appointments** | MSPortal meetings, Microsoft 365 busy blocks, and PSA appointments, service calls, and schedule entries |
+| **Changes** | Scheduled changes, both MSPortal-owned and PSA-owned, plus freeze windows |
+
+Each toggle carries a small badge (**MINE**, **SITE**, or **ALL**) showing how much of that layer your role lets you see. A layer your role has no access to does not appear at all.
+
+Change events are colour-coded and badged so problems are visible at a glance: a provider tag (**CW**, **AT**, or **Halo**), a warning triangle when the change has a conflict, and a snowflake when it lands inside a freeze window. In Year view, a day with conflicts turns red.
+
+### Change details
+
+Click a change on the calendar to open its detail sheet. It shows the status, company and site, assigned technicians, risk, any conflicts, and the notes, with an **Open in provider** button that deep-links to the record in Autotask, ConnectWise, or Halo.
+
+<Note>
+If your role can see a change on the calendar but not the record it is linked to, the sheet shows "Details are hidden because this role does not have access to the linked record." The times, company, site, and conflict count still show, so scheduling stays accurate without exposing detail the role should not see.
+</Note>
+
+### Conflicts
+
+A change conflicts with another change when their windows overlap **and** they share the same site, the same company, or at least one assigned technician. Landing inside a freeze window also counts as a conflict.
+
+Conflicts surface in four places: the warning badge on the calendar card, the red **Conflicts** panel in the detail sheet ("2 overlapping changes", "This event overlaps a freeze window."), the red day bubble in Year view, and the live preview inside the Request Change Approval dialog.
+
+### Unscheduled Changes
+
+Click **Unscheduled Changes** in the calendar header to open the drawer. It lists approved changes that have no scheduled window yet, with an amber count badge so nothing is forgotten. Each entry shows the company, provider, status, site, and when it was requested, with an **Open** button to jump to the record.
+
+<Note>
+The drawer is read-only. To give a change a window, open its ticket and schedule it there.
+</Note>
+
+---
+
+## Part 6: Freeze Windows
+
+A freeze window is a period when changes should not be scheduled: month-end close, a client's busy season, a holiday, a compliance audit.
+
+<Info>
+Creating, editing, and deleting freeze windows requires **Manage** on Calendar.
+</Info>
+
+<Steps>
+  <Step title="Open calendar settings">
+    Go to the **Calendar**, open **Settings**, and select the **Freeze Windows** tab.
+  </Step>
+
+  <Step title="Add a freeze window">
+    Click **Add freeze window** and fill in:
+
+    | Field | Description |
+    |-------|-------------|
+    | **Name** | What the freeze is, for example "Month-end close". |
+    | **Description** | Optional detail for the rest of the team. |
+    | **Scope** | **Tenant-wide**, **Company-wide**, or **Specific site**. |
+    | **Company** / **Site** | Shown for the company and site scopes. |
+    | **Starts at** / **Ends at** | The window itself. |
+    | **Recurrence** | **One time**, **Daily**, **Weekly**, **Monthly**, or **Annual**. |
+    | **Repeat until** | When a recurring freeze stops. |
+    | **Active** | Turn a freeze off without deleting it. |
+  </Step>
+
+  <Step title="Save">
+    Save the window. From then on, scheduling a change inside it raises a warning on the calendar and in the conflict check when the change is requested.
+  </Step>
+</Steps>
+
+<Note>
+Freeze windows warn, they do not block. A technician can still schedule into a freeze when the work genuinely cannot wait, and the collision stays visible to everyone.
+</Note>
+
+---
+
+## Part 7: Permissions
+
+Change management uses three different kinds of access. They are separate on purpose: seeing the calendar, requesting a change, and approving one are different jobs.
+
+### Calendar visibility
+
+Appointments and changes have their own visibility scope, set per role.
+
+<Steps>
+  <Step title="Open the role">
+    Go to **Settings > Users & Roles**, open the **Roles** tab, and edit the role.
+  </Step>
+  <Step title="Open Calendar visibility">
+    Find the **Calendar** resource row and click the chevron next to its **Read** checkbox. The **Calendar visibility** popover opens: "Choose which appointment and change records this role can view."
+  </Step>
+  <Step title="Set a scope for each layer">
+    Choose a scope for **Appointments** and, separately, for **Changes**. Selecting any scope automatically grants Read on Calendar.
+  </Step>
+</Steps>
+
+| Scope | What the role sees |
+|-------|--------------------|
+| **Disabled** | Nothing from that layer. The toggle does not even appear in the calendar header. |
+| **Mine** | Only records the user is involved in: assigned technician, meeting participant, change requester, approver, or the person who decided it. |
+| **Site** | Records involving anyone at the user's own site. |
+| **All** | Everything within the companies the user is already scoped to. |
+
+- The scopes are exclusive. A role has one scope for appointments and one for changes, never two of either.
+- **Site** behaves as **Mine** for a user with no site set on their profile, so nobody sees more than intended by accident.
+- **Manage** on Calendar means **All** on both layers. The dropdowns lock and the popover reads "Manage access includes All appointments and changes."
+- Company scoping still applies on top. **All** means all changes at the companies the user can already see, not every company in the tenant.
+
+<Note>
+Change visibility starts deliberately narrow. Existing roles with calendar access received **Appointments: All**, but only roles with **Manage** on Calendar received **Changes: All**. If your technicians cannot see the Changes layer, this is why: give their role a change scope.
+</Note>
+
+<Tip>
+A common shape is technicians on **Changes: Site** and **Appointments: Mine**, dispatchers and service managers on **All** for both, and client-facing roles with the change layer disabled.
+</Tip>
+
+### Requesting and running changes
+
+Requesting a change, starting it, and completing it require ticket write access, the same permission that lets a user update a ticket's status. No calendar permission is needed to request a change from a ticket.
+
+### Approving changes
+
+Approval is not a role permission. A user can approve a change only if they are assigned to the **approver company role** for that client, chosen in **Settings > Tickets > Change Approvals**. This keeps approval with the people who own the client relationship rather than with whoever happens to have the broadest permissions.
+
+### Managing freeze windows
+
+Creating, editing, and deleting freeze windows requires **Manage** on Calendar. Write access is not enough.
+
+### Configuring approvals
+
+Editing the change approval settings requires write or manage access to **Settings > Tickets**. Users with read-only access see the configuration but cannot change it.
+
+---
+
+## Part 8: PSA Sync
+
+Changes and appointments created in your PSA are pulled into the same calendar, so the change calendar reflects reality rather than only the changes that started in MSPortal.
+
+| PSA | Changes layer | Appointments layer | Cadence |
+|-----|---------------|--------------------|---------|
+| **Autotask** | Ticket change request approvals | Service calls | Every 10 minutes |
+| **ConnectWise** | Tickets flagged as a request for change | Schedule entries | Every 10 minutes |
+| **Halo PSA** | Change calendar records | Appointments | Every 10 minutes |
+
+Imported records carry their title, window, company, site, status, risk, assigned technicians, the linked ticket, and a deep link back to the PSA.
+
+The first sync back-fills a year of history. After that, syncs are incremental across a rolling window running a year back and about eighteen months ahead. Records deleted in the PSA drop off the MSPortal calendar once a full snapshot confirms they are gone.
+
+Push-back to the PSA is Autotask-only, and only for approvals: requesting an approval creates the Autotask change request approval, and approving or rejecting updates it. Freeze windows, scheduling, and the start and complete actions are never written to a PSA.
+
+<Note>
+A provider's changes and appointments only appear when that integration is connected and active.
+</Note>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The Request button is disabled on the ticket">
+    Requesting a change needs ticket write access. Ask an administrator to grant your role write access to Tickets under **Settings > Users & Roles**.
+  </Accordion>
+
+  <Accordion title="A change request has no approvers">
+    Nobody is assigned to the approver company role at that client. Assign at least one user to the role, then request the change again. Check the role chosen in **Settings > Tickets > Change Approvals** matches the one you assign users to.
+  </Accordion>
+
+  <Accordion title="I can see the request but there are no Approve or Reject buttons">
+    Only users assigned to the approver company role for that client can decide a request. Being an administrator does not make you an approver.
+  </Accordion>
+
+  <Accordion title="The Changes layer is missing from the calendar">
+    Your role has no change visibility scope. Add **Changes: Mine**, **Changes: Site**, or **Changes: All** to the role, or grant Manage on Calendar.
+  </Accordion>
+
+  <Accordion title="An approved change is not on the calendar">
+    Approved changes with no scheduled window do not appear on the grid. Check **Unscheduled Changes** in the calendar header, then open the change's ticket and give it a start and end time.
+  </Accordion>
+
+  <Accordion title="A change shows as 'Details are hidden'">
+    The role can see that the slot is occupied but does not have access to the linked ticket or PSA record. Grant access to the underlying record if the user needs the detail.
+  </Accordion>
+
+  <Accordion title="Approvals are not reaching Autotask">
+    Confirm the approval owner is set to **Autotask owned**, the Autotask integration is selected in **Settings > Tickets > Change Approvals**, and the integration is active. Tickets from other PSAs always use MSPortal approvals.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Schedule before you request" icon="calendar-check">
+    Filling in the window lets the conflict check run, and an approved change with a window goes straight onto the calendar instead of into the unscheduled queue.
+  </Card>
+  <Card title="Keep the approver role small" icon="user-shield">
+    Approval should sit with the client contacts who can actually accept the risk, not with everyone who has a login.
+  </Card>
+  <Card title="Set freeze windows up front" icon="snowflake">
+    Add each client's busy periods once, with recurrence, so nobody has to remember them at scheduling time.
+  </Card>
+  <Card title="Write a real rollback plan" icon="rotate-left">
+    The rollback field is what an approver reads when deciding. "Restore from backup" is not a plan; name the backup and the time it takes.
+  </Card>
+</CardGroup>
+
+---
+
+## Related Resources
+
+- [Tickets](/user-guides/ticketing/index) - Working with tickets
+- [Calendar](/user-guides/calendar/index) - The calendar module
+- [Users & Roles](/user-guides/settings/users-roles) - Roles, permissions, and company assignments
+- [Ticket Settings](/user-guides/settings/tickets) - Other ticket configuration
+
+## Need Help?
+
+For assistance with change management, contact support@msportal.ai.

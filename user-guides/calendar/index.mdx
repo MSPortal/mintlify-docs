@@ -68,9 +68,20 @@ MSPortal supports various meeting types:
 | **Training** | Client training and education sessions |
 | **Custom** | Any other meeting type you define |
 
+## Calendar Layers
+
+Beyond meetings, the calendar carries two toggleable layers in its header:
+
+- **Appointments** - MSPortal meetings, Microsoft 365 busy blocks, and appointments, service calls, and schedule entries from your PSA
+- **Changes** - scheduled changes from MSPortal and your PSA, plus freeze windows, with conflict warnings
+
+Each toggle shows a badge (**MINE**, **SITE**, or **ALL**) reflecting how much of that layer your role can see, and a layer your role has no access to is hidden entirely. Freeze windows are managed under **Calendar > Settings > Freeze Windows**.
+
+See [Change Management](/user-guides/ticketing/change-management) for the full workflow.
+
 ## Next Steps
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Meeting Pages" icon="file-lines" href="/user-guides/calendar/meetings">
     Learn how to manage meeting details, attendees, and agendas
   </Card>
@@ -79,5 +90,8 @@ MSPortal supports various meeting types:
   </Card>
   <Card title="Meeting Summaries" icon="envelope" href="/user-guides/calendar/meeting-summaries">
     Generate and send AI-powered meeting summaries
+  </Card>
+  <Card title="Change Management" icon="shield-check" href="/user-guides/ticketing/change-management">
+    Request, approve, and schedule changes with freeze windows and conflict detection
   </Card>
 </CardGroup>

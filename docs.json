@@ -175,6 +175,7 @@
                   "user-guides/ticketing/index",
                   "user-guides/ticketing/how-to-create-a-ticket-template",
                   "user-guides/ticketing/open-a-ticket-with-ai",
+                  "user-guides/ticketing/change-management",
                   "user-guides/ticketing/flow-webhook-recipient"
                 ]
               },
@@ -359,6 +360,18 @@
                 "group": "Quoter",
                 "pages": [
                   "user-guides/quotes/setup"
+                ]
+              },
+              {
+                "group": "QuoteWerks",
+                "pages": [
+                  "user-guides/integrations/enable-quotewerks-integration"
+                ]
+              },
+              {
+                "group": "UniFi",
+                "pages": [
+                  "user-guides/integrations/enable-unifi-integration"
                 ]
               }
             ]
