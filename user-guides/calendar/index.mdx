@@ -12,10 +12,12 @@ The Calendar module helps MSPs schedule and manage client meetings, including Qu
 
 ## Navigating the Calendar
 
-The calendar displays meetings in a monthly view by default. Each meeting shows:
+The calendar opens in a monthly view by default. Use the view switcher in the header to change between **Day**, **Week**, **Month**, and **Year** views. Each event card shows:
 - **Meeting title** - The name of the meeting (e.g., "QBR" for Quarterly Business Reviews)
 - **Company name** - Which client the meeting is associated with
 - **Color coding** - Visual distinction between different meeting types
+
+Hover over any event to see a tooltip with the meeting's time, company, assigned staff, and notes without opening it.
 
 ### Viewing Options
 
@@ -23,6 +25,16 @@ Use the **Global View** dropdown at the top to:
 - View meetings across all companies
 - Filter to a specific company's meetings
 - See only your assigned meetings
+
+### Filtering the Calendar
+
+Open the filter drawer from the calendar header to narrow what's displayed. You can search events by name and filter by:
+
+- **Event Types** - QBRs, client meetings, internal meetings, training, and more
+- **Companies** - Show only selected clients
+- **Staff** - Show only selected team members
+- **Status** - Including Draft, so you can find meetings that haven't been sent yet
+- **Role** - Filter by your team's assigned roles
 
 ### Quick Preview
 
@@ -44,16 +56,83 @@ Click **Open Meeting Page** to access the full meeting details and management fe
 
 To create a new meeting:
 
-1. Click the **+ New Meeting** button in the top-right corner
-2. Fill in the meeting details:
-   - **Title** - Name of the meeting
-   - **Company** - Which client this meeting is for
-   - **Meeting Type** - QBR, Strategy Session, Check-in, etc.
-   - **Date and Time** - When the meeting occurs
-   - **Location** - Physical address or video call link
-   - **Attendees** - Invite participants from the company
-3. Add any initial notes or agenda items
-4. Click **Save** to create the meeting
+<Steps>
+  <Step title="Open the meeting dialog">
+    Click the **New Meeting** button in the top-right corner, or click an empty slot on the calendar.
+  </Step>
+  <Step title="Fill in the meeting details">
+    - **Title** - Name of the meeting
+    - **Company** - Which client this meeting is for
+    - **Meeting Type** - QBR, Strategy Session, Check-in, etc.
+    - **Date and Time** - When the meeting occurs, in the time zone you select
+    - **Location** - Physical address or video call link
+    - **Attendees** - Invite participants from the company and your team
+    - **Recurrence** - Make the meeting repeat (see [Recurring Meetings](#recurring-meetings))
+    - **Teams meeting** - Toggle whether the invitation includes a Microsoft Teams link
+  </Step>
+  <Step title="Save as a draft or send invitations">
+    Click **Save Draft** to keep the meeting internal, or **Save & Send** to publish it and send invitations to every attendee.
+  </Step>
+</Steps>
+
+If any attendee is already busy at the selected time, MSPortal warns you about the conflict and shows who is busy and when. You can pick a different time or choose **Schedule Anyway**.
+
+## Draft Meetings
+
+Every new meeting starts as a draft. A draft appears on your calendar with a **Draft** status, so your team can see and refine it, but attendees receive nothing until you decide to send it.
+
+- **Save Draft** keeps the meeting internal. You can keep editing the time, attendees, agenda, and details.
+- **Save & Send** publishes the meeting and sends calendar invitations to all attendees.
+
+<Tip>
+Use drafts to block out a QBR schedule for the quarter before anything reaches your clients. When each meeting is ready, open it and click **Save & Send**.
+</Tip>
+
+Once a meeting is published, the meeting dialog shows its publication status, such as **Pending**, **Synchronized**, or **Failed**. If publication fails, use **Retry publication** to try again.
+
+## Invitations, Microsoft 365, and Teams
+
+When your tenant is connected to Microsoft 365, each published meeting creates a single organizer-owned event in the organizer's Microsoft 365 calendar. Attendee lists are deduplicated, so every participant receives exactly one invitation with one meeting link, and updates to the meeting flow through to everyone's calendar.
+
+### Teams Meeting Link
+
+Each meeting has a **Teams meeting** toggle that controls whether the invitation includes an online meeting link:
+
+- Turn it **on** to add a Teams link to the calendar invitation. Once the meeting is published with Teams enabled, the link cannot be turned off.
+- Turn it **off** for in-person meetings or meetings that use another conferencing tool.
+- After publishing, use **Join Teams meeting** to join directly, or **Copy Teams link** to share it.
+
+<Note>
+The Teams toggle requires the organizer to be mapped to a Microsoft 365 mailbox and an administrator to have granted Microsoft 365 calendar consent. If either is missing, the dialog explains what's needed.
+</Note>
+
+### Without Microsoft 365
+
+Tenants without a connected Microsoft 365 calendar still send full calendar invitations. When Microsoft 365 publishing isn't available for the organizer, the meeting dialog offers **Use ICS invitations**: attendees receive a standard email invitation with an ICS attachment that works with any calendar application. You can also export any meeting with **Export .ics** from the meeting dialog's options menu.
+
+## Recurring Meetings
+
+Set the **Recurrence** field in the meeting dialog to make a meeting repeat. Available patterns:
+
+- Daily
+- Weekly
+- Biweekly
+- Monthly
+- Quarterly
+- Yearly
+
+For each series you control exactly when it ends: **Never**, **On date**, or **After occurrences** (a set number of meetings).
+
+### Editing a Recurring Meeting
+
+When you edit or cancel a meeting that belongs to a series, MSPortal asks whether the change applies to:
+
+- **This occurrence** - Only the selected meeting changes. The rest of the series is untouched.
+- **Entire series** - The change applies to this and all other meetings in the series.
+
+## Time Zones
+
+Every meeting has an explicit time zone, set in the meeting dialog. Invitations and calendar entries land at the correct local time for each participant, including across daylight saving transitions. You can also enable **Multi-timezone Display** in calendar settings to show additional time zones alongside your own.
 
 ## Meeting Types
 

@@ -51,6 +51,91 @@ MSPortal.ai supports integration with major PSA platforms:
   </Step>
 </Steps>
 
+## Managing Multiple Connections to a Provider
+
+Some providers support more than one connection in the same tenant, for example separate Datto RMM accounts or a UniFi console per client. When a provider has multiple connections, the Connected Services list groups them under a single provider entry so you can manage them together.
+
+### The Provider Group
+
+The provider entry shows the provider name with a connection count (for example, "3 connections"). Click the row or the chevron to expand or collapse the list of connections underneath it.
+
+Each connection keeps its own row with:
+
+- Its name (the nickname you gave it, or a name derived from its configuration)
+- Its own status badge and last sync time
+- Its own actions: resync, import devices, and configure
+- A **...** menu with **Rename** and **Disconnect** for that one connection
+
+The provider entry itself offers actions that apply across the whole provider:
+
+| Action | What it does |
+|--------|--------------|
+| **Add connection** | Starts the setup wizard for another connection to the same provider |
+| **Manage companies** (or sites, organizations, tenants, depending on the provider) | Opens the unified company mapping grid filtered to that provider |
+| **Manage devices** | Opens the provider-level device type mapping workspace (device sync providers only) |
+
+<Tip>
+You can also add another connection from the **Add Integration** catalog at the bottom of the page. Providers that support multiple connections show a **Connect another** button once the first connection exists.
+</Tip>
+
+## Provider-Level Device Type Mappings
+
+Providers that sync devices (Addigy, ConnectWise Asio, Datto RMM, Huntress, NinjaOne, and UniFi) get a shared mapping workspace. Instead of mapping the same external device types on every connection separately, you set the mapping once and it applies to every current connection of that provider.
+
+To open it, click **Manage devices** on the provider's row in Connected Services.
+
+### Workspace Overview
+
+Three summary tiles sit at the top:
+
+| Tile | What it shows |
+|------|---------------|
+| **Connections** | How many connections to this provider are included |
+| **Staged devices** | Total devices discovered across all connections, waiting on mappings and import |
+| **Types needing attention** | External types that are unmapped, or mapped differently between connections |
+
+### Mapping Device Types Across Connections
+
+The **Device type mappings** table lists every external device type discovered across your connections:
+
+| Column | Meaning |
+|--------|---------|
+| **External type** | The device type name as the provider reports it |
+| **Devices** | How many staged devices carry that type, across all connections |
+| **Connections** | Coverage, shown as "2 of 3": how many connections have discovered this type |
+| **Maps to** | The MSPortal device type this external type becomes |
+| **Auto-sync** | Whether devices of this type keep importing automatically |
+
+Pick a device type in the **Maps to** column and the mapping saves immediately to every active connection of the provider. A confirmation tells you how many connections were updated. Choosing **None** removes the mapping from every connection.
+
+<Note>
+If connections currently disagree about a type, the row shows **Mixed mappings** and the auto-sync checkbox appears indeterminate. Selecting a device type at the provider level aligns all connections to your choice.
+</Note>
+
+### Auto-Sync per Type
+
+Each mapped type has an **Auto-sync** checkbox. When enabled, newly discovered devices of that type import automatically on future syncs, with no manual import needed. Auto-sync requires the type to be mapped first, and toggling it here applies the setting to every connection.
+
+### Overriding a Single Connection
+
+Sometimes one connection needs a different mapping than the rest. The **Connection details** card at the bottom of the workspace lists each connection with its status and staged device count.
+
+<Steps>
+  <Step title="Open the connection">
+    Click **Open devices** on the connection you want to adjust. This opens that connection's own device import page.
+  </Step>
+  <Step title="Change the mapping">
+    Update the **Maps to** value or auto-sync setting for the type on that connection only.
+  </Step>
+  <Step title="Check coverage">
+    Back in the provider workspace, the overridden type now shows **Mixed mappings**. Setting a type at the provider level later replaces the override on every connection.
+  </Step>
+</Steps>
+
+### Map with AI
+
+On a connection's device import page, a **Map with AI** button appears above the mapping table whenever unmapped external types exist (available on supported providers, such as UniFi). Click it and AI matches the discovered external types against your normalized device types. Only confident matches are filled in; anything ambiguous stays unmapped rather than being guessed. Review the proposed mappings in the table, adjust any you disagree with, then import.
+
 ## PSA Integrations
 
 ### What Syncs
@@ -143,4 +228,5 @@ For detailed setup instructions for each integration, see the [Integrations Guid
 - [Enable Syncro](/user-guides/integrations/enable-syncro-integration)
 - [Enable Datto RMM](/user-guides/integrations/enable-datto-rmm-integration)
 - [Enable ConnectWise Asio](/user-guides/integrations/enable-connectwise-asio-integration)
+- [Enable UniFi](/user-guides/integrations/enable-unifi-integration)
 - [Import Companies](/user-guides/integrations/import-companies)

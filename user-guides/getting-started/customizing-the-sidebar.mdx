@@ -1,0 +1,123 @@
+---
+title: 'Customizing the Sidebar'
+description: 'Reorder pages, create your own sections, add custom links, and pin dashboards to the MSPortal sidebar'
+icon: 'table-columns'
+---
+
+The sidebar navigation editor lets you shape MSPortal's left-hand navigation to match how your team works. Reorder the built-in pages, group them into your own sections, hide modules you do not use, add up to 20 custom links to outside tools, and pin dashboards directly into the sidebar for one-click access.
+
+Sidebar layouts cascade across three levels:
+
+| Level | Where to edit | Who it affects |
+|-------|---------------|----------------|
+| **Tenant default** | Settings > Customization > **Navigation** | Every user, unless a company or personal layout overrides it |
+| **Company override** | Settings > Customization > **Navigation**, with a company selected | Users of that company |
+| **Personal order** | Settings > **User Settings** > Preferences tab | Only you |
+
+<Note>
+The Navigation settings page requires navigation settings permission. Custom links and the dashboards panel are available in the tenant default and company override editors. The personal editor covers reordering, custom sections, and hiding modules.
+</Note>
+
+## The Navigation Editor
+
+Open **Settings > Customization > Navigation**. The left column mirrors your sidebar, with the built-in sections (Planning, Operations, Protection, and MSP Tools) and every page inside them.
+
+- **Reorder pages**: Grab the handle next to any item and drag it up, down, or into a different section.
+- **Create your own sections**: Type a name in the category field and click the plus button. Rename a custom section by clicking its title, and reorder any section with the up and down arrows. Deleting a custom section returns its pages to their default sections.
+- **Hide modules**: Drag a page into the **Disabled modules** panel, or hover over it and click the X. Hidden modules disappear from the sidebar for the affected users.
+- **Save and reset**: Changes are staged until you click **Save order**. Click the reset button to stage a return to the baseline layout, then save to apply it.
+
+<Warning>
+Disabling a module only hides it from the sidebar. It does not change what users can access. Manage access with user roles.
+</Warning>
+
+## Custom Links
+
+Add your own links to the sidebar, such as documentation sites, vendor portals, or internal tools. Custom links always open in a new tab.
+
+<Steps>
+  <Step title="Open the Navigation editor">
+    Go to **Settings > Customization > Navigation**. The **Custom links** panel appears to the right of the sidebar layout.
+  </Step>
+  <Step title="Create a link">
+    Enter a link name and a URL, then click **Add link**. Only HTTP and HTTPS URLs are accepted, and you can create up to 20 custom links.
+  </Step>
+  <Step title="Drag it into the sidebar">
+    Drag the new link from the Custom links panel into any sidebar section, including your own custom sections, and position it wherever you like.
+  </Step>
+  <Step title="Save">
+    Click **Save order** to apply the layout.
+  </Step>
+</Steps>
+
+Hover over a link in the Custom links panel to edit or delete it. Dragging a placed link back into the panel removes it from the sidebar without deleting the link, so you can place it again later.
+
+## Pinned Dashboards
+
+Put any dashboard one click away by dragging it into the sidebar.
+
+<Steps>
+  <Step title="Find the dashboard">
+    In the Navigation editor, use the search box in the **Dashboards** panel to filter the list. The panel shows client-visible shared dashboards, including external dashboard links you have configured.
+  </Step>
+  <Step title="Drag it into a section">
+    Drag the dashboard into any sidebar section. A dashboard already placed in the sidebar shows an **In sidebar** badge in the panel.
+  </Step>
+  <Step title="Save">
+    Click **Save order** to apply the layout.
+  </Step>
+</Steps>
+
+<Tip>
+You can also pin a dashboard from **Settings > Dashboards** using its **Pin to Sidebar** option. Dashboards pinned that way appear in the Planning section by default, and the Navigation editor lets you move them anywhere.
+</Tip>
+
+## Per-Company Overrides
+
+At the top of the Navigation editor, the **Applies to** selector controls which layout you are editing:
+
+- **All companies (default)** edits the tenant-wide default sidebar.
+- Selecting a company creates or edits that company's own sidebar. Companies without a saved override use the all-companies default.
+
+Modules disabled at the tenant level appear locked in a company editor and cannot be re-enabled there. Use **Reset all company overrides** to delete every company-specific layout at once and return all companies to the default.
+
+## Personal Sidebar Order
+
+Each user can rearrange their own sidebar without affecting anyone else:
+
+<Steps>
+  <Step title="Open your preferences">
+    Go to **Settings > User Settings** and open the **Preferences** tab.
+  </Step>
+  <Step title="Arrange your sidebar">
+    In the **Sidebar order** card, drag items between sections, create custom sections, and move anything you do not use into Disabled modules. Custom links and pinned dashboards placed by your administrator can be reordered here too.
+  </Step>
+  <Step title="Save">
+    Click **Save order**. Use **Reset my order** to stage a return to your company or tenant default.
+  </Step>
+</Steps>
+
+Modules your administrator disabled show a lock icon and cannot be re-enabled from the personal editor.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My changes are not showing up">
+    Edits are staged in the editor until you click **Save order**. A "Not applied until you save" hint appears whenever there are unsaved changes.
+  </Accordion>
+  <Accordion title="I cannot add more custom links">
+    Each layout supports up to 20 custom links. Delete a link you no longer need to make room.
+  </Accordion>
+  <Accordion title="A dashboard is missing from the Dashboards panel">
+    The panel lists client-visible shared dashboards. Dashboards set to internal-only visibility, and private dashboards, are not offered in the tenant and company editors. Check the dashboard's sharing and visibility settings under Settings > Dashboards.
+  </Accordion>
+  <Accordion title="A module in Disabled modules shows a lock">
+    It was disabled at a higher level (tenant or company). Only the level that disabled it can re-enable it.
+  </Accordion>
+</AccordionGroup>
+
+## Related Resources
+
+- [Dashboards](/user-guides/dashboards/index)
+- [Hiding Items from Client Users](/user-guides/getting-started/hiding-items-from-clients)
+- [How to Create a New User Role](/user-guides/getting-started/how-to-create-a-new-user-role)

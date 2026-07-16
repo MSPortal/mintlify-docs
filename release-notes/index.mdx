@@ -3,6 +3,64 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 16, 2026
+
+### Client Project Access Filters
+
+Decide exactly which projects your client users see in the Projects module. A new Client Project Access section in Projects Settings lets you show everything or narrow the list with filters.
+
+**Key Features:**
+- **All or filtered**: Show every project available for each company, or only projects matching your selections.
+- **Filter by type, board, or project**: Include projects by PSA project type, by the board their phases or tickets live on, or hand-pick specific projects. A project is shown when it matches at least one selection.
+- **Explicit hides still win**: A project hidden on its own project page stays hidden, even when it matches a filter.
+- **Search follows the rules**: Global search results respect the same access filters, so client users never see a project they can't open.
+
+[Documentation: Projects Settings](/user-guides/settings/projects)
+
+### AI Controls: Off for Everyone, or Just for Clients
+
+AI Settings now gives you two independent switches, so you control who gets AI-powered features.
+
+**Key Features:**
+- **Master switch**: Turn off every AI-powered feature in one place. When disabled, no users, automations, or background jobs generate AI content, and AI buttons and panels disappear across the app.
+- **Client-facing switch**: Keep AI for your internal team while client users get a clean, non-AI experience.
+
+### Manage Every Connection to a Provider in One Place
+
+The Integrations page now groups multiple connections to the same provider, and providers with device sync get one shared mapping workspace.
+
+**Key Features:**
+- **Grouped connections**: Connections to the same provider roll up into a single card with a connection count, an expandable list, and an Add Connection button.
+- **Provider-level device type mappings**: Set device type mappings once across every connection to a provider, and override an individual connection only when it needs something different.
+- **Map with AI**: Let AI propose device type mappings for the external types your connections discover, instead of matching each one by hand. Available on supported providers, starting with UniFi.
+- **Coverage at a glance**: See staged devices, types needing attention, and mapping coverage across connections, with drill-down into each connection's devices.
+
+[Documentation: Integrations](/user-guides/settings/integrations)
+
+### UniFi Console Integration
+
+Connect any number of UniFi consoles, global or per client, and bring their networks and devices into MSPortal.
+
+**Key Features:**
+- **Multiple consoles**: Connect a global console or separate consoles per client, all managed from the same provider workspace.
+- **Guided setup**: The standard integration wizard walks you through connecting, mapping sites to companies, and importing devices.
+- **Device types sorted for you**: UniFi access points, switches, gateways, and cameras map onto your normalized device types, with AI-suggested mappings for anything unrecognized.
+
+[Documentation: UniFi Integration](/user-guides/integrations/enable-unifi-integration)
+
+### Custom Domain Sign-In Methods
+
+Choose which sign-in options appear on each of your custom domains: Microsoft, Google, or email magic link. Trim the sign-in page down to the methods your organization actually uses. MSPortal domains keep all methods available.
+
+[Documentation: Tenant Settings](/user-guides/settings/tenant)
+
+### Improvements
+
+- **Onboarding portals**: Dates on an onboarding portal can now be changed after the portal is created.
+- **Currency-aware settings**: Prices and grade thresholds in settings, including the Client Health target seat price, now display in your organization's currency instead of assuming dollars.
+- **Ticket Trends**: Full-year history now backfills reliably for tenants in the EU region, and the analysis view got general polish.
+- **Sidebar reliability**: Fixed an intermittent error that could interrupt navigation, and fixed sidebar customization for users without dashboard access.
+
 ## July 14, 2026
 
 ### The New Calendar
@@ -64,6 +122,8 @@ The sidebar navigation editor now goes beyond reordering the built-in pages.
 **Key Features:**
 - **Custom links**: Add up to 20 of your own links, such as documentation sites, vendor portals, or internal tools, and drag them anywhere in the sidebar. They open in a new tab.
 - **Pinned dashboards**: Search your dashboards and drag any of them into a sidebar section for one-click access.
+
+[Documentation: Customizing the Sidebar](/user-guides/getting-started/customizing-the-sidebar)
 
 ### Improvements
 

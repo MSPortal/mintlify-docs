@@ -4,13 +4,13 @@ description: 'Send urgent email messages to groups of clients and users, with an
 icon: 'tower-broadcast'
 ---
 
-**Emergency Broadcast** lets your team send urgent email messages to groups of users, ideal for security incidents, service outages, scheduled maintenance, and important announcements. An AI Broadcast Writer helps you draft a clear message in seconds, and a delivery history tracks exactly who received each broadcast.
+**Emergency Broadcast** lets your team send urgent email messages to groups of users, ideal for security incidents, service outages, scheduled maintenance, and important announcements. An AI Broadcast Writer helps you draft a clear message in seconds, and a delivery history tracks exactly who received each broadcast. You can also post a **portal status banner**, an outage or maintenance notice that appears at the top of your clients' portal home page with a status-page style update timeline.
 
 ## Overview
 
-The Broadcasts page has three tabs:
+The Broadcasts page has four tabs:
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Compose" icon="pen-to-square">
     Write a broadcast, choose recipient groups, preview it, and send.
   </Card>
@@ -19,6 +19,9 @@ The Broadcasts page has three tabs:
   </Card>
   <Card title="Groups" icon="users">
     Create and manage the recipient groups broadcasts are sent to.
+  </Card>
+  <Card title="Portal Banner" icon="megaphone">
+    Post outage and maintenance notices to the portal home page and keep them updated as the incident evolves.
   </Card>
 </CardGroup>
 
@@ -69,10 +72,10 @@ The **AI Broadcast Writer** drafts both the subject line and the message body fo
   </Step>
   <Step title="Describe the message, or pick a quick template">
     Type what you want to communicate, or choose a **Quick template** to get started:
-    - **Security Incident** — alert users about a threat with actionable steps
-    - **Scheduled Maintenance** — notify users about planned downtime and impact
-    - **Service Outage** — communicate an ongoing disruption
-    - **General Announcement** — share an IT policy change or update
+    - **Security Incident**: alert users about a threat with actionable steps
+    - **Scheduled Maintenance**: notify users about planned downtime and impact
+    - **Service Outage**: communicate an ongoing disruption
+    - **General Announcement**: share an IT policy change or update
   </Step>
   <Step title="Apply and refine">
     The assistant drafts a subject and message and fills them into the Compose form. Keep chatting to refine it, for example *"make it shorter"* or *"add more urgency."* The writer is aware of which groups you've selected and how many people will receive the broadcast.
@@ -105,6 +108,64 @@ Status values:
 
 Click any broadcast to open its details, including a **Recipients** tab (with each person's name, email, company, and individual **Sent / Pending / Failed** status) and a **Message** tab showing what was sent. Failed recipients display the reason, so you can follow up.
 
+## Portal status banners
+
+The **Portal Banner** tab lets you post an outage or maintenance notice directly to the portal, no email required. Banners appear at the top of the portal home page for your clients, styled by severity, and you can post updates to them as the situation changes, just like a status page.
+
+<Note>
+Viewing the Portal Banner tab requires read access to broadcasts. Creating, editing, toggling, updating, or deleting banners requires write or manage access.
+</Note>
+
+### Creating a banner
+
+<Steps>
+  <Step title="Open the Portal Banner tab">
+    Go to **Broadcasts** and select the **Portal Banner** tab. Existing banners are listed with their severity, targeting, schedule, and update count.
+  </Step>
+  <Step title="Click New banner">
+    Click **New banner** and fill in the **Title** (required) and **Message**, for example *"Email delivery delays"* with a short explanation of what's happening.
+  </Step>
+  <Step title="Choose a severity">
+    Pick **Info**, **Warning**, or **Critical**. Severity controls the banner's icon and color so clients can gauge impact at a glance.
+  </Step>
+  <Step title="Target companies">
+    Use the **Companies** selector to limit the banner to specific companies, or leave it empty to show it to all clients.
+  </Step>
+  <Step title="Schedule it (optional)">
+    Set **Show from** and **Show until** to display the banner only during a window, ideal for planned maintenance. Leave both empty to show it immediately for as long as it stays active.
+  </Step>
+  <Step title="Set dismissal and active state">
+    Toggle **Dismissible** to control whether users can hide the banner after reading it, and use the **Active** toggle to control whether it's shown at all. A live **Preview** at the bottom of the dialog shows exactly how the banner will look.
+  </Step>
+  <Step title="Save">
+    Click **Save**. If the banner is active (and inside its schedule window, if set), it appears on the portal home page right away.
+  </Step>
+</Steps>
+
+### Managing banners
+
+Each banner in the list has:
+
+- An **Active** switch to turn it on or off without editing it. Only active banners are shown on the portal home page.
+- A **Post update** button to add an update to its timeline.
+- **Edit** and **Delete** buttons. Deleting permanently removes the banner from the portal.
+
+### Posting updates
+
+As an incident evolves, click **Post update** on the banner and write a short status update, for example *"Microsoft has identified the cause and a fix is rolling out."*
+
+- Updates render on the banner as a **timeline**, newest first, with the latest update highlighted and earlier updates collapsible.
+- Posting an update **re-shows the banner** to users who had dismissed the earlier version, so nobody misses new information. Editing the banner has the same effect.
+- The **Update history** in the dialog shows everything posted so far, and you can remove an individual update if it was posted in error.
+
+### What clients see
+
+Active banners appear at the top of the portal home page (both the classic and AI home). If several banners are active, they stack: the selected banner shows its full message and update timeline while the others collapse to a single row. Dismissible banners can be hidden with the close button; non-dismissible banners stay until you deactivate or delete them.
+
+### The AI assistant knows about active banners
+
+Active banners are shared with the portal's AI assistant. When a client asks something like *"is email down?"* and it matches a posted notice, the assistant answers from the known incident and lets them know it's already being worked on, instead of a duplicate ticket being filed. It still offers to create a ticket if the client wants individual follow-up or their issue looks different.
+
 ## Troubleshooting
 
 <AccordionGroup>
@@ -118,11 +179,14 @@ Click any broadcast to open its details, including a **Recipients** tab (with ea
     These require write and manage permissions respectively. Ask an administrator to grant the appropriate broadcasts permission.
   </Accordion>
   <Accordion title="Can I schedule a broadcast for later?">
-    No. Broadcasts send immediately after you confirm. Use Save Draft to prepare a message ahead of time and send it when you're ready.
+    No. Broadcasts send immediately after you confirm. Use Save Draft to prepare a message ahead of time and send it when you're ready. Portal banners, however, can be scheduled with **Show from** and **Show until** on the Portal Banner tab.
+  </Accordion>
+  <Accordion title="A client says they don't see the portal banner">
+    Check that the banner's **Active** switch is on, that the current time falls inside its **Show from / Show until** window (if one is set), and that the client's company is included in the **Companies** targeting (an empty selection means all companies). If the banner is dismissible, the client may simply have dismissed it; posting an update or editing the banner brings it back for everyone who dismissed it.
   </Accordion>
 </AccordionGroup>
 
 ## Related resources
 
-- [Email settings](/user-guides/settings/email) — configure your verified sending domain.
-- [Notifications](/user-guides/notifications/index) — in-app notifications (separate from email broadcasts).
+- [Email settings](/user-guides/settings/email), configure your verified sending domain.
+- [Notifications](/user-guides/notifications/index), in-app notifications (separate from email broadcasts).

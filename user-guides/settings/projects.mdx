@@ -4,9 +4,52 @@ description: 'Configure project display options, status mappings, and feature vi
 icon: 'folder-gear'
 ---
 
-The Project Settings page allows you to customize how projects are displayed throughout MSPortal. Control which information appears on project cards, configure status column mappings for kanban boards, and enable or disable project features.
+The Project Settings page allows you to customize how projects are displayed throughout MSPortal. Control which projects client users can access, which information appears on project cards, configure status column mappings for kanban boards, and enable or disable project features.
 
 Navigate to **Settings > Projects** to access these options.
+
+## Client Project Access
+
+The **Client project access** section controls which projects your client (company) users can see in the Projects module. These settings only affect client users; your internal team continues to see all projects.
+
+Choose one of two modes:
+
+| Mode | Behavior |
+|------|----------|
+| **All projects** | Show every project available for each company. This is the default. |
+| **Filtered projects** | Only show projects matching the selections below. |
+
+### Filtering Projects
+
+When you select **Filtered projects**, three filters appear. A project is shown when it matches **at least one** selected type, board, or specific project.
+
+| Filter | What it includes |
+|--------|------------------|
+| **Project types** | Every project with a selected PSA project type |
+| **Project boards** | Projects with phases or tickets on a selected board |
+| **Specific projects** | Hand-picked projects, chosen with a searchable selector |
+
+<Steps>
+  <Step title="Select Filtered Projects">
+    In the **Client project access** section, choose **Filtered projects**.
+  </Step>
+  <Step title="Choose Your Filters">
+    Select PSA project types, project boards, or search for specific projects. You can combine any of the three filters.
+  </Step>
+  <Step title="Save">
+    Save your settings. Client users immediately see only the projects that match your selections.
+  </Step>
+</Steps>
+
+<Warning>
+If you select **Filtered projects** without choosing any filters, client users will not see any projects. A warning appears in the settings page when no filters are selected.
+</Warning>
+
+<Note>
+Projects explicitly hidden on their own project page remain hidden, even when they match these filters. Hiding a project individually always takes priority.
+</Note>
+
+Global search results follow the same access rules, so client users never see a project in search that they can't open.
 
 ## Section Visibility
 
@@ -146,6 +189,7 @@ This helps keep your mappings up-to-date as new statuses are created in your PSA
 
 Click the **Reset to Defaults** button to restore all project display settings to their original values. This will:
 
+- Set client project access back to **All projects** and clear any filters
 - Re-enable all section and field visibility toggles
 - Reset status mappings to default configurations
 - Reset kanban settings to defaults

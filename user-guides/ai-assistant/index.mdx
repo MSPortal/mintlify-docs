@@ -1,10 +1,10 @@
 ---
 title: 'AI Assistant'
-description: 'Chat with the built-in MSPortal assistant to open tickets, check training, find your account manager, and get answers in plain language'
+description: 'Chat with the built-in MSPortal assistant to open tickets, check on and reply to existing tickets, check training, find your account manager, and get answers in plain language'
 icon: 'sparkles'
 ---
 
-The **AI Assistant** is a conversational helper built into MSPortal. Instead of clicking through menus, you can simply describe what you need, and the assistant opens tickets, searches your data, checks your training progress, and points you to the right page, all in plain language.
+The **AI Assistant** is a conversational helper built into MSPortal. Instead of clicking through menus, you can simply describe what you need, and the assistant opens tickets, checks on and replies to existing tickets, searches your data, checks your training progress, and points you to the right page, all in plain language.
 
 The assistant always acts as **you**. It can only see and do what your MSPortal permissions allow, and for client users it stays scoped to your own company.
 
@@ -47,8 +47,11 @@ The assistant can help with a range of everyday tasks:
   <Card title="Open a support ticket" icon="ticket">
     Describe your problem in your own words. The assistant picks the right ticket type, fills in what it can, asks for anything missing, and shows you a draft to confirm before it's submitted.
   </Card>
-  <Card title="Check your tickets" icon="list-check">
-    Ask for your open tickets or search past tickets to see their status.
+  <Card title="Ask about an existing ticket" icon="list-check">
+    Ask "what's the status of my new computer request?" and the assistant finds the ticket and answers from its latest updates.
+  </Card>
+  <Card title="Reply to a ticket" icon="reply">
+    Ask the assistant to post a response on a ticket. It shows you the exact text first and posts only after you confirm.
   </Card>
   <Card title="Find your account manager" icon="address-card">
     Get your MSP's support contact details, including how to reach your account manager.
@@ -84,6 +87,42 @@ The assistant can help with a range of everyday tasks:
 <Note>
 The assistant chooses the best ticket type automatically from your description, so you don't pick a template by name. The more clearly you describe the issue, the better the match.
 </Note>
+
+### Asking about an existing ticket
+
+You don't need the ticket number to check on a ticket. Describe it the way you remember it, for example *"What's the status of my new computer request?"* or *"Any update on the printer issue?"* The assistant finds the matching ticket and answers from its actual updates, not just the status field, so you get the latest word from the technician working on it.
+
+When the assistant searches for a ticket, it matches on:
+
+- **Ticket title**, so "the printer issue" finds a ticket titled "Office printer offline"
+- **Ticket number**, if you have it
+- **Company name**, useful when you work across multiple companies
+
+Closed tickets are searchable too, so you can ask about something that was already resolved, like *"How was my VPN ticket fixed last month?"*
+
+### Replying to a ticket
+
+You can respond to a ticket without leaving the chat. Say something like *"Tell them Thursday works for me"* or *"Let the tech know it's still broken."*
+
+<Steps>
+  <Step title="Ask the assistant to reply">
+    Name the ticket and say what you want to communicate, in your own words.
+  </Step>
+  <Step title="Review the exact text">
+    The assistant shows you the exact note it's about to post.
+  </Step>
+  <Step title="Confirm">
+    Nothing is posted until you approve the text. Once you confirm, the reply is added to the ticket where the technicians working on it will see it.
+  </Step>
+</Steps>
+
+<Note>
+MSP staff can ask for a reply to be posted as an internal note that's hidden from the client. Replies from client users are always client-visible.
+</Note>
+
+### In the Chrome extension
+
+The same ticket capabilities are available in the MSPortal Chrome extension's AI chat: ask about a ticket's status, search tickets, and post confirmed replies without opening the portal.
 
 ## Privacy and permissions
 
