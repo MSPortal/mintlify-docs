@@ -11,11 +11,9 @@ The PSA Settings Resync feature updates MSPortal's cached configuration data fro
 - Service board configurations
 - Ticket priorities
 - Ticket statuses
-- Ticket types
-- Categories
-- Custom fields
-- Company types
-- Member information
+- Ticket types and subtypes
+- Project statuses
+- Activity types
 
 ## When to Use PSA Resync
 
@@ -23,39 +21,25 @@ Use this feature when:
 - You've made changes to ConnectWise configurations
 - Added or removed service boards
 - Modified ticket statuses or priorities
-- Changed ticket types or categories
-- Updated custom field definitions
+- Changed ticket types or subtypes
 - After ConnectWise system upgrades
 - Dropdown options aren't appearing correctly
 - Initial integration setup is complete
 
 ## What Gets Synchronized
 
-### Service Configuration
+- **Priorities:** Priority levels and their properties
 - **Boards:** All service board names and settings
 - **Statuses:** Available ticket statuses per board
-- **Priorities:** Priority levels and their properties
-- **Types:** Ticket types (Service Request, Incident, etc.)
-- **Categories:** Service categories and subcategories
-
-### Business Configuration
-- **Companies:** Company types and classifications
-- **Contacts:** Contact types and roles
-- **Members:** ConnectWise member list and roles
-- **Departments:** Department structure
-- **Locations:** Service locations
-
-### Custom Configuration
-- **Custom Fields:** Field definitions and options
-- **Templates:** Service template configurations
-- **SLAs:** Service level agreement definitions
-- **Sources:** Ticket source options
+- **Types and Subtypes:** Ticket types and subtypes per board
+- **Project Statuses:** Available project status options
+- **Activity Types:** Sales activity types (used by CSAT follow-ups)
 
 ## Steps to Resync PSA Settings
 
 ### 1. Navigate to Integration Settings
 
-Go to [https://msportal.ai/settings/integrations](https://msportal.ai/settings/integrations)
+Go to [https://app.msportal.ai/settings/integrations](https://app.msportal.ai/settings/integrations)
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/5c22dea9-95d5-4bf8-8ef1-18b72af1fb02/ascreenshot.jpeg?tl_px=130,121&br_px=1850,1083&force_format=jpeg&q=100&width=1120.0)
 
@@ -68,31 +52,10 @@ Locate and click the **Sync PSA Data** button in the integration options.
 ### 3. Wait for Synchronization
 
 After clicking the sync button:
+- A "sync started" confirmation appears
 - The process runs automatically in the background
 - Typical completion time: 1-2 minutes
-- A notification will appear when complete
-- The page may refresh to show updated options
-
-## Understanding the Sync Process
-
-### Phase 1: Data Collection (30 seconds)
-The system queries ConnectWise for:
-- All configuration tables
-- Current settings and options
-- Active records only
-
-### Phase 2: Data Processing (20 seconds)
-MSPortal processes the data:
-- Compares with existing cache
-- Identifies changes
-- Validates data integrity
-
-### Phase 3: Cache Update (10 seconds)
-The system updates:
-- Local configuration cache
-- Dropdown options
-- Form field choices
-- Display settings
+- Refresh the page to see updated options once the sync finishes
 
 ## What Doesn't Get Synchronized
 
@@ -122,11 +85,6 @@ After synchronization completes, verify:
 - Review status dropdown in tickets
 - Ensure all statuses are available
 - Check status transition rules
-
-### 4. Confirm Custom Fields
-- Open a ticket template
-- Verify custom fields appear
-- Check field validation works
 
 ## Troubleshooting
 
@@ -189,13 +147,6 @@ After synchronization completes, verify:
 3. Sync PSA settings in MSPortal
 4. Verify priority mappings
 5. Test priority-based workflows
-
-### Implementing Custom Fields
-1. Create custom fields in ConnectWise
-2. Set field properties and validation
-3. Run PSA sync in MSPortal
-4. Add fields to ticket templates
-5. Test field functionality
 
 ## Impact on Users
 

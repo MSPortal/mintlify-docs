@@ -91,7 +91,7 @@ MSPortal.ai provides a guided setup wizard that walks you through connecting and
   </Step>
 
   <Step title="Start Setup">
-    Find the **ConnectWise Manage** integration card and click **Configure** to launch the setup wizard.
+    Find the **ConnectWise Manage** integration card and click **Setup** (or **Configure** if previously connected) to launch the setup wizard.
   </Step>
 </Steps>
 
@@ -150,6 +150,8 @@ Configure what data to sync from ConnectWise and set up company filters.
     | **Sync Companies** | Sync company data from ConnectWise |
     | **Enable Ticket Sync** | Sync service tickets from ConnectWise |
     | **Enable Opportunity Sync** | Sync opportunities from ConnectWise |
+    | **Enable Project Sync** | Sync projects from ConnectWise |
+    | **Enable Invoice Sync** | Sync invoices from ConnectWise |
   </Step>
 
   <Step title="Configure Contact Auto-Import">
@@ -265,30 +267,32 @@ Set up ticket status mapping and opportunity defaults.
 
 ### Step 4: Import (Optional)
 
-Import users and companies from ConnectWise. This step is optional - you can skip it and import later from the respective settings pages.
+Import users, companies, and locations from ConnectWise. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Locations** tabs.
 
 <Tabs>
-  <Tab title="Import Users">
+  <Tab title="Users">
     Import members (your MSP staff) from ConnectWise to create user accounts.
 
-    1. Enable **Import Users Now**
-    2. Select users from the list to create accounts for
-    3. Choose a default role for imported users
+    1. Select users from the list to create accounts for
+    2. Choose a role for imported users
 
     <Note>
       Client contacts are not imported here. They can be managed via Company settings after companies are imported.
     </Note>
   </Tab>
 
-  <Tab title="Import Companies">
+  <Tab title="Companies">
     Import companies from ConnectWise to sync their data.
 
-    1. Enable **Import Companies Now**
-    2. Select companies to import or link to existing MSPortal companies
+    1. Select companies to import or link to existing MSPortal companies
 
     <Tip>
-      Companies will sync automatically based on your sync settings and filters. Use this option if you want to import specific companies immediately.
+      Companies will sync automatically based on your sync settings and filters. Use this tab if you want to import specific companies immediately.
     </Tip>
+  </Tab>
+
+  <Tab title="Locations">
+    Import ConnectWise locations and map them to MSPortal locations. Only locations for mapped companies are shown.
   </Tab>
 </Tabs>
 

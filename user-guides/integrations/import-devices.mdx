@@ -54,6 +54,9 @@ Datto RMM shows an additional **Category** column because Datto uses a two-level
   <Step title="Use Quick Match (Recommended)">
     Click **Quick Match** to automatically map external types to existing MSPortal device types with similar names. This handles most common types like Workstation, Server, and Laptop.
   </Step>
+  <Step title="Use Map with AI">
+    Click **Map with AI** to have AI suggest mappings for any types that name matching could not resolve.
+  </Step>
   <Step title="Use Quick Create for Remaining Types">
     Click **Quick Create** to automatically create new MSPortal device types for any unmatched external types.
   </Step>
@@ -106,7 +109,7 @@ Below the type mappings table, the Staged Devices list shows individual devices 
 
 The table shows device details including name, type, company, manufacturer, model, and import status. Use the controls to:
 
-- **Filter**: Toggle **Show only unimported** to hide already-imported devices
+- **Filter**: Toggle **Show unimported only** to hide already-imported devices
 - **Search**: Search by device name, type, company, or other fields
 - **Paginate**: Navigate through large device lists
 
@@ -118,7 +121,7 @@ The table shows device details including name, type, company, manufacturer, mode
   </Tab>
   <Tab title="Import Selected">
     1. Check the boxes next to specific devices
-    2. Click **Import Selected** in the header
+    2. Click the **Import Selected** button in the header - it shows the number of devices you have selected (e.g., "Import 5 Selected")
   </Tab>
   <Tab title="Auto-Sync">
     Enable **Auto-Sync** on device type mappings to automatically import new devices of those types during each sync cycle. No manual action needed.
@@ -130,7 +133,7 @@ The table shows device details including name, type, company, manufacturer, mode
 In addition to ignoring entire categories, you can ignore individual devices:
 
 1. Select specific devices using the checkboxes
-2. Click **Ignore Selected** in the header
+2. Click the **Ignore Selected** button in the header - it shows the number of devices you have selected (e.g., "Ignore 3 Selected")
 3. The devices are hidden from the staging list and pending counts
 
 ## Syncing New Devices

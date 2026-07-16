@@ -171,14 +171,13 @@ Map your NinjaOne organizations to MSPortal companies. Only devices from mapped 
     After creating the integration, MSPortal begins syncing your organizations from NinjaOne. This may take a few minutes depending on the number of organizations.
 
     <Info>
-    If you see "No organizations found", wait a few minutes and refresh. The initial sync may take some time to complete.
+    If you see "No organizations found", wait a few minutes and refresh. The initial sync may take a few minutes to complete depending on the number of organizations.
     </Info>
   </Step>
 
   <Step title="Review Organization List">
     The mapping table displays all organizations from NinjaOne with:
     - **Company Name**: The name of the organization in NinjaOne
-    - **Devices**: Number of devices in that organization
     - **Mapped To**: The MSPortal company (if mapped), with confidence scores shown for pending matches
     - **Status**: Whether the mapping is saved, pending, or unmapped
   </Step>
@@ -343,7 +342,7 @@ The Staged Devices table shows devices ready for import from mapped organization
     Click **Sync Now** in the page header to fetch the latest devices from NinjaOne.
 
     <Info>
-    The initial sync may take several hours to complete for large environments due to NinjaOne API rate limits. Subsequent syncs are faster as they only process changes.
+    The initial sync may take a few minutes to complete depending on the size of your environment. Subsequent syncs are faster as they only process changes.
     </Info>
   </Step>
 
@@ -400,7 +399,7 @@ Syncs run automatically on a daily schedule:
 | Auto-Import | Immediately after device sync | Imports new devices for types with auto-sync enabled |
 
 <Note>
-Device syncs can take several hours for large environments due to NinjaOne's API rate limits. You can also trigger a manual sync at any time using the **Sync Now** button on the device import page.
+Device syncs may take a few minutes depending on the size of your environment. You can also trigger a manual sync at any time using the **Sync Now** button on the device import page.
 </Note>
 
 ---
@@ -477,7 +476,7 @@ You can return to any step of the setup wizard at any time:
 
     **Solutions:**
     1. Map at least one organization to a company in the Map Organizations step
-    2. Wait for the device sync to complete (can take several hours for large environments)
+    2. Wait for the device sync to complete (may take a few minutes)
     3. Click **Sync Now** to trigger a fresh sync
   </Accordion>
 
@@ -548,7 +547,7 @@ You can return to any step of the setup wizard at any time:
     Use Quick Match to map existing device types, then Quick Create to generate new types for any remaining unmatched NinjaOne categories.
   </Card>
   <Card title="Schedule Around Syncs" icon="clock">
-    Device syncs run daily at 3:15 AM UTC. For large environments, avoid triggering manual syncs during business hours as they can take several hours.
+    Device syncs run daily at 3:15 AM UTC, so device data is refreshed before business hours. You can trigger a manual sync at any time if you need fresher data.
   </Card>
 </CardGroup>
 

@@ -119,7 +119,7 @@ MSPortal.ai provides a guided setup wizard that walks you through connecting and
   </Step>
 
   <Step title="Start Setup">
-    Find the **Halo** integration card and click **Configure** to launch the setup wizard.
+    Find the **Halo PSA** integration card and click **Configure** to launch the setup wizard.
   </Step>
 </Steps>
 
@@ -135,7 +135,7 @@ Enter your Halo PSA API credentials to establish the connection.
 
     | Field | Description |
     |-------|-------------|
-    | **Halo URL** | Your Halo PSA instance URL (e.g., `https://yourhalo.halopsa.com`) |
+    | **Halo URL** | Your Halo PSA instance URL (e.g., `https://yourhalo.haloservicedesk.com`) |
     | **Client ID** | The Client ID from your Halo API application |
     | **Client Secret** | The Client Secret from your Halo API application |
   </Step>
@@ -278,8 +278,8 @@ If you want Halo opportunities to auto-create planner items as new ones land in 
 
 | Setting | Description |
 |---------|-------------|
-| **Enable opportunity auto-import** | Master toggle. When off, opportunities only come into the planner via the manual Import Opportunities dialog |
-| **Minimum value** | Skip opportunities below a dollar threshold (useful for filtering out noise from small stub deals) |
+| **Auto-import opportunities into the Planner** | Master toggle. When off, opportunities only come into the planner via the manual Import Opportunities dialog |
+| **Minimum opportunity value** | Skip opportunities below a value threshold (useful for filtering out noise from small stub deals) |
 | **Opportunity types to auto-import** | Multi-select list of Halo opportunity types. The picker is populated from the distinct `opp_type` values that have actually appeared in your Halo data, since Halo's `opptype` is free-text rather than a managed picklist |
 
 Once enabled, every Halo sync auto-creates planner items for new matching opportunities and keeps existing PSA-managed planner items in sync (title, description, due date, estimated value). See [Importing PSA Opportunities](/user-guides/planner/index#importing-psa-opportunities) in the Planner guide for the full sync behavior.

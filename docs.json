@@ -314,6 +314,30 @@
                 ]
               },
               {
+                "group": "Huntress",
+                "pages": [
+                  "user-guides/integrations/enable-huntress-integration"
+                ]
+              },
+              {
+                "group": "Breach Secure Now",
+                "pages": [
+                  "user-guides/integrations/enable-breach-secure-now-integration"
+                ]
+              },
+              {
+                "group": "Phin Security",
+                "pages": [
+                  "user-guides/integrations/enable-phin-integration"
+                ]
+              },
+              {
+                "group": "CyberHoot",
+                "pages": [
+                  "user-guides/integrations/enable-cyberhoot-integration"
+                ]
+              },
+              {
                 "group": "Hudu",
                 "pages": [
                   "user-guides/integrations/enable-hudu-integration"
@@ -345,6 +369,18 @@
                 ]
               },
               {
+                "group": "Cisco Meraki",
+                "pages": [
+                  "user-guides/integrations/enable-meraki-integration"
+                ]
+              },
+              {
+                "group": "CloudRadial",
+                "pages": [
+                  "user-guides/integrations/enable-cloudradial-integration"
+                ]
+              },
+              {
                 "group": "Benji Pays",
                 "pages": [
                   "user-guides/integrations/enable-benjipays-integration"
@@ -353,7 +389,14 @@
               {
                 "group": "Pax8",
                 "pages": [
+                  "user-guides/integrations/enable-pax8-integration",
                   "user-guides/licensing/setup"
+                ]
+              },
+              {
+                "group": "Sherweb",
+                "pages": [
+                  "user-guides/integrations/enable-sherweb-integration"
                 ]
               },
               {
@@ -372,6 +415,18 @@
                 "group": "UniFi",
                 "pages": [
                   "user-guides/integrations/enable-unifi-integration"
+                ]
+              },
+              {
+                "group": "DNSimple",
+                "pages": [
+                  "user-guides/integrations/enable-dnsimple-integration"
+                ]
+              },
+              {
+                "group": "Microsoft Teams",
+                "pages": [
+                  "user-guides/integrations/enable-teams-integration"
                 ]
               }
             ]

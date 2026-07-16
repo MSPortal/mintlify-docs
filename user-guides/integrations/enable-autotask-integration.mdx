@@ -93,7 +93,7 @@ MSPortal.ai provides a guided setup wizard that walks you through connecting and
   </Step>
 
   <Step title="Start Setup">
-    Find the **Autotask PSA** integration card and click **Configure** to launch the setup wizard.
+    Find the **Autotask PSA** integration card and click **Setup** (or **Configure** if previously connected) to launch the setup wizard.
   </Step>
 </Steps>
 
@@ -245,30 +245,32 @@ Set up ticket status mapping and opportunity defaults.
 
 ### Step 4: Import (Optional)
 
-Import users and companies from Autotask. This step is optional - you can skip it and import later from the respective settings pages.
+Import users and companies from Autotask. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Configuration Items** tabs.
 
 <Tabs>
-  <Tab title="Import Users">
+  <Tab title="Users">
     Import resources (your MSP staff) from Autotask to create user accounts.
 
-    1. Enable **Import Users Now**
-    2. Select users from the list to create accounts for
-    3. Choose a default role for imported users
+    1. Select users from the list to create accounts for
+    2. Choose a role for imported users
 
     <Note>
       Client contacts are not imported here. They can be managed via Company settings after companies are imported.
     </Note>
   </Tab>
 
-  <Tab title="Import Companies">
+  <Tab title="Companies">
     Import accounts from Autotask to sync their data.
 
-    1. Enable **Import Companies Now**
-    2. Select companies to import or link to existing MSPortal companies
+    1. Select companies to import or link to existing MSPortal companies
 
     <Tip>
-      Companies will sync automatically based on your sync settings. Use this option if you want to import specific companies immediately.
+      Companies will sync automatically based on your sync settings. Use this tab if you want to import specific companies immediately.
     </Tip>
+  </Tab>
+
+  <Tab title="Configuration Items">
+    Import Autotask configuration items as devices in MSPortal. Map configuration item types to MSPortal device types and select the items to import.
   </Tab>
 </Tabs>
 
@@ -294,10 +296,7 @@ After setup, you can manage your integration from **Settings** > **Integrations*
 
 ### Webhook Management
 
-MSPortal automatically provisions webhooks in Autotask to sync ticket and company changes instantly. If webhooks stop working:
-
-1. Navigate to **Settings** > **Integrations**
-2. Click the **Provision Autotask Webhooks** button to re-provision them
+MSPortal automatically provisions webhooks in Autotask when the integration connects, so ticket and company changes sync instantly. No manual webhook setup is required. If webhooks stop working, verify that your API user's security role still allows creating webhooks, then re-run the Connect step of the setup wizard.
 
 ---
 
@@ -353,6 +352,6 @@ Set which ticket statuses users can select when updating tickets:
 |-------|----------|
 | Connection test fails | Verify your API username and secret are correct. Ensure the API user has the MSPortal security role. |
 | Tickets not syncing | Check that the correct queues and categories are selected in Ticket Sync Scope. |
-| Webhooks not working | Click "Provision Autotask Webhooks" to re-provision them. Ensure your API user can create webhooks. |
+| Webhooks not working | Ensure your API user's security role can create webhooks, then re-run the Connect step of the setup wizard so webhooks are re-provisioned automatically. |
 | Missing data | Verify the API user has appropriate permissions in the MSPortal security role. |
 | Contacts not importing | Verify Auto-Import is enabled and a default role is selected in the Sync step. |

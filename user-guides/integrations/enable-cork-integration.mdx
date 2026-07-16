@@ -150,16 +150,16 @@ Map Cork clients (organizations) to your MSPortal companies. This determines whi
     If a Cork client doesn't have a corresponding MSPortal company:
 
     - Click the **+** button next to the client to create a new company
-    - Or click **Create All** to bulk-create companies for all unmapped clients
+    - Or click **Create new company** in the company dropdown to create and map one on the spot
 
     New companies are automatically mapped to their Cork clients.
   </Step>
 
   <Step title="Filter Clients">
-    Use the filter dropdown to view:
-    - **All Clients** - Show all synced clients
-    - **Mapped Only** - Show only clients linked to companies
-    - **Unmapped Only** - Show clients that still need mapping
+    Click the summary cards above the list to filter the view:
+    - **Total Items** - Show all synced clients
+    - **Mapped** - Show only clients linked to companies
+    - **Unmapped** - Show clients that still need mapping
   </Step>
 
   <Step title="Proceed">
@@ -263,8 +263,8 @@ After initial setup, data syncs automatically:
 | Clients | Hourly (at :05) |
 | Compliance Events | Every 30 minutes (at :15 and :45) |
 | Endpoints | Hourly |
-| Inboxes | Hourly |
-| Vulnerabilities | Hourly |
+| Inboxes | Every 2 hours (at :45) |
+| Vulnerabilities | Every 2 hours (at :30) |
 
 <Note>
 You can trigger a manual sync at any time by returning to the Cork integration settings and clicking **Sync All Data**.
@@ -279,7 +279,6 @@ After setup, manage your integration from **Settings > Integrations**:
 | Action | Description |
 |--------|-------------|
 | **Configure** | Re-open the wizard to modify settings or add more client mappings |
-| **Test Connection** | Verify your API key is still valid |
 | **Resync** | Trigger a full data refresh |
 | **Delete** | Remove the integration (available in wizard footer) |
 

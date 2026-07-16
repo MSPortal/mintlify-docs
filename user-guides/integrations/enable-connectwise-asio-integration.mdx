@@ -7,6 +7,8 @@ description: Step-by-step guide to set up ConnectWise Asio (RMM) integration wit
 
 ConnectWise Asio (formerly ConnectWise RMM) provides cloud-native remote monitoring and management capabilities. This integration enables MSPortal to sync devices, hypervisors, network devices, and company data from your Asio environment.
 
+Setup runs through a 4-step wizard in MSPortal: **Connect**, **Map**, **Map Locations**, and **Import**.
+
 ## Prerequisites
 
 Before you begin, ensure you have:
@@ -52,81 +54,91 @@ The Asio integration syncs devices to companies that already exist in MSPortal. 
 </AccordionGroup>
 
 4. Click **Save** to generate the API credentials
-5. **Important:** Copy the **API Key** and **API Secret** immediately - these cannot be retrieved again after closing the dialog
+5. **Important:** Copy both credentials immediately - they cannot be retrieved again after closing the dialog. These are the **Client ID** and **Client Secret** you will enter in MSPortal.
 
 ---
 
 ## Part 2: Connect MSPortal
 
-### Step 1: Open Integration Settings
+### Step 1: Start the Setup Wizard
 
 1. In MSPortal, navigate to **Settings > Integrations**
 2. Find **ConnectWise Asio** in the integrations list
-3. Click **Configure**
+3. Click **Connect** to launch the 4-step setup wizard
 
 ### Step 2: Enter Credentials
 
-In the connection dialog, enter your ConnectWise Asio API credentials:
+On the wizard's **Connect** step, enter your ConnectWise Asio credentials:
 
 | Field | Description |
 |-------|-------------|
-| **API Key** | The API key generated in Step 2 |
-| **API Secret** | The API secret generated in Step 2 |
+| **Environment** | The Asio region your account runs in: **Production - AU**, **Production - NA**, **Production - EU**, or **QA**. The matching platform URL is shown below the dropdown (for example `itsupport247.net` for NA). |
+| **Client ID** | The Client ID generated in Part 1. It must start with the prefix for your environment (for example `0e30` for Production - NA); the wizard validates this as you type. |
+| **Client Secret** | The Client Secret generated in Part 1. |
 
 ### Step 3: Test Connection
 
-Click **Test Connection** to verify your credentials. You should see a green "Connected" indicator if successful.
+Click **Test Connection** to verify your credentials. A green "Connection tested successfully" message appears when the connection works.
 
 If the connection fails:
-- Verify your API Key and Secret are copied correctly
+- Verify the **Environment** matches the region where your Asio account is hosted
+- Verify the Client ID and Client Secret are copied correctly
 - Confirm all required scopes are enabled for the API key
 - Check that your Asio account has admin privileges
 
-### Step 4: Save the Integration
+### Step 4: Create the Integration
 
-Click **Connect** to save the integration settings.
+Click **Create Integration** to save the integration. Your secret is stored in encrypted vault storage, and the wizard advances to the Map step.
 
 ---
 
 ## Part 3: Map Companies
 
-Before importing devices, you need to map your Asio companies to MSPortal companies.
+The wizard's **Map** step maps your Asio companies to MSPortal companies. Devices inherit their company from this mapping.
 
-### Step 1: Navigate to Company Import
+<Warning>
+The initial sync may take hours to even days to fully complete depending on the size of your account. Companies appear on the Map step as they sync; the step checks for new companies automatically.
+</Warning>
 
-1. Go to **Settings > Companies**
-2. Click **Import**
-3. Select **Import from ConnectWise Asio**
+### Step 1: Review the Company List
+
+The Map step lists the companies synced from Asio alongside their current mapping status. Use the filter to show **All**, **Mapped**, or **Unmapped** companies.
 
 ### Step 2: Map Companies
 
-The import dialog displays companies from Asio alongside your existing MSPortal companies:
-
-1. Review the company list from Asio
-2. For each Asio company, select the corresponding MSPortal company to map it to
-3. Click **Import** to save the mappings
+1. Click **Quick Match** to automatically suggest matches between Asio companies and your existing MSPortal companies based on name
+2. For the rest, use the **Select company...** dropdown on each row to choose the matching MSPortal company
+3. Click **Import Selected** to save the pending mappings, then click **Next**
 
 <Tip>
-Companies should already exist in MSPortal from your PSA integration (ConnectWise Manage, Autotask, etc.). The Asio import maps RMM companies to these existing companies rather than creating new ones.
+Companies should already exist in MSPortal from your PSA integration (ConnectWise Manage, Autotask, etc.). Map Asio companies to these existing companies rather than creating new ones.
 </Tip>
 
 ---
 
-## Part 4: Import Devices
+## Part 4: Map Locations (Optional)
 
-After mapping companies, you can import devices from Asio.
+The **Map Locations** step lets you map Asio locations to your PSA locations for the companies you mapped. This step is optional - click **Skip** if you do not need location mapping.
+
+1. Review the location list; only locations for mapped companies are shown
+2. Use **Quick Match** to suggest matches based on name similarity within each company, or pick a PSA location manually on each row
+3. Click **Save All** to confirm pending matches, then continue
+
+---
+
+## Part 5: Import Devices
+
+The wizard's **Import** step confirms the integration is connected and hands off to the device import page.
 
 <Warning>
-Wait a few hours after mapping companies before importing devices. This allows the initial sync to complete and populate the staging area with device data.
+The initial sync may take hours to even days to fully complete depending on the size of your account. Devices appear in staging as the sync progresses.
 </Warning>
 
-### Accessing Device Import
+1. On the Import step, click **Open Device Import**
+2. In **Device Type Mappings**, map Asio device types to MSPortal device types, enable **Auto-Sync** for types you want imported automatically, and use **Ignore** for categories you don't need
+3. In **Staged Devices**, review the synced devices, select the ones you want, and click **Import Selected**
 
-1. Navigate to **Settings > Integrations**
-2. Find the ConnectWise Asio integration
-3. Click the **Devices** tab
-
-The device import page includes Device Type Mappings and a Staged Devices list. You can map Asio device types to MSPortal types, enable auto-sync for automatic imports, and ignore categories you don't need.
+You can return to this page anytime using the **Import Devices** action on the ConnectWise Asio row under **Settings > Integrations**.
 
 <Info>
 For the full device import workflow including type mappings, auto-sync, and category ignore, see the [Import Devices](/user-guides/integrations/import-devices) guide.
@@ -151,10 +163,10 @@ For the full device import workflow including type mappings, auto-sync, and cate
 
 | Issue | Solution |
 |-------|----------|
-| Connection test fails | Verify API Key and Secret are correct; ensure all required scopes are enabled |
-| No companies in import list | Check that the API key has "Companies - Read" scope enabled |
-| No devices in staging | Wait a few hours for initial sync; verify companies are mapped correctly |
-| Devices missing for some companies | Ensure those companies are mapped in Settings > Companies |
+| Connection test fails | Verify the Environment, Client ID, and Client Secret are correct; ensure the Client ID starts with the prefix for your environment; ensure all required scopes are enabled |
+| No companies on the Map step | The initial sync may take hours to even days depending on account size; check that the API key has "Companies - Read" scope enabled |
+| No devices in staging | Wait for the initial sync to progress; verify companies are mapped on the wizard's Map step |
+| Devices missing for some companies | Ensure those companies are mapped in the wizard's Map step (reopen it with **Configure** on the integration row) |
 | Permission errors | Verify your Asio account has admin privileges |
 
 ---

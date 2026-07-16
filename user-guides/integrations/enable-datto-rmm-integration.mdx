@@ -34,19 +34,12 @@ The Datto RMM integration maps sites to existing companies in MSPortal. Import y
 Before connecting to MSPortal, you need to create a dedicated API user in Datto RMM.
 
 <Steps>
-  <Step title="Navigate to Users">
-    Log into your Datto RMM portal and go to **Users**.
-  </Step>
-
-  <Step title="Create a New User">
-    Click **Create User** and fill in the details:
-
-    1. **Name**: Enter a descriptive name (e.g., "MSPortal Integration")
-    2. **Security Level**: Select **API Access**
+  <Step title="Navigate to API Keys">
+    Log into your Datto RMM portal and go to **Settings** &gt; **API** &gt; **API Keys**.
   </Step>
 
   <Step title="Generate API Key">
-    Once the user is created, generate an API key for it.
+    Generate a new API key for MSPortal.
 
     <Warning>
       Copy both the **API Key** and **Secret Key** immediately after creation. The Secret Key cannot be retrieved once you close the dialog.
@@ -305,6 +298,7 @@ For bulk imports, use the device type mapping's "Import All" button instead of s
 | Devices | Datto → MSPortal | All managed devices from mapped sites |
 | Device Types | Datto → MSPortal | Device categories and types for mapping |
 | Device Details | Datto → MSPortal | Hostname, manufacturer, model, OS |
+| Software | Datto → MSPortal | Installed software inventory for devices (synced every 30 minutes) |
 
 ---
 
@@ -339,8 +333,8 @@ You can return to any step of the setup wizard at any time:
     **Solutions:**
     1. Verify your API Key and Secret Key are copied exactly (no extra spaces)
     2. Confirm you selected the correct platform from the dropdown
-    3. Generate new API credentials by creating a new API user in Datto RMM if needed
-    4. Ensure the Datto user has the **API Access** security level
+    3. Generate new API credentials under **Settings** &gt; **API** &gt; **API Keys** if needed
+    4. Ensure your Datto RMM account has API access enabled
   </Accordion>
 
   <Accordion title="No sites appear in mapping step">
@@ -414,6 +408,6 @@ You can return to any step of the setup wizard at any time:
 ## Related Resources
 
 - [Import Companies](/user-guides/integrations/import-companies) - General company import guide
-- [Devices Module](/user-guides/devices) - Managing devices in MSPortal
+- [Devices Module](/user-guides/devices/index) - Managing devices in MSPortal
 - [Clear and Resync Integrations](/user-guides/integrations/clear-and-resync-integrations) - Troubleshooting sync issues
 - [ConnectWise Asio Integration](/user-guides/integrations/enable-connectwise-asio-integration) - Similar RMM integration guide

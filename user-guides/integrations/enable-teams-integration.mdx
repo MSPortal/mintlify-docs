@@ -1,0 +1,193 @@
+---
+title: 'Configure Microsoft Teams Integration'
+description: 'Ship MSPortal as a branded Microsoft Teams app so your clients can work with tickets, training, and more without leaving Teams'
+icon: 'microsoft'
+---
+
+This guide walks you through publishing MSPortal as a branded Microsoft Teams app for your clients. You configure the app's name, branding, and tabs in MSPortal, download a ready-to-install app package, and upload it into Microsoft Teams.
+
+## Overview
+
+The Microsoft Teams integration packages your portal as a custom Teams app that lives in the Teams left rail. With it, you can:
+
+- Give clients a branded app carrying your name, description, and accent color
+- Choose exactly which portal views appear as tabs: tickets, training, devices, reporting, and more
+- Let clients sign in with their Microsoft account and work with live portal data inside Teams
+- Rename and reorder tabs to match how your clients think about your services
+
+<Note>
+  The Microsoft Teams app is enabled per account. If the **Microsoft Teams** card does not appear on your Integrations page, contact support@msportal.ai to have it enabled.
+</Note>
+
+## Prerequisites
+
+- MSPortal.ai account with integration management permissions
+- Microsoft Teams in the client's Microsoft 365 environment
+- Permission to upload custom apps in the client's Teams environment (larger organizations may require a Teams administrator to approve the upload)
+
+## Part 1: Configure Your Teams App
+
+Set up the app's branding and tabs in MSPortal.
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    In MSPortal.ai, go to **Settings > Integrations**.
+  </Step>
+
+  <Step title="Open the Teams App Settings">
+    Locate the **Microsoft Teams** card and click **Set up Teams app** (or **Manage Teams app** if you have configured it before).
+  </Step>
+
+  <Step title="Set the App Name and Descriptions">
+    Configure how the app presents itself to your clients:
+
+    | Field | Description |
+    |-------|-------------|
+    | **Short name** | Shown in Teams' app drawer (max 30 characters) |
+    | **Full name** | Shown on the app's detail page (max 100 characters) |
+    | **Short description** | One-line summary (max 80 characters) |
+    | **Full description** | Longer description shown on the app's detail page |
+
+    MSPortal pre-fills these with sensible defaults based on your organization name.
+  </Step>
+
+  <Step title="Choose Your Tabs">
+    In the **Tabs** section, pick which MSPortal views your clients see in the Teams left rail. For each tab you can:
+
+    - **Enable or disable** it with the toggle
+    - **Rename** it by editing the label
+    - **Reorder** it with the up and down arrows
+
+    **Home**, **Tickets**, and **Training** are enabled by default. Click **Reset to defaults** to return to the default set at any time.
+
+    <Note>
+      Teams allows up to 16 tabs per app, and at least one tab must be enabled.
+    </Note>
+  </Step>
+
+  <Step title="Set the Accent Color">
+    Pick the hex color Teams uses for app accents. It defaults to your brand's primary color from **Settings > Branding**.
+  </Step>
+
+  <Step title="Set a Vanity Domain (Optional)">
+    Optionally enter a custom domain (for example `portal.yourmsp.com`) to use for open-in-browser links. The domain must already point at MSPortal via DNS. Leave it blank to use the standard MSPortal address.
+
+    <Info>
+      Tabs inside Teams always load from the standard MSPortal address so Microsoft sign-in works; the vanity domain only affects links that open in the browser.
+    </Info>
+  </Step>
+
+  <Step title="Save">
+    Click **Save** to store your configuration.
+  </Step>
+</Steps>
+
+---
+
+## Part 2: Download and Install the App Package
+
+MSPortal generates a Teams app package (a zip file) from your configuration. You or your clients upload it into Microsoft Teams.
+
+<Steps>
+  <Step title="Download the Package">
+    Click **Download Teams app package**. This downloads a zip file containing your branded app.
+  </Step>
+
+  <Step title="Upload the App in Microsoft Teams">
+    In Microsoft Teams, open **Apps > Manage your apps > Upload a custom app > Upload for me or my teams**.
+  </Step>
+
+  <Step title="Pick the Downloaded Zip">
+    Select the zip file you downloaded from MSPortal.
+  </Step>
+
+  <Step title="Add the App">
+    Click **Add**. Your portal appears in the Teams left rail with the tabs you configured.
+  </Step>
+</Steps>
+
+<Note>
+  Larger Microsoft 365 organizations may block direct custom app uploads. In that case, a Teams administrator can approve and deploy the custom app from the Teams admin center instead.
+</Note>
+
+---
+
+## Available Tabs
+
+You can offer any of the following MSPortal views as tabs in your Teams app:
+
+| Tab | Description | Enabled by Default |
+|-----|-------------|--------------------|
+| **Home** | Dashboard, alerts, and recent activity | Yes |
+| **Tickets** | Open service tickets across all clients | Yes |
+| **Training** | End-user security training and assigned courses | Yes |
+| **Devices** | Managed endpoints across every client | No |
+| **Calendar** | Scheduled meetings, projects, and onsite visits | No |
+| **Projects** | Active client projects and milestones | No |
+| **Planner** | Roadmap of upcoming MSP work | No |
+| **Reporting** | Dashboards and exportable client reports | No |
+| **Compliance** | Frameworks, controls, and audit posture | No |
+| **Surveys** | CSAT, NPS, and onboarding surveys | No |
+
+Inside Teams, users sign in with their Microsoft account and see live MSPortal data with your permission model applied.
+
+---
+
+## Managing Your Teams App
+
+Return to **Settings > Integrations** and click **Manage Teams app** at any time to update the configuration.
+
+| Action | Description |
+|--------|-------------|
+| **Save changes** | Update the name, descriptions, tabs, accent color, or vanity domain |
+| **Download Teams app package** | Generate a fresh package reflecting your current configuration |
+| **Reset to defaults** | Restore the default tab set in the Tabs section |
+
+### Updating an Installed App
+
+Each time you save changes, MSPortal bumps the app's version number. To roll changes out to clients who already installed the app, download the package again and upload the new version in Microsoft Teams; Teams recognizes it as an update to the existing app.
+
+---
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Microsoft Teams card missing from Integrations | Contact support@msportal.ai to have the Teams app enabled for your account |
+| "Save your configuration first" when downloading | Click Save before downloading the app package |
+| Save button disabled | Check the Tabs section: at least one tab must be enabled, and no more than 16 |
+| Client cannot upload the app in Teams | Their organization restricts custom app uploads; a Teams administrator must approve the app from the Teams admin center |
+| Tab changes not visible to clients | Download the updated package and upload the new version in Teams |
+
+---
+
+## Security & Privacy
+
+- **Sign-in**: Users authenticate with their Microsoft account; all data access follows your existing MSPortal permission model
+- **Fixed tab set**: Tabs can only point at MSPortal views; the app cannot be configured to load arbitrary destinations
+- **Data Isolation**: Clients only see the data their MSPortal accounts already have access to
+
+---
+
+## Next Steps
+
+After publishing your Teams app:
+
+<CardGroup cols={2}>
+  <Card title="Configure Branding" icon="palette" href="/user-guides/settings/tenant">
+    Set your brand colors and custom domains
+  </Card>
+  <Card title="Ticketing" icon="ticket" href="/user-guides/ticketing/index">
+    Explore the ticketing experience your clients see in Teams
+  </Card>
+  <Card title="Training" icon="graduation-cap" href="/user-guides/training/index">
+    Assign security training courses your clients complete from Teams
+  </Card>
+  <Card title="Other Integrations" icon="plug" href="/user-guides/integrations/index">
+    Explore additional integration options
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+For assistance with the Microsoft Teams integration, contact support@msportal.ai.

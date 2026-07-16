@@ -107,11 +107,11 @@ Enter your Hudu credentials to establish the connection.
 
 <Steps>
   <Step title="Enter Your Hudu Base URL">
-    Enter the full URL of your Hudu instance in the **Base URL** field.
+    Enter the full URL of your Hudu instance in the **Hudu Base URL** field.
 
     | Field | Example |
     |-------|---------|
-    | **Base URL** | `https://your-instance.huducloud.com` |
+    | **Hudu Base URL** | `https://your-instance.huducloud.com` |
 
     <Note>
       Include `https://` at the beginning. Do not include a trailing slash.
@@ -126,7 +126,7 @@ Enter your Hudu credentials to establish the connection.
     Click **Test Connection** to verify your credentials. You will see a green "Connection tested successfully" message when the test passes.
 
     If the connection fails:
-    - Verify your Base URL is correct and includes `https://`
+    - Verify your Hudu Base URL is correct and includes `https://`
     - Check that your API key is copied exactly, with no extra spaces
     - Ensure your Hudu account has API access enabled
     - Confirm your Hudu instance is accessible from the internet (self-hosted instances behind a firewall may need configuration)
@@ -196,13 +196,13 @@ You must map at least one company before proceeding. Only documentation, assets,
 
 ---
 
-### Step 3: Documentation Config (Optional)
+### Step 3: Documentation (Optional)
 
 Configure which types of Hudu documentation to sync into MSPortal.
 
 <Steps>
   <Step title="Review Available Content Types">
-    The Documentation Config step displays the types of content available for sync:
+    The Documentation step displays the types of content available for sync:
 
     | Content Type | Description |
     |--------------|-------------|
@@ -356,13 +356,13 @@ As you onboard new clients in Hudu:
 <AccordionGroup>
   <Accordion title="Connection test fails">
     **Causes:**
-    - Incorrect Base URL or API key
+    - Incorrect Hudu Base URL or API key
     - Hudu instance is not reachable from the internet
     - API key has been revoked or expired
     - Self-hosted Hudu behind a firewall
 
     **Solutions:**
-    1. Verify your Base URL includes `https://` and matches your browser URL exactly
+    1. Verify your Hudu Base URL includes `https://` and matches your browser URL exactly
     2. Check that the API key is copied correctly with no extra spaces
     3. For self-hosted instances, ensure your Hudu server allows incoming API requests
     4. Generate a new API key in Hudu if the current one may be invalid
@@ -409,21 +409,19 @@ As you onboard new clients in Hudu:
     - Company is not mapped
 
     **Solutions:**
-    1. Return to Step 3 (Documentation Config) and enable the desired content types
+    1. Return to Step 3 (Documentation) and enable the desired content types
     2. Verify the relevant asset layouts are toggled on
     3. Confirm the company is mapped in Step 2
   </Accordion>
 
   <Accordion title="Compliance data not showing in Hudu Magic Dash">
     **Causes:**
-    - Magic Dash not configured in Step 5
-    - No compliance check types selected
+    - Magic Dash not enabled in Step 5
     - Company mapping incomplete
 
     **Solutions:**
     1. Return to Step 5 (Magic Dash) and enable the feature
-    2. Select at least one compliance check type to push
-    3. Verify the company is mapped in Step 2
+    2. Verify the company is mapped in Step 2
   </Accordion>
 </AccordionGroup>
 
@@ -440,9 +438,6 @@ As you onboard new clients in Hudu:
   </Card>
   <Card title="Restrict Password Access" icon="lock">
     Use folder-level password sharing to limit which credentials are accessible. Only grant the `read_documentation_passwords` permission to users who need it.
-  </Card>
-  <Card title="Enable Password Masking" icon="eye-slash">
-    Turn on password masking to prevent accidental exposure. Users will need to explicitly click to reveal each password value.
   </Card>
   <Card title="Audit Password Access" icon="clipboard-list">
     Regularly review the audit log to monitor which users are accessing passwords. This helps maintain accountability and detect unusual access patterns.

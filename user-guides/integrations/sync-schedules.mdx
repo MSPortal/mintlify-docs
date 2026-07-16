@@ -6,16 +6,12 @@ description: How often MSPortal.ai refreshes data from each connected integratio
 MSPortal.ai keeps your data current by syncing automatically from every connected integration on a regular schedule. Higher-volume data that changes often (like tickets) refreshes frequently, while reference data that rarely changes (like product catalogs) refreshes once a day. Syncs are deliberately staggered throughout the day to keep the platform fast and responsive.
 
 <Info>
-All scheduled times below are in **UTC**. Frequencies are accurate as of the latest release and may be adjusted over time as we tune performance. You can always trigger an immediate refresh with **Sync Now**.
+All scheduled times below are in **UTC**. Frequencies are accurate as of the latest release and may be adjusted over time as we tune performance. You can always trigger an immediate refresh with **Resync**.
 </Info>
 
 ## Need data updated right now?
 
-You don't have to wait for the next scheduled sync. On the **Integrations** page (`/settings/integrations`), click the **Sync Now** (refresh) icon on any integration card to pull the latest data immediately.
-
-<Warning>
-Manual syncs are rate-limited. If you've just triggered a sync, you may need to wait a few minutes before triggering another.
-</Warning>
+You don't have to wait for the next scheduled sync. On the **Integrations** page (`/settings/integrations`), click the **Resync** (refresh) icon on any integration card to pull the latest data immediately.
 
 ## Microsoft 365
 
@@ -33,7 +29,6 @@ Manual syncs are rate-limited. If you've just triggered a sync, you may need to 
     | Data Type | Frequency |
     |-----------|-----------|
     | Tickets | Every 15 minutes |
-    | Ticket notes | Every 30 minutes |
     | Time entries | Every 30 minutes |
     | Companies | Every hour |
     | Sites | Every hour |
@@ -263,7 +258,7 @@ Manual syncs are rate-limited. If you've just triggered a sync, you may need to 
 
 ## I made a change in my source system and it's not showing up
 
-Changes appear in MSPortal after the next scheduled sync for that data type. For frequently-synced data like tickets, that's typically within a few minutes; for daily reference data, it may take until the next day. If you need it sooner, use **Sync Now** on the integration card.
+Changes appear in MSPortal after the next scheduled sync for that data type. For frequently-synced data like tickets, that's typically within a few minutes; for daily reference data, it may take until the next day. If you need it sooner, use **Resync** on the integration card.
 
 ## Related Resources
 

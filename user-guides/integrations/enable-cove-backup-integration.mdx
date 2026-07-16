@@ -84,7 +84,7 @@ In the example below, the Partner Name is `MSPortal.ai` (the top-level reseller)
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Cove integration in 3 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Cove integration in 2 easy steps.
 
 ### Starting the Wizard
 
@@ -94,7 +94,7 @@ MSPortal.ai provides a guided setup wizard that walks you through connecting and
   </Step>
 
   <Step title="Start Setup">
-    Find the **Cove Backup** integration card and click **Configure** to launch the setup wizard.
+    Find the **Cove Data Protection** integration card and click **Setup** (or **Configure** if previously connected) to launch the setup wizard.
   </Step>
 </Steps>
 
@@ -170,36 +170,12 @@ Map Cove partners (clients/customers) to your MSPortal companies. This determine
     - **Unmapped Only** - Show partners that still need mapping
   </Step>
 
-  <Step title="Proceed">
-    Once you've mapped the partners you need, click **Next** to continue.
+  <Step title="Complete Setup">
+    Once you've mapped the partners you need, click **Complete Setup** to finish the wizard.
 
     <Info>
-      Only devices from mapped partners will be available for import. You can return to add more mappings at any time.
+      Only backup data from mapped partners syncs to MSPortal. You can return to add more mappings at any time.
     </Info>
-  </Step>
-</Steps>
-
----
-
-### Step 3: Import Devices
-
-Import backup devices from Cove into your MSPortal asset inventory.
-
-<Steps>
-  <Step title="Open Device Import">
-    Click **Open Device Import** to access the full device import interface.
-  </Step>
-
-  <Step title="Import Devices">
-    From the device import page, you can:
-    - View all backup agents from your mapped partners
-    - Filter by partner or status
-    - Selectively import devices to your asset inventory
-    - Sync device data to keep information current
-
-    <Note>
-      The initial device sync may take a few minutes depending on the number of backup agents in your account.
-    </Note>
   </Step>
 </Steps>
 
@@ -212,20 +188,19 @@ After setup, you can manage your integration from **Settings** > **Integrations*
 | Action | Description |
 |--------|-------------|
 | **Configure** | Re-open the setup wizard to modify settings or add more partner mappings |
-| **Sync Partners** | Refresh the list of partners from Cove |
-| **Import Devices** | Access the device import page to import backup agents |
+| **Resync** | Trigger a manual sync of data from Cove |
 
 ---
 
 ## Synchronization Process
 
 ### Initial Sync
-- Partner data will sync when you first click the Sync button
-- Devices sync separately and may take a few minutes
-- Only devices from mapped partners are available for import
+- Partner data will sync when you first click the Sync button on the Map Partners step
+- Backup data syncs separately and may take a few minutes
+- Only backup data from mapped partners syncs to MSPortal
 
 ### Ongoing Sync
-- Device status and backup data are synced automatically
+- Backup status data is synced automatically
 - Partner mappings persist until you change them
 - New partners will appear after running a sync
 
@@ -236,8 +211,8 @@ After setup, you can manage your integration from **Settings** > **Integrations*
 | Issue | Solution |
 |-------|----------|
 | Connection test fails | Verify Partner Name (your top-level reseller name, not a client), API User Name, and Token are correct |
-| No partners appear | Click "Sync Partners" to fetch data from Cove |
-| Devices not showing | Ensure the partner is mapped to a company first |
+| No partners appear | Click **Sync** on the Map Partners step to fetch data from Cove |
+| Backup data not showing | Ensure the partner is mapped to a company first |
 | Quick Match didn't work | Use manual mapping for partners with different names in Cove vs MSPortal |
 | Token expired/invalid | Create a new API user in Cove and update the integration |
 
@@ -246,6 +221,6 @@ After setup, you can manage your integration from **Settings** > **Integrations*
 ## Important Notes
 
 - **Token Security**: Store your API token securely. If compromised, delete the API user in Cove and create a new one
-- **Partner Mapping**: Only devices from mapped partners will sync to MSPortal
+- **Partner Mapping**: Only backup data from mapped partners will sync to MSPortal
 - **Role Permissions**: The Supporter role provides read-only access, which is sufficient for MSPortal integration
 - **Sync Timing**: Initial synchronization may take several minutes depending on your account size

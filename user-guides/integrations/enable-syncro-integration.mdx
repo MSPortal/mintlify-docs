@@ -104,7 +104,7 @@ Select the following permissions for the API token:
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Syncro integration in 4 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Syncro integration in 3 easy steps.
 
 ### Starting the Wizard
 
@@ -114,7 +114,7 @@ MSPortal.ai provides a guided setup wizard that walks you through connecting and
   </Step>
 
   <Step title="Start Setup">
-    Find the **Syncro** integration card and click **Configure** to launch the setup wizard.
+    Find the **Syncro** integration card and click **Setup** (or **Configure** if previously connected) to launch the setup wizard.
   </Step>
 </Steps>
 
@@ -183,14 +183,6 @@ Configure what data to sync from Syncro and set up automatic contact import.
     <Tip>
       All auto-imported contacts will be assigned the selected role. You can change individual user roles later in Settings > Users.
     </Tip>
-  </Step>
-
-  <Step title="Configure Ticket Sync Scope">
-    Define which tickets to sync:
-
-    | Setting | Description |
-    |---------|-------------|
-    | **Exclude Statuses** | Select ticket statuses to exclude from sync (e.g., Closed, Resolved) |
 
     <Info>
       When you proceed to the next step, data sync will begin in the background. This may take a few minutes depending on the amount of data in your Syncro account.
@@ -200,84 +192,47 @@ Configure what data to sync from Syncro and set up automatic contact import.
   </Step>
 
   <Step title="Proceed">
-    Click **Next** to continue to ticket configuration.
-  </Step>
-</Steps>
-
----
-
-### Step 3: Configure
-
-Set up ticket status mapping.
-
-#### Ticket Settings
-
-<Steps>
-  <Step title="Configure Status Settings">
-    | Setting | Description |
-    |---------|-------------|
-    | **Closed Statuses** | Select statuses that indicate a ticket is closed |
-    | **Client Comment Status** | Status to set when a client comments on a ticket |
-  </Step>
-
-  <Step title="Configure Resolution Status Stepper">
-    The Resolution Status Stepper provides a visual indicator of ticket progress. Map your Syncro statuses to each stage:
-
-    | Stage | Description |
-    |-------|-------------|
-    | **New** | Tickets that are newly created or not yet triaged |
-    | **Triaged** | Tickets that have been reviewed and categorized |
-    | **Working** | Tickets actively being worked on |
-    | **Waiting** | Tickets waiting for customer response or external input |
-    | **Resolved** | Tickets that have been completed |
-
-    <Tip>
-      You can map multiple Syncro statuses to each stage. The stepper will show the appropriate stage based on the ticket's current status.
-    </Tip>
-  </Step>
-
-  <Step title="Sync Actions">
-    Use these buttons to manage ticket sync:
-
-    | Action | Description |
-    |--------|-------------|
-    | **Quick Sync** | Trigger an immediate sync of ticket data |
-    | **Clear & Resync** | Delete all synced tickets and perform a fresh sync (useful after major configuration changes) |
-  </Step>
-
-  <Step title="Proceed">
     Click **Next** to continue to the import step.
   </Step>
 </Steps>
 
 ---
 
-### Step 4: Import (Optional)
+### Step 3: Import (Optional)
 
-Import users and companies from Syncro. This step is optional - you can skip it and import later from the respective settings pages.
+Import users, companies, and devices from Syncro. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Devices** tabs.
 
 <Tabs>
-  <Tab title="Import Users">
+  <Tab title="Users">
     Import users from Syncro to create user accounts.
 
-    1. Enable **Import Users Now**
-    2. Select users from the list to create accounts for
-    3. Choose a default role for imported users
+    1. Select users from the list to create accounts for
+    2. Choose a role for imported users
 
     <Note>
       Client contacts are not imported here. They can be managed via Company settings after companies are imported.
     </Note>
   </Tab>
 
-  <Tab title="Import Companies">
+  <Tab title="Companies">
     Import customers from Syncro to sync their data.
 
-    1. Enable **Import Companies Now**
-    2. Select companies to import or link to existing MSPortal companies
+    1. Select companies to import or link to existing MSPortal companies
 
     <Tip>
-      Companies will sync automatically based on your sync settings. Use this option if you want to import specific companies immediately.
+      Companies will sync automatically based on your sync settings. Use this tab if you want to import specific companies immediately.
     </Tip>
+  </Tab>
+
+  <Tab title="Devices">
+    Once your Syncro integration is connected, you can import devices/assets.
+
+    1. Click **Open Device Import** to open the full device import page
+    2. Map Syncro asset types to MSPortal device types and select devices to import
+
+    <Note>
+      You can also import devices later from the integration settings.
+    </Note>
   </Tab>
 </Tabs>
 
@@ -332,6 +287,6 @@ To force an immediate synchronization of specific data types, use the refresh bu
 | Connection test fails | Verify your subdomain (no full URL) and API key are correct |
 | Token expired | Generate a new token in Syncro and update the integration |
 | Permissions error | Ensure all required permissions are enabled on the API token |
-| Tickets not syncing | Check that ticket statuses aren't excluded in sync settings |
+| Tickets not syncing | Verify **Enable Ticket Sync** is turned on in the Sync step |
 | Contacts not importing | Verify Auto-Import is enabled and a default role is selected in the Sync step |
 | Devices not appearing | Ensure customers have been imported first, then trigger device import |

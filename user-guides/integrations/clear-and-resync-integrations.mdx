@@ -22,8 +22,8 @@ Use Quick Sync when:
 - Resolving minor sync delays
 - Refreshing data after brief connection issues
 
-### Full Clear and Resync
-Use Full Clear and Resync when:
+### Clear & Resync
+Use Clear & Resync when:
 - Initial integration setup is complete
 - Major configuration changes have been made
 - Data inconsistencies need to be resolved
@@ -41,7 +41,7 @@ Use Full Clear and Resync when:
 
 ### 1. Navigate to Integration Settings
 
-Go to [https://msportal.ai/settings/integrations](https://msportal.ai/settings/integrations)
+Go to [https://app.msportal.ai/settings/integrations](https://app.msportal.ai/settings/integrations)
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/34208b96-e8a0-41b7-9a44-7d101fd5d6be/ascreenshot.jpeg?tl_px=130,121&br_px=1850,1083&force_format=jpeg&q=100&width=1120.0)
 
@@ -51,37 +51,31 @@ Click on **Ticket Settings** in the integration menu.
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/34208b96-e8a0-41b7-9a44-7d101fd5d6be/ascreenshot.jpeg?tl_px=260,173&br_px=1980,1134&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=665,277)
 
-### 3. Locate Ticket Sync Options
+### 3. Locate Sync Actions
 
-Scroll down to the **Ticket Sync Options** section. Here you'll find two synchronization options:
+Scroll down to the **Sync Actions** section. Here you'll find two synchronization options:
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/8de8e81e-c430-4df4-83c9-57c2590efb4e/ascreenshot.jpeg?tl_px=260,179&br_px=1980,1140&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=662,276)
 
 ### 4. Choose Sync Method
 
 #### Option A: Quick Sync
-- Click **Quick Sync** button
+- Click the **Quick Sync** button
 - Synchronizes only recent changes
-- Takes 1-2 minutes typically
 - Preserves existing data
 
-#### Option B: Full Clear and Resync
-- Click **Full Clear and Resync** button
+#### Option B: Clear & Resync
+- Click the **Clear & Resync** button
 - Completely removes all ticket data from MSPortal
 - Reimports all tickets from the PSA system
-- Takes several minutes depending on data volume
 
-> **Warning:** Full Clear and Resync will delete all local ticket data and reimport everything from your PSA. Any unsynchronized local changes will be lost.
+> **Warning:** Clear & Resync will delete all local ticket data and reimport everything from your PSA. Any unsynchronized local changes will be lost.
 
 ### 5. Wait for Completion
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/ae262903-5a40-4d3d-9f75-879286501b65/ascreenshot.jpeg?tl_px=260,243&br_px=1980,1205&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=545,394)
 
-The synchronization process will:
-- Display a progress indicator
-- Show status updates as data syncs
-- Notify you when complete
-- May take several minutes for large datasets
+While the sync runs, the button shows a spinner, and a toast confirms the sync has been triggered. The sync continues in the background; refresh the Tickets page after a few minutes to see the reimported data.
 
 ## What Gets Synchronized
 
@@ -128,10 +122,10 @@ After synchronization completes:
 - Check PSA API credentials
 - Verify integration is enabled
 - Review error logs for specific issues
-- Try Quick Sync before Full Clear and Resync
+- Try Quick Sync before Clear & Resync
 
 ### Data Inconsistencies
-- Perform a Full Clear and Resync
+- Perform a Clear & Resync
 - Check field mapping configurations
 - Verify time zone settings match
 - Review custom field mappings
@@ -147,16 +141,11 @@ After synchronization completes:
 ## Performance Considerations
 
 ### Quick Sync Performance
-- Typically completes in 1-3 minutes
 - Minimal system impact
 - Can be run during business hours
 
-### Full Clear and Resync Performance
-- Duration depends on ticket volume:
-  - < 1,000 tickets: 2-5 minutes
-  - 1,000-5,000 tickets: 5-15 minutes
-  - > 5,000 tickets: 15-30 minutes
-- Higher system resource usage
+### Clear & Resync Performance
+- Duration depends on ticket volume
 - Best performed during maintenance windows
 
 ## Related Articles

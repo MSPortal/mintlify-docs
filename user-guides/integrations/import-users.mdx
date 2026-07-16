@@ -45,11 +45,13 @@ Click the **Import** button and select your integration from the dropdown menu (
 
 ### 3. Review Available Users
 
-The import dialog displays all users from your integration. You'll see:
-- User name and email address
-- Job title (if available)
-- Last sync date
-- Link status (whether already linked to an MSPortal.ai user)
+The import dialog displays all users from your integration in a table with the following columns:
+- **Name** - The user's name in the source system
+- **Email** - Email address (editable if missing)
+- **Job Title** - Job title (if available)
+- **Team** - The user's team (if available)
+- **Linked To** - The MSPortal.ai user this record is linked to, or a combobox to link one
+- **Status** - Whether the user is imported, linked, or pending
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/41f8620a-2f84-43ac-b5a0-464a7893625d/ascreenshot.jpeg?tl_px=260,0&br_px=1980,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=654,165)
 
@@ -62,7 +64,7 @@ Select users to import by:
 - Using the search box to filter users by name or email
 
 <Tip>
-Use the **Show Unlinked Only** button to filter the list to users who haven't been imported yet.
+Click the **Unlinked** stat tile above the table to filter the list to users who haven't been imported yet.
 </Tip>
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/8a0cc949-5715-4de9-a3eb-a275c9d7c3e1/ascreenshot.jpeg?tl_px=0,217&br_px=1719,1178&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=245,276)
@@ -73,9 +75,13 @@ Use the **Show Unlinked Only** button to filter the list to users who haven't be
 For users who already exist in MSPortal.ai (such as your admin account):
 
 1. Find the user in the list
-2. Click the **Link User** dropdown in that row
+2. Click the **Link to user...** combobox in the "Linked To" column
 3. Select the matching MSPortal.ai user
 4. This links the integration record to the existing account instead of creating a duplicate
+
+<Tip>
+Use the **Quick Match** button to automatically propose links between integration users and existing MSPortal.ai users based on name and email similarity, then review and apply the proposed matches.
+</Tip>
 
 ![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/1416d54b-dbc1-429f-a061-8dac5e0e0802/ascreenshot.jpeg?tl_px=0,138&br_px=1719,1099&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=246,277)
 
@@ -127,7 +133,7 @@ After importing users:
 | **Missing users** | Verify your integration has proper API permissions and the users are active in the source system |
 | **Email required error** | All users must have valid email addresses. Add email addresses using the input field in the list |
 | **Role not selected** | Select a role from the dropdown before clicking Import |
-| **Duplicate user error** | The user may already exist. Use the **Link User** feature to connect accounts |
+| **Duplicate user error** | The user may already exist. Use the **Link to user...** combobox to connect accounts |
 | **Cannot select user** | The user is either already linked or missing an email address |
 
 ### Integration-Specific Notes
