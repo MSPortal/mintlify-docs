@@ -1,0 +1,160 @@
+---
+title: 'Recurring Meeting Booking'
+description: 'Let client users book recurring QBRs, vCIO meetings, account reviews, and compliance reviews on your calendar'
+icon: 'calendar-check'
+---
+
+Recurring Meeting Booking gives each MSP team member a personal booking link that authenticated client users can use to schedule recurring meetings, such as quarterly business reviews (QBRs), vCIO meetings, account reviews, and compliance reviews. Bookings publish directly to your Outlook calendar as a recurring series, with conflict checking, host review options, and automatic email notifications.
+
+<Note>
+Recurring Meeting Booking requires a Microsoft 365 calendar connection. The host's mailbox must have Microsoft calendar access enabled before the booking link can be activated. Bookings always publish to Outlook.
+</Note>
+
+## How It Works
+
+1. An MSP team member enables their personal booking link in their user settings.
+2. They share the link with a client. The client signs in to MSPortal and picks a meeting purpose, weekday, and time.
+3. MSPortal checks the host's Outlook calendar for conflicts across the next 12 months.
+4. Once confirmed, the recurring series is created in Outlook. Outlook sends the calendar invitations, and MSPortal sends a booking confirmation email after synchronization.
+
+<Info>
+The client's meeting cadence is set by you, not by the client. The booking page reads the company's business review schedule and compliance schedule, so clients can only book at the frequency you have configured for their company.
+</Info>
+
+## Prerequisites
+
+- **Host**: An MSP tenant user with a healthy Microsoft 365 / Outlook calendar connection
+- **Client**: An active client company user who can sign in to MSPortal (the link identifies the host, but clients must still sign in)
+- **Cadence**: The client's company must have a business review schedule or compliance schedule configured. Without one, the booking page shows that no eligible recurring meeting frequency exists
+
+## Setting Up Your Booking Link
+
+<Steps>
+  <Step title="Open Your User Settings">
+    Go to **Settings > User** and open the **Preferences** tab.
+  </Step>
+  <Step title="Find the Booking Card">
+    Locate the **Recurring meeting booking link** card. The status badge shows **Active** when your link is enabled and your Outlook connection is healthy, otherwise **Inactive**.
+  </Step>
+  <Step title="Enable Bookings">
+    Turn on **Accept recurring bookings**. This makes your link available while your Outlook connection is healthy.
+
+    <Warning>
+    If you see the **Outlook calendar unavailable** banner, reconnect or enable Microsoft calendar access before activating your booking link. The toggle stays disabled until your mailbox is eligible.
+    </Warning>
+  </Step>
+  <Step title="Configure Options">
+    Two additional toggles control the booking experience:
+
+    | Option | Description |
+    |--------|-------------|
+    | **Allow coworkers** | Lets the booking user invite existing active users from their own company |
+    | **Default to Microsoft Teams** | Preselects a Teams meeting when a client opens your booking link |
+  </Step>
+  <Step title="Share Your Link">
+    Copy the link from the **Your booking link** field using **Copy link**, and share it with your client contacts.
+  </Step>
+</Steps>
+
+### Rotating Your Link
+
+Click **Rotate link** to generate a new booking link. The current link stops working immediately, and clients will need the new one. Use this if a link has been shared too widely.
+
+## The Client Booking Experience
+
+When a client opens your booking link and signs in, they see a guided booking page titled **Meet with [your name]**.
+
+### What Clients Choose
+
+| Field | Description |
+|-------|-------------|
+| **Meeting purpose** | Quarterly business review (QBR), vCIO meeting, or Account review (from the business review cadence), or Compliance review (from the compliance cadence) |
+| **Preferred weekday** | Monday through Friday |
+| **Week of the month** | Ordinal weeks (First through Last), or paired weeks for twice-monthly cadences (for example, First and third weeks) |
+| **Preferred time** | 30-minute slots within your working hours |
+| **Scheduling flexibility** | Exact time, Same day, or Same week |
+| **If conflicts remain** | Resolve every conflict, or Ask the host to review |
+
+The meeting duration is set by you and shown to the client as read-only. Times display in your tenant's working timezone, and the page tells the client what the first occurrence will be in their local time.
+
+### Availability Checking
+
+When the client clicks **Check availability**, MSPortal compares each proposed occurrence against your live Outlook calendar for the next 12 months. Clients only see Available, Conflict, or Moved statuses for each occurrence.
+
+<Note>
+Your calendar details stay private. Outlook event titles, locations, and attendees are never shown to the client.
+</Note>
+
+For conflicting occurrences, the page suggests the nearest available options within the client's chosen flexibility window. Occurrences beyond the 12-month window are still created as part of the ongoing series but are not conflict-checked in advance.
+
+### Confirming the Booking
+
+The client reviews the **Booking summary** and clicks **Confirm recurring meeting**. If they chose **Ask the host to review**, the button reads **Send for host review** instead, and nothing is created in Outlook until you approve.
+
+## Managing Bookings
+
+After a booking is submitted, both you and the client can open its detail page from the confirmation email or the link provided after booking. The page shows the meeting details, cadence, timezone, meeting format, and the full occurrence schedule with per-occurrence statuses.
+
+### Host Review
+
+If the client sent the booking for your review, you will see **Approve and publish** and **Decline** actions. Before approving, resolve each remaining conflict by choosing **Accept overlap** or **Move occurrence**. If you move occurrences outside the client's flexibility window, the client is asked to confirm your changes before the series publishes.
+
+### Rescheduling an Occurrence
+
+Either the host or the original booker can reschedule a single future occurrence of a confirmed booking:
+
+<Steps>
+  <Step title="Open the Booking">
+    Open the booking detail page and find the occurrence you want to move.
+  </Step>
+  <Step title="Pick a New Time">
+    Click **Reschedule**, choose a new time, and click **Save new time**. MSPortal rechecks your Outlook availability for the new slot.
+  </Step>
+</Steps>
+
+<Info>
+Rescheduling changes only the selected occurrence, not the recurring pattern. The Outlook series is updated with an exception for that date.
+</Info>
+
+### Cancelling a Series
+
+Click **Cancel recurring meeting** to cancel the booking. MSPortal cancels every linked Outlook series and all future occurrences. This action cannot be undone.
+
+### Retrying a Failed Publication
+
+If a booking shows a needs-attention or failed status, the host can click **Retry Outlook publication** to re-run the calendar sync.
+
+## Email Notifications
+
+MSPortal sends emails to both the host and the booking owner throughout the booking lifecycle, localized to each recipient's language:
+
+- Booking request receipt
+- Host review request
+- Client re-confirmation request
+- Booking confirmation
+- Booking updated
+- Booking cancelled
+- Booking declined
+
+Outlook sends the actual calendar invitations. MSPortal's confirmation email arrives after the Outlook series has synchronized.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| The booking toggle is disabled | Your Outlook connection is not eligible. Reconnect or enable Microsoft calendar access, then return to the Preferences tab |
+| Client sees no meeting purpose options | The client's company has no business review or compliance schedule configured. Set the company's meeting cadence first |
+| Client cannot open the link | Booking links require the client to sign in to MSPortal as an active company user |
+| Booking stuck in Publishing | Outlook synchronization is in progress. If it moves to a failed state, use **Retry Outlook publication** |
+| Old link no longer works | The link was rotated. Share the current link from your Preferences tab |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Calendar" icon="calendar" href="/user-guides/calendar/index">
+    Manage meetings and events across your team
+  </Card>
+  <Card title="Meetings" icon="handshake" href="/user-guides/calendar/meetings">
+    Run agendas, notes, and follow-ups for client meetings
+  </Card>
+</CardGroup>

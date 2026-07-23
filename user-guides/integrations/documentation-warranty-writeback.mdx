@@ -1,0 +1,69 @@
+---
+title: 'Warranty Writeback to Hudu and IT Glue'
+description: 'Automatically keep warranty dates up to date in your documentation platform'
+icon: 'shield-check'
+---
+
+Warranty Writeback pushes the warranty dates MSPortal tracks for your devices into your documentation platform, so Hudu assets and IT Glue flexible assets always show current warranty start and expiration dates.
+
+Warranty Writeback is available for both **Hudu** and **IT Glue** integrations.
+
+## How Matching Works
+
+MSPortal matches devices to documentation assets **by unique serial number only**, within the mapped company and the asset type you configure.
+
+<Note>
+MSPortal never matches by device name. Assets with ambiguous, placeholder, or missing serial numbers are skipped, so a bad match can never overwrite the wrong asset.
+</Note>
+
+## Enabling Warranty Writeback
+
+<Steps>
+  <Step title="Open the Integration Wizard">
+    Go to **Settings > Integrations** and click **Configure** on your Hudu or IT Glue integration, then open the documentation configuration step.
+  </Step>
+  <Step title="Find the Warranty Writeback Card">
+    Locate the **Warranty Writeback** card and turn on **Enable warranty writeback**. This automatically keeps mapped warranty fields up to date after warranty checks.
+  </Step>
+  <Step title="Map Device Types to Asset Types">
+    In **Device and warranty field mappings**, map each MSPortal device type to the corresponding asset type in your documentation platform. Leave a type as **Not mapped** to exclude it.
+  </Step>
+  <Step title="Choose the Fields">
+    For each mapped device type, select:
+
+    | Field | Required | Notes |
+    |-------|----------|-------|
+    | **Serial number field** | Yes | The asset field holding the serial number. Hudu also offers a **Primary serial** option |
+    | **Warranty start field** | No | Where to write the warranty start date |
+    | **Warranty expiration field** | Yes | Where to write the warranty expiration date |
+  </Step>
+  <Step title="Save">
+    Click **Save warranty mappings**. Incomplete mappings block saving until the serial and warranty expiration fields are set for every mapped device type.
+  </Step>
+</Steps>
+
+## When Writeback Runs
+
+Warranty dates are written back automatically on a daily schedule after warranty checks complete. Only assets with a unique serial number match inside the mapped company and asset type are updated.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Warranty dates not appearing on an asset | Confirm the asset's serial number matches the device's serial exactly and is unique within the company and asset type |
+| Save is blocked | Complete the serial number and warranty expiration fields for every mapped device type |
+| Some devices never update | Devices with missing or placeholder serial numbers are skipped by design |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Hudu Integration" icon="book" href="/user-guides/integrations/enable-hudu-integration">
+    Connect Hudu documentation
+  </Card>
+  <Card title="IT Glue Integration" icon="book" href="/user-guides/integrations/enable-itglue-integration">
+    Connect IT Glue documentation
+  </Card>
+  <Card title="Devices" icon="laptop" href="/user-guides/devices/index">
+    Manage device warranty tracking
+  </Card>
+</CardGroup>

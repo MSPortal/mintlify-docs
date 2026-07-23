@@ -1,0 +1,63 @@
+---
+title: 'Compliance AI'
+description: 'Ask questions, draft notes, and safely update compliance with an AI assistant that never changes anything without your approval'
+icon: 'sparkles'
+---
+
+Compliance AI is an assistant built into the Compliance module. It answers questions about your compliance data, drafts check notes, plans updates, and prepares runs, always scoped to the companies you have selected. Every change it suggests arrives as a proposal you review before anything is applied.
+
+## Opening the Assistant
+
+On the **Compliance** page, click the floating **Compliance AI** button in the bottom-right corner. The assistant opens in a side panel showing your current view (Tree, List, or Risk view) and company scope, so you always know what data it is working with.
+
+<Note>
+Compliance AI appears when AI features are enabled for your tenant and you have compliance access. What the assistant can do follows your permissions: read-only users can ask questions and get summaries, while users with compliance write access can also apply proposed changes.
+</Note>
+
+## What You Can Ask
+
+Quick prompts get you started:
+
+- **Summarize compliance**: A summary of compliance posture for the companies in scope
+- **Draft check notes**: Drafted notes for compliance checks (write access)
+- **Plan check updates**: A proposed set of status or field updates across checks (write access)
+- **Prepare a run**: A drafted compliance run (write access)
+- **Find risk candidates**: Ranks confirmed compliance gaps that deserve human risk review (shown when risk tracking is enabled)
+
+You can also ask free-form questions. When you have a specific check or risk open, the assistant understands "this check" or "this risk" in context.
+
+## Reviewing Proposals
+
+When the assistant wants to change something, it emits a proposal card rather than acting directly. Proposal types include:
+
+| Proposal | What it does |
+|----------|-------------|
+| **Check updates** | Field or status changes across one or more compliance checks |
+| **New run** | A drafted compliance run ready to create |
+| **Run update** | Changes to an existing run |
+| **Draft notes** | Notes drafted for checks |
+| **Risk assessment** | A drafted risk based on a compliance gap |
+
+Pending proposals collect at the bottom of the panel under **Pending proposals — review before applying**. Each card shows an expandable before-and-after diff of every field it would change.
+
+- Click **Apply** to make the change, or **Dismiss** to discard it. Nothing changes until you apply a proposal.
+- **Risk assessment** proposals never write directly. Clicking **Use this assessment** opens the standard risk editor pre-filled with the draft, marked as an **AI-assisted assessment**. Review and edit every field; the risk is only created when you click **Add risk**. See [Risk Management](/user-guides/compliance/risk-management) for the full risk workflow.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| No Compliance AI button | AI features are disabled for your tenant, or you lack compliance access |
+| Cannot apply a proposal | Applying changes requires compliance write access |
+| Answers cover the wrong companies | The assistant follows your company selector. Adjust the selected companies and ask again |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Compliance" icon="shield-halved" href="/user-guides/compliance/index">
+    Manage compliance runs, checks, and evidence
+  </Card>
+  <Card title="Risk Management" icon="shield-halved" href="/user-guides/compliance/risk-management">
+    Track risks promoted from compliance gaps
+  </Card>
+</CardGroup>

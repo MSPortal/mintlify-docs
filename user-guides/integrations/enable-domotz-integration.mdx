@@ -1,0 +1,75 @@
+---
+title: 'Configure Domotz Integration'
+description: 'Connect Domotz to prepare network collector, device, and monitoring reporting'
+icon: 'network-wired'
+---
+
+This guide walks you through connecting Domotz network monitoring to MSPortal.ai.
+
+<Note>
+Domotz is currently a **Pilot** integration available to selected tenants. If you don't see the Domotz card in **Settings > Integrations**, contact support@msportal.ai. The pilot secures and validates the API connection; data sync features build on this connection.
+</Note>
+
+## Prerequisites
+
+- A Domotz account with Public API access
+- MSPortal.ai integration management permission
+
+## Part 1: Create a Domotz API Key
+
+<Steps>
+  <Step title="Open the Domotz Portal">
+    Log in to the Domotz Portal.
+  </Step>
+  <Step title="Create an API Key">
+    Create an API key and copy both the key and its assigned **API server URL**.
+
+    <Info>
+    Each Domotz API key is tied to a specific regional API server, for example `https://api-us-east-1-cell-1.domotz.com/public-api/v1`. Use the exact URL shown next to your key.
+    </Info>
+  </Step>
+</Steps>
+
+## Part 2: Connect in MSPortal
+
+<Steps>
+  <Step title="Open the Setup Page">
+    Go to **Settings > Integrations**, find the **Domotz** card, and click **Configure**.
+  </Step>
+  <Step title="Enter Your Credentials">
+    | Field | Value |
+    |-------|-------|
+    | **API key** | The API key you created in the Domotz Portal |
+    | **API server URL** | The API server URL assigned to your key |
+  </Step>
+  <Step title="Test the Connection">
+    Click **Test Connection**. On success you'll see **Connection Verified**, including the number of accessible collectors returned by the Domotz API.
+  </Step>
+  <Step title="Connect">
+    Click **Connect** to save. The key is stored only in Vault, and requests are restricted to Domotz API servers.
+  </Step>
+</Steps>
+
+## Managing the Connection
+
+- To update credentials later, re-open the setup page, enter the new values, click **Retest Connection**, then **Save Changes**.
+- To disconnect, click the remove button and confirm. This removes the connection and its stored Vault credentials and cannot be undone.
+- Users without integration management permission see the connection read-only.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| API server URL rejected | Use the Domotz API server URL shown in the Domotz Portal next to your API key |
+| Connection test fails | Verify the API key was copied fully and has not been revoked |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Explore all available integrations
+  </Card>
+  <Card title="Devices" icon="laptop" href="/user-guides/devices/index">
+    Manage devices across your clients
+  </Card>
+</CardGroup>

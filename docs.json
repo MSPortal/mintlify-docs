@@ -18,6 +18,7 @@
             "pages": [
               "user-guides/getting-started/index",
               "user-guides/getting-started/quick-start",
+              "user-guides/getting-started/launch-center",
               "user-guides/getting-started/data-flow",
               "user-guides/getting-started/universal-search",
               "user-guides/getting-started/customizing-the-sidebar",
@@ -184,6 +185,8 @@
                 "group": "Compliance",
                 "pages": [
                   "user-guides/compliance/index",
+                  "user-guides/compliance/compliance-ai",
+                  "user-guides/compliance/risk-management",
                   "user-guides/compliance/liongard-metrics",
                   "user-guides/compliance/adding-cis-benchmarks"
                 ]
@@ -263,6 +266,7 @@
               "user-guides/integrations/import-companies",
               "user-guides/integrations/import-devices",
               "user-guides/integrations/clear-and-resync-integrations",
+              "user-guides/integrations/documentation-warranty-writeback",
               {
                 "group": "Addigy",
                 "pages": [
@@ -425,6 +429,30 @@
                 ]
               },
               {
+                "group": "Kaseya SaaS Protection",
+                "pages": [
+                  "user-guides/integrations/enable-kaseya-saas-protection-integration"
+                ]
+              },
+              {
+                "group": "CIPP",
+                "pages": [
+                  "user-guides/integrations/enable-cipp-integration"
+                ]
+              },
+              {
+                "group": "Domotz",
+                "pages": [
+                  "user-guides/integrations/enable-domotz-integration"
+                ]
+              },
+              {
+                "group": "Intermedia",
+                "pages": [
+                  "user-guides/integrations/enable-intermedia-integration"
+                ]
+              },
+              {
                 "group": "Microsoft Teams",
                 "pages": [
                   "user-guides/integrations/enable-teams-integration"
@@ -517,7 +545,7 @@
     "dark": "/logo/dark.svg"
   },
   "announcement": {
-    "text": "ðŸ“š Documentation is currently Work in Progress and may be incomplete or incorrect.",
+    "text": "\u00f0\u0178\u201c\u0161 Documentation is currently Work in Progress and may be incomplete or incorrect.",
     "type": "warning"
   },
   "navbar": {

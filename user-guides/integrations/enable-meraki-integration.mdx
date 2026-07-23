@@ -155,6 +155,28 @@ Control how Meraki product types are classified in your device inventory.
   </Step>
 </Steps>
 
+### Device Import Page
+
+For fine-grained control over which Meraki devices enter your inventory, open the integration's **Devices** page from the Meraki integration settings. It gives you the same staged-import workflow as other device integrations:
+
+**Device Type Mappings card**
+
+- Map each Meraki device type (appliance, switch, wireless, and others) to an MSPortal device type
+- Turn on **Auto-sync** per type so future synced devices of that type import automatically (a device type must be selected first)
+- **Ignore** a category to exclude that external type from import entirely; un-ignore it at any time
+- Use **Map with AI** to auto-match unmapped types, **Quick-create device types** to create matching MSPortal device types in one click, **Import all mapped** to import everything that has a mapping, or **Enable all auto-sync**
+
+**Device preview card**
+
+- Search and filter staged devices, and toggle between unimported-only and all devices
+- Select rows and use **Import selected** or **Ignore selected**
+
+<Note>
+Only devices whose Meraki network is mapped to a company appear in the preview. If the list is empty, make sure your organizations and networks are mapped first.
+</Note>
+
+Click **Sync now** in the page header to trigger a fresh device sync and refresh the staged list.
+
 ---
 
 ## Company-Level Setup (Optional)

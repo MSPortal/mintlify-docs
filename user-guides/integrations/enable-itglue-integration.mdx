@@ -348,6 +348,13 @@ As you onboard new clients in IT Glue:
 ## Troubleshooting
 
 <AccordionGroup>
+  <Accordion title="API key contains invalid characters">
+    API keys must contain only standard printable characters with no spaces. This error usually means the key picked up a hidden character during copy and paste, for example a long dash or curly quote substituted by a word processor or chat tool.
+
+    - Re-copy the key directly from **Account > API Keys** in IT Glue
+    - Paste it into a plain-text editor first if you suspect formatting was added along the way
+    - Make sure no leading or trailing spaces came along with the paste
+  </Accordion>
   <Accordion title="Connection test returns 403 Forbidden (most common)">
     A **403 Forbidden** response means IT Glue received your request and recognized the key, but refused to authorize it. This is different from a 401 (bad key). There are three common causes, in order of likelihood:
 

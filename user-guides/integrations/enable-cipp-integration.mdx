@@ -1,0 +1,79 @@
+---
+title: 'Configure CIPP Integration'
+description: 'Connect the CIPP API to prepare Microsoft 365 tenant and security reporting'
+icon: 'cloud'
+---
+
+This guide walks you through connecting CIPP (the CyberDrain Improved Partner Portal) to MSPortal.ai.
+
+<Note>
+CIPP is currently a **Pilot** integration available to selected tenants. If you don't see the CIPP card in **Settings > Integrations**, contact support@msportal.ai. The pilot secures and validates the API connection; data sync features build on this connection.
+</Note>
+
+## Prerequisites
+
+- A CIPP instance with the CIPP-API integration enabled
+- MSPortal.ai integration management permission
+
+## Part 1: Create CIPP API Credentials
+
+<Steps>
+  <Step title="Open CIPP API Settings">
+    In CIPP, go to **Integrations > CIPP-API**.
+  </Step>
+  <Step title="Create or Select an API Client">
+    Create or select an enabled API client.
+  </Step>
+  <Step title="Copy the Credentials">
+    Copy the **API URL**, **Tenant ID**, **Application ID**, **Application Secret**, and **API Scope**.
+  </Step>
+</Steps>
+
+## Part 2: Connect in MSPortal
+
+<Steps>
+  <Step title="Open the Setup Page">
+    Go to **Settings > Integrations**, find the **CIPP** card, and click **Configure**.
+  </Step>
+  <Step title="Enter Your Credentials">
+    Fill in the fields:
+
+    | Field | Value |
+    |-------|-------|
+    | **CIPP API URL** | The public HTTPS base URL shown on the CIPP-API integration page (no path, port, or query string) |
+    | **Tenant ID** | Your Microsoft Entra tenant ID |
+    | **Application ID** | The API client's application ID |
+    | **Application secret** | The API client's secret |
+    | **API scope** | The scope shown for the API client |
+  </Step>
+  <Step title="Test the Connection">
+    Click **Test Connection**. On success you'll see **Connection Verified**: Microsoft issued an access token for this CIPP API client.
+  </Step>
+  <Step title="Connect">
+    Click **Connect** to save. Credentials are stored only in Vault.
+  </Step>
+</Steps>
+
+## Managing the Connection
+
+- To update credentials later, re-open the setup page, enter the new values, click **Retest Connection**, then **Save Changes**.
+- To disconnect, click the remove button and confirm. This removes the connection and its stored Vault credentials and cannot be undone.
+- Users without integration management permission see the connection read-only.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| API URL rejected | Use the public HTTPS base URL shown on the CIPP-API integration page, without a path, port, or query string |
+| Token request fails | Verify the Tenant ID, Application ID, and secret, and confirm the API client is enabled in CIPP |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Explore all available integrations
+  </Card>
+  <Card title="Microsoft 365" icon="microsoft" href="/user-guides/microsoft-365/index">
+    Manage Microsoft 365 across your clients
+  </Card>
+</CardGroup>

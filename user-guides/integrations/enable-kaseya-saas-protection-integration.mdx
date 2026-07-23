@@ -1,0 +1,151 @@
+---
+title: 'Configure Kaseya SaaS Protection Integration'
+description: 'Connect Kaseya SaaS Protection (formerly Backupify) to monitor Microsoft 365 backup health across your clients'
+icon: 'database'
+---
+
+This guide walks you through connecting Kaseya SaaS Protection (formerly Backupify / Datto SaaS Protection) to MSPortal.ai so you can monitor Microsoft 365 backup health, seats, and coverage trends across all your clients.
+
+## Overview
+
+By integrating Kaseya SaaS Protection with MSPortal.ai, you can:
+
+- Monitor 24-hour backup coverage for Exchange, OneDrive, SharePoint, and Teams per client
+- Track protected seats (users, shared mailboxes, sites, and Teams)
+- See daily backup success trends across your customer base
+- Include SaaS Protection health in client reports
+
+## Prerequisites
+
+- A Kaseya SaaS Protection account with Datto Partner Portal access
+- MSPortal.ai integration management permission
+
+## Part 1: Get Your API Keys
+
+<Steps>
+  <Step title="Open the Datto Partner Portal">
+    Log in to the Datto Partner Portal.
+  </Step>
+  <Step title="Navigate to API Keys">
+    Go to **Admin > Integrations > API Keys**.
+  </Step>
+  <Step title="Copy Both Keys">
+    Copy the **Public Key** and the **Secret Key**. MSPortal stores both only in Vault.
+  </Step>
+</Steps>
+
+## Part 2: Setup Wizard
+
+Go to **Settings > Integrations**, find the **Kaseya SaaS Protection** card, and click **Configure**. The wizard has four steps: **Connect**, **Configure Sync**, **Map Domains**, and **Status**.
+
+### Step 1: Connect
+
+<Steps>
+  <Step title="Enter Your Keys">
+    Enter your keys in the **Public API key** and **Secret API key** fields.
+  </Step>
+  <Step title="Test the Connection">
+    Click **Test Connection**. On success you'll see a confirmation such as "The API accepted these credentials and returned [n] accessible domains."
+
+    If the test fails:
+    - A rejected key message means the public or secret API key is incorrect
+    - A rate limiting message means Kaseya is throttling connection tests; try again shortly
+    - A timeout or unreachable message means the Kaseya API did not respond; try again in a moment
+  </Step>
+  <Step title="Create the Integration">
+    Click **Create Integration**. The first sync starts automatically.
+  </Step>
+</Steps>
+
+### Step 2: Configure Sync
+
+Choose what MSPortal fetches. Customer domains are always discovered for mapping; detailed data is fetched only for domains linked to an MSPortal company.
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| **Customer domains** | Required for company mapping and domain-level backup reporting | Always on |
+| **Seat inventory** | Sync protected users, shared mailboxes, sites, and Teams seats | On |
+| **Backup health and history** | Sync Exchange, OneDrive, SharePoint, and Teams status plus the rolling backup trend | On |
+
+Click **Save sync settings** when done.
+
+<Warning>
+**API reporting limitations**: MSPortal can show protection states for users, shared mailboxes, sites, and Teams. Kaseya's REST API reports backup success at the workload level and does not identify which individual active resource caused a missed backup. Use Kaseya SaaS Protection reporting for resource-level details.
+</Warning>
+
+### Step 3: Map Domains
+
+Link the SaaS Protection domains you want to report on to MSPortal companies. The mapping table shows each domain's **Microsoft 365 domain**, **Seats**, and **24h backup** percentage.
+
+- Use **Quick Match** to auto-match domains to companies by name
+- Map remaining domains manually, or create new companies on the spot
+- Domain discovery normally completes in less than a minute
+
+<Info>
+Only mapped domains get detailed seat and backup health data. Unmapped domains appear for mapping only.
+</Info>
+
+### Step 4: Status
+
+The Status step confirms the setup is active and shows live counts that refresh automatically:
+
+- **Mapped domains** (mapped / total)
+- **Protected seats**
+- **Services backed up** (backed up / active)
+- **Workload summaries**
+
+From here, click **View backup health** to open the backup health page, or **Manage mappings** to adjust company mappings later.
+
+## Sync Schedule
+
+Mapped domains sync automatically **every hour**. Syncs also run when you first connect and after you map domains. Backup trend history is retained on a rolling window of roughly 45 days.
+
+## The SaaS Protection Health Page
+
+Once the integration is active, a **SaaS Protection** tab appears in the **Backup** module. It shows Kaseya backup health across Microsoft 365 workloads, scoped to your current company selection.
+
+### Health States
+
+| State | Meaning |
+|-------|---------|
+| **Healthy** | 100% of active services backed up in the last 24 hours, none in initial backup |
+| **Needs attention** | Coverage between 90% and 100% |
+| **Critical** | Coverage below 90% |
+| **No data** | No active services reported |
+
+### Page Sections
+
+- **Overall health summary**: Aggregate status, customers in scope, last synced time, and tiles for **Backed up in the last 24 hours**, **Services in initial backup**, and **Last 100% successful backup**.
+- **Workload health**: Four cards for Exchange, OneDrive, SharePoint, and Teams showing current 24-hour protection coverage.
+- **Backup result trend**: A daily successful-service coverage chart with one line per workload, switchable between **10 days** and **30 days**.
+- **Customer backup health**: A table of your portal companies and their mapped Kaseya domains, with per-workload ratios, initial-backup counts, and the last full success date.
+
+### Reporting
+
+Three SaaS Protection blocks are available in the report builder: health summary, trend, and customer table, so you can include backup coverage in client reports.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Connection test fails | Verify both keys were copied fully from **Admin > Integrations > API Keys** in the Datto Partner Portal |
+| No SaaS Protection tab in Backup | The tab appears only after the integration is connected |
+| "No mapped SaaS Protection customers" | Map Kaseya customers to portal companies via **Open company mapping** |
+| Backup data still preparing | Map a domain and allow the first detailed synchronization to complete |
+| Missing resource-level detail | Kaseya's API reports at the workload level; use Kaseya SaaS Protection's own reporting for per-resource details |
+
+## Security & Privacy
+
+- **Credential storage**: Your API keys are encrypted in Supabase Vault and never exposed in logs or responses
+- **Disconnecting**: Removing the integration deletes the connection and its stored Vault credentials; this cannot be undone
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Backup" icon="shield-check" href="/user-guides/backup/index">
+    Monitor backup protection across devices and Microsoft 365
+  </Card>
+  <Card title="Reporting" icon="chart-bar" href="/user-guides/reporting/index">
+    Include backup health in client reports
+  </Card>
+</CardGroup>

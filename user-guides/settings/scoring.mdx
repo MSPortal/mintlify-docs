@@ -1,78 +1,116 @@
 ---
-title: Health Score Configuration
-description: Choose which dimensions are included in the customer success health score
-icon: heart-pulse
+title: 'Health Score Configuration'
+description: 'Choose which evidence-aware dimensions are included in Client Health'
+icon: 'heart-pulse'
 ---
 
-Health Score Configuration lets you control which dimensions factor into each company's overall health score. Enable or disable dimensions to match what matters most to your MSP.
+Health Score Configuration controls which dimensions can contribute to Client Health. Use it to remove dimensions that do not apply to your MSP's service model.
 
-## Accessing Scoring Settings
+<Note>
+These settings enable or disable dimensions. The current model's base weights, risk bands, evidence rules, and minimum coverage requirements are fixed so scores remain consistent across the portfolio.
+</Note>
 
-1. Click **Settings** in the sidebar
-2. Under the **MSP Tools** group, select **Scoring**
+## Prerequisites
 
-## Dimensions
+| Permission | Access |
+|-----------|--------|
+| `read_settings_client_health` | View the scoring configuration |
+| `manage_settings_client_health` | Enable or disable dimensions and save changes |
 
-The health score is composed of up to 8 dimensions. Each dimension can be toggled on or off. Disabled dimensions are excluded from the overall score calculation, and their weight is redistributed across the remaining enabled dimensions.
+Client Health itself requires `read_customer_success`.
 
-| Dimension | What It Measures |
-|-----------|-----------------|
-| **Service Quality** | Ticket resolution time, hours per ticket, and escalation rate |
-| **Engagement** | Last contact recency, meeting frequency, and NPS scores |
-| **Financial** | Overdue invoice count and average days to pay |
-| **Sales** | Opportunity recency and quote win rate |
-| **Projects** | Active project count and project recency over the last year |
-| **Standards** | Percentage of required tools deployed at the company. Categories with **Require one of group** enabled count as a single check satisfied by any deployed item. |
-| **Environment** | Device count and active user percentage across managed devices |
-| **Operational** | Overdue planner tasks and goal completion percentage |
-
-## Configuring Dimensions
+## Open scoring settings
 
 <Steps>
-  <Step title="Navigate to Scoring settings">
-    Go to **Settings > MSP Tools > Scoring**.
+  <Step title="Open Settings">
+    Click **Settings** in the main sidebar.
   </Step>
-  <Step title="Review dimensions">
-    Each dimension displays its name, description, and a toggle switch.
-  </Step>
-  <Step title="Enable or disable dimensions">
-    Toggle each dimension on or off based on what you want included in the health score. A summary at the bottom shows how many of the 8 dimensions are enabled.
-  </Step>
-  <Step title="Save changes">
-    Click **Save** in the header to apply your changes.
+  <Step title="Open Scoring">
+    Under **MSP Tools**, select **Scoring**.
   </Step>
 </Steps>
 
-<Tip>
-Start with all dimensions enabled, then disable any that don't apply to your business. For example, if you don't track compliance, disable the Operational dimension to avoid penalizing companies for missing data.
-</Tip>
+## Available dimensions
 
-## How Dimensions Affect Health Scores
+| Dimension | Base weight | Evidence used |
+|-----------|------------:|---------------|
+| **Service Quality** | 18% | Eight complete ticket weeks, comparing demand, resolution, backlog size, open-ticket age, and backlog direction |
+| **Engagement** | 18% | Meeting recency and a recent NPS response |
+| **Financial** | 13% | Profitability, open-invoice health, and payment speed |
+| **Sales** | 8% | Opportunity or quote recency and trailing-year decided win rate |
+| **Projects** | 10% | Active-project schedule health, recent on-time delivery, and effort adherence |
+| **Standards** | 13% | Applicable required standards deployed for the company |
+| **Environment** | 10% | Server availability and normalized patch coverage |
+| **Operational** | 10% | Planner timeliness, goal progress, and compliance timeliness |
 
-When a dimension is enabled, it contributes its weighted score to the overall health grade. When disabled:
+See [Client Health](/user-guides/msp-tools/client-health#how-each-dimension-is-calculated) for the complete calculation and data requirements for every dimension.
 
-- The dimension is excluded from the score calculation entirely
-- Its weight is redistributed proportionally across remaining dimensions
-- Company health scores are recalculated on the next daily refresh (2:00 AM UTC)
+## Enable or disable dimensions
 
-<Note>
-Changes to dimension settings take effect on the next daily health score refresh. Existing scores remain unchanged until then.
-</Note>
+<Steps>
+  <Step title="Review the dimensions">
+    Each row shows the dimension name, description, and whether it is enabled.
+  </Step>
+  <Step title="Change the toggles">
+    Disable a dimension only when it does not apply to your service model. Enable it when you want its observed evidence to contribute.
+  </Step>
+  <Step title="Review the enabled count">
+    The summary shows how many of the eight dimensions are enabled.
+  </Step>
+  <Step title="Save the configuration">
+    Click **Save** in the page header.
+  </Step>
+  <Step title="Publish new scores">
+    Wait for the next daily Client Health refresh at 2:00 AM UTC, or go to **Client Health** and click **Refresh Scores**.
+  </Step>
+</Steps>
 
-## Permissions
+## How configuration affects scores
 
-| Permission | Access Level |
-|-----------|--------------|
-| `read_settings_client_health` | View scoring configuration |
-| `manage_settings_client_health` | Modify scoring configuration |
+When a dimension is disabled:
 
-## Related Resources
+- It does not contribute to the overall health score or evidence-coverage requirement
+- Its base weight is redistributed across the enabled evidence that is available for each company
+- Existing observed data can still appear on the company detail page as **Excluded from health score**
+- Previously published scores remain unchanged; the configuration takes effect in the next completed scorecard
+
+When a dimension is enabled, MSPortal still requires real evidence. Enabling a dimension does not cause missing data to score zero or receive a healthy default.
+
+<Warning>
+Companies need at least three scored dimensions and 40% overall evidence coverage to receive a numeric health score. Disabling several dimensions can make it harder to meet that requirement, even when the remaining dimensions have data.
+</Warning>
+
+## When to disable a dimension
+
+Consider disabling a dimension when:
+
+- It is not part of the services you provide to any client
+- Its concept is not relevant to how your team evaluates client health
+- You have intentionally retired the process or data source across the portfolio
+
+Do not disable a dimension only to hide temporary N/A results. If the dimension is relevant, correct the integration, company mapping, or source data and publish a new scorecard instead.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My changes are not visible in Client Health">
+    Scoring settings affect the next completed scorecard. Go to **Client Health** and click **Refresh Scores**, or wait for the daily 2:00 AM UTC refresh.
+  </Accordion>
+  <Accordion title="More companies show Limited data after I disabled dimensions">
+    A numeric score still requires at least three scored dimensions and 40% coverage across the enabled, applicable model. Re-enable relevant dimensions or improve evidence coverage for those that remain.
+  </Accordion>
+  <Accordion title="A disabled dimension still appears on a company">
+    If MSPortal has observed data for the dimension, the company detail page can show it for context with the label **Excluded from health score**. It does not affect the health score.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
 
 <CardGroup cols={2}>
   <Card title="Client Health" icon="heart-pulse" href="/user-guides/msp-tools/client-health">
-    See how health scores are calculated and displayed
+    Learn how scores, coverage, risk levels, trends, and manual risk flags work.
   </Card>
-  <Card title="MSP Tools Overview" icon="heart-pulse" href="/user-guides/msp-tools/index">
-    Overview of all MSP Tools features
+  <Card title="Users and Roles" icon="users-gear" href="/user-guides/settings/users-roles">
+    Assign Client Health and scoring permissions to your team.
   </Card>
 </CardGroup>

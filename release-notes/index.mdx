@@ -3,6 +3,106 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 24, 2026
+
+### Risk Management
+
+Turn compliance gaps into a managed risk register. Failed compliance checks surface as candidates you can promote into tracked risks, each with a likelihood and impact score, an owner, a treatment plan, and a target date.
+
+**Key Features:**
+- **Risk register in Compliance**: When risk tracking is enabled, a new Risks tab lists every tracked risk with severity, category, owner, and treatment status.
+- **From gap to risk**: Promote a failed compliance check into a risk in a couple of clicks, keeping the link back to the originating check.
+- **Consistent scoring**: Every risk is scored likelihood times impact on a fixed 5 x 5 scale with four severity bands, so scores are comparable across clients.
+- **Your categories**: Start from the MSP risk domains or NIST CSF presets, or build a custom category list with your own names and colors.
+- **Risk reporting**: Dedicated reporting blocks bring each client's risk posture into reports and dashboards.
+
+[Documentation: Risk Management](/user-guides/compliance/risk-management)
+
+### Compliance AI
+
+An assistant built into the Compliance module that answers questions, drafts notes, and prepares updates, always scoped to the companies you have selected. It never changes anything without your approval.
+
+**Key Features:**
+- **Ask about your data**: Get compliance posture summaries and answers for the companies in scope, right from a side panel on the Compliance page.
+- **Drafts, not surprises**: Draft check notes, plan status updates across checks, or prepare a compliance run. Every change arrives as a proposal card you review before anything is applied.
+- **Finds risk candidates**: With risk tracking enabled, the assistant ranks confirmed compliance gaps that deserve human risk review.
+- **Follows your permissions**: Read-only users can ask questions and get summaries; applying proposed changes requires compliance write access.
+
+[Documentation: Compliance AI](/user-guides/compliance/compliance-ai)
+
+### Meet Your Team Menu
+
+Client users now see who takes care of them. A new team menu in the top bar shows the team members assigned to their company, with name, role, email, and phone.
+
+**Key Features:**
+- **You choose who appears**: Each team role has a visibility toggle, so you control which roles show up on the client-facing menu.
+- **Custom team roles**: Create your own team roles beyond the built-in ones and assign them per company from the company's team settings.
+
+### Client Health, Rebuilt
+
+Client Health scoring was rebuilt around evidence. A score now appears only when MSPortal has enough current data to support it, and every score can be explained.
+
+**Key Features:**
+- **Evidence-aware scores**: Missing, stale, or insufficient data shows as unavailable instead of being replaced with a synthetic score.
+- **Explainable results**: Open a company to see the observed metrics, evidence coverage, applied weights, and the dimensions creating the largest score loss.
+- **Consistent everywhere**: The same published score feeds the dashboard, detail view, export, and 180-day trend.
+- **Configurable dimensions**: Turn off dimensions that do not apply to your service model in Settings under MSP Tools, Scoring.
+
+[Documentation: Client Health](/user-guides/msp-tools/client-health)
+
+### Kaseya SaaS Protection Integration
+
+Connect Kaseya SaaS Protection (formerly Backupify / Datto SaaS Protection) to monitor Microsoft 365 backup health across your clients. Available now for all tenants in Settings under Integrations.
+
+**Key Features:**
+- **24-hour backup coverage**: See Exchange, OneDrive, SharePoint, and Teams coverage per client in a new SaaS Protection tab in the Backup module.
+- **Protected seats**: Track protected users, shared mailboxes, sites, and Teams.
+- **Trends and reporting**: Daily backup success trends across your customer base, with SaaS Protection health available in client reports.
+
+[Documentation: Kaseya SaaS Protection](/user-guides/integrations/enable-kaseya-saas-protection-integration)
+
+### Warranty Writeback to Hudu and IT Glue
+
+The warranty dates MSPortal tracks for your devices now write back to your documentation platform, so Hudu assets and IT Glue flexible assets always show current warranty start and expiration dates.
+
+**Key Features:**
+- **Safe matching**: Devices match documentation assets by unique serial number only, within the mapped company and asset type. Ambiguous or missing serials are skipped, so a bad match can never overwrite the wrong asset.
+- **Your field mappings**: Map each device type to an asset type and choose which fields hold the serial number and warranty dates.
+- **Hands-off updates**: Once enabled, mapped warranty fields stay current automatically after warranty checks.
+
+[Documentation: Warranty Writeback](/user-guides/integrations/documentation-warranty-writeback)
+
+### Premium Training, Now Per User
+
+You asked, and we listened. Premium Training no longer has to be all-or-nothing for a company: you can now enable it for one user, a handful, or everyone.
+
+**Key Features:**
+- **Pick exactly who gets it**: Turn Premium Training on or off for individual users right from the company's user management page, instead of enabling the whole company.
+- **Bulk updates**: Select multiple users and apply the change in one action.
+- **Company default still works**: Users without an explicit setting inherit the company default, and a user's own setting always wins.
+- **Pay for what you use**: Premium Training is billed on the peak number of enabled users, so trimming access for users who don't need it keeps your billed count accurate.
+
+[Documentation: Enabling Training](/user-guides/training/enabling-training)
+
+### Improvements
+
+- **Meraki device import**: A new Devices page for the Meraki integration gives you the same staged-import workflow as other device integrations: per-type mappings with auto-sync, AI-assisted type matching, and selective import or ignore of staged devices.
+- **Role presets**: Creating a role now starts from a preset (Administrator, Manager, Technician, Read Only, and company-user presets) instead of a blank permission list.
+- **Microsoft Teams app logos**: Your MSPortal Teams app can now carry your own logo. Upload custom color and outline icons in the Teams app settings.
+- **Playbooks location**: Playbooks now live under Settings, Compliance, in a Playbooks tab, keeping compliance configuration in one place.
+- **IT Glue setup**: Clearer guidance when a pasted API key contains hidden characters picked up from a word processor or chat tool.
+
+### Launch Center
+
+New tenants now start in the Launch Center, a guided setup experience that builds a personalized launch plan instead of a fixed checklist. If you are already up and running, it is also the fastest way to roll out a part of the platform you have not adopted yet.
+
+**Key Features:**
+- **Adaptive plan**: Answer a short questionnaire about what you want to launch (client ticketing, self-service portal, security training, vCIO planning, compliance, and more) and get a plan built around those goals.
+- **Verified progress**: Readiness checks verify each step against real portal data, and a Launch pill in the header shows how many checks have passed.
+- **Leave and resume**: Step away at any time and pick up exactly where you stopped.
+
+[Documentation: Launch Center](/user-guides/getting-started/launch-center)
+
 ## July 20, 2026
 
 ### My Onboarding for Client Users

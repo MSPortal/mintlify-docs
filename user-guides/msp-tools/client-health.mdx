@@ -1,295 +1,332 @@
 ---
 title: 'Client Health'
-description: 'Monitor customer success with health scores across 8 dimensions, risk classification, and trend tracking'
+description: 'Use evidence-aware health scores, risk levels, and trends to identify which client relationships need attention'
 icon: 'heart-pulse'
 ---
 
-Client Health provides a comprehensive health scoring system that tells you exactly where to focus your resources. Every company in your portfolio receives a health score from 0 to 100, calculated across 8 dimensions using data from your connected integrations.
+Client Health gives your team a consistent way to review every client relationship. It combines service, engagement, financial, sales, project, standards, environment, and operational evidence into a health score from 0 to 100.
 
-## Overview
-
-The Client Health dashboard shows all your companies in a sortable, filterable table with their health scores, risk levels, and individual dimension scores. At a glance, you can identify which companies need attention and which are thriving.
-
-### Key Features
+Unlike a simple checklist, Client Health does not treat missing data as healthy or unhealthy. A score appears only when MSPortal has enough current evidence to support it.
 
 <CardGroup cols={2}>
-  <Card title="8-Dimension Scoring" icon="chart-radar">
-    Health scores computed across Service Quality, Engagement, Financial, Sales, Projects, Standards, Environment, and Operational dimensions.
+  <Card title="Evidence-aware scoring" icon="magnifying-glass-chart">
+    Missing, stale, or insufficient data is shown as unavailable instead of being replaced with a synthetic score.
   </Card>
-  <Card title="Risk Classification" icon="shield">
-    Companies automatically categorized as Thriving, Healthy, At Risk, or Critical based on their overall health score.
+  <Card title="Portfolio risk view" icon="shield-heart">
+    Filter companies by Thriving, Healthy, At Risk, or Critical and use Spotlight to focus your next review.
   </Card>
-  <Card title="Trend Tracking" icon="chart-line">
-    Daily snapshots track score changes over time with 180-day trend charts and improvement/decline indicators.
+  <Card title="Explainable results" icon="scale-balanced">
+    Open a company to see observed metrics, evidence coverage, applied weights, and the dimensions creating the largest score loss.
   </Card>
-  <Card title="Spotlight" icon="lightbulb">
-    Automatically highlights companies that need attention and those that have improved the most.
+  <Card title="Comparable history" icon="chart-line">
+    Published generations feed the dashboard, detail view, export, and 180-day trend so the same score is used everywhere.
   </Card>
 </CardGroup>
 
-## Dashboard
+## Prerequisites
 
-Navigate to **Client Health** in the main sidebar to open the dashboard.
+| Requirement | Detail |
+|-------------|--------|
+| **User type** | Client Health is an internal MSP view and is not available to company portal users. |
+| **Permission** | Your role needs `read_customer_success`. |
+| **Data sources** | Connected PSA, RMM, survey, project, standards, planner, goal, and compliance data can contribute evidence. You do not need every source, but broader coverage produces a more complete score. |
+| **First published scorecard** | A new tenant or newly enabled environment needs one completed score refresh before the dashboard is available. |
 
-### Summary Cards
+Users with `write_customer_success` can also set or remove manual risk flags. Scoring configuration requires `read_settings_client_health` or `manage_settings_client_health`.
 
-At the top of the dashboard, summary cards provide a portfolio-wide snapshot:
+## Open and refresh Client Health
 
-- **Avg Health Score** - The average health score across all companies
-- **Avg NPS** - Average Net Promoter Score from surveys
-- **Standards** - Average standards deployment percentage
-- **Companies** - Total number of companies being tracked
+<Steps>
+  <Step title="Open Client Health">
+    Click **Client Health** in the main sidebar.
+  </Step>
+  <Step title="Choose the company scope">
+    Use the global Company selector to review all accessible companies, an assigned group, or a single company. Summary totals, Spotlight, table results, and exports all follow this scope.
+  </Step>
+  <Step title="Refresh when needed">
+    Scores refresh automatically each day at **2:00 AM UTC**. To publish a new scorecard immediately, click **Refresh Scores** in the page header and wait for the completion message.
+  </Step>
+</Steps>
 
-Below the averages, colored pills show the distribution of companies across risk levels:
-- **Thriving** (green) - Companies performing well across all dimensions
-- **Healthy** (blue) - Companies in good standing with minor areas for improvement
-- **At Risk** (yellow) - Companies showing concerning trends that need attention
-- **Critical** (red) - Companies requiring immediate intervention
+<Note>
+While a refresh is running, MSPortal keeps the last complete scorecard visible. An incomplete or failed refresh never replaces the published results.
+</Note>
 
-### Spotlight Section
+## Use the dashboard
 
-The Spotlight section highlights two important groups:
+### Portfolio summary
 
-- **Needs Attention** - Companies whose health scores have declined the most recently
-- **Most Improved** - Companies whose scores have improved the most
+The summary area shows:
 
-This helps you quickly see who's trending in the wrong direction without scanning the full table.
+- **Avg Health Score** across companies with enough evidence to receive a numeric score
+- The number of companies in the current scope
+- The number marked **Limited data**
+- The distribution across **Thriving**, **Healthy**, **At Risk**, and **Critical**
 
-### Company Table
+Click a risk-level count or a colored section of the distribution bar to filter the company table. Click it again to clear that filter.
 
-The main table shows one row per company with the following default columns:
+### Spotlight
 
-| Column | Description |
-|--------|-------------|
-| **Company** | Company name (filterable) |
-| **Health Score** | Overall score from 0-100 with color indicator |
-| **Risk Level** | Thriving, Healthy, At Risk, or Critical (multi-select filter) |
-| **Service Quality** | Dimension score based on ticket metrics |
-| **Engagement** | Dimension score based on meeting and contact frequency |
-| **Financial** | Dimension score based on profitability and payment behavior |
-| **Sales** | Dimension score based on pipeline and win rates |
-| **Projects** | Dimension score based on project activity |
-| **Standards** | Dimension score based on deployment percentage |
-| **Environment** | Dimension score based on device and user metrics |
-| **Operational** | Dimension score based on planner tasks and goal completion |
+Spotlight highlights two groups across the full selected scope:
 
-<Tip>
-Click the column visibility button to show additional columns including Trend, Days Since Contact, Tickets (90d), NPS, Overdue Invoices, Standards %, and 20+ other detailed metrics.
-</Tip>
+- **Needs Attention** shows the companies with the most urgent current results, including companies with limited evidence that require review.
+- **Most Improved** shows the strongest improvements compared with the previous published scorecard from the same model history.
 
-### Refreshing Scores
+<Info>
+Client Health starts a clean history for the evidence-aware scorecard. Earlier legacy scores are not mixed into the trend or Most Improved comparison.
+</Info>
 
-Scores refresh automatically every day at 2:00 AM UTC. To trigger an immediate refresh:
+### Company table
 
-1. Click **Refresh Scores** in the top-right corner of the dashboard
-2. The button shows "Refreshing..." with a spinner while the background task runs
-3. When complete, a toast notification shows "Refreshed X companies"
-4. The table automatically updates with the new scores
+The table includes the company name, overall score, effective risk level, and available dimension scores. Use it to:
 
-## Company Detail View
+- Search or filter by company
+- Filter by one or more risk levels
+- Sort by supported score and dimension columns
+- Show or hide columns
+- Open a company detail page by clicking its row
+- Export all matching companies, not only the current page
 
-Click any company row to open its detailed health analysis. The detail page includes:
+The table respects both the global Company selector and table filters. A dimension column is hidden only when the entire selected scope has no evidence for it. If the dimension is unavailable for one company, that company shows **N/A**.
 
-### Summary Cards
+The optional **Trend** and **Flag Reason** columns can be enabled from the column visibility menu. A manually selected risk level is labeled **Manual** so it is not confused with the calculated result.
 
-Four cards at the top show key indicators:
+## Understand scores and data states
 
-1. **Health Score** - Current score with a progress bar and breakdown tooltip
-2. **Risk Level** - Current classification with colored badge
-3. **Days Since Contact** - Days since the last interaction (highlights red when over 30 days)
-4. **Standards Compliance** - Deployment percentage of tracked tools
+### Portfolio weights
+
+The current scorecard uses these base weights:
+
+| Dimension | Base weight |
+|-----------|------------:|
+| Service Quality | 18% |
+| Engagement | 18% |
+| Financial | 13% |
+| Sales | 8% |
+| Projects | 10% |
+| Standards | 13% |
+| Environment | 10% |
+| Operational | 10% |
+
+Only enabled, applicable dimensions can contribute. When some evidence is unavailable, MSPortal uses the observed evidence and reduces that dimension's influence based on its coverage. Missing evidence does not automatically earn a neutral or positive result.
+
+### Numeric score requirements
+
+MSPortal shows a numeric health score only when both conditions are met:
+
+- At least **3 dimensions** have a score
+- Overall evidence coverage is at least **40%**
+
+If either condition is not met, the company shows **Limited data** and does not receive a calculated risk level.
+
+<Warning>
+**Limited data is not a low score.** It means MSPortal cannot support a numeric result with the available evidence. Review the company's dimension coverage and connected data sources before drawing a conclusion.
+</Warning>
+
+### Risk levels
+
+| Health score | Calculated risk level |
+|-------------:|-----------------------|
+| 80–100 | Thriving |
+| 60–79 | Healthy |
+| 40–59 | At Risk |
+| 0–39 | Critical |
+
+A manual risk flag can replace the displayed risk level, but it never changes the calculated health score or its dimension contributions.
+
+### What N/A and coverage mean
+
+MSPortal evaluates each metric as observed, no samples, insufficient sample, source unavailable, or not applicable. In the interface, unavailable metrics and dimensions are represented by **N/A** or omitted when there is nothing useful to show.
+
+A real zero can affect the score only when MSPortal has an observed denominator that proves the result was zero. For example, zero overdue items out of a real set of due items is evidence; having no due items is not the same thing.
+
+## Review a company
+
+Click any company row to open the detail page.
+
+### Summary cards
+
+The page can show:
+
+- **Health Score** with the weighted dimension breakdown
+- **Risk Level**, including the calculated level when a manual flag is active
+- **Standards Compliance** when a required standards catalog applies
+
+Cards without evidence are omitted rather than filled with a default value.
 
 ### Dimension Breakdown
 
-A table showing each of the 8 dimensions with:
+Each available dimension shows:
 
-- Dimension name and icon
-- Current score (0-100)
-- Visual progress bar
-- Weight (how much this dimension contributes to the overall score)
+- Its score and applied weight
+- Evidence coverage and observed metric count
+- Only the metrics MSPortal actually observed
+- Values formatted with their correct unit, such as percent, days, currency, or hours per endpoint
 
-### Health Trend Chart
+A disabled dimension can still appear when it has evidence, but it is labeled **Excluded from health score** and does not affect the overall result.
 
-A 180-day line chart showing how the company's health score has changed over time. Use this to identify long-term trends and the impact of your interventions.
+### Health Score Trend
 
-### Raw Metrics
+The 180-day chart uses published scorecards. Click **Show Dimensions** to add the individual dimension lines.
 
-Detailed metric cards organized by dimension, showing the actual underlying data:
+When the scoring model changes, the chart breaks the line at the model boundary instead of implying that unlike scores are directly comparable. New evidence-aware history begins with the first published scorecard; it is not reconstructed from legacy data.
 
-**Service Quality:**
-- Tickets (90d) - Number of tickets in the last 90 days
-- Avg Days to Close - Average resolution time
-- Avg Hours/Ticket - Average labor hours per ticket
-- Escalation Rate - Percentage of tickets that were escalated
+### Top Negative Drivers
 
-**Engagement:**
-- Days Since Meeting - Days since the last scheduled meeting
-- Meetings (90d) - Number of meetings in the last 90 days
-- Missed Meeting % - Percentage of meetings that were missed
-- Latest NPS - Most recent Net Promoter Score
+Top Negative Drivers lists the dimensions responsible for the largest health-score loss. The impact shown for each driver is its exact weighted point effect, so the drivers explain how the overall score moved away from 100.
 
-**Financial:**
-- Profitability - Financial grade (A-F) and numeric score
-- Overdue Invoices - Count of unpaid invoices past due
-- Outstanding - Total outstanding invoice amount
-- Avg Days to Pay - Average payment turnaround time
-- Days Since Payment - Days since the last payment was received
+## Set a manual risk flag
 
-**Sales:**
-- Pipeline Value - Total value of open opportunities
-- Won Revenue (365d) - Revenue from closed-won quotes in the last year
-- Opportunities (90d) - Number of quotes in the last 90 days
-- Open Opportunities - Current open quote count
-- Win % - Quote win rate
-- Days Since Opportunity - Days since the last quote was created
+Use a manual flag when relationship context is not yet represented in the available data—for example, an executive escalation, a known renewal concern, or a positive strategic change.
 
-**Environment:**
-- Device Count - Total managed devices
-- Active Users - Percentage of active users
+<Steps>
+  <Step title="Open the company">
+    From Client Health, click the company row.
+  </Step>
+  <Step title="Open the flag dialog">
+    Click **Flag Risk**. If a flag already exists, click **Edit Flag**.
+  </Step>
+  <Step title="Select a risk level">
+    Choose **Critical**, **At Risk**, **Healthy**, or **Thriving**. The dialog also shows the calculated level and health score for comparison.
+  </Step>
+  <Step title="Record the reason">
+    Enter a concise reason explaining why the relationship carries more or less risk than the score suggests, then click **Save Flag**.
+  </Step>
+</Steps>
 
-**Operational:**
-- Overdue Tasks - Count of overdue planner items and compliance assignments
-- Goal Completion - Percentage of goals completed
+The detail page records the flag reason, who set it, and when. To return to the calculated risk level, edit the flag and click **Remove Flag**.
 
-## The 8 Health Dimensions
-
-Each dimension measures a different aspect of the client relationship. Scores are computed using a percentile-based system that compares each company against your portfolio.
+## How each dimension is calculated
 
 ### Service Quality
 
-Measures how effectively you're resolving support issues.
+Service Quality compares the latest four complete ticket weeks with the preceding four complete weeks. It begins at 100 and applies observed risk when:
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Resolution Time | 40% | Average days to close tickets (lower is better) |
-| Hours Per Ticket | 35% | Average labor hours per ticket (lower is better) |
-| Escalation Rate | 25% | Percentage of escalated tickets (lower is better) |
+- Ticket demand is rising
+- Resolution is at least 10% slower
+- Average backlog is above five tickets
+- Average open-ticket age is above ten days
+- Backlog is rising
+
+The source must be current and all eight weeks must be complete. High-priority ticket growth and effective escalations can appear as warning evidence but do not change the current score.
 
 ### Engagement
 
-Measures the strength and frequency of your client interactions.
+| Metric | Internal weight | Scoring basis |
+|--------|----------------:|---------------|
+| Meeting recency | 60% | A meeting within 90 days scores 100; within 120 days scores 60; within 180 days scores 40; older meetings score 20. |
+| Recent NPS | 40% | Uses the latest response from the last 365 days. Scores of 9+, 7+, 5+, and 3+ map to progressively lower bands. |
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Service Engagement | 34% | Days since last contact (fewer is better) |
-| Proactive Engagement | 33% | Days since last meeting (fewer is better) |
-| NPS Score | 33% | Net Promoter Score from surveys (higher is better) |
+If only one metric is observed, Engagement uses that evidence and reports reduced coverage. General contact activity and missed-meeting estimates are not used as substitutes.
 
 ### Financial
 
-Measures the financial health and profitability of the relationship.
+| Metric group | Internal weight | What it measures |
+|--------------|----------------:|------------------|
+| Profitability | 50% | Reactive hours per endpoint, effective hourly rate, and all-in seat price. Each input is independently evidence-aware. |
+| Open invoice health | 30% | The proportion of still-open invoices that are overdue. |
+| Payment speed | 20% | Average days to pay for paid invoices in the trailing year. |
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Profitability | 50% | Financial grade/score from Financial Reporting |
-| Late Invoices | 30% | Count of overdue invoices (fewer is better) |
-| Days to Pay | 20% | Average invoice payment time (fewer is better) |
+Fresh ticket, revenue, device, and invoice data is evaluated independently. A missing profitability input is omitted instead of receiving a default score.
 
 ### Sales
 
-Measures pipeline activity and revenue growth potential.
+| Metric | Internal weight | What it measures |
+|--------|----------------:|------------------|
+| Sales activity recency | 50% | Time since the latest opportunity or quote activity, using 30-, 90-, 180-, and 365-day bands. |
+| Decided win rate | 50% | Won outcomes divided by won plus lost outcomes in the trailing 365 days. At least three decided outcomes are required. |
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Opportunity Recency | 60% | Days since last quote (fewer is better) |
-| Win Rate | 40% | Quote win percentage (higher is better) |
+MSPortal prefers PSA opportunity outcomes. Quoter outcomes are used as a fallback so the same opportunity is not counted twice. A connected tenant-wide sales source does not count as company evidence by itself.
 
 ### Projects
 
-Measures project engagement and activity.
+| Metric | Internal weight | What it measures |
+|--------|----------------:|------------------|
+| Active-project schedule health | 40% | Percentage of active projects with due dates that are not overdue. |
+| Recent on-time delivery | 40% | Percentage of projects completed on or before the due date in the trailing year. |
+| Effort adherence | 20% | Percentage of measured projects at or below 110% of estimated hours. |
 
-| Metric | What It Measures |
-|--------|-----------------|
-| Project Count (365d) | Number of projects in the last year |
-| Project Recency | How recently the last project was active |
+Raw project count and monetary values do not earn health points by themselves.
 
 ### Standards
 
-Measures how completely the company has adopted your recommended tools.
+Standards is the percentage of applicable required checks that are deployed.
 
-| Metric | What It Measures |
-|--------|-----------------|
-| Deployment Percentage | Ratio of deployed required tools to total required tools (one-of-group categories count as a single check satisfied by any deployed item) |
-
-<Tip>
-The Standards dimension score is a direct linear mapping of deployment percentage. A company with 80% of required checks deployed scores 80 on this dimension. For categories with **Require one of group** enabled in Settings, the entire category counts as a single required check, so a company that has any one of Datto, Cove, or Veeam deployed in a Backup group scores the same as a company with only Datto.
-</Tip>
+- Missing required assignments count as **Not Started**
+- A **Require one of group** category counts as one check and is satisfied when any option is deployed
+- Explicit **N/A** and **Declined** items are excluded
+- Companies excluded from Standards, or tenants without a required catalog, show N/A
 
 ### Environment
 
-Measures the technical health of the company's environment.
+| Metric | Internal weight | What it measures |
+|--------|----------------:|------------------|
+| Server availability | 60% | Percentage of observed servers that are not offline and have been seen within seven days. |
+| Patch coverage | 40% | Percentage of devices with a recognized patched or unpatched state that are patched. Unknown states are excluded. |
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Device Count | 60% | Total managed devices (more indicates larger engagement) |
-| Active User % | 40% | Percentage of users actively using managed services |
+Device count is context only and does not improve the score. User activity is not part of the Environment score.
 
 ### Operational
 
-Measures how well day-to-day operations are running.
+| Metric | Internal weight | What it measures |
+|--------|----------------:|------------------|
+| Planner timeliness | 40% | Overdue planner items as a percentage of planner items with due dates. |
+| Goal progress | 35% | Average current goal progress; goals whose tenant-specific status is **Completed** count as 100%. |
+| Compliance timeliness | 25% | Overdue compliance assignments as a percentage of assignments with due dates. |
 
-| Metric | Weight | What It Measures |
-|--------|--------|-----------------|
-| Overdue Tasks | 50% | Count of overdue planner items and compliance assignments (fewer is better) |
-| Goal Completion | 50% | Percentage of company goals completed (higher is better) |
+No planner items, goals, or compliance assignments means no evidence for those metrics. It does not produce a synthetic Operational score.
 
-## Configuring Health Scoring
+## Configure included dimensions
 
-Navigate to **Settings > MSP Tools > Scoring** to configure which dimensions are included in health score calculations.
+Go to **Settings > MSP Tools > Scoring** to enable or disable dimensions. Disabled dimensions are excluded from the overall health calculation after the next published refresh.
 
-### Enabling/Disabling Dimensions
+See [Health Score Configuration](/user-guides/settings/scoring) for permission and configuration details.
 
-Each of the 8 dimensions can be toggled on or off:
-
-- **Enabled dimensions** contribute their weighted score to the overall health score
-- **Disabled dimensions** are excluded from calculations entirely
-- When a dimension is disabled, its weight is redistributed proportionally across the remaining enabled dimensions
-
-<Warning>
-Changes to scoring configuration affect all companies immediately. The next refresh cycle (or manual refresh) will recalculate scores with the new configuration.
-</Warning>
-
-### When to Disable Dimensions
-
-Consider disabling a dimension when:
-
-- You don't have the data source connected (e.g., disable Sales if you don't track quotes)
-- A dimension isn't relevant to your business model
-- You want to focus scoring on specific areas
-
-## Best Practices
+## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Review critical companies weekly">
-    Filter the dashboard by **Critical** risk level and review each company's detail page. Look at the Negative Drivers section to understand what's pulling scores down.
+  <Accordion title="No published Customer Success generation is available yet">
+    This appears when no complete scorecard has been published for your tenant. Click **Refresh Scores** and wait for the completion message. On a new deployment or newly enabled tenant, the first automatic refresh runs at 2:00 AM UTC. If the message remains after a completed refresh, contact MSPortal support.
   </Accordion>
-  <Accordion title="Use the Spotlight section daily">
-    Check the Needs Attention list each morning to catch companies that are declining before they become critical.
+  <Accordion title="A company shows Limited data">
+    Open the company and review its dimension coverage. A numeric score requires at least three scored dimensions and 40% overall coverage. Confirm that the relevant integrations are connected, company mappings are correct, and source data has synced recently.
   </Accordion>
-  <Accordion title="Track trends over time">
-    Individual score snapshots are less useful than trends. Use the 180-day trend chart on detail pages to see whether your interventions are working.
+  <Accordion title="A dimension shows N/A">
+    The dimension may have no samples, an insufficient sample, an unavailable or stale source, or may not apply to the company. N/A is intentionally different from zero. Check the source integration, company mapping, and the dimension-specific prerequisites above.
   </Accordion>
-  <Accordion title="Connect all available integrations">
-    The more data sources you connect, the more accurate health scores become. Missing data results in dimensions being scored as N/A.
+  <Accordion title="The published scorecard is stale">
+    The warning appears when the oldest required source behind the published scorecard is more than 36 hours old. Review integration sync health, allow the source to update, and then click **Refresh Scores**.
   </Accordion>
-  <Accordion title="Calibrate scoring to your business">
-    If certain dimensions consistently produce unexpected results, consider disabling them or adjusting your thresholds. The goal is for the score to match your intuition about client health.
+  <Accordion title="The risk level does not match the score band">
+    Look for the **Manual** label. A manual risk flag replaces the displayed risk level without changing the score. Hover over the risk level or open the company to see the calculated level and flag reason.
+  </Accordion>
+  <Accordion title="A trend line has a gap">
+    A gap marks a scoring-model revision. MSPortal separates the segments because scores from different model versions should not be treated as one continuous trend.
   </Accordion>
 </AccordionGroup>
 
-## Related Resources
+## Best practices
+
+- Review **Critical**, **At Risk**, and **Limited data** companies every week.
+- Use **Top Negative Drivers** to choose the first area to investigate; confirm the observed metrics before taking action.
+- Treat N/A as a data question, not a positive or negative outcome.
+- Record a specific reason whenever you add a manual risk flag and remove it when the calculated result should take over again.
+- Refresh after repairing an integration or company mapping so the next published scorecard can use the corrected evidence.
+- Use the trend to evaluate interventions only within the same model segment.
+
+## Related resources
 
 <CardGroup cols={2}>
-  <Card title="MSP Tools Overview" icon="heart-pulse" href="./index">
-    Overview of all MSP Tools features
+  <Card title="Health Score Configuration" icon="sliders" href="/user-guides/settings/scoring">
+    Enable or disable the dimensions included in Client Health.
   </Card>
   <Card title="Standards" icon="wrench" href="./standards">
-    Manage tool deployments that feed into the Standards dimension
+    Configure and track the required standards used by the Standards dimension.
   </Card>
   <Card title="Financial Reporting" icon="dollar-sign" href="./financial-reporting">
-    Revenue analysis that feeds into the Financial dimension
+    Review the profitability evidence used by the Financial dimension.
   </Card>
-  <Card title="Planner" icon="list-check" href="/user-guides/planner/index">
-    Manage tasks that feed into the Operational dimension
+  <Card title="Ticket Trends" icon="chart-line" href="./ticket-trends">
+    Investigate the ticket patterns behind Service Quality evidence.
   </Card>
 </CardGroup>

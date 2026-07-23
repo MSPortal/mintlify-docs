@@ -1,127 +1,124 @@
 ---
 title: 'MSP Tools'
-description: 'Monitor client health, track tool deployments, and analyze financial performance across your managed services portfolio'
-icon: 'heart-pulse'
+description: 'Monitor client health, investigate service trends, manage standards, and analyze financial performance'
+icon: 'toolbox'
 ---
 
-MSP Tools is a suite of analytics and management features purpose-built for MSP operations. It gives you clear visibility into three critical areas of your business: **Client Health**, **Tool Stack**, and **Financial Reporting**.
+MSP Tools brings together the operational evidence your team uses to manage client relationships. Use it to identify risk, investigate service changes, track required standards, and understand account economics.
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Client Health" icon="heart-pulse" href="./client-health">
-    Health scores across 8 dimensions with risk classification, trend tracking, and detailed per-company breakdowns.
+    Evidence-aware health scores across eight dimensions, with coverage, risk classification, manual flags, and company trends.
   </Card>
-  <Card title="Tool Stack" icon="wrench" href="./tool-stack">
-    Compliance matrix showing which tools each company has deployed, with automatic planner item creation for tracking.
+  <Card title="Ticket Trends" icon="chart-line" href="./ticket-trends">
+    Compare ticket periods, identify recurring issues, and produce action-oriented service desk analysis.
+  </Card>
+  <Card title="Standards" icon="wrench" href="./standards">
+    Define required technology standards and track deployment across every company.
   </Card>
   <Card title="Financial Reporting" icon="dollar-sign" href="./financial-reporting">
-    Revenue classification, profitability analysis, and financial grading for every client relationship.
+    Review managed revenue, support effort, seat economics, and profitability evidence by company.
   </Card>
 </CardGroup>
 
-## How MSP Tools Work Together
+## How the tools work together
 
-The three areas of MSP Tools share data and feed into each other to give you a complete picture of every client relationship:
+- **Client Health** combines observed service, engagement, financial, sales, project, standards, environment, and operational evidence into one portfolio view.
+- **Ticket Trends** helps you investigate the ticket patterns behind Service Quality results and prepare client-facing talking points.
+- **Standards** supplies the required-check deployment percentage used by the Standards dimension.
+- **Financial Reporting** supplies the profitability evidence used by the Financial dimension.
+- Planner items, goals, and compliance assignments contribute to the Operational dimension when real due-date or progress evidence exists.
 
-- **Tool Stack** deployment percentages feed directly into the **Client Health** Tool Stack dimension score
-- **Financial Reporting** grades feed into the **Client Health** Financial dimension score
-- **Client Health** aggregates data from your PSA, RMM, meetings, compliance, and other integrated systems into a single health score
+Missing data is not treated as healthy. Client Health reduces evidence coverage when a source or metric is unavailable, and shows **Limited data** instead of a numeric score when the evidence is too thin.
 
-This means when you improve a company's tool stack coverage or financial health, their overall health score updates automatically.
+## Data sources
 
-## Data Sources
-
-MSP Tools pulls data from across your connected integrations:
-
-| Data Source | What It Provides |
-|-------------|-----------------|
-| **PSA** (ConnectWise, Autotask, Halo, Syncro) | Tickets, invoices, projects, quotes, contacts |
-| **RMM** (Datto, etc.) | Device counts, active user percentages |
-| **Meetings** | Meeting frequency, days since last contact |
-| **Compliance** | Overdue compliance items |
-| **Planner** | Overdue planner tasks, goal completion |
-| **Tool Stack** | Tool deployment percentages |
-| **Surveys** | NPS scores |
+| Data source | MSP Tools use |
+|-------------|---------------|
+| **PSA** | Tickets, invoices, opportunities, projects, revenue, and support effort |
+| **RMM and device integrations** | Server availability, recognized patch state, and managed endpoint context |
+| **Meetings and Surveys** | Meeting recency and recent NPS evidence |
+| **Standards** | Required technology checks and company deployment status |
+| **Planner, Goals, and Compliance** | Due-date timeliness and current goal progress |
+| **Quoter data** | Sales activity and decided outcomes when PSA opportunities are unavailable |
 
 <Note>
-MSP Tools requires at least one PSA integration to be connected. Additional integrations (RMM, backup, etc.) enrich the data and improve the accuracy of health scores.
+Each tool only uses data that is connected, mapped to the company, current enough for the calculation, and sufficient for the metric. A tenant-wide integration alone is not proof that a specific company has evidence.
 </Note>
 
-## Daily Data Refresh
+## Refresh schedule
 
-MSP Tools automatically refreshes all metrics **daily at 2:00 AM UTC**. During each refresh cycle:
+Client Health publishes a complete scorecard each day at **2:00 AM UTC**. The dashboard, company detail, export, and history all read from that same published scorecard.
 
-1. Raw data is pulled from all connected integrations
-2. Per-company metrics are computed and stored (40+ metrics per company)
-3. Health scores are calculated based on your scoring configuration
-4. A daily snapshot is saved for trend tracking (retained for 2 years)
+You can click **Refresh Scores** on the Client Health page after repairing an integration, updating a company mapping, changing scoring configuration, or making standards and operational changes that should be reflected immediately.
 
-You can also trigger a manual refresh at any time from the Client Health page by clicking **Refresh Scores**.
+Ticket Trends prepares its weekly company aggregates on Monday before the next Client Health refresh. Other MSP Tools data follows the sync schedule of its source integration.
 
-## Accessing MSP Tools
+## Access MSP Tools
 
-MSP Tools appears in the main sidebar under **MSP Tools**:
+MSP Tools pages appear in the main sidebar when the feature and your role permissions allow access. Company portal users cannot access Client Health.
 
-- **Client Health** - Main dashboard with health scores for all companies
-- **Tool Stack** - Compliance matrix under the Planner section
-- **Financial Reporting** - Revenue and profitability analysis
+Configuration is available in **Settings** under **MSP Tools**:
 
-Configuration for each area is available in **Settings** under the **MSP Tools** group:
+- **Scoring** enables or disables Client Health dimensions
+- **Standards** manages required categories and items
+- **Financial Reporting** configures revenue classifications and targets
 
-- **Scoring** - Configure which health dimensions are active
-- **Tool Stack** - Manage tool categories and items
-- **Financial Reporting** - Map PSA product types to revenue categories
-
-## Prerequisites
+## Initial setup
 
 <Steps>
-  <Step title="Enable the feature">
-    MSP Tools must be enabled for your tenant. Contact support if you don't see it in your sidebar.
+  <Step title="Enable MSP Tools">
+    Confirm the required features are enabled for your tenant. Contact MSPortal support if an expected page is missing after permissions are assigned.
   </Step>
-  <Step title="Connect a PSA integration">
-    At minimum, connect your PSA (ConnectWise, Autotask, Halo PSA, or Syncro) to populate ticket, invoice, and contact data.
+  <Step title="Connect and map integrations">
+    Connect the PSA, RMM, and other sources you use. Verify that external companies are mapped to the correct MSPortal companies.
   </Step>
-  <Step title="Configure your tool stack">
-    Navigate to **Settings > MSP Tools > Tool Stack** to define the categories and tools you want to track across your client base.
+  <Step title="Configure Standards">
+    Go to **Settings > MSP Tools > Standards** and define the required categories and items you want to track.
   </Step>
-  <Step title="Set up revenue mappings">
-    Navigate to **Settings > MSP Tools > Financial Reporting** to map your PSA product types to revenue categories.
+  <Step title="Configure Financial Reporting">
+    Go to **Settings > MSP Tools > Financial Reporting** and map revenue records so profitability metrics can be calculated.
+  </Step>
+  <Step title="Review scoring dimensions">
+    Go to **Settings > MSP Tools > Scoring** and disable only the dimensions that do not apply to your MSP's service model.
+  </Step>
+  <Step title="Publish the first scorecard">
+    Open **Client Health** and click **Refresh Scores**, or wait for the daily 2:00 AM UTC refresh.
   </Step>
 </Steps>
 
 ## Permissions
 
-Access to MSP Tools is controlled by role-based permissions:
+| Permission | What it controls |
+|-----------|------------------|
+| `read_customer_success` | View Client Health and company health details |
+| `write_customer_success` | Add, edit, and remove manual company risk flags |
+| `read_ticket_trends` | View and run Ticket Trends analysis |
+| `read_tool_stack` | View Standards deployment status |
+| `manage_tool_stack` | Update company Standards status |
+| `read_financial_reporting` | View Financial Reporting |
+| `read_settings_client_health` | View Client Health scoring configuration |
+| `manage_settings_client_health` | Enable or disable Client Health dimensions |
+| `read_settings_tool_stack` | View Standards settings |
+| `manage_settings_tool_stack` | Create and edit Standards categories and items |
+| `read_settings_financial_reporting` | View Financial Reporting settings |
+| `manage_settings_financial_reporting` | Modify revenue classification settings |
 
-| Permission | What It Controls |
-|-----------|-----------------|
-| `read_customer_success` | View the Client Health dashboard and company details |
-| `read_tool_stack` | View the Tool Stack compliance matrix |
-| `manage_tool_stack` | Update tool deployment statuses for companies |
-| `read_financial_reporting` | View the Financial Reporting dashboard |
-| `read_settings_client_health` | View health scoring configuration |
-| `manage_settings_client_health` | Modify health scoring configuration |
-| `read_settings_tool_stack` | View tool stack settings |
-| `manage_settings_tool_stack` | Create, edit, and delete tool categories and items |
-| `read_settings_financial_reporting` | View revenue category mappings |
-| `manage_settings_financial_reporting` | Modify revenue category mappings |
+Assign permissions through **Settings > Users & Roles**.
 
-<Tip>
-Assign permissions through **Settings > Users & Roles**. You can create custom roles that combine read-only access to some areas with management access to others.
-</Tip>
-
-## Related Resources
+## Related resources
 
 <CardGroup cols={2}>
   <Card title="Client Health" icon="heart-pulse" href="./client-health">
-    Detailed guide to health scoring and company analysis
+    Interpret evidence-aware scores, limited data, risk flags, and trends.
   </Card>
-  <Card title="Tool Stack" icon="wrench" href="./tool-stack">
-    Guide to managing tool deployments and compliance tracking
+  <Card title="Ticket Trends" icon="chart-line" href="./ticket-trends">
+    Investigate changes in demand, resolution, backlog, and recurring issues.
+  </Card>
+  <Card title="Standards" icon="wrench" href="./standards">
+    Manage required technology checks and deployment status.
   </Card>
   <Card title="Financial Reporting" icon="dollar-sign" href="./financial-reporting">
-    Guide to revenue classification and profitability analysis
-  </Card>
-  <Card title="Planner" icon="list-check" href="/user-guides/planner/index">
-    Learn about planner items created by Tool Stack
+    Configure and review the economics behind the Financial dimension.
   </Card>
 </CardGroup>

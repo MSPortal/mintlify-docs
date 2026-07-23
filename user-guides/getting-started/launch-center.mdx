@@ -1,0 +1,131 @@
+---
+title: 'Launch Center'
+description: 'Build an adaptive, verified setup plan that guides your team from signup to a client-ready portal'
+icon: 'rocket'
+---
+
+The Launch Center is a guided setup experience that builds a personalized launch plan for your portal. Instead of a fixed checklist, it asks what you want to launch, generates a plan around those goals, and verifies your progress against real portal data as you go. You can leave at any time and resume exactly where you stopped.
+
+## Accessing the Launch Center
+
+- **Sidebar**: Click **Launch Center** in the **Planning** group of the sidebar.
+- **Header pill**: A **Launch** pill in the top bar shows how many readiness checks have passed (for example, 3/12). Click it to jump back into your plan.
+- **After signup**: New tenants land in the Launch Center automatically after completing signup.
+
+<Note>
+The Launch Center is visible to users with the **read_launch_center** or **manage_launch_center** permission. Only launch managers (or tenant admins) can change the plan; other users see it read-only.
+</Note>
+
+## Building Your Plan
+
+<Steps>
+  <Step title="Start from the Welcome Screen">
+    The welcome screen offers two paths:
+
+    - **Build my launch plan**: Answer a short questionnaire and get a tailored plan.
+    - **Explore first**: Skip the questionnaire and preview the portal with a lightweight explore plan. You can build a full plan later.
+  </Step>
+  <Step title="Choose Your Focus Areas">
+    On the **What do you want to launch?** screen, pick the areas that matter most:
+
+    - **Client ticketing**
+    - **Self-service portal**
+    - **Security training**
+    - **vCIO planning**
+    - **Compliance**
+    - **Client data foundation**
+    - **Complete portal rollout** (selects everything)
+    - **Explore the platform**
+  </Step>
+  <Step title="Answer Context Questions">
+    Tell the Launch Center where your client data will come from (PSA integration, Microsoft 365, or CSV import) and how you want to roll out (start with one pilot client, or prepare all clients).
+  </Step>
+  <Step title="Build the Plan">
+    Click **Build my plan**. The Launch Center generates a phased plan with only the steps relevant to your goals. Anything you did not select still appears under **Explore later**, so nothing is hidden.
+  </Step>
+</Steps>
+
+## Plan Phases
+
+Your plan is organized into phases. Which steps appear, and which are required, depends on the goals you chose.
+
+| Phase | Steps |
+|-------|-------|
+| **Foundation** | Company profile, Branding, Support experience, Access and permissions, Billing |
+| **Connect** | Integrations selection, Connect your PSA, Connect your RMM, Connect Microsoft 365, plus one step per additional integration you choose |
+| **Client data** | Client companies, Client users, Client devices, Client teams |
+| **Ticketing** | Ticket delivery and defaults, Ticket visibility, Ticket request template |
+| **Training** | Training foundation |
+| **vCIO** | vCIO foundation (define standards, review adoption, build the roadmap, schedule the QBR) |
+| **Compliance** | Compliance (import a playbook, review imported checks, create with AI) |
+| **Review and launch** | Readiness review, Review the client experience, Complete launch |
+| **Explore later** | Optional steps from tracks you did not select |
+
+### Working Through a Step
+
+Each step opens a workspace with a **Setup guide** panel explaining why the step matters, what it affects, and what to confirm. Some steps embed the actual configuration inline, for example:
+
+- **Company profile** and **Support experience** edit your company name, timezone, support email, and portal name directly in the plan.
+- **Integrations** lets you choose the systems you use (PSA, RMM, and other categories such as documentation, security, backup, and quoting) and then configure each one from its own plan step.
+- **Ticket visibility** controls the client ticket experience for your primary PSA, including display groups and the statuses clients can use.
+
+Use **Next** to save and advance, **Back** to return, or **Do this later** to defer a step without blocking your plan.
+
+## Readiness Verification
+
+The Launch Center does not just track clicks; it verifies real portal data.
+
+- The **Live verification** button in the plan footer shows how many readiness checks currently pass. Open it to see each finding with a severity of **Blocking**, **Recommended**, or **Optional**.
+- Checks cover facts like "A support email address is configured", "At least one active client company exists", "A healthy PSA connection is available when required", and "An active client-visible request template exists".
+- Integration steps and several data steps complete automatically once their readiness checks pass. You do not need to mark them done by hand.
+
+## Completing Your Launch
+
+The final step, **Complete launch**, is enabled only when every blocking readiness check passes. After you complete the launch:
+
+- The header pill disappears and shows **Portal ready** status behind the scenes.
+- The Launch Center page switches to a monitoring summary: **Your portal setup is complete**. Readiness monitoring stays active and will flag any blocking configuration that regresses.
+- MSPortal re-verifies your readiness every night. If a blocking fact later becomes false, for example an integration disconnects, the Launch Center flips to **Needs attention** until you resolve it, then returns to complete automatically.
+
+## Launch Coordinator
+
+Each launch has an accountable lead shown as the **Launch coordinator**. The current coordinator, the primary admin, or the tenant owner can use **Assign launch coordinator** or **Reassign** to hand off ownership.
+
+## Removing the Launch Center
+
+If your team prefers not to use the guided experience:
+
+<Steps>
+  <Step title="Open the Dismiss Dialog">
+    Click **Dismiss Launch Center** in the Launch Center.
+  </Step>
+  <Step title="Confirm Removal">
+    Confirm with **Remove for everyone**. This removes the Launch Center from the sidebar and header for everyone at your tenant. Your setup progress and configuration are not deleted.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| **Complete launch** is disabled | One or more blocking readiness checks are failing. Open **Live verification** to see which findings need attention |
+| A step shows complete without being clicked | Integration and data steps auto-complete from live readiness evidence once their checks pass |
+| The Launch pill vanished | Either the launch completed, or the Launch Center was dismissed for your tenant |
+| Plan is read-only | You need the **manage_launch_center** permission (or tenant settings management) to make changes |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="bolt" href="/user-guides/getting-started/quick-start">
+    A fast orientation to the portal
+  </Card>
+  <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">
+    Connect your PSA, RMM, and other tools
+  </Card>
+  <Card title="Onboarding Wizard" icon="wand-magic-sparkles" href="/user-guides/getting-started/onboarding/index">
+    The classic step-by-step tenant setup wizard
+  </Card>
+  <Card title="Client Onboarding" icon="users" href="/user-guides/client-onboarding/index">
+    Onboard individual client companies
+  </Card>
+</CardGroup>

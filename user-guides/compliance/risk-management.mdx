@@ -1,0 +1,143 @@
+---
+title: 'Risk Management'
+description: 'Turn compliance failures into a focused risk register with scoring, ownership, and treatment tracking'
+icon: 'shield-halved'
+---
+
+Risk Management adds a risk register to the Compliance module. Failed compliance checks surface as gaps that you can promote into tracked risks, each with a likelihood and impact score, an owner, a treatment plan, and a target date. Risks feed dedicated reporting blocks so you can show clients their risk posture in reports and dashboards.
+
+## Enabling Risk Tracking
+
+Risk tracking is off by default. To enable it:
+
+<Steps>
+  <Step title="Open Risk Settings">
+    Go to **Settings > Compliance** and open the **Risk** tab.
+  </Step>
+  <Step title="Choose a Category Starter">
+    Turn on **Enable risk tracking**. You'll be asked to choose a category starter preset:
+
+    | Preset | Categories |
+    |--------|-----------|
+    | **MSP risk domains** | Governance, cyber, privacy, operations, continuity, third parties, financial, reputation, physical, other |
+    | **NIST CSF** | Govern, Identify, Protect, Detect, Respond, Recover, Other |
+    | **Custom** | Starts with just "Other" so you can build your own list |
+  </Step>
+  <Step title="Customize Categories">
+    In the **Risk categories** section, add, rename, recolor, reorder, or archive the categories used across the register and reports.
+  </Step>
+</Steps>
+
+<Info>
+Disabling risk tracking hides the feature without deleting existing data. Re-enable it at any time to pick up where you left off.
+</Info>
+
+### Scoring Matrix
+
+Every risk uses **likelihood × impact** on a fixed 5 × 5 scale. The scoring matrix in settings is a read-only reference showing the four severity bands:
+
+| Severity | Score Range |
+|----------|-------------|
+| **Low** | 1–4 |
+| **Medium** | 5–9 |
+| **High** | 10–16 |
+| **Critical** | 17–25 |
+
+## Accessing the Risk Register
+
+Once risk tracking is enabled, a **Risks** tab appears in the Compliance workspace alongside Tree view and List view. Click **Compliance** in the sidebar, then select the **Risks** tab.
+
+The Risk Register page shows four summary cards: **Active risks**, **High and critical**, **Overdue treatment**, and **Accepted risks**, above two tabs:
+
+- **Risk register**: All tracked risks with filters for company, category, severity, status, owner, and target date.
+- **Unaddressed gaps** (internal users only): Failed compliance checks that have not yet been promoted to a risk or dismissed.
+
+<Note>
+Viewing risks requires compliance read access. Creating and editing risks requires compliance write access and is limited to internal MSP users. Client company users only see the Risk register tab, and only risks you have marked visible to them.
+</Note>
+
+## Working with Gaps
+
+Risks are created from compliance findings, so the register always traces back to evidence. On the **Unaddressed gaps** tab, each failed check offers two actions:
+
+### Add to Risk Register
+
+Click **Add to risk register** to open the risk editor pre-filled from the failed check. The gaps tab includes a guidance banner explaining how the fields work together: criticality is evidence for impact, priority is remediation urgency, likelihood is company-specific probability, and only likelihood × impact determines the risk score.
+
+### Dismiss
+
+Click **Dismiss** to record why a failed result does not need to become a risk. A reason is required. If the check fails again later, it appears as a new gap.
+
+## Risk Fields
+
+| Field | Description |
+|-------|-------------|
+| **Risk title** | Short name for the risk |
+| **Risk statement** | The full description of the adverse event and its consequences |
+| **Category** | One of your tenant's risk categories |
+| **Likelihood** | 1 to 5, the probability the event occurs for this company |
+| **Impact** | 1 to 5, the business harm if it occurs |
+| **Risk score** | Calculated automatically as likelihood × impact, with its severity band |
+| **Status** | Open, Mitigating, Accepted, or Closed |
+| **Owner** | The person accountable for treatment |
+| **Target date** | When treatment should be complete |
+| **Treatment plan** | How the risk will be addressed |
+| **Visible to company users** | When on, company users with compliance access can view this risk |
+
+When promoting a gap, you can also turn on **Use this category for future failures** to save the selected category as that compliance check's default.
+
+<Warning>
+Closed risks are read-only. If the same check fails again after a risk is closed, a new gap is created rather than reopening the closed risk.
+</Warning>
+
+## Viewing a Risk
+
+Click any row in the register to open the risk detail. Alongside the core fields, the detail shows:
+
+- **Source compliance finding** with an **Open source** link back to the originating check
+- **Linked remediation work**: the PSA ticket, Planner items, and evidence files attached to the source finding
+- **Failure occurrences**: how many times the source check has failed (repeat failures increment the count instead of creating duplicates)
+- **Risk history**: a field-by-field change log of every edit
+- A **Source is now compliant** badge when the underlying check has since passed
+
+## Compliance AI and Risks
+
+The **Compliance AI** assistant (the floating button on the Compliance page) can help with risk work when risk tracking is enabled:
+
+- Use the **Find risk candidates** prompt to rank confirmed compliance gaps that deserve human risk review.
+- The assistant can produce a **Risk assessment** proposal with a drafted title, statement, category, likelihood, impact, and treatment plan.
+
+AI never writes to the register directly. Clicking **Use this assessment** opens the standard risk editor pre-filled with the draft, flagged as an **AI-assisted assessment**. Review and edit every field; nothing is added until you click **Add risk**.
+
+## Risk Reporting Blocks
+
+Five risk blocks are available in the report builder (and dashboards, where supported) once risk tracking is enabled:
+
+| Block | Shows |
+|-------|-------|
+| **Risk Summary** | Active, high/critical, overdue, and accepted risk metrics, with total exposure at larger sizes |
+| **Risks by Category** | Active risks grouped by category with a stacked severity bar |
+| **Risk Matrix** | The 5 × 5 likelihood and impact heatmap with per-cell risk counts |
+| **Risk Exposure Trend** | Risk exposure over the report period, with a configurable trend metric (Active risks, Total exposure score, or High-Critical risks) |
+| **Risk Register** | A prioritized table of active risks with ownership and target dates (reports only, configurable row limit) |
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| No Risks tab in Compliance | Enable risk tracking in **Settings > Compliance > Risk** |
+| "Risk tracking is disabled" message | Click **Open Risk settings** and turn on **Enable risk tracking** |
+| Cannot edit a risk | Closed risks are read-only, and editing requires compliance write access as an internal user |
+| A client cannot see a risk | Turn on **Visible to company users** on that risk |
+| Risk blocks missing from the report builder | Risk blocks only appear when risk tracking is enabled for your tenant |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Compliance" icon="shield-halved" href="/user-guides/compliance/index">
+    Manage compliance runs, checks, and evidence
+  </Card>
+  <Card title="Reporting" icon="chart-bar" href="/user-guides/reporting/index">
+    Build client reports with risk blocks
+  </Card>
+</CardGroup>
