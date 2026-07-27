@@ -30,11 +30,48 @@ If your tickets aren't appearing in MSPortal, check these common issues:
 
     If the status shows as disconnected or errored, your API credentials may have expired or been revoked. Reconnect the integration with fresh credentials.
   </Step>
+
+  <Step title="Run the Permission Check">
+    Open the integration's setup wizard and go to the **Permissions** step. If Tickets shows as not permitted, your API user cannot read tickets and no amount of resyncing will help.
+
+    The step names the exact permission to grant in your PSA. Grant it, click **Re-check**, then resync.
+  </Step>
 </Steps>
 
 <Tip>
 After making configuration changes, use the **Resync** button on your integration card to trigger an immediate sync rather than waiting for the scheduled sync.
 </Tip>
+
+## A sync is switched off, or its toggle is locked
+
+MSPortal only runs a sync when your PSA API user is permitted to read that data. When a permission is missing, the matching toggle on the **Sync** step is locked and the sync stays off.
+
+<Steps>
+  <Step title="Open the Permissions step">
+    Go to **Settings > Integrations**, open your PSA integration and click through to the **Permissions** step of the setup wizard. Every area of data is listed as granted or unavailable.
+  </Step>
+
+  <Step title="Grant the named permission">
+    Each unavailable area shows the exact setting to change in your PSA:
+
+    - **ConnectWise**: a security role category under **System > Security Roles**, for example *Procurement -> Product Catalog (Inquire Level: All)*
+    - **Autotask**: a security level setting under **Admin > Resources/Users > Security Levels**
+    - **Halo PSA**: an API application permission under **Configuration > Integrations > API > Applications**
+    - **Syncro**: a token permission under **Admin > API Tokens**
+  </Step>
+
+  <Step title="Re-check">
+    Return to the Permissions step and click **Re-check**. Once the area shows as granted, the toggle unlocks and you can switch the sync on.
+  </Step>
+</Steps>
+
+<Info>
+If a permission is revoked after setup, MSPortal switches the affected sync off and notifies your integration admins instead of failing the same call every night. Grant the permission again and re-check to turn it back on.
+</Info>
+
+<Note>
+An area can also show as **Could not verify**. That means the PSA was slow or unreachable when we checked, not that a permission is missing. Nothing is switched off on that basis; click **Re-check** to try again.
+</Note>
 
 ## How often do syncs happen?
 
@@ -75,7 +112,7 @@ If you need the changes immediately:
 If your integration status shows as disconnected or has an error:
 
 1. **Check API Credentials** - API keys or secrets may have expired or been rotated in your PSA
-2. **Verify Permissions** - Ensure the API user has the required permissions (see integration-specific guides)
+2. **Verify Permissions** - Run the **Permissions** step in the integration's setup wizard, which tests each area of data and names anything your API user cannot read
 3. **Check Rate Limits** - Some PSAs have API rate limits that may temporarily block requests
 4. **Reconnect** - Try disconnecting and reconnecting the integration with fresh credentials
 

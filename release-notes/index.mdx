@@ -3,6 +3,34 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## July 27, 2026
+
+### PSA Permission Checks
+
+Setting up ConnectWise, Autotask, Halo PSA, or Syncro now includes a Permissions step that tests exactly what your API user is allowed to read, before a single sync is switched on. No more discovering weeks later that one area of data never synced.
+
+**Key Features:**
+- **Checked area by area**: Companies, tickets, invoices, projects, product catalog, and every other area is tested individually and reported as granted or unavailable.
+- **Tells you what to change**: Anything unavailable names the exact setting to grant, for example the ConnectWise security role category or the Halo API application permission, along with where to find it in your PSA.
+- **Nothing runs blind**: Syncs you have not been granted access to stay switched off, and their toggles stay locked until you grant the permission and re-check.
+- **Keeps watching**: If a permission is revoked later, MSPortal switches off just that sync and notifies your integration admins, instead of failing the same call every night.
+- **Safe for existing setups**: Nothing changes for a connected integration until you run the check for the first time.
+
+[Documentation: Integration Settings](/user-guides/settings/integrations)
+
+### Product Catalog Sync Controls
+
+The product and service catalog from ConnectWise, Autotask, and Halo PSA is now a sync you control, with its own toggle on the Sync step of the setup wizard.
+
+**Key Features:**
+- **On or off, your call**: Turn the catalog sync off for integrations where you do not use it, and leave it on where you quote from it.
+- **Feeds quoting and budgets**: Synced catalog items are available to quotes and budget planning.
+
+### Improvements
+
+- **Company matching**: Quick Match on the integration company mapping page now returns results in under a second on large PSA datasets, including tenants with thousands of unmatched companies.
+- **Ticket sync**: Onboarding a new client no longer delays live ticket updates for your other clients. Ticket processing is now shared fairly across companies, so a large first-time import and everyday updates run alongside each other.
+
 ## July 24, 2026
 
 ### Risk Management

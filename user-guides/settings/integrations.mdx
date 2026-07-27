@@ -153,6 +153,19 @@ On a connection's device import page, a **Map with AI** button appears above the
 - **Initial import** - Import existing records on first connect
 - **Selective sync** - Choose which record types to sync
 
+### Permission Checks
+
+ConnectWise, Autotask, Halo PSA and Syncro setup includes a **Permissions** step that tests what your API user is actually allowed to read before any sync is switched on. Each area of data (companies, tickets, invoices, product catalog, and so on) is reported as granted or unavailable, and anything unavailable shows the exact permission to grant in your PSA.
+
+| Behaviour | What it means |
+|-----------|---------------|
+| **Required areas** | Companies, contacts and staff, tickets, and ticket reference data. Setup cannot be completed without them |
+| **Optional areas** | Everything else. You can finish setup without them; the matching sync toggle stays locked until the permission is granted |
+| **Ongoing enforcement** | If a permission is revoked later, the affected sync is switched off and your integration admins are notified rather than the sync failing nightly |
+| **Could not verify** | The PSA was slow or unreachable during the check. Nothing is switched off on that basis; re-check to try again |
+
+Re-run the check any time from the **Permissions** step of the integration's setup wizard. Existing integrations are unaffected until you run a check for the first time.
+
 ### Per-Company Auto-Import Role Override
 
 When PSA contacts are auto-imported, they are assigned a portal role from a fallback chain. You can override that role per company without touching the integration-wide default.
@@ -205,7 +218,7 @@ Each integration shows:
 ### Connection Issues
 
 1. Verify API credentials are correct
-2. Check that required permissions are granted
+2. Run the **Permissions** step in the setup wizard to confirm required permissions are granted
 3. Ensure your PSA subscription includes API access
 4. Review firewall/network settings
 

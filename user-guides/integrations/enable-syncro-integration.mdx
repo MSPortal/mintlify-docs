@@ -104,7 +104,7 @@ Select the following permissions for the API token:
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Syncro integration in 3 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Syncro integration in 4 easy steps.
 
 ### Starting the Wizard
 
@@ -149,13 +149,45 @@ Enter your Syncro API credentials to establish the connection.
   </Step>
 
   <Step title="Proceed">
-    Once connected, click **Next** to continue to sync configuration.
+    Once connected, click **Next** to continue to the permission check.
   </Step>
 </Steps>
 
 ---
 
-### Step 2: Sync
+### Step 2: Permissions
+
+MSPortal checks what your Syncro API token is allowed to read, and shows the result for each area of data.
+
+<Steps>
+  <Step title="Review the results">
+    The check runs automatically when you reach this step. Each area of data is listed as either granted or unavailable.
+
+    Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses (read from ticket settings). Assets are optional.
+  </Step>
+
+  <Step title="Grant anything missing">
+    Any area that is not permitted shows the exact token permission to enable, for example **Assets - List/Search**.
+
+    Edit the MSPortal token under **Admin > API Tokens**, enable the permission, then come back and click **Re-check**.
+
+    <Note>
+      Syncro returns the same error for an out-of-scope token as it does for an invalid one. If everything comes back unavailable, confirm the token itself is still valid before adjusting individual permissions.
+    </Note>
+  </Step>
+
+  <Step title="Continue">
+    You can continue with optional areas ungranted. Those syncs stay switched off and their toggles are locked on the next step until you grant the permission and re-check.
+  </Step>
+</Steps>
+
+<Tip>
+  If a permission is removed later, MSPortal switches off the affected sync and notifies your integration admins rather than retrying against an endpoint it can no longer read.
+</Tip>
+
+---
+
+### Step 3: Sync
 
 Configure what data to sync from Syncro and set up automatic contact import.
 
@@ -184,6 +216,10 @@ Configure what data to sync from Syncro and set up automatic contact import.
       All auto-imported contacts will be assigned the selected role. You can change individual user roles later in Settings > Users.
     </Tip>
 
+    <Note>
+      A toggle appears locked when the permission check found that your API token cannot read that data. Enable the permission named beside it in Syncro, then re-run the check on the Permissions step to unlock it.
+    </Note>
+
     <Info>
       When you proceed to the next step, data sync will begin in the background. This may take a few minutes depending on the amount of data in your Syncro account.
 
@@ -198,7 +234,7 @@ Configure what data to sync from Syncro and set up automatic contact import.
 
 ---
 
-### Step 3: Import (Optional)
+### Step 4: Import (Optional)
 
 Import users, companies, and devices from Syncro. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Devices** tabs.
 

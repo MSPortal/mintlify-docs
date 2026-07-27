@@ -83,7 +83,7 @@ Before connecting to MSPortal.ai, you need to create an API user and security ro
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Autotask integration in 4 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Autotask integration in 5 easy steps.
 
 ### Starting the Wizard
 
@@ -122,13 +122,43 @@ Enter your Autotask API credentials to establish the connection.
   </Step>
 
   <Step title="Proceed">
-    Once connected, click **Next** to continue to sync configuration.
+    Once connected, click **Next** to continue to the permission check.
   </Step>
 </Steps>
 
 ---
 
-### Step 2: Sync
+### Step 2: Permissions
+
+MSPortal checks what your Autotask API user is allowed to read, and shows the result for each area of data.
+
+<Steps>
+  <Step title="Review the results">
+    The check runs automatically when you reach this step. Each area of data is listed as either granted or unavailable.
+
+    Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses (the ticket picklists). Without these the integration cannot function.
+
+    Optional areas cover Configurations, Opportunities, Product catalog, Invoices, Contracts, Projects, Time entries, Service calls, and Company notes.
+  </Step>
+
+  <Step title="Grant anything missing">
+    Any area that is not permitted shows the exact security level setting to change, for example **Security Level -> Contracts -> Products & Services: View**.
+
+    Update the security level assigned to your API user in **Admin > Resources/Users > Security Levels**, then come back and click **Re-check**.
+  </Step>
+
+  <Step title="Continue">
+    You can continue with optional areas ungranted. Those syncs stay switched off and their toggles are locked on the next step until you grant the permission and re-check.
+  </Step>
+</Steps>
+
+<Tip>
+  If a permission is removed later, MSPortal switches off the affected sync and notifies your integration admins rather than retrying against an entity it can no longer read.
+</Tip>
+
+---
+
+### Step 3: Sync
 
 Configure what data to sync from Autotask and set up automatic contact import.
 
@@ -142,7 +172,12 @@ Configure what data to sync from Autotask and set up automatic contact import.
     | **Sync Companies** | Sync company/account data from Autotask |
     | **Enable Ticket Sync** | Sync tickets from Autotask |
     | **Enable Opportunity Sync** | Sync opportunities from Autotask |
+    | **Sync product catalog** | Import the product and service catalog for quoting and budgets |
   </Step>
+
+  <Note>
+    A toggle appears locked when the permission check found that your API user cannot read that data. Grant the permission named beside it in Autotask, then re-run the check on the Permissions step to unlock it.
+  </Note>
 
   <Step title="Configure Contact Auto-Import">
     If you want contacts to be automatically imported when companies are added:
@@ -178,7 +213,7 @@ Configure what data to sync from Autotask and set up automatic contact import.
 
 ---
 
-### Step 3: Configure
+### Step 4: Configure
 
 Set up ticket status mapping and opportunity defaults.
 
@@ -243,7 +278,7 @@ Set up ticket status mapping and opportunity defaults.
 
 ---
 
-### Step 4: Import (Optional)
+### Step 5: Import (Optional)
 
 Import users and companies from Autotask. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Configuration Items** tabs.
 

@@ -81,7 +81,7 @@ Before connecting to MSPortal.ai, you need to create an API member and security 
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your ConnectWise Manage integration in 4 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your ConnectWise Manage integration in 5 easy steps.
 
 ### Starting the Wizard
 
@@ -130,13 +130,43 @@ Enter your ConnectWise API credentials to establish the connection.
   </Step>
 
   <Step title="Proceed">
-    Once connected, click **Next** to continue to sync configuration.
+    Once connected, click **Next** to continue to the permission check.
   </Step>
 </Steps>
 
 ---
 
-### Step 2: Sync
+### Step 2: Permissions
+
+MSPortal checks which parts of ConnectWise your API member is allowed to read, and shows the result for each area of data.
+
+<Steps>
+  <Step title="Review the results">
+    The check runs automatically when you reach this step. Each area of data is listed as either granted or unavailable.
+
+    Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses. Without these the integration cannot function.
+
+    Optional areas cover Configurations, Opportunities, Product catalog, Invoices, Agreements, Projects, and Time entries.
+  </Step>
+
+  <Step title="Grant anything missing">
+    Any area that is not permitted shows the exact ConnectWise security role setting to change, for example **Procurement -> Product Catalog (Inquire Level: All)**.
+
+    Update the MSPortal security role in **System > Security Roles**, then come back and click **Re-check**.
+  </Step>
+
+  <Step title="Continue">
+    You can continue with optional areas ungranted. Those syncs stay switched off and their toggles are locked on the next step until you grant the permission and re-check.
+  </Step>
+</Steps>
+
+<Tip>
+  If a permission is removed later, MSPortal switches off the affected sync and notifies your integration admins rather than retrying against an endpoint it can no longer read.
+</Tip>
+
+---
+
+### Step 3: Sync
 
 Configure what data to sync from ConnectWise and set up company filters.
 
@@ -152,7 +182,12 @@ Configure what data to sync from ConnectWise and set up company filters.
     | **Enable Opportunity Sync** | Sync opportunities from ConnectWise |
     | **Enable Project Sync** | Sync projects from ConnectWise |
     | **Enable Invoice Sync** | Sync invoices from ConnectWise |
+    | **Sync product catalog** | Import the product and service catalog for quoting and budgets |
   </Step>
+
+  <Note>
+    A toggle appears locked when the permission check found that your API member cannot read that data. Grant the permission named beside it in ConnectWise, then re-run the check on the Permissions step to unlock it.
+  </Note>
 
   <Step title="Configure Contact Auto-Import">
     If you want contacts to be automatically imported when companies are added:
@@ -199,7 +234,7 @@ Configure what data to sync from ConnectWise and set up company filters.
 
 ---
 
-### Step 3: Configure
+### Step 4: Configure
 
 Set up ticket status mapping and opportunity defaults.
 
@@ -265,7 +300,7 @@ Set up ticket status mapping and opportunity defaults.
 
 ---
 
-### Step 4: Import (Optional)
+### Step 5: Import (Optional)
 
 Import users, companies, and locations from ConnectWise. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Locations** tabs.
 

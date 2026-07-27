@@ -109,7 +109,7 @@ Before connecting to MSPortal.ai, you need to create an API application in Halo 
 
 ## Part 2: MSPortal Setup Wizard
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Halo PSA integration in 4 easy steps.
+MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your Halo PSA integration in 5 easy steps.
 
 ### Starting the Wizard
 
@@ -149,13 +149,47 @@ Enter your Halo PSA API credentials to establish the connection.
   </Step>
 
   <Step title="Proceed">
-    Once connected, click **Next** to continue to sync configuration.
+    Once connected, click **Next** to continue to the permission check.
   </Step>
 </Steps>
 
 ---
 
-### Step 2: Sync
+### Step 2: Permissions
+
+MSPortal checks what your Halo API application is allowed to read, and shows the result for each area of data.
+
+<Steps>
+  <Step title="Review the results">
+    The check runs automatically when you reach this step. Each area of data is listed as either granted or unavailable.
+
+    Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses (statuses, priorities and ticket types). Without these the integration cannot function.
+
+    Optional areas cover Assets, Opportunities, Product catalog, Invoices, Contracts, Projects, and Time entries.
+  </Step>
+
+  <Step title="Grant anything missing">
+    Any area that is not permitted shows the exact Halo permission to grant, for example **read:items** for the product catalog.
+
+    Open your MSPortal application under **Configuration > Integrations > API > Applications**, grant the permission (or the `all` scope), then come back and click **Re-check**.
+
+    <Note>
+      Halo often refuses a scope-limited application at the token endpoint rather than per resource. If every area comes back unchecked with an authentication error, widen the application's permissions rather than chasing individual areas.
+    </Note>
+  </Step>
+
+  <Step title="Continue">
+    You can continue with optional areas ungranted. Those syncs stay switched off and their toggles are locked on the next step until you grant the permission and re-check.
+  </Step>
+</Steps>
+
+<Tip>
+  If a permission is removed later, MSPortal switches off the affected sync and notifies your integration admins rather than retrying against an endpoint it can no longer read.
+</Tip>
+
+---
+
+### Step 3: Sync
 
 Configure what data to sync from Halo PSA and set up automatic contact import.
 
@@ -169,7 +203,12 @@ Configure what data to sync from Halo PSA and set up automatic contact import.
     | **Sync Companies** | Sync company/client data from Halo PSA |
     | **Enable Ticket Sync** | Sync tickets from Halo PSA |
     | **Enable Opportunity Sync** | Sync opportunities from Halo PSA |
+    | **Sync product catalog** | Import the product and service catalog for quoting and budgets |
   </Step>
+
+  <Note>
+    A toggle appears locked when the permission check found that your API application cannot read that data. Grant the permission named beside it in Halo, then re-run the check on the Permissions step to unlock it.
+  </Note>
 
   <Step title="Configure Contact Auto-Import">
     If you want contacts to be automatically imported when companies are added:
@@ -204,7 +243,7 @@ Configure what data to sync from Halo PSA and set up automatic contact import.
 
 ---
 
-### Step 3: Configure
+### Step 4: Configure
 
 Set up ticket status mapping and opportunity defaults.
 
@@ -286,7 +325,7 @@ Once enabled, every Halo sync auto-creates planner items for new matching opport
 
 ---
 
-### Step 4: Import (Optional)
+### Step 5: Import (Optional)
 
 Import users and companies from Halo PSA. This step is optional - you can skip it and import later from the respective settings pages.
 
