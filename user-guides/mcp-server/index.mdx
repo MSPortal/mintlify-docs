@@ -28,7 +28,7 @@ The MCP server is a single secure URL you add to any MCP-compatible client. It u
 
 - An MSPortal account that you can sign in to.
 - The **MCP Server** write permission to connect new clients. Without it you can still view the page, but the setup cards are disabled. Ask an administrator to grant it if you see the message *"You have view-only access."*
-- An MCP-compatible AI client (Claude, ChatGPT/Codex, Cursor, VS Code, Gemini CLI, Windsurf, or any client that supports remote MCP servers).
+- An MCP-compatible AI client (Claude, ChatGPT/Codex, Cursor, GitHub Copilot, VS Code, Gemini CLI, Windsurf, or any client that supports remote MCP servers).
 
 ## Finding your server URL
 
@@ -69,10 +69,23 @@ The **Connect your client** section lists the most common AI tools. Click any to
     2. Open **Cursor Settings → MCP** and click **Connect** next to **msportal**.
     3. Approve access in the browser window that opens.
   </Tab>
-  <Tab title="VS Code">
-    1. Click **Add to VS Code** (one-click install), or run the provided `code --add-mcp` command.
+  <Tab title="GitHub Copilot (VS Code)">
+    1. Click **Add to GitHub Copilot (VS Code)** (one-click install), or run the provided `code --add-mcp` command.
     2. When prompted, allow VS Code to start the server and sign in.
     3. Approve access in the browser window that opens.
+    4. Open GitHub Copilot Chat in **Agent** mode and confirm the MSPortal tools are enabled under **Configure Tools**.
+
+    See [Connect GitHub Copilot](/user-guides/mcp-server/github-copilot) for the complete VS Code and Copilot CLI guide.
+  </Tab>
+  <Tab title="GitHub Copilot CLI">
+    1. Run this command:
+       ```bash
+       copilot mcp add --transport http msportal <your-server-url>
+       ```
+    2. Start Copilot CLI and run `/mcp auth msportal`.
+    3. Approve access in the browser window that opens.
+
+    See [Connect GitHub Copilot](/user-guides/mcp-server/github-copilot) for manual configuration and troubleshooting.
   </Tab>
   <Tab title="OpenAI Codex">
     1. Run the provided command, or add the snippet to `~/.codex/config.toml`:
@@ -113,7 +126,7 @@ The **Connect your client** section lists the most common AI tools. Click any to
 </Tabs>
 
 <Tip>
-Tools that show a **One-click install** badge (Cursor and VS Code) can be set up with a single button. For everything else, copy the provided command or config; the server URL is already filled in.
+Tools that show a **One-click install** badge (Cursor and GitHub Copilot in VS Code) can be set up with a single button. For everything else, copy the provided command or config; the server URL is already filled in.
 </Tip>
 
 ## What an assistant can do
@@ -489,5 +502,6 @@ Revoking is the right move if a device is lost, a tool is no longer used, or you
 ## Related resources
 
 - [MCP Tools Reference](/user-guides/mcp-server/tools-reference) — the full list of every tool the server exposes, by module.
+- [Connect GitHub Copilot](/user-guides/mcp-server/github-copilot) — add MSPortal to Copilot Chat in VS Code or to Copilot CLI.
 - [AI Assistant](/user-guides/ai-assistant/index) — the built-in MSPortal assistant that uses the same secure tool layer inside the app.
 - [Users & Roles](/user-guides/settings/users-roles) — manage who can connect MCP clients.

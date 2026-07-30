@@ -1,0 +1,163 @@
+---
+title: 'Connect GitHub Copilot'
+description: 'Connect GitHub Copilot in VS Code or Copilot CLI to the MSPortal MCP server'
+icon: 'github'
+---
+
+GitHub Copilot can use MSPortal's MCP tools to work with the tickets, devices, reports, compliance data, and other portal information your MSPortal account can access. The connection uses browser-based OAuth, so you do not need to create or store an API key.
+
+This guide covers **GitHub Copilot Chat in VS Code** and the standalone **GitHub Copilot CLI**.
+
+<Warning>
+GitHub Copilot's cloud coding agent and code review do not currently support remote MCP servers that use OAuth. Connect MSPortal through Copilot Chat in your local VS Code installation or through Copilot CLI.
+</Warning>
+
+## Prerequisites
+
+- An MSPortal account that you can sign in to.
+- The **MCP Server** write permission in MSPortal. Ask an administrator to grant it if the setup options are disabled.
+- Your MSPortal server URL from **Settings → MCP Server**.
+- For VS Code: a current version of VS Code with GitHub Copilot installed and signed in.
+- For Copilot CLI: GitHub Copilot CLI installed and signed in. Run `copilot login` if needed.
+
+## Connect GitHub Copilot in VS Code
+
+<Steps>
+  <Step title="Open the MSPortal MCP settings">
+    In MSPortal, go to **Settings → MCP Server** and select **GitHub Copilot (VS Code)**.
+  </Step>
+
+  <Step title="Add the server to VS Code">
+    Click **Add to GitHub Copilot (VS Code)** in the setup dialog, then allow VS Code to open the configuration.
+
+    You can also open the VS Code Command Palette, run **MCP: Add Server**, choose **HTTP**, and paste your MSPortal server URL. Name the server `msportal`, then choose whether to install it globally or in the current workspace.
+
+    <Tip>
+    Choose the global option if you want MSPortal available in Copilot Chat across all of your VS Code workspaces.
+    </Tip>
+  </Step>
+
+  <Step title="Trust and authenticate the server">
+    Allow VS Code to start the server. When your browser opens, sign in to MSPortal, review the requested access, and click **Approve**.
+  </Step>
+
+  <Step title="Enable the MSPortal tools">
+    Open GitHub Copilot Chat, select **Agent** mode, and click **Configure Tools** in the chat input. Confirm that the MSPortal tools you want to use are enabled.
+  </Step>
+
+  <Step title="Test the connection">
+    Ask Copilot:
+
+    > List the MSPortal tools you can use.
+
+    Copilot should return tools allowed by both the access you approved and your MSPortal role.
+  </Step>
+</Steps>
+
+### Manual VS Code configuration
+
+If you prefer to configure the server manually, run **MCP: Open User Configuration** from the VS Code Command Palette and add:
+
+```json
+{
+  "servers": {
+    "msportal": {
+      "type": "http",
+      "url": "<your-server-url>"
+    }
+  }
+}
+```
+
+Save the file, then use the actions shown above the `msportal` entry to start and authenticate the server.
+
+## Connect GitHub Copilot CLI
+
+<Steps>
+  <Step title="Copy your MSPortal server URL">
+    In MSPortal, go to **Settings → MCP Server** and copy the **Server URL**.
+  </Step>
+
+  <Step title="Add the remote server">
+    Run the following command, replacing the placeholder with the URL you copied:
+
+    ```bash
+    copilot mcp add --transport http msportal <your-server-url>
+    ```
+  </Step>
+
+  <Step title="Authenticate with MSPortal">
+    Start Copilot CLI by running `copilot`, then enter:
+
+    ```text
+    /mcp auth msportal
+    ```
+
+    Sign in to MSPortal in the browser window that opens, review the requested access, and click **Approve**.
+  </Step>
+
+  <Step title="Verify the connection">
+    In Copilot CLI, enter:
+
+    ```text
+    /mcp show msportal
+    ```
+
+    Confirm that the server is connected and its MSPortal tools are listed.
+  </Step>
+</Steps>
+
+### Manual Copilot CLI configuration
+
+You can configure the same connection in `~/.copilot/mcp-config.json`:
+
+```json
+{
+  "mcpServers": {
+    "msportal": {
+      "type": "http",
+      "url": "<your-server-url>",
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+<Note>
+VS Code and Copilot CLI use different configuration formats. VS Code uses a `servers` object in its `mcp.json`; Copilot CLI uses an `mcpServers` object in `~/.copilot/mcp-config.json`. Copilot CLI does not read VS Code's `.vscode/mcp.json` file.
+</Note>
+
+## Manage access
+
+The access you approve is also limited by your MSPortal role, tenant, and company visibility. To review or remove the connection, return to **Settings → MCP Server** in MSPortal and use **Revoke** beside the connected Copilot client.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The browser sign-in did not open">
+    In VS Code, run **MCP: List Servers**, select **msportal**, and choose the authentication action. In Copilot CLI, run `/mcp auth msportal`.
+  </Accordion>
+
+  <Accordion title="MSPortal does not appear in Copilot">
+    In VS Code, run **MCP: List Servers** and confirm `msportal` is started. In Copilot CLI, run `/mcp show msportal`. Remember that VS Code and Copilot CLI use separate configuration files.
+  </Accordion>
+
+  <Accordion title="Copilot cannot see an MSPortal tool">
+    In VS Code, open **Configure Tools** in Copilot Chat and confirm the tool is enabled. Then check that you approved the related MCP access and that your MSPortal role grants the required permission.
+  </Accordion>
+
+  <Accordion title="Your organization blocks the MCP server">
+    GitHub and VS Code organization policies can restrict which MCP servers are allowed. Ask your GitHub or VS Code administrator to allow the MSPortal server URL.
+  </Accordion>
+
+  <Accordion title="The connection stopped working">
+    Re-authenticate the server. If that does not resolve the issue, open **Settings → MCP Server** in MSPortal, revoke the Copilot connection, and connect it again.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
+
+- [MCP Server overview](/user-guides/mcp-server/index) — understand access, consent, permissions, and connection management.
+- [MCP Tools Reference](/user-guides/mcp-server/tools-reference) — see every tool available through the MSPortal MCP server.
+- [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers) — official VS Code instructions.
+- [Add MCP servers to GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers) — official GitHub instructions.

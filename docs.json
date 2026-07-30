@@ -54,6 +54,7 @@
             "pages": [
               "user-guides/ai-assistant/index",
               "user-guides/mcp-server/index",
+              "user-guides/mcp-server/github-copilot",
               "user-guides/mcp-server/tools-reference"
             ]
           },
@@ -298,6 +299,12 @@
                 "pages": [
                   "user-guides/integrations/enable-halo-integration",
                   "user-guides/integrations/halo-psa-custom-role-and-user"
+                ]
+              },
+              {
+                "group": "Neo Agent",
+                "pages": [
+                  "user-guides/integrations/neo-agent"
                 ]
               },
               {
