@@ -1,13 +1,15 @@
 ---
 title: 'Configure CIPP Integration'
-description: 'Connect the CIPP API to prepare Microsoft 365 tenant and security reporting'
+description: 'Connect the CIPP API to power the client-facing Microsoft 365 Posture page and security reporting'
 icon: 'cloud'
 ---
 
-This guide walks you through connecting CIPP (the CyberDrain Improved Partner Portal) to MSPortal.ai.
+This guide walks you through connecting CIPP (the CyberDrain Improved Partner Portal) to MSPortal.ai. The setup wizard has four steps: **Connect**, **Map companies**, **Review**, and **Data**.
+
+Once connected, MSPortal synchronizes security, identity, email, Intune, and tenant configuration data from CIPP and presents it to your clients as the [Microsoft 365 Posture](/user-guides/microsoft-365/posture) page.
 
 <Note>
-CIPP is currently in **Beta**. Find the CIPP card in **Settings > Integrations** to connect your instance.
+CIPP is currently a **Pilot** integration available to selected tenants. If you don't see the CIPP card in **Settings > Integrations**, contact support@msportal.ai. The pilot secures and validates the API connection; data sync features build on this connection.
 </Note>
 
 ## Prerequisites
@@ -53,6 +55,46 @@ CIPP is currently in **Beta**. Find the CIPP card in **Settings > Integrations**
     Click **Connect** to save. Credentials are stored only in Vault.
   </Step>
 </Steps>
+
+## Part 3: Map Companies
+
+After connecting, MSPortal discovers the Microsoft 365 tenants managed in CIPP. Map each tenant to the matching MSPortal company so security, Intune, and Microsoft 365 data appears in the correct customer context.
+
+<Steps>
+  <Step title="Wait for Tenant Discovery">
+    Tenant discovery can take a few minutes after the connection is created. The page checks automatically while the initial sync runs.
+  </Step>
+  <Step title="Map Tenants to Companies">
+    Select the matching company for each tenant, or use quick match to pair tenants and companies by name. Tenants whose Microsoft tenant ID matches an existing Microsoft 365 connection are mapped automatically.
+  </Step>
+  <Step title="Continue">
+    Click **Next**. Saving the mappings starts a full data sync for the mapped tenants.
+  </Step>
+</Steps>
+
+<Note>
+Data is only stored and shown for tenants that are mapped to a company. Unmapped tenants are listed for mapping but their data stays out of every page and report.
+</Note>
+
+## Part 4: Review
+
+The Review step confirms your data coverage before you finish setup:
+
+- **Tenants mapped** and **Synced records** counters
+- **Healthy datasets**, **Security coverage**, and **Intune coverage** indicators
+- **Start full sync** to run a synchronization on demand
+
+Synchronization continues automatically in the background after setup, with a full refresh every day.
+
+## Part 5: Data
+
+The **Data** step is your admin console for everything CIPP is syncing:
+
+- **Summary cards** for mapped tenants, synced records, and security, Intune, and critical item counts
+- **Dataset coverage** showing every dataset by category, with any sync issues flagged
+- **Record explorer** to search and filter every synced record, including the full source payload from the CIPP API
+
+Use this view to confirm data is flowing, investigate a specific record, or check why a dataset has no data. This console is for your team; clients see the curated [Microsoft 365 Posture](/user-guides/microsoft-365/posture) page instead.
 
 ## Managing the Connection
 

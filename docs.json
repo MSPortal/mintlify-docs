@@ -166,6 +166,7 @@
                 "group": "Microsoft 365",
                 "pages": [
                   "user-guides/microsoft-365/index",
+                  "user-guides/microsoft-365/posture",
                   "user-guides/microsoft-365/connecting-companies",
                   "user-guides/microsoft-365/users",
                   "user-guides/microsoft-365/licenses",

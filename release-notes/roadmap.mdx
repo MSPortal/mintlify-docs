@@ -1,6 +1,7 @@
 ---
 title: "Roadmap"
 description: "Upcoming features and improvements planned for MSPortal.ai"
+mode: "wide"
 ---
 
 We're constantly working to improve MSPortal.ai. Here's what's on our roadmap:
@@ -16,113 +17,6 @@ The board below is the same roadmap we work from, updated as features move from 
 ></iframe>
 
 Prefer a full page? [Open the live roadmap](https://app.msportal.ai/product-roadmap).
-
-## In Active Development
-
-### Recurring Meeting Booking
-
-Rolling out tenant-by-tenant. Give clients a booking link for the meetings you already run on a schedule: QBRs, vCIO meetings, account reviews, and compliance reviews.
-
-- **Personal booking links** - Each team member enables their own booking link in user settings and shares it with clients.
-- **Your cadence, not theirs** - The booking page reads each company's business review and compliance schedules, so clients can only book at the frequency you have configured for them.
-- **Straight to Outlook** - After a 12-month conflict check against the host's calendar, the recurring series is created in Outlook and Outlook sends the invitations.
-- **Works without Microsoft 365** - Hosts who are not linked to a Microsoft 365 mailbox can still offer booking links: availability comes from their MSPortal calendar and attendees receive standard email calendar invites.
-- **Confirmation emails** - Clients receive a booking confirmation once the series is synchronized.
-
-### CSAT Surveys
-
-Announced in the May 15, 2026 release notes and rolling out tenant-by-tenant.
-
-Customer satisfaction campaigns driven straight off PSA ticket close events. CSAT shares the campaign engine with NPS surveys but is built around the short, transactional rating you fire after every closed ticket instead of the periodic relationship survey.
-
-- **PSA-triggered ratings** - Fire a survey automatically when a ticket closes in your PSA. Thumbs-up/thumbs-down or 1-5 stars, configurable per campaign.
-- **Signature-embed widgets** - Drop a one-line embed into your techs' email signatures so the rating prompt arrives in the reply email itself. Clicks bypass a separate survey email entirely.
-- **Public widget** - Same widget embedded on your client portal or marketing site for ungated public feedback.
-- **Dashboard reporting** - Aggregate scores by tech, queue, client, or category, with drill-down to the underlying tickets. Ties into the existing Surveys reporting blocks.
-- **Phased rollout** - Gated behind a tenant-level `csat` feature flag (the broader Surveys product is GA; CSAT is the piece still in validation).
-
-### Automation: Next Wave of Improvements
-
-Still on deck after the recent bundling, survey, and recipient updates.
-
-- **Assigned-User Recipient Resolution** - Target the user assigned to the triggering record (training assignee, task owner, meeting organizer) instead of picking specific users by hand at rule-creation time. An "Assigned User" recipient type that resolves to the right person at send-time.
-- **Additional Ticket Template Variables** - Ticket number, assignee name, and a broader set of ticket fields available in the Template Variables helper so you can reference them in subject lines and bodies.
-- **Weekly Day-of-Week Selector** - Scheduled rules with Weekly frequency will let you pick the specific weekday the rule runs on, rather than using a system-managed default day.
-- **Bundling for More Actions** - Extend rule bundling beyond Open Ticket and Add to Planner so grouped Send Email, Send Survey, and In-App Alert actions can also consolidate matches.
-
-### Google Workspace Integration
-
-Full Google Workspace integration mirroring our existing M365 capabilities. Each client's Google Workspace admin connects via OAuth, and MSPortal syncs their directory, licenses, domains, and security posture.
-
-- **Users & Groups** - Sync users and groups from the Google Admin Directory with org unit, admin status, 2FA enrollment, and last login
-- **License Management** - View Google Workspace license assignments across all SKUs with per-company breakdowns
-- **Domains** - Track verified domains across all connected Google Workspace tenants
-- **Security Reports** - Daily security snapshots showing 2FA adoption rates, enforcement status, admin counts, and 30-day trend charts
-- **Cloud Navigation** - Microsoft 365 and Google Workspace grouped under a unified "Cloud" sidebar section
-
----
-
-## Planned Features
-
-### Expanded Playbook Library
-The guided playbook library (Best Practices and Security Frameworks paths) and the deep Standard Playbooks (18 playbooks, 274 checks) shipped in the July 3, 2026 release. Still to come:
-- **More Frameworks**: NIST CSF 2.0, ISO/IEC 27001, and Cyber Essentials framework packs alongside the existing CIS Benchmarks
-- **Operational Playbooks**: Cyber Insurance Renewals and other MSP workflow essentials
-
-### New Integrations
-We're expanding our integration ecosystem:
-- **N-Able N-Central** - RMM integration with device sync and monitoring
-- **Datto Backup** - Backup monitoring with agent status and job tracking
-- **Fortinet** - Network security integration with firewall and threat management
-- **Slide Backup** - SaaS backup monitoring for cloud workloads
-- **DNSFilter** - DNS security integration with threat and content filtering stats
-- **ScoutDNS** - DNS-layer content filtering and protective DNS with category policies and query activity reporting
-- **NinjaOne Dropsuite** - M365 SaaS backup monitoring via Dropsuite (pending API availability from NinjaOne)
-- **Watchguard** - Network security appliance monitoring and reporting
-- **Azure Device Sync** - Sync device information from Azure AD/Entra ID
-- **Intune Settings Documentation** - Document and track Intune configuration policies
-- **Domotz** - Network monitoring and management integration
-- **NetSapiens** - VoIP and unified communications platform integration
-
-### SMS for Emergency Broadcasts
-Send emergency broadcast notifications via SMS in addition to email and in-app channels. Reach your clients and team members instantly during critical incidents, outages, or security events even when they're away from their inbox.
-
-### User Statistics Dashboard
-Track how many compliance checks are completed across tenants to support KPI and accountability reporting.
-
-### Technician Capacity Planning
-Forecast technician workload and balance team capacity for upcoming quarters.
-
-### Tickets & Workflow
-- **Multi-step ticket approvals** - Route tickets through legally-binding sign-off chains, scoped per site or company-wide, with manager-to-employee approval mapping
-- **PSA ticket deep links** - Jump from an MSPortal ticket straight to the source ticket in your PSA
-- **Client file-share & incident-response planner** - A central client document share paired with an incident-response planner so documentation and IR runbooks live in one place
-
-### Prospects & Sales
-- **Prospect companies** - Tag a company as a Prospect, created manually or sourced from HubSpot, to run compliance, goals, and planner work for sales conversations without pulling in device sync
-
-### Planner & Reporting
-- **Asset-age reporting block** - Report equipment age calculated from each asset's purchase date
-- **Client benchmarking widget** - See how one client compares against the rest of your client base
-- **KPI number widget** - Single-metric scalar tiles such as average time per ticket
-- **Planner item assignee & owner** - Assign an owner to planner items the same way you do with tickets
-- **Automatic asset linking** - Infer and auto-link related assets and devices to planner items instead of linking each one by hand
-
-### Financial
-- **Budget approver & sign-off** - Route budgets through an approver with legally-binding sign-off and a full approved-by audit trail
-- **Per-customer tool-stack cost** - Roll tool-stack cost up per customer, not just per line item
-- **License-to-budget mapping** - Map Microsoft 365 licenses and PSA contract items directly to budgets
-
-### Meetings & Operations
-- **Meeting cadence grid** - A calendar grid with companies as rows and last/next-meeting columns, flagging clients overdue against their expected meeting cadence
-- **Per-company account notes** - Free-form account notes attached to each company
-- **Native projects without a PSA** - Create and manage projects directly in MSPortal without a connected PSA
-- **Per-question template assignment** - Assign templates per question and per answer on survey and onboarding responses
-- **Shared automation rules** - Share automation rules with other users beyond the original creator
-- **Hudu domain-expiration alerts** - Surface domain-expiration dates synced from Hudu
-- **Per-application API authentication** - Authenticate inbound API calls with a per-application secret header in addition to Bearer tokens
-
----
 
 <Info>
 Have a feature request? We'd love to hear from you! Contact us at [support@msportal.ai](mailto:support@msportal.ai).
