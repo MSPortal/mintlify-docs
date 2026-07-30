@@ -559,6 +559,10 @@
   "navbar": {
     "links": [
       {
+        "label": "Roadmap",
+        "href": "https://docs.msportal.ai/release-notes/roadmap"
+      },
+      {
         "label": "Support",
         "href": "mailto:support@msportal.ai"
       }
