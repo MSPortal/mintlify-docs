@@ -5,28 +5,37 @@ description: "Upcoming features and improvements planned for MSPortal.ai"
 
 We're constantly working to improve MSPortal.ai. Here's what's on our roadmap:
 
+## Live Roadmap
+
+The board below is the same roadmap we work from, updated as features move from idea to shipped. Signed-in users can also follow it, and the status of their own feature requests, from the Roadmap page inside MSPortal.
+
+<iframe
+  src="https://app.msportal.ai/product-roadmap?embed=true"
+  title="MSPortal live product roadmap"
+  style={{ width: "100%", height: "760px", border: "1px solid #e5e7eb", borderRadius: "12px" }}
+></iframe>
+
+Prefer a full page? [Open the live roadmap](https://app.msportal.ai/product-roadmap).
+
 ## In Active Development
 
 ### Recurring Meeting Booking
 
-Coming in the next release. Give clients a booking link for the meetings you already run on a schedule: QBRs, vCIO meetings, account reviews, and compliance reviews.
+Rolling out tenant-by-tenant. Give clients a booking link for the meetings you already run on a schedule: QBRs, vCIO meetings, account reviews, and compliance reviews.
 
 - **Personal booking links** - Each team member enables their own booking link in user settings and shares it with clients.
 - **Your cadence, not theirs** - The booking page reads each company's business review and compliance schedules, so clients can only book at the frequency you have configured for them.
 - **Straight to Outlook** - After a 12-month conflict check against the host's calendar, the recurring series is created in Outlook and Outlook sends the invitations.
+- **Works without Microsoft 365** - Hosts who are not linked to a Microsoft 365 mailbox can still offer booking links: availability comes from their MSPortal calendar and attendees receive standard email calendar invites.
 - **Confirmation emails** - Clients receive a booking confirmation once the series is synchronized.
-
-### Breach Secure Now Integration
-
-Coming next week. Sync security awareness training, phishing simulation, and breach-risk metrics from Breach Secure Now into the Security Training area, alongside Phin and Huntress SAT.
 
 ### CSAT Surveys
 
-Announced in the May 15, 2026 release notes. Rolling out tenant-by-tenant over the two weeks following the announcement.
+Announced in the May 15, 2026 release notes and rolling out tenant-by-tenant.
 
 Customer satisfaction campaigns driven straight off PSA ticket close events. CSAT shares the campaign engine with NPS surveys but is built around the short, transactional rating you fire after every closed ticket instead of the periodic relationship survey.
 
-- **PSA-triggered ratings** - Fire a survey automatically when a ticket closes in Halo, ConnectWise, or Autotask. Thumbs-up/thumbs-down or 1-5 stars, configurable per campaign.
+- **PSA-triggered ratings** - Fire a survey automatically when a ticket closes in your PSA. Thumbs-up/thumbs-down or 1-5 stars, configurable per campaign.
 - **Signature-embed widgets** - Drop a one-line embed into your techs' email signatures so the rating prompt arrives in the reply email itself. Clicks bypass a separate survey email entirely.
 - **Public widget** - Same widget embedded on your client portal or marketing site for ungated public feedback.
 - **Dashboard reporting** - Aggregate scores by tech, queue, client, or category, with drill-down to the underlying tickets. Ties into the existing Surveys reporting blocks.
@@ -50,20 +59,6 @@ Full Google Workspace integration mirroring our existing M365 capabilities. Each
 - **Domains** - Track verified domains across all connected Google Workspace tenants
 - **Security Reports** - Daily security snapshots showing 2FA adoption rates, enforcement status, admin counts, and 30-day trend charts
 - **Cloud Navigation** - Microsoft 365 and Google Workspace grouped under a unified "Cloud" sidebar section
-
----
-
-## Pending Approval
-
-### Chrome Extension
-
-Our Chrome extension is complete and currently awaiting Google approval. Once approved, you'll be able to access MSPortal directly from your browser without leaving your current tab.
-
-**Features:**
-- **Tickets View**: See your assigned tickets with priority and status indicators
-- **Training View**: Continue training courses directly from the extension
-- **AI Chat**: Ask questions about clients, tickets, or compliance data
-- **Secure Authentication**: Sign in once with your existing MSPortal credentials
 
 ---
 
@@ -95,13 +90,12 @@ Send emergency broadcast notifications via SMS in addition to email and in-app c
 ### User Statistics Dashboard
 Track how many compliance checks are completed across tenants to support KPI and accountability reporting.
 
-### vCIO and Technician Capacity Planning
-Forecast workload and balance team capacity for upcoming quarters.
+### Technician Capacity Planning
+Forecast technician workload and balance team capacity for upcoming quarters.
 
 ### Tickets & Workflow
 - **Multi-step ticket approvals** - Route tickets through legally-binding sign-off chains, scoped per site or company-wide, with manager-to-employee approval mapping
-- **Tickets from Microsoft Secure Score** - Turn Secure Score findings into tracked, assignable tickets so security gaps become managed work
-- **PSA ticket deep links** - Jump from an MSPortal ticket straight to the source ticket in Halo or Autotask
+- **PSA ticket deep links** - Jump from an MSPortal ticket straight to the source ticket in your PSA
 - **Client file-share & incident-response planner** - A central client document share paired with an incident-response planner so documentation and IR runbooks live in one place
 
 ### Prospects & Sales
@@ -117,13 +111,12 @@ Forecast workload and balance team capacity for upcoming quarters.
 ### Financial
 - **Budget approver & sign-off** - Route budgets through an approver with legally-binding sign-off and a full approved-by audit trail
 - **Per-customer tool-stack cost** - Roll tool-stack cost up per customer, not just per line item
-- **License-to-budget mapping** - Map Halo and Microsoft 365 licenses directly to budgets and contracts
+- **License-to-budget mapping** - Map Microsoft 365 licenses and PSA contract items directly to budgets
 
 ### Meetings & Operations
 - **Meeting cadence grid** - A calendar grid with companies as rows and last/next-meeting columns, flagging clients overdue against their expected meeting cadence
 - **Per-company account notes** - Free-form account notes attached to each company
 - **Native projects without a PSA** - Create and manage projects directly in MSPortal without a connected PSA
-- **Rename training recordings** - Rename recorded training videos
 - **Per-question template assignment** - Assign templates per question and per answer on survey and onboarding responses
 - **Shared automation rules** - Share automation rules with other users beyond the original creator
 - **Hudu domain-expiration alerts** - Surface domain-expiration dates synced from Hudu

@@ -1,0 +1,113 @@
+---
+title: 'Neo Agent Compatibility'
+description: 'MSPortal.ai works with Neo Agent out of the box through your PSA, with no direct integration required'
+icon: 'robot'
+---
+
+MSPortal.ai and Neo Agent work together automatically through your PSA. There is nothing to connect, no API keys to exchange, and no setup wizard to run.
+
+## Overview
+
+Neo Agent is an AI teammate platform for MSPs. It connects to your PSA, picks up tickets from your service boards, triages them, and runs its workflows against them.
+
+MSPortal.ai is PSA-first by design: every ticket created in MSPortal is written directly into your PSA with full routing and context. Because Neo Agent reads its work from that same PSA, the two products already share a pipeline. Your PSA is the single source of truth, and both tools operate on it.
+
+We have met with the Neo Agent team to verify this compatibility. Tickets created by MSPortal carry the structure and context Neo Agent's workflows expect, so nothing extra is required on either side.
+
+<Note>
+You will not find a Neo Agent card under **Settings > Integrations**. That is intentional: there is nothing to connect, configure, or maintain. If both MSPortal and Neo Agent are connected to your PSA, they already work together.
+</Note>
+
+## How Tickets Flow
+
+<Steps>
+  <Step title="A Ticket Is Created in MSPortal">
+    Tickets can come from anywhere in MSPortal: manual creation, ticket templates, the AI assistant, or forms.
+  </Step>
+
+  <Step title="MSPortal Writes the Ticket to Your PSA">
+    The ticket lands in your PSA with complete routing: board or queue, type, status, and priority, plus the mapped company and contact.
+  </Step>
+
+  <Step title="Neo Agent Picks It Up">
+    Neo Agent sees the ticket on the board it watches, exactly like a ticket entered directly in the PSA, and runs the matching workflow.
+  </Step>
+
+  <Step title="Updates Sync Back to MSPortal">
+    Notes, status changes, and resolutions that Neo Agent writes to the PSA sync back into MSPortal automatically, so both tools stay current.
+  </Step>
+</Steps>
+
+## What Neo Agent Sees on Every Ticket
+
+MSPortal tickets are formatted so that Neo Agent can ingest them without custom parsing or middleware. Every ticket MSPortal creates in your PSA includes:
+
+| Field | Description |
+|-------|-------------|
+| **Summary** | A concise, human-readable subject line |
+| **Description** | Structured plain-text detail with everything captured at creation, including requester context |
+| **Board / Queue** | Routed to the board you configured, including any per-template or per-workflow overrides |
+| **Type & Subtype** | PSA ticket classification for accurate triage |
+| **Status & Priority** | Set according to your MSPortal routing configuration |
+| **Company** | The mapped PSA company, so work lands against the right account |
+| **Contact** | The requester, resolved to the matching PSA contact |
+
+This gives Neo Agent all the information it needs to classify each ticket and handle its workflows end to end.
+
+## Prerequisites
+
+- An active PSA integration in MSPortal.ai
+- Neo Agent connected to the same PSA (see Neo Agent's documentation for its supported platforms)
+- Company import and mapping completed in MSPortal, so tickets are created against the correct accounts
+
+<CardGroup cols={2}>
+  <Card title="ConnectWise PSA" icon="plug" href="/user-guides/integrations/enable-connectwise-integration">
+    Connect ConnectWise PSA to MSPortal.ai
+  </Card>
+  <Card title="Autotask" icon="plug" href="/user-guides/integrations/enable-autotask-integration">
+    Connect Autotask to MSPortal.ai
+  </Card>
+  <Card title="Halo PSA" icon="plug" href="/user-guides/integrations/enable-halo-integration">
+    Connect Halo PSA to MSPortal.ai
+  </Card>
+  <Card title="Import Companies" icon="building" href="/user-guides/integrations/import-companies">
+    Map PSA companies into MSPortal.ai
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+- **Route tickets to the boards Neo Agent watches.** Review the board, type, status, and priority defaults in your MSPortal PSA settings and ticket templates so new tickets land where Neo Agent expects them.
+- **Use ticket templates and the AI assistant.** Both produce consistent, well-structured summaries and descriptions, which keeps Neo Agent's triage accurate.
+- **Keep company mapping complete.** Tickets for unmapped companies cannot be routed to the right PSA account, which affects any tool working from the PSA.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Do I need an API key or connector for Neo Agent?">
+    No. MSPortal and Neo Agent communicate through your PSA, so there are no credentials to exchange between the two products.
+  </Accordion>
+
+  <Accordion title="Will I see Neo Agent's work in MSPortal?">
+    Yes. Notes, status changes, and resolutions that Neo Agent writes to the PSA sync into MSPortal through your existing PSA integration, alongside updates from your human technicians.
+  </Accordion>
+
+  <Accordion title="What if Neo Agent is not picking up MSPortal tickets?">
+    Confirm the ticket is landing on a board Neo Agent monitors. Check the board, type, and status defaults in your MSPortal PSA settings, and verify the ticket appears in the PSA with the expected routing.
+  </Accordion>
+</AccordionGroup>
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Ticketing" icon="ticket" href="/user-guides/ticketing/index">
+    Learn how tickets are created and managed in MSPortal.ai
+  </Card>
+  <Card title="Other Integrations" icon="plug" href="/user-guides/integrations/index">
+    Explore MSPortal.ai's direct integrations
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+For questions about how MSPortal.ai tickets flow into your PSA, contact support@msportal.ai. For Neo Agent configuration, contact Neo Agent support.
