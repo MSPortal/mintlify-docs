@@ -108,6 +108,7 @@ Use this view to confirm data is flowing, investigate a specific record, or chec
 |-------|----------|
 | API URL rejected | Use the public HTTPS base URL shown on the CIPP-API integration page, without a path, port, or query string |
 | Token request fails | Verify the Tenant ID, Application ID, and secret, and confirm the API client is enabled in CIPP |
+| "CIPP rejected the application token or the application lacks the required CIPP role" | Microsoft issued a token, so the Tenant ID, Application ID, secret, and API scope are all valid. The fix is inside CIPP: go to **Integrations > CIPP-API**, confirm the API client is enabled, assign it a CIPP role with AllTenants read access (the built-in readonly role is recommended), and confirm the API scope was copied from that same CIPP instance |
 
 ## Related Resources
 

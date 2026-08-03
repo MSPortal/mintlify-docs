@@ -23,7 +23,7 @@ Breach Secure Now is a security awareness training and dark web monitoring platf
 
 ## Part 1: Enable the Integration in Breach Secure Now
 
-Before connecting, you need your **Partner ID** and **Partner Integration Key** from Breach Secure Now.
+Before connecting, you need your **Partner Integration Key** from Breach Secure Now.
 
 <Steps>
   <Step title="Log into the Breach Secure Now Partner Portal">
@@ -42,13 +42,12 @@ Before connecting, you need your **Partner ID** and **Partner Integration Key** 
     </Note>
   </Step>
 
-  <Step title="Copy Your Credentials">
-    Copy the following values, you will enter them in MSPortal in the next part:
+  <Step title="Copy Your Partner Integration Key">
+    Copy the **Partner Integration Key**, the secret key generated when the integration is enabled. This is the only value you enter in MSPortal.
 
-    | Value | Description |
-    |-------|-------------|
-    | **Partner ID** | Identifies your partner account to the BSN API |
-    | **Partner Integration Key** | The secret key generated when the integration is enabled |
+    <Note>
+      You do not need your Partner ID. MSPortal identifies your partner account from the Partner Integration Key automatically.
+    </Note>
 
     <Warning>
       Treat the Partner Integration Key like a password. Anyone with the key can read your client and user training data.
@@ -84,32 +83,31 @@ MSPortal.ai provides a guided 3-step wizard to connect and configure your Breach
 
 ### Step 1: Connect
 
-Enter the credentials you copied from the Breach Secure Now portal.
+Enter the Partner Integration Key you copied from the Breach Secure Now portal.
 
 <Steps>
-  <Step title="Enter Your Credentials">
+  <Step title="Enter Your Partner Integration Key">
     Fill in the connection fields:
 
     | Field | Value |
     |-------|-------|
-    | **Partner ID** | Your BSN Partner ID |
     | **Partner integration key** | The integration key from the BSN portal |
     | **API base URL** | Pre-filled with `https://api.pii-protect.com/securedapiaccess`. Leave the default unless Breach Secure Now has given you a different endpoint. |
 
-    ![Connect step with Partner ID, Partner integration key, and API base URL fields](/images/bsn/connect-step-empty.png)
+    ![Connect step with the Partner integration key and API base URL fields](/images/bsn/connect-step-empty.png)
   </Step>
 
   <Step title="Test Connection">
-    Click **Test Connection** to verify your credentials.
+    Click **Test Connection** to verify your key.
 
-    When the test passes, a green confirmation shows your partner name and how many clients were found on your BSN account.
+    When the test passes, a green confirmation shows your partner name and how many clients were found on your BSN account. This confirms MSPortal matched your key to the right partner account.
 
-    ![Successful connection test showing the verified partner and client count](/images/bsn/connection-verified.png)
+    ![Connect step showing a verified Breach Secure Now connection](/images/bsn/connection-verified.png)
 
     If the connection fails:
-    - Verify the Partner ID and Partner Integration Key were copied without extra spaces
+    - Verify the Partner Integration Key was copied in full, without extra spaces
     - Confirm the MSPortal integration is enabled for your partner account in the BSN portal
-    - If you see "The Breach Secure Now Partner ID is not enabled for this integration," return to Part 1 and enable MSPortal for that partner account, then test again
+    - If you see "That Partner Integration Key was not recognized by Breach Secure Now," return to Part 1, enable MSPortal for that partner account, copy the key again, then test again
   </Step>
 
   <Step title="Connect">
@@ -275,8 +273,8 @@ As you onboard new clients in Breach Secure Now:
 
 | Issue | Solution |
 |-------|----------|
-| Connection test fails | Re-copy the Partner ID and Partner Integration Key from the BSN portal, checking for extra spaces |
-| "Partner ID is not enabled for this integration" | Enable the MSPortal integration for your partner account in the Breach Secure Now portal, then test again |
+| Connection test fails | Re-copy the Partner Integration Key from the BSN portal, checking for extra spaces |
+| "That Partner Integration Key was not recognized" | Confirm the key was copied in full, and that the MSPortal integration is enabled for your partner account in the Breach Secure Now portal, then test again |
 | No clients appear on the Map step | Click **Sync Clients**, wait a moment for the background sync, then refresh the list |
 | Stats show "Not synced" | Run **Sync all** and allow a few minutes for the background sync to finish |
 | A client's data is missing | Confirm the client is mapped to a company; only mapped clients sync |
