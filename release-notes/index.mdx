@@ -3,6 +3,69 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## August 7, 2026
+
+### Google Workspace and Unified Cloud
+
+Manage Microsoft 365 and Google Workspace together in the new Cloud module. Connect each client's Google Workspace account, then review identities, groups, licenses, domains, and security posture across both platforms from one place.
+
+**Key Features:**
+- **Read-only Google Workspace sync**: Connect each company with Google OAuth and sync users, groups, memberships, licenses, and verified domains without giving MSPortal write access.
+- **One Cloud workspace**: Move between Posture, Users, Groups, Licenses, and Domains while keeping the same company scope and filters.
+- **Daily Google security posture**: Review an MSPortal-calculated score based on 2-Step Verification, sign-in activity, and account-risk signals.
+- **Deeper license analysis**: Compare products by domain, office, and license combination, inspect assigned users, and export the results.
+
+[Documentation: Cloud Overview](/user-guides/cloud/index)
+
+[Documentation: Connect Google Workspace](/user-guides/integrations/enable-google-workspace-integration)
+
+### Microsoft 365 Licensing in Budgets
+
+Build licensing costs into a client budget from the Microsoft 365 seats they already own. MSPortal matches licenses to your product catalog, carries over pricing and billing cadence, and lets you review every line before adding it.
+
+**Key Features:**
+- **Current seat quantities**: Purchased seats become the budget quantity, including totals across multiple Microsoft connections for the same company.
+- **Product matching**: Exact SKU and product-name matches suggest the right catalog item, while unmatched licenses stay under your control.
+- **Recurring cost calculations**: Product pricing and billing cadence produce the correct annualized budget amount.
+- **Cleaner imports**: Free and trial-only grants are left out, and existing budget items are clearly identified before import.
+
+[Documentation: Import Microsoft 365 Licensing](/user-guides/budgets/index#import-microsoft-365-licensing)
+
+### Domotz Network Visibility
+
+Turn Domotz monitoring data into a practical network view inside MSPortal. The new Networks tab under Devices shows site health and connectivity at a glance, with direct paths into the devices behind each location.
+
+**Key Features:**
+- **Site-by-site network health**: See ISP, WAN IP, download and upload speed, weekly averages, online devices, networks, and active issues.
+- **Useful issue details**: Hover over an issue count to see IP conflicts, failing sensors, active alerts, and packet-loss findings.
+- **Location linking**: Link Domotz sites to MSPortal locations from integration settings for clearer reporting and navigation.
+- **Client-ready reporting**: Add internet-speed results to the Domotz Network Health reporting block.
+
+[Documentation: Domotz Network Health](/user-guides/integrations/enable-domotz-integration#review-network-health)
+
+### Custom Sign-In Page Branding
+
+Give every custom domain a sign-in experience that matches your brand. A new Sign-In Page tab under Tenant Branding lets you shape the page and preview the result before saving.
+
+**Key Features:**
+- **Flexible backgrounds**: Choose a solid color, gradient, or uploaded image with an adjustable darkening overlay.
+- **Logo and card controls**: Resize the logo and switch the sign-in card to a frosted-glass style.
+- **Your welcome message**: Replace the default title and subtitle with your own copy.
+- **Brand colors before sign-in**: Anonymous visitors on a custom domain now see your tenant's color palette.
+
+[Documentation: Custom Sign-In Page](/user-guides/settings/tenant#custom-sign-in-page)
+
+### Improvements
+
+- **Integration company management**: Microsoft 365 and Google Workspace company setup now uses sortable, filterable tables with status summaries, CSV export, and clearer connection actions.
+- **Faster navigation**: Smarter tab and sidebar prefetching avoids loading pages you never open, keeps recent pages warm, and reduces unnecessary data refreshes.
+- **Faster sign-in**: Password, MFA, and OAuth flows reach the first page sooner by removing redundant account lookups and redirects.
+- **Onboarding portal access**: Invitations and active portal sessions now remain valid for up to 30 days, and the expired-session page points users back to their original invitation first.
+- **Cleaner summary metrics**: Devices, compliance, licensing, training, customer success, and more now share a compact summary layout that is easier to scan.
+- **Company types**: Removing a PSA-synced company type now keeps it removed after future PSA syncs.
+- **Ticket company names**: Tickets now show the MSPortal company name after multiple PSA companies are merged into one portal company.
+- **Email ticket reliability**: Inbound ticket emails now handle inline images and a wider range of attachment filenames reliably.
+
 ## July 31, 2026
 
 ### Feedback and the MSPortal Roadmap

@@ -181,6 +181,55 @@ Your brand color automatically applies to the public [client onboarding portal](
 | **Favicon** | 32×32px | Browser tab icon |
 | **Reporting Logo** | Varies | PDF reports and exports |
 
+### Custom Sign-In Page
+
+Use the **Sign-In Page** section to customize the first page clients see when they visit one of your custom domains. These settings do not change the sign-in page on MSPortal-owned domains.
+
+#### Prerequisites
+
+- An active [custom domain](#custom-domains)
+- Access to manage Tenant Settings or Launch Center settings
+- A primary light logo uploaded under **Branding > Light** if you want your logo on the sign-in card
+
+<Steps>
+  <Step title="Open Sign-In Page settings">
+    Go to **Settings > Tenant > Branding**, then select **Sign-In Page** in the Branding card.
+  </Step>
+  <Step title="Set the logo size">
+    Move the **Logo size** slider until the logo fits the sign-in card. The preview updates as you make changes.
+  </Step>
+  <Step title="Choose a background">
+    Select **Default**, **Solid color**, **Gradient**, or **Image**.
+
+    For an image, upload a PNG, JPG, or WEBP file up to 3 MB. Large landscape images work best. Use **Photo darkening** to keep the sign-in card readable over a bright image.
+  </Step>
+  <Step title="Choose the card style">
+    Enable **Frosted glass card** to make the card slightly transparent with a blur effect. The glass effect appears when you use a custom color, gradient, or image background.
+  </Step>
+  <Step title="Write the welcome message">
+    Enter a **Welcome title** and **Welcome subtitle**. Leave either field blank to use the standard MSPortal sign-in copy.
+  </Step>
+  <Step title="Preview and save">
+    Review the preview, then click **Save sign-in page**. Open the custom domain in a signed-out or private browser window to verify the complete sign-in experience.
+  </Step>
+</Steps>
+
+<Note>
+The custom-domain sign-in page also uses your primary logo, favicon, tenant color palette, and the sign-in methods selected under **Branding > Domains**.
+</Note>
+
+To remove the custom background, card style, logo size, and welcome copy, click **Reset to default** and confirm. Your uploaded tenant logo, favicon, brand colors, and custom domain remain unchanged.
+
+#### Sign-In Page Troubleshooting
+
+| Issue | Resolution |
+|-------|------------|
+| Changes do not appear | Confirm you opened an active custom domain, not an MSPortal-owned address, and reload the signed-out page |
+| The logo is missing | Upload a **Primary Logo (Light)** under **Branding > Light** |
+| Frosted glass looks solid | Select a custom color, gradient, or image background; the glass effect is not applied to the default background |
+| An image will not upload | Use PNG, JPG, or WEBP and keep the file at or below 3 MB |
+| A sign-in option is missing | Review **Custom domain login methods** under **Branding > Domains** |
+
 ### Upload Guidelines
 
 - **Format** - PNG or SVG recommended

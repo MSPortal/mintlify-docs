@@ -1,75 +1,191 @@
 ---
-title: 'Configure Domotz Integration'
-description: 'Connect Domotz to prepare network collector, device, and monitoring reporting'
+title: 'Connect Domotz and Review Network Health'
+description: 'Connect Domotz, map companies and sites, and review network, device, monitoring, and alert health in MSPortal'
 icon: 'network-wired'
 ---
 
-This guide walks you through connecting Domotz network monitoring to MSPortal.ai.
+The Domotz integration brings collector, network, device, monitoring, and alert data into MSPortal. After connecting and mapping your account, you can review site health under **Devices > Networks**, link sites to MSPortal locations, and add Domotz network health to client reports.
 
 <Note>
-Domotz is currently a **Pilot** integration available to selected tenants. If you don't see the Domotz card in **Settings > Integrations**, contact support@msportal.ai. The pilot secures and validates the API connection; data sync features build on this connection.
+Domotz is currently a **Pilot** integration available to selected tenants. If you do not see the Domotz card in **Settings > Integrations**, contact support@msportal.ai.
 </Note>
+
+## What Gets Synchronized
+
+<CardGroup cols={2}>
+  <Card title="Organizations and Collectors" icon="building">
+    Domotz organizations, API-enabled collectors, their status, and company mappings
+  </Card>
+  <Card title="Networks and VLANs" icon="network-wired">
+    Site networks, VLAN counts, ISP details, WAN addresses, uptime, and internet-speed results
+  </Card>
+  <Card title="Managed and Discovered Devices" icon="laptop">
+    Managed inventory, online state, and devices Domotz has discovered on the network
+  </Card>
+  <Card title="Monitoring and Alerts" icon="bell">
+    TCP and SNMP sensor state, IP conflicts, packet loss, and active alerts
+  </Card>
+</CardGroup>
 
 ## Prerequisites
 
 - A Domotz account with Public API access
-- MSPortal.ai integration management permission
+- A Domotz API key with **Full Access**
+- At least one Collector with API access enabled
+- MSPortal permission to manage integrations
+- MSPortal companies to receive your Domotz organization and collector mappings
+
+<Tip>
+Create MSPortal locations before setup if you want to link Domotz sites during the wizard. Site linking is optional and can also be completed later from **Devices > Networks**.
+</Tip>
 
 ## Part 1: Create a Domotz API Key
 
 <Steps>
   <Step title="Open the Domotz Portal">
-    Log in to the Domotz Portal.
+    Sign in to the Domotz Portal and open its API access settings.
   </Step>
-  <Step title="Create an API Key">
-    Create an API key and copy both the key and its assigned **API server URL**.
+  <Step title="Create a Full Access API key">
+    Create an API key with **Full Access**, then copy both the key and its assigned **API server URL**.
 
     <Info>
-    Each Domotz API key is tied to a specific regional API server, for example `https://api-us-east-1-cell-1.domotz.com/public-api/v1`. Use the exact URL shown next to your key.
+    Each API key is tied to a regional server, for example `https://api-us-east-1-cell-1.domotz.com/public-api/v1`. Use the exact URL shown with your key.
     </Info>
   </Step>
+  <Step title="Confirm Collector API access">
+    Make sure at least one Collector in the Domotz account has API access enabled. Collectors without API access cannot be synchronized.
+  </Step>
 </Steps>
 
-## Part 2: Connect in MSPortal
+## Part 2: Connect and Map Domotz
 
 <Steps>
-  <Step title="Open the Setup Page">
-    Go to **Settings > Integrations**, find the **Domotz** card, and click **Configure**.
+  <Step title="Open the Domotz setup wizard">
+    Go to **Settings > Integrations**, find **Domotz**, and open its setup page.
   </Step>
-  <Step title="Enter Your Credentials">
-    | Field | Value |
-    |-------|-------|
-    | **API key** | The API key you created in the Domotz Portal |
-    | **API server URL** | The API server URL assigned to your key |
+  <Step title="Test the connection">
+    On **Connect**, enter the **API server URL** and **API key**, then click **Test connection**.
+
+    A successful test shows how many collectors the API returned. Review any warnings about disabled Collector API access, unavailable optional capabilities, or API quota usage.
   </Step>
-  <Step title="Test the Connection">
-    Click **Test Connection**. On success you'll see **Connection Verified**, including the number of accessible collectors returned by the Domotz API.
+  <Step title="Create the integration">
+    Click **Create integration**, then click **Next**. MSPortal stores the API key in its secure credential vault and starts the initial discovery.
   </Step>
-  <Step title="Connect">
-    Click **Connect** to save. The key is stored only in Vault, and requests are restricted to Domotz API servers.
+  <Step title="Map companies">
+    On **Map**, link each Domotz organization to the matching MSPortal company. A Collector that does not belong to a Domotz organization appears as an **Orphan Collector** and can be mapped independently.
+
+    Save the mappings before continuing. MSPortal queues a synchronization for the mapped data.
+  </Step>
+  <Step title="Map sites">
+    On **Map sites**, link each mapped Collector to an existing MSPortal location. Use the location picker in the **Site** column.
+
+    A Collector must be mapped to a company before it can be linked to one of that company's locations. This step is optional.
+  </Step>
+  <Step title="Review data coverage">
+    On **Review**, check company and Collector mapping, Collector availability, managed and discovered devices, networks and VLANs, inventory field coverage, monitoring variables, active alerts, and API usage.
+
+    Counts update while the initial synchronization runs. Click **Complete setup** when you are finished; synchronization can continue in the background.
   </Step>
 </Steps>
 
-## Managing the Connection
+## Review Network Health
 
-- To update credentials later, re-open the setup page, enter the new values, click **Retest Connection**, then **Save Changes**.
-- To disconnect, click the remove button and confirm. This removes the connection and its stored Vault credentials and cannot be undone.
-- Users without integration management permission see the connection read-only.
+Open **Devices**, then select the **Networks** tab. The tab appears when your tenant has a Domotz connection and follows the company scope selected in MSPortal's top bar.
+
+The table shows one row per mapped Collector:
+
+| Column | What it shows |
+|--------|---------------|
+| **Site** | Collector name and Domotz organization |
+| **Company** | Mapped MSPortal company |
+| **ISP** | WAN hostname and WAN IP address |
+| **Download** | Latest download result and the weekly average, when available |
+| **Upload** | Latest upload result |
+| **Devices online** | Online and total managed-device counts |
+| **Uptime** | Collector uptime percentage |
+| **Networks / VLANs** | Network and VLAN counts |
+| **Location** | Linked MSPortal location |
+| **Issues** | Combined count of IP conflicts, failing TCP sensors, active alerts, and devices with packet loss |
+| **Last synced** | Most recent Domotz data received for the site |
+
+### Find and Investigate a Site
+
+<Steps>
+  <Step title="Set the company scope">
+    Use the company selector in the top bar to show all permitted companies or narrow the page to one company.
+  </Step>
+  <Step title="Filter or sort the table">
+    Search by site or ISP, filter by company, location, or issue state, and sort the supported columns. Use the column selector to show only the fields you need.
+  </Step>
+  <Step title="Review issues">
+    A healthy site shows **Healthy**. When a site has issues, point to or focus the issue badge to see the breakdown of IP conflicts, failing TCP sensors, active alerts, and packet-loss findings.
+  </Step>
+  <Step title="Open the site's devices">
+    Click the value under **Devices online** to open Devices filtered to the linked location and company. If the site is not linked to a location, MSPortal filters by company only.
+  </Step>
+</Steps>
+
+## Link a Site to a Location
+
+Users who can manage Devices can update site links directly from the Networks table.
+
+<Steps>
+  <Step title="Start editing the location">
+    In the site's **Location** cell, click **Edit**.
+  </Step>
+  <Step title="Choose the location">
+    Search the locations belonging to the mapped company and select the correct one. The table updates after the link is saved.
+  </Step>
+</Steps>
+
+To remove an existing link, click **Edit** and select **Remove link**. You can also manage the same links by reopening the Domotz setup wizard and selecting **Map sites**.
+
+## Add Domotz Network Health to a Report
+
+In the Report Builder, add the **Domotz Network Health** block from the integration blocks. The block summarizes Collector availability, managed-device state, networks and VLANs, monitoring issues, and internet-speed results for the report's company scope.
+
+When editing the block, you can choose whether to include discovered-device counts, active Domotz alerts, and internet-speed results.
+
+<Note>
+The reporting block requires a Domotz connection and permission to read Devices.
+</Note>
+
+## Manage the Connection
+
+- To update credentials, reopen Domotz under **Settings > Integrations**, enter the new API server URL and key, click **Retest connection**, then **Save connection**
+- To change company mappings, reopen the **Map** step
+- To change site links, use **Map sites** or edit the **Location** column under **Devices > Networks**
+- To disconnect, use the delete action in the wizard and confirm. This removes the integration and its stored credentials
+- Users without integration management permission can review the connection but cannot test or change credentials
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| API server URL rejected | Use the Domotz API server URL shown in the Domotz Portal next to your API key |
-| Connection test fails | Verify the API key was copied fully and has not been revoked |
+| Issue | Resolution |
+|-------|------------|
+| API server URL is rejected | Copy the exact regional API server URL assigned to the key in Domotz |
+| Domotz rejects the API key | Copy the complete key again and confirm it has not been revoked |
+| Full Access is required | Change the API key's Domotz role to **Full Access**, then test again |
+| No API-enabled Collectors are available | Enable API access on at least one Collector in Domotz |
+| A Collector cannot be mapped | Wait for initial discovery to complete, then reload the **Map** step |
+| A site cannot be linked to a location | Map its organization or orphan Collector to a company first, and confirm that company has locations |
+| Networks is empty | Confirm the Collector is mapped, API-enabled, and included in a successful synchronization; also check the current company scope |
+| Speeds or weekly averages are blank | Domotz has not supplied a recent speed-test result for that Collector |
+| Synchronization needs attention | Open **Review** to read the latest error. Previously synchronized data remains available while you correct the connection |
+| Connection tests are rate limited | Wait briefly, then try the test again |
 
 ## Related Resources
 
 <CardGroup cols={2}>
+  <Card title="Devices" icon="laptop" href="/user-guides/devices/index">
+    Review and manage synchronized devices
+  </Card>
+  <Card title="Reporting" icon="chart-line" href="/user-guides/reporting/index">
+    Build client-facing reports with integration data
+  </Card>
+  <Card title="Companies and Locations" icon="location-dot" href="/user-guides/settings/companies">
+    Create and manage company locations
+  </Card>
   <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
     Explore all available integrations
-  </Card>
-  <Card title="Devices" icon="laptop" href="/user-guides/devices/index">
-    Manage devices across your clients
   </Card>
 </CardGroup>

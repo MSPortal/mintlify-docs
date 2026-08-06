@@ -4,7 +4,7 @@ description: Create, manage, and track IT budgets with strategic planning integr
 icon: calculator
 ---
 
-The Budgets module helps MSPs create and manage IT budgets for their clients. Build budgets by importing items from Planner, linking strategic goals, and adding products from your PSA. Track approval status and export professional budget documents.
+The Budgets module helps MSPs create and manage IT budgets for their clients. Build budgets by importing Microsoft 365 licensing and Planner items, linking strategic goals, and adding products from your catalog or PSA. Track approval status and export professional budget documents.
 
 ![Budget View](/images/budgets/budget-view.png)
 
@@ -73,10 +73,11 @@ The **Pending**, **Rejected**, and **Approved** columns show the monetary totals
     - **Notes** - Add internal notes (not shown on exports)
   </Step>
   <Step title="Add Line Items">
-    Build your budget by adding items from three sources:
+    Build your budget with the three builder panels or the **Import** menu:
     - **Planner Items** - Import tasks from your Planner
     - **Products and Services** - Add products from your PSA
     - **Strategic Goals** - Link goals to budget items
+    - **Microsoft 365 Licensing** - Turn a company's purchased seats into priced budget items
   </Step>
   <Step title="Save the Budget">
     Click **Save** to save your budget. You will see a confirmation message.
@@ -88,6 +89,70 @@ The **Pending**, **Rejected**, and **Approved** columns show the monetary totals
 ## Adding Budget Line Items
 
 The budget builder provides three panels for importing items into your budget:
+
+### Import Microsoft 365 Licensing
+
+Use **Import Microsoft 365 licensing** to build recurring license costs from the seats a company already owns. MSPortal matches the Microsoft license inventory to your product catalog so the budget uses your pricing and billing cadence.
+
+#### Prerequisites
+
+- The budget must be assigned to a company and remain editable
+- The company must have a connected Microsoft 365 tenant with synchronized license data
+- Your role must be able to edit budgets and read Microsoft 365 data
+- The product catalog should contain the Microsoft products you sell, including their SKU or product name, unit price, and default recurrence
+
+<Steps>
+  <Step title="Open the company budget">
+    Create a budget or open an editable budget for the company whose licensing you want to import.
+  </Step>
+  <Step title="Open the licensing import">
+    Click **Import**, then select **Import Microsoft 365 licensing**.
+
+    If this option is missing, confirm that your role can read Microsoft 365 data. The Import button is unavailable until the budget has a company.
+  </Step>
+  <Step title="Review product matches">
+    MSPortal suggests exact matches using the license SKU and Microsoft product names. Review every suggestion, and use **Choose an MSP product** for any license that still needs a match.
+
+    The picker includes tenant-wide products and products assigned to the current company. It does not offer products belonging only to another company.
+  </Step>
+  <Step title="Select the licenses to add">
+    Select individual rows or use **Select all**. Each row shows purchased and assigned seats, the matched product, its unit price and billing cadence, and the resulting line total.
+
+    A product already linked to the budget is marked **Already in budget** and cannot be imported a second time.
+  </Step>
+  <Step title="Import and save">
+    Click **Import licenses**. Review the new line items in the budget, adjust them if needed, and click **Save** to persist the changes.
+  </Step>
+</Steps>
+
+#### How Licensing Values Become Budget Items
+
+| Microsoft 365 or catalog value | Budget result |
+|--------------------------------|---------------|
+| Purchased seats | Line-item quantity |
+| Product unit price | Unit price |
+| Product default recurrence | One-time, monthly, quarterly, annual, or custom recurrence |
+| Product category | Matching budget category, when available |
+| Product description | Line-item notes |
+
+<Note>
+If a company has more than one Microsoft 365 connection, MSPortal combines matching SKUs and creates one line item with the total purchased quantity. Free and trial-only grants are excluded from the import.
+</Note>
+
+<Tip>
+Before importing, give catalog products an exact Microsoft SKU whenever possible. Exact matches are suggested automatically; ambiguous or unmatched licenses stay unselected until you choose the correct product.
+</Tip>
+
+#### Licensing Import Troubleshooting
+
+| Issue | Resolution |
+|-------|------------|
+| **Import Microsoft 365 licensing** is missing | Confirm your role can read Microsoft 365 data |
+| The Import button is disabled | Select a company for the budget and confirm the budget is still editable |
+| No licenses are listed | Confirm the company has synchronized Microsoft 365 licenses with purchased seats |
+| A license says it needs a product | Choose the correct catalog product, or add that product to the catalog first |
+| A match says **Review pricing** | Check the product's zero price or one-time recurrence before importing |
+| A product says **Already in budget** | Review the existing line item instead of importing the same product again |
 
 ### Planner Items
 
