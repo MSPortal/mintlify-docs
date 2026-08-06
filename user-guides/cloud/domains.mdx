@@ -1,0 +1,96 @@
+---
+title: 'Cloud Domains'
+description: 'Review verified domains, primary domains, and authentication configuration across Microsoft 365 and Google Workspace'
+icon: 'globe'
+---
+
+The **Domains** tab lists every domain registered across your connected Microsoft 365 and Google Workspace tenants, with its verification state and authentication configuration. Unverified domains are a common cause of mail delivery problems and they cost points on the Google Workspace posture score, so this tab is worth a periodic sweep.
+
+## Accessing Cloud Domains
+
+1. Click **Cloud** in the sidebar
+2. Select the **Domains** tab
+
+## What the Table Shows
+
+| Column | Description |
+|--------|-------------|
+| **Domain** | The domain name, with a **Primary** badge on the tenant's primary domain |
+| **Provider** | Microsoft 365 or Google Workspace |
+| **Company** | The MSPortal company the domain belongs to |
+| **Verification** | **Verified**, **Unverified**, or **Unknown** |
+| **Authentication** | How sign-in is handled for the domain. Microsoft 365 reports **Managed** or **Federated**. Where a platform does not report a value, the column shows **Not available** |
+| **Aliases** | Alias domains that route to this domain |
+| **Created** | When the domain was added to the tenant (hidden by default) |
+| **Last synced** | When this record was last refreshed (hidden by default) |
+
+### Verification Status
+
+| Status | Meaning |
+|--------|---------|
+| **Verified** | Domain ownership is confirmed through DNS. The domain can carry mail and services |
+| **Unverified** | The domain is registered in the tenant but ownership has not been confirmed |
+| **Unknown** | The platform did not report a verification state for this domain |
+
+<Warning>
+An unverified domain cannot reliably carry mail or platform services. On Google Workspace, unverified domains also reduce the **Verified domains** check on the [Cloud Posture](/user-guides/cloud/posture) score, which is worth 10 points and has no warning band.
+</Warning>
+
+## Searching and Filtering
+
+- **Search** matches domain names, company names, and email addresses
+- **Cloud provider** narrows to one platform or shows both
+- **Company** is a multi-select column filter, hidden automatically when you are already scoped to one company
+- Tables load 50 rows per page
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Verification sweep" icon="circle-check">
+    Review the Verification column across all clients to find unverified domains, which are usually resolved with a single DNS record.
+  </Card>
+  <Card title="Migration cleanup" icon="broom">
+    After a client migration or rebrand, find old domains still attached to the tenant that should be removed.
+  </Card>
+  <Card title="Primary domain check" icon="star">
+    Confirm each client's primary domain matches the address they actually send mail from.
+  </Card>
+  <Card title="Posture remediation" icon="shield-check">
+    When the Google Workspace **Verified domains** check flags a gap, this tab names the specific domain to fix.
+  </Card>
+</CardGroup>
+
+## Company Scoping
+
+The page follows the global company selector. Select a single company to review that client's domains, or view every connected tenant at once. Company users who sign in to the portal see only their own organization.
+
+## Permissions
+
+Viewing the Domains tab requires the Microsoft 365 read permission (`read_m365`), which also governs the other Cloud tabs.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "No cloud domains match these filters" | Clear the search box, set the provider filter to **Microsoft and Google**, and confirm the company selector is not narrowed |
+| Google Workspace domains missing | Confirm **Domains** is enabled under **Sync settings** on the connection, then click **Sync now** |
+| Verification shows **Unknown** | The platform did not report a state for that domain. It resolves on a subsequent synchronization |
+| A newly added domain is not listed | Domains synchronize on the daily schedule. Click **Sync now** on the connection to refresh immediately |
+| A domain was verified but still shows **Unverified** | Verification is read from the platform. Confirm it in the vendor console, then click **Sync now** |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Cloud Posture" icon="shield-check" href="/user-guides/cloud/posture">
+    How domain verification affects the posture score
+  </Card>
+  <Card title="M365 Domains" icon="microsoft" href="/user-guides/microsoft-365/domains">
+    Microsoft domain services and authentication detail
+  </Card>
+  <Card title="Cloud Users" icon="users" href="/user-guides/cloud/users">
+    Identities across both platforms
+  </Card>
+  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
+    Set up per-company connections
+  </Card>
+</CardGroup>

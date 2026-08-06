@@ -1,0 +1,112 @@
+---
+title: 'Cloud Users'
+description: 'Every Microsoft 365 and Google Workspace identity in one searchable table, with status, account type, 2-step verification, and assigned licenses'
+icon: 'users'
+---
+
+The **Users** tab lists every identity across every connected Microsoft 365 and Google Workspace tenant on one table. Search a person by name or email and find them regardless of which platform their company runs.
+
+## Accessing Cloud Users
+
+1. Click **Cloud** in the sidebar
+2. Select the **Users** tab
+
+## What the Table Shows
+
+| Column | Description |
+|--------|-------------|
+| **Name** | Display name, with job title shown beneath it |
+| **Provider** | Microsoft 365 or Google Workspace |
+| **Email** | Primary email address |
+| **Company** | The MSPortal company the user belongs to |
+| **Status** | **Enabled** or **Disabled** |
+| **Account type** | **Administrator**, **Member**, **Guest**, or **User** (hidden by default) |
+| **2-step verification** | **Enforced**, **Enrolled**, or **Not enrolled** |
+| **Licenses** | Assigned license badges, or **No licenses** |
+| **Last login** | Most recent sign-in (hidden by default) |
+| **Last synced** | When this record was last refreshed (hidden by default) |
+
+Show any hidden column from the column visibility control above the table.
+
+### 2-Step Verification
+
+For Google Workspace users this column reports Google's own account state:
+
+| Value | Meaning |
+|-------|---------|
+| **Enforced** | The administrator requires a second factor. The user cannot turn it off |
+| **Enrolled** | The user has set up a second factor, but it is not enforced by policy |
+| **Not enrolled** | No second factor is configured |
+
+Microsoft 365 rows show **Not available** in this column. Microsoft multi-factor coverage is reported through Secure Score instead, on the [Cloud Posture](/user-guides/cloud/posture) tab.
+
+<Tip>
+Filter to **Google Workspace** and sort by 2-step verification to produce the exact list of accounts behind the 2-step verification checks in the posture score.
+</Tip>
+
+### Licenses
+
+The Licenses column shows the first two license badges inline. When a user holds more than two, a **+N more** badge appears at the end. Users with nothing assigned show **No licenses**.
+
+<Tip>
+**No licenses** combined with **Status = Enabled** is a common finding: an active account nobody is paying for, which is either an unlicensed service account or a person who cannot actually use the platform.
+</Tip>
+
+## Searching and Filtering
+
+- **Search** matches names, email addresses, domains, and company names
+- **Cloud provider** narrows to one platform or shows both
+- **Company** is a multi-select column filter, hidden automatically when you are already scoped to one company
+- Tables load 50 rows per page
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card title="2-step verification gaps" icon="shield-exclamation">
+    Filter to **Google Workspace** and review the 2-step verification column to find the specific accounts lowering the posture score.
+  </Card>
+  <Card title="License reclamation" icon="recycle">
+    Filter by **Status = Disabled** and look for rows that still carry license badges. Those are seats you can recover.
+  </Card>
+  <Card title="Offboarding verification" icon="user-minus">
+    Search a departed employee by name across both platforms to confirm the account is disabled and stripped of licenses everywhere.
+  </Card>
+  <Card title="Administrator audit" icon="user-shield">
+    Show the **Account type** column and review every **Administrator** across all clients in one pass.
+  </Card>
+</CardGroup>
+
+## Company Scoping
+
+The page follows the global company selector. Select a single company to see only that client's identities, or view every connected tenant at once. Company users who sign in to the portal see only their own organization.
+
+## Permissions
+
+Viewing the Users tab requires the Microsoft 365 read permission (`read_m365`), which also governs the other Cloud tabs.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "No cloud users match these filters" | Clear the search box, set the provider filter to **Microsoft and Google**, and confirm the company selector is not narrowed |
+| Google Workspace users missing | Confirm **Users** is enabled under **Sync settings** on the connection, then click **Sync now** |
+| 2-step verification shows **Not available** | Expected for Microsoft 365 rows. Review Microsoft multi-factor coverage on the Posture tab |
+| A recently created user is missing | Both platforms synchronize daily. Click **Sync now** on the connection to pull the change immediately |
+| Suspended Google users still listed | Suspended accounts remain visible for auditing. They are excluded from posture scoring so they do not affect the score |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Cloud Licenses" icon="id-card" href="/user-guides/cloud/licenses">
+    Seat utilization and product breakdowns
+  </Card>
+  <Card title="Cloud Groups" icon="user-group" href="/user-guides/cloud/groups">
+    Group membership across both platforms
+  </Card>
+  <Card title="Cloud Posture" icon="shield-check" href="/user-guides/cloud/posture">
+    How 2-step verification coverage is scored
+  </Card>
+  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
+    Set up per-company connections
+  </Card>
+</CardGroup>

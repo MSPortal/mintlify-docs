@@ -1,0 +1,178 @@
+---
+title: 'Cloud Posture'
+description: 'Daily security posture scoring across Microsoft 365 and Google Workspace, with a transparent Google Workspace calculation you can explain to clients'
+icon: 'shield-check'
+---
+
+The **Posture** tab shows the latest daily security posture snapshot for every connected tenant, on both Microsoft 365 and Google Workspace, in one table. One row is one company on one platform, so a client running both shows up twice with a score for each.
+
+This is the page to open before a QBR: it answers "how secure is this client's cloud, and what moved since last time" without logging into either vendor console.
+
+## Accessing Cloud Posture
+
+1. Click **Cloud** in the sidebar
+2. Select the **Posture** tab
+
+## The Posture Table
+
+| Column | Description |
+|--------|-------------|
+| **Company** | The MSPortal company the tenant belongs to |
+| **Provider** | Microsoft 365 or Google Workspace |
+| **Score** | Progress bar and percentage for the latest snapshot |
+| **Score source** | **Microsoft Secure Score** or **MSPortal-calculated** |
+| **Snapshot date** | The date the snapshot represents |
+| **Checks** | Number of calculated checks for Google Workspace, or **Microsoft controls** for Microsoft 365 |
+| **Last synced** | When the data was last refreshed (hidden by default) |
+
+Only the latest snapshot per company per platform is listed, so the table is always a current-state view.
+
+## Two Scoring Models
+
+<CardGroup cols={2}>
+  <Card title="Microsoft Secure Score" icon="microsoft">
+    Sourced directly from Microsoft. MSPortal displays Microsoft's own score and controls without modification.
+  </Card>
+  <Card title="MSPortal-calculated" icon="calculator">
+    For Google Workspace. Google does not publish a native secure score, so MSPortal calculates one from Google's own admin reporting using a published, fixed formula.
+  </Card>
+</CardGroup>
+
+<Note>
+The **Score source** column always states which model produced a number, so a Google Workspace score is never mistaken for a vendor-issued one.
+</Note>
+
+## The Google Workspace Posture Score
+
+The Google Workspace score is out of **100 points**, recalculated on every daily synchronization from Google's directory and admin usage reports. Six checks contribute, weighted by how much each one matters to a real breach.
+
+### The Six Checks
+
+| Check | What it measures | Category | Severity | Points |
+|-------|------------------|----------|----------|--------|
+| **2-step verification enrollment** | Active users enrolled in 2-Step Verification | Identity | High | 25 |
+| **Administrator 2-step verification** | Active administrators and delegated administrators who are both enrolled in and have 2-Step Verification enforced | Identity | Critical | 25 |
+| **2-step verification enforcement** | Active users who have 2-Step Verification enforced, not merely available | Identity | High | 20 |
+| **Active account hygiene** | Active accounts that have signed in within the last 90 days | Accounts | Medium | 15 |
+| **Verified domains** | Synchronized domains that are verified | Domains | High | 10 |
+| **License assignment visibility** | Active users with a known license assignment state | Licensing | Low | 5 |
+
+<Tip>
+Enrollment and enforcement are scored separately on purpose. A user who has enrolled in 2-Step Verification can still turn it off unless the administrator enforces it, so an environment can score well on enrollment and still be exposed.
+</Tip>
+
+### How Points Are Awarded
+
+Each check earns its points in proportion to coverage:
+
+**Points earned = coverage percentage x maximum points**
+
+For example, 18 of 20 active users enrolled in 2-Step Verification is 90% coverage, which earns 22.5 of the 25 available points.
+
+### Check Status
+
+Each check carries a status badge in the details panel:
+
+| Status | Meaning |
+|--------|---------|
+| **Pass** | Every item in scope meets the check |
+| **Warning** | Coverage is at or above the threshold below, but not complete |
+| **Needs attention** | Coverage is below the threshold |
+| **Unknown** | Google did not report enough data to evaluate the check. Scores zero points |
+
+| Check | Warning threshold |
+|-------|-------------------|
+| 2-step verification enrollment | 80% |
+| 2-step verification enforcement | 80% |
+| Administrator 2-step verification | 100% |
+| Active account hygiene | 90% |
+| Verified domains | 100% |
+| License assignment visibility | 90% |
+
+<Warning>
+**Administrator 2-step verification** and **Verified domains** have no warning band. Because both are all-or-nothing controls, a single unprotected administrator or a single unverified domain moves the check straight to **Needs attention**.
+</Warning>
+
+### What Is Excluded From Scoring
+
+- **Suspended and archived users** are excluded from every user-based check, so offboarded staff never drag a score down
+- **Sign-in activity** for an account that has never signed in falls back to its creation date, so newly created accounts are not immediately counted as stale
+- **Unknown checks** score zero points rather than being silently skipped, so a data gap is visible instead of flattering the score
+
+<Note>
+Google publishes its usage reporting on a short delay, so the 2-Step Verification and sign-in signals in a snapshot reflect account activity from a few days prior. Directory data such as domains and licenses reflects the moment of the sync. The **Snapshot date** column always states the date the score represents.
+</Note>
+
+## Posture Details
+
+Click any Google Workspace row to open the details panel.
+
+- **Posture score** card showing the percentage and the exact **points out of 100**
+- **Calculated checks**, one card per check, each with its title, plain-language description, status badge, coverage as **"{current} of {total}"**, and the points it contributed
+
+The description on each check is written in business language, for example "18 of 20 active users are enrolled in 2-step verification", so the panel can be read directly to a client.
+
+Clicking a Microsoft 365 row opens **Microsoft Secure Score details**, with a **Secure Score** button that takes you to the full Microsoft control list and remediation guidance.
+
+## Microsoft 365 Posture Views
+
+Select **Microsoft 365** in the provider filter and three additional views appear:
+
+| View | Shows |
+|------|-------|
+| **Overview** | The posture snapshot table |
+| **Secure Score** | The full [Microsoft Secure Score](/user-guides/microsoft-365/index) experience, including controls, remediation steps, Add to Planner, and Add to Meeting |
+| **Daily posture** | The client-facing [Microsoft 365 Posture](/user-guides/microsoft-365/posture) scorecards and findings |
+
+These views are the existing Microsoft 365 pages, presented inside the Cloud module. Bulk actions from Secure Score, such as creating planner tasks from several controls at once, work exactly as before.
+
+## Using Posture With Clients
+
+<CardGroup cols={2}>
+  <Card title="QBR preparation" icon="presentation-screen">
+    Open the details panel and read the check descriptions verbatim. Each one is already written in plain language with real counts.
+  </Card>
+  <Card title="Prioritize the work" icon="list-check">
+    Administrator 2-step verification is the heaviest critical check. Closing a single unprotected admin account is usually the largest single score movement available.
+  </Card>
+  <Card title="Show the trend" icon="chart-line">
+    Snapshots are stored daily, so a score improvement after remediation is evidenced by date rather than asserted.
+  </Card>
+  <Card title="Compare platforms fairly" icon="scale-balanced">
+    Lead with the **Score source** column when a client runs both platforms, so a Microsoft score and a Google score are never compared as if they used the same scale.
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+1. **Fix administrator coverage first.** It carries critical severity, 25 points, and no warning band.
+2. **Chase enforcement, not just enrollment.** Moving users from enrolled to enforced is worth 20 points and closes the gap where a user can disable their own second factor.
+3. **Review account hygiene quarterly.** Accounts dormant beyond 90 days are both a security exposure and a license reclamation opportunity. Cross-reference with [Cloud Licenses](/user-guides/cloud/licenses).
+4. **Verify every domain.** Ten points sit behind a task that is usually a single DNS record.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| No Google Workspace rows | Confirm **Daily security posture** is enabled under **Sync settings** for the connection |
+| A company has no snapshot yet | Posture is calculated on the daily run. It appears after the first scheduled synchronization completes |
+| A check shows **Unknown** | Google did not report enough data for that check on that day. It resolves on a subsequent run |
+| Score dropped without a configuration change | Check the **Snapshot date** and open the details panel. A new user who is not yet enrolled in 2-Step Verification lowers coverage on the enrollment and enforcement checks |
+| "No daily cloud posture snapshots match these filters" | Widen the provider filter, clear the search box, or check the company selector |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
+    Set up connections and enable posture scoring
+  </Card>
+  <Card title="Cloud Users" icon="users" href="/user-guides/cloud/users">
+    See per-user 2-step verification status behind the score
+  </Card>
+  <Card title="Microsoft 365 Secure Score" icon="shield-check" href="/user-guides/microsoft-365/index">
+    Microsoft controls and remediation planning
+  </Card>
+  <Card title="Planner" icon="clipboard-check" href="/user-guides/planner/index">
+    Turn findings into tracked remediation work
+  </Card>
+</CardGroup>

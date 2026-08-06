@@ -1,0 +1,197 @@
+---
+title: 'Connect Google Workspace'
+description: 'Connect each client to their Google Workspace tenant to sync users, groups, licenses, domains, and a daily security posture score'
+icon: 'google'
+---
+
+The Google Workspace integration connects each of your client companies to their own Google Workspace tenant. Once connected, MSPortal synchronizes directory users, groups and memberships, license assignments, and verified domains every day, and calculates a daily security posture score from Google's own admin reporting.
+
+Connected data appears on the [Cloud](/user-guides/cloud/index) pages alongside Microsoft 365, so a mixed-estate MSP reviews both platforms in one place.
+
+<Note>
+Google Workspace connects **per company**, not once for your whole tenant. Each client signs in to their own Google Workspace, exactly like the Microsoft 365 company connection flow.
+</Note>
+
+## What Gets Synchronized
+
+<CardGroup cols={2}>
+  <Card title="Users" icon="users">
+    Directory profiles, account status, aliases, and organizational unit
+  </Card>
+  <Card title="Groups" icon="user-group">
+    Groups, descriptions, aliases, and full membership lists
+  </Card>
+  <Card title="Licenses" icon="id-card">
+    Product and SKU assignments across the Google product catalog
+  </Card>
+  <Card title="Domains" icon="globe">
+    Primary, secondary, and alias domains with verification status
+  </Card>
+  <Card title="Daily security posture" icon="shield-check">
+    2-Step Verification, sign-in activity, and account risk signals scored out of 100
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+| Requirement | Detail |
+|-------------|--------|
+| **Google Workspace administrator** | The person completing sign-in must be an administrator of the client's Google Workspace with Admin SDK directory, reports, and licensing privileges. A super administrator always qualifies. |
+| **MSPortal permissions** | Settings access with permission to manage company integrations, or primary administrator |
+| **Popups allowed** | The Google sign-in flow opens in a popup window from MSPortal |
+
+<Tip>
+No Google Cloud project, service account key, or domain-wide delegation setup is required. MSPortal supplies the verified OAuth application, so the client only has to sign in and approve access.
+</Tip>
+
+### Access MSPortal Requests
+
+Every permission requested is **read-only**. MSPortal cannot create, modify, suspend, or delete anything in Google Workspace.
+
+| Access | Purpose |
+|--------|---------|
+| Directory users (read-only) | Sync user profiles, status, and aliases |
+| Directory groups and members (read-only) | Sync groups and their membership |
+| Directory domains (read-only) | Sync domains and verification status |
+| Directory customer (read-only) | Identify the Google Workspace account being connected |
+| Reports usage (read-only) | Read 2-Step Verification and sign-in activity for posture scoring |
+| Apps licensing | Read which products and SKUs are assigned to each user |
+
+Consent must include every one of these. If an administrator declines part of the consent screen, the connection is rejected and reports which access is missing.
+
+## Connecting a Company
+
+<Steps>
+  <Step title="Open the Google Workspace companies page">
+    Go to **Settings > Integrations**, find the **Google Workspace** card, and click **Set up companies**.
+
+    Once at least one company is connected, that button reads **Manage companies**.
+  </Step>
+  <Step title="Find the company">
+    Every active company appears as a card. Use the **Search companies or domains** box, or the status filter, to narrow the list to **All companies**, **Needs setup**, **Connected**, or **Needs attention**.
+
+    The **Connection progress** card at the top tracks how many companies are connected out of your total.
+  </Step>
+  <Step title="Start the connection">
+    Click **Connect** on the company card. A Google sign-in popup opens.
+
+    If the company already has a connection and you are adding a second Google Workspace account, click **Add connection** instead.
+  </Step>
+  <Step title="Sign in and approve access">
+    Sign in with an administrator account for **that client's** Google Workspace and approve the requested access.
+
+    MSPortal then verifies the connection against Google's directory, reports, and licensing services before saving it. The popup closes on its own and the company shows a green **Connected** badge.
+  </Step>
+  <Step title="Let the first sync run">
+    A full synchronization starts immediately. User, group, license, and domain counts appear on the connection row as data arrives, and posture scoring begins on the next daily run.
+  </Step>
+</Steps>
+
+<Warning>
+Google Workspace connections cannot be created while you are impersonating another user. Exit impersonation first.
+</Warning>
+
+<Note>
+Each Google Workspace account can be connected to **one** MSPortal company. If you try to connect a Google Workspace account that is already linked elsewhere, MSPortal reports that the customer is already connected to another company so two companies never claim the same tenant.
+</Note>
+
+## Reading the Connection Row
+
+Each connected Google Workspace tenant appears as a row inside the company card, labeled with its primary domain.
+
+| Element | Meaning |
+|---------|---------|
+| **Connected** | Healthy and syncing on schedule |
+| **Syncing** | A synchronization is running right now |
+| **Paused** | Synchronization is stopped after repeated failures, usually revoked consent |
+| **Needs attention** | The last synchronization failed. The error is shown inline on the row |
+| **Setup pending** | The connection was created but has not reached a steady state yet |
+| **Primary domain / Admin** | The Google Workspace domain and the administrator account used to connect |
+| **Last synced** | When data was last refreshed, or **Not synced yet** |
+| **Count badges** | Synced users, groups, licenses, and domains for that connection |
+
+Cards and rows that need attention are highlighted in amber, and the **Connection progress** card shows a **needs attention** count so problems are visible without opening every company.
+
+## Choosing What to Sync
+
+Click **Sync settings** on a connection to open **Choose data to sync**. All five datasets are enabled by default.
+
+| Dataset | Description |
+|---------|-------------|
+| **Users** | Directory profiles and account status |
+| **Groups** | Groups and memberships |
+| **Licenses** | Product and SKU assignments |
+| **Domains** | Verified and secondary domains |
+| **Daily security posture** | 2-Step Verification, login, and account-risk signals |
+
+Click **Save settings** to apply. Turning a dataset off stops future updates for it on the next run.
+
+<Tip>
+Leave **Daily security posture** enabled even if you disable other datasets. Posture scoring is what powers the client-facing [Cloud Posture](/user-guides/cloud/posture) page.
+</Tip>
+
+## Managing a Connection
+
+| Action | What it does |
+|--------|--------------|
+| **Sync now** | Queues an immediate full synchronization. The row updates in place as the run progresses. Available when the connection is active and no other sync is running |
+| **Reconnect** | Runs the Google sign-in flow again. Use this after a password change, revoked consent, or a paused connection |
+| **Sync settings** | Choose which datasets to synchronize |
+| **Disconnect** | Removes the connection and its stored credentials |
+
+### Disconnecting
+
+Click **Disconnect**, then confirm in the **Disconnect Google Workspace?** dialog. MSPortal stops updating Google Workspace data for that company. Previously synchronized data may remain visible until it is replaced or removed.
+
+## Synchronization Schedule
+
+- Google Workspace synchronizes **once per day**, deliberately offset from the Microsoft 365 secure score run so the two do not compete.
+- Each run is a **full refresh**, not an incremental update. Every record is retrieved and validated before anything is written, and records that no longer exist in Google are removed only after a complete, successful retrieval. An interrupted run can never delete good data.
+- Use **Sync now** whenever you need data ahead of the daily schedule, for example right before a client review.
+
+<Note>
+Google's usage reporting, which supplies the 2-Step Verification and sign-in signals behind posture scoring, is published on a short delay. Posture snapshots therefore reflect account activity from a few days prior, while users, groups, licenses, and domains reflect the moment of the sync.
+</Note>
+
+### Automatic Pausing
+
+If a connection fails repeatedly, MSPortal pauses it and notifies you rather than retrying indefinitely.
+
+| Failure type | Runs before pausing |
+|--------------|---------------------|
+| Authentication (expired or revoked credentials) | 2 |
+| Permission (administrator rights removed, consent withdrawn) | 2 |
+| Temporary (network, rate limiting, service availability) | 10 |
+
+A paused connection shows **Paused** on the companies page. Click **Reconnect** and complete the Google sign-in again to resume.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Popup never opens | Allow popups for MSPortal in your browser and click **Connect** again |
+| "Google Workspace consent is missing required scopes" | The administrator declined part of the consent screen. Reconnect and approve every requested item |
+| Sign-in succeeds but the connection fails verification | The account signed in is not an administrator, or lacks Admin SDK privileges. Use a super administrator account |
+| "This Google Workspace customer is already connected to another company" | That Google Workspace account is linked to a different MSPortal company. Disconnect it there first |
+| Connection shows **Needs attention** | Read the error shown on the row. Most cases are resolved with **Reconnect** |
+| Connection shows **Paused** | Consent or administrator access was withdrawn in Google. Restore access, then click **Reconnect** |
+| Counts stay at zero after connecting | Confirm the dataset is enabled under **Sync settings**, then click **Sync now** |
+| Licenses show **Unknown** capacity | Expected. Google reports license assignments but not purchased seat totals, so MSPortal shows what is assigned and does not infer capacity |
+| Posture score has not appeared yet | Posture is calculated on the daily run. It appears after the first scheduled synchronization completes |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Cloud Overview" icon="cloud" href="/user-guides/cloud/index">
+    Where Google Workspace and Microsoft 365 data appears
+  </Card>
+  <Card title="Cloud Posture" icon="shield-check" href="/user-guides/cloud/posture">
+    How the Google Workspace posture score is calculated
+  </Card>
+  <Card title="Cloud Users" icon="users" href="/user-guides/cloud/users">
+    Browse every cloud identity across both platforms
+  </Card>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Explore all available integrations
+  </Card>
+</CardGroup>

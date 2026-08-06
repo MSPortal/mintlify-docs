@@ -163,6 +163,17 @@
                 ]
               },
               {
+                "group": "Cloud",
+                "pages": [
+                  "user-guides/cloud/index",
+                  "user-guides/cloud/posture",
+                  "user-guides/cloud/users",
+                  "user-guides/cloud/groups",
+                  "user-guides/cloud/licenses",
+                  "user-guides/cloud/domains"
+                ]
+              },
+              {
                 "group": "Microsoft 365",
                 "pages": [
                   "user-guides/microsoft-365/index",
@@ -464,6 +475,12 @@
                 "group": "Microsoft Teams",
                 "pages": [
                   "user-guides/integrations/enable-teams-integration"
+                ]
+              },
+              {
+                "group": "Google Workspace",
+                "pages": [
+                  "user-guides/integrations/enable-google-workspace-integration"
                 ]
               }
             ]

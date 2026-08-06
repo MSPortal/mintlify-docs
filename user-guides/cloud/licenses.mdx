@@ -1,0 +1,114 @@
+---
+title: 'Cloud Licenses'
+description: 'Track Microsoft 365 and Google Workspace license assignments, seat utilization, and product breakdowns across every client'
+icon: 'id-card'
+---
+
+The **Licenses** tab shows license assignments across every connected Microsoft 365 and Google Workspace tenant. Use it to spot tenants running out of seats, tenants paying for seats nobody uses, and to prepare renewal conversations with real numbers.
+
+## Accessing Cloud Licenses
+
+1. Click **Cloud** in the sidebar
+2. Select the **Licenses** tab
+
+## What the Table Shows
+
+| Column | Description |
+|--------|-------------|
+| **License** | The SKU name, with its SKU code shown beneath |
+| **Provider** | Microsoft 365 or Google Workspace |
+| **Product** | The product family the SKU belongs to |
+| **Company** | The MSPortal company the license belongs to |
+| **Assigned** | Seats currently assigned to users |
+| **Purchased** | Seats purchased |
+| **Available** | Seats purchased but not assigned |
+| **Utilization** | Progress bar and percentage of purchased seats in use |
+| **Status** | License status (hidden by default) |
+| **Last synced** | When this record was last refreshed (hidden by default) |
+
+## Seat Capacity by Platform
+
+<Note>
+Microsoft 365 reports purchased seat totals, so Microsoft rows show full **Purchased**, **Available**, and **Utilization** figures.
+
+Google Workspace reports which users hold which license, but does not expose purchased seat capacity through its assignment interface. Google rows therefore show **Assigned** counts with **Unknown** in the capacity columns.
+</Note>
+
+This is a deliberate design decision. MSPortal shows what each vendor actually reports rather than estimating capacity, so a number on this page is always one you can quote to a client. Hovering the **Unknown** badge explains the same thing in the interface.
+
+<Tip>
+For Google Workspace renewals, use the **Assigned** count as your seat-in-use figure and compare it against the seat count on the client's Google invoice or reseller portal. Assigned counts are exact.
+</Tip>
+
+### Google Assignment Counting
+
+A Google Workspace row counts distinct users holding that product and SKU combination. A user assigned both a core Workspace SKU and an add-on such as Vault or Gemini appears once on each row, which is the correct billing view.
+
+## Utilization
+
+The Utilization column shows a progress bar and percentage of purchased seats in use, for the platforms that report capacity.
+
+| Utilization | What it usually means |
+|-------------|-----------------------|
+| **Near or at 100%** | The client is out of headroom. The next hire requires a purchase |
+| **Healthy mid range** | Normal operation |
+| **Low** | Seats are being paid for and not used. A reclamation or downgrade opportunity |
+
+## Searching and Filtering
+
+- **Search** matches license names, SKU codes, domains, and company names
+- **Cloud provider** narrows to one platform or shows both
+- **Company** is a multi-select column filter, hidden automatically when you are already scoped to one company
+- Tables load 50 rows per page
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Renewal preparation" icon="calendar-check">
+    Filter to one company and review every SKU with its assigned count before a renewal or true-up conversation.
+  </Card>
+  <Card title="Seat headroom check" icon="gauge-high">
+    Sort by utilization to find Microsoft tenants close to capacity before a client's hiring wave.
+  </Card>
+  <Card title="Reclamation sweep" icon="recycle">
+    Cross-reference with [Cloud Users](/user-guides/cloud/users) filtered to **Status = Disabled** to find licenses still assigned to inactive accounts.
+  </Card>
+  <Card title="Add-on discovery" icon="layer-group">
+    Scan Google Workspace product rows for add-ons such as Vault or Gemini that a client is paying for but may not have rolled out.
+  </Card>
+</CardGroup>
+
+## Company Scoping
+
+The page follows the global company selector. Select a single company to review that client's licensing, or view every connected tenant at once. Company users who sign in to the portal see only their own organization.
+
+## Permissions
+
+Viewing the Licenses tab requires the Microsoft 365 read permission (`read_m365`), which also governs the other Cloud tabs.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "No cloud licenses match these filters" | Clear the search box, set the provider filter to **Microsoft and Google**, and confirm the company selector is not narrowed |
+| Google Workspace licenses missing | Confirm **Licenses** is enabled under **Sync settings** on the connection, then click **Sync now** |
+| Purchased and Available show **Unknown** | Expected on Google Workspace rows. Google does not report purchased seat capacity through its assignment interface |
+| Assigned count differs from the client's invoice | The assigned count is seats actually in use. An invoice reflects seats purchased, which is often higher. That gap is the reclamation opportunity |
+| A recent license change is not reflected | Licenses synchronize on the daily schedule. Click **Sync now** on the connection to refresh immediately |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Cloud Users" icon="users" href="/user-guides/cloud/users">
+    See which users hold which licenses
+  </Card>
+  <Card title="Licensing Module" icon="file-invoice-dollar" href="/user-guides/licensing/index">
+    Subscription and billing management
+  </Card>
+  <Card title="M365 Licenses" icon="microsoft" href="/user-guides/microsoft-365/licenses">
+    Microsoft license details, service plans, and assigned users
+  </Card>
+  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
+    Set up per-company connections
+  </Card>
+</CardGroup>
