@@ -17,10 +17,11 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
 
 | Data Type | Frequency |
 |-----------|-----------|
-| Licenses & subscriptions | Every 6 hours |
+| Licenses & subscriptions | Daily |
 | Users & groups | Every 6 hours |
 | Domains | Daily |
 | Secure Score | Daily |
+| Calendar availability | Change notifications, with an hourly safety sync |
 
 ## PSA integrations
 
@@ -29,10 +30,11 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
     | Data Type | Frequency |
     |-----------|-----------|
     | Tickets | Every 15 minutes |
-    | Time entries | Every 30 minutes |
+    | Time entries | Every hour |
     | Companies | Every hour |
-    | Sites | Every hour |
+    | Sites | Daily |
     | Configurations | Every hour |
+    | Calendar & change-management entries | Every 30 minutes |
     | Users | Every 2 hours |
     | Opportunities | Every 2 hours |
     | Projects & project tickets | Every 2 hours |
@@ -48,8 +50,9 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
     | Data Type | Frequency |
     |-----------|-----------|
     | Tickets | Every 10 minutes |
-    | Time entries | Every 10 minutes |
-    | Ticket notes | Every 30 minutes |
+    | Time entries | Every 30 minutes |
+    | Ticket notes | Every hour |
+    | Service calls & calendar entries | Every 30 minutes |
     | Companies | Every hour |
     | Users | Every 2 hours |
     | Opportunities | Every 2 hours |
@@ -71,10 +74,13 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
     | Data Type | Frequency |
     |-----------|-----------|
     | Tickets | Every 15 minutes |
+    | Calendar & change-management entries | Every 30 minutes |
     | Users | Every 2 hours |
     | Invoices | Every 2 hours |
     | Companies | Every 4 hours |
-    | Contracts | Every 4 hours |
+    | Projects & project tickets | Every 4 hours |
+    | Project time entries | Every 4 hours |
+    | Contracts | Daily |
     | Catch-up reconciliation | Weekly |
   </Accordion>
 
@@ -121,12 +127,25 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
   <Accordion title="ConnectWise Asio (RMM)">
     | Data Type | Frequency |
     |-----------|-----------|
-    | Network device enrichment | Every 4 hours |
+    | Network device enrichment (legacy) | Manual only |
     | Companies | Daily |
     | Devices | Daily |
-    | Network devices | Daily |
+    | Network devices (legacy) | Manual only |
     | Tickets | Daily |
     | Enriched data | Daily |
+
+    <Note>
+    Scheduled sync for the legacy network-device endpoint is paused because it is not returning usable device inventory. Standard Asio device syncs continue daily.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Domotz">
+    | Data Type | Frequency |
+    |-----------|-----------|
+    | Device health | Every hour |
+    | Deep telemetry (sensors, topology, variables, uptime, and speed) | Every 6 hours |
+    | Full device detail inventory | Daily |
+    | Alerts | Recent alerts hourly, with daily full reconciliation |
   </Accordion>
 
   <Accordion title="Addigy">
@@ -150,8 +169,8 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
     | Data Type | Frequency |
     |-----------|-----------|
     | Alerts | Every 15 minutes |
-    | Resources | Every 30 minutes |
-    | Activities | Every 30 minutes |
+    | Resources | Every 6 hours |
+    | Activities | Every hour |
     | Incidents | Every hour |
     | Tenants | Every 4 hours |
   </Accordion>
@@ -167,10 +186,10 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
   <Accordion title="Cork">
     | Data Type | Frequency |
     |-----------|-----------|
-    | Compliance | Every 30 minutes |
+    | Compliance | Every 2 hours |
     | Clients | Every hour |
     | Endpoints | Every hour |
-    | Vulnerabilities | Every 2 hours |
+    | Vulnerabilities | Every 6 hours |
     | Inboxes | Every 2 hours |
   </Accordion>
 
@@ -211,7 +230,8 @@ You don't have to wait for the next scheduled sync. On the **Integrations** page
   <Accordion title="Liongard">
     | Data Type | Frequency |
     |-----------|-----------|
-    | Metrics | Every 3 hours |
+    | Alert & auto-updating compliance metrics | Every 3 hours |
+    | Full metric reconciliation | Daily |
     | Systems | Every 4 hours |
     | Environments | Every 6 hours |
     | Detections | Every 6 hours |

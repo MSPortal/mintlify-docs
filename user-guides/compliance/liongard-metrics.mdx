@@ -163,7 +163,7 @@ Any value other than "Enabled" or "True" will fail.
 
 When a metric-linked compliance check has auto-update enabled, the background sync handles updates automatically:
 
-1. **Liongard syncs metrics** on a recurring schedule (hourly)
+1. **Liongard syncs priority metrics** every 3 hours and performs a full metric reconciliation daily
 2. **The compliance bridge** evaluates each mapped metric against its rules
 3. **Only active compliance runs** are updated - completed runs are frozen as historical snapshots
 4. **Per-device assignments** are matched individually, so each device gets its own pass/fail status based on its specific metric value
