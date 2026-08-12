@@ -72,6 +72,7 @@
                 "group": "Calendar",
                 "pages": [
                   "user-guides/calendar/index",
+                  "user-guides/calendar/recurring-meeting-booking",
                   "user-guides/calendar/meetings",
                   "user-guides/calendar/presenting",
                   "user-guides/calendar/meeting-summaries"
