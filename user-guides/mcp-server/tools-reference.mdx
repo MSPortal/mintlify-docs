@@ -4,10 +4,10 @@ description: "Every tool the MSPortal MCP server exposes, grouped by module, wit
 icon: "screwdriver-wrench"
 ---
 
-The MSPortal MCP server exposes **197 tools** across **29 modules**. An AI assistant only ever sees the tools that your granted [scopes](/user-guides/mcp-server/index#what-an-assistant-can-do) and MSPortal permissions allow, so the working set is a subset of the list below.
+The MSPortal MCP server exposes **232 tools** across **30 modules**. An AI assistant only ever sees the tools that your granted [scopes](/user-guides/mcp-server/index#what-an-assistant-can-do) and MSPortal permissions allow, so the working set is a subset of the list below.
 
 <Info>
-**Access column:** *Read* tools never change data. *Write (confirm)* tools return a confirmation step before anything is committed, so the assistant tells you what it is about to do first. *Write* tools apply immediately and are limited to low-risk, self-scoped actions (for example marking your own notifications as read).
+**Access column:** *Read* tools never change data. *Write (confirm)* tools return a confirmation step before anything is committed, so the assistant tells you what it is about to do first. *Write* tools run immediately; their descriptions explain whether they make a low-risk, self-scoped change or generate a result without saving data.
 </Info>
 
 ## Core
@@ -124,16 +124,52 @@ The MSPortal MCP server exposes **197 tools** across **29 modules**. An AI assis
 
 **Scopes:** `compliance.read`, `compliance.write`
 
+<Note>
+MSPortal uses two related kinds of template. A **check definition** is one reusable compliance check; `list_compliance_templates` is a backward-compatible alias for `list_compliance_check_definitions`. A **run template** is a reusable bundle of groups and individual check definitions. Use the `*_compliance_run_template` tools when you want to manage those bundles.
+</Note>
+
 | Tool | Access | Description |
 |------|--------|-------------|
+| `get_compliance_company_summary` | Read | Get authoritative active-run totals and scores by company, including tie-aware portfolio leaders. |
 | `get_compliance_check` | Read | Get one assigned compliance check. |
+| `get_compliance_check_definition` | Read | Get one base check definition with its instructions, rationale, remediation, references, scope, priority, approval state, and exact group membership. |
+| `get_compliance_group` | Read | Get one compliance group with its exact check membership. Use this before replacing a group's checks. |
+| `get_compliance_risk` | Read | Get one compliance-derived risk with its occurrences, source state, remediation work, standards references, and audit history. |
+| `get_compliance_risk_gap` | Read | Get one failed-check gap that is eligible for promotion to the risk register or dismissal. |
 | `get_compliance_run` | Read | Get a compliance run with assigned checks. |
+| `get_compliance_run_template` | Read | Get one reusable run template with the exact groups and individual checks it assigns. |
+| `list_compliance_check_definitions` | Read | List base check definitions. Use these IDs as `checkIds`; they are not run-template IDs. |
 | `list_compliance_checks` | Read | List assigned compliance checks. |
+| `list_compliance_groups` | Read | List compliance groups with their type, auto-map setting, and check count. |
+| `list_compliance_risk_categories` | Read | List active risk categories for creating or recategorizing compliance-derived risks. |
+| `list_compliance_risk_gaps` | Read | List the latest failed compliance results eligible for risk promotion or dismissal. |
+| `list_compliance_risks` | Read | List compliance-derived risks with company, status, category, severity, owner, and target-date filters. |
+| `list_compliance_run_templates` | Read | List reusable run templates. Pass these IDs as `templateIds` to `create_compliance_run`. |
 | `list_compliance_runs` | Read | List compliance runs. |
 | `list_compliance_status_options` | Read | List the valid status options for an assigned compliance check. Use the returned id as statusItemId with update_compliance_status. |
-| `list_compliance_templates` | Read | List compliance check templates. |
-| `create_compliance_run` | Write (confirm) | Stage or commit creating compliance runs (one per company) and enqueue assignment of checks from templates, groups, and/or individual checks. At least one of templateIds, groupIds, or checkIds is required. |
-| `update_compliance_status` | Write (confirm) | Stage or update an assigned compliance check status/notes/priority. |
+| `list_compliance_templates` | Read | Backward-compatible alias for `list_compliance_check_definitions`. |
+| `create_compliance_group` | Write (confirm) | Stage or create a tenant-wide compliance group, optionally with an exact set of check definitions. |
+| `create_compliance_risk` | Write (confirm) | Stage or promote one eligible failed-check gap into the risk register. This does not create an unrelated standalone risk. |
+| `create_compliance_run` | Write (confirm) | Stage or create compliance runs, one per company, and enqueue checks from run templates, groups, and/or individual check definitions. At least one source is required. |
+| `create_compliance_run_template` | Write (confirm) | Stage or create a reusable run template with exact group and individual-check membership. |
+| `create_compliance_template` | Write (confirm) | Stage or create a base compliance check definition. New definitions start in pending review; optional `groupIds` set exact group membership. |
+| `delete_compliance_group` | Write (confirm) | Stage or permanently delete a group. Check, device-type, and run-template mappings are removed; historical assignments keep their check but lose the group link. |
+| `delete_compliance_run_template` | Write (confirm) | Stage or permanently delete a reusable run template, including its memberships and schedules. |
+| `delete_compliance_template` | Write (confirm) | Stage or permanently delete a base check definition and its assigned checks, history, group mappings, run-template memberships, and completed-meeting links. |
+| `dismiss_compliance_risk_gap` | Write (confirm) | Stage or dismiss one eligible failed-check gap with a reason. A later failed run can create a new gap. |
+| `draft_compliance_notes` | Write | Generate sanitized public-note drafts from private-note answers without saving them. Review the result, then use `update_compliance_checks` to stage the notes. |
+| `update_compliance_check` | Write (confirm) | Stage or update one assigned check's status, notes, priority, flag, or due date. |
+| `update_compliance_checks` | Write (confirm) | Stage or update one to 25 assigned checks in one operation. |
+| `update_compliance_group` | Write (confirm) | Stage or update a group's editable fields. Supplying `checkIds` replaces its exact membership; an empty array clears it. |
+| `update_compliance_risk` | Write (confirm) | Stage or update a non-closed risk's assessment, status, owner, treatment, target date, category, or client visibility. |
+| `update_compliance_run` | Write (confirm) | Stage or update a run's name, notes, run date, or completion state. |
+| `update_compliance_run_template` | Write (confirm) | Stage or update a reusable run template. Supplied `groupIds` and `checkIds` each replace that exact membership. |
+| `update_compliance_status` | Write (confirm) | Backward-compatible assigned-check update tool for status, notes, and priority. |
+| `update_compliance_template` | Write (confirm) | Stage or update a base check definition. Only supplied fields change; null clears nullable fields and `groupIds` replaces exact membership. |
+
+<Warning>
+Compliance catalog writes are available only to internal MSPortal users. Creating and updating groups, check definitions, and run templates requires **Write Compliance** or **Manage Compliance**; deleting them requires **Manage Compliance**. Deletions are permanent and their confirmation preview calls out the affected mappings, schedules, assignments, or history.
+</Warning>
 
 ## Meetings & Calendar
 
@@ -248,8 +284,11 @@ The MSPortal MCP server exposes **197 tools** across **29 modules**. An AI assis
 | Tool | Access | Description |
 |------|--------|-------------|
 | `get_backup_summary` | Read | Get a unified backup protection summary aggregated across all active backup providers (Cove, Acronis, NinjaOne): protected/warning/failed/unprotected device counts, total storage, active alert count, and the providers included. |
+| `get_saas_protection_customer` | Read | Get one mapped Kaseya SaaS Protection customer with workload metrics and its 10–30 day successful-backup trend. |
 | `list_backup_alerts` | Read | List backup alerts (Acronis) with pagination and severity/status/search filters. Returns an empty list when no Acronis integration is active. |
 | `list_backup_devices` | Read | List backed-up devices/resources across all active backup providers (Cove, Acronis, NinjaOne), excluding M365 mailbox/site backups. Cross-provider pagination is approximate: page applies per provider, so one page may return up to (active providers x limit) rows and totalCount is summed across providers. |
+| `list_saas_protection_customers` | Read | List mapped Kaseya SaaS Protection customers with overall and workload health, recent backup coverage, initial backups, and last fully successful backup. |
+| `list_saas_protection_seats` | Read | List Kaseya SaaS Protection seat and service inventory for a company, including type, state, billable status, and sync details. |
 
 ## Projects
 
@@ -350,7 +389,7 @@ The MSPortal MCP server exposes **197 tools** across **29 modules**. An AI assis
 
 ## Technology Standards
 
-**Scopes:** `standards.read`
+**Scopes:** `standards.read`, `standards.write`
 
 | Tool | Access | Description |
 |------|--------|-------------|
@@ -358,6 +397,10 @@ The MSPortal MCP server exposes **197 tools** across **29 modules**. An AI assis
 | `get_standard_adoption` | Read | Adoption of standards across all companies, item by item. Without itemId: status counts for every standard (how many companies have each tool deployed / in progress / not started / N/A / declined). With itemId (from list_standards): also lists the company names in each status bucket (capped at 100 per bucket) — answers 'which clients are not on our standard EDR'. Companies excluded from standards tracking are not counted. |
 | `get_standards_compliance` | Read | Per-company standards compliance rollup, scored like the /standards page: each required item that isn't N/A or declined counts as one check; requireOneOf categories count as one check satisfied by any deployed item. Returns per-company score, status counts, missingRequiredCount, and tenant-wide totals. The missingRequired name list (capped at 25) is only populated when companyId is provided — call again with one companyId to see WHICH checks a company is missing. Companies excluded from standards tracking are flagged and unscored (an excluded companyId returns one flagged record with null score). Ideal for QBR prep and 'which clients are below our standards' questions. |
 | `list_standards` | Read | List the tenant's technology standards catalog (also called the tool stack): categories with their standard items (name, vendor, required vs optional, default price). Categories marked requireOneOf are satisfied when any one item in them is deployed. Use the item ids with get_standard_adoption and the statuses from get_company_standards. |
+| `create_standard_category` | Write (confirm) | Stage or create a Standards category with its description, icon, Planner type, require-one-of behavior, and display order. |
+| `create_standard_item` | Write (confirm) | Stage or create a standard item beneath a category with its vendor, requirement flag, default internal price, description, and display order. |
+| `update_standard_category` | Write (confirm) | Stage or update a Standards category. Enabling require-one-of makes its items individually optional so the category acts as one grouped requirement. |
+| `update_standard_item` | Write (confirm) | Stage or update a standard item, including moving it to another category. Only provided fields change. |
 
 ## Security
 
