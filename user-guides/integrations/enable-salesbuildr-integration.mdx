@@ -1,0 +1,73 @@
+---
+title: 'Configure Salesbuildr Integration'
+description: 'Connect the Salesbuildr Public API for quote, opportunity, and product reporting'
+icon: 'file-invoice-dollar'
+---
+
+Connect Salesbuildr to MSPortal.ai with a Public API key. The setup verifies access to your Salesbuildr account and stores the connection securely.
+
+<Note>
+Salesbuildr is currently a pilot integration. The pilot establishes and validates the API connection; quote, opportunity, and product reporting features build on this connection as they become available. If the integration is not available in **Settings > Integrations**, contact support@msportal.ai.
+</Note>
+
+## Prerequisites
+
+- Salesbuildr administrator access
+- Your Salesbuildr account URL
+- MSPortal.ai integration management permission
+
+## Create a Salesbuildr API Key
+
+<Steps>
+  <Step title="Open API settings">
+    In Salesbuildr, go to **Settings > Integrations > API Key**.
+  </Step>
+  <Step title="Create the key">
+    Create an API key for MSPortal and copy it to a secure location.
+  </Step>
+  <Step title="Copy the account URL">
+    Note the HTTPS URL you use to access the Salesbuildr account.
+  </Step>
+</Steps>
+
+## Connect in MSPortal
+
+<Steps>
+  <Step title="Open the setup page">
+    In MSPortal, go to **Settings > Integrations**, find **Salesbuildr**, and click **Configure**.
+  </Step>
+  <Step title="Enter the connection details">
+    Enter the **API key** and **Account URL**.
+  </Step>
+  <Step title="Test the connection">
+    Click **Test Connection**. MSPortal verifies the API key and reports the number of accessible companies when available.
+  </Step>
+  <Step title="Save the connection">
+    Click **Connect** after the test succeeds. The API key is stored securely in Vault.
+  </Step>
+</Steps>
+
+## Managing the Connection
+
+- Reopen **Configure** to test or replace the API key and account URL.
+- Removing the integration deletes its stored connection from MSPortal and does not change data in Salesbuildr.
+- Users without integration management permission can review the connection but cannot change its credentials.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Account URL is rejected | Enter the HTTPS URL for your Salesbuildr account, without an unrelated path or domain. |
+| API key is rejected | Create a new key under **Settings > Integrations > API Key** and copy it without extra spaces. |
+| No companies are returned | Confirm the API key belongs to the expected Salesbuildr account and can access company data. |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Quotes" icon="file-invoice-dollar" href="/user-guides/quotes/index">
+    Learn how MSPortal presents quote data
+  </Card>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Manage all MSPortal integrations
+  </Card>
+</CardGroup>

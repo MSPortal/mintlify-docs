@@ -382,6 +382,12 @@
                 ]
               },
               {
+                "group": "Spanning Backup",
+                "pages": [
+                  "user-guides/integrations/enable-spanning-integration"
+                ]
+              },
+              {
                 "group": "Liongard",
                 "pages": [
                   "user-guides/integrations/enable-liongard-integration"
@@ -390,7 +396,14 @@
               {
                 "group": "NinjaOne",
                 "pages": [
-                  "user-guides/integrations/enable-ninjaone-integration"
+                  "user-guides/integrations/enable-ninjaone-integration",
+                  "user-guides/integrations/enable-ninjaone-ticketing-integration"
+                ]
+              },
+              {
+                "group": "N-able N-central",
+                "pages": [
+                  "user-guides/integrations/enable-ncentral-integration"
                 ]
               },
               {
@@ -419,6 +432,12 @@
                 ]
               },
               {
+                "group": "Adobe Enterprise",
+                "pages": [
+                  "user-guides/integrations/enable-adobe-enterprise-integration"
+                ]
+              },
+              {
                 "group": "Sherweb",
                 "pages": [
                   "user-guides/integrations/enable-sherweb-integration"
@@ -428,6 +447,18 @@
                 "group": "Quoter",
                 "pages": [
                   "user-guides/quotes/setup"
+                ]
+              },
+              {
+                "group": "Salesbuildr",
+                "pages": [
+                  "user-guides/integrations/enable-salesbuildr-integration"
+                ]
+              },
+              {
+                "group": "TimeZest",
+                "pages": [
+                  "user-guides/integrations/enable-timezest-integration"
                 ]
               },
               {

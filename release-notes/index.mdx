@@ -3,6 +3,77 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## August 14, 2026
+
+### Recurring Meeting Booking
+
+Turn QBRs and compliance reviews into a dependable recurring schedule. Set the policies once, share a company-specific booking link, and let the client choose a cadence that works with the host's real availability.
+
+**Key Features:**
+- **Central setup for every host**: Set default working hours, meeting length, and conflict handling, then activate eligible hosts individually or in bulk.
+- **Company meeting schedules**: Define each client's business review and compliance cadence, meeting format, duration, and suggested timing, with bulk scheduling across companies.
+- **Guided client booking**: Clients choose where meetings fall in the cadence, review recommended times, add coworkers when allowed, and confirm the complete series.
+- **Conflict-aware series**: Availability is checked across the next 12 months, with your choice to require a clear schedule or allow host review of conflicts.
+- **Calendar-ready invitations**: Publish the series to Outlook or download ICS invitations, with Microsoft Teams links added for connected hosts.
+
+[Documentation: Recurring Meeting Booking](/user-guides/calendar/recurring-meeting-booking)
+
+### Microsoft Secure Score Status Sync
+
+Microsoft's own control states now flow into MSPortal, making it easier to separate work that needs attention from controls your team or Microsoft has already addressed.
+
+**Key Features:**
+- **Microsoft lifecycle states**: See planned, risk accepted, resolved externally, reviewed, completed, and other source states without changing them in MSPortal.
+- **Focused default view**: Secure Score opens on Needs attention, with Addressed and All views available beside it.
+- **More useful control details**: Review the Microsoft assignment, last update, updater, and comments alongside each control.
+- **Consistent exports and history**: The synced state is available in badges, filters, CSV exports, and control history.
+
+[Documentation: Microsoft 365 Secure Score](/user-guides/microsoft-365/index)
+
+### Integration Updates
+
+This week's integration work removes setup friction, improves data accuracy, and gives you finer control over what reaches MSPortal.
+
+**Key Features:**
+- **Spanning through UniView**: Connect UniView once, discover every accessible Spanning Microsoft 365 tenant, map each tenant to a company, and sync protected-user and seven-day backup status.
+- **Broader UniFi support**: Connect classic UniFi Network Server, UniFi OS Server, and UniFi OS environments, with clearer validation when a URL or credential is not accepted.
+- **Automatic IT Glue folders**: Document sync now refreshes the folder catalog directly from IT Glue, removing the manual browser-console workflow.
+- **More precise Halo assets**: Choose up to 100 Halo asset statuses to exclude from sync; inactive assets remain excluded automatically, and onboarding project tickets now create more reliably in Halo.
+- **Better ConnectWise contacts and tickets**: Contact role mapping considers every assigned contact type, manual portal roles survive PSA imports, and ticket notes show the actual submitter.
+- **Stronger Datto RMM checks**: Connection testing now validates credentials directly, and repeated credential failures pause the integration and notify administrators sooner.
+- **Cleaner storefront data**: Pax8 usage details use the newest available daily snapshot, legacy product names fall back correctly, and Sherweb subscriptions report active status accurately.
+- **Autotask resolution access**: Ticket resolution text is now available through the Public API and MCP server.
+
+[Documentation: Integration Settings](/user-guides/settings/integrations)
+
+### Flexible Onboarding Task Editing
+
+Choose how clients complete onboarding tasks on each template or portal. Pop-up editing keeps the current focused workflow and can expand to full screen, while inline editing opens forms and task entries directly inside the portal page.
+
+[Documentation: Client Onboarding Portal](/user-guides/client-onboarding/client-portal)
+
+### Compliance Management Through MCP
+
+Connected AI assistants can now maintain more of your compliance catalog. Create and update compliance groups, check definitions, and reusable run templates, with permission checks and confirmation steps before changes are applied.
+
+[Documentation: MSPortal MCP Server](/user-guides/mcp-server/index)
+
+### Improvements
+
+- **Faster ticket workflows**: Ticket lists and new-ticket submission now do less background work, and the ticket template editor loads server-first and saves changes atomically.
+- **Reliable Ticket Trends history**: Full historical trend processing now completes for tenants with very large ticket datasets instead of timing out.
+- **Smarter AI ticket intake**: The assistant asks for missing required choices instead of guessing, reports context-limit issues more clearly, and gives template generation more time to complete.
+- **Streamlined user settings**: Profile, sign-in, access, notifications, meeting host settings, and personal sidebar preferences now share one clearer page.
+- **Clearer sign-in guidance**: Custom sign-in pages can show up to 500 characters of additional help below the sign-in options, with a live preview in Branding settings.
+- **Direct feedback conversations**: Feedback notification emails now open the exact submission thread so replies are easier to continue.
+- **Safer certificate generation**: Concurrent course completions no longer create duplicate certificate numbers.
+- **Cleaner ticket details**: Change management controls use a smaller collapsible panel, and duplicate project time entries no longer appear.
+- **Correct compliance filters**: Company-scoped compliance device and location filters no longer include results from other companies.
+- **More consistent tables and groups**: Group creation links and shift-click or multi-page table selection now behave reliably.
+- **Read-only onboarding settings**: Users with onboarding settings view access can load PSA time-entry options without edit permission.
+- **More reliable MCP sessions**: MCP authentication remains tied to the connected user even while an administrator is impersonating another account in the browser.
+- **Faster Cloud and documentation views**: Secure Score, cloud posture, and documentation pages now avoid several unnecessary data loads.
+
 ## August 7, 2026
 
 ### Google Workspace and Unified Cloud

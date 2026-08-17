@@ -1,0 +1,85 @@
+---
+title: 'Configure N-able N-central Integration'
+description: 'Connect N-central to sync customers and import managed devices into MSPortal.ai'
+icon: 'server'
+---
+
+Connect N-able N-central to MSPortal.ai to synchronize customers, map them to MSPortal companies, and import managed devices.
+
+## Prerequisites
+
+- An N-central account with permission to create an API-only user and generate an API token
+- The HTTPS URL for your N-central server
+- MSPortal.ai integration management permission
+- Companies in MSPortal to map to N-central customers
+
+## Create an N-central API Token
+
+<Steps>
+  <Step title="Create an API-only user">
+    In N-central, create a dedicated API-only user for MSPortal. Disable MFA for this API user and use a non-expiring password so scheduled synchronization can continue.
+  </Step>
+  <Step title="Open API Access">
+    Go to **Administration > User Management > Users**, open the API user, and select **API Access**.
+  </Step>
+  <Step title="Generate the token">
+    Click **Generate JSON Web Token** and copy the token. Store it securely until you enter it in MSPortal.
+  </Step>
+</Steps>
+
+## Connect N-central in MSPortal
+
+<Steps>
+  <Step title="Open the setup page">
+    In MSPortal, go to **Settings > Integrations**, find **N-able N-central**, and click **Configure**.
+  </Step>
+  <Step title="Enter the connection details">
+    Enter your **Server URL**, such as `https://ncentral.example.com`, and the **API Token (JWT)** generated in N-central.
+  </Step>
+  <Step title="Test the connection">
+    Click **Test Connection**. Resolve any authentication or server URL error before continuing.
+  </Step>
+  <Step title="Create the integration">
+    After the test succeeds, click **Create Integration**. MSPortal stores the token securely and starts customer discovery.
+  </Step>
+</Steps>
+
+## Map Customers and Import Devices
+
+<Steps>
+  <Step title="Map N-central customers">
+    In the **Map** step, link each N-central customer to the company it belongs to in MSPortal. Use quick match to suggest mappings by name, then review the results.
+  </Step>
+  <Step title="Review device types">
+    Continue to the import step and map the N-central device categories to your MSPortal device types.
+  </Step>
+  <Step title="Import devices">
+    Select the devices you want to import. Only devices belonging to mapped customers can be associated with the correct MSPortal company.
+  </Step>
+</Steps>
+
+## Managing the Connection
+
+- Reopen **Configure** to update the server URL or API token.
+- Enter the current or replacement token before retesting an existing connection.
+- Return to the import step to review newly discovered devices or adjust device type mappings.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Connection test fails | Confirm the server URL uses HTTPS and points to the root of your N-central server. Then generate a new JSON Web Token for the API user. |
+| Authentication stops working | Confirm the API user is still active, MFA remains disabled for that API-only account, and its password has not expired. |
+| Customers are missing | Allow the initial customer synchronization to finish, then reopen the mapping step. |
+| Devices cannot be imported | Map the device's N-central customer to an MSPortal company first. |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Import Devices" icon="desktop" href="/user-guides/integrations/import-devices">
+    Review the shared device import workflow
+  </Card>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Manage all MSPortal integrations
+  </Card>
+</CardGroup>

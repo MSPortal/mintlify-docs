@@ -21,20 +21,25 @@ Choose one of two modes:
 
 ### Filtering Projects
 
-When you select **Filtered projects**, three filters appear. A project is shown when it matches **at least one** selected type, board, or specific project.
+When you select **Filtered projects**, the filters below appear. A project is shown when it matches **at least one** selected type, line of business, board, or specific project.
 
-| Filter | What it includes |
-|--------|------------------|
-| **Project types** | Every project with a selected PSA project type |
-| **Project boards** | Projects with phases or tickets on a selected board |
-| **Specific projects** | Hand-picked projects, chosen with a searchable selector |
+| Filter | What it includes | Available for |
+|--------|------------------|---------------|
+| **Project types** | Every project with a selected PSA project type | All PSAs |
+| **Lines of business** | Every project assigned to a selected Autotask line of business (Organizational Structure) | Autotask |
+| **Project boards** | Projects with phases or tickets on a selected project board | ConnectWise, Halo |
+| **Specific projects** | Hand-picked projects, chosen with a searchable selector | All PSAs |
+
+<Note>
+Autotask does not have project boards, so Autotask tenants see the **Lines of business** filter instead. Lines of business are synced from Autotask's Organizational Structure on each project sync.
+</Note>
 
 <Steps>
   <Step title="Select Filtered Projects">
     In the **Client project access** section, choose **Filtered projects**.
   </Step>
   <Step title="Choose Your Filters">
-    Select PSA project types, project boards, or search for specific projects. You can combine any of the three filters.
+    Select PSA project types, lines of business or project boards, or search for specific projects. You can combine any of the filters.
   </Step>
   <Step title="Save">
     Save your settings. Client users immediately see only the projects that match your selections.
@@ -65,6 +70,7 @@ Control which major sections appear in the Projects module by toggling these opt
 | **PSA Phases** | Show phases synced from your PSA system |
 | **Project Tickets** | Show tickets under phases (requires PSA Phases) |
 | **Time Entries** | Show time entries under tickets (requires Tickets) |
+| **Project Summary** | Show the PSA project summary card on the project detail page |
 
 <Note>
 Some sections have dependencies. For example, **Project Tickets** requires **PSA Phases** to be enabled, and **Time Entries** requires **Project Tickets** to be enabled.
@@ -72,15 +78,27 @@ Some sections have dependencies. For example, **Project Tickets** requires **PSA
 
 ### Kanban Settings
 
-<Info>
-The ticket-level Kanban feature is currently in development and available only in development environments.
-</Info>
-
-When the Kanban feature is enabled, you can configure:
+When the Kanban board is enabled, you can configure:
 
 - **Show Kanban** - Enable/disable the Kanban tab in project details
 - **Group By** - Default grouping for ticket columns (Status, Technician, or Priority)
 - **Density** - Default card density (Comfortable, Compact, or Dense)
+
+### Kanban Technicians
+
+The **Kanban technicians** card controls which PSA agents appear as technician columns and can be assigned tickets when the board is grouped by technician.
+
+| Setting | Options |
+|---------|---------|
+| **Technician columns** | **Only technicians with tickets** (default) shows an Unassigned column plus one column per technician who owns a ticket on the project, and an **Assign to…** drop target for everyone else in the roster. **Everyone in the roster** shows a column for every assignable technician. |
+| **PSA groups** | Roles, departments, teams, and lines of business synced from your PSA. A technician is assignable when they belong to any selected group. |
+| **Specific technicians** | Agents that are always assignable, regardless of group membership. |
+
+Leave both roster fields empty to allow every active PSA agent. ConnectWise projects are always limited to the project team in ConnectWise; the roster narrows that team further when configured.
+
+<Note>
+Groups come from your PSA: Autotask roles, departments and lines of business (Organizational Structure), ConnectWise departments, work roles and security roles, and Halo teams. They appear after the next PSA user sync.
+</Note>
 
 ## Field Visibility
 

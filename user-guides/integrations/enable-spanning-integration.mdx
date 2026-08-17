@@ -1,0 +1,84 @@
+---
+title: 'Configure Spanning Backup Integration'
+description: 'Connect Spanning UniView to map Microsoft 365 tenants and monitor backup health'
+icon: 'cloud-arrow-up'
+---
+
+Connect Spanning Backup through UniView to discover Microsoft 365 tenants, synchronize protected users, and report backup health in MSPortal.ai.
+
+<Note>
+Spanning Backup is currently a pilot integration. If the integration is not available in **Settings > Integrations**, contact support@msportal.ai.
+</Note>
+
+## Prerequisites
+
+- Access to the Spanning UniView portal
+- A UniView API client ID and client secret
+- MSPortal.ai integration management permission
+- MSPortal companies to map to the discovered Microsoft 365 tenants
+
+## Connect Spanning Backup
+
+<Steps>
+  <Step title="Create UniView credentials">
+    In UniView, open **API Access**, create a client for MSPortal, and copy its client ID and client secret.
+  </Step>
+  <Step title="Open the setup page">
+    In MSPortal, go to **Settings > Integrations**, find **Spanning Backup**, and click **Configure**.
+  </Step>
+  <Step title="Test the connection">
+    Enter the **UniView Client ID** and **UniView Client Secret**, then click **Test Connection**. MSPortal confirms how many Microsoft 365 tenants the client can access.
+  </Step>
+  <Step title="Save the credentials">
+    Click **Create Integration** after the connection test succeeds. The credentials are stored securely in Vault.
+  </Step>
+</Steps>
+
+## Configure Synchronization
+
+Microsoft 365 tenant discovery is always enabled because it is required for company mapping. In the **Configure Sync** step, choose whether MSPortal also synchronizes:
+
+- Protected and archived user inventory
+- Seven-day backup health for Exchange, OneDrive, SharePoint, and Teams
+
+Click **Save sync settings** before continuing.
+
+## Map Tenants
+
+<Steps>
+  <Step title="Review discovered tenants">
+    The mapping table shows each Microsoft 365 tenant returned by UniView, including its primary domain, protected-user count, and backup status.
+  </Step>
+  <Step title="Match tenants to companies">
+    Use quick match to suggest company mappings by name, or select the correct MSPortal company manually.
+  </Step>
+  <Step title="Save the mappings">
+    Save the mappings so synchronized backup data is assigned to the correct company.
+  </Step>
+</Steps>
+
+## Review Status
+
+The **Status** step shows mapped tenants, protected users, backed-up services, workload summaries, the latest synchronization time, and any current sync error. Mapped tenants synchronize automatically every hour.
+
+Use **View backup health** to open the Spanning Microsoft 365 backup view after the first detailed synchronization completes.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| UniView rejects the credentials | Confirm the API client is active and copy both values from the same UniView client. |
+| No tenants appear | Confirm the API client can access the expected Microsoft 365 tenants and allow the initial discovery to complete. |
+| Backup health remains pending | Map at least one tenant and enable **Backup health and history**, then allow the first detailed sync to finish. |
+| Data appears under the wrong company | Reopen the **Map Tenants** step and correct the tenant-to-company mapping. |
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Backup" icon="cloud-arrow-up" href="/user-guides/backup/index">
+    Review backup health in MSPortal
+  </Card>
+  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
+    Manage all MSPortal integrations
+  </Card>
+</CardGroup>
