@@ -1,10 +1,10 @@
 ---
 title: 'Quotes'
-description: 'View and manage your Quoter quotes directly inside MSPortal.ai'
+description: 'View Quoter, QuoteWerks, and Salesbuildr quotes directly inside MSPortal.ai'
 icon: 'file-invoice-dollar'
 ---
 
-The Quotes module brings your [Quoter](https://www.quoter.com) quotes into MSPortal.ai, giving you a centralized view of all proposals alongside your other client data. Quotes sync automatically from Quoter every 4 hours, so your team always has up-to-date pricing and proposal information without switching between tools.
+The Quotes module brings your quotes from [Quoter](https://www.quoter.com), QuoteWerks, and Salesbuildr into MSPortal.ai, giving you a centralized view of all proposals alongside your other client data. Quotes sync automatically every 4 hours, so your team always has up-to-date pricing and proposal information without switching between tools. This guide uses Quoter for its examples; the QuoteWerks and Salesbuildr guides linked below cover their setup.
 
 <Note>
   Quotes in MSPortal.ai are **read-only**. All quote creation and editing is done in Quoter. MSPortal.ai syncs and displays your quotes so you can reference them alongside company data, meetings, and other modules.
@@ -145,6 +145,10 @@ Below the pricing summary, a table lists every line item on the quote:
 
 From the quotes list, click the **actions menu** (three dots) on any row and select **Open in Quoter** to jump directly to that quote in your Quoter account. This requires a Quoter subdomain to be configured during integration setup.
 
+### Download PDF
+
+For quotes that come from Salesbuildr, the quote detail page shows a **Download PDF** button, and the actions menu on the Quotes list includes **Download PDF**. MSPortal fetches the PDF from Salesbuildr on demand, so it always reflects the current version of the quote. Client portal users can download PDFs for the quotes they can see.
+
 ### Add to Meeting
 
 Select **Add to Meeting** from the actions menu to attach a quote to an upcoming meeting agenda. This is useful for discussing proposals during quarterly business reviews or client check-ins.
@@ -168,5 +172,7 @@ Select **Add to Meeting** from the actions menu to attach a quote to an upcoming
 ## Related Guides
 
 - [Set Up Quoter Integration](/user-guides/quotes/setup) - Connect your Quoter account to MSPortal.ai
+- [Configure QuoteWerks Integration](/user-guides/integrations/enable-quotewerks-integration) - Sync QuoteWerks quotes into the Quotes module
+- [Configure Salesbuildr Integration](/user-guides/integrations/enable-salesbuildr-integration) - Sync Salesbuildr quotes, PDFs, and products
 - [Calendar & Meetings](/user-guides/calendar/index) - Learn about meeting agendas where quotes can be added
 - [Integrations Overview](/user-guides/integrations/index) - General integration setup guidance

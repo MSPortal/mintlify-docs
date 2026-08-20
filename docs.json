@@ -570,8 +570,7 @@
           {
             "group": "Updates",
             "pages": [
-              "release-notes/index",
-              "release-notes/roadmap"
+              "release-notes/index"
             ]
           }
         ]
@@ -609,7 +608,7 @@
     "links": [
       {
         "label": "Roadmap",
-        "href": "https://docs.msportal.ai/release-notes/roadmap"
+        "href": "https://app.msportal.ai/product-roadmap"
       },
       {
         "label": "Support",
