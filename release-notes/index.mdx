@@ -3,6 +3,156 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## August 21, 2026
+
+### Projects: Schedule View, Technician Rosters, and Autotask Write-Back
+
+Project work now has a fourth way to see it, a roster you control, and status changes that hold. Schedule mode puts the plan on a calendar, technician columns follow the roster you define, and a status moved on a Kanban board lands in Autotask.
+
+**Key Features:**
+- **Schedule view**: A new Schedule mode beside Cards, List, and Kanban places project tasks, phases, and milestones on the calendar grid alongside meetings, PSA appointments, and changes, so a project is planned against the same week your team is actually working. Every project detail page gets its own Schedule tab scoped to that client.
+- **Autotask status write-back**: Move a task or project on a Kanban board and the new status is written to Autotask. Your board and your PSA agree without anyone updating both.
+- **Kanban technician columns**: Choose whether technician columns show only the agents who own tickets on the project or your full assignable roster, and build that roster from the roles, departments, teams, and lines of business already synced from your PSA.
+- **Assign to another technician**: Drop a ticket on the "Assign to…" column to hand it to anyone in the roster without leaving the board.
+- **Broader project search**: Search matches company names and project updates as well as the project name, so you can find a project by the client who asked for it.
+- **Lines of business filter**: Include every project assigned to a selected Autotask line of business when deciding which projects client users can see.
+- **Inline milestone editing**: Edit milestone names, dates, and details directly in the project timeline.
+- **Steadier decision tracking**: Project decisions sync more reliably alongside phases and tasks.
+
+Tip: Kanban boards grouped by technician show the agents who own tickets on the project, plus Unassigned. To show a column for every assignable agent, choose **Everyone in the roster** in Project Settings.
+
+[Documentation: Projects](/user-guides/projects)
+
+[Documentation: Project Settings](/user-guides/settings/projects)
+
+### Salesbuildr Quote Integration (Beta)
+
+Connect Salesbuildr and your proposals live where your team and your clients already work. Quotes, line items, totals, and PDFs flow into MSPortal for every company you map, and your Salesbuildr pricing becomes available to Budgets.
+
+**Key Features:**
+- **Guided three-step setup**: Connect with your Salesbuildr account URL and API key, map companies, and start the first sync from a single wizard.
+- **Flexible company mapping**: Use Quick Match, pick a company manually, or create a new MSPortal company from a Salesbuildr record. Quotes are imported for the companies you map.
+- **Quotes and line items**: Quote numbers, titles, statuses, contacts, owners, discounts, and every product and service line arrive on the Quotes page.
+- **Recurring and one-time totals**: Monthly, annual, and one-time totals are calculated from each quote's line items, so the shape of a deal is visible without opening the PDF.
+- **Client-safe access**: Client portal users see the quotes mapped to their own company and can open the matching Salesbuildr quote portal directly from MSPortal.
+- **Quote PDF download**: Download the Salesbuildr PDF from the quote detail page or the Quotes list menu, for your team and for portal users who can see the quote.
+- **Products in your catalog**: Salesbuildr products sync into the Import Products dialog under Budgets with sell price, setup price, billing cadence, unit, category, and vendor, so a Salesbuildr product becomes a budget line at the right recurrence. A product with a setup fee brings a one-time setup line along with its recurring line.
+- **Automatic updates**: Companies and products sync nightly, quotes and line items every four hours, and immediately after a mapping change.
+
+Salesbuildr is in beta. Quotes are read-only in MSPortal, which keeps Salesbuildr the system of record while giving everyone one place to review status, pricing, and line items.
+
+[Documentation: Salesbuildr Integration](/user-guides/integrations/enable-salesbuildr-integration)
+
+### Rebuilt Role Editor with Granular Permissions
+
+Roles now expand into the specific views and actions behind each module, so a role can carry exactly what the job needs. A dispatcher can update ticket statuses without creating tickets. A project coordinator can see the Kanban board without editing deliverables. A client contact can see their own surveys and nothing else.
+
+**Key Features:**
+- **Project permissions**: Grant the Cards, List, Kanban, and Schedule views independently, and separate updating statuses, adding notes and time entries, and editing milestones, updates, and deliverables.
+- **Ticket actions**: Creating tickets, adding notes, and updating statuses are individual grants.
+- **Calendar scopes**: Choose Mine only, My site, or All appointments and changes, and grant service call visibility on its own.
+- **Survey visibility**: Control who sees all surveys or only their own, who sees responses, and who can edit a submitted response.
+- **Clearer matrix**: Each resource shows a "3 of 7" summary and expands to the detail only when you want it.
+
+Tip: Roles built before this release pick up the matching granular view grants the first time you open and save them in the role editor.
+
+[Documentation: Users & Roles](/user-guides/settings/users-roles)
+
+### Onboarding Flow Diagnostics
+
+Every onboarding portal now carries a diagnostics panel that answers the two questions worth asking mid-onboarding: how fast is this moving, and who is holding it up.
+
+**Key Features:**
+- **Speed and ownership at a glance**: Average task time, client progress, past due count, and blocked count across the whole onboarding.
+- **By phase**: Completion, elapsed time, and the longest open task in each phase, ranked so the phases needing attention surface first.
+- **By person**: Task ownership for your team and for the client, with overdue and blocked counts, oldest open task, portal visit counts, and last portal access, so a stalled onboarding can be traced to the person who needs a nudge.
+- **Documents on the portal**: Show any uploaded document to the client with a single toggle, including documents your own team uploaded.
+
+[Documentation: Managing Portals](/user-guides/client-onboarding/managing-portals)
+
+### Company-Aware Ticket Template Fields
+
+Two new field types let a ticket template draw its choices from each client's live documentation and cloud directory, so a requester picks the right answer from a list instead of typing one.
+
+**Key Features:**
+- **Hudu and IT Glue asset fields**: Choose an asset layout or flexible asset type and one of its fields. The ticket form shows the values synced for the selected company, with optional multi-select.
+- **Microsoft 365 and Google Workspace groups**: Let requesters choose the groups involved in a request, filtered by provider and group type. Groups hidden from clients in Cloud > Groups stay unavailable.
+- **Conditional visibility**: Show a field only when another answer matches, so follow-up questions appear when they are relevant and stay out of the way when they are not.
+- **Accurate source lists**: The editor offers the asset layouts enabled for sync and tells you when another layout needs to be enabled in Integration Settings.
+
+[Documentation: Ticket Templates](/user-guides/ticketing/how-to-create-a-ticket-template)
+
+### Team Activity Is Now an Engagement Directory
+
+Team activity answers a question that matters more than who is busiest: who is not using the portal at all. Every eligible account and active company appears, whether they logged an action or not, so a client contact who has never signed in is as visible as your busiest technician.
+
+**Key Features:**
+- **Active and Not filters**: Filter users and companies by whether they recorded any action in the selected date range.
+- **Coverage columns**: Active users and Active % show how much of a company's provisioned user base is actually working in the portal, which is the number to bring to a renewal conversation.
+- **Full roster**: Eligible portal accounts and active companies appear with zero actions rather than being ranked out of the list.
+
+[Documentation: Users & Roles](/user-guides/settings/users-roles)
+
+### Estonian and Lithuanian
+
+MSPortal is now available in 18 languages. Estonian and Lithuanian join the existing 16 with complete coverage across every page, form, notification, email, and client portal, using formal business language and consistent MSP terminology.
+
+**Supported Languages:** English, Czech, Danish, Dutch, Estonian, Finnish, French (Canada), French (France), German, Italian, Latvian, Lithuanian, Norwegian, Polish, Portuguese, Slovak, Spanish, and Swedish.
+
+### Integration Reliability
+
+**Key Features:**
+- **Sync blackout windows**: MSPortal learns the daily windows where a vendor API consistently fails, holds scheduled syncing during them, and sends one probe a day until the vendor recovers. Syncing resumes on its own, and your run history stays readable instead of filling with vendor-side failures.
+- **Autotask deletion reconciliation**: Tasks, phases, and time entries deleted in Autotask are removed from MSPortal, so project hour rollups match Autotask.
+- **Huntress organization scoping**: Huntress syncs are scoped to the organizations you have mapped, keeping import counts and dashboards to your own client base. The setup wizard also lets administrators choose which EDR and SAT datasets sync.
+- **Cove account counts**: Cove partner cards report protected account counts from the partner record.
+- **Steadier CIPP syncs**: Nightly CIPP syncs handle a degraded instance gracefully and finish cleanly.
+- **Meraki connection management**: Updating or disconnecting Meraki keeps a single clean connection and clears stored credentials on disconnect.
+- **Setup guides in the wizard**: Integration setup wizards link directly to the matching documentation page.
+- **Translated integration cards**: Integration descriptions and "last synced" labels on every card are translated in all supported languages.
+
+[Documentation: Integration Settings](/user-guides/settings/integrations)
+
+### Calendar and Dashboard Refinements
+
+**Key Features:**
+- **Hide items**: Hide recurring plan rows such as "PM" or "Meetings" by name. The choice is saved per surface, so the projects schedule and your main calendar keep separate views.
+- **Real all-day events**: All-day items read "All day" rather than a start time, and can be hidden or shown as a group.
+- **Portfolio summary**: The Your Companies dashboard opens with a grouped summary rail covering devices, tickets, compliance, meetings, training, and Secure Score, with each metric linking through to its module.
+- **Company overview summary**: The company overview page uses the same grouped card, and widget collapse states persist between visits.
+- **Financial data sources explained**: Financial metrics on the company page show where each number comes from, so the figure in a client conversation can be traced to its source.
+
+[Documentation: Calendar](/user-guides/calendar)
+
+### Improvements
+
+- **Redesigned Ticket Trends executive summary**: The executive summary that opens a Ticket Trends report has a cleaner layout and clearer hierarchy, so it reads as the client-facing summary it is meant to be.
+- **Complete report exports**: PDF exports wait for every reporting block to finish rendering before the file is produced, so an exported report matches what you see on screen.
+- **Responsive reporting blocks**: Microsoft 365 licensing, Secure Score, Cork, Domotz, Planner, budget, and imported document blocks lay out cleanly at every grid size.
+- **AI Readiness in reports**: A new AI Readiness overview block summarizes a client's readiness assessment, with clear guidance when the playbook has not been run.
+- **Backup blocks explain what to check**: A backup block that cannot load points at the integration to check rather than rendering empty.
+- **Full QBR ticket metrics**: A Full QBR using the default SLA risk focus keeps its full ticket data source whether or not normalized SLA fields are present, and HaloPSA SLA and labor fields now reach narrative reports.
+- **Report role variables for everyone**: Team role tokens in report templates resolve for anyone who can read the report, including client portal users viewing their own company.
+- **Ticket visibility for manual contacts**: Company contacts you maintain by hand take part in location-scoped ticket visibility alongside PSA-sourced contacts.
+- **Emergency broadcasts at scale**: Broadcast delivery is batched and claim-based, so a large audience is delivered exactly once.
+- **Booking links opened by the host**: Opening your own booking link explains that the page is built for client portal users and offers a preview.
+- **Microsoft Teams sessions recover cleanly**: An expired session inside the Teams app reloads through the Teams launcher and attempts silent single sign-on, keeping you inside Teams.
+- **Meeting presentation mode**: Presentation slides get a refreshed layout, clearer typography, and a redesigned slide navigation bar.
+- **Meeting profile permissions**: Meeting booking profiles follow calendar permissions, so hosts appear where their access says they should.
+- **Company user locations**: Assign a company user to one of that company's locations from the user dialogs, with validation that the location belongs to the company.
+- **Feedback replies**: Staff replies to client feedback deliver reliably, and feedback stages that are statuses rather than board columns can be marked Feedback only.
+- **Onboarding portal dates**: Dates selected in portal date management save exactly as chosen in every timezone.
+- **Certificate numbering**: Certificate numbers stay unique when several course completions land at once.
+- **Liongard metrics**: Metric pagination retrieves complete result sets on large environments.
+- **Halo contact stickiness**: Company contact fields set during auto-import survive later user syncs.
+- **Google Workspace and SaaS Protection syncs**: Both syncs handle vendor errors and pagination more reliably during overnight runs.
+- **Faster UniFi device counts**: The unimported device banner loads without an expensive count on every page view.
+- **Ticket Trends for newly synced companies**: A full history rebuild starts as soon as a new company's initial ticket sync completes, so trends are ready before the next weekly refresh.
+- **Recurring meeting defaults**: Company Defaults loads for tenants that have not configured Calendar settings yet and points administrators to the setup it needs.
+- **PSA-aware financial reporting**: Financial Reporting uses each PSA's own terminology rather than calling every team or queue a board, and Halo revenue can be classified by contract subtype.
+- **Device cleanup after unlinking**: Unlinking an integration company removes the devices owned only by that mapping, while preserving manually created devices and devices still owned by another connected source.
+- **Halo ticket refinements**: The all-teams configuration keeps its full status list alongside recently saved team choices, and long category names wrap cleanly in ticket details.
+
 ## August 18, 2026
 
 ### Compliance Required Companies
