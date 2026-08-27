@@ -25,7 +25,7 @@ The grid follows a standard table shape:
 | **Sticky Company column** | The first column shows the MSPortal company name. It stays pinned as you scroll horizontally so you always know which row you are working with |
 | **Provider columns** | One column per active integration (ConnectWise, Autotask, Halo, Syncro, ConnectWise Asio, NinjaOne, Addigy, Cove, Acronis, Datto RMM, Hudu, IT Glue, Cork, Pax8). Only providers your tenant has actually connected appear |
 | **Cells** | Each cell shows the integration company linked to the MSPortal company in that row, or a blank cell if no link exists. Click a cell to add, swap, or unlink |
-| **Header tools** | Search, company count, and the **Missing values** filter live above the table |
+| **Header tools** | Search, company count, the **Blank links** filter, and the **Company mapping cleanup** card live above the table |
 
 <Note>
 Tenants without a particular integration (for example, no Hudu) simply do not see that column. Adding a new integration adds its column to the grid the next time the page loads.
@@ -51,13 +51,19 @@ To swap an existing link to a different integration company, click the cell and 
 Every provider on the page is writable. The same dispatcher behind each cell calls the same link, unlink, and quick-match action your provider's setup wizard already uses, so writes are consistent whether you make them on this page or in the per-provider wizard.
 </Tip>
 
-## Advanced Quick Match
+## Company Mapping Cleanup
 
-**Advanced Quick Match** scans every active integration in one pass, proposes name-based matches for every unlinked integration company, and lets you accept or reject the whole batch in a single review.
+The **Company mapping cleanup** card above the grid tells you whether anything needs attention. When every record is either linked or deliberately ignored, it says so and there is nothing to do. Otherwise it reports how many integration sources hold unlinked customer records.
+
+Work through it in two passes: take the recommended matches first, then review whatever is left.
+
+### Recommended matches
+
+**Recommended matches** scans every active integration in one pass, proposes name-based matches for every unlinked integration company, and lets you accept or reject the whole batch in a single review.
 
 <Steps>
-  <Step title="Click Advanced Quick Match">
-    Click the **Advanced Quick Match** button above the grid.
+  <Step title="Click Review likely matches">
+    Click **Review likely matches** above the grid.
   </Step>
   <Step title="Set the Confidence Threshold">
     Drag the slider to set the minimum match confidence (40 to 100 percent, default 70 percent). Higher thresholds yield fewer but more reliable suggestions; lower thresholds catch fuzzier matches at the cost of more false positives to review.
@@ -74,18 +80,49 @@ Every provider on the page is writable. The same dispatcher behind each cell cal
 </Steps>
 
 <Info>
-Quick Match preserves the per-provider scoring tweaks each integration's wizard already uses (for example Hudu and IT Glue cross-reference PSA IDs, ConnectWise filters by active flag), so the suggestions match what each provider's own dialog would have shown.
+Recommended matches preserve the per-provider scoring tweaks each integration's wizard already uses (for example Hudu and IT Glue cross-reference PSA IDs, ConnectWise filters by active flag), so the suggestions match what each provider's own dialog would have shown.
 </Info>
+
+### Reviewing what is left
+
+Click **Review unlinked records** on the cleanup card to open **Unlinked customer records**. These are records that exist in your integrations but are not linked to an MSPortal company.
+
+Records for the same customer across different integrations are grouped into one row, so a single decision covers every integration that holds that customer.
+
+The dialog has two tabs:
+
+| Tab | Contents |
+|-----|----------|
+| **To review** | Customer groups that still need a decision |
+| **Ignored groups** | Groups you have set aside |
+
+Narrow the list with the search box, the integration filter, and the company type filter. Company types come from your PSA, so you can work through customers and leave prospects, vendors, or suppliers alone. Filtering by company type keeps the whole grouped customer row visible rather than hiding the other integrations' records for that customer.
+
+<Steps>
+  <Step title="Link what belongs to a company">
+    Link the record to the MSPortal company it belongs to, the same way you would from a grid cell.
+  </Step>
+  <Step title="Ignore what never will">
+    For a group that should never be linked, such as an internal test account or a vendor record, click **Ignore from cleanup**. Every integration record in that group is removed from the queue.
+  </Step>
+  <Step title="Restore if you change your mind">
+    Open the **Ignored groups** tab and click **Restore** to put a group back in the review queue.
+  </Step>
+</Steps>
+
+<Tip>
+The **Your Companies** dashboard shows a **Likely customer matches to review** banner when your integrations hold customer records that look like companies you already have. It links straight to the recommended matches, so cleanup surfaces itself instead of waiting to be found.
+</Tip>
 
 ## Search and Filter
 
 The header above the grid offers two ways to narrow the table:
 
 - **Search** filters companies by name. Combine with the column filters built into the table to drill down faster.
-- **Missing values** dropdown filters to companies missing any link or missing a link for a specific provider. Useful for "show me every company that does not have a Cove backup link yet" coverage reports.
+- **Blank links** dropdown filters to companies missing any link, or missing a link for a specific provider. Useful for "show me every company that does not have a Cove backup link yet" coverage reports.
 
 <Tip>
-Use the **Missing values** filter together with **Advanced Quick Match** to find companies without coverage on a specific provider, then run Quick Match scoped to that provider only.
+Use the **Blank links** filter together with **Recommended matches** to find companies without coverage on a specific provider, then review the suggestions for that provider only.
 </Tip>
 
 ## Company Selector and Scope
@@ -124,9 +161,9 @@ Every provider on this page is writable, but a few have caveats worth knowing:
 | Scenario | Use this page | Use the setup wizard |
 |----------|---------------|----------------------|
 | Reviewing coverage across every integration | Yes | No |
-| Mapping a handful of newly imported companies in a single integration | Yes (Quick Match scoped to that provider) | Either |
+| Mapping a handful of newly imported companies in a single integration | Yes (Recommended matches scoped to that provider) | Either |
 | First-time setup of a new integration's company import | Either | Yes (setup wizard walks you through other configuration too) |
-| Bulk auto-matching across every connected tool at once | Yes (Advanced Quick Match) | No |
+| Bulk auto-matching across every connected tool at once | Yes (Recommended matches) | No |
 | Fixing a single mismatched company link | Yes | Either |
 
 <Note>
@@ -135,7 +172,7 @@ Both flows write the same fields the same way, so changes made on this page show
 
 ## Required Permissions
 
-To open this page, your tenant role needs the **Read** permission for Settings → Integrations. To create or remove links, you need the **Write** permission. Quick Match apply requires the same Write permission as cell-level linking.
+To open this page, your tenant role needs the **Read** permission for Settings → Integrations. To create or remove links, you need the **Write** permission. Applying recommended matches, and ignoring or restoring a customer group, require the same Write permission as cell-level linking.
 
 ## Related Resources
 

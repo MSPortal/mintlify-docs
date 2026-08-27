@@ -1,0 +1,142 @@
+---
+title: Account Notes and QBR Log
+description: Keep a searchable account history of notes, business reviews, and commitments for every client
+icon: 'clipboard-list'
+---
+
+Account Notes give each company one durable record of the relationship. Notes written in MSPortal, structured QBR log entries, and notes synced from Autotask all appear in the same searchable history.
+
+A QBR log entry is a structured record of a business review: what was **discussed**, what was **agreed**, and what was **actioned**, with an owner, a due date, and a completion state on every commitment.
+
+<Note>
+Account notes are internal. They are visible to your staff, never to company users.
+</Note>
+
+## Where to find them
+
+| Surface | What it shows |
+|---------|---------------|
+| **Settings > Companies > [company] > Notes** | The full account history: account notes, QBR log entries, and Autotask notes |
+| **Meeting page > QBR Log tab** | The QBR log for the meeting's company, with this meeting's entry pinned to the top |
+| **Company overview** | An **Account Notes** card with the most recent entries and the number of open commitments |
+
+The **QBR Log** tab appears on meetings that are linked to a company. It is not shown to company users.
+
+## Adding a note by hand
+
+<Steps>
+  <Step title="Open the notes list">
+    Go to **Settings > Companies**, open the company, and select the **Notes** tab.
+  </Step>
+  <Step title="Click Add note">
+    Choose the **Kind**: **Account note** for a free-form note, or **QBR log** for a structured business review entry.
+  </Step>
+  <Step title="Fill in the entry">
+    Give it a **Title** and a **Date**. An account note takes a rich text body. A QBR log entry takes **Discussed**, a list of **Agreed** decisions, and a list of **Actioned** commitments with an owner and due date.
+  </Step>
+  <Step title="Save">
+    The note appears at the top of the account history.
+  </Step>
+</Steps>
+
+## Generating a QBR log entry from a meeting
+
+<Steps>
+  <Step title="Open the meeting's QBR Log tab">
+    On any meeting linked to a company, select **QBR Log**.
+  </Step>
+  <Step title="Generate the entry">
+    Click **Generate from this meeting**. MSPortal builds the entry from the meeting summary, agenda, meeting notes, action items, and transcript, along with the last few log entries for that company so follow-ups on earlier commitments are picked up.
+  </Step>
+  <Step title="Review and edit">
+    Edit anything that is not right. Use **Regenerate with AI** to rebuild the entry. Commitments you have already ticked as **Done** survive a regeneration.
+  </Step>
+</Steps>
+
+Commitments captured in an entry are also added to the meeting's action items, so follow-ups are chased in the same place as the rest of the team's work. An owner who matches a member of your staff is assigned automatically; anyone else, such as a client contact, is left unassigned with their name kept on the item.
+
+## Writing entries automatically after a meeting
+
+Turn on **Update the QBR log automatically** in **Settings > Operations > Calendar > Post-Meeting**. After a meeting summary is sent, MSPortal writes the QBR log entry for that company with AI.
+
+The entry is written a few seconds after the summary is sent. The QBR Log tab shows that the entry is being written rather than an empty state.
+
+Automatic entries are skipped for:
+
+- Meetings that are not linked to a company
+- Technician visits, service calls, and internal meetings
+- Entries that were already edited by hand, so your team's edits are never overwritten
+
+## Tracking commitments
+
+Each commitment carries a description, an owner, a due date, and a **Done** tick. The entry header shows how many are still open, for example **2 of 5 open**, and the Account Notes card on the company overview shows the open count across the company.
+
+Tick a commitment as done directly in the list. The change is saved immediately.
+
+## Filtering and searching
+
+The notes list has:
+
+- A search box across note bodies, titles, authors, and types
+- A **kind** filter: **All notes**, **Account notes**, or **QBR log entries**
+- A note type filter for Autotask note types
+- Sorting by newest, oldest, note type, or author
+
+Entries are labeled by origin, so an AI-written entry shows **AI generated** and a synced Autotask note shows **From Autotask**.
+
+## Saving notes into Autotask
+
+<Info>
+This section applies to companies linked to an Autotask integration. Other companies keep their notes in MSPortal.
+</Info>
+
+When you create or edit a note, pick an **Autotask note type** and turn on **Push to Autotask when saved**. MSPortal files the note in Autotask as a Company Note of that type. Editing the note again and saving updates the same Autotask note rather than creating a second one.
+
+Note types come from your Autotask picklists and refresh with the daily integration sync.
+
+To have automatic QBR entries pushed as well, set **Push QBR log entries to Autotask as** in **Settings > Operations > Calendar > Post-Meeting**. Leave it on **Do not push to Autotask** to keep automatic entries in MSPortal only.
+
+<Note>
+Notes already synced to Autotask appear once in the account history, not twice. Deleting a note in MSPortal does not delete the copy in Autotask.
+</Note>
+
+### When a push fails
+
+A failed push never loses the note. It is saved in MSPortal and marked **Autotask sync failed** with the error from Autotask. Use **Sync to Autotask** on the note to retry once the cause is resolved, such as a note type that no longer exists or a company that is no longer linked.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The QBR Log tab is not on my meeting">
+    The tab only appears on meetings linked to a company, and only for staff. Set the company on the meeting, then reopen it.
+  </Accordion>
+
+  <Accordion title="No entry appeared after I sent a summary">
+    Check that **Update the QBR log automatically** is on in **Settings > Operations > Calendar > Post-Meeting**. Entries are also skipped for technician visits, service calls, internal meetings, meetings without a company, and entries already edited by hand. You can always write one with **Generate from this meeting**.
+  </Accordion>
+
+  <Accordion title="The Autotask note type list is empty">
+    Note types come from the daily Autotask picklist sync. Confirm the company is linked to an Autotask integration and that the integration has synced at least once.
+  </Accordion>
+
+  <Accordion title="A regenerated entry lost an edit">
+    Regenerating rewrites the entry. Completed commitments are preserved, but wording you changed by hand is replaced. Entries edited by hand are never regenerated automatically, only when you click **Regenerate with AI**.
+  </Accordion>
+</AccordionGroup>
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card title="Meeting Summaries" icon="envelope" href="/user-guides/calendar/meeting-summaries">
+    Wrap up a meeting and send the client summary that seeds the QBR log
+  </Card>
+  <Card title="Meeting Pages" icon="file-lines" href="/user-guides/calendar/meetings">
+    Capture notes, agendas, and action items during the meeting
+  </Card>
+  <Card title="Company Overview" icon="building" href="/user-guides/company-overview/index">
+    See account notes and open commitments alongside the rest of the client picture
+  </Card>
+  <Card title="Autotask Integration" icon="plug" href="/user-guides/integrations/enable-autotask-integration">
+    Connect Autotask so notes can be filed as Company Notes
+  </Card>
+</CardGroup>

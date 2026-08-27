@@ -3,6 +3,98 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## August 28, 2026
+
+### Post-Meeting Wrap-Up
+
+Turn every completed meeting into a consistent follow-up. The new guided wrap-up keeps internal feedback, the transcript, action items, and the client summary in one flow you can pause and come back to.
+
+**Key Features:**
+- **One flow, three steps**: Complete the internal survey, work through the transcript, and send the summary in one place. Save your progress and come back to it at any time.
+- **Custom internal survey**: Build the questions your team should answer after a meeting, including ratings, yes or no questions, choice lists, and written responses. Answers stay internal.
+- **From transcript to draft notes**: Upload a transcript file or paste the text in. AI drafts the meeting notes and action items, and nothing is added to the meeting until you have reviewed, edited, assigned, and approved it.
+- **More complete summaries**: Generate the client email from the agenda, meeting notes, action items, and transcript, then edit it before sending.
+- **Flexible prompts and controls**: Choose whether staff are prompted when a meeting is completed and whether transcript processing is available from Calendar Settings.
+
+[Documentation: Meeting Summaries](/user-guides/calendar/meeting-summaries)
+
+### Account Notes and QBR Log
+
+Keep a durable record of each client relationship. Company notes created in MSPortal, structured QBR entries, and notes synced from Autotask now share one searchable account history.
+
+**Key Features:**
+- **Structured QBR record**: Capture what was discussed, what was agreed, and every commitment with its owner, due date, and completion state.
+- **Meeting-linked entries**: Generate a QBR log entry from the meeting summary, agenda, notes, action items, transcript, and recent client history, or add and edit the entry by hand.
+- **Automatic follow-through**: Optionally update the QBR log after a meeting summary is sent while preserving entries your team edited manually.
+- **Save notes into Autotask**: Pick the Autotask company note type when you save, keep the Autotask copy up to date as you edit, and retry a failed save without losing the note in MSPortal.
+- **Company overview preview**: See the latest account notes and open commitments directly on the company overview.
+
+[Documentation: Account Notes and QBR Log](/user-guides/calendar/account-notes)
+
+### Choose Which Metrics Count Toward Client Health
+
+Choose exactly which signals reflect client health for your MSP. All 23 scored metrics now have individual controls, so you can exclude a metric that does not fit your service model without removing the rest of its dimension.
+
+**Key Features:**
+- **23 individual metric controls**: Configure ticket, engagement, financial, sales, project, standards, environment, and operational signals one by one.
+- **Automatic reweighting**: When a metric is excluded, its share is redistributed across the enabled metrics in the same dimension. A dimension with no enabled metrics is excluded from the overall score.
+- **Transparent context**: Excluded metrics keep their observed values for reference and are clearly marked Disabled without affecting the score or evidence coverage.
+- **Immediate refresh**: Saving the scoring configuration starts a new Client Health refresh automatically.
+
+[Documentation: Health Score Configuration](/user-guides/settings/scoring)
+
+### Huntress Security Awareness Training
+
+Bring Huntress security awareness training into MSPortal. Managers get a full picture of assignments and completion, and staff see the episodes assigned to them alongside the rest of their courses.
+
+**Key Features:**
+- **Assignment overview**: See active assignments, episode counts, who is assigned, and overall completion at a glance.
+- **Learner progress**: Open an assignment to see who is assigned, who has finished, and the current completion rate.
+- **Episode details**: Review learning objectives, release dates, passing scores, and attempt limits, and open the Huntress preview for an episode.
+- **Your own training in one place**: Episodes assigned to you appear as courses in your training library and count toward your enrolled, completed, and average score totals.
+- **One table for every provider**: Huntress sits alongside Phin, Breach Secure Now, and CyberHoot on Security Training, where every column now filters and sorts across your full result set instead of the page on screen.
+- **Included in reporting**: Companies whose only awareness program is Huntress or Phin now get the security awareness blocks, and QBR reports suggest the Security Awareness & Training source by default.
+- **Focused navigation**: Search by assignment, episode, or company, and filter the list by assignment status.
+
+[Documentation: Security Awareness Training](/user-guides/training/security-awareness)
+
+### Planner Ownership and Team Mentions
+
+Make ownership and collaboration visible where the work lives. Planner items can now have a staff assignee, and teammates can be mentioned in Planner and Compliance notes.
+
+**Key Features:**
+- **Planner assignees**: Assign a staff member from the Planner item editor, see the owner on timeline cards and in List view, and filter by one or more assignees or Unassigned.
+- **@mentions with notifications**: Mention a teammate in public or private Planner notes or in Compliance notes. They receive a notification with a preview of the note.
+- **Direct links to work**: Mention notifications open the exact Planner or Compliance item, and Planner cards can copy a shareable item link.
+
+[Documentation: Planner](/user-guides/planner/index)
+
+### Company Mapping Cleanup
+
+Linking customer records from your integrations to MSPortal companies is now a guided cleanup. Your dashboard tells you when there is something worth reviewing, and the review screens group records by customer.
+
+**Key Features:**
+- **Dashboard prompt**: When your integrations hold customer records that look like companies you already have, a banner on the dashboard shows how many are worth a look and links straight to them.
+- **Start with the likely matches**: Recommended matches are listed first with a confidence level, so you can connect the obvious ones quickly and then work through whatever is left over.
+- **Grouped by customer**: Records for the same customer from different integrations are reviewed together, so one decision covers all of them.
+- **Filter by customer type**: Filter imported companies by the customer types that come from your PSA, such as customer, prospect, or vendor, so you only review the records you actually manage.
+- **Ignore and restore**: Drop a group that should never be linked, and bring it back later if that changes.
+
+[Documentation: Integration Company Mapping](/user-guides/settings/integration-company-mapping)
+
+### Improvements
+
+- **Documentation Hub editing**: Edit custom pages, uploaded-file details, and custom folders directly from the Documents library, visibility settings, or Hub layout. Moving a folder keeps everything inside it with the right company. Searching the Hub settings list now returns the full set of results.
+- **Training analytics**: The recent activity feed, course counts, and exported training reports return complete results across every report type.
+- **Budget building**: Filter available Planner items and strategic goals by year and month, search both lists, and export cleaner budget PDFs with clearer totals and line-item sections.
+- **Faster, steadier pages**: Projects, Calendar, Training, Documentation, Devices, Cloud Posture, Financial Reporting, company settings, and dashboard widgets open with less waiting and smoother loading states.
+- **Integration reliability**: Huntress keeps up with larger training and agent syncs, and Acronis activity syncs recover on their own when Acronis is slow to respond.
+- **Safer training uploads**: SCORM course uploads catch oversized or malformed course files before they are unpacked, and supported packages load more reliably.
+- **Calendar settings moved**: Calendar settings now live in **Settings > Operations > Calendar**, with General, Freeze Windows, and Post-Meeting on one page. The old link redirects, and existing calendar managers keep their access.
+- **Meeting action item assignees**: Assigning a staff member to an action item generated from a transcript now saves correctly, and assignee names appear on the meeting.
+- **Accurate campaign counts**: Huntress active phishing campaigns are counted once per company instead of once per learner, in both the awareness overview and any report citing it.
+- **Works in private browsing**: The sidebar and global search keep working when your browser blocks saved settings, such as in a private window or with strict privacy settings.
+
 ## August 23, 2026
 
 ### Project AI

@@ -275,6 +275,24 @@ Review synced data and link Huntress agents to devices.
 
 ---
 
+## Where the Data Appears
+
+| Data | Where to find it |
+|------|------------------|
+| **Managed EDR agents** | The Devices page, alongside the rest of your device inventory |
+| **Managed SAT assignments** | **Training > Security Training > Assignments** |
+| **Managed SAT learner progress** | **Training > Security Training > Training Status**, next to your other awareness providers |
+| **Your own assigned episodes** | **Training > Course Library**, as course tiles counted with the rest of your training |
+| **Awareness metrics in reports** | The Security Awareness blocks and the Security Awareness & Training source on QBR and security review reports |
+
+See [Security Awareness Training](/user-guides/training/security-awareness) for how to work with assignments, learner progress, and reporting.
+
+<Note>
+Managed SAT data only appears for Huntress organizations mapped to an MSPortal company. Unmapped organizations are skipped by the sync.
+</Note>
+
+---
+
 ## Synchronization Schedule
 
 After initial setup, all enabled datasets sync automatically once per day. You can trigger a manual sync at any time from the wizard's Import step using **Sync Huntress Data**.
@@ -356,6 +374,9 @@ After setting up the Huntress integration:
   </Card>
   <Card title="Manage Devices" icon="laptop" href="/user-guides/devices/index">
     Review imported Huntress agents on the Devices page
+  </Card>
+  <Card title="Security Awareness Training" icon="shield-check" href="/user-guides/training/security-awareness">
+    Track Managed SAT assignments, learner progress, and phishing results
   </Card>
   <Card title="Build Reports" icon="chart-bar" href="/user-guides/reporting/index">
     Include Huntress security data in client reports

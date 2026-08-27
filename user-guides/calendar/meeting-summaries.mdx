@@ -1,122 +1,136 @@
 ---
 title: Meeting Summaries
-description: Generate and send AI-powered meeting summaries to clients
+description: Wrap up a meeting with an internal survey, transcript notes, and an AI-drafted client summary
 ---
 
-After a meeting, MSPortal can generate professional summary emails using AI, helping you follow up with clients quickly and consistently.
+After a meeting, the post-meeting wrap-up walks your team through three steps: an internal survey, the transcript and the AI notes drawn from it, and the client summary email. You can stop at any point and pick the wrap-up back up later.
 
-## Accessing Send Summary
+You can also open **Send Summary** on its own if all you need is the email.
 
-From any meeting page, click the **Send Summary** button in the header to open the summary interface.
+## Starting the wrap-up
 
-<Frame>
-  <img src="/images/calendar/send-summary-before.png" alt="Send Summary Page" />
-</Frame>
+When a meeting is marked **Completed**, MSPortal offers to start the wrap-up.
 
-## Summary Configuration
+<Steps>
+  <Step title="Answer the prompt">
+    **Wrap up this meeting?** appears with **Start wrap-up**, **Not now**, and **Don't ask for this meeting**. Choosing **Not now** leaves the wrap-up available from the meeting page.
+  </Step>
+  <Step title="Continue later at any time">
+    A meeting with a wrap-up in progress shows a **Post-meeting wrap-up in progress** banner with a **Continue wrap-up** link. **Save & exit** stores your progress on every step.
+  </Step>
+</Steps>
 
-### Email Details
+<Note>
+Whether staff are prompted when a meeting is completed, and whether AI transcript processing is available, are controlled in **Settings > Operations > Calendar > Post-Meeting**.
+</Note>
 
-Configure the basic email settings:
+## Step 1: Survey
 
-- **To** - Select recipients from meeting attendees or add custom addresses
-- **Subject** - Auto-populated with meeting name, editable as needed
-- **From** - Your email address (configurable in settings)
+An internal rating of how the meeting went. Answers are visible only to your team, never to the client.
 
-### Email Method
-
-Choose how to send the summary:
-
-| Method | Description |
-|--------|-------------|
-| **MSPortal** | Send directly through MSPortal's email system |
-| **PSA Integration** | Route through your PSA's email system for tracking |
-
-### AI Configuration
-
-Customize how the AI generates your summary:
-
-- **Tone** - Professional, friendly, or technical
-- **Length** - Brief overview or detailed recap
-- **Focus Areas** - Emphasize action items, decisions, or discussion points
-
-## Generating the Summary
-
-Click **Generate with AI** to create the meeting summary. The AI analyzes:
-
-- Meeting agenda items and their content
-- Meeting notes you've captured
-- Attendee information
-- Meeting type and context
-
-<Frame>
-  <img src="/images/calendar/send-summary-after.png" alt="Generated Summary" />
-</Frame>
-
-The generated summary includes:
-
-- **Professional greeting** addressed to the attendee
-- **Meeting overview** summarizing what was discussed
-- **Key discussion points** with specific details from your agenda
-- **Action items and next steps** for follow-up
-- **Closing** with contact information
-
-### Email Content Editor
-
-The summary appears in a rich text editor where you can:
-
-- Edit any part of the generated text
-- Add additional information
-- Remove sections that aren't relevant
-- Format text with bold, italic, lists, etc.
-- Insert links or images
+Question types include a 1-5 rating, a 1-10 scale, Yes / No, a choice list, and free text. Questions marked **Required** must be answered before you continue. If no questions are configured, the step tells you so and you can skip it.
 
 <Tip>
-Always review the AI-generated content before sending. While the AI does an excellent job summarizing, you may want to add personal touches or correct any specific details.
+Build the question set in **Settings > Operations > Calendar > Post-Meeting**. **Add default questions** starts you off with client engagement, meeting value, client sentiment, follow-up needed, and additional comments.
 </Tip>
 
-## PSA Integration
+## Step 2: Transcript & AI
 
-<Frame>
-  <img src="/images/calendar/send-summary-scrolled.png" alt="PSA Integration Options" />
-</Frame>
+Add the meeting transcript and let AI draft notes and action items from it.
 
-### Link to PSA Ticket
+<Steps>
+  <Step title="Add the transcript">
+    Upload a `.txt`, `.vtt`, `.srt`, or `.md` file up to 5 MB, or paste the text and click **Use pasted text**. You can **Replace transcript** or **Remove** it later; removing it also clears the AI output generated from it.
+  </Step>
+  <Step title="Generate notes and action items">
+    Click **Generate notes & action items**. AI reads the transcript and drafts meeting notes plus a list of action items.
+  </Step>
+  <Step title="Review before anything is saved">
+    Nothing reaches the meeting until you apply it. Edit the drafted notes, remove action items you do not want, and set an **Assignee**, **Due date**, and priority on the ones you keep.
+  </Step>
+  <Step title="Add to meeting">
+    Clear **Add these notes to the meeting notes** if you only want the action items. Click **Add to meeting** to write your selection to the meeting record.
+  </Step>
+</Steps>
 
-If you have a PSA integration connected (ConnectWise, Autotask, or Halo PSA), you can save the meeting summary directly to a ticket:
+<Note>
+If AI is not available for your account, the transcript is still saved with the meeting. It continues to feed the summary draft in step 3.
+</Note>
 
-1. Check **Add as note to [PSA] ticket** (the label matches your connected PSA)
-2. Select or search for the relevant ticket
-3. When you send the summary, it's automatically added as a note to that ticket
+## Step 3: Send Summary
 
-This creates a permanent record of client communications in your PSA system, making it easy to track the history of client interactions.
+The summary step drafts the client email from everything the meeting now holds.
 
-## Sending the Summary
+### The AI draft
 
-Once you're satisfied with the summary:
+The draft starts automatically when you reach this step in the wrap-up. On the standalone Send Summary page, click **Generate with AI** instead.
 
-1. Review all recipients in the **To** field
-2. Verify the subject line is appropriate
-3. Make any final edits to the content
-4. Click **Send** to deliver the summary
+The **AI draft** panel shows what the draft was built from under **Based on**: **Meeting notes**, **Agenda** with an item count, **Action items** with a count, and **Transcript**. When the meeting has none of these, the panel says so up front rather than leaving you to guess why the draft is thin.
+
+Two controls shape the output:
+
+| Control | Options |
+|---------|---------|
+| **Length** | Brief, Standard, Detailed |
+| **Tone** | Friendly, Neutral, Executive |
+
+Change either one and click **Regenerate** to redraft.
+
+<Tip>
+The greeting is taken from your **To** list and the sign-off from your own profile, so neither is asked for. Review the draft before sending: AI writes from the meeting record, and anything the record does not contain will not be in the email.
+</Tip>
+
+### Recipients and subject
+
+The compose header holds **To**, **CC**, and **Subject** on one line each. CC stays hidden until you use it.
+
+Start typing in **To** or **CC** to search people. The list merges meeting participants, assigned staff, and the company's contacts. Use the arrow keys and press Enter or Tab to add someone, Backspace to remove the last one. Anyone outside the list can be added by typing their full email address.
+
+The subject defaults to **Meeting Summary: [meeting title]** and is editable.
+
+### Editing the content
+
+The draft opens in a rich text editor. Edit any part of it, add or remove sections, format with bold, italic, and lists, and insert links.
+
+### Linking to a PSA ticket
+
+With a PSA integration connected (ConnectWise, Autotask, or Halo PSA), you can file the summary on a ticket at the same time:
+
+1. Turn on **Add as note to [PSA] ticket**
+2. Search by ticket number or summary and select the ticket
+3. Sending the summary adds it to that ticket as a note
+
+Tickets are scoped to the meeting's company, so if nothing is found, check that the company's tickets are synced from your default PSA.
+
+### Sending
+
+Review the recipients, subject, and content, then click **Send Email**. The footer shows the recipient count and the account the email is sent from.
+
+If you do not need to send anything, **Finish without sending** completes the wrap-up.
+
+## What happens after you send
+
+- The wrap-up is marked complete. You can still reopen any step to review or update it.
+- If **Update the QBR log automatically** is on, MSPortal writes a QBR log entry for the company and opens the meeting's **QBR Log** tab. The entry takes a few seconds to appear, and the tab shows that it is being written. See [Account Notes and QBR Log](/user-guides/calendar/account-notes).
+- Commitments captured in that entry are added to the meeting's action items, so follow-ups are chased where your team already works.
 
 ## Best Practices
 
 <AccordionGroup>
   <Accordion title="Capture notes during the meeting">
-    The AI uses your meeting notes to generate more accurate and detailed summaries. Take notes throughout the meeting for the best results.
+    The draft is built from what the meeting record holds. Notes taken during the meeting produce a noticeably better summary than a transcript alone.
   </Accordion>
 
   <Accordion title="Build comprehensive agendas">
-    The more agenda items you include, the more context the AI has to work with. Planner items, budgets, and compliance checks all contribute to richer summaries.
+    The more agenda items you include, the more context there is to work with. Planner items, budgets, and compliance checks all contribute to richer summaries.
   </Accordion>
 
   <Accordion title="Review before sending">
-    Always read through the generated summary. Check for accuracy, appropriate tone, and completeness before sending to clients.
+    Always read through the draft. Check figures, names, and commitments against what was actually agreed.
   </Accordion>
 
   <Accordion title="Use PSA integration">
-    Link summaries to PSA tickets to maintain a complete record of client communications. This helps with continuity when team members change or when reviewing account history.
+    Link summaries to PSA tickets to keep a complete record of client communications. This helps with continuity when team members change or when reviewing account history.
   </Accordion>
 
   <Accordion title="Send promptly">
@@ -126,7 +140,7 @@ Once you're satisfied with the summary:
 
 ## Summary Templates
 
-The AI adapts its output based on meeting type:
+The draft adapts to the meeting type:
 
 | Meeting Type | Summary Focus |
 |--------------|---------------|
@@ -140,6 +154,12 @@ The AI adapts its output based on meeting type:
 <CardGroup cols={2}>
   <Card title="Meeting Pages" icon="file-lines" href="/user-guides/calendar/meetings">
     Learn how to capture meeting notes and build agendas
+  </Card>
+  <Card title="Account Notes and QBR Log" icon="clipboard-list" href="/user-guides/calendar/account-notes">
+    Keep a running record of what was discussed, agreed, and actioned
+  </Card>
+  <Card title="Calendar Settings" icon="gear" href="/user-guides/calendar/index">
+    Configure the post-meeting flow and survey questions
   </Card>
   <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">
     Configure PSA integrations for seamless workflows

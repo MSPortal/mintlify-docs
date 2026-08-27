@@ -136,7 +136,7 @@ A manual risk flag can replace the displayed risk level, but it never changes th
 
 ### What N/A and coverage mean
 
-MSPortal evaluates each metric as observed, no samples, insufficient sample, source unavailable, or not applicable. In the interface, unavailable metrics and dimensions are represented by **N/A** or omitted when there is nothing useful to show.
+MSPortal evaluates each metric as observed, no samples, insufficient sample, source unavailable, not applicable, or excluded (switched off in scoring settings). In the interface, unavailable metrics and dimensions are represented by **N/A** or omitted when there is nothing useful to show.
 
 A real zero can affect the score only when MSPortal has an observed denominator that proves the result was zero. For example, zero overdue items out of a real set of due items is evidence; having no due items is not the same thing.
 
@@ -163,7 +163,7 @@ Each available dimension shows:
 - Only the metrics MSPortal actually observed
 - Values formatted with their correct unit, such as percent, days, currency, or hours per endpoint
 
-A disabled dimension can still appear when it has evidence, but it is labeled **Excluded from health score** and does not affect the overall result.
+A dimension whose metrics are all excluded in scoring settings can still appear when it has evidence, but it is labeled **Excluded from health score** and does not affect the overall result. Individually excluded metrics carry no weight; their values are still listed, marked **Disabled**.
 
 ### Health Score Trend
 
@@ -276,9 +276,9 @@ Device count is context only and does not improve the score. User activity is no
 
 No planner items, goals, or compliance assignments means no evidence for those metrics. It does not produce a synthetic Operational score.
 
-## Configure included dimensions
+## Configure included metrics
 
-Go to **Settings > MSP Tools > Scoring** to enable or disable dimensions. Disabled dimensions are excluded from the overall health calculation after the next published refresh.
+Go to **Settings > MSP Tools > Scoring** to choose which metrics count toward Client Health. Each dimension lists its metrics with a switch; excluded metrics carry no weight, and their share is redistributed across the remaining metrics in the dimension after the next published refresh. A dimension with every metric excluded is left out of the overall score.
 
 See [Health Score Configuration](/user-guides/settings/scoring) for permission and configuration details.
 
@@ -318,7 +318,7 @@ See [Health Score Configuration](/user-guides/settings/scoring) for permission a
 
 <CardGroup cols={2}>
   <Card title="Health Score Configuration" icon="sliders" href="/user-guides/settings/scoring">
-    Enable or disable the dimensions included in Client Health.
+    Choose which metrics count toward Client Health.
   </Card>
   <Card title="Standards" icon="wrench" href="./standards">
     Configure and track the required standards used by the Standards dimension.

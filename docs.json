@@ -75,7 +75,8 @@
                   "user-guides/calendar/recurring-meeting-booking",
                   "user-guides/calendar/meetings",
                   "user-guides/calendar/presenting",
-                  "user-guides/calendar/meeting-summaries"
+                  "user-guides/calendar/meeting-summaries",
+                  "user-guides/calendar/account-notes"
                 ]
               },
               {
@@ -160,7 +161,8 @@
                 "pages": [
                   "user-guides/training/index",
                   "user-guides/training/enabling-training",
-                  "user-guides/training/learning-paths"
+                  "user-guides/training/learning-paths",
+                  "user-guides/training/security-awareness"
                 ]
               },
               {

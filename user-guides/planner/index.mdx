@@ -156,6 +156,7 @@ Click on any planner item to open the edit dialog with full details.
 | **Status** | Current status (Not Started, In Progress, Pending Approval, Complete) |
 | **Type** | Category of work (Security Services, Other, etc.) |
 | **Business Value** | Priority level (High, Medium, Low) |
+| **Assignee** | The staff member who owns this item |
 
 ### Estimates
 
@@ -178,11 +179,23 @@ Link planner items to other entities using the **Relationships** section:
 
 Click **Add** to create a new relationship or link to an existing item.
 
+### Assigning an Item
+
+Choose an **Assignee** in the edit dialog to give the item an owner. Members of the item's company team are listed first, then the rest of your staff.
+
+The assignee shows on timeline cards and in the **Assignee** column in List view, so ownership is visible without opening anything. Filter by one or more assignees, or by **Unassigned**, to see just your own work or find items nobody owns.
+
+<Note>
+Only staff can set an assignee. Company users see the owner on the card but never the staff list.
+</Note>
+
 ### Notes and Description
 
 - **Description** - Brief description of the initiative. Click **Apply Template** to populate from a template
 - **Notes** - Collaborative notes visible to your team with rich text editor
 - **Private Notes (Internal Only)** - Notes only visible to you
+
+Type `@` in either notes field to mention a teammate. Pick them from the list and they receive a notification with a preview of the note that opens this planner item directly. Only active staff can be mentioned, and only staff can send mentions.
 
 ### Custom Fields
 
@@ -230,7 +243,9 @@ Within the edit dialog, use **AI Draft** to automatically generate notes based o
 
 ## Filtering and Search
 
-Use the search box to find planner items by title or description. Click the **Filter** button (funnel icon) to narrow down displayed items by Company, Status, Type, or Business Value.
+Use the search box to find planner items by title or description. Click the **Filter** button (funnel icon) to narrow down displayed items by Company, Status, Type, Business Value, or Assignee.
+
+To share a specific item, open its menu on the timeline card and choose **Copy link**. The link opens that planner item directly for anyone on your team with access to it.
 
 ## Planner Menu
 

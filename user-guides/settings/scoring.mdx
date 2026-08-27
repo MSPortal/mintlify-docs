@@ -1,13 +1,13 @@
 ---
 title: 'Health Score Configuration'
-description: 'Choose which evidence-aware dimensions are included in Client Health'
+description: 'Choose which metrics count toward Client Health'
 icon: 'heart-pulse'
 ---
 
-Health Score Configuration controls which dimensions can contribute to Client Health. Use it to remove dimensions that do not apply to your MSP's service model.
+Health Score Configuration controls which metrics contribute to Client Health. Every metric the scorecard rates is listed under its dimension with a switch, so you can drop the ones that say little about client health for your service model and keep the rest.
 
 <Note>
-These settings enable or disable dimensions. The current model's base weights, risk bands, evidence rules, and minimum coverage requirements are fixed so scores remain consistent across the portfolio.
+These settings include or exclude metrics. The current model's base weights, risk bands, evidence rules, and minimum coverage requirements are fixed so scores remain consistent across the portfolio. When you switch a metric off, its share of the dimension is redistributed across the metrics that remain.
 </Note>
 
 ## Prerequisites
@@ -15,7 +15,7 @@ These settings enable or disable dimensions. The current model's base weights, r
 | Permission | Access |
 |-----------|--------|
 | `read_settings_client_health` | View the scoring configuration |
-| `manage_settings_client_health` | Enable or disable dimensions and save changes |
+| `manage_settings_client_health` | Include or exclude metrics and save changes |
 
 Client Health itself requires `read_customer_success`.
 
@@ -30,77 +30,93 @@ Client Health itself requires `read_customer_success`.
   </Step>
 </Steps>
 
-## Available dimensions
+## Available metrics
 
-| Dimension | Base weight | Evidence used |
-|-----------|------------:|---------------|
-| **Service Quality** | 18% | Eight complete ticket weeks, comparing demand, resolution, backlog size, open-ticket age, and backlog direction |
-| **Engagement** | 18% | Meeting recency and a recent NPS response |
-| **Financial** | 13% | Profitability, open-invoice health, and payment speed |
-| **Sales** | 8% | Opportunity or quote recency and trailing-year decided win rate |
-| **Projects** | 10% | Active-project schedule health, recent on-time delivery, and effort adherence |
-| **Standards** | 13% | Applicable required standards deployed for the company |
-| **Environment** | 10% | Server availability and normalized patch coverage |
-| **Operational** | 10% | Planner timeliness, goal progress, and compliance timeliness |
+Each dimension keeps its base weight in the overall score. The share column shows how much of the dimension a metric carries when every metric in that dimension is enabled.
 
-See [Client Health](/user-guides/msp-tools/client-health#how-each-dimension-is-calculated) for the complete calculation and data requirements for every dimension.
+| Dimension (base weight) | Metric | Share | What it measures |
+|-------------------------|--------|------:|------------------|
+| **Service Quality** (18%) | Ticket demand trend | 29% | Average tickets created per week, last four complete weeks versus the four before |
+| | Resolution time trend | 23% | Average resolution days across the same two periods |
+| | Open backlog size | 18% | Average open tickets over the last four weeks |
+| | Open ticket age | 18% | Average age of open tickets over the last four weeks |
+| | Backlog trend | 12% | Average backlog across the two periods |
+| **Engagement** (18%) | Meeting recency | 60% | Days since the last meeting with the company |
+| | Recent NPS | 40% | Latest NPS response from the last 365 days |
+| **Financial** (13%) | Reactive hours per endpoint | 17% | Reactive ticket hours per managed endpoint, trailing three months |
+| | Effective hourly rate | 17% | Recurring revenue per hour worked, trailing three months |
+| | All-in seat price | 16% | Revenue per seat graded A through F against the target seat price from Financial Reporting |
+| | Overdue invoices | 30% | Share of open invoices that are past due |
+| | Payment speed | 20% | Average days to pay across invoices paid in the last year |
+| **Sales** (8%) | Sales activity recency | 50% | Days since the latest opportunity or quote |
+| | Decided win rate | 50% | Won divided by won plus lost in the last 365 days (three or more decided outcomes) |
+| **Projects** (10%) | Active project schedule health | 40% | Active projects with a due date that are not overdue |
+| | Recent on-time delivery | 40% | Projects completed on or before their due date in the last year |
+| | Effort adherence | 20% | Measured projects at or below 110% of estimated hours |
+| **Standards** (13%) | Required standards deployed | 100% | Applicable required standards checks that are deployed |
+| **Environment** (10%) | Server availability | 60% | Observed servers online and seen within seven days |
+| | Patch coverage | 40% | Devices with a known patch state that are fully patched |
+| **Operational** (10%) | Planner timeliness | 40% | Overdue planner items as a share of items with due dates |
+| | Goal progress | 35% | Average goal progress; completed goals count as 100% |
+| | Compliance timeliness | 25% | Overdue compliance assignments as a share of assignments with due dates |
 
-## Enable or disable dimensions
+See [Client Health](/user-guides/msp-tools/client-health#how-each-dimension-is-calculated) for the complete calculation and data requirements for every metric.
+
+## Include or exclude metrics
 
 <Steps>
-  <Step title="Review the dimensions">
-    Each row shows the dimension name, description, and whether it is enabled.
+  <Step title="Review each dimension">
+    Each card shows the dimension, its metrics, how many of them are enabled, and a dimension switch that turns every metric in the card on or off at once.
   </Step>
-  <Step title="Change the toggles">
-    Disable a dimension only when it does not apply to your service model. Enable it when you want its observed evidence to contribute.
+  <Step title="Change the metric switches">
+    Switch off a metric when it does not reflect how you evaluate client health. For example, an MSP with every customer on auto-pay can switch off **Overdue invoices** and **Payment speed** so the Financial dimension is driven by seat price, effective hourly rate, and reactive hours per endpoint.
   </Step>
   <Step title="Review the enabled count">
-    The summary shows how many of the eight dimensions are enabled.
+    The summary shows how many of the 23 metrics are enabled. A dimension with no metrics enabled is labeled **Excluded from the health score**.
   </Step>
   <Step title="Save the configuration">
-    Click **Save** in the page header.
-  </Step>
-  <Step title="Publish new scores">
-    Wait for the next daily Client Health refresh at 2:00 AM UTC, or go to **Client Health** and click **Refresh Scores**.
+    Click **Save Changes** in the page header. MSPortal starts a score refresh as soon as the configuration is saved.
   </Step>
 </Steps>
 
 ## How configuration affects scores
 
-When a dimension is disabled:
+When a metric is excluded:
 
-- It does not contribute to the overall health score or evidence-coverage requirement
-- Its base weight is redistributed across the enabled evidence that is available for each company
-- Existing observed data can still appear on the company detail page as **Excluded from health score**
+- It carries no weight in its dimension, and its share is redistributed across the dimension's remaining metrics
+- Evidence coverage for the dimension is measured against the enabled metrics only, so excluding metrics never lowers coverage on its own
+- Its observed value still appears on the company detail page and in the dashboard breakdown, marked **Disabled**, but it never affects the score
 - Previously published scores remain unchanged; the configuration takes effect in the next completed scorecard
 
-When a dimension is enabled, MSPortal still requires real evidence. Enabling a dimension does not cause missing data to score zero or receive a healthy default.
+When every metric in a dimension is excluded, the dimension itself is left out of the overall score and its base weight is redistributed across the enabled dimensions. Its metrics are still calculated for context, and the company detail page labels the dimension **Excluded from health score**.
+
+When a metric is enabled, MSPortal still requires real evidence. Enabling a metric does not cause missing data to score zero or receive a healthy default.
 
 <Warning>
-Companies need at least three scored dimensions and 40% overall evidence coverage to receive a numeric health score. Disabling several dimensions can make it harder to meet that requirement, even when the remaining dimensions have data.
+Companies need at least three scored dimensions and 40% overall evidence coverage to receive a numeric health score. Excluding every metric in several dimensions can make it harder to meet that requirement, even when the remaining dimensions have data.
 </Warning>
 
-## When to disable a dimension
+## When to exclude a metric
 
-Consider disabling a dimension when:
+Consider excluding a metric when:
 
-- It is not part of the services you provide to any client
-- Its concept is not relevant to how your team evaluates client health
-- You have intentionally retired the process or data source across the portfolio
+- It measures something that is not part of the services you provide
+- Its data source is deliberately not connected and never will be
+- It does not reflect how your team evaluates client health, such as receivables when every customer pays automatically
 
-Do not disable a dimension only to hide temporary N/A results. If the dimension is relevant, correct the integration, company mapping, or source data and publish a new scorecard instead.
+Do not exclude a metric only to hide temporary N/A results. If the metric is relevant, correct the integration, company mapping, or source data and publish a new scorecard instead.
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="My changes are not visible in Client Health">
-    Scoring settings affect the next completed scorecard. Go to **Client Health** and click **Refresh Scores**, or wait for the daily 2:00 AM UTC refresh.
+    Saving the configuration starts a refresh automatically. If the refresh could not start, go to **Client Health** and click **Refresh Scores**, or wait for the daily 2:00 AM UTC refresh.
   </Accordion>
-  <Accordion title="More companies show Limited data after I disabled dimensions">
-    A numeric score still requires at least three scored dimensions and 40% coverage across the enabled, applicable model. Re-enable relevant dimensions or improve evidence coverage for those that remain.
+  <Accordion title="More companies show Limited data after I excluded metrics">
+    A numeric score still requires at least three scored dimensions and 40% coverage across the enabled model. Re-enable at least one metric in the affected dimensions or improve evidence coverage for those that remain.
   </Accordion>
-  <Accordion title="A disabled dimension still appears on a company">
-    If MSPortal has observed data for the dimension, the company detail page can show it for context with the label **Excluded from health score**. It does not affect the health score.
+  <Accordion title="An excluded metric still appears on a company">
+    If MSPortal has observed data for the metric, the company detail page shows its value marked **Disabled** for context. It does not affect the health score.
   </Accordion>
 </AccordionGroup>
 
@@ -110,7 +126,7 @@ Do not disable a dimension only to hide temporary N/A results. If the dimension 
   <Card title="Client Health" icon="heart-pulse" href="/user-guides/msp-tools/client-health">
     Learn how scores, coverage, risk levels, trends, and manual risk flags work.
   </Card>
-  <Card title="Users and Roles" icon="users-gear" href="/user-guides/settings/users-roles">
-    Assign Client Health and scoring permissions to your team.
+  <Card title="Financial Reporting settings" icon="chart-line" href="/user-guides/settings/financial-reporting">
+    Set the target seat price that grades All-in seat price.
   </Card>
 </CardGroup>
