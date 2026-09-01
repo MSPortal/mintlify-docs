@@ -147,6 +147,8 @@ MSPortal checks which parts of ConnectWise your API member is allowed to read, a
     Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses. Without these the integration cannot function.
 
     Optional areas cover Configurations, Opportunities, Product catalog, Invoices, Agreements, Projects, and Time entries.
+
+    Importing project templates from ConnectWise into **Settings > Projects > Templates** also needs **Project > Project Templates** with **Inquire Level: All**. If the import dialog reports that ConnectWise refused the request, add that permission to the MSPortal security role and try again.
   </Step>
 
   <Step title="Grant anything missing">

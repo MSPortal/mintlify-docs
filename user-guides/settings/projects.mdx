@@ -216,6 +216,31 @@ Click the **Reset to Defaults** button to restore all project display settings t
 Resetting to defaults cannot be undone. Make sure you want to clear all customizations before clicking this button.
 </Warning>
 
+## Project Templates
+
+The **Templates** tab holds reusable project blueprints: phases, tickets with hours and due-date offsets, and the client decisions and action items each project needs. A template can be turned into a project in your PSA or as an MSPortal project from **Projects > New project**, or applied to an existing project.
+
+### Building a template
+
+Click **New template** to open the builder. Add phases, tickets, decisions, and action items by hand, or open the **AI Template Designer** from the button on the right edge of the page. Describe the project in plain language and the designer drafts the full structure; review each suggested change, accept or reject it, and apply. Applied changes can be undone from the sidebar.
+
+### Importing templates from your PSA
+
+Click **Import from PSA** on the Templates tab to bring existing templates into MSPortal.
+
+| Source | Available for |
+|--------|---------------|
+| **PSA templates** | ConnectWise project templates and Halo PSA project templates |
+| **Existing project** | Any synced project from ConnectWise, Autotask, or Halo PSA |
+
+Autotask does not expose project templates through its API, so Autotask users build templates from an existing project instead. Imported templates stay linked to their source and show the provider next to their name.
+
+ConnectWise requires the MSPortal security role to include **Project > Project Templates** with **Inquire Level: All**. If the dialog reports that ConnectWise refused the request, add that permission under **System > Security Roles** in ConnectWise and try again.
+
+### Updating an imported template
+
+Choose **Update from ConnectWise**, **Update from Halo PSA**, or **Update from Synced project** from a template's row menu, or from the button in the template builder, to re-read the source. Phases and tickets are replaced with the current structure from the source. Decisions, action items, and ticket assignees that were added in MSPortal are kept.
+
 ## Permissions
 
 | Permission | Capability |
