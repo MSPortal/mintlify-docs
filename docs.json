@@ -464,6 +464,12 @@
                 ]
               },
               {
+                "group": "Simplesat",
+                "pages": [
+                  "user-guides/integrations/enable-simplesat-integration"
+                ]
+              },
+              {
                 "group": "QuoteWerks",
                 "pages": [
                   "user-guides/integrations/enable-quotewerks-integration"
