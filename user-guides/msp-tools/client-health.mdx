@@ -214,10 +214,14 @@ The source must be current and all eight weeks must be complete. High-priority t
 
 | Metric | Internal weight | Scoring basis |
 |--------|----------------:|---------------|
-| Meeting recency | 60% | A meeting within 90 days scores 100; within 120 days scores 60; within 180 days scores 40; older meetings score 20. |
-| Recent NPS | 40% | Uses the latest response from the last 365 days. Scores of 9+, 7+, 5+, and 3+ map to progressively lower bands. |
+| Meeting recency | 40% | A meeting within 90 days scores 100; within 120 days scores 60; within 180 days scores 40; older meetings score 20. |
+| Recent NPS | 20% | Uses the latest response from the last 365 days. Scores of 9+, 7+, 5+, and 3+ map to progressively lower bands. |
+| Recent CSAT | 25% | Average CSAT rating across the company's survey responses from the last 90 days, normalized to a 0 to 100 satisfaction score. Native CSAT campaigns and imported responses (for example Simplesat) both count; CES campaigns do not. |
+| CSAT response rate | 15% | CSAT responses from the last 90 days as a share of tickets closed over the same period. 25% or more scores 100, 15% scores 80, 8% scores 60, and any response scores 40. A company that closed five or more tickets and never answered scores 20. |
 
-If only one metric is observed, Engagement uses that evidence and reports reduced coverage. General contact activity and missed-meeting estimates are not used as substitutes.
+The two CSAT metrics only apply while your tenant is collecting CSAT. If no CSAT response arrived anywhere in the last 90 days, both are reported as unavailable, carry no weight, and the remaining metrics keep their relative weights, so a tenant without a CSAT program sees no change. Companies with a low CSAT average or no responses also appear in the CSAT column on the Client Health table.
+
+If only some metrics are observed, Engagement uses that evidence and reports reduced coverage. General contact activity and missed-meeting estimates are not used as substitutes.
 
 ### Financial
 

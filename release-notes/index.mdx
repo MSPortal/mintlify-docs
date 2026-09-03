@@ -3,6 +3,49 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## September 4, 2026
+
+### User Statistics
+
+See what your team actually did. The new **User Statistics** tool in MSP Tools counts the records each person created and the tickets they worked, so accountability reporting is backed by evidence rather than estimates.
+
+**Key Features:**
+- **Team leaderboard**: One row per person and a column per metric, plus total actions, active days, clients touched, last activity, and last sign-in. People with no activity in the range are included on purpose, because "who did nothing" is the question an accountability report exists to answer.
+- **Metric catalog**: 37 metrics across 13 areas, including compliance checks completed, Planner items created, budgets, meetings, goals, reports, onboarding, client notes, documentation, tickets, surveys, training, and automation, with a trend chart grouped by day, week, or month.
+- **Service stats**: Per-technician ticket performance from your PSA: tickets assigned and closed, open backlog, average resolution time, first-response attainment, escalation rate, hours logged, and CSAT. Technicians falling behind the team average are flagged for attention.
+- **Every number is evidence**: Click any count to open the individual records behind it, with links back to the source Planner item, budget, or report.
+- **Scoped and exportable**: Filter by date range and the company selector, choose which metrics to show, and export any view to CSV.
+- **Per-tab permissions**: Grant the leaderboard, the metric catalog, and service stats separately by role.
+
+### Scheduled Report Approvals
+
+Hold a scheduled report for human review before it reaches a client.
+
+**Key Features:**
+- **Require approval on a schedule**: Turn on **Require approval before sending** in a schedule's Delivery step. The report still generates on cadence, but it is saved as a draft and nothing is emailed until someone approves it.
+- **Approvals tab**: **Reports > Approvals** lists every report waiting for review with its company, template type, period, how long it has waited, and who will receive it. The tab shows a live count of pending reports.
+- **Read before you release**: Open the report from the queue, then approve to publish and email the recipients, or reject with a note. A rejected report stays as an unsent draft and the schedule continues to its next run.
+- **Nothing slips through**: Reviewers are notified when a report is waiting and reminded if it sits unreviewed for two days. A report is never sent or expired automatically.
+- **Works with every template**: Approval applies to Report Builder templates and AI narrative reports alike.
+
+### Improvements
+
+- **Contact phone on ticket templates**: Add a **Contact phone** field to a ticket template. The person submitting the ticket enters a number and chooses **Just this time** to use it on that ticket only, or **Always** to save it to their contact in ConnectWise, Autotask, Halo PSA, or Syncro.
+- **Ticketing audit by who acted**: The ticketing audit in Settings now opens on client portal activity, and you can filter events by client users or staff across the full history.
+- **Duplicate devices fold on their own**: A machine that ConnectWise, an RMM, and Huntress each report is now recognized as one device when the records agree on serial and hostname, or on hostname alone with nothing contradicting it. Groups that disagree on hardware, and servers paired with their iDRAC or iLO controller, are held back for review. A nightly sweep keeps every source tidy as it syncs.
+- **IT Glue configurations**: Every IT Glue configuration that matches a device you already manage is now linked automatically, whatever its configuration type. The Configurations tab on Devices opens on unlinked records, so documented-but-unmanaged assets stand out.
+- **Calendar event types**: The calendar's event type filter now lists the same meeting types you can schedule, including QBR and Client Call.
+- **Number range filters**: Numeric table filters open in a compact min and max popover, show the active range on the filter button, and clear with one click.
+- **Consistent page headers**: Page headers, back navigation, and summary rails follow one layout across MSPortal, and titles no longer overflow on narrow screens.
+- **Viewing as a client user**: Broadcasts, Ticket Trends, Financial Reporting, Financial Trends, and the new survey page redirect correctly when an administrator is viewing MSPortal as a client user.
+
+### Coming Soon
+
+Two projects features are finishing validation and will ship in a following release.
+
+- **Project Templates**: Build a project blueprint once, by hand or with the AI Template Designer, and turn it into a real project in seconds. Import templates from ConnectWise and Halo PSA, or build one from any synced project, then create a project from a template or apply one to a project already underway.
+- **MSPortal Projects and Time Tracking**: Run a project entirely in MSPortal when it does not belong in your PSA, start a timer from any project or ticket, and log manual time entries that roll up on the project overview.
+
 ## August 28, 2026
 
 ### @Mention Your Team, in Every Editor
