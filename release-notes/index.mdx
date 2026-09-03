@@ -7,15 +7,26 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 
 ### User Statistics
 
-See what your team actually did. The new **User Statistics** tool in MSP Tools counts the records each person created and the tickets they worked, so accountability reporting is backed by evidence rather than estimates.
+See what your team actually did. The new **User Statistics** tool in MSP Tools counts the records each person created and the tickets they worked, so accountability reporting is backed by evidence rather than estimates. Three tabs share one date range and the company selector.
 
 **Key Features:**
-- **Team leaderboard**: One row per person and a column per metric, plus total actions, active days, clients touched, last activity, and last sign-in. People with no activity in the range are included on purpose, because "who did nothing" is the question an accountability report exists to answer.
-- **Metric catalog**: 37 metrics across 13 areas, including compliance checks completed, Planner items created, budgets, meetings, goals, reports, onboarding, client notes, documentation, tickets, surveys, training, and automation, with a trend chart grouped by day, week, or month.
-- **Service stats**: Per-technician ticket performance from your PSA: tickets assigned and closed, open backlog, average resolution time, first-response attainment, escalation rate, hours logged, and CSAT. Technicians falling behind the team average are flagged for attention.
+- **Team Leaderboard**: One row per person and a column per metric, plus total actions, active days, clients touched, last activity, and last sign-in. People with no activity in the range are included on purpose, because "who did nothing" is the question an accountability report exists to answer.
+- **MSPortal Stats**: 37 metrics across 13 areas, including compliance checks completed, Planner items created, budgets, meetings, goals, reports, onboarding, client notes, documentation, tickets, surveys, training, and automation, with a trend chart grouped by day, week, or month.
 - **Every number is evidence**: Click any count to open the individual records behind it, with links back to the source Planner item, budget, or report.
 - **Scoped and exportable**: Filter by date range and the company selector, choose which metrics to show, and export any view to CSV.
-- **Per-tab permissions**: Grant the leaderboard, the metric catalog, and service stats separately by role.
+- **Per-tab permissions**: Grant Team Leaderboard, MSPortal Stats, and Service Stats separately by role. The module appears in the sidebar for anyone holding at least one of them, and shows only the tabs they hold.
+
+#### Service Stats
+
+The third tab is a full ticket scorecard for every technician in your PSA, built from the tickets they were assigned rather than from anything anyone types in.
+
+- **Per-technician scorecard**: Tickets assigned, tickets closed, open backlog, average resolution time in hours, first-response attainment with the median minutes to respond and the sample it was measured on, escalation rate with the escalated count, hours logged from PSA time entries, and CSAT with the response count and how many of those were low scores.
+- **Attention flags, not a ranking**: Each technician is compared against the team average for the same period and company scope, and flagged for **Low CSAT**, **Missed first response**, **Slow resolution**, **High escalations**, or **Backlog building**. Everyone else reads **On track**. Flagged people sort to the top so the exceptions are the first thing on the page.
+- **Thresholds you can see**: The flag rules are written out in a help popover on the table: more than 10 points below the team on CSAT or first response, resolution over 1.5x the team average, escalations more than 5 points above, or a backlog over 1.5x the team average. Anyone with fewer than 5 tickets or 3 CSAT responses is never flagged, so a light week does not look like a problem.
+- **Team totals up top**: A summary rail carries technician count, tickets assigned and closed, open backlog, average resolution, first-response attainment, team CSAT, and how many people need attention.
+- **Coverage guidance built in**: Every metric names the source it reads, so the page points you at the connection that fills a column: Simplesat or the built-in surveys to score CSAT per technician, PSA time entries for hours logged, ConnectWise board statuses for escalations, and ticket response timestamps from ConnectWise, Halo, or Autotask for first-response attainment.
+- **Technicians without a portal account**: PSA technicians who are not linked to an MSPortal user still appear, marked **Not linked to a portal user**, so nobody drops out of the scorecard.
+- **Filter, sort, and export**: Every column filters and sorts, including a filter on the attention flags themselves, and the filtered view exports to CSV.
 
 ### Scheduled Report Approvals
 
@@ -36,7 +47,6 @@ Hold a scheduled report for human review before it reaches a client.
 - **IT Glue configurations**: Every IT Glue configuration that matches a device you already manage is now linked automatically, whatever its configuration type. The Configurations tab on Devices opens on unlinked records, so documented-but-unmanaged assets stand out.
 - **Calendar event types**: The calendar's event type filter now lists the same meeting types you can schedule, including QBR and Client Call.
 - **Number range filters**: Numeric table filters open in a compact min and max popover, show the active range on the filter button, and clear with one click.
-- **Consistent page headers**: Page headers, back navigation, and summary rails follow one layout across MSPortal, and titles no longer overflow on narrow screens.
 - **Viewing as a client user**: Broadcasts, Ticket Trends, Financial Reporting, Financial Trends, and the new survey page redirect correctly when an administrator is viewing MSPortal as a client user.
 
 ### Coming Soon
