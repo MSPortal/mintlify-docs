@@ -1,449 +1,82 @@
 ---
 title: 'Projects'
-description: 'Track and manage your PSA projects with enhanced visibility, kanban boards, and collaboration tools'
+description: 'Review your project portfolio, track health, and open project workspaces or the schedule calendar'
 icon: 'folder-open'
 ---
 
-The Projects module provides a centralized dashboard to view, manage, and monitor all your projects synced from your PSA (Professional Services Automation) platform. It displays your PSA project data while adding powerful tracking, health monitoring, and communication features.
+Open **Projects** to review work across the companies you can access. MSPortal combines synced PSA projects with project updates, milestones, decisions, action items, and deliverables.
 
-## Overview
+## Before you start
 
-Projects in MSPortal are automatically synced from your connected PSA integration (ConnectWise, Autotask, Halo PSA, or Syncro). The module enhances your PSA data with:
-
-- Visual kanban boards for project and ticket management
-- Health status tracking and variance indicators
-- Client action management
-- Weekly update posting with AI assistance
-- Deliverable and milestone tracking
-- Phase and ticket views with time entry details
-- Team contact assignments
+Your role determines which project views and editing controls are available. Select a company in the company selector to focus the portfolio, or use **Global View** to see the companies available to you. Projects and their available detail depend on your connected PSA and project settings.
 
 <Note>
-Projects are synced from your PSA integration. If no projects appear, ensure your PSA integration is configured in **Settings > Integrations**.
+Screenshots show the MSP staff experience using Demo data. Client access is limited by company scope, role permissions, and **Settings > Projects > Client project access**.
 </Note>
 
-## Projects Dashboard
+## Choose a portfolio view
 
-The main dashboard displays all your projects with at-a-glance metrics.
+| View | Use it to |
+| --- | --- |
+| **Dashboard** | Review portfolio health, the evidence behind each metric, and projects needing attention. |
+| **Cards** | Scan project summaries, dates, hours, contacts, and the next action. Displayed fields depend on project settings. |
+| **List** | Compare projects in a table and choose visible columns. |
+| **Kanban** | Review projects by their configured PSA status groups. |
+| **Schedule** | See dated projects and their scheduled work on a calendar. |
 
-### Summary Cards
+<img src="/images/product/projects-portfolio-cards.png" alt="Filtered Demo project cards with portfolio view tabs and health filters" width="2340" height="940" />
 
-At the top of the dashboard, summary cards show:
+### Find a project
 
-- **Total Projects** - All projects in your portfolio
-- **In Progress** - Active projects currently being worked on
-- **Completed** - Successfully finished projects
-- **On Hold** - Paused projects
-- **Overdue** - Projects past their due date
-- **Over Budget** - Projects exceeding estimated hours
+<Steps>
+  <Step title="Choose the company scope">
+    Use the company selector at the top of the app. Then open **Projects**.
+  </Step>
+  <Step title="Narrow the portfolio">
+    In Cards, List, or Kanban, use the search field to search projects, companies, or outcomes. Choose **Open**, **Closed**, or **All**; Open is the initial selection. Use **Project Manager**, **Date**, or **Filters** to narrow the results further.
+  </Step>
+  <Step title="Open the project">
+    Select a project card or list row to open its workspace. Clear filters or switch to **All** if you cannot find an older project.
+  </Step>
+</Steps>
 
-### View Options
+The health filters distinguish **Needs Input**, **Blocked**, **At Risk**, **On Track**, and **Unscored**. Needs Input highlights pending client input; a project can also have a separate health classification.
 
-Toggle between two display modes:
+## Understand portfolio health
 
-<Tabs>
-  <Tab title="Kanban View">
-    The kanban view displays projects as cards organized by status columns. This view is ideal for:
+The **Dashboard** includes **Active schedule**, **On-time delivery**, and **Effort adherence**. Each metric shows its eligible project count; missing evidence does not mean a project is healthy.
 
-    - Visualizing project pipeline at a glance
-    - Quickly moving projects between statuses
-    - Seeing project health via color-coded indicators
+- **Active schedule** considers open projects with due dates that are not overdue.
+- **On-time delivery** considers projects completed on or before their due date in the last 12 months.
+- **Effort adherence** considers projects at or below 110% of estimated hours.
+- **Unscored** means an open project lacks both a due date and enough hours information to calculate health.
 
-    Each column represents a status group (Not Started, In Progress, On Hold, Completed, Cancelled), and you can drag projects between columns to update their status.
-  </Tab>
-  <Tab title="Table View">
-    The table view shows projects in a compact tabular format with:
+Review **Projects needing attention** and any source-freshness warning alongside the score. Administrators control which exact PSA statuses participate under **Settings > Projects > Client project access > Project health status**.
 
-    - Sortable columns
-    - Quick filtering
-    - More projects visible at once
+## Work with project Kanban
 
-    Best for scanning many projects quickly or when you need detailed sorting/filtering.
-  </Tab>
-</Tabs>
+Portfolio Kanban groups whole projects. The **Kanban** tab inside an individual project groups its tickets instead.
 
-### Filtering Projects
-
-Use the search bar and filters to find specific projects:
-
-- **Search** - Find projects by project name, company name, or outcome title
-- **Status Filter** - Filter by Not Started, In Progress, On Hold, Completed, or Cancelled
-
-## Projects Kanban Board
-
-The kanban board provides a visual way to manage your project portfolio by status.
-
-### Understanding Columns
-
-Projects are organized into columns based on their lifecycle status:
-
-| Column | Description |
-|--------|-------------|
-| **Not Started** | Projects that haven't begun yet |
-| **In Progress** | Active projects being worked on |
-| **On Hold** | Paused projects awaiting action |
-| **Completed** | Successfully finished projects |
-| **Cancelled** | Projects that were terminated |
+With status-edit permission, drag a project to a destination column. MSPortal uses the configured default status where available or asks you to select a target PSA status. A successful status change is written to the supported PSA integration. Review the destination before completing the move.
 
 <Tip>
-You can customize which PSA statuses map to each column in **Settings > Projects**. This allows you to group similar statuses together.
+Column names are configurable. If a project is missing from a grouped board, check **Status Mapping** for unmapped PSA statuses or use **Use Raw PSA Statuses** to display original status names.
 </Tip>
 
-### Project Cards
+## Troubleshooting
 
-Each project card displays key information at a glance:
+| Problem | What to check |
+| --- | --- |
+| No projects appear | Company scope, Open/Closed selection, search and filters, and the PSA integration's project sync. For client users, also check client project access and individual project visibility. |
+| A view or edit control is missing | Your role's project permissions and the project's PSA support. |
+| Fields or phases are missing | **Settings > Projects > Display Configuration**, plus whether the project contains phases or tickets. |
+| Health looks incomplete | Eligible sample counts, Unscored projects, source freshness, and active/inactive health statuses. |
+
+## Related guides
 
 <CardGroup cols={2}>
-  <Card title="Status & Health" icon="heart-pulse">
-    Color-coded left border indicates health status (green = On Track, yellow = At Risk, red = Behind). Status badge shows lifecycle stage.
-  </Card>
-  <Card title="Progress Tracking" icon="chart-line">
-    Visual progress bar showing percentage of hours completed vs. estimated.
-  </Card>
-  <Card title="Hours & Variance" icon="clock">
-    Actual hours vs. estimated with variance badges showing if under (green) or over (red) budget.
-  </Card>
-  <Card title="Timeline" icon="calendar">
-    Due date displayed with overdue dates highlighted in red.
-  </Card>
-</CardGroup>
-
-### Moving Projects Between Statuses
-
-To change a project's status using the kanban board:
-
-<Steps>
-  <Step title="Drag the Project Card">
-    Click and hold the drag handle on the project card, then drag it to the target column.
-  </Step>
-  <Step title="Select Target Status">
-    If multiple PSA statuses are mapped to the target column, a modal appears asking you to select the specific status.
-
-    If only one status is mapped, the project moves automatically.
-  </Step>
-  <Step title="Confirm the Change">
-    The project card immediately moves to the new column (optimistic update), and the status is synced to your PSA.
-  </Step>
-</Steps>
-
-<Info>
-If you drag a project to a column with an unmapped status and you have settings permissions, MSPortal will offer to add that status to the column mapping automatically.
-</Info>
-
-## Project Details
-
-Click any project card to view the full project details. The detail view includes multiple tabs:
-
-### Overview Tab
-
-The main summary showing:
-
-- **Project Outcome** - The objective and description
-- **Current Phase** - Where the project stands in its lifecycle
-- **Contacts** - MSP lead and client sponsor with email links
-- **Weekly Summary** - The most recent weekly update with completed work, upcoming items, and risks
-- **Milestone Progress** - Visual tracker of milestone completion
-- **Deliverables Summary** - Status of project deliverables
-
-### Timeline Tab
-
-A Gantt-style visualization showing:
-
-- Milestone dates and status
-- Phase progression
-- Key dates and deadlines
-
-### Updates Tab
-
-Weekly project updates containing:
-
-- What was done
-- What's next
-- Current risks
-- Decisions needed
-
-Updates can be marked as client-visible or internal-only.
-
-#### AI-Generated Updates
-
-Generate weekly updates automatically using AI. Click the sparkle icon in the Updates tab header and select:
-
-- **Generate Update** - AI analyzes time entries, completed tickets, pending decisions, and project activity for the selected week
-- **Generate with Prompt** - Add custom instructions to guide the AI (e.g., "Focus on budget concerns" or "Highlight the migration timeline")
-
-Select a week from the picker, and the AI will create a structured update with summary, completed items, upcoming work, and any risks identified from the project data.
-
-### Decisions Tab
-
-Track pending client actions:
-
-- **Approvals** - Items awaiting client sign-off
-- **Questions** - Topics needing client input
-- **Access Requests** - Credentials or system access needed
-- **Scheduling** - Meetings or sessions to arrange
-- **Decisions** - Scope or direction choices pending
-
-### Deliverables Tab
-
-Track project deliverables through their lifecycle:
-
-- Planned
-- In Progress
-- In Review
-- Complete
-
-Each deliverable shows due dates, status, and any attached files.
-
-### Budget Tab
-
-Financial overview including:
-
-- Revenue tracking
-- Cost analysis
-- Budget variance
-
-### Phases Tab
-
-View and manage project phases synced from your PSA. This tab provides a hierarchical view of your project structure with expandable phases, tickets, and time entries.
-
-#### Phase Overview
-
-At the top of the Phases tab, you'll see summary statistics:
-
-- **Total Phases** - Number of phases in the project
-- **Completed / In Progress** - Phase completion breakdown
-- **Total Hours** - Actual vs. estimated hours across all phases
-- **Open Tickets** - Count of tickets still being worked (if tickets enabled)
-
-#### Phase Details
-
-Each phase row displays:
-
-| Field | Description |
-|-------|-------------|
-| **Phase Name** | Name with status icon (circle = not started, play = in progress, checkmark = complete) |
-| **Milestone** | Flag indicator if this is a milestone |
-| **Tickets** | Badge showing ticket count (if enabled) |
-| **Status** | Complete, In Progress, or Not Started |
-| **Schedule** | Start and end dates |
-| **Hours** | Actual/Estimated with variance indicator |
-| **Progress** | Visual progress bar |
-
-<Tip>
-Click any phase row to expand it and see the tickets associated with that phase.
-</Tip>
-
-#### Viewing Tickets Under Phases
-
-When you expand a phase, you'll see all tickets associated with it:
-
-- **Ticket ID** - The PSA ticket identifier
-- **Summary** - Ticket title/description
-- **Status** - Current ticket status badge
-- **Owner** - Assigned technician
-- **Hours** - Actual hours vs. budget
-
-#### Viewing Time Entries
-
-Click the expand arrow on any ticket to see all time entries logged against it:
-
-| Field | Description |
-|-------|-------------|
-| **Date** | When the work was performed |
-| **Person** | Who logged the time |
-| **Duration** | Hours worked (green highlight if billable) |
-| **Work Type** | Type of work performed |
-| **Notes** | Description of work done |
-| **Billable** | Whether the time is billable |
-
-A summary row at the top shows total entries, total hours, and billable hours breakdown.
-
-### Kanban Tab
-
-<Note>
-The Kanban tab is currently available in development environments only. It will be enabled for all users in a future release.
-</Note>
-
-The project-level kanban board lets you manage tickets within a project using a visual board interface.
-
-#### Ticket Kanban Features
-
-The ticket kanban provides powerful filtering and organization options:
-
-<AccordionGroup>
-  <Accordion title="Search and Filter">
-    Use the search bar to find tickets by:
-    - Ticket ID
-    - Summary/title
-    - Owner name
-  </Accordion>
-  <Accordion title="Group By Options">
-    Organize tickets into columns by:
-    - **Status** (default) - Group by ticket status. Dragging a card between columns updates the ticket status in ConnectWise or the task status in Autotask.
-    - **Technician** - Group by assigned owner. By default only technicians who already own tickets get a column, plus an **Assign to…** column that opens a technician picker for anyone else in the roster. Administrators can switch to one column per assignable technician and limit the roster by PSA role, department, team, or line of business under **Settings > Projects > Kanban technicians**.
-    - **Priority** - Group by priority level
-  </Accordion>
-  <Accordion title="Display Density">
-    Choose how much information appears on each card:
-    - **Comfortable** - Full details with status/priority badges
-    - **Compact** - Reduced info, hides some badges
-    - **Dense** - Minimal info for maximum visibility
-  </Accordion>
-  <Accordion title="Hide Completed">
-    Toggle to hide completed tickets and focus on active work.
-  </Accordion>
-</AccordionGroup>
-
-#### Ticket Cards
-
-Each ticket card on the kanban displays:
-
-- **Ticket ID** - The PSA identifier (task_ prefix stripped for Autotask)
-- **Summary** - Ticket title
-- **Hours** - Actual vs. budgeted hours
-- **Owner** - Assigned technician
-- **Status/Priority Badges** - Visible in comfortable density mode
-
-#### Moving Tickets Between Statuses
-
-Drag ticket cards between columns to update their status:
-
-<Steps>
-  <Step title="Drag the Ticket">
-    Click and hold the ticket card, then drag to the target column.
-  </Step>
-  <Step title="Select Status (if needed)">
-    If multiple statuses map to that column, choose the specific status from the modal.
-  </Step>
-  <Step title="Confirm Mapping (optional)">
-    If the status isn't mapped and you have permissions, you can add it to the column mapping.
-  </Step>
-</Steps>
-
-#### Viewing Ticket Details and Time Entries
-
-Click any ticket card to open the **Ticket Details Modal**. This unified modal displays:
-
-**Left Panel - Ticket Information:**
-- Ticket ID and summary
-- Status and priority badges
-- Assigned technician
-- Company and project
-- Hours worked vs. budget
-- Created and updated dates
-
-**Right Panel - Activity:**
-- Notes and communications
-- Time entries logged against the ticket
-
-**Time Entry Form (for agents):**
-If you're logged in as an MSP agent, the modal includes a time entry form where you can:
-- Log hours worked
-- Add work notes
-- Specify work type
-- Mark as billable/non-billable
-
-<Tip>
-You can also click the **timer icon** that appears when hovering over a ticket card to quickly open the ticket modal and log time.
-</Tip>
-
-<Info>
-The Phases and Kanban tabs are only visible if enabled in your project settings (**Settings > Projects**).
-</Info>
-
-## Creating Items from Phases & Tickets
-
-You can quickly create deliverables, updates, and decisions directly from project phases or tickets. This automatically links the new item back to its source, making it easy to track work related to specific phases or tickets.
-
-### From a Phase
-
-Click the **⋯** (more options) button on any phase row to:
-
-- **Create Deliverable** - Creates a new deliverable linked to the phase
-- **Create Update** - Creates a weekly update referencing the phase
-- **Decision Needed** - Creates a client action item linked to the phase
-
-### From a Ticket
-
-Click the **⋯** (more options) button on any ticket within a phase to:
-
-- **Create Deliverable** - Creates a deliverable linked to the specific ticket
-- **Create Update** - Creates a weekly update for the ticket
-- **Decision Needed** - Creates a decision item linked to the ticket
-
-<Tip>
-When you create an item from a phase or ticket, you'll automatically be navigated to that item's tab so you can fill in the details right away.
-</Tip>
-
-### Linked Item Indicators
-
-Items created from phases or tickets display a link indicator showing their source. This helps you:
-
-- Trace deliverables back to the work that spawned them
-- Connect updates to specific project activities
-- Associate pending decisions with relevant tickets or phases
-
-## Project Health Status
-
-MSPortal automatically calculates project health based on:
-
-- Days remaining vs. work completed
-- Hours variance from estimate
-- Overdue status
-
-Health statuses include:
-
-| Status | Meaning |
-|--------|---------|
-| **On Track** | Project progressing well |
-| **At Risk** | Minor concerns - approaching deadline or moderately over budget |
-| **Behind** | Critical issues requiring attention |
-| **Completed** | Project finished |
-
-You can manually override the calculated health status and provide a reason.
-
-## Editing Projects
-
-Users with project management permissions can edit project details:
-
-<Steps>
-  <Step title="Open Project Details">
-    Click on a project card to open the detail view.
-  </Step>
-  <Step title="Click Edit Details">
-    Click the **Edit Details** button in the project header.
-  </Step>
-  <Step title="Update Information">
-    Modify the outcome, phase, health status, contacts, deliverables, milestones, or client actions.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** to apply your changes.
-  </Step>
-</Steps>
-
-## Configuring Project Display
-
-Customize what information appears on project cards and which features are enabled in **Settings > Projects**.
-
-<Card title="Project Settings" icon="gear" href="/user-guides/settings/projects">
-  Configure project display options, status mappings, and feature visibility.
-</Card>
-
-## Permissions
-
-| Permission | Capability |
-|------------|------------|
-| `read_projects` | View projects and project details |
-| `write_projects` | Edit project information and post updates |
-| `manage_projects` | Full project management including settings |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Project Settings" icon="gear" href="/user-guides/settings/projects">
-    Configure project display options and status mappings
-  </Card>
-  <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">
-    Set up PSA integration to sync projects
-  </Card>
+  <Card title="Project workspace" icon="folder-open" href="/user-guides/projects/workspace">Work with milestones, updates, decisions, action items, and tickets.</Card>
+  <Card title="Project calendar" icon="calendar" href="/user-guides/projects/calendar">Navigate Schedule and inspect scheduled project work.</Card>
+  <Card title="Project settings" icon="gear" href="/user-guides/settings/projects">Configure access, display, Kanban, status mappings, and custom fields.</Card>
+  <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">Connect your PSA and review its configuration.</Card>
 </CardGroup>

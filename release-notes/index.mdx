@@ -3,6 +3,42 @@ title: "Release Notes"
 description: "Product updates, improvements, and upcoming features for MSPortal.ai"
 ---
 
+## September 6, 2026
+
+### Automation Platform Upgrade
+
+Automation rules now run on the schedule you pick, deliver to the person who currently owns the work, and roll a batch of matches into a single message per recipient. Reviewers can edit an approval before it sends.
+
+**Key Features:**
+- **Pick the day, time, and timezone**: A weekly rule runs on the weekday and local time you choose, and holds that wall-clock time through daylight saving changes. The schedule reads the same way in the setup step, the review step, and the rules list.
+- **Send to whoever is assigned**: The new **Assigned user** recipient resolves the current planner assignee, training enrollee, or matched user at the moment the action runs, so reassigning the work reroutes the message. A record with nobody on it is held for retry rather than sent to someone unrelated.
+- **Digests for email, surveys, and alerts**: Combining matching records now covers Send Email, Send Survey, and In-App Alert alongside Open Ticket and Add to Planner. Group per company, per company and day, per company and week, by month, or by quarter. Each person's message, including anything an AI transform writes for it, is built only from the records that belong to them.
+- **SharePoint capacity planning from CIPP**: A ready-made rule turns over-quota SharePoint storage detected by CIPP into a planner item for the mapped company, using a planner item type you choose. It imports switched off so you can review the conditions and the item copy first, and a company that keeps matching reuses its existing planner item instead of collecting duplicates. Requires an active CIPP integration with mapped tenants.
+- **Edit an approval before it sends**: Open a pending automation approval and adjust the subject and body, then approve. The request shows the rule, the action type, who requested it, the recipients, and when it expires.
+
+[Documentation: Automation Rules](/user-guides/settings/automation)
+
+### Project Custom Fields
+
+Bring the custom fields you already keep in ConnectWise, Autotask, or Halo PSA into MSPortal, show them where you run projects, filter the project list by them, and write edits back to the PSA.
+
+**Key Features:**
+- **Pick the fields you want**: **Settings > Projects > Custom Fields** lists what your PSA exposes. Search the catalog, add a field, and configure it. Project fields and project ticket fields are managed separately, so a field on the project record and a field on a task each land where they belong.
+- **Shown where you work**: Added fields appear on the project overview and project cards, and expanded tickets on the **Phases** tab show their ticket fields. Turn on **List and filters** to add a column and a matching filter to the project list, so you can slice projects by something like a projected pod.
+- **Edits go back to the PSA**: Switch on **Allow edits** and changes made in MSPortal are written to ConnectWise, Autotask, or Halo PSA. A field your PSA will not accept is marked as not writable rather than failing when someone saves.
+- **Access per field**: Set **Who can view** and **Who can edit** on each field, either staff only or a chosen set of roles, including company-scoped roles. Editing also requires view access, permission to edit the project, and writeback switched on, so a sensitive field stays with the people who own it.
+- **Field types and refresh**: Text, number, yes/no, date, date and time, pick lists, and multi-select are all supported. Definitions refresh from your PSA daily, and **Sync now** picks up a field you just created in the PSA.
+
+[Documentation: Project Settings](/user-guides/settings/projects)
+
+### Improvements
+
+- **New rules start switched off**: Rules created in the automation editor, the public API, and MCP tools arrive disabled, so you can run the rule test and preview the bundles before anything reaches a client. Turning a rule on stays a deliberate step.
+- **Condition groups follow their parent**: A group nested inside another now evaluates against the AND or OR you set on the group above it. A condition pointing at a field or operator the rule cannot evaluate stops the rule instead of quietly matching everything.
+- **Schedule and trigger choices are validated when you save**: The editor accepts the trigger and schedule combinations automation actually runs, so a rule that saves is a rule that will fire. PSA user-defined date fields remain available as conditions.
+- **Approvals recover on their own**: A pending approval that passes its deadline is expired, and an approved message that was interrupted mid-delivery finishes on the next pass without re-sending what already went out.
+- **Automation settings in every language**: The scheduling, recipient, bundling, and approval copy is translated across all 18 supported languages.
+
 ## September 4, 2026
 
 ### User Statistics

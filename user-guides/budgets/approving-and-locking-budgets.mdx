@@ -1,0 +1,163 @@
+---
+title: 'Approve and Lock a Budget'
+description: 'Finalize a budget as an immutable baseline and prepare its line items for actual-spend matching'
+icon: 'lock'
+---
+
+Approving a budget turns it into the fixed baseline MSPortal uses to compare planned costs with customer invoice spend. Approval also assigns a unique reference to every line item so projects, purchases, licences, labour, and other costs can be traced back to the approved plan.
+
+<Warning>
+Approval is permanent. You cannot edit or return an approved budget to Draft. Review the budget carefully before confirming approval.
+</Warning>
+
+## Prerequisites
+
+- A budget in **Draft** or **Pending Approval** status
+- Permission to approve budgets
+- A company, fiscal year, currency, and complete set of line items
+- Final quantities, prices, recurrence, categories, line-item statuses, and linked projects or products
+- A supported PSA integration with invoice sync enabled if you plan to track actual spend
+
+## Getting Started
+
+<Steps>
+  <Step title="Review the budget">
+    Open the budget and confirm its company, fiscal year, currency, period type, line items, and totals. Rejected line items remain visible after approval but are excluded from the approved amount and cannot receive actual spend.
+  </Step>
+  <Step title="Review matching links">
+    For project costs, confirm the linked Planner item has the correct PSA project under **Relationships > Projects**. For recurring licence or service costs, confirm the correct product link. MSPortal captures the available matching relationships when the budget is approved.
+  </Step>
+  <Step title="Set the budget to Approved">
+    Change the budget status to **Approved**. This opens the approval warning.
+  </Step>
+  <Step title="Confirm the permanent lock">
+    In the **Lock Budget After Approval?** dialog, review the warning and click **Approve Budget**.
+  </Step>
+  <Step title="Save the approval">
+    Click **Save** to save and approve the budget. Confirm that the save succeeds and the budget becomes read-only; accepting the warning alone does not save the approval.
+  </Step>
+  <Step title="Open Actuals">
+    Open the budget in View mode and select **Actuals**. The approved period and line-item references are now available for reconciliation.
+  </Step>
+</Steps>
+
+## What Approval Locks
+
+The approved budget becomes an immutable historical record.
+
+| Budget data | After approval |
+|-------------|----------------|
+| Title, company, fiscal year, currency, and notes | Read-only |
+| Quantities, prices, recurrence, and annualized costs | Read-only |
+| Categories and line-item statuses | Read-only |
+| Linked projects and products used for matching | Captured in the baseline |
+| Line-item order and membership | Read-only |
+| Delete budget | Unavailable; archive the budget instead |
+| Duplicate, print, and export actions | Available |
+| Actuals review and exception resolution | Available with the required permissions |
+
+The reconciliation period shown on the **Actuals** tab is also fixed when the budget is approved. It runs from January 1 through December 31 of the selected fiscal year. Selecting **Quarterly** or **Monthly** as the period type does not narrow Actuals to a quarter or month.
+
+<Note>
+Budgets approved before actuals tracking was introduced retain their locked plan, but do not receive retroactive references or approval-time project and product matching keys. Reconcile these budgets with manual allocations, or duplicate and approve a new budget to prepare references for future billing.
+</Note>
+
+## Use Budget References in Your PSA
+
+Each approved line receives a short reference such as `BR-26-1A2B3C4D5E`. MSPortal looks for this reference in synchronized invoice, purchase order, project, contract, and related source details.
+
+This acts as an internal budget reference, not a purchase-order approval or three-way matching system. Only details imported by your PSA integration can be searched. There is no separate custom-field mapping screen for budget references: verify that your chosen field reaches the synchronized invoice data.
+
+<Steps>
+  <Step title="Copy the reference">
+    In **Budget View > Actuals**, find the line in **Line outcomes** and click its value in the **Reference** column.
+  </Step>
+  <Step title="Add it to the PSA workflow">
+    Paste the reference into the PSA field your team uses for the cost, such as a project PO, customer PO, invoice reference, or custom field that flows through to the invoice.
+  </Step>
+  <Step title="Keep the reference with the billed work">
+    Make the reference part of the team's project, procurement, or billing process so it appears on the synchronized invoice data.
+  </Step>
+  <Step title="Review the result">
+    After the invoice sync completes, return to **Actuals** and confirm that the event matched the intended line.
+  </Step>
+</Steps>
+
+<Tip>
+Use one budget reference for each invoice event. If the same event contains more than one budget reference, MSPortal cannot select an exact reference match.
+</Tip>
+
+## How Automatic Matching Is Prepared
+
+MSPortal captures the identifiers available on each budget line at approval. Actual spend is then matched in this order:
+
+1. Exact budget reference
+2. Linked project
+3. Linked product
+4. Product identity, such as SKU or product name
+
+An exact budget reference takes priority over the other methods. If the best method points to more than one line, MSPortal sends the event to **Unmatched exceptions** for review.
+
+An explicit reference that does not identify an eligible line in this budget also needs review; MSPortal does not ignore it and fall back to a project or product match.
+
+## Archive a Superseded Budget
+
+Archiving retires an approved budget without changing its baseline or reconciliation history.
+
+Only the planned baseline is frozen. Actuals can still change when invoices synchronize or authorized users update reconciliation decisions, including on archived budgets.
+
+<Steps>
+  <Step title="Open the approved budget">
+    Open the budget in the editor. It remains read-only.
+  </Step>
+  <Step title="Click Archive">
+    Click **Archive** in the approved-budget banner.
+  </Step>
+  <Step title="Confirm the action">
+    Confirm that you want to archive the budget. Its status changes to **Archived**, and its Actuals history remains available.
+  </Step>
+</Steps>
+
+To revise an approved budget, duplicate it, edit the new Draft copy, approve the replacement, and then archive the original.
+
+## Common Tasks
+
+### Prepare a Project Budget Line
+
+Open the Planner item for the work and add the correct PSA project under **Relationships > Projects**. Import that Planner item into the budget before approval. After approval, copy the generated budget reference into a project PO, reference, or billing field that your integration imports. This gives MSPortal both a project relationship and an exact reference it can use when the invoice arrives.
+
+### Prepare a Licence or Service Budget Line
+
+Add the item from the synchronized product catalog when possible. Verify its product link, SKU, name, quantity, price, and recurrence before approval. MSPortal can use the captured product link or identity when no budget reference is present on the invoice line.
+
+### Replace an Approved Budget
+
+Use **Actions > Duplicate** to create an editable Draft copy. Make and approve the changes on the copy, then archive the original so both baselines remain available for audit history.
+
+## Troubleshooting
+
+| Issue | Resolution |
+|-------|------------|
+| **Approved** is unavailable | Confirm your role has permission to approve budgets and that the budget is in Draft or Pending Approval |
+| Approval validation fails | Complete the company, fiscal year, currency, categories, costs, and other required line-item data, then try again |
+| The budget cannot be edited after approval | This is expected; duplicate the budget to create an editable Draft copy |
+| A line has no reference | Older locked budgets have no retroactive references; use manual allocation. For a newly approved budget, confirm approval saved successfully and reload |
+| Saving reports that approval failed | Reload and review the latest saved budget, then retry approval; a saved Draft is not a locked baseline |
+| A project or product link was wrong at approval | Duplicate and correct the budget for future tracking; the original baseline remains unchanged |
+| **Archive** is missing | Confirm the budget is Approved and your role has permission to archive budgets |
+
+## Best Practices
+
+- Treat approval as the handoff from planning to measurement
+- Reconcile line-item statuses before approval; only rejected lines are excluded, so remaining Draft and Pending lines also contribute to the baseline
+- Link projects and products before approval so MSPortal can capture stable matching keys
+- Add the generated reference to the PSA as early as possible in the procurement or project workflow
+- Standardize one PSA field for budget references and train billing staff to preserve it on invoices
+- Duplicate and replace approved budgets instead of deleting historical baselines
+
+## Related Resources
+
+- [Budgets overview](/user-guides/budgets/index)
+- [Track budget actuals](/user-guides/budgets/tracking-budget-actuals)
+- [Resolve actuals exceptions](/user-guides/budgets/resolving-actuals-exceptions)
+- [Invoices](/user-guides/invoices/index)

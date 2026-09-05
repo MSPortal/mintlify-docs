@@ -4,7 +4,7 @@ description: Create, manage, and track IT budgets with strategic planning integr
 icon: calculator
 ---
 
-The Budgets module helps MSPs create and manage IT budgets for their clients. Build budgets by importing Microsoft 365 licensing and Planner items, linking strategic goals, and adding products from your catalog or PSA. Track approval status and export professional budget documents.
+The Budgets module helps MSPs create, approve, and measure IT budgets for their clients. Build budgets by importing Microsoft 365 licensing and Planner items, linking strategic goals, and adding products from your catalog or PSA. After approval, compare the locked plan with synchronized customer invoice spend, resolve unmatched costs, and retain the result as an auditable historical baseline.
 
 ![Budget View](/images/budgets/budget-view.png)
 
@@ -42,7 +42,7 @@ The budgets table displays key information for each budget:
 |--------|-------------|
 | **Budget Title** | Name of the budget (click to edit) |
 | **Fiscal Year** | The fiscal year the budget applies to |
-| **Status** | Overall budget status: Draft, Pending Approval, Approved, or Obsolete |
+| **Status** | Overall budget status: Draft, Pending Approval, Approved, or Archived |
 | **Pending** | Sum of line items with "Pending" status |
 | **Rejected** | Sum of line items with "Rejected" status |
 | **Approved** | Sum of line items with "Approved" status |
@@ -251,6 +251,7 @@ To view a budget in read-only presentation mode:
    - Company, fiscal year, period, and currency
    - Summary cards showing Total, Approved, and Pending amounts
    - Line items table with status indicators
+   - **Overview**, **Monthly Breakdown**, and **Actuals** tabs
 
 ![Budget View](/images/budgets/budget-view.png)
 
@@ -259,6 +260,31 @@ To view a budget in read-only presentation mode:
 From the Budget View, you can:
 - **Print** - Print the budget directly
 - **Export PDF** - Download a professional PDF document
+
+## Comparing a Budget with Actual Spend
+
+Once a budget is approved, open **Budget View > Actuals** to compare its locked baseline with tax-exclusive customer invoice spend from ConnectWise Manage, Autotask PSA, or HaloPSA.
+
+The Actuals workflow provides:
+
+- Overall budgeted, actual, variance, and unallocated totals
+- Source coverage by PSA and invoice detail level
+- Per-line matched spend and variance
+- Short budget references for PSA projects, POs, invoice references, or custom fields
+- An exception queue for unmatched or partially allocated invoice spend
+- Matched evidence and an audit trail of manual allocations
+
+<CardGroup cols={3}>
+  <Card title="Approve and lock" icon="lock" href="/user-guides/budgets/approving-and-locking-budgets">
+    Finalize the baseline and prepare references and links for matching.
+  </Card>
+  <Card title="Track actuals" icon="chart-line" href="/user-guides/budgets/tracking-budget-actuals">
+    Read the summary, line outcomes, source coverage, and matched evidence.
+  </Card>
+  <Card title="Resolve exceptions" icon="list-check" href="/user-guides/budgets/resolving-actuals-exceptions">
+    Allocate unmatched spend and manage reconciliation decisions.
+  </Card>
+</CardGroup>
 
 ## Budget Statuses
 
@@ -269,11 +295,11 @@ Budgets progress through these status stages:
 | **Draft** | Budget is being created or edited | Yes |
 | **Pending Approval** | Budget submitted for review | Yes |
 | **Approved** | Budget has been approved and permanently locked | No |
-| **Obsolete** | Budget is archived and no longer active | No |
+| **Archived** | Budget is retired but retained as a locked historical baseline | No |
 
 ## Budget Lock (Approval)
 
-When you change a budget's status to **Approved**, a confirmation dialog appears warning that this action is permanent.
+When you change a budget's status to **Approved**, a confirmation dialog appears warning that this action is permanent. Click **Approve Budget**, then **Save** to persist the approval and lock the budget.
 
 <Warning>
 **Approval permanently locks the budget.** Once approved:
@@ -295,8 +321,10 @@ The lock affects the entire budget:
 | Delete line items | Disabled |
 | Reorder line items | Disabled |
 | Change line item status | Disabled |
+| Delete budget | Disabled; archive instead |
 | Duplicate budget | **Allowed** |
 | Export/Print | **Allowed** |
+| Review Actuals | **Allowed** |
 
 ### Making Changes After Approval
 
@@ -312,13 +340,13 @@ If you need to make changes to an approved budget:
   <Step title="Make Your Changes">
     Edit the duplicate as needed.
   </Step>
-  <Step title="Mark Original as Obsolete">
-    Optionally change the original budget to **Obsolete** status to indicate it has been superseded.
+  <Step title="Archive the Original">
+    Open the approved original, click **Archive** in its read-only banner, and confirm the action.
   </Step>
 </Steps>
 
 <Tip>
-Keep approved budgets as historical records. Use the Obsolete status to archive superseded budgets while maintaining an audit trail.
+Keep approved budgets as historical records. Archive superseded budgets to retire them while preserving their locked baseline and Actuals history.
 </Tip>
 
 ## Line Item Statuses
@@ -382,6 +410,8 @@ To create a copy of an existing budget:
 3. Edit as needed
 
 ### Deleting a Budget
+
+Only editable Draft and Pending Approval budgets can be deleted. Archive an Approved budget instead; already Archived budgets retain their historical baseline and cannot be deleted.
 
 1. Click **Actions** then **Delete**
 2. Confirm the deletion
@@ -545,7 +575,7 @@ The Export feature is coming soon and will allow you to download forecast report
 - Use categories to organize line items by type
 - Update line item statuses as approvals are received
 - Export PDF versions for client presentations
-- Use **Obsolete** status for superseded budgets rather than deleting them
+- Archive superseded budgets rather than deleting them
 - Review all line items before approving a budget (approval is permanent)
 - Use recurring items with term months for subscriptions to calculate annualized costs
 </Check>
@@ -556,7 +586,7 @@ Avoid these common pitfalls:
 - Creating budgets without linking to planner items or goals
 - Leaving budgets in Draft status indefinitely
 - Not updating line item statuses after approval decisions
-- Deleting budgets instead of marking them Obsolete for audit trails
+- Deleting budgets instead of archiving them for audit trails
 - Forgetting to set recurrence and term for subscription items
 </Warning>
 
@@ -582,9 +612,14 @@ Products from connected PSAs (ConnectWise, Autotask, HaloPSA) are available:
 - Import products with accurate pricing
 - Maintain product SKUs and categories
 - Access vendor information
+- Compare approved budgets with synchronized, tax-exclusive customer invoice spend
+- Match invoice events by budget reference, linked project, linked product, or product identity
 
 ## Related Resources
 
+- [Approve and Lock a Budget](/user-guides/budgets/approving-and-locking-budgets) - Create the immutable baseline used for actuals
+- [Track Budget Actuals](/user-guides/budgets/tracking-budget-actuals) - Compare approved budgets with invoice spend
+- [Resolve Actuals Exceptions](/user-guides/budgets/resolving-actuals-exceptions) - Allocate unmatched spend and manage matching decisions
 - [Planner](/user-guides/planner/index) - Manage tasks and link to budgets
 - [Goals](/user-guides/goals/index) - Set strategic objectives
 - [Company Overview](/user-guides/company-overview/index) - View company budget status

@@ -1,0 +1,113 @@
+---
+title: 'Understand Device IP Location Results'
+description: 'Learn how device IP locations are estimated, cached, protected, and interpreted'
+icon: 'map-location-dot'
+---
+
+Device IP location helps you assess where a device appears to connect to the internet. MSPortal uses the device's integration-reported external IP address and MaxMind GeoIP City Plus to return an approximate location.
+
+The result is intended as an operational signal. It should not be treated as an exact physical location or used by itself to make security, employment, compliance, or emergency-response decisions.
+
+## Understand the displayed fields
+
+| Field | Meaning |
+|---|---|
+| **External IP** | The globally routable address most recently reported by a connected device integration |
+| **IP observed** | When MSPortal recorded that external IP from the integration |
+| **Approximate location** | The available city, region, and country associated with the external IP |
+| **Accuracy** | The approximate radius around the returned coordinates where the connection may be located |
+| **Last checked** | When the location provider last resolved the external IP |
+
+<Note>
+The regular **IP Address** or **Reported IP** elsewhere in the device details may be an internal network address. The **External IP** in the IP location section is the address used for location lookup.
+</Note>
+
+## Why results can differ from the device location
+
+An external IP describes a network connection, not a device sensor. Common reasons for a different or broad result include:
+
+<CardGroup cols={2}>
+  <Card title="Office NAT" icon="building">
+    Many devices at one office can share the same external IP and therefore share one approximate location.
+  </Card>
+  <Card title="VPN or secure gateway" icon="shield-halved">
+    The result may identify the VPN or security service exit point instead of the device.
+  </Card>
+  <Card title="Mobile networks" icon="tower-cell">
+    Carrier traffic can exit far from the device and may cover a large service area.
+  </Card>
+  <Card title="ISP address allocation" icon="network-wired">
+    Providers can register or route address ranges through a nearby city or regional hub.
+  </Card>
+</CardGroup>
+
+Always interpret the pin together with the displayed accuracy radius. A larger radius means the provider has less location precision.
+
+## Lookup reuse and refresh timing
+
+MSPortal reuses recent results for the same public IP so office devices sharing one internet connection do not create duplicate lookups.
+
+| Result | Normal reuse period |
+|---|---|
+| Location found | 30 days |
+| No location available | 24 hours |
+| Temporary lookup error | 15 minutes before retry |
+| Manual forced refresh | Five-minute cooldown |
+
+Automatic background enrichment is disabled by default and can be enabled centrally for your environment. When enabled, eligible external IPs are checked daily within a configured lookup limit. Opening a device alone displays the available cached result; it does not force a new provider lookup. The displayed **Last checked** value shows the age of the current location result.
+
+## Privacy and access
+
+- MSPortal sends the valid public IP to MaxMind for the lookup, without device names or internal IPs; it does not request device GPS data.
+- Private, reserved, malformed, and network-range addresses are rejected before lookup.
+- MSPortal stores normalized IP-location fields rather than retaining the provider's complete raw response.
+- Location access follows the same tenant, company, and device permissions as the device itself.
+- Users who can manage devices can request a forced refresh; other authorized device viewers can view available results.
+- **Open map** opens an external OpenStreetMap page with the approximate coordinates in its URL, without the device name or IP address.
+
+## Recommended uses
+
+<CardGroup cols={2}>
+  <Card title="Confirm expected offices" icon="building-circle-check">
+    Check whether a device's connection appears near a known client office.
+  </Card>
+  <Card title="Investigate unexpected regions" icon="magnifying-glass-location">
+    Use a surprising country or region as a reason to review VPN, identity, and RMM telemetry.
+  </Card>
+  <Card title="Recognize shared egress" icon="diagram-project">
+    Identify devices that appear together because they share an office firewall or gateway.
+  </Card>
+  <Card title="Support remote-work context" icon="house-laptop">
+    Add approximate network context while troubleshooting a remote device.
+  </Card>
+</CardGroup>
+
+## Best practices
+
+- Treat the location as approximate, especially for VPN, mobile, satellite, and cloud-hosted connections.
+- Review **IP observed** before acting on a result; an older IP may no longer represent the device's current connection.
+- Corroborate unexpected locations with sign-in logs, RMM activity, VPN records, and the device's assigned company or site.
+- Avoid repeated manual refreshes. A fresh lookup cannot make an inherently imprecise IP range exact.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Do portal users need a MaxMind API key?">
+    No. The location provider is configured centrally for the MSPortal service and has no portal-level API key setting. Authorized users run lookups from the device details without entering provider credentials.
+  </Accordion>
+  <Accordion title="Does MSPortal track the device continuously?">
+    No. MSPortal looks up an external IP reported during device synchronization. It does not receive live GPS coordinates or continuously track movement.
+  </Accordion>
+  <Accordion title="Why do several devices show the same location?">
+    They likely share the same office firewall, VPN gateway, ISP connection, or other internet exit point. This is expected for devices behind network address translation.
+  </Accordion>
+  <Accordion title="Why is there no city or accuracy radius?">
+    Some address ranges only support a broader regional or country result. MSPortal shows the fields the provider can return instead of inventing more precise information.
+  </Accordion>
+</AccordionGroup>
+
+## Related resources
+
+- [Find a Device by Its Approximate IP Location](/user-guides/devices/ip-location)
+- [Devices](/user-guides/devices/index)
+- [Import Devices](/user-guides/integrations/import-devices)

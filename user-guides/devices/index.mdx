@@ -21,6 +21,9 @@ The Devices module provides a centralized inventory of all IT assets across your
   <Card title="Custom Fields" icon="sliders">
     Add custom fields to track additional device information specific to your needs.
   </Card>
+  <Card title="Approximate IP Location" icon="location-dot" href="/user-guides/devices/ip-location">
+    Use an integration-reported external IP to estimate where a device connects to the internet.
+  </Card>
 </CardGroup>
 
 ## Getting Started
@@ -129,6 +132,7 @@ The detail panel includes the following sections (sections only appear when data
 | Section | Information Shown |
 |---------|-------------------|
 | **Overview** | OS, model, manufacturer, serial number, IP address, MAC address |
+| **IP location** | External IP, observation time, approximate location, accuracy radius, and map link |
 | **Hardware** | Processor, RAM, CPU cores, total and free disk space with usage bar |
 | **Security** | FileVault, Firewall, Gatekeeper, SIP, MDM enrollment, antivirus, patch status |
 | **Network** | Hostname, domain, LAN IP, WAN IP, Wi-Fi and Ethernet MAC addresses |
@@ -256,6 +260,8 @@ Common custom fields for devices:
 
 ## Related Resources
 
+- [Find a Device by Its Approximate IP Location](/user-guides/devices/ip-location) - Look up a device's external IP and open the approximate result on a map
+- [Understand Device IP Location Results](/user-guides/devices/ip-location-accuracy-and-privacy) - Learn about accuracy, caching, privacy, and common limitations
 - [Import Devices](/user-guides/integrations/import-devices) - Device type mappings, auto-sync, and import workflow
 - [Addigy Integration](/user-guides/integrations/enable-addigy-integration) - Apple device management integration
 - [Datto RMM Integration](/user-guides/integrations/enable-datto-rmm-integration) - Datto RMM device sync

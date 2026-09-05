@@ -1,239 +1,176 @@
 ---
-title: 'Company Audit'
-description: 'Comprehensive health check for all companies across every module'
+title: 'Account Readiness'
+description: 'Track how completely every client is set up, and who owns each gap'
 icon: 'clipboard-check'
 ---
 
-The Company Audit provides a comprehensive health assessment of all your client companies across MSPortal.ai. View audit scores, identify configuration gaps, and track company setup completion at a glance.
+Account Readiness measures how completely each client is set up in MSPortal.ai, scores it out of 100, and tells you which team member owns every remaining gap. It runs continuously rather than only at onboarding, so configuration drift shows up as soon as it happens.
 
-![Company Audit Dashboard](/images/company-overview/audit-main-view.png)
+<Note>Account Readiness replaces the Company Audit. The old address `/settings/companies/audit` now redirects here, and any saved links keep working.</Note>
 
-## Accessing Company Audit
+## Accessing Account Readiness
 
 <Steps>
-  <Step title="Navigate to Company Overview">
-    Click **Company Overview** in the left sidebar under the **Planning** section.
+  <Step title="Open MSP Tools">
+    Click **Account Readiness** in the left sidebar under **MSP Tools**.
   </Step>
-  <Step title="Open the Overview Menu">
-    Click the **Overview Menu** button in the top-right corner of the page.
-    ![Overview Menu](/images/company-overview/audit-overview-menu.png)
-  </Step>
-  <Step title="Select Company Audit">
-    Click **Company Audit** from the dropdown menu.
+  <Step title="Choose your scope">
+    Use the company selector at the top of the page to look at one client, your assigned clients, or the whole portfolio.
   </Step>
 </Steps>
 
-## Summary Cards
+Requires the **Account Readiness: Read** permission. Configuring requirements requires **Account Readiness: Manage**, and the per-person view requires its own permission so a scorecard of named staff is never granted by accident.
 
-At the top of the page, four summary cards provide an instant overview of company health:
+## Summary cards
 
 | Card | Description |
 |------|-------------|
-| **Total Companies** | The total number of companies in your tenant |
-| **Well Configured** | Companies with an audit score of 80% or higher (shown in green) |
-| **Needs Attention** | Companies with an audit score between 60-79% (shown in yellow) |
-| **Critical** | Companies with an audit score below 60% (shown in red) |
+| **Companies** | Companies in the current scope, excluding any marked as excluded from readiness |
+| **Well configured** | Score of 80% or higher |
+| **Needs attention** | Score between 60% and 79% |
+| **Critical** | Score below 60% |
 
-<Tip>Focus on companies in the "Critical" category first to ensure all clients have proper configurations in place.</Tip>
+## How the score works
 
-## Understanding Audit Scores
+The score is the share of a company's requirements that are ready:
 
-The audit score is calculated based on multiple factors that indicate how well a company is configured in MSPortal.ai:
+```
+score = ready checks / (total checks - exempt checks) x 100
+```
 
-| Factor | Points |
-|--------|--------|
-| Company roles assigned | 10 |
-| QBR schedule configured | 10 |
-| Users linked | 8 |
-| Locations configured | 8 |
-| Devices tracked | 8 |
-| Upcoming planner items | 5 |
-| Upcoming compliance checks | 5 |
-| Budget configured | 5 |
-| Integrations active | 5 |
+A company that satisfies every requirement scores 100%. Exempt checks are removed from the denominator entirely, so exempting something never quietly lowers a score.
 
-<Note>A higher score indicates better configuration. Scores are displayed with color-coded progress bars: green (80%+), yellow (60-79%), and red (below 60%).</Note>
+<Note>The previous Company Audit score was built from nine weighted factors that added up to a maximum of 64, which was then shown as a percentage. A perfectly configured company read 64% and fell into "Critical". Scores shipped with Account Readiness are true percentages, so expect most companies to move up on the day this releases.</Note>
 
-## Audit Report Table
+## Check states
 
-The main audit report displays all companies with configurable columns showing key metrics across every module.
+| State | Meaning |
+|-------|---------|
+| **Ready** | The requirement is satisfied |
+| **Unconfirmed** | The value is present, but a person still has to confirm it is the right value |
+| **Missing** | The requirement is not satisfied |
+| **Not applicable** | Someone exempted this requirement for this client, with a reason |
 
-### Default Columns
+Ready and Unconfirmed are separate on purpose. Some values can be present but wrong, and for those a person confirms once that the value is correct. If the underlying value later changes, the confirmation lapses automatically and the check returns to Unconfirmed.
+
+<Tip>A check can never be marked ready by a person while the data says it is missing. Confirming only ever applies on top of a check that already passes.</Tip>
+
+## The fleet grid
+
+Rows are companies. Columns are your requirements, grouped by area: Profile, Team, Integrations, Delivery, Engagement, and Operations.
+
+Every cell links straight to the page that fixes it, so you can open a gap in a new tab with cmd-click or middle-click without losing your place in the grid. Requirements added in the last 30 days carry a **New** badge, so a score that moved because the bar was raised is easy to tell apart from a score that slipped.
+
+### Filtering
+
+Every column filters in place, including:
+
+- **Company**, as a multi-select list
+- **Score** and **Open**, as numeric ranges
+- **Worst status**, to find every client with something missing
+- **Owning role**, to see everything a role is behind on
+- **Owner**, to see everything one person is behind on
+
+Filters combine, the filtered set is what exports to CSV, and the row count reflects the filters.
+
+### Refresh
+
+The **Refresh** button recalculates readiness for the companies currently in scope and saves the result, so everyone else sees the same figures immediately afterwards. Readiness also recalculates automatically every night.
+
+## Company drilldown
+
+Click a company name to open its drilldown. This evaluates live rather than reading the overnight snapshot, and lists everything still open, worst first. Each item shows:
+
+- What the requirement is and what state it is in
+- What the check actually found, for example which fields are blank or which roles have no holder
+- Who owns it
+- A **Fix** button that opens the page that resolves it
+
+Two actions are available with the Manage permission:
+
+<AccordionGroup>
+  <Accordion title="Confirm">
+    Records that a person has checked the value and it is correct. Available on checks in the Unconfirmed state. The confirmation lapses automatically if the value changes afterwards.
+  </Accordion>
+  <Accordion title="Mark as not applicable">
+    Exempts one requirement for one client, with a required reason. The check stops counting toward that client's score until the exemption is removed. Exemptions do not expire, and they survive a requirement being switched off and back on.
+  </Accordion>
+</AccordionGroup>
+
+Confirmations and exemptions are both listed further down the drilldown so either can be withdrawn later.
+
+## Readiness by owner
+
+The **By owner** tab rolls readiness up per person, based on who holds the primary owning role for each requirement at each company.
 
 | Column | Description |
 |--------|-------------|
-| **Company Name** | The name of the company |
-| **Audit Score** | Overall configuration health percentage |
-| **Setup Complete** | Whether the company setup wizard has been completed |
-| **Roles** | Assigned company roles (TAM, vCIO, etc.) |
-| **Locations** | Number of configured locations |
-| **Devices** | Total number of managed devices |
-| **Overdue Checks** | Compliance checks past their due date (highlighted in red) |
-| **Upcoming Checks** | Compliance checks due soon |
-| **QBR Scheduled** | Whether a QBR schedule is configured |
-| **Future Meetings** | Number of upcoming booked meetings |
-| **Overdue Planner** | Planner items past their due date |
-| **Upcoming Planner Items** | Planner items due soon |
-| **Avg NPS** | Average Net Promoter Score from surveys |
-| **Has Budget** | Whether a budget is configured |
-| **Users (Active/Total)** | Count of active users vs total users |
+| **Person** | The team member who holds the owning role |
+| **Roles** | Which owning roles they hold |
+| **Companies** | How many clients they own readiness for |
+| **Ready** | Share of their checks that are ready |
+| **vs team** | Their ready rate as a multiple of the team average |
+| **Trend** | Change in their ready rate across the period |
+| **Open** | Checks still missing or unconfirmed |
 
-### Customizing Columns
+The **vs team** column is the number to read. Someone at 85% across 40 clients is doing better work than someone at 90% across 5, and a raw percentage says the opposite. People below the minimum client count are marked **Small book** and are left out of the team average so a very small book cannot skew everyone else's baseline.
 
-Click the **Columns** button to show or hide columns based on your needs. Columns are organized into categories:
+Trend deliberately ignores requirements that did not exist at the start of the period. Adding a new requirement raises the bar, and that should not read as everyone regressing.
 
-![Columns Menu](/images/company-overview/audit-columns-menu.png)
+## Configuring requirements
 
-<AccordionGroup>
-  <Accordion title="Basic">
-    - Company Name
-    - Audit Score
-  </Accordion>
-  <Accordion title="Setup">
-    - Setup Complete
-    - Has Address
-    - Has Phone
-    - Has Website
-  </Accordion>
-  <Accordion title="Infrastructure">
-    - Locations
-    - Devices
-    - Active Devices
-  </Accordion>
-  <Accordion title="Compliance">
-    - Total Checks
-    - Overdue Checks
-    - Upcoming Checks
-    - Last Compliance Run
-  </Accordion>
-  <Accordion title="QBR">
-    - QBR Scheduled
-    - Next QBR
-    - Last QBR
-  </Accordion>
-  <Accordion title="Meetings">
-    - Upcoming Meetings
-    - Next Meeting
-    - Future Meetings
-  </Accordion>
-  <Accordion title="Planner">
-    - Planner Items
-    - Overdue Planner
-    - In Progress
-    - Upcoming Planner Items
-  </Accordion>
-  <Accordion title="Goals">
-    - Total Goals
-    - Incomplete Goals
-    - High Priority Goals
-  </Accordion>
-  <Accordion title="Surveys">
-    - Total Surveys
-    - Completed Surveys
-    - Last Survey
-    - Avg NPS
-  </Accordion>
-  <Accordion title="Budget">
-    - Has Budget
-    - Budget Categories
-    - Total Budget
-  </Accordion>
-  <Accordion title="Users">
-    - Users (Active/Total)
-    - Total Users
-    - Active Users
-  </Accordion>
-  <Accordion title="Integrations">
-    - Integrations
-    - Active Integrations
-  </Accordion>
-  <Accordion title="Metadata">
-    - Created
-    - Last Activity
-  </Accordion>
-</AccordionGroup>
+Go to **Settings > Organization > Account Readiness** to decide what "ready" means for your clients. Each requirement has:
 
-<Tip>Your column preferences are saved automatically and will persist across sessions.</Tip>
+| Setting | Purpose |
+|---------|---------|
+| **What does this check?** | The kind of check, such as a company field, an integration mapping, or a record that must exist |
+| **Configuration** | The specifics, picked from your own data: your roles, your custom fields, your compliance groups, your report templates |
+| **Name** | An optional label that replaces the default one |
+| **Primary owner** | The role that carries this in the score |
+| **Supporting roles** | Other roles that should see the work |
+| **Needs a person to confirm it** | Requires a confirmation on top of the data check |
+| **On** | Whether the requirement is measured at all |
 
-## Filtering and Sorting
+### Check kinds
 
-### Search
+| Kind | What it measures |
+|------|------------------|
+| **Company profile fields** | Named fields on the company record are filled in |
+| **Company custom fields** | Named company custom fields are filled in |
+| **Integration company mapping** | The company is mapped to its counterpart in a given integration |
+| **Team role assigned** | The named roles have a holder at this company |
+| **Compliance applied** | Compliance checks are assigned, and optionally a compliance schedule is set |
+| **Report schedule active** | An active report schedule covers this company |
+| **Standards linked** | Every standard has been triaged, and optionally planned |
+| **Record exists** | At least N of a record type exist, such as locations, devices, goals, or a budget |
 
-Use the search box to filter companies by name. Type any part of the company name to instantly filter the results.
+<Note>A report schedule counts as covering a company whether it targets that company directly, its company group, its industry, or all active companies. You do not need a separate schedule per client for this check to pass.</Note>
 
-### Filter by Role
+### Primary owner versus supporting roles
 
-Use the **Filter by Role** dropdown to show only companies where a specific person is assigned to a role. This is useful for:
-- Viewing all companies managed by a specific TAM
-- Seeing which companies a vCIO is responsible for
-- Checking workload distribution across team members
+The split matters. The work list shows a failing check to every role that could fix it, so nobody is left out. The score counts each check once, against the primary owner, so a portfolio total always matches the real number of gaps.
 
-### Sorting
+## Excluding a company
 
-Click any column header to sort the table by that column. Click again to toggle between ascending and descending order. A sort indicator arrow shows the current sort direction.
+Some clients are not meant to be measured at all. Set **Excluded from readiness** on the company to leave it out of the grid, the drilldown, the owner rollup, and the nightly snapshot.
 
-## Actions
+## Requirements you cannot fix in MSPortal.ai
 
-### Refresh Data
+**Primary contact** is read from your PSA and there is no page in MSPortal.ai that sets it. It ships as a confirm-required check: set the contact in the PSA, then confirm it here once. If the PSA contact changes later, the check returns to Unconfirmed on its own.
 
-Click the **Refresh** button to reload the audit data with the latest information from the database.
-
-### Export to CSV
-
-Click the **Export** button to download the current view (including any active filters) as a CSV file. The export includes all visible columns based on your column preferences.
-
-## Best Practices
+## Best practices
 
 <AccordionGroup>
-  <Accordion title="Weekly Audit Review">
-    Review the Company Audit weekly to identify companies that need attention. Focus on:
-    - Companies with low audit scores
-    - Companies missing QBR schedules
-    - Companies with no assigned roles
+  <Accordion title="Start with the defaults, then tighten">
+    Every tenant starts with a default requirement set that covers company details, team ownership, compliance, reporting, standards, and the core records. Run with it for a couple of weeks, then add the requirements that reflect how your team actually works.
   </Accordion>
-  <Accordion title="Role Assignment">
-    Ensure all companies have TAM and vCIO roles assigned. Filter by role to verify workload distribution across your team.
+  <Accordion title="Give every requirement an owner">
+    A requirement with no owning role still shows in the grid, but it will not appear in anyone's rollup. Assigning owning roles is what turns the grid into a work list.
   </Accordion>
-  <Accordion title="Configuration Completeness">
-    Enable additional columns like "Has Address", "Has Phone", and "Has Website" to identify companies with incomplete basic information.
+  <Accordion title="Use exemptions instead of switching requirements off">
+    If a requirement genuinely does not apply to one client, exempt it there with a reason. Switching the requirement off removes it for everyone.
   </Accordion>
-  <Accordion title="Export for Reporting">
-    Use the Export feature to create periodic reports on company health. Filter by specific criteria before exporting to create targeted reports.
+  <Accordion title="Review by owner in one-on-ones">
+    The By owner tab is built for that conversation: it normalises for book size, so it compares people fairly.
   </Accordion>
 </AccordionGroup>
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Why is a company showing a low audit score?">
-    Review the company's configuration across all modules. Common issues include:
-    - No roles assigned to the company
-    - Missing QBR schedule
-    - No upcoming compliance checks scheduled
-    - Zero devices or locations configured
-    - No budget items set up
-  </Accordion>
-  <Accordion title="How often is the audit data updated?">
-    The audit data is refreshed when the page loads. Click the **Refresh** button to get the latest data at any time.
-  </Accordion>
-  <Accordion title="Why can't I see certain columns?">
-    Use the **Columns** button to enable additional columns. Some columns are hidden by default to keep the view manageable.
-  </Accordion>
-</AccordionGroup>
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Company Overview" icon="buildings" href="./index">
-    Return to the main Company Overview dashboard
-  </Card>
-  <Card title="Compliance" icon="shield-check" href="../compliance">
-    Manage compliance checks and frameworks
-  </Card>
-  <Card title="Planner" icon="calendar-check" href="../planner">
-    Create and track roadmap items
-  </Card>
-  <Card title="Settings: Companies" icon="building" href="../settings/companies">
-    Configure company settings and roles
-  </Card>
-</CardGroup>

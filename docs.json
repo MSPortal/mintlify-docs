@@ -112,7 +112,10 @@
               {
                 "group": "Budgets",
                 "pages": [
-                  "user-guides/budgets/index"
+                  "user-guides/budgets/index",
+                  "user-guides/budgets/approving-and-locking-budgets",
+                  "user-guides/budgets/tracking-budget-actuals",
+                  "user-guides/budgets/resolving-actuals-exceptions"
                 ]
               },
               {
@@ -216,7 +219,9 @@
               {
                 "group": "Projects",
                 "pages": [
-                  "user-guides/projects/index"
+                  "user-guides/projects/index",
+                  "user-guides/projects/workspace",
+                  "user-guides/projects/calendar"
                 ]
               },
               {
@@ -234,7 +239,9 @@
               {
                 "group": "Devices",
                 "pages": [
-                  "user-guides/devices/index"
+                  "user-guides/devices/index",
+                  "user-guides/devices/ip-location",
+                  "user-guides/devices/ip-location-accuracy-and-privacy"
                 ]
               },
               {

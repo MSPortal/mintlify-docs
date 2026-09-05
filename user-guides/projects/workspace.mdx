@@ -1,0 +1,85 @@
+---
+title: 'Project Workspace'
+description: 'Use project tabs to review progress, collaborate on decisions, and manage delivery'
+icon: 'list-check'
+---
+
+Select a project from **Projects** to open its workspace. The header contains the available tabs and, when your role permits changes, **Edit Project Details**.
+
+## Before you start
+
+You need access to the project. Editing project details and collaboration items requires project overlay-edit permission; changing PSA statuses requires status-edit permission. Assignment changes and supported PSA rescheduling require project write access.
+
+Tabs also depend on display settings, provider support, and the project's data. A small project without multiple tickets may not show Phases or ticket Kanban.
+
+<img src="/images/product/projects-workspace-phases.png" alt="Demo onboarding project phases with status, schedule, hours, and progress" width="2340" height="1400" />
+
+## Choose the right tab
+
+| Tab | What you can do |
+| --- | --- |
+| **Overview** | Review the project summary, outcome, health, dates, contacts, and available custom fields. |
+| **Team** | For ConnectWise projects, MSP staff can review project team members, roles, assigned hours, and assignment dates. |
+| **Timeline** | Review and maintain project milestones and their dates. |
+| **Updates** | Review project updates and add progress, next steps, and risks. Check whether an update is client-visible or internal. |
+| **Decisions** | Track decisions, questions, approvals, and other items requiring a response. |
+| **Action Items** | Track the work that needs to be completed separately from the decision register. |
+| **Deliverables** | Track outputs, due dates, completion state, and attachments. |
+| **Phases** | Expand PSA phases to inspect their tickets and, when enabled, time entries. |
+| **Kanban** | Organize project tickets by status, technician, or priority. |
+| **Schedule** | Review this project's dated work on a calendar. |
+
+## Review phases, tickets, and time
+
+<Steps>
+  <Step title="Open Phases">
+    Select **Phases** to review each phase's status, dates, hours, and progress.
+  </Step>
+  <Step title="Expand a phase">
+    Select a phase row to inspect its tickets. Review the owner, status, and recorded versus estimated hours.
+  </Step>
+  <Step title="Inspect the work">
+    Where enabled, expand a ticket to see time entries and their notes. Project ticket custom fields can also appear here when configured.
+  </Step>
+</Steps>
+
+From an available phase or ticket action menu, choose **Create Deliverable**, **Create Update**, or **Decision Needed** to start a linked item. Edit the newly added item on its destination tab. Inline changes are saved as you edit; review visibility and dates as part of the change.
+
+## Use ticket Kanban
+
+<img src="/images/product/projects-workspace-kanban.png" alt="Demo project ticket Kanban with status columns and security assessment tasks" width="2340" height="1400" />
+
+The project-level **Kanban** tab is available when enabled in project settings and permitted by your role. It is distinct from the portfolio Kanban board.
+
+Use its search and completed-ticket controls to focus the board. Choose **Status**, **Technician**, or **Priority** grouping and a card density of **Comfortable**, **Compact**, or **Dense**.
+
+When your role and PSA support the change, drag a ticket between columns. Choose the destination status or assignee when prompted. In technician mode, **Assign to…** opens the picker for another eligible technician; administrators can instead show everyone in the configured roster.
+
+ConnectWise assignments remain limited to the project team. An administrator's roster filters can narrow the available team further.
+
+## Edit project details
+
+Select **Edit Project Details**, update the available general information or contacts, and save. Review any manual health selection and its explanation so other viewers understand the project's condition.
+
+PSA-backed fields and MSPortal collaboration items have different destinations. A project status or supported ticket change can write back to the PSA; do not assume a weekly update, deliverable, or client decision becomes a PSA record.
+
+## Use Project AI
+
+Open **Project AI** from the right edge of the workspace to ask about the project or draft an update, action item, deliverable, milestone, or decision.
+
+The assistant can use the project information available to your account. Proposed changes appear for review before they are applied. Read each proposal, check its details and visibility, and approve only the changes you intend to make. Read-only users can ask questions but cannot apply changes.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| Phases or ticket Kanban is missing | Project data, **Display Configuration**, **Kanban Board Settings**, and role permissions. |
+| Team is missing | Team is an MSP staff tab for ConnectWise projects. |
+| A custom field is missing or read-only | The field's visibility, view/edit role access, writeback setting, and your project permission. |
+| A technician is unavailable | The configured roster, active PSA user sync, and the ConnectWise project team. |
+| AI cannot apply a change | Your edit permission and whether you have reviewed and approved the proposal. |
+
+<CardGroup cols={2}>
+  <Card title="Project calendar" icon="calendar" href="/user-guides/projects/calendar">Inspect scheduled work and supported rescheduling.</Card>
+  <Card title="Project settings" icon="gear" href="/user-guides/settings/projects">Configure tabs, field access, and status mappings.</Card>
+</CardGroup>
