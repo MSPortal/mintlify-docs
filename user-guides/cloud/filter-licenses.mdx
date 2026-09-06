@@ -1,0 +1,83 @@
+---
+title: 'Find, filter, and export licenses'
+description: 'Find a cloud license by name or SKU, show hidden allocations, identify spare seats, and export the loaded list page.'
+icon: 'filter'
+---
+
+Use **Cloud > Licenses** to narrow the synchronized inventory before sharing counts or requesting a license change.
+
+**Audience:** Company users with license access and MSP staff. The same reading controls apply to the provider records your role allows.
+
+## Find a license
+
+1. Select the relevant company in the top bar if your account can choose companies.
+2. Select the **Licenses** view below the summary.
+3. Enter a friendly name or SKU code in the **License** column's **Filter...** field. The match ignores letter case and surrounding spaces.
+4. Use **Provider**, **Company**, or **Product** column filters where shown. Use **Columns** to show **Status** if you need its filter.
+5. Clear a field or restore its **All** selection to broaden the results. Changing filters returns the list to its first page.
+
+The License field searches license names and SKU codes. Use the Company column or company selector for company names, and [By domain](/user-guides/cloud/view-license-assignments) for email-domain analysis.
+
+## Show records hidden by default
+
+<Frame caption="The initial inventory hides free/trial classifications and large allocations.">
+  <img src="/images/product/cloud-license-visibility-controls.png" alt="Hide free & trial and Hide large allocations switches enabled in Cloud Licenses." width="740" height="66" />
+</Frame>
+
+| Switch | What it changes |
+| --- | --- |
+| **Hide free & trial** | Hides records classified from their SKU code, including free, trial, student, faculty, and certain developer SKUs, plus Microsoft records with zero purchased seats. On by default. |
+| **Hide large allocations** | Hides records with at least 10,000 purchased seats. On by default. |
+| **Only unused seats** | Shows rows with a known Available count greater than zero. Off by default. |
+| **Show SKU** | Displays the SKU code above the friendly name. It does not change counts or filter scope. |
+
+Turn the first two switches off when investigating a missing license. **Hide free & trial** is a classification filter, not a guaranteed list of every active trial: a **Trial** badge can still appear on a visible row. Google is not classified as free just because its purchased capacity is unavailable.
+
+**Only unused seats** can show a partially assigned subscription with spare seats. It does not find inactive people, and Google rows disappear because their spare capacity is unknown.
+
+## Sort and export the list
+
+1. Choose the column's sort control to order matching license records, such as by **Available** or **Renews / Expires**. Sorting applies across the list pages and returns you to the first page.
+2. Use **Previous** and **Next** when results span more than one page. The list loads 50 records per page.
+3. Click **Export CSV** to download the currently loaded, filtered list page.
+
+The CSV includes license name and SKU, provider, company, product, counts, utilization, renewal, trial flag, status, and last synchronization time. It includes its defined export fields even when those columns are hidden on screen. Unknown capacity fields are blank.
+
+<Note>
+Export CSV is a table-data download. It does not download invoices, export every server page, or export only checked rows. Navigate to another page and export again if you need that page's data.
+</Note>
+
+## If results are missing
+
+Clear column filters, turn **Only unused seats** off, and turn the two hiding switches off. Confirm the company scope. If the data is still missing, ask your MSP to check the provider connection, company mapping, synchronization status, and your role access. An empty list is not proof that the company has no licenses.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why is a license missing when I first open the page?">
+    Hide free & trial and Hide large allocations start enabled. Turn them off, clear column filters, disable Only unused seats, and confirm the company scope before asking your MSP to check synchronization and permissions.
+  </Accordion>
+  <Accordion title="Does Only unused seats find licenses nobody uses?">
+    It finds license rows with known spare seats, including partially assigned subscriptions. It does not measure user activity or find inactive accounts.
+  </Accordion>
+  <Accordion title="Why does Google disappear when I enable Only unused seats?">
+    Google assignment data does not supply purchased capacity, so the app cannot establish a positive Available count. Turn the switch off to see Google rows again.
+  </Accordion>
+  <Accordion title="Why can a Trial badge remain with Hide free & trial enabled?">
+    The hiding switch uses SKU classifications and certain seat-count rules. The Trial badge comes from synchronized subscription information, so the two can differ.
+  </Accordion>
+  <Accordion title="Does changing Show SKU change what is searched or exported?">
+    No. The License filter still matches friendly names and SKU codes. The CSV includes both name and SKU regardless of this display switch.
+  </Accordion>
+  <Accordion title="Does Export CSV include every license and only the rows I selected?">
+    No. It exports the loaded filtered list page, up to 50 records, independently of row checkboxes. The summary and result count can describe more records than the downloaded page contains.
+  </Accordion>
+  <Accordion title="Do I need license-management permission to export the inventory?">
+    Export is available with Microsoft 365 read or Storefront read access. You can export only the provider and company records available to your account; ask your MSP to change access.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Read cloud license usage](/user-guides/cloud/licenses)
+- [View license assignments and combinations](/user-guides/cloud/view-license-assignments)

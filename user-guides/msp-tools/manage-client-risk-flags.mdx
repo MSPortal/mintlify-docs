@@ -1,0 +1,75 @@
+---
+title: "Manage manual Client Health risk flags"
+description: "Add, edit or remove a risk override while preserving the calculated score."
+icon: "flag"
+---
+
+**Audience:** MSP staff with Client Health read access and **Client Health Write** permission. Company users do not manage these flags.
+
+A manual flag records your team's relationship assessment when it differs from the calculated risk. It changes the effective risk label, not the numerical health score, dimension scores or deployed standards.
+
+## Add or edit a flag
+
+1. Open the company from **MSP Tools > Client Health**.
+2. Select **Flag Risk** on the Risk Level card, or **Edit Flag** for an existing override.
+3. Choose **Critical**, **At Risk**, **Healthy** or **Thriving**. The dialog shows the calculated comparison when one is available.
+4. Enter a **Reason** explaining the decision. This field is optional, limited to 1,000 characters, and trimmed when saved. Recording a useful reason helps later reviewers.
+5. Choose **Save Flag** and wait for the result. Use **Cancel** before saving to discard dialog edits.
+6. Check the **Manual** label and effective risk after the page refreshes. Review the portfolio table as well.
+
+Opening the dialog or selecting a different option does not save the flag. A company with limited evidence can receive a manual risk label while its calculated score stays unavailable.
+
+<Frame caption="Choose a risk level in the unsaved dialog. Save Flag applies the change; Cancel dismisses it.">
+  <img src="/images/product/client-health-risk-level-options.png" alt="Client Health risk dialog showing Critical, At Risk, Healthy and Thriving, with Cancel and Save Flag controls." width="1024" height="880" />
+</Frame>
+
+## Review the reason
+
+Use **Edit Flag**, the dashboard's optional **Flag Reason** column, or the risk tooltip where a numeric score is available. The override changes the risk used in the dashboard, so it can move the company into a different risk-filtered list.
+
+The detail interface does not expose a complete flag-event audit history. Removing a flag does not erase its stored audit trail.
+
+## Remove the override
+
+1. Open **Edit Flag** for the company.
+2. Select **Remove Flag**. This acts immediately; there is no second confirmation.
+3. Wait for success and verify the Manual indicator disappears. The calculated risk takes over; if no calculated risk exists, the result can be N/A.
+
+Cancel dismisses edits before saving. It is not an undo after Save Flag or Remove Flag has completed. If an action fails, reopen the company and check its current state before retrying.
+
+If Flag Risk or Edit Flag is absent, ask the MSP administrator to check Client Health Write permission. Changing a flag does not refresh source data or repair a low dimension score; follow [Refresh Client Health](/user-guides/msp-tools/refresh-client-health) when a new scorecard is needed.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="How do I flag a company’s relationship risk?">
+    Open its Client Health detail, select Flag Risk, choose a level and optional reason, then Save Flag.
+  </Accordion>
+  <Accordion title="Does choosing a risk level immediately save it?">
+    No. Select Save Flag to persist dialog changes; Cancel discards unsaved edits.
+  </Accordion>
+  <Accordion title="Does a manual flag change the health score?">
+    No. It changes the effective risk label, while calculated scores and dimensions remain unchanged.
+  </Accordion>
+  <Accordion title="Is a reason required?">
+    No. It is optional, limited to 1,000 characters and trimmed when saved. A useful explanation is recommended.
+  </Accordion>
+  <Accordion title="Can I flag a company with Limited data?">
+    Yes. The company can have a manual risk label while its calculated score remains unavailable.
+  </Accordion>
+  <Accordion title="Where can I read the flag reason?">
+    Open Edit Flag, enable Flag Reason in the dashboard, or inspect the risk tooltip where available.
+  </Accordion>
+  <Accordion title="How do I remove a manual risk flag?">
+    Open Edit Flag and choose Remove Flag. It acts immediately, without another confirmation.
+  </Accordion>
+  <Accordion title="What happens after removing a flag?">
+    The calculated risk takes over and Manual disappears. With no calculated risk, the result can be N/A.
+  </Accordion>
+  <Accordion title="Does removing a flag erase its audit trail?">
+    No. The stored flag history is retained; the detail page is not a full event-audit viewer.
+  </Accordion>
+  <Accordion title="Why is Flag Risk missing?">
+    The control requires Client Health Write permission in addition to access to the page.
+  </Accordion>
+</AccordionGroup>

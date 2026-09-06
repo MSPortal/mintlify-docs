@@ -1,271 +1,81 @@
 ---
 title: 'Devices'
-description: 'Track and manage IT assets across your organization'
+description: 'Find equipment, inspect reported information, maintain inventory, and navigate network and configuration views.'
 icon: 'computer'
 ---
 
-The Devices module provides a centralized inventory of all IT assets across your managed companies. Track devices, view detailed hardware and security information, manage warranty data, and integrate with tools like Addigy, Datto RMM, NinjaOne, Syncro, Asio, and Cisco Meraki.
+**Devices** brings together manual inventory records and equipment imported from connected tools. Use it to find a device, inspect the information reported for it, review warranty dates, and maintain supported inventory fields.
 
-## Key Features
+Company users see records permitted by their role and company scope. MSP staff can have additional management, import, duplicate-review, and provider controls. The MSP manages Company user permissions.
+
+## Choose a task
 
 <CardGroup cols={2}>
-  <Card title="Device Inventory" icon="list">
-    Maintain a comprehensive list of all devices with key information like manufacturer, model, serial number, and IP address.
+  <Card title="Find and export devices" icon="magnifying-glass" href="/user-guides/devices/find-devices">
+    Search inventory, review warranty shortcuts, choose columns, and export matching records.
   </Card>
-  <Card title="Warranty Tracking" icon="shield-check">
-    Track warranty start and end dates with automatic status indicators for expired warranties.
+  <Card title="Understand device details" icon="computer" href="/user-guides/devices/understand-device-details">
+    Read available hardware, security, network, warranty, and integration information.
   </Card>
-  <Card title="Integration Sync" icon="rotate">
-    Automatically sync devices from Addigy, Datto RMM, NinjaOne, ConnectWise, Halo, Syncro, Asio, Liongard, and Cisco Meraki integrations.
+  <Card title="Add and edit records" icon="pen-to-square" href="/user-guides/devices/add-and-edit-devices">
+    Create manual inventory, update supported fields, and check what was saved.
   </Card>
-  <Card title="Custom Fields" icon="sliders">
-    Add custom fields to track additional device information specific to your needs.
+  <Card title="Networks and configurations" icon="network-wired" href="/user-guides/devices/view-networks-and-configurations">
+    Read Domotz site information and unlinked IT Glue configurations.
   </Card>
-  <Card title="Approximate IP Location" icon="location-dot" href="/user-guides/devices/ip-location">
-    Use an integration-reported external IP to estimate where a device connects to the internet.
+  <Card title="Find an approximate IP location" icon="location-dot" href="/user-guides/devices/ip-location">
+    Check the integration-reported external IP and its approximate internet exit point.
+  </Card>
+  <Card title="Import devices — MSP" icon="file-import" href="/user-guides/integrations/import-devices">
+    Review source mappings and bring equipment into the inventory.
   </Card>
 </CardGroup>
 
-## Getting Started
+## Understand the views
 
-### Prerequisites
+| View | Availability and purpose |
+| --- | --- |
+| **Devices** | Inventory in your permitted company scope |
+| **Networks** | Domotz-backed sites, measurements, reported issues, and location links |
+| **Configurations** | Unlinked IT Glue configurations; the tab requires available rows in the current scope |
+| **Duplicates** | MSP staff with device-management permission can review possible duplicate records |
+| Device **Overview** | Available inventory and reported details |
+| Device **Edit** | Device-management permission is required; supported saves also depend on the source |
+| Device integration tabs | Cork/Liongard data or IT Glue integration availability |
 
-- Access to the Devices module (requires appropriate permissions)
-- Optional: Integration with Addigy, Datto RMM, NinjaOne, Syncro, Asio, or Meraki for automatic device sync
+If no optional destinations are available, the page can show only the inventory without a tab strip.
 
-### Accessing Devices
+## Check the evidence behind a value
 
-1. Click **Devices** in the sidebar under Operations
-2. The device list displays all devices across your managed companies
-3. Use the company selector in the header to filter by specific company
+Use reported timestamps and source information when interpreting a device. Missing information does not mean a device is healthy, covered by warranty, or free of security issues. A warranty status depends on recorded dates; IP location is approximate and is not GPS tracking.
 
-## Working with Devices
+Some device details are source-controlled. Editing the portal does not necessarily change an external RMM/PSA record or the physical computer. After a save, reopen the record and verify the intended fields, especially after an error or later synchronization.
 
-### Viewing the Device List
+## Management actions
 
-The device list displays the following information:
+Authorized users can have row and selection actions such as adding inventory to a planner item or meeting, bulk updates, provider data refresh, and deletion. The available actions depend on both device permissions and access to the destination module. Check the selected count before applying a bulk action.
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Device hostname or friendly name |
-| **Company** | The company the device belongs to |
-| **Device Type** | Category (Workstation, Server, Appliance, etc.) |
-| **Manufacturer** | Device manufacturer (Lenovo, Dell, Cisco, etc.) |
-| **Model** | Device model number |
-| **Integration** | Source of the device (Manual, Syncro, Asio, Meraki) |
-| **IP Address** | Current IP address |
-| **Serial Number** | Device serial number |
-| **Warranty End** | Warranty expiration date with status indicator |
+Duplicate merging is restricted to MSP staff. Removing an inventory record is different from wiping a device or uninstalling an agent. Provider synchronization and import settings should be reviewed when correcting integrated records.
 
-### Filtering and Sorting
-
-You can filter the device list using the filter controls in each column header:
-
-- **Name, Company, Model, IP Address, Serial Number**: Type to search
-- **Device Type, Manufacturer, Integration**: Select from dropdown options
-- **Warranty End**: Filter by date range
-
-Click any column header to sort by that column.
-
-### Adding a Device
-
-<Steps>
-  <Step title="Click Add Device">
-    Click the **Add Device** button in the top-right corner.
-  </Step>
-  <Step title="Enter Device Information">
-    Fill in the device details:
-    - **Name** (required): Device hostname or friendly name
-    - **Device Type**: Select the category
-    - **Manufacturer**: Choose from the list or search
-    - **Company**: Select the owning company
-    - **Location**: Optionally assign to a company location
-    - **OS**: Operating system
-    - **IP Address**: Current IP address
-    - **MAC Address**: Network interface MAC
-    - **Serial Number**: Device serial number
-    - **Warranty Start/End**: Warranty coverage dates
-    - **Status**: Current device status
-    - **Auto Apply Groups**: Enable automatic group assignment
-  </Step>
-  <Step title="Save the Device">
-    Click **Add Device** to save.
-  </Step>
-</Steps>
-
-### Editing a Device
-
-<Steps>
-  <Step title="Open the Device">
-    Click on a device name in the list to open the edit panel.
-  </Step>
-  <Step title="Update Information">
-    Modify any of the device fields. The edit panel shows:
-    - **Device Details**: Basic information like name, type, manufacturer
-    - **Warranty**: Start/end dates with active/expired status badge
-    - **Custom Fields**: Any custom fields configured for devices
-  </Step>
-  <Step title="Save Changes">
-    Click **Update Device** to save your changes.
-  </Step>
-</Steps>
-
-### Device Actions
-
-Click the three-dot menu at the end of any device row to access actions:
-
-- **Edit**: Open the device edit panel
-- **Add to Planner**: Schedule warranty renewals or maintenance tasks
-- **Add to Meeting**: Include device in a client meeting agenda
-- **Delete**: Remove the device from inventory
-
-<Note>
-Devices synced from integrations (Syncro, Asio, Meraki) may have limited editing options for fields that are automatically synchronized.
-</Note>
-
-### Viewing Device Details
-
-Click any device row to open the **Device Detail** panel. This provides a comprehensive view of the device with extended data pulled from your RMM integration.
-
-The detail panel includes the following sections (sections only appear when data is available from your integration):
-
-| Section | Information Shown |
-|---------|-------------------|
-| **Overview** | OS, model, manufacturer, serial number, IP address, MAC address |
-| **IP location** | External IP, observation time, approximate location, accuracy radius, and map link |
-| **Hardware** | Processor, RAM, CPU cores, total and free disk space with usage bar |
-| **Security** | FileVault, Firewall, Gatekeeper, SIP, MDM enrollment, antivirus, patch status |
-| **Network** | Hostname, domain, LAN IP, WAN IP, Wi-Fi and Ethernet MAC addresses |
-| **Battery** | Battery percentage with visual indicator, charging status, cycle count |
-| **User** | Current logged-in user, user email, last logged-in user |
-| **System** | Uptime, last boot time, OS build, architecture, agent version, pending reboot |
-| **Provider** | Integration-specific data and remote access links (TeamViewer, ScreenConnect, Splashtop) |
-| **Warranty** | Warranty start/end dates with active or expired badge |
-
-<Info>
-The data available depends on which RMM integration the device was imported from. Addigy devices include hardware, security, battery, and user data. Datto RMM and Syncro devices include security, network, user, and system data with remote access links.
-</Info>
-
-The detail panel also includes tabs for:
-
-- **Edit** - Update device metadata, company assignment, warranty dates, and custom fields
-- **Cork** - View Cork security data (if Cork integration is active and has data for this device)
-- **Liongard** - View Liongard configuration audit data (if Liongard integration is active and has data for this device)
-
-### Bulk Actions
-
-Select multiple devices using the checkboxes to perform bulk operations:
-
-1. Check the boxes next to devices you want to select
-2. A bulk actions menu appears in the header
-3. Available bulk actions include:
-   - **Add to Planner**: Schedule multiple devices for review
-   - **Add to Meeting**: Add multiple devices to a meeting agenda
-   - **Delete**: Remove multiple devices
-
-<Warning>
-Bulk delete permanently removes selected devices. This action cannot be undone.
-</Warning>
-
-## Integration Sources
-
-Devices can come from multiple sources:
-
-| Source | Description |
-|--------|-------------|
-| **Manual** | Devices added directly through the MSPortal interface |
-| **Addigy** | Apple devices synced from Addigy MDM |
-| **Datto RMM** | Devices synced from Datto RMM |
-| **NinjaOne** | Devices synced from NinjaOne |
-| **ConnectWise** | Configurations synced from ConnectWise Manage |
-| **Halo** | Assets synced from Halo PSA |
-| **Syncro** | Devices synced from Syncro RMM integration |
-| **Asio** | Devices synced from Asio network discovery |
-| **Liongard** | Systems synced from Liongard |
-| **Meraki** | Devices synced from Cisco Meraki dashboard |
-
-### Managing Device Imports
-
-Each RMM/PSA integration has a device import page where you can control how devices are brought into MSPortal:
-
-- **Device Type Mappings** - Map external device types to your normalized MSPortal device types
-- **Auto-Sync** - Automatically import new devices of specific types when they sync
-- **Ignore Categories** - Check the Ignore checkbox to permanently hide device types you don't manage (e.g., printers, UPS, sensors). Ignored categories won't count as pending imports and new devices of those types stay ignored during future syncs
-- **Import by Type** - Import all devices of a specific type at once
-- **Selective Import** - Cherry-pick individual devices from the staged list
-
-### Meraki Devices
-
-Devices imported from Cisco Meraki have special features:
-
-- **Meraki badge**: Indicated in the device type column
-- **Read-only synced fields**: Name, model, manufacturer, serial number, and other fields sync automatically
-- **Additional actions**:
-  - **Open in Meraki**: Jump directly to the device in Meraki dashboard
-  - **Refresh Status**: Manually refresh device status from Meraki
-- **Meraki Information section**: View network name, WAN IPs, tags, and other Meraki-specific metadata
-
-<Tip>
-For Meraki devices, you can still edit warranty dates, company assignment, location, and custom fields even though core device details are synced from Meraki.
-</Tip>
-
-## Warranty Management
-
-The Devices module helps you track warranty coverage:
-
-- **Active Warranty**: Green "Active" badge when warranty end date is in the future
-- **Expired Warranty**: Red "Expired" badge when warranty has passed
-- **No Warranty**: No badge shown if warranty dates aren't set
-
-### Planning Warranty Renewals
-
-Use the **Add to Planner** action to create tasks for upcoming warranty renewals:
-
-1. Click the device's action menu
-2. Select **Add to Planner**
-3. The planner will automatically suggest a due date based on the warranty end date (default: 30 days before expiration)
-4. Customize the task details and save
-
-## Custom Fields
-
-Add custom fields to track additional device information:
-
-1. Navigate to **Settings** > **Custom Fields**
-2. Create fields for the "Device" entity type
-3. Custom fields appear in the edit panel under "Custom Fields"
-
-Common custom fields for devices:
-- Purchase Date
-- End of Life Date
-- Asset Tag
-- Physical Location
-- Support Contract Number
-
-## Best Practices
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="Regular Inventory Reviews">
-    Schedule quarterly reviews of your device inventory to ensure accuracy. Use the company filter to review one client at a time.
+  <Accordion title="Can Company users see devices?">
+    Yes, when their role and company scope permit access. The MSP decides their permission assignment. Viewing, creating, editing, and deletion are separately controlled by the available actions.
   </Accordion>
-  <Accordion title="Warranty Tracking">
-    Keep warranty dates updated and use the Planner integration to create renewal reminders 30-60 days before expiration.
+  <Accordion title="Where do I correct a serial number or warranty date?">
+    Open the device and use **Edit** when available. Manual and integrated devices can support different updates. Follow the [editing guide](/user-guides/devices/add-and-edit-devices) and verify the stored result.
   </Accordion>
-  <Accordion title="Integration Setup">
-    Configure Addigy, Datto RMM, NinjaOne, Syncro, Asio, or Meraki integrations to automatically populate device data and reduce manual entry.
+  <Accordion title="Where do I find equipment from a specific office?">
+    Use the inventory's Location filter. In Networks, the Devices online link also opens inventory for the linked site, falling back to the company when no site is linked.
   </Accordion>
-  <Accordion title="Custom Fields for Compliance">
-    Use custom fields to track compliance-related information like purchase date, depreciation schedule, or disposal requirements.
+  <Accordion title="Does the inventory show live data from every provider?">
+    It shows the data available from manual records and connected sources. Fields and freshness vary. Check timestamps and ask the MSP about missing or stale information.
+  </Accordion>
+  <Accordion title="Can a Company administrator merge duplicates?">
+    No. Duplicate merging is an MSP staff operation requiring device-management access.
+  </Accordion>
+  <Accordion title="Does device access let me configure integrations?">
+    No. MSP integration administration is separate from viewing inventory. Ask your provider to review mappings, imports, or synchronization.
   </Accordion>
 </AccordionGroup>
-
-## Related Resources
-
-- [Find a Device by Its Approximate IP Location](/user-guides/devices/ip-location) - Look up a device's external IP and open the approximate result on a map
-- [Understand Device IP Location Results](/user-guides/devices/ip-location-accuracy-and-privacy) - Learn about accuracy, caching, privacy, and common limitations
-- [Import Devices](/user-guides/integrations/import-devices) - Device type mappings, auto-sync, and import workflow
-- [Addigy Integration](/user-guides/integrations/enable-addigy-integration) - Apple device management integration
-- [Datto RMM Integration](/user-guides/integrations/enable-datto-rmm-integration) - Datto RMM device sync
-- [Liongard Integration](/user-guides/integrations/enable-liongard-integration) - Configuration audit integration with device tab
-- [Planner](/user-guides/planner/index) - Schedule device maintenance and warranty renewals
-- [Calendar](/user-guides/calendar/index) - View scheduled device-related meetings
-- [Settings](/user-guides/settings/index) - Configure custom fields and integrations

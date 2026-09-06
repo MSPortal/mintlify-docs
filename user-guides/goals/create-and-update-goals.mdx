@@ -1,0 +1,69 @@
+---
+title: "Create or update a goal"
+description: "Save a goal\u2019s fields, progress, custom fields, and Company visibility."
+icon: bullseye
+---
+
+**Audience:** MSP staff and Company users explicitly granted Goals management permission. Your MSP assigns Company permissions. The **Hide from company users** control is for MSP staff.
+
+## Create a goal
+
+<Steps>
+  <Step title="Open the form">
+    Open **Goals** and select **Add Goal**. Check the company scope first.
+  </Step>
+  <Step title="Choose the company when prompted">
+    In a permitted aggregate view, select the company in the form. MSP staff with the appropriate scope can select **Organization goal (no company)** for an internal organization objective. In an individual company view, the selected company is used.
+  </Step>
+  <Step title="Describe the objective">
+    Enter a clear **Title** and optional **Description**. The title is required and supports up to 255 characters. Describe the result you want to achieve and how you will measure it.
+  </Step>
+  <Step title="Set the classification and target">
+    Choose the available **Category**, **Status**, and **Priority**. Set **Due Date**, **Progress (%)** from 0 to 100, and optional **Quarter** and **Year**. Year accepts 2000–2100. Review default status and priority rather than assuming particular choices are present.
+  </Step>
+  <Step title="Complete custom fields and visibility">
+    Complete required custom fields. Wait for them to load before saving. For MSP staff, check **Hide from company users** if this should be an internal goal; leave it unchecked to allow otherwise-authorized Company readers to see it.
+  </Step>
+  <Step title="Save and verify">
+    Select **Create Goal**. Wait for the success message and the panel to close, then find the new goal in the list. Opening the form or entering text does not save it.
+  </Step>
+</Steps>
+
+## Update a goal
+
+1. Select its title or choose **Edit Goal** from its row menu.
+2. Change the intended fields. Update status and progress separately when both need to change.
+3. Review any required custom fields and, for MSP staff, Company visibility.
+4. Select **Update Goal** and wait for success.
+5. Reopen the goal to verify the saved result if needed.
+
+The existing goal’s form does not offer the new-goal company selector. Do not treat it as a way to move an existing goal between companies.
+
+## Handle a save problem
+
+If **Failed to save goal** appears, the form retains your entered values. Check the title, numeric ranges, required custom fields, and selected options. If the save button remains disabled, allow custom fields to finish loading or ask your MSP to investigate a load or permission problem.
+
+The goal and its submitted custom fields are saved together. Do not assume the main fields succeeded after a validation error. Use **Cancel** to leave a draft you do not want to save.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I change the status without changing progress?">
+    Yes. These are independent fields. Set both when you want them to agree.
+  </Accordion>
+  <Accordion title="Are category, status, and priority choices fixed for everyone?">
+    No. They come from your MSP’s configured options. Choose the labels available in your portal.
+  </Accordion>
+  <Accordion title="Does hiding a goal change its company?">
+    No. **Hide from company users** controls Company visibility. It does not move the record or remove authorized MSP access.
+  </Accordion>
+  <Accordion title="Can a Company user create a hidden internal goal?">
+    The Company form does not offer the staff visibility control. Company goals must remain visible within their permitted company scope.
+  </Accordion>
+  <Accordion title="Why is Save disabled after the form opens?">
+    Saving waits for custom fields to load and requires Goals management permission. A field-load failure must be resolved before saving.
+  </Accordion>
+  <Accordion title="Does changing a quarter calculate a due date?">
+    No. Quarter, year, and due date are separate fields. Set each intended value.
+  </Accordion>
+</AccordionGroup>

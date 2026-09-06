@@ -1,0 +1,92 @@
+---
+title: 'Open an external dashboard'
+description: 'View a linked dashboard and resolve company access, embedding and sign-in problems.'
+icon: 'chart-mixed'
+---
+
+**Audience:** Company users with dashboard access and MSP staff.
+
+External dashboards display a service configured by your MSP. They may appear inside MSPortal or open in a separate browser tab. The service can require its own account and permissions.
+
+## Open the dashboard
+
+<Steps>
+  <Step title="Find the dashboard">
+    Open **Dashboards** and choose the external dashboard from the dashboard sidebar. A pinned dashboard may also have its own main-sidebar link. If it is missing, ask your MSP to check the company assignment, active status and role access.
+  </Step>
+  <Step title="Check the company">
+    Company users use the URL assigned to their company. MSP staff should select one company when reviewing that company’s dashboard; **Global View** uses the default URL. Do not treat a multi-company selection as a combined external report.
+  </Step>
+  <Step title="View the external service">
+    Read the embedded dashboard when it loads. If MSPortal displays a blocked or pending message, use **Open in New Tab** when available. Complete any sign-in required by the external service.
+  </Step>
+</Steps>
+
+<img src="/images/product/external-dashboard-open-control.png" alt="Open in New Tab control on an external dashboard." width="344" height="80" />
+
+The image shows the fallback control in an MSP view. Company access still depends on the dashboard configuration.
+
+<Note>A company needs its own assigned URL. The default URL is not a fallback for an unassigned company. A sidebar pin or default-dashboard setting does not grant access.</Note>
+
+## Understand the result
+
+| What you see | What it means and what to do |
+| --- | --- |
+| Embedded dashboard | Use the external service’s own filters and controls. Check the company and dates shown by that service. |
+| Frame policy check pending | The portal has no completed embedding decision. Open in a new tab if available, or ask the MSP to check the policy. |
+| Embedding blocked | The website may prevent display inside another site. Use the separate-tab option. |
+| Sign-in screen | Authenticate with the external service using your authorized account. MSPortal access does not create that account. |
+| Blank content or loading error | Ask the MSP to verify the URL, service availability and embedding support. A disappearing spinner is not proof that the content loaded. |
+| Dashboard missing or not found | Ask the MSP to check active status, company URL and role access. Do not substitute another company’s link. |
+
+## Filters and exports
+
+The portal’s internal dashboard date, widget-width and PDF controls do not apply to an external dashboard. Any filtering, printing or downloading inside the external service follows that service’s capabilities and permissions.
+
+## Related guides
+
+- [Read an internal dashboard](/user-guides/dashboards/read-a-dashboard)
+- [Understand your access](/user-guides/account/understand-your-access)
+- [MSP: Configure external dashboards](/user-guides/dashboards/configure-external-dashboards)
+- [MSP: Assign company URLs](/user-guides/dashboards/assign-external-dashboard-company-urls)
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where do I open an external dashboard?">
+    Open Dashboards and choose its sidebar entry, or use its pinned main-sidebar link when available.
+  </Accordion>
+  <Accordion title="Why is the dashboard missing for my company?">
+    Ask the MSP to check the dashboard is active, your role is eligible and your company has an assigned URL. Company users do not manage these settings.
+  </Accordion>
+  <Accordion title="Does the default URL work for every company?">
+    No. Company context requires that company’s assigned URL. The default URL is used for MSP global viewing.
+  </Accordion>
+  <Accordion title="Does Company Admin access let me assign dashboards or change user permissions?">
+    No. Ask the MSP to manage dashboard configuration and user permissions.
+  </Accordion>
+  <Accordion title="Why must I sign in again?">
+    The external service may require its own login and access rights. Signing in to MSPortal does not replace them.
+  </Accordion>
+  <Accordion title="What does frame policy check pending mean?">
+    The portal does not yet have a completed embedding decision. Use Open in New Tab if available or ask the MSP to run a policy check.
+  </Accordion>
+  <Accordion title="What should I do if embedding is blocked?">
+    Use Open in New Tab when offered. The external website controls whether browsers may embed it.
+  </Accordion>
+  <Accordion title="Can Force Allow Embedding bypass the provider’s restrictions?">
+    No. It only changes the portal’s embedding decision. Browser restrictions and external-service authentication still apply.
+  </Accordion>
+  <Accordion title="Will selecting several companies combine their dashboards?">
+    Do not assume that. Select one company to review its assigned external dashboard; multi-company selection is not an external-report aggregation tool.
+  </Accordion>
+  <Accordion title="Can I use the internal dashboard PDF export here?">
+    No. Use export or print controls supplied by the external service, if available. Internal-dashboard PDF and date controls do not operate on external content.
+  </Accordion>
+  <Accordion title="Does a sidebar link grant access?">
+    No. A pin helps navigation; active status, company assignment, role access and external-service permissions still apply.
+  </Accordion>
+  <Accordion title="Why is the page blank after the loading spinner disappears?">
+    The content may still be blocked or unavailable. Ask the MSP to verify the URL and external service; the spinner ending does not confirm successful loading.
+  </Accordion>
+</AccordionGroup>

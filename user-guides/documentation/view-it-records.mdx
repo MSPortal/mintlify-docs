@@ -1,0 +1,64 @@
+---
+title: 'View shared IT records and procedures'
+description: 'Browse documentation assets, IT Glue configurations, provider procedures, and Liongard inspection data.'
+icon: 'server'
+---
+
+**Audience:** Company users and MSP staff with access to the relevant shared documentation. Your MSP controls provider connections, visibility, and company scope.
+
+## Browse assets
+
+Open **Documentation > Assets**. Select an asset layout in the left sidebar to narrow the list, then use table filters to find a record. Select its name to open the details.
+
+An asset can show its company, layout, update time, manufacturer, model, serial number, and other fields configured by the provider. Empty fields may be omitted. Links can open related resources. A protected password field can have a separate **Reveal** control requiring [shared-password access](/user-guides/documentation/shared-passwords).
+
+These are documentation records from Hudu or IT Glue. For device monitoring and device actions, use the portal's **Devices** module instead.
+
+## View IT Glue configurations
+
+Open **Documentation > Configurations** when your MSP uses IT Glue. Use the table's filters and available columns to review configuration type, status, hostname, network information, serial number, or warranty information.
+
+Where a configuration name is linked, it opens the original record in IT Glue in a new tab. That destination requires its own access. A name without a link has no provider URL available. The portal does not have a separate configuration-detail editor on this page.
+
+## Read a procedure
+
+Open **Documentation > Procedures**, find the procedure, and select its name. Review its description, task list, and recorded completion summary.
+
+The task circles and checkmarks display the provider's recorded status. They are not interactive checkboxes on this page. Ask your MSP to update or complete the procedure in the source system when appropriate.
+
+## Review Liongard inspectors
+
+Open **Documentation > Inspectors** when Liongard data is available to you. Choose an inspector type in the sidebar and select a system to open its details.
+
+Review the last inspection time before interpreting the results. Use the summary controls to filter pass, fail, or warning metrics; select the same active control again to remove that filter. Search metrics by name or value, expand sections for detail, and review **Recent Changes** where available.
+
+Inspector types mapped to devices appear on the relevant device pages instead. This Documentation tab focuses on shared service and environment inspection records.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why are some Documentation tabs missing?">
+    Tabs depend on the connected providers, enabled sharing, your permissions, and available data. Configurations is specific to IT Glue; Inspectors requires Liongard. Ask your MSP about the tab you need.
+  </Accordion>
+  <Accordion title="Can I edit an asset or configuration here?">
+    These views display shared provider records. Ask your MSP to correct the source record. A configuration link can take an authorized user to IT Glue.
+  </Accordion>
+  <Accordion title="Can I tick off a procedure task in the portal?">
+    The procedure page displays recorded completion with status icons. It does not provide task-completion controls. Your MSP manages the source procedure.
+  </Accordion>
+  <Accordion title="Why do two asset types have different fields?">
+    The provider's asset layouts define their fields. Only populated, available fields appear, so a server and a software subscription can show different information.
+  </Accordion>
+  <Accordion title="Are inspection results live?">
+    Use the displayed inspection and update times to judge freshness. A previously recorded result does not prove the system's current state.
+  </Accordion>
+  <Accordion title="Where are workstation or server inspector details?">
+    Inspector types mapped to devices are shown in **Devices**. The Documentation Inspectors tab is for the remaining service and environment inspectors shared with you.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Find shared documents](/user-guides/documentation/find-shared-documents)
+- [Use shared passwords](/user-guides/documentation/shared-passwords)
+- [Devices](/user-guides/devices)

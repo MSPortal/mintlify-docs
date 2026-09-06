@@ -1,209 +1,38 @@
 ---
-title: 'Company Overview'
-description: 'Monitor company health and performance metrics across all modules from a centralized dashboard'
+title: 'Company overview'
+description: 'Review the available company metrics and use module shortcuts to investigate items that need attention.'
 icon: 'buildings'
 ---
 
-The Company Overview provides a centralized dashboard to monitor all companies within your MSPortal.ai tenant. View key metrics, track compliance status, manage tickets, and quickly identify companies that need attention.
+Open **Company Overview** to review the overview for your permitted company scope. It brings together available metrics and short lists from portal modules such as Tickets, Devices, Training, Projects, Goals, Reports, and Meetings.
 
-## Key Features
+Company users see the areas allowed by their MSP. MSP staff can use available company-scope options to review one company or a permitted group of companies.
 
-<CardGroup cols={2}>
-  <Card title="Global & Company Views" icon="globe">
-    View aggregated metrics across all companies or drill down into a single company's dashboard
-  </Card>
-  <Card title="Summary Metrics" icon="chart-line">
-    At-a-glance counts for tickets, compliance, planner items, goals, and devices
-  </Card>
-  <Card title="Widget Dashboard" icon="grid-2">
-    Interactive widgets for compliance, tickets, devices, planner, goals, training, reports, and meetings
-  </Card>
-  <Card title="Quick Navigation" icon="arrow-pointer">
-    Click any metric or widget item to navigate directly to the relevant module
-  </Card>
-</CardGroup>
+## Use the overview
 
-## Accessing Company Overview
+[Read the Company overview](/user-guides/company-overview/read-company-overview) explains the scope selector, metrics, widget links, and missing-data checks.
 
-<Steps>
-  <Step title="Navigate to Company">
-    Click **Company** in the left sidebar.
-  </Step>
-  <Step title="Choose View Mode">
-    Use the company selector dropdown at the top to:
-    - **Global View**: See aggregated metrics for all companies
-    - **Assigned View**: See metrics for companies assigned to you
-    - **Single Company**: Select a specific company to view its dashboard
-  </Step>
-</Steps>
+The overview is a starting point. Open the underlying module to review full records, apply detailed filters, or perform a task. It is not a combined editor for every module, and a summary does not grant additional permissions.
 
-## Summary Metrics
+For a new support request, start with the **AI Assistant on Home** and follow [How to open a ticket](/user-guides/ticketing/open-a-ticket).
 
-The top of the dashboard displays key summary metrics:
+## MSP administration
 
-| Metric | Description |
-|--------|-------------|
-| **Open Tickets** | Total open tickets across all or selected company |
-| **Planner Items** | Total planner items with upcoming count |
-| **Incomplete Goals** | Goals not yet completed |
-| **Upcoming Meetings** | Scheduled meetings count |
-| **Reports** | Total reports available |
+Company user accounts, permissions, provider configuration, and account notes are MSP-managed. See [change a Company user’s permissions](/user-guides/settings/change-company-user-permissions) and [Users & Roles](/user-guides/settings/users-roles) for access administration.
 
-<Tip>Click any metric card to navigate directly to that module for more details.</Tip>
-
-## Dashboard Widgets
-
-The dashboard displays interactive widgets organized in a responsive grid layout:
-
-### Compliance Widget
-
-Displays recent compliance checks with:
-- Check name and company
-- Status indicator (Pass, Fail, Pending)
-- Due date and priority
-- Quick link to view check details
-
-### Tickets Widget
-
-Shows current open tickets:
-- Ticket summary and company
-- Priority and status
-- Created date
-- Direct link to ticket details
-
-### Devices Widget
-
-Highlights devices with alerts:
-- Device name and type
-- Alert status and severity
-- Company association
-- Quick access to device details
-
-### Planner Widget
-
-Displays upcoming planner items:
-- Item title and company
-- Due date and status
-- Priority level
-- Link to planner module
-
-### Goals Widget
-
-Shows strategic goals:
-- Goal title and company
-- Progress status
-- Target completion date
-- Navigate to goals module
-
-### Training Widget
-
-Summarizes training status:
-- Completion rates
-- Courses in progress
-- Overdue assignments
-- Link to training dashboard
-
-### Reports Widget
-
-Lists recent and scheduled reports:
-- Report name and type
-- Last run date
-- Status
-- Quick access to run or view
-
-### Meetings Widget
-
-Shows upcoming meetings:
-- Meeting title
-- Date and time
-- Company association
-- Link to calendar
-
-## Global View
-
-When viewing in Global mode:
-
-- All widgets aggregate data across all companies
-- Summary metrics show totals for your entire tenant
-- Items are sorted by priority and due date
-- Company names appear on each item for context
-
-<Note>
-Global view is ideal for MSP managers and administrators who need to monitor all client activity at once.
-</Note>
-
-## Single Company View
-
-Click any company name or select a company from the dropdown to view its dedicated dashboard:
-
-- All widgets filter to show only that company's data
-- Summary metrics reflect only the selected company
-- Company name appears in the page header
-- Navigation respects company context when clicking into modules
-
-### Navigating Between Companies
-
-- Use the company selector dropdown to switch companies
-- Select "Global" to return to the aggregated view
-- Select "Assigned" to see only companies assigned to you
-- Click a different company name in any widget to switch to that company
-
-## Widget Interactions
-
-Each widget supports:
-
-| Interaction | Action |
-|-------------|--------|
-| **Click item** | Navigate to item details |
-| **View All link** | Go to the full module list |
-| **Hover** | See additional details tooltip |
-| **Company link** | Switch to that company's view |
-
-## Company Scope Events
-
-The dashboard responds to company scope changes:
-
-- Switching from Global to Single Company view reloads the dashboard
-- The URL updates to reflect the selected company (`/company/{id}`)
-- All widgets refresh with the new company context
-- Other modules remember your company selection
-
-## Best Practices
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="Daily Monitoring">
-    Start your day on the Global view to identify companies needing immediate attention. Look for overdue compliance checks, open tickets, and upcoming planner items.
+  <Accordion title="Why do different users see different widgets?">
+    Visibility depends on permissions, company scope, enabled integrations, and available data. Ask your MSP to check a missing area.
   </Accordion>
-  <Accordion title="Company Check-ins">
-    Before client meetings, switch to that company's view to review their current status across all modules.
+  <Accordion title="Does Company show every customer in the portal?">
+    Only the scope available to the current user applies. Company users do not gain access to other customers from this screen.
   </Accordion>
-  <Accordion title="Priority Focus">
-    Widgets highlight high-priority items. Address red/urgent indicators first before moving to routine tasks.
+  <Accordion title="Can I change users or permissions from a Company metric?">
+    Company user administration is an MSP task. A metric or link does not grant permission to manage users.
   </Accordion>
-  <Accordion title="Use Quick Navigation">
-    Click directly into items from widgets to take action. This is faster than navigating through menus.
+  <Accordion title="Does a zero metric prove there are no issues?">
+    Check the underlying module when a figure is unexpected. Missing, restricted, or failed data can make the overview incomplete.
   </Accordion>
 </AccordionGroup>
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Company Audit" icon="clipboard-check" href="./audit">
-    Track company setup completion and configuration health
-  </Card>
-  <Card title="Compliance" icon="shield-check" href="../compliance">
-    Manage compliance checks and frameworks
-  </Card>
-  <Card title="Tickets" icon="ticket" href="../ticketing">
-    View and manage support tickets
-  </Card>
-  <Card title="Planner" icon="calendar-check" href="../planner">
-    Create and track roadmap items
-  </Card>
-  <Card title="Goals" icon="bullseye" href="../goals">
-    Set and monitor strategic goals
-  </Card>
-  <Card title="Training" icon="graduation-cap" href="../training">
-    Manage security awareness training
-  </Card>
-</CardGroup>

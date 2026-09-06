@@ -1,210 +1,35 @@
 ---
-title: Goals & Objectives
-description: Set, track, and achieve organizational objectives with strategic goal management in MSPortal.ai
+title: "Goals and objectives"
+description: "Review company goals, maintain progress, and connect objectives to Planner items and meeting agendas."
 icon: bullseye
 ---
 
-The Goals & Objectives module helps organizations define, track, and achieve strategic objectives through structured goal setting and progress monitoring. Track company-wide goals, monitor progress with visual indicators, and integrate goals with your Planner and Meetings.
+Use **Goals** to review objectives for your permitted company scope. Goals have a title, optional description, status, priority, category, progress, and target dates. Your MSP can configure the available choices and custom fields.
 
-![Goals Overview](/images/goals/goals-overview.png)
+**Company users:** read goals shared with your company. Editing requires additional Goals management permission assigned by your MSP. A Company administrator title alone does not grant it.
 
-## Overview
+**MSP staff:** maintain company or organization goals, control Company visibility, and connect goals to planning and meetings when permitted.
 
-When you navigate to **Goals** from the sidebar, you'll see the main Goals & Objectives page which includes:
+<CardGroup cols={2}>
+  <Card title="Find and read goals" href="/user-guides/goals/read-goals">Scope, filters, details, progress, and CSV exports.</Card>
+  <Card title="Create or update a goal" href="/user-guides/goals/create-and-update-goals">Fields, custom fields, visibility, and saving.</Card>
+  <Card title="Change several goals" href="/user-guides/goals/bulk-update-and-delete">Bulk status, priority, category, and deletion.</Card>
+  <Card title="Connect a goal to other work" href="/user-guides/goals/link-to-planner-and-meetings">Prepare a Planner item or add goals to an upcoming meeting.</Card>
+</CardGroup>
 
-- **Summary Cards** - Quick metrics showing Total Goals, Completed, In Progress, and High Priority counts
-- **Search Bar** - Filter goals by title or description
-- **Filter Button** - Open the filter drawer for advanced filtering
-- **Add Goal Button** - Create new goals
-- **Goals Table** - View all goals with key information
-
-## Summary Cards
-
-At the top of the page, four summary cards provide at-a-glance metrics:
-
-| Card | Description |
-|------|-------------|
-| **Total Goals** | The total number of goals across all statuses |
-| **Completed** | Goals that have been marked as completed |
-| **In Progress** | Goals currently being worked on |
-| **High Priority** | Goals flagged as high priority requiring attention |
-
-## Creating a Goal
-
-<Steps>
-  <Step title="Click Add Goal">
-    Click the **+ Add Goal** button in the top right corner of the page. This opens the Create New Goal panel.
-  </Step>
-  <Step title="Select Company">
-    Choose the company this goal belongs to from the dropdown menu.
-  </Step>
-  <Step title="Enter Goal Details">
-    Fill in the required fields:
-    - **Title** - A clear, concise name for the goal
-    - **Description** - Detailed explanation of what the goal aims to achieve
-  </Step>
-  <Step title="Set Category and Status">
-    - **Category** - Select from Enterprise, Marketing, Technology, Financial, or Operational
-    - **Status** - Choose Not Started, In Progress, On Hold, At Risk, Completed, or Cancelled
-  </Step>
-  <Step title="Configure Priority and Timeline">
-    - **Priority** - Set as High, Medium, Low, or Backlog
-    - **Due Date** - Select the target completion date
-    - **Quarter** - Choose the fiscal quarter (Q1-Q4)
-    - **Year** - Select the target year
-  </Step>
-  <Step title="Set Progress">
-    Use the **Progress** field to indicate current completion percentage (0-100%).
-  </Step>
-  <Step title="Save the Goal">
-    Click **Create Goal** to save. The new goal will appear in your goals table.
-  </Step>
-</Steps>
-
-![Create Goal Form](/images/goals/goals-add-form.png)
-
-<Tip>
-Use the SMART framework when creating goals: Specific, Measurable, Achievable, Relevant, and Time-bound.
-</Tip>
-
-## Filtering Goals
-
-Click the **Filter** button to open the filter drawer and narrow down your goals list.
-
-![Filter Drawer](/images/goals/goals-filter-drawer.png)
-
-### Available Filters
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="Status Filter">
-    Filter by goal status:
-    - Not Started
-    - In Progress
-    - On Hold
-    - At Risk
-    - Completed
-    - Cancelled
+  <Accordion title="Why can I view a goal but not edit it?">
+    Reading and managing Goals are separate permissions. Ask your MSP to review your role; do not change your own permissions.
   </Accordion>
-
-  <Accordion title="Priority Filter">
-    Filter by priority level:
-    - High
-    - Medium
-    - Low
-    - Backlog
+  <Accordion title="Are all goals visible to Company users?">
+    No. Company readers see permitted company goals that are shared with them. Internal goals and organization goals without a company are not Company-facing.
   </Accordion>
-
-  <Accordion title="Category Filter">
-    Filter by goal category:
-    - Enterprise
-    - Marketing
-    - Technology
-    - Financial
-    - Operational
+  <Accordion title="Does a goal automatically become a task?">
+    No. **Add to Planner** prepares a separate Planner item that must be reviewed and saved. The original goal remains.
   </Accordion>
-
-  <Accordion title="Company Filter">
-    Filter by specific companies to view their goals.
+  <Accordion title="Can I create a goal by opening its form?">
+    The form is a draft until **Create Goal** succeeds. Editing an existing goal requires **Update Goal**.
   </Accordion>
 </AccordionGroup>
-
-Click **Apply Filters** to update the goals table with your selected criteria. Click **Reset** to clear all filters.
-
-## Goals Table
-
-The goals table displays all your goals with the following columns:
-
-| Column | Description |
-|--------|-------------|
-| **Title** | Goal name and description excerpt |
-| **Company** | The company the goal belongs to |
-| **Category** | Goal category (Enterprise, Marketing, etc.) |
-| **Status** | Current status with color-coded badge |
-| **Priority** | Priority level indicator |
-| **Progress** | Visual progress bar showing completion percentage |
-| **Due Date** | Target completion date |
-| **Created Date** | When the goal was created |
-
-### Sorting and Selection
-
-- Click column headers to sort by that field
-- Use checkboxes to select multiple goals for bulk actions
-- Click any row to view or edit goal details
-
-## Managing Goals
-
-### Editing a Goal
-
-1. Click on any goal row in the table
-2. The goal details panel opens on the right
-3. Make your changes to any field
-4. Click **Update Goal** to save changes
-
-### Goal Actions Menu
-
-Click the three-dot menu (⋮) on any goal row to access quick actions:
-
-- **Edit** - Open the goal for editing
-- **Add to Planner** - Create a planner task from this goal
-- **Add to Meeting** - Add this goal as a meeting agenda item
-- **Delete** - Remove the goal (requires confirmation)
-
-### Bulk Actions
-
-Select multiple goals using the checkboxes, then use the bulk action toolbar to:
-
-- **Delete Selected** - Remove multiple goals at once
-- **Add to Planner** - Create planner tasks for all selected goals
-- **Add to Meeting** - Add all selected goals to a meeting agenda
-
-<Warning>
-Deleting goals is permanent and cannot be undone. Make sure you have selected the correct goals before confirming deletion.
-</Warning>
-
-## Integrations
-
-### Planner Integration
-
-Goals can be linked to your Planner for task management:
-
-1. Select a goal or use the row action menu
-2. Click **Add to Planner**
-3. The goal will be converted to a planner task with its details
-
-### Meetings Integration
-
-Add goals to meeting agendas for discussion:
-
-1. Select one or more goals
-2. Click **Add to Meeting**
-3. Choose the meeting to add the goal(s) to
-4. Goals will appear as agenda items
-
-## Best Practices
-
-<Check>
-- Set clear, measurable objectives with specific success criteria
-- Assign appropriate priority levels to focus on what matters most
-- Update progress regularly to maintain accurate tracking
-- Use categories to organize goals by business function
-- Set realistic due dates based on available resources
-- Review and adjust goals quarterly
-</Check>
-
-<Warning>
-Avoid these common pitfalls:
-- Creating vague goals without measurable outcomes
-- Setting too many high-priority goals (prioritize ruthlessly)
-- Forgetting to update progress as work is completed
-- Not linking goals to actionable planner tasks
-</Warning>
-
-## Related Resources
-
-- [Planner](/user-guides/planner/index) - Connect goals to actionable tasks
-- [Company Overview](/user-guides/company-overview/index) - View company-wide goal status
-- [Reporting](/user-guides/reporting/index) - Generate goal performance reports
-
-## Need Help?
-
-For assistance with the Goals module, contact support@msportal.ai.

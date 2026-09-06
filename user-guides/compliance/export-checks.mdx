@@ -1,0 +1,56 @@
+---
+title: "Export the compliance check list"
+description: "Download the current loaded List results and understand which fields are included."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff who can read the relevant Compliance list. Your role and company scope determine the accessible records.
+
+## Export to CSV
+
+1. Open **Compliance** and select **List**.
+2. Check the company scope and choose Active, Completed, or All runs.
+3. Set the table filters and move to the page you want to export. Choose the page size if needed.
+4. Select **Export** in the page header.
+5. Open the downloaded CSV and inspect its rows and fields before using or sharing it.
+
+The export uses the loaded filtered List rows. Because this list loads one server page at a time, it does **not** automatically fetch every matching page. Change pages and export separately when you need more records. Selected checkboxes do not restrict the export.
+
+## Included fields
+
+The CSV has a fixed set of columns:
+
+- Title, Status, Priority, and Due Date.
+- Company, Run, Group, Device, and Location.
+- Flagged, Public Notes, Private Notes, and Last Updated.
+
+Hiding a column in the table does not remove it from the CSV. Notes are exported as plain text rather than rich formatting. The Private Notes header is part of the export format; which values are populated depends on the returned data and access. MSP exports may include internal notes, so inspect the file before sharing it with Company users.
+
+Guidance text, supporting file contents, and custom fields are not included in this list export. Use the [check details](/user-guides/compliance/read-evidence-and-history) to review those separately.
+
+## Check an unexpected export
+
+- If only a portion of the results appears, check the loaded page and page-size setting.
+- If the export is empty, wait for the List to finish loading and check filters.
+- If the list or export fails, reload and report the problem to your MSP. A failed download is not evidence that the checks do not exist.
+- If you need a presentation report, use the Reports workflows available to your role; a CSV is a data extract.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does Export download every matching compliance check?">
+    No. It exports the loaded filtered List rows, which are limited to the current server page.
+  </Accordion>
+  <Accordion title="Can I export only checked rows?">
+    The checkbox selection is used for actions. It does not restrict the CSV; use the appropriate filters and inspect the file.
+  </Accordion>
+  <Accordion title="Does hiding Private Notes remove it from the CSV?">
+    No. The CSV uses fixed columns. Inspect the contents before sharing an MSP export.
+  </Accordion>
+  <Accordion title="Does the CSV include evidence attachments?">
+    No. Download supporting files from the assessment’s Uploads area when permitted.
+  </Accordion>
+  <Accordion title="Why are note formatting and images missing?">
+    The list export converts notes to plain text. Read the assessment for its formatted content.
+  </Accordion>
+</AccordionGroup>

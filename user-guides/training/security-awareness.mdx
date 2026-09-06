@@ -1,128 +1,57 @@
 ---
-title: Security Awareness Training
-description: Track security awareness training and phishing results from every connected provider in one place
-icon: 'shield-check'
+title: "Security awareness training"
+description: "Find learner status, CyberHoot company summaries, and HootPhish results, and know where to request help."
+icon: shield-check
 ---
 
-Security Training brings the security awareness programs you run for clients into MSPortal. Learner progress, phishing results, and campaign activity from every connected provider appear in one table you can sort, filter, and export.
+**Audience:** Company users and MSP staff with Security Awareness read access. Available views depend on your MSP's connected providers, company mappings, and your permitted company scope. Your MSP manages users, permissions, and provider setup.
 
-## Supported providers
+## Choose the right view
 
-| Provider | What it contributes |
-|----------|---------------------|
-| **Huntress Managed SAT** | Assignments, episodes, learner completion, phishing campaigns |
-| **Phin** | Learner training status, phishing sent, clicked, and click rate |
-| **Breach Secure Now** | Enrollment, completion, ESS, security score, micro training |
-| **CyberHoot** | HootScore, HootRank, assignment completion, phishing results |
+| What you want to do | Where to go |
+| --- | --- |
+| Review awareness information for your company | **Security > Security Awareness** |
+| Find a learner's assignment completion and phishing metrics | [Read learner status](/user-guides/training/read-awareness-status) |
+| Inspect a Breach Secure Now learner's risk details | [Read BSN risk details](/user-guides/training/read-bsn-risk) |
+| Compare CyberHoot company compliance and Hoot Score | [Read CyberHoot company summaries](/user-guides/security/read-cyberhoot-companies) |
+| Find a HootPhish challenge | [Review HootPhish challenges](/user-guides/security/read-hootphish-challenges) |
+| Read the selected challenge's participant results | [Review participant results](/user-guides/security/read-hootphish-participants) |
+| Take your own portal courses | [Find and start training](/user-guides/training/index) |
 
-Each provider needs its integration connected and its organizations mapped to MSPortal companies. See the integration guides for [Huntress](/user-guides/integrations/enable-huntress-integration), [Phin](/user-guides/integrations/enable-phin-integration), [Breach Secure Now](/user-guides/integrations/enable-breach-secure-now-integration), and [CyberHoot](/user-guides/integrations/enable-cyberhoot-integration).
+Security Awareness shows CyberHoot in dedicated company and challenge sections. Other connected providers—Breach Secure Now, Phin, and Huntress—use the learner status table below. That table can be absent when there are no results for those providers.
 
-## Training Status
+The alternate **Training > Training Menu > Security Training** entry opens a learner table that can include all four providers, including CyberHoot. It is a different presentation from the CyberHoot company and challenge sections. Some tenants use a different Training experience; use the Security entry if the Training menu is unavailable.
 
-Go to **Training > Security Training**. The **Training Status** tab lists every learner across your connected providers.
+## Company users: review and ask for help
 
-### Filtering and sorting
+Select your company if a company selector is available, wait for the relevant view to load, then check the provider and metric before interpreting the result. Missing data, an empty filtered list, or **Not provided** does not prove that training is complete or that there is no risk.
 
-Every column carries a filter, and the whole table sorts on the column you choose. Filtering and sorting run across the complete result set, not just the rows on screen, so a filter narrows the real total and the count updates with it.
+These readers do not assign training, launch simulations, send reminders, unlock provider accounts, or change your permissions. To request help, start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket). Include the provider, course or challenge name, and the issue; review and confirm the prepared request. Your MSP handles account and assignment changes.
 
-| Column | Filter |
-|--------|--------|
-| **User** | Text search |
-| **Provider** | Multi-select |
-| **Company** | Multi-select across all your companies |
-| **Assigned**, **Completed**, **Completion** | Numeric range |
-| **Overdue**, **Phishing Sent**, **Clicked**, **Click Rate**, **Active Campaigns** | Numeric range |
-| **Training Status** | Single select |
-| **HootScore**, **ESS**, **Security score**, **Micro training** | Numeric range |
-| **Last training**, **Last login** | Date range with presets |
+## MSP staff: investigate missing or unexpected data
 
-Columns that only apply to one provider stay hidden until you turn them on with the column toggle. Use the export control to download the filtered set rather than the whole table.
+1. Confirm the selected company and your Security Awareness read permission.
+2. Check that the appropriate integration is active and its customer or organization is mapped to the correct company.
+3. Review the integration's sync information and the source provider when figures appear stale or incomplete.
+4. Use the provider's supported administration workflow for assignment, campaign, or account changes. The readers described here display imported results.
 
-<Tip>
-Combine the **Provider** and **Completion** filters to find the learners furthest behind in a single program, then sort by **Last training** to see who has not engaged at all.
-</Tip>
+Provider setup guides: [Breach Secure Now](/user-guides/integrations/enable-breach-secure-now-integration), [Phin](/user-guides/integrations/enable-phin-integration), [Huntress](/user-guides/integrations/enable-huntress-integration), and [CyberHoot](/user-guides/integrations/enable-cyberhoot-integration).
 
-## Huntress assignments
+Huntress **Assignments** is a separate tab under Security Training when Huntress SAT is available and your role also has Training read access. See [Find Huntress training assignments](/user-guides/training/read-huntress-assignments) and [Open your Huntress training](/user-guides/training/open-huntress-training). The learner status reader is not the assignment manager or an episode player. Use your assigned training entry for completion tracking; viewing a summary does not complete a course.
 
-With Huntress Managed SAT connected, the **Assignments** tab shows the training assignments running across your mapped organizations.
-
-The summary across the top shows active assignments, episode count, learner assignments, and overall completion.
-
-Each assignment row shows:
-
-- The assignment name and the company it belongs to
-- Its status: Draft, Staged, Launching, In progress, Completed, or Canceled
-- The number of episodes
-- Learner progress, shown as completed of assigned with a completion percentage
-- The schedule, with start and end dates
-
-Open an assignment to see the learners assigned to it, who has finished, and the episode list. Each episode shows its learning objectives, unlock date, passing score, and attempt limit.
-
-Search by assignment, episode, or company, and filter the list by assignment status.
-
-<Note>
-**Preview episode** opens the episode in Huntress in a new tab. Previews may not record learner completion. Learners should use their assigned Huntress training link so their progress is tracked.
-</Note>
-
-## Your own assigned training
-
-Episodes assigned to you personally appear as courses in your training library at **Training > Course Library**, alongside portal courses.
-
-- A tile appears when your email matches a Huntress learner in your tenant and you are enrolled in an assignment that has synced episodes
-- Tiles are searchable and filterable with the rest of the catalog, and appear under the **My Courses** filter
-- They count toward your enrolled courses, completed count, and average score, based on your Huntress activity
-- One tile per episode, even when the same episode is in more than one assignment
-
-Staff who are not Huntress learners see nothing extra in their library. The company-wide view stays on the **Assignments** tab.
-
-## Security awareness in reporting
-
-Security awareness data feeds the reporting module for every supported provider:
-
-- The **Security Awareness Overview** and **Security Awareness Attention** blocks are available to any company with awareness data from a connected provider
-- **Security Awareness & Training** is a suggested content source on QBR and Security Review narrative reports
-
-<Note>
-Reports built before this release keep the content sources saved on their template. To include awareness data in an existing scheduled report, enable the **Security Awareness & Training** source on that template.
-</Note>
-
-## Troubleshooting
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="A provider's learners are missing">
-    Learners only appear for organizations mapped to an MSPortal company. Open the provider's integration settings and map the remaining organizations, then run a sync.
+  <Accordion title="Why does Security Awareness look different from Security Training?">
+    Security Awareness separates CyberHoot company and HootPhish results from the other providers' learner table. Security Training is the combined learner status view.
   </Accordion>
-
-  <Accordion title="No Huntress assignments are listed">
-    Huntress SAT may not be enabled on the integration, its accounts may still need company mappings, or the first assignment sync may still be pending. Check **Settings > Integrations > Huntress**.
+  <Accordion title="Can a Company administrator assign courses or manage users here?">
+    These views are readers. Your MSP manages account permissions and provider administration. Start a request through the Home AI Assistant when you need a change.
   </Accordion>
-
-  <Accordion title="An assignment shows no episodes">
-    Episodes arrive with the daily assignment sync. If an assignment stays empty, run a manual sync from the Huntress integration and check that the organization is mapped.
+  <Accordion title="Can I export these awareness tables to CSV?">
+    The learner status table and CyberHoot sections described here do not have a configured CSV export control.
   </Accordion>
-
-  <Accordion title="My assigned episodes are not in my course library">
-    Your MSPortal email address has to match your Huntress learner record, and the assignment must have synced episodes. Draft and canceled assignments are not shown.
-  </Accordion>
-
-  <Accordion title="A company's awareness data is missing from a report">
-    Confirm the company has mapped learners with the provider. On a report built before this release, enable the **Security Awareness & Training** content source on the template.
+  <Accordion title="Does an empty page mean everyone has finished training?">
+    No. Check company scope, filters, integration mapping, sync status, and any load error with your MSP. An absent table or missing value is not a completion result.
   </Accordion>
 </AccordionGroup>
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Training" icon="graduation-cap" href="/user-guides/training/index">
-    Courses, enrollments, and learning paths in MSPortal
-  </Card>
-  <Card title="Huntress Integration" icon="plug" href="/user-guides/integrations/enable-huntress-integration">
-    Connect Huntress Managed EDR and Managed SAT
-  </Card>
-  <Card title="Reporting" icon="chart-line" href="/user-guides/reporting/index">
-    Build QBR and security review reports that include awareness data
-  </Card>
-  <Card title="Learning Paths" icon="route" href="/user-guides/training/learning-paths">
-    Sequence courses into structured programs
-  </Card>
-</CardGroup>

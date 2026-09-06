@@ -1,0 +1,75 @@
+---
+title: "Find and read goals"
+description: "Review goal details and progress, filter the list, and export the filtered goals."
+icon: bullseye
+---
+
+**Audience:** Company users and MSP staff with Goals read access. Company readers can only see shared goals within their permitted company scope.
+
+## Find a goal
+
+1. Open **Goals** from the sidebar.
+2. Check the company selector. If you have more than one permitted company, select the intended company or aggregate view.
+3. Use the table’s filters to narrow the list. Available fields include **Title**, **Company**, **Category**, **Status**, **Priority**, **Progress**, **Due Date**, and **Created Date**. Choices reflect your MSP’s configuration.
+4. Use the available column sort and pagination controls to find the record. The table starts at 20 goals per page.
+5. Select the **goal title** to open its details. Readers see **View goal**; users with management permission see **Edit Goal**.
+
+Do not assume clicking any blank area of a row opens the goal. The title is the direct entry point.
+
+## Read the summary
+
+| Metric | Meaning |
+| --- | --- |
+| **Total Goals** | Goals loaded for your current scope, with the number of companies represented. |
+| **Average progress** | The rounded average of the goals’ progress percentages; an unset percentage contributes zero. |
+| **Past due** | Goals with a due date earlier than today and progress below 100%. |
+
+These summaries use the scoped list before table filters. Filtering the table does not recalculate the summary.
+
+**Status** and **Progress** are separate fields. A Completed status does not automatically set progress to 100%, and the past-due metric uses progress and due date rather than the status label.
+
+## Read the details
+
+Review the title, description, category, status, priority, due date, progress, quarter, year, and any custom fields available to you. A quarter/year target is separate from the due date.
+
+With read access, the fields are disabled and there is no save action. Close the panel with **Cancel** or its close control. Ask your MSP about a correction if you cannot edit.
+
+If a goal has linked Planner items and you can read Planner, its row menu can offer **View in Planner** or the available linked items. Following that link does not change the goal.
+
+## Export the filtered list
+
+1. Check the company scope and table filters.
+2. Select **Export CSV** in the table toolbar.
+3. Open the downloaded file and check its contents before sharing it.
+
+The CSV contains the filtered goals loaded for the scope, across the table’s local pages. It is not restricted to selected checkboxes or the currently displayed page. It uses fixed fields: title, company, category, status, priority, progress, due date, and created date. Hiding a table column does not remove that field from this export. Description and custom fields are not included.
+
+## Troubleshoot missing goals
+
+- Clear or adjust filters and check company scope.
+- Ask your MSP whether the goal is hidden from Company users or belongs to a different company.
+- If **Could not load goals** appears, use **Retry** when available. A load error is not confirmation that no goals exist.
+- A saved link can only open a goal available in the current authorized scope. It does not grant access.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why does the total stay the same when I filter?">
+    Summary metrics use the complete loaded scope. Table filters narrow rows without changing those summary figures.
+  </Accordion>
+  <Accordion title="Why is a Completed goal still past due?">
+    Past due checks due date and progress below 100%. Status is a separate field; an authorized editor can reconcile the values.
+  </Accordion>
+  <Accordion title="Can I download only the selected goals?">
+    The Goals CSV uses the filtered list, not the checkbox selection. Set filters and inspect the downloaded file.
+  </Accordion>
+  <Accordion title="Will hiding a column remove it from CSV?">
+    No. Goals exports a fixed set of fields, including company and progress, regardless of visible columns.
+  </Accordion>
+  <Accordion title="Why is there no row action menu?">
+    A reader may have no available action when there is no accessible linked Planner item. Select the title to read the goal.
+  </Accordion>
+  <Accordion title="Does my Company overview show the same number of goals?">
+    The overview can use a different summary or scope, such as incomplete goals. Check scope and the meaning of each metric.
+  </Accordion>
+</AccordionGroup>

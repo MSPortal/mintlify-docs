@@ -1,177 +1,176 @@
 ---
-title: 'Set Up Quoter Integration'
-description: 'Connect your Quoter account to MSPortal.ai to sync quotes and proposals'
+title: 'Connect and manage Quoter'
+description: 'Connect Quoter, save its quote-link address, start a quote sync, and manage an existing connection.'
 icon: 'plug'
 ---
 
-This guide walks you through connecting your Quoter (by ScalePad) account to MSPortal.ai. Once connected, your quotes will sync automatically every 4 hours, giving your team a centralized view of all proposals alongside company data, meetings, and other modules.
+Connect **Quoter** through **Settings > Integrations** to bring its quotes and line items into MSPortal. The wizard has two steps: **Connect** and **Complete**. Company association happens during quote synchronization; there is no manual **Map Companies** step in this wizard.
 
-## Prerequisites
+**Audience:** MSP staff with permission to manage integrations. Company users ask their MSP to connect Quoter, repair synchronization, or change quote access.
 
-Before you begin, ensure you have:
+## Before you start
 
-- An active [Quoter](https://www.quoter.com) account
-- API credentials (Client ID and Client Secret) from your Quoter account
-- Your Quoter subdomain (the part before `.quoter.com` in your account URL)
-- Admin access to MSPortal.ai with the **manage_settings_integrations** permission
+Have your Quoter **Client ID**, **Client Secret**, and **Quoter URL Name** ready. Use credentials for the intended Quoter account. The app points to **Account > API Keys** in Quoter; ask your Quoter administrator if you cannot obtain the credentials.
 
-<Info>
-  To obtain your Quoter API credentials, log in to your Quoter account and navigate to your account settings or contact Quoter support for API access.
-</Info>
+For an address such as `https://example.quoter.com`, the URL name is just `example`. Do not paste the complete URL, `.quoter.com`, or a quote's path into this field. The form accepts letters, numbers, and hyphens and saves the name in lowercase.
 
----
+You need **manage_settings_integrations** access. Being able to read Quotes or view some integration information does not grant permission to save credentials, change the URL name, sync, or delete the connection.
 
-## Setup Wizard
-
-MSPortal.ai provides a guided wizard to connect and configure your Quoter integration.
-
-### Starting the Wizard
+## Connect the account
 
 <Steps>
-  <Step title="Navigate to Integrations">
-    In MSPortal.ai, go to **Settings > Integrations**.
+  <Step title="Find Quoter">
+    Open **Settings > Integrations** and search for **Quoter**. Under **Add integration**, select **Connect**. To manage a connection that already exists, open that connection's **Manage** or **Configure** action.
   </Step>
+  <Step title="Enter the three fields">
+    In **Connect**, enter **Client ID**, **Client Secret**, and **Quoter URL Name**. All three must contain a value before **Test & Connect** becomes available.
 
-  <Step title="Find the Quoter Card">
-    Locate the **Quoter** integration card in the integrations grid. Click **Configure** to launch the setup wizard.
+    Keep credentials out of tickets, chat messages, and screenshots. The connected view does not display the saved Client Secret.
+  </Step>
+  <Step title="Test and save the connection">
+    Select **Test & Connect** and wait for the result. This authenticates with Quoter and saves the connection; it is not a test-only button. The URL name is saved as part of the same user workflow.
+
+    If an error appears after authentication, return to the integration list and check whether the connection already exists before retrying. Connection and URL-name saving can fail separately.
+  </Step>
+  <Step title="Open Complete">
+    After connecting, select **Next** or the available **Complete** step. There is no company-mapping screen between these steps.
   </Step>
 </Steps>
 
----
+<img src="/images/product/quoter-connection-fields.png" alt="Blank Client ID, Client Secret and Quoter URL Name fields in Quoter setup." width="892" height="476" />
 
-### Step 1: Connect
+*MSP setup example. These are blank fields, not example credentials.*
 
-Enter your Quoter API credentials to establish the connection.
+<img src="/images/product/quoter-setup-steps.png" alt="Quoter setup has Connect and Complete steps; Complete is locked before connecting." width="620" height="64" />
 
-<Steps>
-  <Step title="Enter API Credentials">
-    Fill in the following fields:
+## Start the quote import
 
-    | Field | Description |
-    |-------|-------------|
-    | **Client ID** | Your Quoter API Client ID |
-    | **Client Secret** | Your Quoter API Client Secret |
+1. Open the **Complete** step for the connected account.
+2. Select **Sync Quotes**.
+3. Wait for **Sync started**. This confirms that the request was started, not that all records have finished importing.
+4. Use **View Quotes** when it appears, or open **Quotes** from the sidebar later.
+5. Check a known quote's company, number, revision, line items, and totals against Quoter.
+6. Use **Complete Setup** to leave the wizard when finished.
 
-    <Warning>
-      Keep your API credentials secure. They are stored encrypted in MSPortal.ai's vault and are never exposed after initial entry.
-    </Warning>
-  </Step>
+<Note>
+**Complete Setup** finishes the wizard; it does not itself start a quote sync. Use **Sync Quotes** explicitly. A connected or ready message also does not prove that every quote is assigned to the right company.
+</Note>
 
-  <Step title="Test Connection">
-    Click **Test Connection** to verify your credentials. MSPortal.ai will authenticate with the Quoter API using OAuth and confirm the connection.
+Active Quoter connections are scheduled to sync quotes every four hours. This is a background schedule, not an immediate delivery guarantee. Connection errors, provider responses, and task failures can delay updates. There is no separate client-mapping import you need to complete in the current Quoter wizard.
 
-    If the connection fails:
-    - Verify your Client ID and Client Secret are copied correctly
-    - Confirm your Quoter account has API access enabled
-    - Check that your Quoter subscription includes API access
-  </Step>
+## Change the Quoter quote-link address
 
-  <Step title="Proceed">
-    Once connected, click **Next** to continue to company mapping.
-  </Step>
-</Steps>
+For an existing connection, open **Connect**. The connected view shows **Quoter URL Name**.
 
----
+1. Replace the name with the correct account subdomain only.
+2. Select **Save URL Name**.
+3. Wait for **Saved**.
+4. Open a known quote and check its available **Open in Quoter** link.
 
-### Step 2: Map Companies
+This button saves the URL name directly. **Next** and **Complete Setup** do not save an unsaved edit to that field. The URL name supplies the account portion of quote links; it does not change the quote's company association or portal permissions. A quote also needs its synchronized Quoter identifier to produce a link.
 
-Map your Quoter clients to MSPortal companies so quotes are associated with the correct company records.
+## Replace credentials
 
-<Steps>
-  <Step title="Review Quoter Clients">
-    MSPortal.ai displays a list of all clients from your Quoter account. Each client needs to be mapped to an existing MSPortal company.
-  </Step>
+From the connected **Connect** view, choose **Reconnect with Different Credentials**. The form returns to blank credential and URL-name fields. Enter the intended account's credentials and URL name, then select **Test & Connect**.
 
-  <Step title="Use Quick Match">
-    Click **Quick Match** to let MSPortal.ai automatically suggest mappings based on company name similarity. The system uses intelligent matching to find the best fit for each Quoter client.
+Opening that form alone does not disconnect the saved account. Before submitting, check that you are updating the intended connection. If more than one Quoter connection is listed, or you need a separate second account, ask MSPortal support to confirm the connection being changed before proceeding.
 
-    - Matches are ranked by confidence score
-    - Review suggested mappings before confirming
-    - You can adjust or override any suggestion
-  </Step>
+After a successful reconnect, review the saved URL name and run **Sync Quotes**. Check actual quote results rather than assuming that a success message also verifies company matching or every downstream import.
 
-  <Step title="Manual Mapping">
-    For clients that weren't matched automatically, use the dropdown next to each client to manually select the corresponding MSPortal company.
+## Remove Quoter from MSPortal
 
-    <Tip>
-      If a Quoter client doesn't have a corresponding MSPortal company yet, you can create the company first in **Settings > Companies** and then return to complete the mapping.
-    </Tip>
-  </Step>
-
-  <Step title="Save Mappings">
-    Click **Save** to confirm your company mappings. You can update these at any time by returning to the integration settings.
-  </Step>
-</Steps>
-
----
-
-### Step 3: Complete
-
-<Steps>
-  <Step title="Configure Quoter Subdomain">
-    Enter your **Quoter subdomain** - this is the part before `.quoter.com` in your Quoter URL.
-
-    For example, if you access Quoter at `https://yourcompany.quoter.com`, enter `yourcompany`.
-
-    | Field | Description | Example |
-    |-------|-------------|---------|
-    | **Subdomain** | Your Quoter subdomain | `yourcompany` |
-
-    <Note>
-      The subdomain is used to generate direct links from MSPortal.ai to your quotes in Quoter. Without it, the "Open in Quoter" action won't be available.
-    </Note>
-  </Step>
-
-  <Step title="Complete Setup">
-    Click **Complete** to finish the wizard. MSPortal.ai will trigger an initial sync of your quotes in the background.
-  </Step>
-</Steps>
-
----
-
-## After Setup
-
-Once the integration is active:
-
-- **Automatic sync** runs every 4 hours, pulling new and updated quotes from Quoter
-- **Quotes** appear in the **Quotes** module in the main sidebar
-- **Company mapping** ensures quotes are linked to the correct MSPortal companies
-- **PSA linking** automatically associates quotes with companies when matching PSA opportunity IDs are found (ConnectWise, Autotask, Halo, HubSpot, Kaseya, Pipedrive, Salesforce)
-
----
-
-## Managing the Integration
-
-After setup, you can manage your Quoter integration from **Settings > Integrations**:
-
-| Action | Description |
-|--------|-------------|
-| **Configure** | Re-open the setup wizard to modify credentials, mappings, or subdomain |
-| **Sync Quotes** | Trigger a manual sync of quotes from Quoter |
-| **Update Mappings** | Re-map Quoter clients to MSPortal companies |
-| **Remove Integration** | Disconnect Quoter and remove synced data |
+For an existing connection, use **Delete** in the wizard footer. Read the confirmation. Choose **Cancel** to keep the connection, or **Delete Integration** to confirm removal.
 
 <Warning>
-  Removing the integration will delete all synced quote data from MSPortal.ai. This action cannot be undone. Your quotes in Quoter are not affected.
+Confirmed deletion removes the MSPortal connection and its synchronized Quoter quotes, line items, and legacy client data. Reconnecting later requires credentials and another import. This action does not delete the original quotes in Quoter.
 </Warning>
 
----
+Deletion is separate from pausing updates or closing the wizard. Do not delete a connection merely to troubleshoot an incorrect URL name or one missing quote.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| Connection test fails | Verify Client ID and Client Secret are correct and that your Quoter account has API access |
-| Quotes not appearing | Check that the initial sync has completed; trigger a manual sync from integration settings |
-| Quotes not linked to companies | Verify company mappings in the integration wizard or run Quick Match again |
-| "Open in Quoter" not working | Ensure the Quoter subdomain is configured in the integration settings |
-| Stale quote data | Trigger a manual sync; automatic sync runs every 4 hours |
-| Missing line items | Line items sync alongside quotes; trigger a manual sync if they're missing |
+| Problem | What to check |
+| --- | --- |
+| Test & Connect is unavailable | Enter nonblank Client ID, Client Secret, and Quoter URL Name. |
+| Authentication fails | Confirm the intended Quoter account and its API credentials; ask its administrator to check API access. |
+| A connection error appeared after submitting | Reopen the integration list before retrying; connection saving may have succeeded before the URL name failed. |
+| Complete says clients are mapped, but a quote has no company | Verify the actual quote. The current wizard does not provide a manual mapping step. See the troubleshooting guide below. |
+| Sync started, but Quotes is still empty | Allow the background run to finish, check connection status, and review company scope and quote-access filters. |
+| Open in Quoter is missing or opens the wrong account | Check the saved URL name and the quote's synchronized identifier. |
+| An older quote did not change after a company correction | A normal sync can skip unchanged older quotes. Ask for a targeted import investigation; repeating Sync Quotes does not guarantee a full historical reimport. |
 
----
+## Frequently asked questions
 
-## Next Steps
+<AccordionGroup>
+  <Accordion title="Can a Company administrator set up Quoter?">
+    No. MSP staff manage the integration. Company users ask their MSP for quote access or help with missing records.
+  </Accordion>
+  <Accordion title="Where do I enter my Quoter API credentials?">
+    Open Settings > Integrations, find Quoter, and open setup. Enter Client ID and Client Secret in Connect, along with Quoter URL Name. Do not put them in the AI Assistant or a support ticket.
+  </Accordion>
+  <Accordion title="What belongs in Quoter URL Name?">
+    Only the account subdomain: use example for example.quoter.com. Do not include the protocol, domain suffix, or quote path. The saved name uses lowercase letters, numbers, and hyphens.
+  </Accordion>
+  <Accordion title="Is Test & Connect a harmless connection test?">
+    It authenticates and saves credentials and the connection when successful. Treat it as a save operation.
+  </Accordion>
+  <Accordion title="Why can I not select Next before connecting?">
+    The wizard needs a saved connection before you can advance normally. Complete all three fields, select Test & Connect, and wait for a successful result.
+  </Accordion>
+  <Accordion title="Where are Map Companies and Quick Match in the Quoter wizard?">
+    They are not steps in the current Quoter wizard. It has Connect and Complete. Company association is resolved during quote synchronization from an available linked opportunity or the billing organization name.
+  </Accordion>
+  <Accordion title="Does a ready message prove my companies are matched?">
+    No. Check a sample of imported quotes and their actual companies. The message does not validate every association.
+  </Accordion>
+  <Accordion title="Does Complete Setup start the initial quote import?">
+    No. Select Sync Quotes in the Complete step. Complete Setup leaves the wizard.
+  </Accordion>
+  <Accordion title="Does Sync started mean all quotes have imported?">
+    No. It indicates a started request. Check Quotes after the background work completes and investigate missing records separately.
+  </Accordion>
+  <Accordion title="How often are Quoter quotes synchronized?">
+    Active connections are scheduled every four hours. Errors or provider delays can prevent a particular update from appearing on that schedule.
+  </Accordion>
+  <Accordion title="Do I need to wait for a daily client sync?">
+    No separate client-mapping import is required in the current Quoter wizard. Use Sync Quotes and verify the resulting company associations.
+  </Accordion>
+  <Accordion title="Does Sync Quotes force a full historical import?">
+    No. Normal sync can be incremental and process changed quotes only. Ask support to investigate older missing records or associations that remain stale.
+  </Accordion>
+  <Accordion title="How do I correct a Quoter link without replacing credentials?">
+    Open the existing connection's Connect step, change Quoter URL Name, and select Save URL Name. Verify a known quote link afterward.
+  </Accordion>
+  <Accordion title="Does Next save a changed URL name?">
+    No. In the connected view, use Save URL Name and wait for Saved. Advancing or completing the wizard is not a substitute.
+  </Accordion>
+  <Accordion title="Does changing the URL name move quotes to another company?">
+    No. It affects the account address used in Quoter links. Company association and quote visibility are separate.
+  </Accordion>
+  <Accordion title="Does Reconnect with Different Credentials immediately disconnect Quoter?">
+    No. Opening the blank reconnect form alone does not change the saved connection. Submitting Test & Connect is the operation that saves replacement credentials.
+  </Accordion>
+  <Accordion title="Can I retrieve the saved Client Secret from this page?">
+    The connected view does not show it. Obtain authorized credentials from your Quoter administrator when a replacement is needed.
+  </Accordion>
+  <Accordion title="Can I connect a second Quoter account independently?">
+    Confirm that workflow with MSPortal support before submitting another account's credentials, especially if multiple Quoter connections are listed. Do not assume that opening another setup form guarantees a separate saved connection.
+  </Accordion>
+  <Accordion title="Will deleting the integration delete my original Quoter proposals?">
+    It removes the MSPortal connection and synchronized Quoter data. It does not delete the original provider proposals. Cancel keeps the connection.
+  </Accordion>
+  <Accordion title="Does connecting Quoter give every Company user access to its quotes?">
+    No. Quotes still need the correct company association, and the user's role and quote visibility rules must allow access. Your MSP manages these permissions.
+  </Accordion>
+  <Accordion title="Does this connection create or accept quotes?">
+    It imports quotes and line items for the portal. Creating, revising, publishing, and accepting a proposal take place through the appropriate Quoter workflow, not through this setup form.
+  </Accordion>
+</AccordionGroup>
 
-- [Quotes Overview](/user-guides/quotes/index) - Learn how to browse, filter, and use your synced quotes
-- [Calendar & Meetings](/user-guides/calendar/index) - Add quotes to meeting agendas for client reviews
-- [Integrations Overview](/user-guides/integrations/index) - Manage all your integrations
+## Related guides
+
+- [Troubleshoot missing Quoter quotes and company links](/user-guides/quotes/troubleshoot-quoter-quotes)
+- [Find and open a quote](/user-guides/quotes/view-quotes)
+- [Control Company quote access](/user-guides/quotes/manage-company-access)
+- [QuoteWerks integration](/user-guides/integrations/enable-quotewerks-integration)
+- [Salesbuildr integration](/user-guides/integrations/enable-salesbuildr-integration)

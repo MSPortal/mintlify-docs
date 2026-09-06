@@ -1,205 +1,57 @@
 ---
-title: 'Adding Security Items to Planner'
-description: 'Convert compliance events, vulnerabilities, and endpoints into actionable planner items'
-icon: 'calendar-plus'
+title: "Add security findings to Planner"
+description: "Prepare one Planner item for related Cork findings and verify its saved links and sharing."
+icon: shield-halved
 ---
 
-The Security module integrates directly with the Planner, allowing you to convert security findings into tracked work items. This helps you manage remediation efforts, assign priorities, and maintain visibility into security-related projects.
+**Audience:** MSP staff and other users explicitly permitted to create Planner work from Security. Security read access alone is insufficient. Company users should ask their MSP when the action is unavailable.
 
-## Overview
+## Prepare a same-company selection
 
-You can add three types of Cork security data to the Planner:
+1. Open **Security > Compliance** or **Security > Vulnerabilities**. A similar shortcut is available for supported Cork endpoint rows.
+2. Select the company, then check the rows you want to group.
+3. Select **Add to Planner** from the page's bulk-actions menu.
+4. Verify the source items and company in the draft before saving.
 
-<CardGroup cols={3}>
-  <Card title="Compliance Events" icon="shield-check">
-    Convert compliance findings into remediation tasks
-  </Card>
-  <Card title="Vulnerabilities" icon="bug">
-    Create work items for vulnerability patching
-  </Card>
-  <Card title="Endpoints" icon="desktop">
-    Plan security work for specific devices
-  </Card>
-</CardGroup>
+All selected items must belong to the same company. Work from the visible loaded page and verify the draft's actual source list; a selection count alone does not prove that records from other pages are included. For an unmapped record, ask the MSP to correct mapping before relying on the shortcut.
 
-## Adding Items to Planner
+Several findings create **one** Planner item with source links. This is not one Planner item per row, and it does not remove or resolve the original findings.
 
-<Steps>
-  <Step title="Navigate to Security">
-    Go to the Security module by clicking **Cork** in the sidebar.
-  </Step>
-  <Step title="Select the Tab">
-    Choose the appropriate tab:
-    - **Compliance** for compliance events
-    - **Vulnerabilities** for software vulnerabilities
-    - **Endpoints** for device-related work
-  </Step>
-  <Step title="Select Items">
-    Click the checkbox next to each item you want to add. You can select multiple items to create a single planner item that tracks all of them.
-  </Step>
-  <Step title="Click Add to Planner">
-    Click the **Bulk Actions** dropdown in the header and select **Add to Planner**.
-  </Step>
-  <Step title="Review and Customize">
-    The planner item dialog opens with pre-filled information:
-    - **Title** - Auto-generated based on selected items
-    - **Description** - Summary of what needs to be addressed
-    - **Business Value** - Automatically set based on severity
-    - **Private Notes** - Detailed information about each selected item
-  </Step>
-  <Step title="Save the Planner Item">
-    Customize any fields as needed, then click **Save** to create the planner item.
-  </Step>
-</Steps>
+## Review and save
 
-## What Gets Synced to Planner
+The draft contains a title, summary description, and technical details in Private Notes. An At Risk event gives the draft High business value. Critical or Accelerated vulnerabilities also give High business value; other findings normally start at Medium. These defaults can be reviewed before saving.
 
-When you add Cork items to the Planner, the following information is automatically included:
+Choose the required item type and review the title, description, status, business value, due date, estimates, and notes. The initial due date is today, so replace it when another date is appropriate. Select **Save**, wait for the result, then open the new item in Planner and verify its source links and saved values.
 
-### Compliance Events
+Opening the draft does not save it. Saving the Planner item and attaching the Cork links are separate steps. If an error occurs, check Planner before retrying: an item may already exist with only some links attached.
 
-| Field | Planner Mapping |
-|-------|-----------------|
-| Event Type | Included in title and private notes |
-| Entity Name | Added to private notes |
-| At Risk Status | Sets business value to "High" if at risk |
-| Resolved Status | Noted in private notes |
-| Created Date | Added to private notes |
+<Warning>
+The current Cork shortcut does not reliably carry every option in the shared Planner form into the saved item. In particular, do not rely on **Hide from Company users** in this shortcut to keep the resulting item private. Avoid confidential titles, descriptions, or public notes here. Verify sharing through the main Planner workflow before adding information that requires restricted visibility.
+</Warning>
 
-### Vulnerabilities
+Other advanced values, including assignment, start/end dates, cost details, and custom fields, require verification in the saved Planner item. The draft can expose more controls than this shortcut currently persists. Do not assume that closing the dialog proves every value and link was saved.
 
-| Field | Planner Mapping |
-|-------|-----------------|
-| CVE ID | Used as title for single items |
-| Software Product | Included in description and notes |
-| Software Vendor | Added to private notes |
-| CVSS Score | Added to private notes |
-| Priority | Critical/Accelerated sets "High" business value |
-| Known Exploited | Highlighted in private notes |
+## Access and troubleshooting
 
-### Endpoints
+The menu can appear with Planner write or manage access, but attaching Cork links requires the specific Planner write permission as well as Security read access. If a permitted-looking action fails, ask the MSP to check the role rather than repeatedly creating duplicates.
 
-| Field | Planner Mapping |
-|-------|-----------------|
-| Device Name | Used as title for single items |
-| Hostname | Added to private notes |
-| Operating System | Included in private notes |
-| IP Addresses | Listed in private notes |
-| Last Seen Date | Added to private notes |
+Creating or completing Planner work does not patch software, resolve a Cork event, or synchronize results back to Cork. Use the provider's authorized remediation process and verify the imported result later.
 
-## Automatic Business Value Assignment
+For Company support requests, start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket). For discussion at an existing meeting, use [Add to Meeting](/user-guides/security/add-to-meeting).
 
-The Planner automatically sets the **Business Value** based on the severity of selected items:
+## Frequently asked questions
 
-| Condition | Business Value |
-|-----------|----------------|
-| Vulnerabilities with Critical or Accelerated priority | **High** |
-| Compliance events marked as At Risk | **High** |
-| All other items | **Medium** |
-
-<Tip>
-You can always adjust the business value in the planner item dialog before saving.
-</Tip>
-
-## Single vs. Multiple Items
-
-### Single Item Selection
-
-When you select a single item, the planner entry is tailored to that specific finding:
-
-- **Title**: The specific CVE ID, event type, or device name
-- **Description**: Focused description of that single item
-- **Notes**: Detailed information about the specific item
-
-### Multiple Item Selection
-
-When you select multiple items, they're grouped into a single planner item:
-
-- **Title**: "Cork [Type] (N items)" format (e.g., "Cork Vulnerabilities (5 items)")
-- **Description**: Summary stating how many items are included
-- **Private Notes**: Each item is listed separately with a divider
-
-<Note>
-All selected items must be for the same company. If you need to create planner items for multiple companies, select items from one company at a time.
-</Note>
-
-## Viewing Linked Cork Items
-
-After creating a planner item with Cork data, you can view the linked security items:
-
-<Steps>
-  <Step title="Open the Planner Item">
-    Navigate to **Planner** and click on the item you created.
-  </Step>
-  <Step title="View Relationships">
-    In the edit dialog, expand the **Relationships** section to see linked Cork items:
-    - **Cork Vulnerabilities** - Linked CVEs
-    - **Cork Endpoints** - Linked devices
-    - **Cork Compliance Events** - Linked compliance findings
-  </Step>
-</Steps>
-
-## Best Practices
-
-### Grouping Related Items
-
-Consider grouping related items together:
-
-- **Same software vulnerabilities** - Group CVEs for the same software product
-- **Same device issues** - Group compliance events affecting the same endpoint
-- **Same remediation action** - Items that can be fixed with a single action
-
-### Using Private Notes
-
-Private notes contain the technical details from Cork and are not visible to clients. Use the **Public Notes** field if you need to share information with stakeholders.
-
-### Prioritization
-
-Focus on items that should be prioritized:
-
-1. **Known Exploited Vulnerabilities** - Active threats requiring immediate action
-2. **Critical Priority** - High CVSS scores or severe compliance gaps
-3. **At Risk Compliance Events** - Items flagged as requiring attention
-
-## Workflow Example
-
-Here's a typical workflow for managing security remediation:
-
-<Steps>
-  <Step title="Review Vulnerabilities">
-    Go to **Cork > Vulnerabilities** and filter for **Known Exploited** or **Critical** priority.
-  </Step>
-  <Step title="Select and Plan">
-    Select the high-priority vulnerabilities for a specific company and click **Add to Planner**.
-  </Step>
-  <Step title="Customize the Item">
-    Set an appropriate due date, estimate hours for remediation, and add any additional context.
-  </Step>
-  <Step title="Track Progress">
-    Use the Planner to track remediation progress, update status, and mark items complete when patched.
-  </Step>
-  <Step title="Report to Client">
-    Include security metrics in client reports using the Report Builder's security blocks.
-  </Step>
-</Steps>
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Security Module" icon="shield-halved" href="/user-guides/security/index">
-    Overview of the Security module
-  </Card>
-  <Card title="Planner" icon="calendar-days" href="/user-guides/planner/index">
-    Managing planner items
-  </Card>
-  <Card title="Cork Integration" icon="plug" href="/user-guides/integrations/enable-cork-integration">
-    Setting up Cork integration
-  </Card>
-  <Card title="Reporting" icon="chart-bar" href="/user-guides/reporting/index">
-    Creating client reports
-  </Card>
-</CardGroup>
-
-## Need Help?
-
-For assistance with adding security items to the Planner, contact support@msportal.ai.
+<AccordionGroup>
+  <Accordion title="Do several selected findings create several Planner items?">
+    They create one grouped Planner item with links to the selected findings.
+  </Accordion>
+  <Accordion title="Does opening the draft create an item?">
+    No. Save begins creation. If saving later fails while links are attached, check Planner before retrying.
+  </Accordion>
+  <Accordion title="Can I rely on Hide from Company users in this shortcut?">
+    No. The current shortcut does not reliably persist that option. Verify visibility through the main Planner workflow before adding restricted information.
+  </Accordion>
+  <Accordion title="Why did a save error still leave an item in Planner?">
+    Item creation and source linking happen separately. Review the existing item and its links before trying again.
+  </Accordion>
+</AccordionGroup>

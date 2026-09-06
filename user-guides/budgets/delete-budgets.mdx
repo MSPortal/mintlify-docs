@@ -1,0 +1,88 @@
+---
+title: 'Delete unwanted draft budgets'
+description: 'Remove one or more editable budgets after checking the selected records and permanent-deletion confirmation.'
+icon: 'trash-can'
+---
+
+**Audience:** MSP staff and Company users with budget management permission granted by their MSP. Reading or creating budgets does not automatically grant the Delete controls.
+
+You can delete **Draft** and **Pending Approval** budgets. Deletion removes the budget and its line items and has no undo. Approved and Archived budgets retain their historical baseline and cannot be deleted. To retire an approved plan, use the [archive workflow](/user-guides/budgets/approving-and-locking-budgets).
+
+## Delete one budget from the list
+
+1. Open **Budgets** and check the company, title, fiscal year and status of the unwanted plan.
+2. Open its row **... > Delete**.
+3. Read **Delete Selected Budgets** and confirm that it says **1 budget selected for deletion.** The list confirmation shows a count rather than the budget title.
+4. Choose **Cancel** if the selection is wrong. Otherwise choose **Delete Budgets**.
+5. Wait for the result and confirm that the intended budget is gone from the list.
+
+Choosing row Delete opens the confirmation; it does not delete immediately. It selects that row alone, replacing any earlier list selection.
+
+## Delete a selected batch
+
+1. Choose the appropriate company scope and review the records before selecting them.
+2. Check only the unwanted Draft or Pending Approval rows.
+3. Open the selected-row action menu. On desktop it is labeled **Filter (count)**, for example **Filter (2)**.
+4. Choose **Delete Selected**.
+5. Check the count in **Delete Selected Budgets**. Cancel and review the checked rows if you are unsure which records it includes.
+6. Choose **Delete Budgets** and wait for completion.
+7. Confirm that every intended record was removed and that the remaining list is correct.
+
+<Frame caption="The list confirmation shows the number selected, not their names. Review the checked rows before choosing Delete Budgets.">
+  <img src="/images/product/budget-delete-confirmation.png" alt="Delete Selected Budgets confirmation showing two selected budgets, Cancel and Delete Budgets." width="852" height="484" />
+</Frame>
+
+Cancel closes this dialog without deleting, but keeps the current row selection. Uncheck unwanted rows before starting another batch. Changing company scope clears the selection. Do not assume that filtering or moving between pages has cleared earlier selections; always check the displayed count.
+
+## Delete from the budget editor
+
+1. Open the unwanted budget with **Edit**.
+2. Expand **Budget Details** if necessary and choose **Delete**.
+3. Read **Are you sure?** and the budget title in the warning.
+4. Choose **Delete Budget** to confirm, or **Cancel** to keep it.
+5. Wait for the return to Budgets and verify that the record is gone.
+
+This is a separate immediate action. Saving the editor is not required to delete. The Delete button is unavailable for locked budgets and requires budget management access.
+
+## Handle an error or unexpected result
+
+If deletion fails, read the error and review the saved records before retrying. Check whether any selected budget is Approved or Archived and remove it from a deletion batch. A visible list Delete action does not override the baseline lock.
+
+Do not rely only on the success message's requested count. Refresh the list and verify the actual records. Ask the MSP to investigate if a budget remains or your role lacks access.
+
+For starting from an existing plan, see [Duplicate a budget](/user-guides/budgets/duplicate-budget). For a document copy before removing a Draft, see [Download or print a budget](/user-guides/budgets/export-and-print-budgets).
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Which budgets can I delete?">
+    Draft and Pending Approval budgets can be deleted with the required management access. Approved and Archived budgets are locked historical baselines and cannot be deleted.
+  </Accordion>
+  <Accordion title="Where is Delete for a budget?">
+    Use its list row's three-dot menu and Delete, or open Edit and use Delete in Budget Details. Both require confirmation.
+  </Accordion>
+  <Accordion title="Does the list confirmation show the budget name?">
+    It shows the selected count. Review the company, title and checked rows before confirming. The editor's separate confirmation includes the budget title.
+  </Accordion>
+  <Accordion title="Where can I delete several budgets together?">
+    Select the intended editable rows, open Filter (count), choose Delete Selected, review the count and choose Delete Budgets.
+  </Accordion>
+  <Accordion title="Does Cancel clear my selected rows?">
+    No. It closes the confirmation without deleting, but selection remains. Uncheck unwanted rows before another batch.
+  </Accordion>
+  <Accordion title="What happens if I choose row Delete while other rows are selected?">
+    Row Delete selects that row alone and opens the confirmation for one budget. Check the count before confirming.
+  </Accordion>
+  <Accordion title="Can I undo deleting a budget?">
+    No. Deletion is permanent and removes its line items too. Use Cancel before confirmation if you want to keep the plan.
+  </Accordion>
+  <Accordion title="Why is a locked budget still showing Delete in its list menu?">
+    Menu visibility does not override the baseline lock. Approved and Archived budgets cannot be deleted; use the documented archive workflow for an approved plan.
+  </Accordion>
+  <Accordion title="Can a Company administrator give themselves Delete access?">
+    No. The MSP manages Company permissions. Ask the MSP if budget management access is needed.
+  </Accordion>
+  <Accordion title="Does a success message prove every selected budget was removed?">
+    Verify the records in the refreshed list. The list message uses the requested count, so check the actual result and ask the MSP about any budget that remains.
+  </Accordion>
+</AccordionGroup>

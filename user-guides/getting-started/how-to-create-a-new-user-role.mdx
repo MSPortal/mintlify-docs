@@ -1,98 +1,128 @@
 ---
-title: How to Create a New User Role
-description: Learn about how to create a new user role
+title: 'Create and edit permission roles'
+description: 'MSP guide to creating Company or staff permission roles, editing access, duplicating roles, and assigning them to users.'
+icon: 'shield-halved'
 ---
 
-User roles are essential for controlling access to different features and modules within MSPortal. This guide walks you through creating custom roles for your team members.
+Open **Settings > Users & Roles > Roles** to manage the permission sets assigned to users. The page separates **Tenant Roles** for MSP staff from **Company Roles** for Company users.
 
-## Prerequisites
-- You must be logged in as a Primary Admin or have the "Manage Roles" permission
-- Plan which permissions each role needs before creating it
+<Note>
+For MSP staff with access to role settings and permission to create or edit the relevant role type. Company role administration uses Company-user management permissions. Deleting and duplicating roles require the corresponding management permission.
+</Note>
 
-## Steps
+## Choose the role type
 
-### 1. Navigate to Settings
+| Role type | Intended users | Purpose |
+| --- | --- | --- |
+| **Tenant Roles** | MSP staff | Control access to portal features and, when granted, MSP settings |
+| **Company Roles** | Company users | Control actions and visibility within the Company portal; shown as **Permissions Group** in the Company user editor |
+| **Team Roles** tab | Organizational team assignments | Separate from permission roles; used to describe team responsibilities and related configuration |
 
-Go to [https://msportal.ai/company_overview](https://msportal.ai/company_overview) and click on **Settings** in the main navigation.
+A role named Administrator does not set the account's **Primary Admin** flag. A role named Company Admin does not make Company users administrators of MSP settings or user management.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-09-05/0c9b655b-7c29-4387-9350-641604a00907/stack_animation.webp)
+## Create a role
 
+<Steps>
+  <Step title="Choose the correct section">
+    In **Roles**, select **Add Role** in **Tenant Roles** or **Company Roles**, according to the users who will receive it.
+  </Step>
+  <Step title="Describe the role">
+    Enter a clear **Name** and **Description**. The dialog title identifies the type, such as **Create Company Role**.
+  </Step>
+  <Step title="Choose permissions">
+    Use **Search permissions** to find the relevant resource, then choose its available **Read**, **Write**, and **Manage** controls. Review group and column selections carefully: **All** can affect multiple permissions.
 
-### 2. Access Users and Roles
+    A dash indicates that the particular resource does not offer that control. Viewing a resource does not automatically permit every action within it.
+  </Step>
+  <Step title="Create and check the role">
+    Select **Create Role**, wait for success, and find the new role in the appropriate section. Reopen it to verify its permissions before assigning it to users.
+  </Step>
+</Steps>
 
-Click on **Users and Roles** from the Settings menu.
+<Frame caption="Unsaved Company role editor in the MSP view. This example names the role but has not selected or saved permissions.">
+  <img src="/images/product/company-permission-role-editor.png" alt="Create Company Role dialog with name, description, ticket display group, permission matrix, and Create Role button" width="1536" height="1768" />
+</Frame>
 
-> **Important:** You must create roles before importing users, as each user must be assigned to a role.
+Creating a role does not assign existing users to it. Use the relevant user editor afterward; Company users follow [change a user's permissions](/user-guides/settings/change-company-user-permissions).
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-09-05/c454bf9b-3795-4f14-8143-2b3a1e0457d4/stack_animation.webp)
+## Edit a role's permissions
 
+1. Select the role name or its **… > Edit** action.
+2. Wait for its current permissions to load. Review the existing selections before changing them.
+3. Adjust the required permissions and any relevant role options.
+4. Select **Update Role** and wait for the result.
+5. Reopen the role to verify the saved definition, then check the intended workflow with a user assigned to it.
 
-### 3. Configure Role Permissions
+<Warning>
+Editing a role changes the permission definition used by all users assigned to it. For a change intended for only one person or a subset of users, create or duplicate a separate role and assign that role to those users.
+</Warning>
 
-On the Create Role form, configure the following:
+If a save fails, reopen the role and check its name, permissions, and options before retrying. The editor can save these through separate operations; an error does not guarantee that every part remained unchanged.
 
-#### Role Details
-- **Role Name:** Enter a descriptive name (e.g., "Help Desk Technician", "Account Manager")
-- **Description:** Add a brief description of the role's purpose
-- **Set as Default:** Check this box if you want this role to appear first in dropdown menus
+## Duplicate a role
 
-#### Permission Levels
+Open the role's **…** menu and select **Duplicate**. This creates a copy immediately; it does not open an unsaved creation form first. Find the copy, edit its name and permission selections, and select **Update Role**.
 
-Permissions are organized by module with three access levels:
+Duplication copies role configuration, not user assignments. Review the copy before assigning it, including any Company ticket or quote visibility settings and staff company-scope options.
 
-- **Read:** View-only access to module content
-- **Write:** Can create and edit items (tickets, tasks, etc.)
-- **Manage:** Full module administration including settings
+## Import a starting role
 
-#### Module Permissions
+Where **Import** is available in a role section, open it and read the preset descriptions. Selecting an available preset creates the role; it is not a preview. Already imported presets are marked or unavailable.
 
-Select appropriate permissions for each module:
-- Company Overview
-- Ticketing
-- Training
-- Compliance
-- Reporting
-- Calendar
-- Planner
-- Devices
-- Budgets
-- Goals
-- Surveys
+Review the imported role's actual permissions and assign it deliberately. Preset names describe a starting configuration; they do not override Company scope, feature availability, or account-level administrator status.
 
-#### Administrative Settings
+## Set a default and review extra options
 
-The Settings section at the bottom controls system-wide permissions:
+After creating the role, reopen it to review its saved options. To choose a default, select the intended role and save its **Default role for new… users** setting. Tenant role menus also provide **Set as Default**, which saves immediately.
 
-> **Warning:** Be cautious when granting Settings permissions, especially:
-> - Import/Export permissions (access to sensitive data)
-> - User Management (can create/modify other users)
-> - Integration Settings (can modify external connections)
+Check the default indicator in the role list. To replace a default, choose the other intended role; do not treat unchecking the current default as a reliable way to leave no default. Choosing a default does not reassign all existing users.
 
-#### Recommended First Roles
+Depending on the role type and available features, the editor can also include:
 
-1. **Administrator:** Full access to all modules and settings
-2. **Manager:** Read/Write access to most modules, limited settings
-3. **Technician:** Read/Write for tickets and devices, read-only elsewhere
-4. **End User:** Read-only access to relevant modules
+- **Bypass Company Restrictions** for staff roles. This affects staff company scope; it does not enable missing integrations or supply all action permissions.
+- Product-update email preferences for staff roles. Review these after the role is created, alongside the user's [personal notification preferences](/user-guides/account/manage-your-profile).
+- **Ticket Display Group** for Company roles, when configured groups are available.
+- Additional visibility controls for resources such as Calendar or Quotes, when available. Review the resource's options as well as its basic permission checkbox.
 
+These options are part of the role definition. Verify them after saving, especially when changing an existing role used by several users.
 
-### 4. Save the Role
+## Delete a role
 
-Once you've configured all permissions, click the **Create Role** button at the bottom of the form.
+Reassign users before removing a role they rely on. Use the role's **… > Delete** action only for a role you intend to remove.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-04/3d33be80-f69c-4e29-99bf-3a4de832fd1b/ascreenshot.jpeg?tl_px=260,243&br_px=1980,1205&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=732,464)
+The Tenant Roles delete menu submits the deletion directly. The Company Roles flow opens a deletion confirmation. Follow any dependency or permission error; do not assume every role can be deleted. Deleting a role is a different action from deleting its user accounts.
 
-## Next Steps
+## Frequently asked questions
 
-- [Import users](/user-guides/integrations/import-users) and assign them to the new role
-- Review and adjust permissions as needed based on user feedback
-- Create additional roles for different team functions
-
-## Tips
-
-- Start with restrictive permissions and add more as needed
-- Document each role's purpose for future reference
-- Regularly audit role permissions to maintain security
-- Consider creating template roles that can be duplicated and modified
-
-
+<AccordionGroup>
+  <Accordion title="Where do I create a permissions group for Company users?">
+    In **Settings > Users & Roles > Roles**, use **Add Role** under **Company Roles**. Assign the resulting role through the Company user's **Permissions Group** field.
+  </Accordion>
+  <Accordion title="Can Company administrators create these roles?">
+    The MSP manages Company users and permission roles. Company administrators request access changes from their IT provider.
+  </Accordion>
+  <Accordion title="Will creating a role change existing users immediately?">
+    Creation does not assign existing users. Editing a role already assigned to users changes their shared permission definition.
+  </Accordion>
+  <Accordion title="Does the name Administrator grant Primary Admin status?">
+    No. A role name and permission set are separate from the account's Primary Admin flag. The Company Admin preset also does not grant MSP user-management access.
+  </Accordion>
+  <Accordion title="Does Duplicate wait for me to save a draft?">
+    No. Duplicate creates the copy immediately. Edit and review the new role before assigning it.
+  </Accordion>
+  <Accordion title="Does importing a preset assign it to my users?">
+    Import creates a role from the preset. User assignments remain a separate step.
+  </Accordion>
+  <Accordion title="Do all resources have Read, Write, and Manage?">
+    No. Use the controls available for each resource. Some resources expose fewer actions, and some have additional visibility settings.
+  </Accordion>
+  <Accordion title="Why does a user still lack a feature after a role change?">
+    Confirm the saved role and the user's assignment, then check company scope, module availability, integration setup, and record visibility. If the user still has an old session view, have them sign out and back in before checking again.
+  </Accordion>
+  <Accordion title="Are Team Roles and permission roles interchangeable?">
+    No. Team Roles represent organizational responsibilities. Tenant and Company permission roles define portal access.
+  </Accordion>
+  <Accordion title="Does making a role default update everyone?">
+    No. Existing user assignments are separate. Check the actual selected role when adding, importing, or editing users.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,94 @@
+---
+title: 'Find surveys and read questionnaire results'
+description: 'Find available surveys, compare versions, inspect responses by question or respondent, and export the answers you can access.'
+icon: 'clipboard-list'
+---
+
+Open **Surveys** from your portal sidebar to view the surveys available to your account. Company users see the information their MSP has made available through their role and company scope. Ask your MSP to change access; Company administrators do not manage portal user permissions themselves.
+
+<Note>
+This is the portal results view. To give your own feedback, use your [questionnaire invitation](/user-guides/surveys/complete-a-survey), [NPS invitation](/user-guides/surveys/respond-to-nps), or [support-rating link](/user-guides/surveys/rate-your-support).
+</Note>
+
+## Find the correct survey and version
+
+1. Check the company selection if your account can switch companies.
+2. Review the **Survey Title**, **Type**, **Version**, **Status**, **Responses**, and **Response Rate** columns.
+3. Use the table's filters and pages to find the survey. The list initially filters to **Active**; clear or change that filter to find inactive surveys.
+4. If versions are grouped, select the arrow beside the title to expand them. The group's menu also offers **All Versions** and **Expand All Versions**. Open the intended version before comparing results.
+5. Select the title, or use the row's **...** menu and the appropriate viewing action.
+
+| Survey type | Viewing action | What opens |
+| --- | --- | --- |
+| General questionnaire | **View Results** | Questions, Respondents, and Analysis tabs |
+| NPS | **View Analytics** | [Recommendation-score analytics](/user-guides/surveys/read-nps-analytics) |
+| CSAT | **View Dashboard** | [Support-satisfaction dashboard](/user-guides/surveys/read-csat-feedback), when available |
+
+A response count is not the same as the number of individual answers. One questionnaire respondent can answer several questions. Invitation and response-rate figures also do not prove email delivery or that every intended person has opened the message.
+
+## Read questionnaire answers
+
+### Questions
+
+Open **Questions** to compare answers to the same question. Select a question row to expand its answers. Use the copy icon to copy the question and its available answers.
+
+Clicking an answer selects it for follow-up actions; it does not change the answer or create a goal. The checkbox beside a question can select its answers together. Review selected items before using a creation action.
+
+### Respondents
+
+Open **Respondents** to read answers grouped by person. Select a respondent row to expand it, then read the questions and answers together. Use the row's copy icon to copy that respondent's answers. Move through the pages to inspect additional respondents.
+
+The name shown as **Anonymous** can be a fallback for a missing display name. It does not establish that the invitation or stored response is anonymous; the page can still include an email address or company.
+
+### Filter the visible answers
+
+Use search to match respondent name, email, company, or answer text. Set the start and end dates to narrow the answer dates. Clear search and dates when you need the broader view.
+
+These controls filter answers. They do not necessarily recalculate every header statistic or previously generated analysis. Search can retain only matching answers from a respondent, so an expanded row may not contain every answer that person originally supplied.
+
+## Export questionnaire results
+
+1. Check the survey version, company, search, and dates.
+2. Open the page's **...** menu and select its export action when available.
+3. Check the CSV in your browser's downloads.
+
+The export contains a row per respondent represented in the filtered answers, with name, email, company, and question columns. It uses the loaded, filtered result set across respondent pages, rather than only checked rows. Blank cells can result from unanswered questions **or answers excluded by your filters**.
+
+If you edited an answer during this visit, reload the results before exporting or comparing tabs so you use the stored answer consistently.
+
+## Analysis and follow-up actions
+
+The **Analysis** tab presents saved sentiment, themes, suggested follow-up questions, and a word map when available. Check **Last analyzed** and compare the summary with the original answers. A saved AI summary is an interpretation and may predate recent feedback or edits.
+
+The word map highlights repeated words; it is not a ranking of verified problems. The displayed word map and cached analysis do not automatically follow the answer search filter.
+
+Creating goals, editing recorded answers, sending invitations, and running analysis are separate actions with their own access and save behavior. A visible results page does not grant all of those capabilities. Ask the MSP if a control is unavailable or fails.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why can't I find an inactive survey?">
+    The list starts with an Active status filter. Clear or change that filter, check the company selection, and confirm that your MSP has granted access to the survey.
+  </Accordion>
+  <Accordion title="Why do I see fewer surveys or answers than a colleague?">
+    Survey visibility, answer visibility, company scope, and filters can differ. Your MSP manages those permissions. Do not assume a missing result was deleted.
+  </Accordion>
+  <Accordion title="Where can I compare survey versions?">
+    Expand the arrow beside a grouped survey title, or open its menu and inspect All Versions. Open each intended version's results separately.
+  </Accordion>
+  <Accordion title="Does selecting a response create a goal?">
+    No. Selection prepares items for a separate Create Goal or Create Goals action. Review the selection before using that action.
+  </Accordion>
+  <Accordion title="Does the CSV contain only selected rows?">
+    No. The questionnaire export uses the loaded respondents and answers after company, search, and date filtering, including respondents on other pages.
+  </Accordion>
+  <Accordion title="Why are some exported question cells blank?">
+    An answer may be absent or excluded by the current filters. Clear filters and inspect the respondent before interpreting blanks as unanswered questions.
+  </Accordion>
+  <Accordion title="Does Anonymous mean the response cannot be identified?">
+    No. It can mean that a display name was not supplied. The invitation and result may still identify an email address and company.
+  </Accordion>
+  <Accordion title="Why doesn't the analysis change when I search?">
+    Search filters the visible answers. The word map and saved analysis are separate results and do not automatically use that search. Check the analysis date and compare against the original responses.
+  </Accordion>
+</AccordionGroup>

@@ -1,234 +1,79 @@
 ---
-title: Users & Roles
-description: Manage team members and create custom roles with granular permissions
-icon: users
+title: 'Users & Roles'
+description: 'Find MSP staff, Company users, permission roles, and organizational team-role settings.'
+icon: 'users'
 ---
 
-Users & Roles settings allow you to manage your team members, create custom roles, and assign granular permissions to control access across MSPortal.ai.
-
-## Accessing Users & Roles
-
-1. Click **Settings** in the sidebar
-2. Select the **Users & Roles** icon from the settings navigation
-
-## Users Tab
-
-The Users tab displays all team members in your organization.
-
-<Frame>
-  <img src="/images/settings/settings-users-roles-list.png" alt="Users List" />
-</Frame>
-
-### User Information
-
-Each user entry shows:
-
-| Field | Description |
-|-------|-------------|
-| **Name** | User's full name |
-| **Email** | Login email address |
-| **Role** | Assigned custom role |
-| **Status** | Active or inactive |
-| **Last Login** | Most recent login timestamp |
-
-### Adding a New User
-
-<Steps>
-  <Step title="Click Add User">
-    Select the **+ Add User** button in the top right
-  </Step>
-  <Step title="Enter User Details">
-    Fill in the user's name, email address, and other required information
-  </Step>
-  <Step title="Assign a Role">
-    Select a custom role to define the user's permissions
-  </Step>
-  <Step title="Assign Companies">
-    If "Restrict to Assigned Companies" is enabled, select which companies this user can access
-  </Step>
-  <Step title="Send Invitation">
-    Click **Save** to send an invitation email to the new user
-  </Step>
-</Steps>
-
-### Editing Users
-
-Click on any user row to edit their details:
-
-- Update profile information
-- Change assigned role
-- Modify company assignments
-- Deactivate or reactivate the account
-
-## Roles Tab
-
-The Roles tab allows you to create and manage custom roles with specific permissions.
-
-<Frame>
-  <img src="/images/settings/settings-users-roles-tab.png" alt="Roles Tab" />
-</Frame>
-
-### Understanding Roles
-
-Roles define what actions users can perform in MSPortal.ai. Each role is a collection of permissions that can be assigned to users.
+MSP staff use **Settings > Users & Roles** to manage portal users and their access. The available tabs and actions depend on your administrative permissions.
 
 <Note>
-The **Primary Admin** role is a system role that cannot be deleted or modified. It always has full access to all features.
+Company user administration is performed by the MSP. Company administrators request user or permission changes from their IT provider. A Company role does not grant access to MSP settings.
 </Note>
 
-### Creating a Custom Role
+## Choose a tab
 
-<Steps>
-  <Step title="Click Add Role">
-    Select the **+ Add Role** button
-  </Step>
-  <Step title="Name the Role">
-    Enter a descriptive name (e.g., "Support Technician", "Account Manager")
-  </Step>
-  <Step title="Set Permissions">
-    Check the permissions this role should have access to
-  </Step>
-  <Step title="Save the Role">
-    Click **Save** to create the role
-  </Step>
-</Steps>
+| Tab | What it contains |
+| --- | --- |
+| **Users** | MSP staff user records and their assigned Tenant Roles |
+| **Company Users** | Company user records and their assigned Permissions Groups |
+| **Roles** | Tenant and Company permission-role definitions |
+| **Team Roles** | Organizational team responsibilities and related team configuration |
 
-### Duplicating a Role
+**Company Roles** within the Roles tab are permission sets. **Team Roles** are a separate concept. Onboarding contact roles are also configured separately for the onboarding workspace.
 
-When an existing role is close to what you need, you can duplicate it as a starting point instead of rebuilding from scratch.
+## Change access
 
-<Steps>
-  <Step title="Open the Row Actions">
-    On the role you want to copy, click the actions menu (three dots) at the end of the row.
-  </Step>
-  <Step title="Click Duplicate">
-    Select **Duplicate**. A new role is created immediately, named **Copy of [original role name]**.
-  </Step>
-  <Step title="Edit the Copy">
-    Click the new role to rename it, edit the description, and adjust permissions as needed before assigning it to users.
-  </Step>
-</Steps>
+- [Change a Company user's permissions](/user-guides/settings/change-company-user-permissions): assign a different Permissions Group to one user or a selected set of users.
+- [Create and edit permission roles](/user-guides/getting-started/how-to-create-a-new-user-role): define what the role permits, duplicate a starting role, or import a preset.
+- [Understand your own access](/user-guides/account/understand-your-access): view your role and access information in your personal settings.
 
-<Note>
-Duplicating a role copies the role name, description, all permission assignments, and role configuration flags such as bypass-company-restrictions and update-email opt-in. Company roles also carry over their ticket display group. It does not copy user assignments, so no users receive the new role until you assign it explicitly.
-</Note>
+Changing one user's role assignment and editing the role itself have different effects. A role edit affects the shared permission definition for users assigned to that role. Use a separate role when only a subset needs different access.
 
-Duplicate is available for both tenant roles and company roles, and requires the **Manage > Users & Roles** permission (or the Primary Admin role).
+## Work with user lists
 
-### RBAC Permissions
+Choose the correct user type before looking up a person. Confirm their name, email, and company, where applicable. Table filters and the current company scope affect which Company users appear.
 
-Roles use a granular Role-Based Access Control (RBAC) system. Each role has three permission levels for every resource:
+Selection actions operate on the selected users. Review the count and whether the selection includes matching results across multiple pages before applying a bulk action. An error can report partial completion; verify the affected records before retrying.
 
-<Frame>
-  <img src="/images/settings/settings-roles-edit-dialog.png" alt="Role Edit Dialog showing RBAC permissions" />
-</Frame>
+Invitation emails, user role assignments, permission-role definitions, and account removal are separate operations. A role change does not send an invitation or create missing company data. Clearing a Permissions Group does not delete the user record.
 
-| Permission Level | Description |
-|------------------|-------------|
-| **Read** | View data and access the page |
-| **Write** | Create and edit records |
-| **Manage** | Full control including delete and settings |
+## Check feature availability
 
-### Permission Sections
+Permissions determine allowed actions, while other settings determine what data or features are available. When a user cannot do something, check:
 
-Permissions are organized into three sections:
+1. Their user type and saved role assignment.
+2. The permissions in that role, including the specific action they need.
+3. Their company scope and any record-specific visibility.
+4. Whether the module and required provider integration are configured.
+5. Any restriction shown by the workflow itself.
 
-**Main Navigation** - Access to core application pages:
-- Dashboard, Surveys, Goals, Planner, Budgets
-- Calendar, Meetings, Notifications
-- M365, Tickets, Compliance, Training
-- Devices, Reporting, External
+If a saved change is not reflected in an existing user session, have the user sign out and back in before testing again. Do not infer access solely from a role's name or a visible menu item.
 
-**Settings** - Access to configuration areas:
-- Users, Roles, Companies
-- Training, Tickets, Compliance settings
-- Templates, Playbooks, Integrations
-- Import/Export, Tenant, Billing
+## Frequently asked questions
 
-**Other** - Special permissions:
-- Impersonate (start user impersonation)
-- Types management
+<AccordionGroup>
+  <Accordion title="Which tab manages employees at my customer companies?">
+    **Company Users**. **Users** contains MSP staff accounts.
+  </Accordion>
+  <Accordion title="Where do I change the permissions inside a Company permissions group?">
+    In **Roles > Company Roles**. To assign an existing group to a particular user, edit the user's **Permissions Group** in Company Users.
+  </Accordion>
+  <Accordion title="Why can I see one settings tab but not another?">
+    User, role, and Company-user administration have separate permissions. Ask the MSP administrator to review the administrative access needed for your task.
+  </Accordion>
+  <Accordion title="Does Company Admin mean the customer can manage users?">
+    No. The MSP manages Company users and permissions. The role name describes a Company permission set, not MSP administrator status.
+  </Accordion>
+  <Accordion title="Does an Administrator role make an account Primary Admin?">
+    No. The Primary Admin account flag is separate from the role's name and permission definition.
+  </Accordion>
+  <Accordion title="Can I use a Team Role instead of a permission role?">
+    No. Team responsibilities and permission-role assignments serve different purposes. Use Tenant or Company permission roles to define portal access.
+  </Accordion>
+</AccordionGroup>
 
-### Calendar Visibility
+## Related guides
 
-The Calendar resource has an extra control beyond Read/Write/Manage. Click the chevron next to its **Read** checkbox to open the **Calendar visibility** popover, where you set how much of each calendar layer the role can see.
-
-| Layer | Scopes |
-|-------|--------|
-| **Appointments** | Disabled, Mine, Site, All |
-| **Changes** | Disabled, Mine, Site, All |
-
-| Scope | What the role sees |
-|-------|--------------------|
-| **Disabled** | Nothing from that layer, and its toggle is hidden from the calendar |
-| **Mine** | Only records the user is involved in |
-| **Site** | Records involving anyone at the user's own site |
-| **All** | Everything within the companies the user is already scoped to |
-
-- Each layer takes one scope, and selecting any scope grants Read on Calendar automatically.
-- **Site** behaves as **Mine** for users with no site set on their profile.
-- **Manage** on Calendar means **All** for both layers, and locks the dropdowns.
-- Freeze windows require **Manage** on Calendar to create, edit, or delete.
-
-See [Change Management](/user-guides/ticketing/change-management) for how these scopes affect the change calendar.
-
-### Role Options
-
-| Option | Description |
-|--------|-------------|
-| **Default Role** | Automatically assign to new users |
-| **Bypass Company Restrictions** | Access all companies regardless of tenant restrictions |
-
-### Example Role Configurations
-
-| Role Name | Typical Permissions |
-|-----------|---------------------|
-| **Support Tech** | Read/Write on Tickets, Devices; Read on Company Overview |
-| **Account Manager** | Manage on Calendar, Budgets; Read/Write on Reports |
-| **Compliance Admin** | Manage on Compliance, Playbooks; Read on Reports |
-| **Training Admin** | Manage on Training; Read on Company Overview |
-
-## Company Assignments
-
-When "Restrict to Assigned Companies" is enabled in [Tenant Settings](/user-guides/settings/tenant), users only see data for companies they're assigned to.
-
-### Assigning Companies to Users
-
-1. Edit a user from the Users tab
-2. Navigate to the **Company Assignments** section
-3. Select the companies this user should have access to
-4. Save changes
-
-<Warning>
-If a user has no company assignments when restrictions are enabled, they won't be able to see any company data.
-</Warning>
-
-## Best Practices
-
-### Role Design
-- **Start simple** - Create a few broad roles before adding specialized ones
-- **Use descriptive names** - Role names should indicate the user's function
-- **Document permissions** - Maintain a reference of what each role can do
-
-### User Management
-- **Regular audits** - Review user access periodically
-- **Deactivate vs delete** - Deactivate users who leave to preserve audit trails
-- **Least privilege** - Assign the minimum permissions needed for each role
-
-## Troubleshooting
-
-### User Can't Access a Feature
-1. Check the user's assigned role
-2. Verify the role has the required permission
-3. If using company restrictions, ensure the user is assigned to relevant companies
-
-### Role Changes Not Taking Effect
-1. Ask the user to log out and back in
-2. Clear browser cache if issues persist
-3. Verify the role was saved successfully
-
-## Related Resources
-
-- [Settings Overview](/user-guides/settings/index) - All settings options
-- [Tenant Settings](/user-guides/settings/tenant) - Company restriction settings
-- [Getting Started](/user-guides/getting-started/how-to-create-a-new-user-role) - Role creation guide
+- [Settings overview](/user-guides/settings/index)
+- [Company settings](/user-guides/settings/companies)
+- [Tenant settings](/user-guides/settings/tenant)

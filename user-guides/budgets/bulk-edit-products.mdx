@@ -1,0 +1,74 @@
+---
+title: "Bulk edit and delete budget products"
+description: "Apply selected catalog fields carefully and understand product deletion and selection limits."
+icon: box
+---
+
+**Audience:** MSP staff and Company users explicitly permitted by their MSP to edit the relevant budget products. Changes save immediately and can affect shared catalog entries.
+
+## Update several products
+
+1. Open **Budgets Menu > Products** and check company scope.
+2. On the current page, tick only the intended rows. Work one page at a time; check the product names before proceeding.
+3. Open **Actions (count Selected) > Bulk Edit**.
+4. Tick the checkbox beside each field you intend to change, then provide its value. Unchecked fields stay unchanged.
+5. Choose **Update Products**. Refresh and inspect each affected product; partial failures can leave some rows updated and others unchanged.
+
+| Field | Available change |
+| --- | --- |
+| **Category** | Choose an available category. A blank choice does not clear existing categories. |
+| **Vendor** | Choose from vendor values already present among the selected products. Use single-product Edit to type a new vendor. |
+| **Product Group** | Choose from groups already present among the selected products. This dialog does not create a new group. |
+| **Unit Price** | Enter a nonnegative price. Zero is a valid update; blank does not change prices. |
+| **Description** | Enter replacement text, or check the field and leave it blank to clear descriptions. |
+
+Bulk Edit does not change names, SKUs, recurrence or company assignments. Use the [single-product editor](/user-guides/budgets/manage-products) for name, SKU and billing changes.
+
+<Note>
+Keep each operation on one loaded page. The current selection controls do not provide a dependable whole-catalog bulk operation. Changing pages or company context can make the selected count difficult to reconcile; clear the selection and explicitly select the intended visible rows again.
+</Note>
+
+## Delete one product
+
+1. Locate the exact product and open its row **... > Delete**.
+2. Read **Delete product?** and confirm **Delete**, or choose Cancel.
+3. Verify that the product disappeared after refresh.
+
+The dialog explains that budgets referencing the product keep their existing numbers. Deletion removes the reusable catalog entry; it does not remove copied budget costs or delete the provider's product. There is no catalog undo control.
+
+## Delete selected products
+
+Select the intended visible rows, then choose **Actions (count Selected) > Delete Selected**. This currently starts deletion immediately, with no second confirmation dialog. Check the selection before choosing it. Use individual row deletion when you need a confirmation step for each product.
+
+Review the remaining list after a bulk deletion. A bulk request can partially succeed; do not assume every selected row was deleted because the menu closed.
+
+Related: [Read the catalog](/user-guides/budgets/read-product-catalog), [Create and edit products](/user-guides/budgets/manage-products).
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where can I change several product prices at once?">
+    Select the intended rows on one Products page, open Actions > Bulk Edit, check Unit Price, enter the amount and choose Update Products. Verify each affected row.
+  </Accordion>
+  <Accordion title="Will Bulk Edit replace fields I leave unchecked?">
+    No. Only checked fields with applicable values are sent. Check Description and leave it blank if you specifically want to clear descriptions.
+  </Accordion>
+  <Accordion title="Can I clear categories, vendors or product groups with a blank bulk value?">
+    No. Blank choices for those fields are ignored. The current bulk dialog does not offer a clear option for them.
+  </Accordion>
+  <Accordion title="Why can I not type a new vendor in Bulk Edit?">
+    Bulk Edit offers existing vendor values from the selected products. Open a product row > Edit to enter a new vendor.
+  </Accordion>
+  <Accordion title="Can I change recurrence for many products with Bulk Edit?">
+    No. Recurrence is available in the single-product editor, not Bulk Edit.
+  </Accordion>
+  <Accordion title="Does Delete Selected ask me to confirm?">
+    No. It currently begins deletion immediately. Review the exact visible selection first, or use each row’s Delete action for an individual confirmation.
+  </Accordion>
+  <Accordion title="Does deleting a product delete costs from existing budgets?">
+    No. Existing budget lines keep their copied numbers. The action removes the catalog entry and does not delete a provider product.
+  </Accordion>
+  <Accordion title="How do I know a bulk operation completed for every product?">
+    Refresh and inspect the affected rows. Individual failures can leave a partially completed update or deletion; do not rely only on the dialog closing.
+  </Accordion>
+</AccordionGroup>

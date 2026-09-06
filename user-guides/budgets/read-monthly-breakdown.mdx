@@ -1,0 +1,78 @@
+---
+title: 'Read a budget monthly breakdown'
+description: 'Understand scheduled costs, recurrence, overrides and running totals across January to December.'
+icon: 'calendar-days'
+---
+
+**Audience:** Company users with budget read access and MSP staff. Changing amounts requires additional budget edit permission and an editable budget.
+
+## Open the monthly schedule
+
+1. Open **Budgets**, find the budget and choose its row's **View** action.
+2. Select **Monthly Breakdown** in **Budget Details**.
+3. Read each **Line Item** and its recurrence, then scroll the table horizontally to review **Jan** through **Dec** and **Year Total**.
+4. Review category subtotals, the **Monthly Total** row and **Running Total**.
+5. Return to **Overview** to check the line's status, quantity, unit price, currency and billing start month.
+
+The columns run January through December. Do not assume the first column moves to your company's fiscal-year start month. This is a planned spending schedule, not a record of payments or invoice reconciliation.
+
+## Understand recurrence
+
+The starting amount is quantity × unit price. Charges begin in the line's start month, with January used when none is supplied.
+
+| Recurrence | Scheduled charge |
+| --- | --- |
+| **One-time** | Once, in the start month. |
+| **Monthly** | Every month from the start month. |
+| **Quarterly** | Every three months from the start month. |
+| **Annual** | In the start month within the displayed year. |
+| **Custom** | At the configured interval in months. |
+
+A configured term can stop recurring charges before December. For example, a USD 100 monthly line starting in March with a three-month term schedules USD 100 in March, April and May. A saved monthly override replaces that month's calculated amount, including when the override is zero.
+
+## Read the totals carefully
+
+**Year Total** adds the displayed schedule for a line or category. **Monthly Total** adds all scheduled line amounts in each month. **Running Total** is cumulative planned spend through that month; it is not remaining budget or an account balance.
+
+The schedule includes lines regardless of their approval status, including rejected lines. It is not an approved-only forecast. Check Overview when deciding which costs are authorized.
+
+Monthly cells display rounded whole-currency amounts; totals retain cents. Adding the visible rounded cells can therefore differ slightly from a total. A dash represents no positive displayed amount, not proof of a paid or settled invoice.
+
+## Editing and troubleshooting
+
+Draft and Pending Approval budgets can allow month-cell editing for users with budget edit permission. Approved and Archived budgets are locked. Opening a cell and changing its amount can save when you leave the field; there is no separate page-level Save for that change. Company readers should ask their MSP to correct assumptions or overrides.
+
+If an override needs to return to the calculated schedule, an authorized editor clears that cell's value rather than typing the calculated number. Zero is an explicit override. A saved zero currently opens as a blank input, and leaving that input can remove the override. Press Escape if you are only inspecting it. See [Adjust a budget amount for one month](/user-guides/budgets/edit-monthly-overrides) for the save, cancel and reset steps and current zero-value limitations.
+
+If the tab reports no line items unexpectedly, compare Overview and ask the MSP to check loading or access problems. Do not interpret an unexpected empty schedule as a verified zero-cost budget.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where can I see a budget's costs by month?">
+    Open the budget with View, then choose Monthly Breakdown. Scroll horizontally for all twelve months and Year Total.
+  </Accordion>
+  <Accordion title="Why is Year Total different from Overview Total?">
+    Overview sums quantity times unit price once per line. Monthly Breakdown applies recurrence, start month, term and saved monthly overrides across the year.
+  </Accordion>
+  <Accordion title="Does Monthly Breakdown show only approved lines?">
+    No. It includes all line statuses, including rejected lines. Check Overview for the approval status of each line.
+  </Accordion>
+  <Accordion title="Is Running Total the remaining budget?">
+    No. It is cumulative planned spending through that month, not the remaining budget or cash balance.
+  </Accordion>
+  <Accordion title="Does the schedule start with our fiscal-year starting month?">
+    The displayed columns run from January to December. They do not shift to a different fiscal-year start month.
+  </Accordion>
+  <Accordion title="Why can I not change a month cell?">
+    Editing requires budget edit permission and a Draft or Pending Approval budget. Approved and Archived budgets are locked. Ask the MSP about access or changes.
+  </Accordion>
+  <Accordion title="Does entering zero remove an override?">
+    No. Zero replaces that month's computed charge with zero. An authorized editor clears the field to restore the calculated schedule.
+  </Accordion>
+  <Accordion title="Why do rounded month cells not add exactly to the total?">
+    Monthly cells show whole-currency amounts while totals retain cents. Rounding can account for the difference.
+  </Accordion>
+</AccordionGroup>
+
+For document contents, saved-data rules and print limitations, see [Download or print a budget](/user-guides/budgets/export-and-print-budgets).

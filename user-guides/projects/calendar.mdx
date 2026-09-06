@@ -4,7 +4,7 @@ description: 'Use Schedule to review project dates, phases, tasks, milestones, a
 icon: 'calendar'
 ---
 
-Select **Projects > Schedule** to see dated work across your selected companies. Open a project and select its **Schedule** tab to focus on that project's work.
+Use [Read a project schedule](/user-guides/projects/read-project-schedule) for dates and item types, and [Filter the project schedule](/user-guides/projects/filter-project-schedule) for search, staff filters, hidden titles, and saved preferences. Company users receive shared milestones in the cross-project Schedule; a project’s own Schedule can show additional dated work allowed by its client display settings. MSP staff receive the broader project schedule feed.
 
 ## Before you start
 
@@ -14,6 +14,8 @@ Your role needs access to the project Schedule view. The calendar uses the dates
 
 <img src="/images/product/projects-calendar-month.png" alt="Month view showing the date span of the filtered Demo onboarding project" width="2340" height="1700" />
 
+The screenshots above show the MSP Demo calendar, not a Company session.
+
 ## Navigate the calendar
 
 <Steps>
@@ -21,7 +23,7 @@ Your role needs access to the project Schedule view. The calendar uses the dates
     Select the company scope, then open **Projects > Schedule**. Use **Day**, **Week**, **Month**, or **Year** and the previous/next arrows to change the visible period. Select **Today** to return to the current date.
   </Step>
   <Step title="Find the scheduled work">
-    Use **Search events…** to narrow the calendar. Use **Staff** to filter the project items by the available staff assignments. **Hide items** lets you hide specific items from the view.
+    Use **Search events…** to narrow the calendar. Use **Staff** to filter the project items by the available staff assignments. **Hide items** hides matching titles from the view and survives Reset; unhide titles separately.
   </Step>
   <Step title="Inspect an item">
     Select a calendar item to open its relevant details. Projects, phases, and milestones link to the project workspace; tasks and supported service calls open ticket details.
@@ -36,9 +38,17 @@ In Month view, several all-day items can collapse into an **All day** count. Sel
 
 ## Change scheduled dates
 
-For supported ConnectWise and Autotask items, MSP staff with project write permission can drag a schedulable item to another date. Review the rescheduling dialog and save to write the new dates back to the PSA. Cancel to keep the original schedule.
+MSP staff use an item's **... > Reschedule** menu in a view that exposes the item menu, such as Week. There is no project-calendar drag-and-drop step.
 
-This applies to supported project, phase, task, and milestone dates. Do not assume every visible calendar item can be moved; service-call bookings and other providers have different capabilities.
+1. Open the item menu and select **Reschedule**.
+2. Check the item title. Set **New date range**, or **New milestone date** for a milestone.
+3. Select **Save Changes** and wait for success, then verify the new date in Schedule and the item's details. Use **Cancel** to leave the dates unchanged.
+
+ConnectWise and Autotask project, phase, and task dates require project write permission and an active subscription; they write back to the PSA. Native MSPortal, Halo, and Syncro items do not receive this calendar rescheduling control. Native editors can use the relevant Phases edit form.
+
+Milestones are different: MSP staff need project overlay-edit permission, and rescheduling updates the milestone's planned date in MSPortal. It does not reschedule PSA tasks, change the actual date, or complete the milestone. Service-call bookings and upcoming opportunities cannot be rescheduled from this menu.
+
+Company users cannot reschedule project work. Ask the MSP for date changes. A visible item is not proof that the current account can edit it.
 
 ## Project tracker, when enabled
 
@@ -58,7 +68,7 @@ The Project tracker is not enabled in the Demo screenshot above. Its absence doe
 | --- | --- |
 | The calendar is empty | Visible date range, company scope, search, Staff selection, hidden items, and source dates. |
 | Only all-day counts appear | Open a count or switch to Week view. |
-| An item cannot be dragged | Staff access, project write permission, supported PSA provider, and item type. |
+| Reschedule is missing | Use the item menu; check MSP access, the relevant edit permission, provider support, and item type. |
 | Project tracker is missing | Tenant feature availability, ConnectWise connection, and MSP staff access. |
 
 <CardGroup cols={2}>

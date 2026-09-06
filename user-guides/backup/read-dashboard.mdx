@@ -1,0 +1,54 @@
+---
+title: "Read the Backup Dashboard"
+description: "Interpret device protection, storage, and Microsoft 365 summaries without mistaking missing data for success."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Backup read access.
+
+## Review the summary
+
+1. Open **Backup > Dashboard**.
+2. Confirm the company selection before comparing numbers. MSP aggregate views can combine several companies.
+3. Read the device summary cards and **Storage Usage** when shown.
+4. Open the relevant device or Microsoft 365 report to investigate individual results.
+
+| Card | How to use it |
+| --- | --- |
+| **Protected** | Review records the provider summary classifies as protected. Check the underlying backup date when freshness matters. |
+| **Warning** | Investigate reported warnings or work still in progress. |
+| **Failed** | Investigate unsuccessful or missing backup protection in the underlying records. |
+| **Unprotected** | Ask which devices require protection and which are intentionally excluded. |
+
+Nonzero status cards can open Devices with a status filter. A summary and its shortcut are not guaranteed to have identical counts: providers use different categories, and the device list has its own filters. In particular, check the **Not Configured** filter explicitly when investigating unprotected devices.
+
+**Protection Overview** shows Fully Protected, Needs Attention, and Failed Backups. **Storage Usage** shows the device-backup storage total supplied by the active providers. It is not a storage trend or a complete Microsoft 365 capacity report.
+
+## Review Microsoft 365 and alerts
+
+When Microsoft 365 data is available, Dashboard can show Kaseya or Spanning health widgets and a **View Microsoft 365 backups** link. Open [Microsoft 365](/user-guides/backup/read-microsoft-365-backups) for the available provider report. A company with only Microsoft 365 data may not see the device summary cards.
+
+An **Active Alerts** card and **View Alerts** link can appear when Acronis reports active alerts. Follow the [alerts guide](/user-guides/backup/review-alerts) to review them.
+
+## Check freshness before relying on a result
+
+A protected status describes the imported result; it does not prove that a backup ran recently or that a restore was tested. Open a device or workload to inspect available timestamps. The general Dashboard does not display a universal “Last backup check” timestamp.
+
+If the dashboard shows **No Backup Data Yet**, zero totals, or unexpected omissions, confirm company scope and ask the MSP to check mapping and synchronization. Some load failures can resemble empty data. Do not treat zero failed backups as evidence that all systems are protected.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why does clicking a summary card show a different number of devices?">
+    The detail list uses its own provider/status filters and pagination. Check those filters and individual records; the shortcut is a starting point for investigation.
+  </Accordion>
+  <Accordion title="Why is Unprotected not showing the devices I expected?">
+    The device list normally excludes Not Configured records. If Devices is available, explicitly select that status. If the section itself is missing, ask the MSP to verify the underlying records and mapping.
+  </Accordion>
+  <Accordion title="Does Protected mean I can restore successfully?">
+    It reports a provider status. Backup freshness, coverage, retention, and restore testing need separate confirmation from your MSP.
+  </Accordion>
+  <Accordion title="How do I report an old or failed backup?">
+    Start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket). Include the device, provider, status, and date, then confirm the request when prompted.
+  </Accordion>
+</AccordionGroup>

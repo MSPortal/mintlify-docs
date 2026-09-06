@@ -1,0 +1,100 @@
+---
+title: 'Upload onboarding documents and secure files'
+description: 'Send requested files, check review status, and remove an eligible upload from your onboarding portal.'
+icon: 'file-arrow-up'
+---
+
+Your IT provider can request documents for review or add a **Secure File Drop** task. Open the request inside your [onboarding portal](/user-guides/client-onboarding/open-your-onboarding) and follow the controls on that item.
+
+<Note>
+For Company contacts with access to the request. Your provider controls which items you can see and contribute to. Blocked items require their listed dependencies to be completed first.
+</Note>
+
+## Choose the right upload
+
+| Request | How you send the file | What happens next |
+| --- | --- | --- |
+| Requested document | Drop files into the upload area or select them from your computer | Upload starts immediately; the document enters review |
+| Secure File Drop task | Select **Upload Secure File**, choose a file, then confirm **Encrypt & Upload** | The file is submitted for your provider to retrieve |
+| Reference document | Select **Open Document** when a link is available | Opens shared information; there is no upload to submit |
+| Credential handoff | Use the task's Single or Bulk form | See [hand over credentials](/user-guides/client-onboarding/hand-over-credentials) |
+
+## Upload a requested document
+
+<Steps>
+  <Step title="Find the document request">
+    Open the document item from your onboarding workspace. Read its description, any **Accepted formats**, and any reason for a previous rejection.
+  </Step>
+  <Step title="Choose the files">
+    Select the upload area or drag files onto it. You can select multiple files. Each file must fit the **10MB per file** limit and the accepted formats.
+  </Step>
+  <Step title="Wait for the result">
+    Selecting or dropping files starts the upload. There is no separate Save button. Confirm that each intended filename appears and check for an error before leaving.
+  </Step>
+  <Step title="Check the review status">
+    **Under Review** means the files were submitted. **Approved** means your provider accepted the document. **Needs Re-upload** means you should read the rejection reason and provide the corrected files.
+  </Step>
+</Steps>
+
+You can add more files to a request that is awaiting review. If a document is already approved, ask your provider to reopen it before adding a replacement. An upload control may still be visible, but a new upload to an approved document is rejected.
+
+## Download or remove a document file
+
+Use the file row's **Download** control to retrieve an available document. The filename itself is not an edit control.
+
+To remove an eligible file you uploaded, select its remove control, review **Delete file?**, then select **Delete**. **Cancel** keeps the file. You cannot delete another contact's upload or a provider-uploaded file. Removing the last file returns the request to a state where a file is needed.
+
+<Note>
+Ask your provider about changing an approved submission. Deleting a file is not a way to edit its contents or replace the provider's review decision.
+</Note>
+
+## Send a secure file
+
+1. Open the **Secure File Drop** task and read what your provider needs.
+2. Select **Upload Secure File** and choose a file up to 10MB.
+3. Review the filename and size in **Upload Secure File?**.
+4. Select **Encrypt & Upload** to submit, or **Cancel** to discard the selection.
+5. Wait for the filename and status to appear.
+
+<Frame caption="Upload control shown in an MSP preview of a Company task. Choosing a file opens the confirmation; it does not submit the upload yet.">
+  <img src="/images/product/onboarding-secure-upload-control.png" alt="Upload Secure File button" width="336" height="74" />
+</Frame>
+
+The secure-file list uses **Encrypted**, **Downloaded**, and **Expired** statuses. Submission and provider retrieval are separate events. Follow up with your provider if a file expires or needs replacing.
+
+While a secure file you submitted is still pending retrieval, its delete control lets you review a confirmation and remove it. The control is unavailable after processing. Removing the last file makes the task incomplete again. The Company view does not provide a download control for secure-file submissions.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does choosing a file send it immediately?">
+    A regular document upload starts when you select or drop the file. A Secure File Drop requires the additional **Encrypt & Upload** confirmation. Bulk credential attachments have their own submission confirmation.
+  </Accordion>
+  <Accordion title="Does Under Review mean approved?">
+    No. It confirms submission for review. Your provider makes the approval decision separately.
+  </Accordion>
+  <Accordion title="Can I upload several files?">
+    Regular document requests support multiple files, each within the size and format limits. A secure-file picker selects one file at a time; use the task's available controls if another file is needed.
+  </Accordion>
+  <Accordion title="Why is my file rejected?">
+    Check its size, the accepted formats, the document's approval status, your contact access, and whether the workspace is still active. Read the displayed error. A provider rejection after upload appears as **Needs Re-upload** with a reason.
+  </Accordion>
+  <Accordion title="Why can I see a document but not upload to it?">
+    It may be a reference, an item managed by your provider, or a request blocked by another item. Visibility alone does not grant upload access.
+  </Accordion>
+  <Accordion title="Can I remove someone else's file?">
+    No. Company contacts can remove eligible files they submitted. Ask your provider about files submitted by another contact or the provider's team.
+  </Accordion>
+  <Accordion title="The upload reported an error, but a filename is visible. Should I retry?">
+    Refresh and check the file list before retrying. If the result is unclear, tell your provider the request name and error rather than repeatedly uploading duplicate files.
+  </Accordion>
+  <Accordion title="Can I upload after onboarding is completed?">
+    Completed workspaces are read-only. Ask your provider to arrange the next step if more information is needed.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Complete tasks and forms](/user-guides/client-onboarding/complete-tasks-and-forms)
+- [Hand over credentials](/user-guides/client-onboarding/hand-over-credentials)
+- [Review approvals and sign documents](/user-guides/client-onboarding/review-and-sign)

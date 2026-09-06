@@ -1,0 +1,107 @@
+---
+title: 'Troubleshoot Salesbuildr quotes and PDFs'
+description: 'Find missing Salesbuildr quotes, check Company access, and resolve provider document or PDF problems.'
+icon: 'file-invoice-dollar'
+---
+
+MSPortal supports **Salesbuildr**, **QuoteWerks**, and **Quoter**. Salesbuildr quotes can offer **Open in Salesbuildr** and the built-in **Download PDF** action. A visible quote does not guarantee that a provider PDF has been generated.
+
+**Audience:** Company users with quote access and MSP staff. Company users check their available quotes and documents; MSP staff repair integrations, company mappings, and user permissions.
+
+## Check as a Company user
+
+1. Open **Quotes** and check your company scope and any available **Mine**, **Site**, or **Company** view.
+2. Review filters, search by a known quote number, and check the relevant result pages.
+3. Verify the quote's company, revision, status, line items, and totals.
+4. Use the linked **Number** or **… > Open in Salesbuildr** when available. An internal detail page labels this provider link **Open quote**.
+5. For a PDF, select **Download PDF** and wait for the result after **Preparing PDF...**.
+6. If the quote or document is missing, send the MSP its number, expected company, and the visible message. Do not send API credentials.
+
+The PDF can download or open through a provider document link. Your browser may open the link in a new tab or use the current tab if a new tab is blocked. Check the document before relying on it. Portal access does not automatically grant access to the external Salesbuildr page.
+
+## Understand PDF messages
+
+| Message or symptom | What to do |
+| --- | --- |
+| No PDF available yet | Ask the MSP to check whether Salesbuildr has generated a document for this quote. A draft or visible quote row can exist without a PDF. |
+| Salesbuildr is busy | Wait and retry later; repeated immediate requests can prolong rate limiting. |
+| Saved API key was rejected | Ask the MSP to check the stored Salesbuildr credentials and API access. This is an integration problem, not a reason to change your portal password. |
+| Quote is no longer available | Return to Quotes and ask the MSP to check the record, mapping, and your access. |
+| Provider could not return the PDF | Retry later or ask the MSP for a verified copy from Salesbuildr. |
+| Preparing PDF... remains visible | Wait for the result; this state does not confirm that a file was returned. |
+
+For a full procedure, see [Download quote documents](/user-guides/quotes/download-quotes). The table's CSV export is a different operation: it includes the loaded page and visible columns, not the complete proposal or every result page. Neither opening a quote nor exporting it accepts the quote.
+
+## MSP checks for missing quotes
+
+1. Open the intended Salesbuildr connection in **Settings > Integrations**. Check its status and any error. If needed, verify API access and save working credentials.
+2. In **Map**, check that the source company is linked to the correct portal company and shows **Saved**.
+3. Request quote synchronization and check the actual result after the background job finishes. Salesbuildr only imports quotes for mapped companies.
+4. Review the Company role's Quotes access, allowed statuses, selected view, and company/site association. MSP staff manage these permissions.
+5. Compare the specific quote and its line items with Salesbuildr if values or freshness look wrong.
+
+Unlinking a Salesbuildr company removes its imported quotes and line items from MSPortal. Relinking requires a quote sync to bring those removed records back. Ask about recent mapping changes when quotes disappear together.
+
+A successful connection test, company count, completed wizard step, or sync-started message does not prove every quote imported. An empty or failed listing can leave older records visible; verify the current provider document when a deletion or revision matters.
+
+## MSP checks for links and products
+
+For an incorrect **Open in Salesbuildr** destination, check the saved connection's Account URL and the specific quote. Use the correct `.salesbuildr.com` API account address; do not guess a customer document link. Ask support if the saved connection unexpectedly loads as a blank new-connection form.
+
+For missing budget products, verify product synchronization separately from company and quote synchronization. Then use **Budgets > Budgets Menu > Products > Import from Integrations**. Linking a source product does not update an existing catalog product's price or recurrence. See [Import and link budget products](/user-guides/budgets/import-products-from-integrations).
+
+## Ask for help with useful details
+
+Include **Salesbuildr**, the quote number, expected company, whether the issue affects the row, line items, provider link, or PDF, and the exact visible error. MSP staff should check saved mapping, integration status, and the last relevant sync result. Use the normal approved support channel for private documents.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does Salesbuildr support PDF downloads in MSPortal?">
+    Yes. Salesbuildr quotes can use the built-in Download PDF action when the provider has a PDF available. A visible quote alone does not guarantee a generated document.
+  </Accordion>
+  <Accordion title="Why does a quote exist but its PDF is unavailable?">
+    The provider may not have generated a PDF, including for a draft quote. Ask your MSP to check the Salesbuildr document and provide a copy if needed.
+  </Accordion>
+  <Accordion title="Why does my MSP see a quote that I cannot?">
+    Your role, allowed statuses, selected view, site or company scope may exclude it. Ask the MSP to review those settings and the saved Salesbuildr company mapping.
+  </Accordion>
+  <Accordion title="Can a Company administrator change quote permissions?">
+    The MSP manages Company user permissions. Ask the MSP to review Quotes access, allowed statuses, company and site association, and the available view.
+  </Accordion>
+  <Accordion title="Why did all quotes for a Salesbuildr company disappear?">
+    The company mapping may have been unlinked, which removes its imported quotes and line items. Ask the MSP to verify the mapping and request a new quote sync after relinking.
+  </Accordion>
+  <Accordion title="Does relinking a Salesbuildr company immediately restore its removed quotes?">
+    No. Save the correct mapping and run quote synchronization to import the removed records again. Then verify the company and quote results.
+  </Accordion>
+  <Accordion title="Does a rejected API key mean my portal password is wrong?">
+    No. The PDF message refers to the MSP-managed Salesbuildr integration credential. Ask the MSP to check that connection; changing your portal password does not repair it.
+  </Accordion>
+  <Accordion title="What should I do when Salesbuildr is busy?">
+    Wait and retry later, or ask your MSP for a copy if needed. Avoid repeated immediate PDF requests.
+  </Accordion>
+  <Accordion title="Does Preparing PDF mean the download succeeded?">
+    No. Wait for the returned document or result message. Preparing PDF is an in-progress state.
+  </Accordion>
+  <Accordion title="Can I use CSV instead of the proposal document?">
+    CSV contains the currently loaded quote rows and visible columns. It does not include the complete provider proposal, all result pages, or an acceptance document.
+  </Accordion>
+  <Accordion title="Does opening or downloading a Salesbuildr quote accept it?">
+    No. Opening a provider page, downloading a PDF, or exporting CSV does not accept the quote. Review the provider document and its acceptance process.
+  </Accordion>
+  <Accordion title="Do the same PDF instructions apply to Quoter and QuoteWerks?">
+    All three providers are supported, but the built-in Download PDF action is specific to Salesbuildr. Quoter and QuoteWerks use their available provider document links and the options on those pages.
+  </Accordion>
+  <Accordion title="Does a successful quote sync also import products into my budget catalog?">
+    No. Product synchronization and budget catalog import or linking are separate steps. Ask the MSP to verify product sync and use Import from Integrations.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Download quote documents](/user-guides/quotes/download-quotes)
+- [Find and open quotes](/user-guides/quotes/view-quotes)
+- [Map Salesbuildr companies](/user-guides/integrations/map-salesbuildr-companies)
+- [Connect and manage Salesbuildr](/user-guides/integrations/enable-salesbuildr-integration)
+- [Manage Company quote access](/user-guides/quotes/manage-company-access)

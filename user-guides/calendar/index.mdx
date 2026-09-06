@@ -10,9 +10,28 @@ The Calendar module helps MSPs schedule and manage client meetings, including Qu
   <img src="/images/calendar/calendar-overview.png" alt="Calendar Overview" />
 </Frame>
 
+## Find and filter events
+
+**Audience:** Company users with Calendar access and MSP staff. Your MSP assigns the companies, layers and actions you can access. Creation and management need additional permissions.
+
+<CardGroup cols={2}>
+  <Card title="Find events in Calendar" icon="calendar" href="/user-guides/calendar/find-calendar-events">
+    Choose Day, Week, Month or Year, open an event and troubleshoot a missing meeting.
+  </Card>
+  <Card title="Filter events and layers" icon="filter" href="/user-guides/calendar/filter-calendar-events">
+    Use search, staff, status, busy blocks, hidden titles and Reset.
+  </Card>
+  <Card title="Find your meetings" icon="calendar-check" href="/user-guides/calendar/find-my-meetings">
+    Read Upcoming and Past, personal filters, summary counts and busy blocks.
+  </Card>
+  <Card title="Use List View" icon="list" href="/user-guides/calendar/find-meetings-list">
+    Filter meeting records by date, title, company, participant, type and status.
+  </Card>
+</CardGroup>
+
 ## Navigating the Calendar
 
-The calendar opens in a monthly view by default. Use the view switcher in the header to change between **Day**, **Week**, **Month**, and **Year** views. Each event card shows:
+On a fresh browser, Calendar starts in Month view. It can restore your saved view when you return. Use the view switcher in the header to change between **Day**, **Week**, **Month**, and **Year** views. Each event card shows:
 - **Meeting title** - The name of the meeting (e.g., "QBR" for Quarterly Business Reviews)
 - **Company name** - Which client the meeting is associated with
 - **Color coding** - Visual distinction between different meeting types
@@ -22,9 +41,10 @@ Hover over any event to see a tooltip with the meeting's time, company, assigned
 ### Viewing Options
 
 Use the **Global View** dropdown at the top to:
-- View meetings across all companies
-- Filter to a specific company's meetings
-- See only your assigned meetings
+- View events across your accessible company scope
+- Filter to a specific accessible company
+
+Use **Calendar Menu > My Meetings** for the personal meetings page.
 
 ### Filtering the Calendar
 
@@ -33,7 +53,7 @@ Open the filter drawer from the calendar header to narrow what's displayed. You 
 - **Event Types** - QBRs, client meetings, internal meetings, training, and more
 - **Companies** - Show only selected clients
 - **Staff** - Show only selected team members
-- **Status** - Including Draft, so you can find meetings that haven't been sent yet
+- **Status** - Scheduled, Confirmed, In Progress, Completed and Canceled; canceled events are hidden by default
 - **Role** - Filter by your team's assigned roles
 
 ### Quick Preview
@@ -136,25 +156,16 @@ Every meeting has an explicit time zone, set in the meeting dialog. Invitations 
 
 ## Meeting Types
 
-MSPortal supports various meeting types:
-
-| Type | Description |
-|------|-------------|
-| **QBR** | Quarterly Business Reviews - comprehensive client reviews |
-| **Strategy** | Strategic planning and roadmap discussions |
-| **Check-in** | Regular status updates and relationship touchpoints |
-| **Onboarding** | New client onboarding sessions |
-| **Training** | Client training and education sessions |
-| **Custom** | Any other meeting type you define |
+The main Calendar filter currently offers QBR, On-site Tech Visit, Internal Meeting, Client Call, Project Milestone, Compliance Review, Business Review, Service Call and Other. These are event-type filters; selecting one does not create a meeting.
 
 ## Calendar Layers
 
-Beyond meetings, the calendar carries two toggleable layers in its header:
+Open the stacked-layers icon in the toolbar to control the available layers:
 
 - **Appointments** - MSPortal meetings, Microsoft 365 busy blocks, and appointments, service calls, and schedule entries from your PSA
 - **Changes** - scheduled changes from MSPortal and your PSA, plus freeze windows, with conflict warnings
 
-Each toggle shows a badge (**MINE**, **SITE**, or **ALL**) reflecting how much of that layer your role can see, and a layer your role has no access to is hidden entirely. Freeze windows are managed under **Settings > Operations > Calendar > Freeze Windows**.
+The Appointments and Changes choices show a badge (**MINE**, **SITE**, or **ALL**) reflecting how much of that layer your role can see, and a layer your role has no access to is hidden entirely. Freeze windows are managed under **Settings > Operations > Calendar > Freeze Windows**.
 
 See [Change Management](/user-guides/ticketing/change-management) for the full workflow.
 
@@ -177,3 +188,9 @@ See [Change Management](/user-guides/ticketing/change-management) for the full w
     Request, approve, and schedule changes with freeze windows and conflict detection
   </Card>
 </CardGroup>
+
+## Calendar configuration
+
+- [Configure Calendar defaults and work hours](/user-guides/calendar/configure-calendar-defaults)
+- [Create and manage freeze windows](/user-guides/calendar/manage-freeze-windows)
+- [Understand freeze windows as a Company reader](/user-guides/calendar/understand-change-freezes)

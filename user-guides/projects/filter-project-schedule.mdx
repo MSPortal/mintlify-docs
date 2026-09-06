@@ -1,0 +1,102 @@
+---
+title: 'Filter the project schedule'
+description: 'Search dated work, filter by project or staff, and restore hidden calendar items'
+icon: 'filter'
+---
+
+Use these controls in **Projects > Schedule** or a project's **Schedule** tab. They narrow dated items you are already allowed to read. For the difference between Company and MSP calendar contents, start with [Read a project schedule](/user-guides/projects/read-project-schedule).
+
+**Audience:** Company users with project Schedule access and MSP staff.
+
+## Find a scheduled item
+
+<Steps>
+  <Step title="Choose the date range">
+    Select Day, Week, Month, or Year and use the previous/next arrows. Search and selector options apply to loaded calendar items, so move to the expected date first.
+  </Step>
+  <Step title="Search events">
+    Enter an item title, project name, available owner's name, or company name in **Search events...**. Remove accidental spaces at the beginning or end. Search does not look through every project ticket's description or note history.
+  </Step>
+  <Step title="Narrow by project, company, or staff">
+    Open **Filter** for **Project**, **Companies**, and **Staff**. Project selects one project at a time. The toolbar also has a Staff selector. An empty selection leaves that filter unrestricted; multiple selected staff match an item associated with any selected person.
+  </Step>
+  <Step title="Review and close the filter panel">
+    Filter selections change the view immediately. **Apply Filters** closes the panel; closing it with X does not discard selections. Use **Reset** to clear ordinary filters when needed.
+  </Step>
+</Steps>
+
+<img src="/images/product/project-schedule-filter-controls.png" alt="MSP Project Schedule controls for Staff, Hide items, all-day visibility and Filter" width="864" height="104" />
+
+This capture shows the MSP filter controls. Select the image to enlarge its labels. Available projects, companies, and staff depend on your access and the loaded period.
+
+Staff names come from the assignments attached to calendar items. They are not a complete user directory or the whole project team. Selecting a person excludes items without a matching assignment, including many milestones and project spans. An empty result does not establish that the person is free.
+
+## Restore all-day items
+
+The calendar-off icon toggles **Hide all-day events** and **Show all-day events**. Hiding all-day events removes project spans, phases, tasks, and milestones from the view; timed service calls can remain. Choose **Show all-day events** to restore them.
+
+This preference is saved in this browser and shared by the two Projects schedule views. **Reset** turns all-day items back on.
+
+## Hide or restore items by title
+
+Open **Hide items** and select a title to hide it. Reopen the selector and deselect the title to restore it. Selection applies immediately; there is no server Save button.
+
+This hides every loaded item with that title, ignoring capitalization and surrounding spaces. It can affect matching titles in different projects. It does not delete work, change client visibility, or update the PSA.
+
+Hidden titles persist in this browser and are shared between **Projects > Schedule** and individual project Schedule tabs. **Reset does not clear Hide items.** Previously hidden titles remain available in the selector even outside their original period, so you can restore them there.
+
+## Show weekends
+
+In **Week** view, open **Filter** and enable **Saturday / Sunday** in the Week section. Week view initially shows weekdays. This preference is shared with other calendar views in this browser; **Reset** returns Week to weekdays. Month view continues to show the full week.
+
+## What Reset does
+
+| Control | Result of Reset |
+| --- | --- |
+| Search, Project, Companies, Staff | Cleared. |
+| All-day visibility | All-day events shown again. |
+| Week weekends | Disabled. |
+| Hide items | Retained; unhide titles separately. |
+| Selected period and Day/Week/Month/Year | Retained; use arrows, Today, or the view buttons. |
+
+The Projects schedule remembers its view in this browser. Returning on the same calendar day can restore the date you were viewing; on a later day it returns to the current date while keeping the view choice. These preferences are separate from the main Calendar's selected date/view, though weekend visibility is shared.
+
+## Empty-calendar checklist
+
+1. Check the expected date and company scope.
+2. Clear Search events and reset ordinary filters.
+3. Confirm all-day events are shown.
+4. Open Hide items and deselect matching titles.
+5. In Week view, include weekends if the work falls there.
+6. Check source start dates, unusually long spans, and the Company/MSP access differences in the [schedule reader](/user-guides/projects/read-project-schedule).
+
+The Filter badge does not count every saved view choice. A zero badge does not prove there are no hidden titles. If loading failed, use the displayed retry control before treating the empty grid as a valid result.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why did Reset not bring my item back?">
+    Reset preserves Hide items and the selected date/view. Unhide the title separately and navigate to the correct period. Also check sharing and the source start date.
+  </Accordion>
+  <Accordion title="Does Hide items remove work for my company?">
+    No. It is a browser display preference, not a deletion or client-sharing control. It hides matching titles in your Projects schedule views.
+  </Accordion>
+  <Accordion title="Why did hiding one title affect another project?">
+    Hide items matches titles rather than individual record IDs. Items with the same title are hidden together, ignoring case and surrounding spaces.
+  </Accordion>
+  <Accordion title="Why did selecting Staff remove milestones?">
+    Staff filtering keeps items associated with a selected person. Milestones and many project/phase spans have no staff assignment, so they do not match.
+  </Accordion>
+  <Accordion title="Why is my colleague missing from Staff?">
+    The list comes from loaded project-item assignments, not every employee or project-team member. Check the period and source assignments; do not create a portal user just to change this filter.
+  </Accordion>
+  <Accordion title="Can I search an entire project's ticket history here?">
+    No. Search filters loaded calendar item titles and available project, owner, company, or location text. Open ticket details for their history.
+  </Accordion>
+  <Accordion title="Do I need Apply Filters to save a selection?">
+    Selections apply as you change them. Apply Filters closes the panel; X also keeps changes. These display controls do not update project records.
+  </Accordion>
+  <Accordion title="Why does the calendar remember a different month sometimes?">
+    The view persists, and the chosen date can resume during the same calendar day. On a later day the calendar resumes the current date instead. Use Today whenever you want to return immediately.
+  </Accordion>
+</AccordionGroup>

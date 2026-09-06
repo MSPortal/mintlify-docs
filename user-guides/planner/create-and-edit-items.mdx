@@ -1,0 +1,127 @@
+---
+title: 'Create and edit Planner items'
+description: 'Prepare an initiative, set Company visibility, save changes and distinguish immediate attachment actions.'
+icon: 'pen-to-square'
+---
+
+**Audience:** MSP staff with Planner write or manage access. Company users should start with [Read a Planner item](/user-guides/planner/read-item-details); any editing access is granted by their MSP.
+
+## Create an item from List View
+
+1. Open **Planner Menu > List View** and check the selected company scope.
+2. Choose **Add Item**. This opens an unsaved form; opening it does not create a record.
+3. Enter a meaningful title at the top. Select the title or its pencil if the title input is not open.
+4. Select **Company** when working in Global View. A normal Planner item needs a company.
+5. Review **Due Date**, **Status**, **Type** and **Business Value**. List View starts a new item with today's due date, Not Started status and Medium Business Value. Check the available Type instead of assuming every portal has the same categories.
+6. Choose an **Assignee** if needed, and enter estimated effort and costs. See [Plan costs and hours](/user-guides/planner/plan-costs-and-hours).
+7. Add a **Description** and public **Notes**. Put internal MSP information in **Private Notes (Internal Only)**.
+8. Expand **Custom Fields** and complete required fields. Review visibility as described below.
+9. Choose **Save**, wait for the dialog to close successfully, then find and reopen the item to confirm the saved plan.
+
+The timeline also offers Add Item, including inside a period. Review its proposed date before saving; the List View defaults above describe the List View entry point.
+
+## Make work visible to Company users
+
+The MSP editor includes **Hide from company users** at the bottom. It is checked for a new item opened through List View.
+
+- **Checked:** hide the item from Company users.
+- **Unchecked:** allow Company users with the necessary Planner access and company scope to see it after saving.
+
+<Frame caption="MSP control: checked hides the item from Company users. Save applies the change.">
+  <img src="/images/product/planner-company-visibility-control.png" alt="Checked Hide from company users checkbox in the MSP Planner editor." width="368" height="42" />
+</Frame>
+
+Changing the checkbox is an unsaved form change. Choose **Save** to apply it. Making an item visible does not grant module access, reveal Private Notes or give Company users permission to manage other portal users.
+
+Private Notes are visible to authorized MSP staff, not just the person who wrote them. Review public Notes before sharing the item with a company.
+
+## Edit an existing item
+
+Find the item in List View and select its title. Update the required fields and choose **Save**. Clicking away from the title input, or pressing Enter there, finishes editing the title but does not save the item.
+
+Use **Status** for Not Started, Pending Approval, In Progress, Completed, On Hold or Cancelled. Changing status is separate from changing Business Value or Probability of Success. These planning statuses do not replace the approval workflow in Quotes or Budgets.
+
+An item linked to a Tool Stack standard has a locked title. Manage the standard through its own workflow. Tool Stack-linked status changes can also update the linked standard's deployment status; review the relationship before changing status.
+
+Changing Company can be restricted when the item has linked records or meeting relationships. Review those links before moving work to another company. Do not remove meaningful relationships solely to bypass an error.
+
+## Close without saving
+
+Use the dialog's close control. If you changed form fields, **Unsaved Changes** asks whether to discard them:
+
+- **Cancel** returns to the editor and retains the unsaved form.
+- **Discard Changes** closes it without saving those form edits.
+
+This applies to unsaved item fields. It does not undo actions that already completed separately, such as a file upload or a newly created external opportunity.
+
+## Files and other separate actions
+
+Save a new item before adding files. Reopen it and expand **Uploads**. With editing access, you can select or drop files, download existing files and delete a file using its trash control.
+
+File uploads and deletions run immediately; they do not wait for the Planner item's **Save**. Deleting an uploaded file does not present the item's unsaved-changes confirmation. Check the filename before using its trash control, wait for the operation to finish and verify the result in Uploads.
+
+**Relationships > Add** links existing supporting records. **Relationships > Create**, when available for a connected PSA, creates an external opportunity as a separate action. Closing the Planner editor does not undo a completed provider creation. Use the action only when you intend to create that opportunity; ordinary item editing does not require it.
+
+[Applying a Planner template](/user-guides/planner/apply-template-to-item) or adding a text template changes the form's content. Review the resulting values before Save. AI-generated notes also need review, especially before putting internal information into public Notes.
+
+Use [Link supporting records](/user-guides/planner/link-supporting-records) for picker and removal instructions, and [Read and manage Planner files](/user-guides/planner/manage-files) for attachments and permissions.
+
+## Save problems
+
+| What you see | What to check |
+| --- | --- |
+| Save unavailable | Editing permission and whether costs and custom fields have finished loading. Use Retry when shown. |
+| Required-field message | Supply a title, company and any required custom fields. |
+| Error after choosing Save | Keep the dialog open and review the error. Check whether the item already exists before creating it again. |
+| Item saved but custom fields did not | Reopen the existing item and check the custom fields. Some save paths store them after the item, so do not assume the whole operation was rolled back. |
+| Item missing after save | Check company scope, filters, Archived and Company visibility. |
+| Changed item visible only to MSP staff | Check Hide from company users, then the Company user's Planner permission and scope. |
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where can MSP staff create a Planner item?">
+    Open Planner Menu > List View and choose Add Item, or use Add Item on the timeline. Planner write or manage access is required.
+  </Accordion>
+  <Accordion title="Does opening Add Item immediately create a record?">
+    No. Complete the form and choose Save. Opening the form alone does not create the item.
+  </Accordion>
+  <Accordion title="Which company and date should I check on a new item?">
+    Select the company in Global View and review Due Date. List View defaults the date to today; a timeline period can propose another date.
+  </Accordion>
+  <Accordion title="Why is my new item hidden from Company users?">
+    A new List View item starts with Hide from company users checked. Uncheck it and Save when the item is ready to share; Company access and scope still apply.
+  </Accordion>
+  <Accordion title="Does clearing Hide from company users reveal Private Notes?">
+    No. It changes item visibility. Private Notes remain internal to authorized MSP staff.
+  </Accordion>
+  <Accordion title="Does pressing Enter while editing the title save the item?">
+    No. It finishes title editing. Choose the item's Save button to persist the form.
+  </Accordion>
+  <Accordion title="How do I abandon unsaved Planner edits?">
+    Close the dialog and choose Discard Changes. Cancel keeps the editor open with your unsaved form.
+  </Accordion>
+  <Accordion title="Does Discard Changes undo uploaded or deleted files?">
+    No. Attachment operations happen immediately and independently of the item's Save button.
+  </Accordion>
+  <Accordion title="Why are uploads missing while I create an item?">
+    Save the new item first, then reopen it and expand Uploads.
+  </Accordion>
+  <Accordion title="Why can I not rename a Tool Stack-linked item?">
+    Its title is managed by the linked standard and is locked here. Review the standard's own workflow; linked status changes can also update its deployment status.
+  </Accordion>
+  <Accordion title="Does Relationships > Create only prepare an unsaved link?">
+    No. An available PSA creation action creates an external opportunity separately. Discarding the Planner form does not undo that completed provider action.
+  </Accordion>
+  <Accordion title="Should I create another item after a custom-field save error?">
+    Check the existing item first. Some save paths persist the item before custom fields; reopen it and check the fields instead of assuming nothing was saved.
+  </Accordion>
+</AccordionGroup>
+
+## Manage multiple items or past work
+
+Use [bulk actions in List View](/user-guides/planner/update-multiple-items) for shared field changes. Review [archive, restore and deletion](/user-guides/planner/archive-restore-delete) before removing work from the active list.
+
+MSP staff with Manage Planner and enabled AI can [draft a Planner item with AI](/user-guides/planner/draft-item-with-ai), review the proposal, and apply or discard it.
+
+[Understand Planner types and budget categories](/user-guides/planner/understand-types). MSP staff can [manage types and defaults](/user-guides/planner/manage-types) or [retire a type with reassignment](/user-guides/planner/retire-types).

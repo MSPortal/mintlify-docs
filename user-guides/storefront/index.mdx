@@ -1,130 +1,47 @@
 ---
 title: 'Storefront'
-description: 'Give clients a curated catalog of products, self-service license management, and Azure usage visibility, all under your approval controls'
+description: 'Review subscriptions, browse your provider’s catalog, and inspect available Azure usage.'
 icon: 'store'
 ---
 
-The **Storefront** turns your distributor catalog into a controlled marketplace for your clients. You decide which products clients can see, whether they can change their own license quantities, and which requests need your approval. Clients get a clear view of their subscriptions, available products, and Azure consumption.
+Open **Storefront** to review the subscriptions and products available through your MSP’s connected distributors. The portal supports Pax8 and Sherweb; the sections and controls you see depend on your MSP’s setup and your permissions.
 
-The Storefront syncs from **Pax8** and/or **Sherweb**.
+## Find the right area
 
-## Overview
+| Section | Purpose |
+| --- | --- |
+| **Subscriptions** | [Review existing subscriptions](/user-guides/storefront/view-subscriptions), quantities, status, and available terms. |
+| **Catalog** | Browse the products your MSP makes available and use the request or pricing controls when available. |
+| **Requests** | Review recorded requests and their progress when this workflow is available in your portal. |
+| **Azure Usage** | [Inspect available Pax8 Azure usage](/user-guides/storefront/view-azure-usage). This tab requires an enabled Pax8 integration. |
 
-The Storefront has three sections:
+MSP staff configure the catalog, company mappings, permissions, and request policy. Company users ask their IT provider for access or setup changes.
 
-<CardGroup cols={3}>
-  <Card title="Subscriptions" icon="layer-group">
-    Manage active software licenses and subscriptions.
-  </Card>
-  <Card title="Catalog" icon="book-open">
-    Browse available products and request new ones.
-  </Card>
-  <Card title="Azure Usage" icon="cloud">
-    Monitor Azure consumption by company.
-  </Card>
-</CardGroup>
+## Requesting products or quantity changes
 
-## Prerequisites
+A request is separate from an active subscription or a confirmed quantity change. Review the company, product, requested total quantity, and displayed terms before using a submission control. Keep its result and use **Requests**, when available, or contact your MSP to check progress.
 
-- A connected **Pax8** or **Sherweb** integration. Without one, the Storefront shows *"Connect a Pax8 or Sherweb integration in Integrations to manage your storefront."*
-- **Permissions**: viewing requires read access to the storefront; requesting changes requires write access; configuring the catalog and self-service rules requires the storefront management/settings permission.
-- **Azure Usage** requires Azure subscriptions synced from Pax8.
+An approval message, self-service badge, or button labeled **Update Quantity** is not proof that the distributor has changed the subscription. Wait for fulfillment confirmation and the updated subscription data. If requesting or loading requests fails, contact your MSP; do not repeatedly submit the same change.
 
-## For administrators: setting up the Storefront
-
-Configure the Storefront under **Settings → Storefront**, which has two tabs.
-
-### Catalog tab
-
-This controls what clients see in the catalog.
-
-<Steps>
-  <Step title="Review synced products">
-    Products synced from Pax8 (and Sherweb, if connected) appear in a table with **Product**, **Vendor**, **Category**, and **Retail Price**.
-  </Step>
-  <Step title="Set visibility">
-    Toggle **Visible** to show or hide each product from the client catalog. Hidden products never appear to clients.
-  </Step>
-  <Step title="Feature key products">
-    Toggle **Featured** to highlight products you want clients to notice.
-  </Step>
-  <Step title="Use bulk actions">
-    Select multiple rows and use **Show Selected**, **Hide Selected**, **Feature Selected**, or **Unfeature Selected** to update many products at once.
-  </Step>
-</Steps>
-
-### Self-Service tab
-
-This controls who gets notified about requests and whether clients can change their own quantities.
-
-- **Request Approvals** — choose the **Approver Role** (a company team role) whose members receive an in-app notification for every new product request or quantity change. This applies to both Pax8 and Sherweb.
-- **Self-Service Settings** (Pax8) — set global defaults with **Allow Self-Service by Default** and default **Min Qty** / **Max Qty**, then use **Apply to All** to push them to every subscription, or **Save Defaults**.
-- **Per-subscription overrides** — click a subscription to **Edit Settings** and control:
-  - **Allow Quantity Changes** — let clients request quantity changes for this subscription.
-  - **Require Approval** — require your approval before changes sync to Pax8.
-  - **Minimum Quantity** / **Maximum Quantity** — the allowed range.
-
-<Tip>
-Use per-subscription overrides to keep low-risk products fully self-service while requiring approval on expensive or sensitive licenses.
-</Tip>
-
-## For clients: using the Storefront
-
-Clients see the three tabs (Subscriptions, Catalog, Azure Usage) but no settings.
-
-### Subscriptions
-
-The **Subscriptions** view lists active licenses with product, vendor, company, quantity, billing term, status, and pricing, plus summary cards for total and active subscriptions, total licenses, companies, pending requests, and monthly cost.
-
-- Click **View Details** to see full subscription information.
-- Click **Change Quantity** to request more or fewer licenses. Enter a **New Quantity** (within the allowed min/max) and optional notes:
-  - If self-service is enabled, the change applies immediately.
-  - If approval is required, a request is submitted and the approver role is notified.
-
-### Catalog
-
-The **Catalog** view shows products you've made visible.
-
-- Click **Get Price** to see pricing for a specific company.
-- Click **Request** to ask for a product to be added. Add an optional note explaining the reason; the request notifies the approver role.
-
-### Azure Usage
-
-The **Azure Usage** view shows Azure consumption by company and resource group for recent months. Click **View Details** on a row to drill into individual usage line items (product, date, quantity, unit, unit price, total).
-
-## How requests flow
-
-<Steps>
-  <Step title="Client submits a request">
-    A client requests a new product or a quantity change from the Catalog or Subscriptions view.
-  </Step>
-  <Step title="Approver is notified">
-    Members of the configured **Approver Role** receive an in-app notification.
-  </Step>
-  <Step title="Change syncs to the distributor">
-    Once approved (or immediately, if self-service is enabled), the change syncs back to Pax8.
-  </Step>
-</Steps>
-
-## Troubleshooting
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="The Storefront says there's no integration">
-    Connect a Pax8 or Sherweb integration under Settings → Integrations. Products appear after the next sync.
+  <Accordion title="Does Storefront open on the Catalog?">
+    Storefront opens on **Subscriptions**. Select **Catalog** to browse available products.
   </Accordion>
-  <Accordion title="No products appear in the catalog">
-    Products sync from the distributor on a schedule. On the settings Catalog tab, also confirm the products are toggled **Visible**, hidden products never reach clients.
+  <Accordion title="Can I manage the catalog as a Company administrator?">
+    Catalog configuration and portal user permissions are MSP-managed. Ask your IT provider to change availability or access.
   </Accordion>
-  <Accordion title="A client can't change a quantity">
-    Quantity changes require **Allow Quantity Changes** to be enabled for that subscription (or by the global default), and the new quantity must fall within the configured min/max range.
+  <Accordion title="Does requesting more licenses assign them to employees?">
+    A subscription quantity request is separate from license assignment to individual users. Confirm fulfillment and ask your MSP about user assignments.
   </Accordion>
-  <Accordion title="No Azure usage data shows">
-    Azure consumption appears only once you have Azure subscriptions synced from Pax8.
+  <Accordion title="Does approval mean the licenses are already available?">
+    No. Approval, fulfillment, and the synchronized subscription quantity are separate things. Check the request result and your provider’s confirmation.
+  </Accordion>
+  <Accordion title="Why is Azure Usage missing?">
+    The tab requires an enabled Pax8 integration. Available usage also depends on source data, company mapping, and your permissions.
+  </Accordion>
+  <Accordion title="What should I do if Requests fails to load?">
+    Ask your MSP to investigate and tell it the company and product involved. Do not assume a failed view means there are no requests, or submit duplicates to test it.
   </Accordion>
 </AccordionGroup>
-
-## Related resources
-
-- [Integrations](/user-guides/integrations/index) — connect Pax8 or Sherweb.
-- [Licensing](/user-guides/licensing/index) — Pax8 license management.
-- [Notifications](/user-guides/notifications/index) — where approvers see incoming requests.

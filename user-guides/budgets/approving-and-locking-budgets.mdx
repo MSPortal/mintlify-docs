@@ -4,6 +4,8 @@ description: 'Finalize a budget as an immutable baseline and prepare its line it
 icon: 'lock'
 ---
 
+**Audience:** MSP staff and Company users explicitly granted budget edit and approval access by their MSP. Ordinary readers can review the plan and request approval from their MSP.
+
 Approving a budget turns it into the fixed baseline MSPortal uses to compare planned costs with customer invoice spend. Approval also assigns a unique reference to every line item so projects, purchases, licences, labour, and other costs can be traced back to the approved plan.
 
 <Warning>
@@ -12,7 +14,7 @@ Approval is permanent. You cannot edit or return an approved budget to Draft. Re
 
 ## Prerequisites
 
-- A budget in **Draft** or **Pending Approval** status
+- A budget in **Draft** or **Pending Approval** status, with no more than 500 lines
 - Permission to approve budgets
 - A company, fiscal year, currency, and complete set of line items
 - Final quantities, prices, recurrence, categories, line-item statuses, and linked projects or products
@@ -22,13 +24,13 @@ Approval is permanent. You cannot edit or return an approved budget to Draft. Re
 
 <Steps>
   <Step title="Review the budget">
-    Open the budget and confirm its company, fiscal year, currency, period type, line items, and totals. Rejected line items remain visible after approval but are excluded from the approved amount and cannot receive actual spend.
+    Open the budget row’s **Edit** action and confirm its company, fiscal year, currency, period type, line items, and totals. Rejected line items remain visible after approval but are excluded from the approved amount and cannot receive actual spend.
   </Step>
   <Step title="Review matching links">
     For project costs, confirm the linked Planner item has the correct PSA project under **Relationships > Projects**. For recurring licence or service costs, confirm the correct product link. MSPortal captures the available matching relationships when the budget is approved.
   </Step>
   <Step title="Set the budget to Approved">
-    Change the budget status to **Approved**. This opens the approval warning.
+    Expand **Budget Details** if it is collapsed, then change **Status** to **Approved**. This opens the approval warning.
   </Step>
   <Step title="Confirm the permanent lock">
     In the **Lock Budget After Approval?** dialog, review the warning and click **Approve Budget**.
@@ -40,6 +42,10 @@ Approval is permanent. You cannot edit or return an approved budget to Draft. Re
     Open the budget in View mode and select **Actuals**. The approved period and line-item references are now available for reconciliation.
   </Step>
 </Steps>
+
+<Frame caption="The approval warning opens before saving. After confirming, Save is still required to store the approved baseline.">
+  <img src="/images/product/budget-approval-warning.png" alt="Lock Budget After Approval warning explaining permanent locking, with Cancel and Approve Budget buttons." width="1024" height="644" />
+</Frame>
 
 ## What Approval Locks
 
@@ -118,7 +124,7 @@ Only the planned baseline is frozen. Actuals can still change when invoices sync
   </Step>
 </Steps>
 
-To revise an approved budget, duplicate it, edit the new Draft copy, approve the replacement, and then archive the original.
+To revise an approved budget, duplicate it, edit the new Draft copy, approve the replacement, and then archive the original. **Duplicate creates the copy immediately.** Copied lines start Pending, including lines rejected in the original, so review every line and its status before approving the replacement. Confirm that the copy contains all expected lines.
 
 ## Common Tasks
 
@@ -155,9 +161,46 @@ Use **Actions > Duplicate** to create an editable Draft copy. Make and approve t
 - Standardize one PSA field for budget references and train billing staff to preserve it on invoices
 - Duplicate and replace approved budgets instead of deleting historical baselines
 
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where do I approve a budget?">
+    Open Budgets, choose the budget row’s Edit action, expand Budget Details if needed, and change Status to Approved. Confirm Approve Budget in the warning, then click Save and wait for the saved result.
+  </Accordion>
+  <Accordion title="Does clicking Approve Budget in the warning save the approval?">
+    No. It accepts the proposed status change in the editor. You must still click Save. Confirm that saving succeeded and the stored budget is locked.
+  </Accordion>
+  <Accordion title="Can a Company administrator approve budgets automatically?">
+    The Company administrator label alone does not grant budget approval. Your MSP must assign the required budget editing and approval permissions for your company.
+  </Accordion>
+  <Accordion title="Can I unlock an approved budget or change a rejected line later?">
+    No. The approved baseline and its line statuses are locked. Duplicate the budget to create an editable Draft, correct that copy and approve the replacement.
+  </Accordion>
+  <Accordion title="Does choosing Monthly or Quarterly limit the Actuals date range?">
+    No. Actuals uses January 1 through December 31 of the selected fiscal year. Review the reconciliation period before approval.
+  </Accordion>
+  <Accordion title="Why are references missing on an older approved budget?">
+    Older locked budgets retain their original baseline without retroactive reference codes or approval-time matching keys. Use authorized manual allocations or prepare a new approved copy for future billing.
+  </Accordion>
+  <Accordion title="Can I approve a budget with more than 500 lines?">
+    No. Approval supports at most 500 budget lines. Reduce or divide the plan before trying to approve it.
+  </Accordion>
+  <Accordion title="What should I do if someone changed the budget while I was approving it?">
+    Reload the latest saved budget, review the changes and retry only after confirming the new baseline. Do not assume the earlier warning or a saved Draft proves approval completed.
+  </Accordion>
+  <Accordion title="Does archiving freeze the Actuals result forever?">
+    No. Archiving retains the locked planned baseline. Synchronized invoices and authorized reconciliation decisions can still change Actuals.
+  </Accordion>
+  <Accordion title="Does copying a budget reference send it to the PSA?">
+    No. Copying places the code on your clipboard. Add it through your approved PSA billing workflow and verify that the chosen field is synchronized before relying on automatic matching.
+  </Accordion>
+</AccordionGroup>
+
 ## Related Resources
 
 - [Budgets overview](/user-guides/budgets/index)
 - [Track budget actuals](/user-guides/budgets/tracking-budget-actuals)
 - [Resolve actuals exceptions](/user-guides/budgets/resolving-actuals-exceptions)
 - [Invoices](/user-guides/invoices/index)
+
+For the full copy and cleanup workflows, see [Duplicate a budget](/user-guides/budgets/duplicate-budget) and [Delete unwanted draft budgets](/user-guides/budgets/delete-budgets). Approved and Archived budgets cannot be deleted.

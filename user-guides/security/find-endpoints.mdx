@@ -1,0 +1,62 @@
+---
+title: "Find security endpoints"
+description: "Find Cork and Acronis endpoint records, inspect their source and status, and understand the limits of the combined list."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Security read access and an active Cork or Acronis integration. Your MSP manages provider connections, company mapping, and access.
+
+## Find a device
+
+1. Open **Security > Endpoints** and confirm the company selection.
+2. Use **Device Name** to narrow the list, then wait for loading to finish.
+3. Review **Company**, **OS**, and **Source** to identify the correct record. Cork sources can appear as **Cork -** followed by the source name; Acronis appears as **Acronis**.
+4. Browse the results. The table displays 20 rows per page from the records it has loaded.
+5. Select a row to [read its endpoint details](/user-guides/security/read-endpoint-details).
+
+The same device can have separate records from different sources. The list combines provider records; it does not guarantee one row per physical device. Security Endpoints is separate from the [Devices inventory](/user-guides/devices/find-devices).
+
+## Read status and dates
+
+**Status** shows Acronis Online or Offline when supplied. Cork records do not supply this Acronis value, so a blank Status is not evidence that a Cork device is offline. Online also does not mean Protected; protection information is separate in the Acronis detail panel.
+
+**Last Seen** needs special care: for an Acronis row, the current page uses its **registration date**. An old date or days-ago badge is not proof that an Acronis device recently stopped reporting. Read the source before interpreting the date.
+
+A Dashboard shortcut may arrive with Online or Offline already selected. Review the active filters and clear them when looking for a Cork endpoint.
+
+<img src="/images/product/security-endpoint-status-filter.png" alt="Endpoint Status filter options: All, Online, and Offline" width="318" height="204" />
+
+This image shows the generic filter in an MSP Demo session. Online status is supplied by Acronis; the menu alone does not prove a record has that data.
+
+## Filtering and coverage limits
+
+The combined view loads up to 1,000 Cork and 500 Acronis records for a request. Its displayed totals and pagination describe the loaded set, not necessarily the full provider inventory. Use the main company selector and a specific Device Name search to narrow a large environment.
+
+The current **Source** filter can incorrectly hide Cork records because displayed Cork source names differ from the source names used while loading. If Cork results disappear, use **Clear Filters** above the table, narrow the company/device instead, and inspect the Source column. The Source dropdown itself can disappear with the empty result. Last Seen and other local column filters can also narrow only the loaded records. An empty filtered result is not proof that a device is absent from the provider.
+
+Keep Company column choices aligned with the main company selector. If filtering behaves unexpectedly, clear column filters, select the company again, and wait for a successful load. A provider load failure can leave older results visible; check for an error before relying on the list.
+
+## Follow up
+
+Company users should start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket). Include the device name, company, source, and the status/date you are asking about, then review and confirm the request.
+
+Permitted users can select same-company **Cork** records for [Planner follow-up](/user-guides/security/add-to-planner) or a meeting agenda. Use the shortcuts only after checking the source and selected records. The current endpoint actions use Cork links even when the selected row comes from Acronis; do not rely on them for Acronis or mixed-provider selections. Ask your MSP to arrange follow-up through the main Planner or Calendar workflow instead.
+
+This table does not edit the endpoint, change protection, run a scan, start a backup, or provide a configured CSV export.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why is Status blank for a Cork endpoint?">
+    Status uses Acronis online information. A blank value is not an Offline result.
+  </Accordion>
+  <Accordion title="Does an old Acronis Last Seen date mean the agent is offline?">
+    No. This page currently uses registration date for that field. Check the separate status and provider information.
+  </Accordion>
+  <Accordion title="Does the last table page contain every endpoint in the provider?">
+    Not necessarily. The combined request is capped at 1,000 Cork and 500 Acronis records; narrow scope and search when needed.
+  </Accordion>
+  <Accordion title="Why did the Source filter hide my Cork devices?">
+    The current filter can mismatch the displayed Cork source prefix. Use Clear Filters above the table, then find the record by company and Device Name.
+  </Accordion>
+</AccordionGroup>

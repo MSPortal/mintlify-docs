@@ -1,0 +1,93 @@
+---
+title: 'Project Templates'
+description: 'Build a reusable delivery plan with phases, tickets, decisions, and action items'
+icon: 'layer-group'
+---
+
+Project templates define the starting plan for a project. Create a template once, then use it for a new **MSPortal only** project or a supported PSA project.
+
+## Before you start
+
+Open **Settings > Projects > Templates**. You need project-settings write or manage permission to maintain templates. Creating a project from a saved template requires project write permission and an active subscription.
+
+## Build your first template
+
+<Frame caption="A reusable delivery plan in the MSP staff template editor.">
+  <img src="/images/product/native-project-template-plan.png" alt="Client Workspace Launch template with discovery and handover phases and three reusable tickets." width="1264" height="1184" />
+</Frame>
+
+<Steps>
+  <Step title="Name the delivery plan">
+    Select **New template**. Enter a **Template name**, **Description**, and **Estimated duration (days)**. Add optional **Tags** to describe the work.
+
+    For example, a *Client Workspace Launch* template can cover discovery, configuration, launch, and handover over 14 days.
+  </Step>
+  <Step title="Add phases">
+    Select **Add phase**, enter its **Phase name** and optional **Estimated days**, and repeat for each stage. Drag the phase handle to change the order.
+
+    For the example, create **Discovery and preparation** and **Launch and handover**.
+  </Step>
+  <Step title="Add tickets to each phase">
+    Select **Add ticket** inside the phase. Select a ticket row to expand its editor, then complete the fields below. Drag ticket handles to change their order or move work between phases.
+  </Step>
+  <Step title="Add decisions and action items">
+    Use **Add decision** for approvals, questions, access requests, scheduling, or decisions. Use **Add action item** for follow-up tasks. Set the title, optional description, due offset, linked phase, and urgency as appropriate.
+
+    These become project collaboration items in **Decisions** and **Action Items**; they are separate from delivery tickets.
+  </Step>
+  <Step title="Save the template">
+    Select **Create template**. The saved template opens in its editor. Later edits show **Unsaved changes** and need the editor's save action. Adding or typing into a row changes the draft; it does not create a live project.
+  </Step>
+</Steps>
+
+## Ticket fields
+
+| Field | Use it for |
+| --- | --- |
+| **Title** and **Description** | Describe the work and its expected result. |
+| **Priority** | Set the starting ticket priority. |
+| **Estimated hours** and **Budget hours** | Record expected effort and the allocated hours. These are not currency amounts. |
+| **Start offset (days)** and **Due offset (days)** | Set relative dates that can be reused when a project starts on a different date. |
+| **Offset from** | Choose the reference point for the relative dates. |
+| **Default assignee** | Choose an available assignment default. Review the resulting owner on the created project. |
+| **Milestone** | Mark the ticket as a milestone in the template. Review the resulting project structure; the workspace's Timeline register is managed separately. |
+| **Billable** | Set the ticket's billing default. Review actual time-entry billing fields when logging work. |
+
+<Tip>
+Offsets make templates reusable. A ticket starting at day 0 and due at day 2 is scheduled relative to the chosen reference date. Check the generated dates before treating the plan as committed to the client.
+</Tip>
+
+## Design a template with AI
+
+Use **Open the AI template designer** in the builder to describe the delivery plan you need. Include scope, phases, expected outcomes, timing, and the decisions you need from the client.
+
+Review the proposed template changes before accepting them into the builder. Check names, date offsets, estimates, assignees, and the split between decisions and action items. Save the template after reviewing the resulting draft. Template design does not itself launch a project.
+
+## Import and maintain templates
+
+The Templates page also offers import from supported connected PSAs when available. Choose the provider and source template through the picker, then review the imported plan in MSPortal. Available sources depend on your integration and access.
+
+For a saved template, its row menu offers maintenance actions such as editing, duplicating, archiving, and deleting. An imported template can also offer an update from its source. Read the confirmation before updating from the source because it can replace local template content.
+
+Archive a template when it should no longer be offered for new projects. Template changes do not silently rewrite projects already created from it.
+
+## Add a template to an existing project
+
+Open the project and select **Apply template**. Choose the template and the items to add, review the selection, and apply it. The dialog distinguishes items and reports the result; read warnings or failures before retrying.
+
+A native project receives local MSPortal records. A supported PSA-backed project can create work in that PSA. Applying a template adds work to the selected project; it is a separate action from editing the reusable template.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| **No templates yet** in the project wizard | Save a template in **Settings > Projects > Templates**. Check whether existing templates are archived. |
+| **New template** is unavailable | Your project-settings permissions. Project write access and settings write access are different. |
+| Generated dates or assignments need changes | Review the template offsets and defaults, then edit the actual project records where needed. |
+| Imported template differs from the PSA | Provider support and the last import/update. Inspect local changes before updating from the source again. |
+| Applying a template reports failures | Read the item results and provider message. Confirm which work exists before retrying. |
+
+<CardGroup cols={2}>
+  <Card title="Native Projects" icon="folder-open" href="/user-guides/projects/native-projects">Create a project from your saved template and deliver it through completion.</Card>
+  <Card title="Project settings" icon="gear" href="/user-guides/settings/projects">Configure project access, views, and fields.</Card>
+</CardGroup>

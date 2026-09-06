@@ -1,0 +1,73 @@
+---
+title: 'Review and reopen Current Posture findings'
+description: 'Acknowledge a verified exception, explain the effect on Company visibility, and reopen it later.'
+icon: 'radar'
+---
+
+**Audience:** MSP staff with Microsoft 365 management permission. Company users cannot acknowledge or reopen findings, even if they can read Current Posture. Visibility of reviewed rows and provider details also depends on integration-settings read access.
+
+## Mark a finding as reviewed
+
+1. Open **Cloud > Posture > Current Posture** with one company selected.
+2. Find the record under **Items needing attention**, then open its row or detail arrow.
+3. Check its source context, timestamps and current configuration. Confirm that the exception is expected or has already been handled.
+4. In **Review**, optionally enter a note explaining the decision. Notes are limited to 500 characters.
+5. Select **Mark as reviewed**. This saves the review immediately; there is no second confirmation.
+6. Wait for **Finding marked as reviewed**. The panel closes and the findings and scorecards refresh.
+
+Reviewing is an MSPortal acknowledgment. It does not remediate Microsoft settings, close a provider incident or prove a risk has been eliminated. Company users with the normal reader permissions no longer see the reviewed item. The overview calculation excludes the matching resource, so counts or coverage can change without any provider-side improvement.
+
+Use a note that explains the reason for the exception and the decision needed later. This screen does not set an acknowledgment expiry or a future reminder.
+
+## Find and reopen a reviewed item
+
+1. Use an MSP account with Microsoft 365 management permission and integration-settings read access.
+2. Select the company and find the record. Reviewed rows remain muted with **Reviewed** in the table when your access includes them; there is no separate Reviewed tab.
+3. Open the row and read the saved note in **Review**.
+4. Select **Reopen finding**.
+5. Wait for **Finding reopened**, then verify the refreshed table and metrics.
+
+Reopening removes the acknowledgment. The underlying record still has to exist and meet the current finding criteria to appear in the normal Company view. This does not reopen a provider incident or restore a deleted provider record.
+
+If you can mark a finding reviewed but cannot find it afterward, check integration-settings read access with the MSP administrator. The current reader uses that separate permission to include reviewed rows. Source refreshes can also remove a finding that no longer qualifies.
+
+## Troubleshooting
+
+| Problem | Check |
+| --- | --- |
+| No review controls | Confirm an MSP staff account and Microsoft 365 management permission. Company users use the reader only. |
+| Save fails | Check the displayed error, company scope, feature availability and permissions. Do not assume the review was saved without success. |
+| Score improves after review | The acknowledged resource was excluded from calculation. Verify provider remediation separately. |
+| Reviewed item cannot be reopened here | Check integration-settings read access and whether the source record still qualifies for this table. |
+| Finding returns after a later sync | A changed provider identity can be a different finding. Recheck the evidence instead of assuming the earlier acknowledgment covered it. |
+
+For normal user support requests, direct Company users to [the Home AI Assistant](/user-guides/ticketing/open-a-ticket). Use [finding search and details](/user-guides/microsoft-365/find-posture-findings) to gather context.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can Company users mark a finding as reviewed?">
+    No. The action requires an MSP staff account and Microsoft 365 management permission.
+  </Accordion>
+  <Accordion title="Does Mark as reviewed fix the issue in Microsoft 365?">
+    No. It saves a portal acknowledgment and excludes the matching resource from the normal reader and overview calculation.
+  </Accordion>
+  <Accordion title="Is a note required and how long can it be?">
+    The note is optional and limited to 500 characters. Explain why the exception is expected or already handled.
+  </Accordion>
+  <Accordion title="Is there another confirmation after Mark as reviewed?">
+    No. Clicking it saves the acknowledgment. Wait for the success message and refreshed results.
+  </Accordion>
+  <Accordion title="Where is the Reviewed tab?">
+    There is no separate Reviewed tab. Eligible MSP readers see reviewed rows muted in the same findings table.
+  </Accordion>
+  <Accordion title="Why can I acknowledge a finding but not see it afterward?">
+    Including reviewed rows also requires integration-settings read access. Ask the MSP administrator to check that separate permission.
+  </Accordion>
+  <Accordion title="Will a review expire automatically?">
+    This screen has no review-expiry or reminder control. Reopen the finding when it needs attention again.
+  </Accordion>
+  <Accordion title="Does Reopen finding reopen an incident in Microsoft?">
+    No. It removes the portal acknowledgment. The provider record must still exist and qualify to return to the normal findings list.
+  </Accordion>
+</AccordionGroup>

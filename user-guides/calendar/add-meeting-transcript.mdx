@@ -1,0 +1,92 @@
+---
+title: 'Add and manage a meeting transcript'
+description: 'Save pasted text or a transcript file, understand replacement and removal, and prepare material for AI review.'
+icon: 'file-lines'
+---
+
+**Audience:** MSP staff with meeting write access. Transcript management is part of the internal post-meeting wrap-up.
+
+Open the meeting's **Wrap-Up** and choose **Transcript & AI**. You can reach it after submitting or skipping Survey, or by selecting the step directly.
+
+## Paste transcript text
+
+<Steps>
+  <Step title="Paste the conversation">
+    With no transcript saved, enter the text in **Or paste the transcript**. Typing alone does not save it.
+  </Step>
+  <Step title="Use pasted text">
+    Choose **Use pasted text**, which appears when there is text to save. Wait for **Transcript saved** and its character count.
+  </Step>
+  <Step title="Review the saved state">
+    The saved-transcript row replaces the paste field. This confirms storage of the transcript, not AI processing or a change to public meeting notes.
+  </Step>
+</Steps>
+
+## Upload a transcript file
+
+Use **Upload transcript file** or drag a file into that area. Supported formats are **.txt**, **.vtt**, **.srt**, and **.md**, with a maximum file size of **5 MB**. Choosing a file begins processing and saving; there is no later universal Save button for the upload.
+
+The saved conversation text is extracted from the file. VTT/SRT timestamp lines and caption markup can be removed, so the character count can differ from the original file. The stored text also has a limit of 500,000 characters; a file within the size limit can still contain too much text. Empty content cannot be saved.
+
+Keep the original file. This screen does not provide a transcript Download control or a full saved-text reader. A saved character count is not proof that an original-file archive is available for later download.
+
+## Leave and resume
+
+Once **Transcript saved** appears, the stored transcript remains when you leave and reopen wrap-up. **Save & exit** leaves the page; it does not submit text still sitting in the paste field.
+
+Choosing **Continue** or **Send Summary** can enter the summary step and request an initial AI draft when AI is available. Use Save & exit if you only intended to store the transcript for later work.
+
+<Note>
+If you saved a transcript but the blank paste form appears again, reload the page before pasting or uploading a replacement. A fresh page can show the stored transcript even when the earlier view did not update. If it is still missing, ask your MSP administrator to check the save result.
+</Note>
+
+## Replace or remove a transcript
+
+<Frame>
+  <img src="/images/product/meeting-transcript-replace-controls.png" alt="Replace transcript button and red trash control for a saved transcript" width="370" height="72" />
+</Frame>
+
+**Replace transcript** opens the file picker. Select a replacement file and wait for the saved state. To replace saved content with pasted text, use the trash control to remove the existing transcript, confirm removal, then paste and save the new text.
+
+<Warning>
+Replacement or removal clears the stored AI output generated from that transcript and its applied marker. It does not undo public notes or action items that were already added to the meeting. Keep any material you need before making the change.
+</Warning>
+
+Removing the transcript asks **Remove the transcript and any AI output generated from it?** Cancelling that confirmation keeps the saved content. The saved-transcript row does not offer an inline text edit; make corrections in your source text before replacing it.
+
+## Distinguish storage, generation and application
+
+| Action | What changes |
+| --- | --- |
+| **Use pasted text** or selecting an upload | Stores the transcript in wrap-up. |
+| **Generate notes & action items** | Requests AI output and stores that generated draft for review. |
+| **Add to meeting** | Applies the reviewed selection to public meeting notes and/or meeting action items. |
+| **Send Email** in the summary step | Sends the deliberately composed summary email. |
+
+AI availability and Calendar transcript-AI settings determine whether generation is offered. You can still store a transcript when AI is unavailable. Stored transcript text can feed the later summary draft independently of whether you generated or applied transcript notes.
+
+Review generated notes, action descriptions, owners, dates and priorities before applying them. **Add these notes to the meeting notes** controls whether notes are appended; selected actions are separate. Applying is a write, not a preview. Check the meeting after an error before retrying, because notes and action items can have separate outcomes.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where do I add a meeting transcript?">Open the meeting's Wrap-Up, choose Transcript & AI, then upload a supported file or use Or paste the transcript.</Accordion>
+  <Accordion title="Does pasting save the transcript?">Not by itself. Choose Use pasted text and wait for Transcript saved.</Accordion>
+  <Accordion title="Does selecting a file wait for a later Save?">No. Selecting or dropping the file starts processing and saving it.</Accordion>
+  <Accordion title="Which transcript files are supported?">TXT, VTT, SRT and Markdown files up to 5 MB. Stored extracted text is limited to 500,000 characters, and empty content cannot be saved.</Accordion>
+  <Accordion title="Why is the saved character count different from the file?">The app extracts conversation text and can remove VTT/SRT timing lines and caption markup. The stored count measures extracted text.</Accordion>
+  <Accordion title="Does Save & exit save text still in the paste field?">No. Choose Use pasted text first. Already-saved transcript text persists, but unsubmitted paste text does not.</Accordion>
+  <Accordion title="Why do I see an empty paste field after saving?">Reload the page before replacing anything. The stored transcript can be present even when the earlier view did not update. If the saved row remains missing, ask your MSP administrator to check the save result.</Accordion>
+  <Accordion title="Can I download the original transcript from this step?">There is no transcript Download control here. Keep your original file; the saved-text count is not proof of a retrievable original-file archive.</Accordion>
+  <Accordion title="How do I correct a saved transcript?">Replace transcript selects a replacement file. To use revised pasted text, remove the existing transcript, confirm, then paste and save the replacement.</Accordion>
+  <Accordion title="What happens to generated AI output when I replace the transcript?">Stored generated output and its applied marker are cleared. Notes and actions already applied to the meeting are not undone.</Accordion>
+  <Accordion title="Does saving a transcript create public meeting notes or action items?">No. Generate and review AI output, then use Add to meeting deliberately to apply the selected notes/actions.</Accordion>
+  <Accordion title="Can I save a transcript when AI is disabled?">Yes. Transcript storage is separate from AI generation. The saved text can still be available to the later summary workflow.</Accordion>
+  <Accordion title="Does Continue simply save and leave the transcript step?">It moves toward Send Summary, where an initial AI draft can be requested automatically. Use Save & exit if you only want to leave after storing the transcript.</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Complete the internal survey](/user-guides/calendar/complete-meeting-survey)
+- [Draft and send a summary](/user-guides/calendar/send-meeting-summary)
+- [Meeting summaries and wrap-up](/user-guides/calendar/meeting-summaries)

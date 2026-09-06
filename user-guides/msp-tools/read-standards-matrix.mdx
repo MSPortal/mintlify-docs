@@ -1,0 +1,147 @@
+---
+title: 'Read the Standards matrix'
+description: 'Find a company, interpret deployment statuses and required checks, and open the related Planner work.'
+icon: 'table-cells'
+---
+
+**Audience:** MSP staff with Standards read access and the MSP Tools feature available. Company users should start with [Standards work shared in Planner](/user-guides/planner/understand-standards-items). Reading the matrix does not grant permission to change statuses or configure the catalog.
+
+Standards records which tools or practices your MSP tracks for each company. Its deployment labels reflect the recorded status; they are not a live device scan, proof of subscription ownership or confirmation that every endpoint is protected.
+
+## Find the company and standard
+
+1. Open **MSP Tools > Standards**. If the entry is missing, ask your MSP administrator to check feature availability and Standards read access.
+2. Check the company selector at the top of the app. It limits the loaded company scope.
+3. Enter a company name in **Search companies...** inside the matrix.
+4. Read across the company's row to the standard you need. Categories group the columns; scroll horizontally for more standards.
+5. Clear the search to return to the other loaded companies.
+
+Company rows can include indented child companies. Each row has its own recorded statuses; a parent's result does not automatically describe its child companies.
+
+## Read the status symbols
+
+| Display | Meaning |
+| --- | --- |
+| Green check: **Deployed, not classified** | Recorded as deployed, without a selected deployment tier. |
+| Colored tier dot, when configured | Recorded as deployed using an option assigned to that tier. |
+| Amber circle: **In Progress** | Deployment work is underway. |
+| Gray X: **Not Started** | Deployment has not been marked as started. A missing tracking entry also appears this way. |
+| Dash: **N/A** | The standard is not applicable to this company. |
+| Red circled X: **Declined** | The standard was offered but declined. It is not a deployed result. |
+| Italic column name with **\*** | Optional standard outside a one-of group. |
+
+A green check without a tier is not the same as meeting a company's target tier. If tiers are configured, hover a colored status dot to read its selected option and tier. A red outline/warning indicates a deployed option below the company target; it remains deployed but needs a separate alignment review.
+
+The tier badge next to a company name, when present, is its target. The MSP configures targets and deployment options in Standards settings. An absent badge does not prove that the company meets a target.
+
+## Understand required checks and the percentage
+
+The summary follows the **company search and current scope**. It is not necessarily the MSP's entire portfolio. Excluded companies do not contribute even when shown.
+
+- In a normal category, each **Required** standard counts as one check unless it is **N/A** or **Declined**.
+- A category marked **1 of N** contributes one check for the company. Any deployed member satisfies it; several deployed alternatives do not earn several required checks.
+- If every member of a one-of group is N/A or Declined, that group has no applicable check for the company.
+- Optional deployment counts are shown separately. They do not increase the required deployment percentage.
+
+For example, three deployed checks, one In Progress check and one N/A check produce **3/4 required**, or **75% deployed**. The N/A check is outside the denominator.
+
+<Note>
+A higher percentage can result from marking work N/A, recording a decline or excluding a company, without deploying another tool. Read the status and exception counts alongside the percentage. **0/0 required** means there are no applicable required checks in that result; do not interpret its displayed percentage as a deployment failure rate.
+</Note>
+
+When tiers are configured, tier counts, **unclassified** and **below target** add detail to the deployed results. They answer a different question from “is it deployed?” A **1 of N** group still counts once, using its strongest deployed tier for the group's alignment.
+
+Standards also contributes to Client Health. Compare scope, exclusions and refresh time before expecting a Client Health score to equal this matrix's current filtered percentage.
+
+## Open the supporting Planner work
+
+Click a status cell that has a linked Planner item to open that item. If the cell has no link, clicking does not create one. The MSP may need to review Standards synchronization.
+
+Click the company name to open Planner List View for that company's **Standards** source items. Older links may use the former name **Tool Stack**. Access and client visibility still apply to the destination items.
+
+Use [Read a Planner item](/user-guides/planner/read-item-details) to review its dates, status, notes and estimates. A Standards deployment record and its Planner task use different status labels; [Standards work in Planner](/user-guides/planner/understand-standards-items) explains the mapping.
+
+## Inspect menus without changing data
+
+The question-mark button beside the legend opens **Right-click actions**, which explains the menu scopes. Escape closes this help.
+
+<Frame caption="The built-in help explains the three menu scopes. Selecting a status inside an action menu saves a change.">
+  <img src="/images/product/standards-context-help.png" alt="Standards help explaining status-cell, company-row and standard-column actions." width="640" height="516" />
+</Frame>
+
+Right-clicking a status cell opens actions for one standard at one company. Right-clicking a company name opens actions for all its standards and company exclusion. Right-clicking a standard's column header opens actions for that standard across companies. Opening the menu does not save; choosing a status or exclusion action does.
+
+<Warning>
+**The company search does not limit a column's “Mark all companies” action.** That action covers every non-excluded company in the loaded company scope, including rows hidden by the search. Do not use a bulk menu as a way to inspect or filter statuses.
+</Warning>
+
+To review exclusions, use **Show N excluded** when it is available. Excluded rows appear faded with an **Excluded** badge. **Hide N excluded** hides them again. This display toggle does not re-include a company or change its records.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| The company is missing | Top-bar company scope, matrix search, active-company status and exclusions. |
+| The standard is missing | Horizontal scrolling and whether the MSP has added it to a category. |
+| A cell does not open Planner | It may not have a linked item, or you may lack access to that item. |
+| A green status does not show a tier | It is deployed but unclassified; ask the MSP to review the selected deployment option. |
+| The summary changed after searching | The summary is recalculated for the matching company rows. |
+| The page says No standards configured unexpectedly | Confirm access and loading with the MSP; an unsuccessful read can also show this empty state. |
+| A status disagrees with Planner | Reopen both records and ask the MSP to review synchronization; do not infer that one screenshot proves both are current. |
+
+## Make changes
+
+Follow [Update a company’s deployments](/user-guides/msp-tools/update-standard-deployments), [Update Standards in bulk](/user-guides/msp-tools/bulk-update-standards), or [Exclude or include companies](/user-guides/msp-tools/manage-standards-exclusions) for the saving boundaries and scope of each action.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where is the Standards deployment matrix?">
+    MSP staff open MSP Tools > Standards with the feature and Standards read access. Company users normally review the work shared in Planner instead.
+  </Accordion>
+  <Accordion title="Does Deployed prove the product is healthy on every device?">
+    No. It is a recorded deployment status. Verify device health and protection in the relevant inventory or security workflow.
+  </Accordion>
+  <Accordion title="What does Deployed, not classified mean?">
+    The standard is recorded as deployed without a selected deployment tier. It does not by itself prove that the company's target tier is met.
+  </Accordion>
+  <Accordion title="Can a deployed standard still be below target?">
+    Yes. A deployed option can be below the company's target tier. Deployment progress and alignment are separate measurements.
+  </Accordion>
+  <Accordion title="Is Declined the same as N/A?">
+    No. Declined records an offered standard that was turned down; N/A means it does not apply. Neither is a deployed result, and both are excluded from applicable required checks.
+  </Accordion>
+  <Accordion title="What does the 1 of N category badge mean?">
+    Any one deployed member satisfies one required check for that company. Deploying several alternatives does not multiply the required-check credit.
+  </Accordion>
+  <Accordion title="Do optional standards increase the required deployment percentage?">
+    No. Optional deployment counts are informational and shown separately from required checks.
+  </Accordion>
+  <Accordion title="Why did the overall percentage change after a company search?">
+    The matrix summary follows the currently matching company rows and excludes companies marked excluded. Clear the search to review the wider loaded scope.
+  </Accordion>
+  <Accordion title="Does a higher percentage always mean more tools were deployed?">
+    No. Changes to N/A, Declined, exclusions or scope can change the denominator. Read exception counts and the deployed/required fraction too.
+  </Accordion>
+  <Accordion title="What does 0/0 required mean?">
+    No applicable required checks are present in that result. Its displayed percentage is not evidence that a set of required deployments failed.
+  </Accordion>
+  <Accordion title="Do child companies inherit their parent's displayed status?">
+    No. Parent and child rows show their own recorded statuses. Indentation organizes the rows.
+  </Accordion>
+  <Accordion title="Does searching for one company limit a column bulk update to that company?">
+    No. Mark all companies applies across all non-excluded companies in the loaded company scope, including rows hidden by the matrix search.
+  </Accordion>
+  <Accordion title="Does Show excluded put companies back into scoring?">
+    No. It only displays excluded rows. Re-including a company is a separate saved action.
+  </Accordion>
+  <Accordion title="Why does clicking a status cell do nothing?">
+    A cell without a linked Planner item has no item to open. It does not create a task on click. Ask the MSP to review synchronization if one is expected.
+  </Accordion>
+  <Accordion title="Why can an older Standards link contain Tool Stack?">
+    Tool Stack is the former name. Current Planner badges and source labels show Standards. An older link does not mean there is another catalog to configure.
+  </Accordion>
+  <Accordion title="Does No standards configured always mean the catalog is empty?">
+    No. An unsuccessful read can also lead to that display. Check access and loading before creating duplicate configuration.
+  </Accordion>
+</AccordionGroup>

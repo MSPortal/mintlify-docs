@@ -1,0 +1,114 @@
+---
+title: 'Read and filter project ticket Kanban'
+description: 'Find project tickets, switch grouping and card density, and understand column totals'
+icon: 'table-columns'
+---
+
+Open a project and select **Kanban** to read its tickets as cards. This is the ticket board inside one project; the **Projects > Kanban** portfolio view contains whole projects.
+
+**Audience:** Company users with access to the shared project and its Kanban view, and MSP staff.
+
+## Before you start
+
+Your role needs the project Kanban view permission, and the MSP must enable the board in project settings. Projects with no phases and at most one ticket use the simpler Overview instead. Company users should ask their MSP about missing access or shared data; the MSP manages user permissions.
+
+## Find a ticket
+
+<Steps>
+  <Step title="Open the project's board">
+    Select the project from **Projects**, then choose **Kanban**. Read the column headings before interpreting where a card sits.
+  </Step>
+  <Step title="Search the cards">
+    Enter a ticket title, ticket number, or owner's name in **Search tickets...**. For a displayed number such as **#633**, search **633** without the hash. Search is case-insensitive and applies only to the tickets supplied to this board; it does not search descriptions or all support tickets.
+  </Step>
+  <Step title="Check closed-ticket visibility">
+    The eye control initially shows **Show All**. Select it to switch to **Hidden**, which hides tickets marked closed. Select it again to show them. This control does not hide completed projects or change a ticket's status.
+  </Step>
+  <Step title="Read the matching cards">
+    Review the ticket number, summary, available owner, and hours. In Comfortable or Compact density, cards also show available status and priority badges. Clear the search and return to Show All if a ticket seems missing.
+  </Step>
+</Steps>
+
+Select a card's main content to open its project-ticket details. The displayed details and available actions depend on your permissions and provider. Opening a card does not submit a new support request. To report a new issue, start with the [Home AI Assistant ticket guide](/user-guides/ticketing/open-a-ticket).
+
+## Group the same tickets differently
+
+Use **Group by** to change the board layout:
+
+| Group | What the columns represent |
+| --- | --- |
+| **Status** | The MSP's configured status groups, using mappings from individual ticket statuses. A column heading can differ from the card's status badge. |
+| **Member**, **Resource**, **Agent**, or **Technician** | The ticket owner. The label follows the portal's PSA terminology. Unassigned tickets appear separately. The MSP's roster configuration can affect the available columns. |
+| **Priority** | Available priority values and the values on the project's tickets. Missing priority can appear as Unassigned. |
+
+<img src="/images/product/project-ticket-group-options.png" alt="Project ticket Group by menu with Status, Resource, and Priority" width="260" height="204" />
+
+This MSP control capture uses the label **Resource**. Your portal may use another owner label. Changing Group by changes your view; it does not reassign tickets or change their status or priority.
+
+**Other** in Status view contains tickets that do not fit an available configured group. It is not a failure status. Ask the MSP to check status mappings if a ticket is unexpectedly there.
+
+Search and closed-ticket filtering change the cards. Configured empty columns can remain available, so an empty column does not mean the whole project has no tickets.
+
+## Choose card density and scroll
+
+Choose **Comfortable**, **Compact**, or **Dense** from **Density**. Dense uses smaller cards and hides the status and priority badges; it does not remove those values from the ticket. Use Comfortable or Compact when you need those badges.
+
+<img src="/images/product/project-ticket-density-options.png" alt="Project ticket Density menu with Comfortable, Compact, and Dense" width="294" height="204" />
+
+This capture shows the MSP view of the density control. It changes presentation only. Your search, grouping, density, and closed-ticket toggle apply to the current board view; do not rely on them remaining after leaving and reopening it.
+
+Scroll horizontally to see more columns. **Next** and **Previous** arrow controls appear at the side when more columns are available in that direction. Long columns also scroll vertically; the first visible cards are not the whole column.
+
+## Understand counts and hours
+
+Each column header shows the number of matching cards and their total actual hours. When a positive budget total is available, hours display as **actual/budget h**. These totals follow the current search and closed-ticket filter.
+
+Hours are not a percentage complete, remaining time, or proof of an approved invoice. Missing hours contribute zero to the displayed total. Company visibility and source data can limit the available values; a zero total does not prove nobody has worked on the project. A card can omit its hours row when actual hours are unavailable, and zero budget is not displayed as a separate budget value.
+
+## MSP editing boundaries
+
+Company readers use this board to inspect shared work. MSP staff with suitable permissions can receive drag controls for supported ConnectWise and Autotask project tickets. Status changes require status-edit access; owner and priority changes require broader project write access and loaded assignment options. A move can write back to the PSA, so changing the layout and dragging a card are different operations.
+
+For native MSPortal projects, use **Phases > Edit ticket** to change status, priority, or assignment. The current ticket Kanban does not expose native drag controls. For Halo or Syncro boards without those controls, maintain the source work through the supported provider workflow.
+
+The **Log time** icon, when visible on a card, opens its details; merely selecting it does not record time. Follow the available time-entry form and check the saved result. A visible icon alone does not grant permission to log time.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why is Kanban missing from my project?">
+    Check project access, the Kanban view permission, and whether the MSP enabled the board. Projects with no phases and at most one ticket use Overview. Company users need the MSP to manage their permissions.
+  </Accordion>
+  <Accordion title="How do I find a completed ticket?">
+    Return the eye control to Show All and clear or adjust Search tickets. Hidden excludes closed tickets even when a search would otherwise match them.
+  </Accordion>
+  <Accordion title="Why is an Open ticket under Not Started?">
+    Status columns are configured groups. Several provider statuses can map to one group; read the individual badge for the ticket's supplied status.
+  </Accordion>
+  <Accordion title="Why does the board say Other?">
+    The ticket's status does not fit an available group or mapping. Other is a grouping fallback, not a new PSA status or proof of a failed ticket.
+  </Accordion>
+  <Accordion title="Does switching Resource or Priority change any tickets?">
+    No. Group by changes the layout. An authorized MSP drag operation can change the underlying assignment or priority; switching the selector does not.
+  </Accordion>
+  <Accordion title="Why did the ticket counts and hours decrease?">
+    Column totals sum the cards matching the current search and closed-ticket filter. Clear the search and return to Show All before comparing the whole board.
+  </Accordion>
+  <Accordion title="Why did the status and priority badges disappear?">
+    Dense hides those badges. Choose Comfortable or Compact to show available badges again. Missing source values can also leave a badge absent.
+  </Accordion>
+  <Accordion title="Can I move native project tickets on this board?">
+    The current board does not enable native drag controls. MSP editors should use Phases and Edit ticket. Native work remains in MSPortal.
+  </Accordion>
+  <Accordion title="Why can I read cards but not drag them?">
+    Reading and editing have separate permissions. Company readers cannot manage project work. MSP drag controls also depend on the provider, the selected grouping, loaded assignment options, and whether another operation is running.
+  </Accordion>
+  <Accordion title="Does 0.0h mean no work has happened?">
+    No. Zero can reflect missing or restricted hours, the current filters, or genuinely zero supplied hours. Ask the MSP for an appropriate progress summary rather than treating it as evidence of inactivity.
+  </Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+  <Card title="Read phases and tickets" icon="list-check" href="/user-guides/projects/read-project-phases">Use the hierarchical phase view and its task filters.</Card>
+  <Card title="Project workspace" icon="folder-open" href="/user-guides/projects/workspace">Find the other project tabs and collaboration guides.</Card>
+</CardGroup>

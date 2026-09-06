@@ -1,0 +1,61 @@
+---
+title: "Find and read Cork vulnerabilities"
+description: "Use CVE, software, priority, and exploitation filters to review imported software findings."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Security read access and an active, mapped Cork integration.
+
+## Find a vulnerability
+
+1. Open **Security > Vulnerabilities**.
+2. Confirm the company selection.
+3. Filter using **CVE** or **Software**. Use one text filter at a time: when both are filled, CVE takes precedence.
+4. Narrow by **Company**, **Priority**, **Known Exploited**, or a **CVSS** range.
+5. Review further pages as needed. The table loads 20 findings per server page.
+
+Dashboard shortcuts can arrive with Critical or Known Exploited already selected. Check active filters before interpreting an empty result.
+
+## Read the columns
+
+| Column | What to review |
+| --- | --- |
+| **CVE** | The reported vulnerability identifier. Selecting it opens its National Vulnerability Database detail page in a new tab. |
+| **Software** | The reported product and vendor. |
+| **Company** | The mapped portal company. |
+| **CVSS** | The supplied severity score, shown to one decimal place. A dash means no score is supplied. |
+| **Priority** | The imported Cork priority, such as Critical, Accelerated, or Routine. Available filter choices come from the data. |
+| **Known Exploited** | The provider's Yes/No flag for known exploitation. |
+
+A Known Exploited flag identifies a property of the vulnerability; it is not proof that your company was attacked. A missing score or a No flag is not a guarantee that software is safe. Ask your MSP to assess the finding in context.
+
+The CVE link opens reference information outside MSPortal. This table does not open a local vulnerability editor, install a patch, or mark the finding remediated.
+
+## Plan follow-up
+
+Company users can start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket), including the CVE, company, software, and provider result. Review and confirm the support request when prompted.
+
+Permitted staff can select same-company findings and [create one linked Planner item](/user-guides/security/add-to-planner), or [add separate meeting agenda items](/user-guides/security/add-to-meeting). Completing the follow-up item does not itself update or rescan Cork.
+
+## If the result looks wrong
+
+Check company scope and active filters. Keep the main company selector and Company column filter aligned. Use either CVE or Software text filtering at a time. If a load-error notification appears, retry or reload before trusting remaining rows; earlier results may still be visible.
+
+Ask the MSP to compare the imported result with the provider and check synchronization. This table does not display a per-row sync timestamp or provide a CSV export action.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why is my Software filter ignored when I enter a CVE?">
+    The page uses one text-search value. A populated CVE filter takes precedence over Software.
+  </Accordion>
+  <Accordion title="Does Known Exploited prove our company was compromised?">
+    No. It is an imported flag about the vulnerability. Your MSP must assess the affected environment and any separate incident evidence.
+  </Accordion>
+  <Accordion title="Where does the CVE link go?">
+    It opens the corresponding National Vulnerability Database reference in a new tab. It does not change the finding.
+  </Accordion>
+  <Accordion title="Does adding a vulnerability to Planner patch it?">
+    No. It creates follow-up work. Patching, verification, and provider rescanning are separate tasks.
+  </Accordion>
+</AccordionGroup>

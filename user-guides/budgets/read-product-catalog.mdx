@@ -1,0 +1,74 @@
+---
+title: "Find and understand budget products"
+description: "Open the budgeting catalog, understand company scope, prices and recurrence, and choose the right next action."
+icon: box
+---
+
+**Audience:** Company users with budget access and MSP staff. Your MSP manages your permissions. The Budgets Menu appears with budget editing access; a visible action does not by itself grant permission to save changes.
+
+Budget products are reusable starting values for budget line items. Opening this catalog does not order products, change subscriptions or add costs to a budget.
+
+## Open the catalog
+
+1. Open **Budgets** from the sidebar.
+2. If available, choose **Budgets Menu > Products**. The direct page is `/budgets/products`; access still depends on your role.
+3. Check the company selector at the top. A company view includes that company's products and shared products. MSP Global View can include products from several companies.
+4. Read the table and use its page controls to browse further. The catalog loads twenty products per page, with recently updated products first.
+
+There is no Company column or separate shared-only/company-only toggle in this table. If the intended scope is unclear, ask your MSP before changing a product. A shared product can be used by multiple company budgets.
+
+## Read the fields
+
+| Field | Meaning |
+| --- | --- |
+| **Name / SKU** | Product label and optional stock identifier. Similar names can be separate products. |
+| **Category** | Classification used when adding budget costs. An uncategorized product may need a category before forecasting. |
+| **Unit Price** | Stored price for one unit and one billing occurrence; review it before use. |
+| **Recurrence** | One-time, Monthly, Quarterly, Annual, or Every N months for Custom billing. |
+| **Vendor / Product Group** | Supplier and optional grouping. These can be blank. |
+| **Created By** | User, integration import or System, where that column is visible. It does not certify current pricing. |
+
+The table displays a dollar symbol but no per-row currency code. It does not convert prices between currencies. Confirm the intended currency when adding a product to a company budget.
+
+## Choose the next action
+
+- [Create or edit a product](/user-guides/budgets/manage-products): maintain names, prices, categories and billing recurrence.
+- [Bulk edit or delete products](/user-guides/budgets/bulk-edit-products): update selected fields or remove catalog entries.
+- [Import from Planner](/user-guides/budgets/import-products-from-planner): create reusable products from eligible planning estimates.
+- [Import from Integrations](/user-guides/budgets/import-products-from-integrations): MSP staff can create or link catalog products from synchronized provider records.
+- [Add catalog products to a budget](/user-guides/budgets/import-planning-and-products): open a budget editor, select products, review the proposed lines and Save.
+
+## Finding a missing product
+
+The current catalog table has no working search, column filters, column sorting or CSV export control. Use the company selector and pagination. Search is available inside the separate import dialogs and the budget editor's product picker.
+
+Check the company, remaining pages and whether the item was actually imported into the catalog. A product visible in an integration import dialog is not automatically a saved budget product. After a failed load, an empty list does not prove the company has no products; refresh and ask your MSP to check access if it persists.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where is the budget product catalog?">
+    Open Budgets, then Budgets Menu > Products when your role shows that menu. The direct route is /budgets/products; your MSP controls access.
+  </Accordion>
+  <Accordion title="Can a Company user maintain catalog products?">
+    Only with the budget permissions and company scope assigned by the MSP. Ordinary budget access is not permission to save catalog changes. Integration product browsing is restricted to MSP users.
+  </Accordion>
+  <Accordion title="Why do I see shared products in a company view?">
+    The catalog includes shared products as well as products assigned to the selected company. There is no separate shared-only toggle in this table.
+  </Accordion>
+  <Accordion title="Can I search, sort or export the main product table?">
+    The current table does not provide working search, column filters, sorting or CSV export. Browse the pages; use the search in an import dialog or the budget editor product picker for those separate tasks.
+  </Accordion>
+  <Accordion title="Does the dollar symbol tell me which currency a product uses?">
+    No. The table does not show a per-row currency code or convert prices. Check the intended currency against the budget before adding costs.
+  </Accordion>
+  <Accordion title="Does a catalog product automatically appear in a budget?">
+    No. Add it through the budget editor product picker, review the proposed line and Save the budget.
+  </Accordion>
+  <Accordion title="Does editing a catalog price update existing budget totals?">
+    Existing budget lines keep their copied numbers. Review and edit an unlocked budget separately if its costs need to change.
+  </Accordion>
+  <Accordion title="Why can I see a provider product in Import from Integrations but not in Products?">
+    The import dialog lists synchronized source records. An MSP user must create a catalog product from the source or link it to an existing one.
+  </Accordion>
+</AccordionGroup>

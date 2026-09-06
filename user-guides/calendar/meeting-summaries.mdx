@@ -1,167 +1,57 @@
 ---
-title: Meeting Summaries
-description: Wrap up a meeting with an internal survey, transcript notes, and an AI-drafted client summary
+title: 'Meeting summaries and wrap-up'
+description: 'Choose between a standalone summary email and the MSP post-meeting survey, transcript and summary workflow.'
+icon: 'envelope'
 ---
 
-After a meeting, the post-meeting wrap-up walks your team through three steps: an internal survey, the transcript and the AI notes drawn from it, and the client summary email. You can stop at any point and pick the wrap-up back up later.
+**Audience:** MSP staff. Company recipients can [understand a meeting summary](/user-guides/calendar/understand-meeting-summary).
 
-You can also open **Send Summary** on its own if all you need is the email.
-
-## Starting the wrap-up
-
-When a meeting is marked **Completed**, MSPortal offers to start the wrap-up.
-
-<Steps>
-  <Step title="Answer the prompt">
-    **Wrap up this meeting?** appears with **Start wrap-up**, **Not now**, and **Don't ask for this meeting**. Choosing **Not now** leaves the wrap-up available from the meeting page.
-  </Step>
-  <Step title="Continue later at any time">
-    A meeting with a wrap-up in progress shows a **Post-meeting wrap-up in progress** banner with a **Continue wrap-up** link. **Save & exit** stores your progress on every step.
-  </Step>
-</Steps>
-
-<Note>
-Whether staff are prompted when a meeting is completed, and whether AI transcript processing is available, are controlled in **Settings > Operations > Calendar > Post-Meeting**.
-</Note>
-
-## Step 1: Survey
-
-An internal rating of how the meeting went. Answers are visible only to your team, never to the client.
-
-Question types include a 1-5 rating, a 1-10 scale, Yes / No, a choice list, and free text. Questions marked **Required** must be answered before you continue. If no questions are configured, the step tells you so and you can skip it.
-
-<Tip>
-Build the question set in **Settings > Operations > Calendar > Post-Meeting**. **Add default questions** starts you off with client engagement, meeting value, client sentiment, follow-up needed, and additional comments.
-</Tip>
-
-## Step 2: Transcript & AI
-
-Add the meeting transcript and let AI draft notes and action items from it.
-
-<Steps>
-  <Step title="Add the transcript">
-    Upload a `.txt`, `.vtt`, `.srt`, or `.md` file up to 5 MB, or paste the text and click **Use pasted text**. You can **Replace transcript** or **Remove** it later; removing it also clears the AI output generated from it.
-  </Step>
-  <Step title="Generate notes and action items">
-    Click **Generate notes & action items**. AI reads the transcript and drafts meeting notes plus a list of action items.
-  </Step>
-  <Step title="Review before anything is saved">
-    Nothing reaches the meeting until you apply it. Edit the drafted notes, remove action items you do not want, and set an **Assignee**, **Due date**, and priority on the ones you keep.
-  </Step>
-  <Step title="Add to meeting">
-    Clear **Add these notes to the meeting notes** if you only want the action items. Click **Add to meeting** to write your selection to the meeting record.
-  </Step>
-</Steps>
-
-<Note>
-If AI is not available for your account, the transcript is still saved with the meeting. It continues to feed the summary draft in step 3.
-</Note>
-
-## Step 3: Send Summary
-
-The summary step drafts the client email from everything the meeting now holds.
-
-### The AI draft
-
-The draft starts automatically when you reach this step in the wrap-up. On the standalone Send Summary page, click **Generate with AI** instead.
-
-The **AI draft** panel shows what the draft was built from under **Based on**: **Meeting notes**, **Agenda** with an item count, **Action items** with a count, and **Transcript**. When the meeting has none of these, the panel says so up front rather than leaving you to guess why the draft is thin.
-
-Two controls shape the output:
-
-| Control | Options |
-|---------|---------|
-| **Length** | Brief, Standard, Detailed |
-| **Tone** | Friendly, Neutral, Executive |
-
-Change either one and click **Regenerate** to redraft.
-
-<Tip>
-The greeting is taken from your **To** list and the sign-off from your own profile, so neither is asked for. Review the draft before sending: AI writes from the meeting record, and anything the record does not contain will not be in the email.
-</Tip>
-
-### Recipients and subject
-
-The compose header holds **To**, **CC**, and **Subject** on one line each. CC stays hidden until you use it.
-
-Start typing in **To** or **CC** to search people. The list merges meeting participants, assigned staff, and the company's contacts. Use the arrow keys and press Enter or Tab to add someone, Backspace to remove the last one. Anyone outside the list can be added by typing their full email address.
-
-The subject defaults to **Meeting Summary: [meeting title]** and is editable.
-
-### Editing the content
-
-The draft opens in a rich text editor. Edit any part of it, add or remove sections, format with bold, italic, and lists, and insert links.
-
-### Linking to a PSA ticket
-
-With a PSA integration connected (ConnectWise, Autotask, or Halo PSA), you can file the summary on a ticket at the same time:
-
-1. Turn on **Add as note to [PSA] ticket**
-2. Search by ticket number or summary and select the ticket
-3. Sending the summary adds it to that ticket as a note
-
-Tickets are scoped to the meeting's company, so if nothing is found, check that the company's tickets are synced from your default PSA.
-
-### Sending
-
-Review the recipients, subject, and content, then click **Send Email**. The footer shows the recipient count and the account the email is sent from.
-
-If you do not need to send anything, **Finish without sending** completes the wrap-up.
-
-## What happens after you send
-
-- The wrap-up is marked complete. You can still reopen any step to review or update it.
-- If **Update the QBR log automatically** is on, MSPortal writes a QBR log entry for the company and opens the meeting's **QBR Log** tab. The entry takes a few seconds to appear, and the tab shows that it is being written. See [Account Notes and QBR Log](/user-guides/calendar/account-notes).
-- Commitments captured in that entry are added to the meeting's action items, so follow-ups are chased where your team already works.
-
-## Best Practices
-
-<AccordionGroup>
-  <Accordion title="Capture notes during the meeting">
-    The draft is built from what the meeting record holds. Notes taken during the meeting produce a noticeably better summary than a transcript alone.
-  </Accordion>
-
-  <Accordion title="Build comprehensive agendas">
-    The more agenda items you include, the more context there is to work with. Planner items, budgets, and compliance checks all contribute to richer summaries.
-  </Accordion>
-
-  <Accordion title="Review before sending">
-    Always read through the draft. Check figures, names, and commitments against what was actually agreed.
-  </Accordion>
-
-  <Accordion title="Use PSA integration">
-    Link summaries to PSA tickets to keep a complete record of client communications. This helps with continuity when team members change or when reviewing account history.
-  </Accordion>
-
-  <Accordion title="Send promptly">
-    Send summaries within 24 hours of the meeting while the discussion is still fresh. Prompt follow-up demonstrates professionalism and attention to detail.
-  </Accordion>
-</AccordionGroup>
-
-## Summary Templates
-
-The draft adapts to the meeting type:
-
-| Meeting Type | Summary Focus |
-|--------------|---------------|
-| **QBR** | Comprehensive review of the quarter, metrics, achievements, and upcoming initiatives |
-| **Strategy** | Key decisions, roadmap items, and strategic priorities |
-| **Check-in** | Status updates, quick wins, and immediate action items |
-| **Onboarding** | Setup progress, training completed, and next steps |
-
-## Related Features
+Use **Send Summary** on a company-linked meeting page when you only need to compose the email. Use **Wrap-Up** for the internal survey, transcript and summary sequence when enabled for the meeting type.
 
 <CardGroup cols={2}>
-  <Card title="Meeting Pages" icon="file-lines" href="/user-guides/calendar/meetings">
-    Learn how to capture meeting notes and build agendas
-  </Card>
-  <Card title="Account Notes and QBR Log" icon="clipboard-list" href="/user-guides/calendar/account-notes">
-    Keep a running record of what was discussed, agreed, and actioned
-  </Card>
-  <Card title="Calendar Settings" icon="gear" href="/user-guides/calendar/index">
-    Configure the post-meeting flow and survey questions
-  </Card>
-  <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">
-    Configure PSA integrations for seamless workflows
-  </Card>
+  <Card title="Draft and send a summary" icon="envelope" href="/user-guides/calendar/send-meeting-summary">Set recipients, review AI or manual content, and check email, ticket-note and QBR outcomes separately.</Card>
+  <Card title="Understand a summary" icon="envelope-open-text" href="/user-guides/calendar/understand-meeting-summary">Company guidance for reading a recap and following up on commitments.</Card>
+  <Card title="Complete the internal survey" icon="clipboard-question" href="/user-guides/calendar/complete-meeting-survey">Save or revise answers, resume progress, and understand what skipping clears.</Card>
+  <Card title="Add a meeting transcript" icon="file-lines" href="/user-guides/calendar/add-meeting-transcript">Save text or a file and distinguish storage, AI generation and applying notes.</Card>
+  <Card title="Configure wrap-up" icon="sliders" href="/user-guides/calendar/configure-post-meeting">Choose event types, completion prompts, transcript AI and automatic QBR logging.</Card>
+  <Card title="Manage survey questions" icon="clipboard-question" href="/user-guides/calendar/manage-meeting-survey-questions">Create, edit, activate, reorder and delete internal staff questions.</Card>
 </CardGroup>
+
+## Choose a starting point
+
+| Entry | What happens |
+| --- | --- |
+| **Send Summary** | Opens the standalone composer. It does not automatically generate or send an email. |
+| **Wrap-Up** / **Start wrap-up** / **Continue wrap-up** | Opens the internal post-meeting flow. The first visit can create its progress record. |
+| Wrap-up **Summary** step | Can automatically request an initial AI draft when AI is available. Review before sending. |
+
+Wrap-up availability and the completion prompt depend on **Settings > Operations > Calendar > Post-Meeting** and the meeting type. **Not now** defers the prompt. **Don't ask for this meeting** is a separate dismissal choice.
+
+## Know what is saved
+
+The wrap-up contains **Survey**, **Transcript & AI**, and **Send Summary** steps. Each has its own save behavior; changing steps is not a universal save.
+
+- Submit survey answers with **Continue**. Unsaved answer changes are not preserved just by leaving the step. If no questions have ever been configured, built-in defaults can appear; disabling every configured question leaves no active questions.
+- Selecting a transcript file uploads/saves it; pasted text needs **Use pasted text**. Generating AI notes saves generated output in the wrap-up; **Add to meeting** separately applies reviewed notes/actions to the meeting.
+- The unsent email's body, recipients and subject remain in the open page only. **Save & exit** does not persist them. Keep a separate copy before leaving or reloading.
+
+Opening **Summary** can generate AI content. **Send Email** is the deliberate sending action; **Finish without sending** completes the wrap-up without sending an email. Neither is a substitute for checking the meeting's own status and action items.
+
+## Check follow-up separately
+
+After sending, verify the email result and any optional public PSA ticket note separately. Eligible automatic QBR logging, commitment creation and configured QBR PSA synchronization happen independently and can fail or be skipped. See the [sending guide](/user-guides/calendar/send-meeting-summary) for the exact distinctions.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Do I need the whole wrap-up to send a meeting summary?">No. Use Send Summary on a company-linked meeting page for the standalone composer.</Accordion>
+  <Accordion title="Does Save & exit save every field in wrap-up?">No. Unsubmitted survey answers and unsent email edits can be lost. Use each step's explicit save action and keep a separate copy of an unsent email.</Accordion>
+  <Accordion title="Does opening wrap-up only read the meeting?">No. The first visit can create a progress record, and entering Summary can generate an AI draft when enabled.</Accordion>
+  <Accordion title="Does Finish without sending send a recap?">No. It completes the wrap-up without sending the summary email.</Accordion>
+  <Accordion title="Do Company users fill in the internal wrap-up survey?">No. The post-meeting wrap-up is for MSP staff. Company recipients can review the summary email and ask their MSP for corrections.</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Read a meeting workspace](/user-guides/calendar/read-meeting-workspace)
+- [Account Notes and QBR Log](/user-guides/calendar/account-notes)

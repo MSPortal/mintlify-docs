@@ -8,9 +8,9 @@ Select a project from **Projects** to open its workspace. The header contains th
 
 ## Before you start
 
-You need access to the project. Editing project details and collaboration items requires project overlay-edit permission; changing PSA statuses requires status-edit permission. Assignment changes and supported PSA rescheduling require project write access.
+You need access to the project. Company users can read shared content and respond to their own assigned pending requests; the MSP manages project editing and user permissions. Editing project details and collaboration items requires project overlay-edit permission; changing PSA statuses requires status-edit permission. Assignment changes and supported PSA rescheduling require project write access.
 
-Tabs also depend on display settings, provider support, and the project's data. A small project without multiple tickets may not show Phases or ticket Kanban.
+Tabs also depend on display settings, provider support, and the project's data. Native project editors can use Phases to manage their delivery plan. Other views depend on settings, permissions, and available data.
 
 <img src="/images/product/projects-workspace-phases.png" alt="Demo onboarding project phases with status, schedule, hours, and progress" width="2340" height="1400" />
 
@@ -25,41 +25,55 @@ Tabs also depend on display settings, provider support, and the project's data. 
 | **Decisions** | Track decisions, questions, approvals, and other items requiring a response. |
 | **Action Items** | Track the work that needs to be completed separately from the decision register. |
 | **Deliverables** | Track outputs, due dates, completion state, and attachments. |
-| **Phases** | Expand PSA phases to inspect their tickets and, when enabled, time entries. |
-| **Kanban** | Organize project tickets by status, technician, or priority. |
+| **Phases** | Expand phases to inspect tickets and available time entries. Native project editors can add and edit phases and tickets. |
+| **Kanban** | Organize project tickets by status, resource, or priority. |
 | **Schedule** | Review this project's dated work on a calendar. |
+
+For native creation, editing, time tracking, and closeout, follow [Native Projects: Start to Finish](/user-guides/projects/native-projects).
+
+For ConnectWise staffing, use [Read the project team](/user-guides/projects/read-project-team). This MSP-only reader explains assignment rows, roles, hours, filters, and dates; client contacts remain on Overview.
+
+## Read the Overview
+
+Use [Read the project overview](/user-guides/projects/read-project-overview) to interpret summaries, dates, progress measures, and contact links. MSP staff can [edit the goal and description](/user-guides/projects/edit-project-details) or [maintain contacts](/user-guides/projects/manage-project-contacts). Each of those forms uses its own Save Changes button.
+
+## Read progress and milestones
+
+Use [Read project updates](/user-guides/projects/read-project-updates) for shared weekly summaries, next steps, risks, and decision bullets. Use [Read the project timeline](/user-guides/projects/read-project-timeline) for milestones, status filters, and planned-date indicators.
+
+MSP authors can follow [Write and share project updates](/user-guides/projects/write-project-updates) and [Manage project milestones](/user-guides/projects/manage-project-milestones). Items added with Add Update or Add Milestone on those tabs save immediately with Client Visible off; sharing is controlled by that toggle. Phase and ticket menu shortcuts have different defaults.
+
+## Find deliverables and files
+
+Open **Deliverables** to [read shared outputs and download project files](/user-guides/projects/read-project-deliverables). MSP staff can [manage deliverables](/user-guides/projects/manage-project-deliverables) and [upload or share documents](/user-guides/projects/manage-deliverable-documents). Deliverable status and document visibility are separate: a Complete output does not mean every attached file is shared or approved.
+
+## Respond to a request
+
+Open **Decisions** for approvals, questions, access requests, scheduling confirmations, and decisions, or **Action Items** for work to complete. Expand an item to read its description. A green response button appears when a pending item is assigned to you. Follow [Respond to project decisions and action items](/user-guides/projects/respond-to-project-actions) to confirm and check the saved result.
+
+For MSP creation, autosave, assignment, notifications, cancellation, and deletion, use [Manage project decisions and action items](/user-guides/projects/manage-project-actions). Assignment does not notify the user automatically.
 
 ## Review phases, tickets, and time
 
-<Steps>
-  <Step title="Open Phases">
-    Select **Phases** to review each phase's status, dates, hours, and progress.
-  </Step>
-  <Step title="Expand a phase">
-    Select a phase row to inspect its tickets. Review the owner, status, and recorded versus estimated hours.
-  </Step>
-  <Step title="Inspect the work">
-    Where enabled, expand a ticket to see time entries and their notes. Project ticket custom fields can also appear here when configured.
-  </Step>
-</Steps>
+Use [Read project phases and tickets](/user-guides/projects/read-project-phases) for phase expansion, sorting, task filters, and the difference between status, hours usage, and task completion. Detailed ticket time history is restricted; Company users should ask their MSP for an appropriate shared summary.
 
-From an available phase or ticket action menu, choose **Create Deliverable**, **Create Update**, or **Decision Needed** to start a linked item. Edit the newly added item on its destination tab. Inline changes are saved as you edit; review visibility and dates as part of the change.
+MSP staff can [use phase and ticket action menus](/user-guides/projects/use-phase-ticket-actions) to understand immediate creation, visibility, and destination checks. **Mark as Milestone** currently has a recorded failure; use the guide's recovery steps. Menu-created updates and milestones are configured to start client-visible, unlike the destination tabs' internal defaults.
 
 ## Use ticket Kanban
 
 <img src="/images/product/projects-workspace-kanban.png" alt="Demo project ticket Kanban with status columns and security assessment tasks" width="2340" height="1400" />
 
-The project-level **Kanban** tab is available when enabled in project settings and permitted by your role. It is distinct from the portfolio Kanban board.
+Use [Read and filter project ticket Kanban](/user-guides/projects/read-ticket-kanban) for search, closed-ticket visibility, grouping, density, column totals, and missing-card troubleshooting. The owner grouping label can be Member, Resource, Agent, or Technician depending on the portal's PSA terminology.
 
-Use its search and completed-ticket controls to focus the board. Choose **Status**, **Technician**, or **Priority** grouping and a card density of **Comfortable**, **Compact**, or **Dense**.
+MSP drag controls depend on provider support and editing permissions. ConnectWise assignments remain limited to the project team and the administrator's roster filters. Native MSPortal projects use **Phases > Edit ticket** for status, priority, and assignment changes; the current ticket board does not expose native drag controls.
 
-When your role and PSA support the change, drag a ticket between columns. Choose the destination status or assignee when prompted. In technician mode, **Assign to…** opens the picker for another eligible technician; administrators can instead show everyone in the configured roster.
+## Read scheduled work
 
-ConnectWise assignments remain limited to the project team. An administrator's roster filters can narrow the available team further.
+Use [Read a project schedule](/user-guides/projects/read-project-schedule) to interpret date spans and open their details. [Filter the project schedule](/user-guides/projects/filter-project-schedule) explains all-day visibility, saved hidden titles, staff filters, and weekends. Company cross-project Schedule contents differ from the individual project tab.
 
 ## Edit project details
 
-Select **Edit Project Details**, update the available general information or contacts, and save. Review any manual health selection and its explanation so other viewers understand the project's condition.
+Select **Edit Project Details**, update **Project Goal**, **Project Description**, **Current Phase**, and the available client-visibility option, then select **Save Changes**. Contacts are managed from their own control on Overview.
 
 PSA-backed fields and MSPortal collaboration items have different destinations. A project status or supported ticket change can write back to the PSA; do not assume a weekly update, deliverable, or client decision becomes a PSA record.
 
@@ -83,3 +97,20 @@ The assistant can use the project information available to your account. Propose
   <Card title="Project calendar" icon="calendar" href="/user-guides/projects/calendar">Inspect scheduled work and supported rescheduling.</Card>
   <Card title="Project settings" icon="gear" href="/user-guides/settings/projects">Configure tabs, field access, and status mappings.</Card>
 </CardGroup>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Do the badges on project tabs count unread items?">
+    No. They count project items, including resolved items, rather than unread messages. The Timeline badge counts client-visible milestones and can be lower than an MSP staff member’s Timeline Total. The separate actions-waiting button counts pending work across Decisions and Action Items, not only work assigned to you.
+  </Accordion>
+  <Accordion title="Can I respond without permission to edit project details?">
+    Yes, if you can access the project and the shared pending item is assigned to your user. Use its response button; see the [response guide](/user-guides/projects/respond-to-project-actions).
+  </Accordion>
+  <Accordion title="Why does a small project have no Phases or Kanban tab?">
+    Projects with no phases and at most one ticket use the simpler overview. Display settings and permissions also affect these tabs. Native project editors can still receive Phases to manage their plan.
+  </Accordion>
+  <Accordion title="Can Company users use Project AI to edit the project?">
+    Company users receive read-only Project AI when available. They can ask about accessible project information; MSP changes require the appropriate permission and proposal review.
+  </Accordion>
+</AccordionGroup>

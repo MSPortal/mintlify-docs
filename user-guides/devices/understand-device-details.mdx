@@ -1,0 +1,101 @@
+---
+title: 'Understand device details'
+description: 'Read hardware, security, network, warranty, and integration information without confusing missing data with a healthy device.'
+icon: 'computer'
+---
+
+Select a device's **Name** in **Devices** to open its details. **Overview** shows the information currently available for that record. Available sections depend on the connected tools and the data they have supplied.
+
+<Note>
+For Company users and MSP staff with access to the device. Provider portal and remote-access shortcuts are hidden from Company users. An MSP screenshot can include additional controls that your account does not have.
+</Note>
+
+## Read the Overview
+
+1. Confirm the device name and company in the panel header. A friendly display name may also show the underlying device name.
+2. Review the reported dates, including **Last Seen** in the inventory and any timestamps shown in the panel.
+3. Check the relevant fields below. A dash or absent section means the value is unavailable; it is not a successful health check.
+
+| Information | What to look for |
+| --- | --- |
+| Basic inventory | Operating system, model, manufacturer, serial number, reported IP, and MAC address |
+| Hardware | Available processor, memory, and disk information |
+| Security | Reported protection, encryption, firewall, patching, or enrollment information supported by the connected source |
+| Network | Available hostname, domain, internal/external addresses, and adapters |
+| Battery | Available charge, charging, and cycle information |
+| User | Reported current or last user details, where supplied |
+| System | Available uptime, boot, operating-system build, agent, and reboot information |
+| Warranty | Recorded start/end dates and the remaining-days or expired indicator |
+| Custom fields | Additional fields configured and made visible to your account |
+
+A protection badge or recent inventory entry does not by itself establish that every security control is healthy. Use the relevant reported evidence and ask your provider about missing or unexpected values.
+
+## Understand the IP location section
+
+**Reported IP Address** and **External IP** serve different purposes. The former may be an internal network address. **IP location** uses the integration-reported external IP to estimate the internet exit point.
+
+- **IP observed** describes when the external address was recorded.
+- **Last checked** describes when that address was looked up for location.
+- **Find approximate location** runs the available lookup; it can contact the configured location service.
+- **Open map** opens the approximate coordinates on an external map.
+
+If no external IP is reported, the panel explains that a lookup is unavailable. Typing an internal address into a device record does not supply a verified external location.
+
+<Frame caption="The location section explains when the integration has not reported an external IP.">
+  <img src="/images/product/device-missing-public-ip.png" alt="IP location section showing that no external IP has been reported" width="1118" height="180" />
+</Frame>
+
+The result is approximate, not GPS tracking or a street address. A VPN, shared office connection, or internet provider can make several devices appear in the same place. See [find an approximate IP location](/user-guides/devices/ip-location) and [understand location results](/user-guides/devices/ip-location-accuracy-and-privacy).
+
+## Open integration tabs
+
+The detail panel can also offer:
+
+- **Cork** or **Liongard**, when the device has corresponding integration data.
+- **IT Glue**, when the portal has that integration. An unlinked device can show that it is not documented in IT Glue.
+- **Edit**, when your account has device-management permission.
+
+These tabs have separate purposes. A missing integration tab is not a finding that the device is unprotected or undocumented in every system. Ask the MSP to check integration availability, mapping, synchronization, and your access.
+
+MSP staff may also see **Portal**, **Remote**, or provider-named shortcuts in the header. These open another service and can require separate access. They do not grant Company users remote control.
+
+## Report a problem with the record
+
+Give your IT provider the device name, company, the field that appears wrong, and the reported date. Explain whether you are reporting an inventory error or a problem using the device. Opening a detail panel does not create a support ticket.
+
+If a section fails to load, close and reopen the device after the inventory has loaded. Do not treat missing extended details as proof that the device has no hardware, security tools, or network connection.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does opening the panel run a fresh scan of the device?">
+    The panel primarily displays imported and cached information. Some MSP management views can refresh provider data, including an automatic refresh for supported ASIO devices. Opening the IP location section alone does not force a new location lookup. Check the reported timestamps.
+  </Accordion>
+  <Accordion title="Why are Hardware, Security, or Battery missing?">
+    The connected source may not supply that information, or its details may not have loaded. Missing information is not a healthy or unhealthy result by itself.
+  </Accordion>
+  <Accordion title="Can I remotely control my computer from this page?">
+    Company users do not receive the MSP provider or remote-access shortcuts. MSP staff may see external links when a connected source supplies them; those services have their own access requirements.
+  </Accordion>
+  <Accordion title="Why does the device name differ from the inventory name?">
+    Some integrations supply a friendly display name. The panel can show that name together with the underlying device name so you can identify the same record.
+  </Accordion>
+  <Accordion title="Does a missing warranty date mean it expired?">
+    No. It means no date is available in the record. Ask your provider to confirm coverage.
+  </Accordion>
+  <Accordion title="Is IP location live GPS tracking?">
+    No. It estimates the location of the internet exit point associated with a reported external IP. Check both observation and lookup dates.
+  </Accordion>
+  <Accordion title="Why can I see IT Glue even when this device is not linked?">
+    The tab can be available because the portal uses IT Glue. It can show that this particular device has no linked configuration; that is different from the integration being absent.
+  </Accordion>
+  <Accordion title="Does closing the Edit panel prove my changes were saved?">
+    No. Check any error message, reopen the device, and verify the intended values. A closed panel alone is not confirmation of a successful update.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Find and export devices](/user-guides/devices/find-devices)
+- [View networks and configurations](/user-guides/devices/view-networks-and-configurations)
+- [Open a support ticket](/user-guides/ticketing/open-a-ticket)

@@ -1,0 +1,136 @@
+---
+title: 'Create and edit a dashboard'
+description: 'Create a personal dashboard, choose widgets and summary cards, rename it, and save your changes.'
+icon: 'chart-mixed'
+---
+
+Create a personal dashboard from **Dashboards**, then add the charts and summary cards you need. The initial creation saves a dashboard immediately. Later editor changes require **Save** in the page header.
+
+**Audience:** MSP staff with dashboard authoring access. Company users should start with [Read and filter a dashboard](/user-guides/dashboards/read-a-dashboard) and ask their MSP for configuration or user-permission changes.
+
+## Before you begin
+
+- You need the applicable dashboard write access. Seeing a dashboard does not automatically allow editing or deletion.
+- Start with a custom dashboard. Built-in system dashboards do not offer Edit through the normal reader.
+- Available widgets depend on module permissions, connected integrations, and available company data. Your library may differ from another user's.
+- A personal dashboard is associated with its owner. Creating one does not automatically share it with Company users. Sharing and access are managed separately in **Settings > Dashboards**.
+
+## Create a personal dashboard
+
+1. Open **Dashboards**.
+2. Select the **+** creation control in the dashboard icon rail when available.
+3. Enter a **Name**, up to 100 characters. Add an optional **Description**, up to 500 characters.
+4. Choose an **Icon** to identify the dashboard in navigation.
+5. Select **Create Dashboard**. The portal creates the personal dashboard and opens its editor.
+
+<img src="/images/product/dashboard-author-new.png" alt="New dashboard form with Name, Description, Icon, Cancel, and Create Dashboard" width="836" height="664" />
+
+The screenshot shows the blank MSP creation form. **Cancel** before creation returns to the previous page. After creation, leaving the editor does not remove the new dashboard; it can remain empty until you save some content.
+
+## Add widgets and summary cards
+
+In the editor, use the **Widget Library** on the left:
+
+1. Select a widget to add it to the canvas. Choose from the categories available in your portal.
+2. Under **Summary Cards**, select the ticket cards you want to show above the reader's charts. Clear a selection to remove that card.
+3. Review the canvas and select **Save** in the page header.
+4. Select **Back** to open the saved dashboard and check the result.
+
+The summary choices are **Current Open Tickets**, **Entered Prev Month**, **Closed Prev Month**, **Entered Prev 3 Months**, and **Closed Prev 3 Months**. They retain their own metric periods; they do not all follow the reader's date menu. See [Inspect tickets behind a dashboard metric](/user-guides/dashboards/inspect-dashboard-tickets) for counting and drilldown limitations.
+
+Summary-card selections are saved with the layout, but the editor canvas does not display those summary cards above the widgets. Review them in the saved reader.
+
+<Note>
+The editor is for arranging content. Its chart preview can use a different date range and company context from the dashboard reader. After saving, use **Back**, select the intended company and dates, and check the displayed labels and values before using the dashboard with a client.
+</Note>
+
+## Rename a dashboard
+
+1. In the editor, select **Rename**.
+2. Enter the new name and select **Save** in the rename dialog.
+3. Select **Save** again in the page header to persist the renamed dashboard.
+
+The dialog's Save only applies the name to your current editing session. It does not finish the dashboard save. **Cancel** in that dialog keeps the previous name.
+
+## Understand Save and Back
+
+<img src="/images/product/dashboard-editor-actions.png" alt="Dashboard editor controls for Rename, Delete, widget width, Back, and Save" width="906" height="66" />
+
+| Action | What happens |
+| --- | --- |
+| **Create Dashboard** | Creates a personal dashboard immediately and opens its editor. |
+| Add a widget or change Summary Cards | Changes the current editing session; use header Save to persist it. |
+| **Save** in Rename | Applies the name within the editor; header Save is still required. |
+| **Save** in the page header | Saves the layout and any changed name. Wait for success before leaving. |
+| **Back** | Opens the saved reader. It does not save pending edits or delete a newly created dashboard. |
+| Width **½**, **⅓**, **¼** | Changes the editor's displayed column count. Do not treat it as a saved default width for readers. |
+
+The editor indicates **Unsaved changes** when its content has changed. Do not rely on Back to warn you before discarding edits. After saving, reopen the editor if you need to confirm persistence.
+
+## Troubleshooting
+
+| Problem | Next step |
+| --- | --- |
+| Creation or Edit is missing | Ask an MSP administrator to check your authoring permissions and the dashboard type. |
+| Save is disabled | Make a content or name change. The width display control alone does not make a saved layout change. |
+| A widget is missing from the library or reader | Check the module, integration, role access, company scope and available data. |
+| A chart is empty | Check its company and printed dates in the saved reader. Empty results do not establish integration health. |
+| Changes disappeared after Back | Reopen the editor and make the changes again, then use header Save. |
+| Save reports an error | Keep the editor open, record the message, and verify the saved state before retrying. Do not assume the change persisted. |
+
+Company administrators ask the MSP to change user permissions. Sharing a dashboard does not itself grant access to every underlying module or record.
+
+## Related guides
+
+- [Manage dashboard settings and access](/user-guides/dashboards/manage-dashboard-settings)
+- [Dashboards and access types](/user-guides/dashboards/index)
+- [Read and filter a dashboard](/user-guides/dashboards/read-a-dashboard)
+- [Inspect dashboard tickets](/user-guides/dashboards/inspect-dashboard-tickets)
+- [Export a dashboard to PDF](/user-guides/dashboards/export-dashboard)
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where can I create a personal dashboard?">
+    Open Dashboards and use the plus creation control in the dashboard icon rail, with the applicable authoring permission. Enter a name, optional description and icon, then choose Create Dashboard.
+  </Accordion>
+  <Accordion title="Does Create Dashboard save anything before I add widgets?">
+    Yes. It creates a personal dashboard immediately. Leaving the editor afterward does not remove that dashboard, even if it is empty.
+  </Accordion>
+  <Accordion title="Is a new personal dashboard automatically shared with Company users?">
+    No. Sharing and access are separate settings managed by the MSP in Settings > Dashboards.
+  </Accordion>
+  <Accordion title="How do I add a chart to a dashboard?">
+    Open the custom dashboard editor, select a widget in the Widget Library, and use Save in the page header. Use Back afterward to review the saved reader.
+  </Accordion>
+  <Accordion title="How do I add ticket summary cards?">
+    Select the required Summary Cards in the Widget Library, then use header Save. Review the cards in the saved reader; the editor canvas does not show the summary-card row.
+  </Accordion>
+  <Accordion title="Does the Rename dialog save the dashboard name permanently?">
+    Not by itself. Save in the dialog applies the name within the editor. Use Save again in the page header to persist it.
+  </Accordion>
+  <Accordion title="Does Back save my dashboard edits?">
+    No. Back opens the saved reader. Use header Save and wait for success before leaving; do not rely on an unsaved-change warning.
+  </Accordion>
+  <Accordion title="Why is Save disabled after changing widget width?">
+    The width button changes the displayed column count. It is not a saved default width for readers and does not by itself mark content as changed.
+  </Accordion>
+  <Accordion title="Why do the editor and reader show different chart values?">
+    The editor preview can use a different date range and company context. Save, open the reader with Back, select the intended company and dates, and check each chart's labels.
+  </Accordion>
+  <Accordion title="Why can I not find a widget that another MSP user has?">
+    Widget availability depends on module permissions, integrations and available company data. Ask the MSP to check those prerequisites.
+  </Accordion>
+  <Accordion title="Can I edit a built-in system dashboard from its reader?">
+    The normal reader does not offer Edit for system dashboards. Use a custom dashboard for this workflow.
+  </Accordion>
+  <Accordion title="Does adding a widget change the underlying tickets or other records?">
+    No. This workflow saves dashboard configuration. Record changes happen in their respective modules through separately authorized actions.
+  </Accordion>
+  <Accordion title="Can Company administrators grant themselves dashboard authoring access?">
+    Company administrators ask the MSP to change user permissions or dashboard configuration.
+  </Accordion>
+  <Accordion title="Do summary cards follow the same dates as every chart?">
+    No. Ticket summary cards retain their own current or monthly periods. Check each card and chart label separately.
+  </Accordion>
+</AccordionGroup>

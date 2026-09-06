@@ -23,6 +23,26 @@ Unlike a simple checklist, Client Health does not treat missing data as healthy 
   </Card>
 </CardGroup>
 
+## Task guides
+
+<CardGroup cols={2}>
+  <Card title="Find companies in Client Health" icon="heart-pulse" href="/user-guides/msp-tools/find-client-health">
+    Filter the portfolio, review Spotlight and understand the table and export scopes.
+  </Card>
+  <Card title="Read a company’s health details" icon="chart-line" href="/user-guides/msp-tools/read-client-health-details">
+    Interpret scores, dimensions, history and the current Standards list without confusing their meanings.
+  </Card>
+  <Card title="Understand scoring and evidence" icon="scale-balanced" href="/user-guides/msp-tools/understand-health-scoring">
+    Review all eight dimensions, evidence requirements and provider boundaries.
+  </Card>
+  <Card title="Manage manual Client Health risk flags" icon="flag" href="/user-guides/msp-tools/manage-client-risk-flags">
+    Add, edit or remove a risk override while preserving the calculated score.
+  </Card>
+  <Card title="Refresh Client Health scores" icon="arrows-rotate" href="/user-guides/msp-tools/refresh-client-health">
+    Publish a new scorecard, understand freshness and distinguish job submission from completion.
+  </Card>
+</CardGroup>
+
 ## Prerequisites
 
 | Requirement | Detail |
@@ -38,13 +58,13 @@ Users with `write_customer_success` can also set or remove manual risk flags. Sc
 
 <Steps>
   <Step title="Open Client Health">
-    Click **Client Health** in the main sidebar.
+    Open **MSP Tools > Client Health** in the sidebar.
   </Step>
   <Step title="Choose the company scope">
-    Use the global Company selector to review all accessible companies, an assigned group, or a single company. Summary totals, Spotlight, table results, and exports all follow this scope.
+    Use the global Company selector to review all accessible companies, an assigned group, or a single company. Summary totals, Spotlight, table results and exports follow this company scope. Risk and Limited data filters then narrow the table/export, while summary and Spotlight remain scoped to companies.
   </Step>
   <Step title="Refresh when needed">
-    Scores refresh automatically each day at **2:00 AM UTC**. To publish a new scorecard immediately, click **Refresh Scores** in the page header and wait for the completion message.
+    Scores refresh automatically each day at **2:00 AM UTC**. To request a new tenant-wide scorecard, click **Refresh Scores** in the portfolio header and wait for the completion message. Selecting one company does not limit this refresh to that company.
   </Step>
 </Steps>
 
@@ -69,7 +89,7 @@ Click a risk-level count or a colored section of the distribution bar to filter 
 
 Spotlight highlights two groups across the full selected scope:
 
-- **Needs Attention** shows the companies with the most urgent current results, including companies with limited evidence that require review.
+- **Needs Attention** shows the companies with the most urgent current results, among companies with available numeric scores. Use the Limited data filter separately.
 - **Most Improved** shows the strongest improvements compared with the previous published scorecard from the same model history.
 
 <Info>
@@ -85,9 +105,9 @@ The table includes the company name, overall score, effective risk level, and av
 - Sort by supported score and dimension columns
 - Show or hide columns
 - Open a company detail page by clicking its row
-- Export all matching companies, not only the current page
+- Export matching companies across pages, capped at 10,000 rows per request
 
-The table respects both the global Company selector and table filters. A dimension column is hidden only when the entire selected scope has no evidence for it. If the dimension is unavailable for one company, that company shows **N/A**.
+The table respects both the global Company selector and table filters. A dimension column can be unavailable when the selected scope has no score for it or the dimension is disabled. If the dimension is unavailable for one company, that company shows **N/A**.
 
 The optional **Trend** and **Flag Reason** columns can be enabled from the column visibility menu. A manually selected risk level is labeled **Manual** so it is not confused with the calculated result.
 
@@ -95,7 +115,7 @@ The optional **Trend** and **Flag Reason** columns can be enabled from the colum
 
 ### Portfolio weights
 
-The current scorecard uses these base weights:
+The default model uses these base weights:
 
 | Dimension | Base weight |
 |-----------|------------:|
@@ -112,7 +132,7 @@ Only enabled, applicable dimensions can contribute. When some evidence is unavai
 
 ### Numeric score requirements
 
-MSPortal shows a numeric health score only when both conditions are met:
+The default model shows a numeric health score only when both conditions are met:
 
 - At least **3 dimensions** have a score
 - Overall evidence coverage is at least **40%**
@@ -128,9 +148,9 @@ If either condition is not met, the company shows **Limited data** and does not 
 | Health score | Calculated risk level |
 |-------------:|-----------------------|
 | 80–100 | Thriving |
-| 60–79 | Healthy |
-| 40–59 | At Risk |
-| 0–39 | Critical |
+| 60 to below 80 | Healthy |
+| 40 to below 60 | At Risk |
+| 0 to below 40 | Critical |
 
 A manual risk flag can replace the displayed risk level, but it never changes the calculated health score or its dimension contributions.
 
@@ -152,7 +172,7 @@ The page can show:
 - **Risk Level**, including the calculated level when a manual flag is active
 - **Standards Compliance** when a required standards catalog applies
 
-Cards without evidence are omitted rather than filled with a default value.
+The overall score card is omitted when no numeric score exists; the Risk Level card can show N/A.
 
 ### Dimension Breakdown
 
@@ -163,17 +183,17 @@ Each available dimension shows:
 - Only the metrics MSPortal actually observed
 - Values formatted with their correct unit, such as percent, days, currency, or hours per endpoint
 
-A dimension whose metrics are all excluded in scoring settings can still appear when it has evidence, but it is labeled **Excluded from health score** and does not affect the overall result. Individually excluded metrics carry no weight; their values are still listed, marked **Disabled**.
+A dimension whose metrics are all excluded in scoring settings can still appear when it has evidence, but it is labeled **Excluded from health score** and does not affect the overall result. Individually excluded metrics carry no scoring weight. Available values may remain listed for context; missing values are not guaranteed to appear.
 
 ### Health Score Trend
 
 The 180-day chart uses published scorecards. Click **Show Dimensions** to add the individual dimension lines.
 
-When the scoring model changes, the chart breaks the line at the model boundary instead of implying that unlike scores are directly comparable. New evidence-aware history begins with the first published scorecard; it is not reconstructed from legacy data.
+When the scoring model changes, the chart breaks the line at the model boundary instead of implying that unlike scores are directly comparable. New evidence-aware history begins with the first published scorecard; it is not reconstructed from legacy data. Metric inclusion changes within the same model do not necessarily create a chart break, so compare settings and evidence coverage as well as the line.
 
 ### Top Negative Drivers
 
-Top Negative Drivers lists the dimensions responsible for the largest health-score loss. The impact shown for each driver is its exact weighted point effect, so the drivers explain how the overall score moved away from 100.
+Top Negative Drivers lists the dimensions responsible for the largest health-score loss. The displayed impacts are rounded score-point contributions. They are not monetary losses or proof of a cause, and can appear even when the company lacks enough dimensions for an overall numeric score.
 
 ## Set a manual risk flag
 
@@ -187,98 +207,31 @@ Use a manual flag when relationship context is not yet represented in the availa
     Click **Flag Risk**. If a flag already exists, click **Edit Flag**.
   </Step>
   <Step title="Select a risk level">
-    Choose **Critical**, **At Risk**, **Healthy**, or **Thriving**. The dialog also shows the calculated level and health score for comparison.
+    Choose **Critical**, **At Risk**, **Healthy**, or **Thriving**. The dialog shows the calculated comparison when available.
   </Step>
   <Step title="Record the reason">
     Enter a concise reason explaining why the relationship carries more or less risk than the score suggests, then click **Save Flag**.
   </Step>
 </Steps>
 
-The detail page records the flag reason, who set it, and when. To return to the calculated risk level, edit the flag and click **Remove Flag**.
+Review the reason through Edit Flag, the Flag Reason table column or the risk tooltip where available. Stored audit metadata is not a complete event-history viewer on this page. To return to the calculated risk level, edit the flag and click **Remove Flag**.
 
 ## How each dimension is calculated
 
-### Service Quality
+Use [Understand Client Health scoring and evidence](/user-guides/msp-tools/understand-health-scoring) for the complete metric rules, source windows, provider coverage and worked weighting example.
 
-Service Quality compares the latest four complete ticket weeks with the preceding four complete weeks. It begins at 100 and applies observed risk when:
+| Dimension | Evidence to review |
+| --- | --- |
+| Service Quality | Eight complete ticket weeks, demand, resolution and backlog observations |
+| Engagement | Past meetings, recent NPS and qualifying CSAT responses |
+| Financial | Configured endpoint model, three complete months of profitability data, open and paid invoices |
+| Sales | PSA opportunities and Quoter quotes; Quotes module provider support is broader than this scoring input |
+| Projects | Synced PSA project dates and measured hours |
+| Standards | Required checks and one-of groups, rather than a raw displayed-item count |
+| Environment | Observed servers and recognized patch records from supported scoring sources |
+| Operational | Planner due dates, goal progress and compliance completion evidence |
 
-- Ticket demand is rising
-- Resolution is at least 10% slower
-- Average backlog is above five tickets
-- Average open-ticket age is above ten days
-- Backlog is rising
-
-The source must be current and all eight weeks must be complete. High-priority ticket growth and effective escalations can appear as warning evidence but do not change the current score.
-
-### Engagement
-
-| Metric | Internal weight | Scoring basis |
-|--------|----------------:|---------------|
-| Meeting recency | 40% | A meeting within 90 days scores 100; within 120 days scores 60; within 180 days scores 40; older meetings score 20. |
-| Recent NPS | 20% | Uses the latest response from the last 365 days. Scores of 9+, 7+, 5+, and 3+ map to progressively lower bands. |
-| Recent CSAT | 25% | Average CSAT rating across the company's survey responses from the last 90 days, normalized to a 0 to 100 satisfaction score. Native CSAT campaigns and imported responses (for example Simplesat) both count; CES campaigns do not. |
-| CSAT response rate | 15% | CSAT responses from the last 90 days as a share of tickets closed over the same period. 25% or more scores 100, 15% scores 80, 8% scores 60, and any response scores 40. A company that closed five or more tickets and never answered scores 20. |
-
-The two CSAT metrics only apply while your tenant is collecting CSAT. If no CSAT response arrived anywhere in the last 90 days, both are reported as unavailable, carry no weight, and the remaining metrics keep their relative weights, so a tenant without a CSAT program sees no change. Companies with a low CSAT average or no responses also appear in the CSAT column on the Client Health table.
-
-If only some metrics are observed, Engagement uses that evidence and reports reduced coverage. General contact activity and missed-meeting estimates are not used as substitutes.
-
-### Financial
-
-| Metric group | Internal weight | What it measures |
-|--------------|----------------:|------------------|
-| Profitability | 50% | Reactive hours per endpoint, effective hourly rate, and all-in seat price. Each input is independently evidence-aware. |
-| Open invoice health | 30% | The proportion of still-open invoices that are overdue. |
-| Payment speed | 20% | Average days to pay for paid invoices in the trailing year. |
-
-Fresh ticket, revenue, device, and invoice data is evaluated independently. A missing profitability input is omitted instead of receiving a default score.
-
-### Sales
-
-| Metric | Internal weight | What it measures |
-|--------|----------------:|------------------|
-| Sales activity recency | 50% | Time since the latest opportunity or quote activity, using 30-, 90-, 180-, and 365-day bands. |
-| Decided win rate | 50% | Won outcomes divided by won plus lost outcomes in the trailing 365 days. At least three decided outcomes are required. |
-
-MSPortal prefers PSA opportunity outcomes. Quoter outcomes are used as a fallback so the same opportunity is not counted twice. A connected tenant-wide sales source does not count as company evidence by itself.
-
-### Projects
-
-| Metric | Internal weight | What it measures |
-|--------|----------------:|------------------|
-| Active-project schedule health | 40% | Percentage of active projects with due dates that are not overdue. |
-| Recent on-time delivery | 40% | Percentage of projects completed on or before the due date in the trailing year. |
-| Effort adherence | 20% | Percentage of measured projects at or below 110% of estimated hours. |
-
-Raw project count and monetary values do not earn health points by themselves.
-
-### Standards
-
-Standards is the percentage of applicable required checks that are deployed.
-
-- Missing required assignments count as **Not Started**
-- A **Require one of group** category counts as one check and is satisfied when any option is deployed
-- Explicit **N/A** and **Declined** items are excluded
-- Companies excluded from Standards, or tenants without a required catalog, show N/A
-
-### Environment
-
-| Metric | Internal weight | What it measures |
-|--------|----------------:|------------------|
-| Server availability | 60% | Percentage of observed servers that are not offline and have been seen within seven days. |
-| Patch coverage | 40% | Percentage of devices with a recognized patched or unpatched state that are patched. Unknown states are excluded. |
-
-Device count is context only and does not improve the score. User activity is not part of the Environment score.
-
-### Operational
-
-| Metric | Internal weight | What it measures |
-|--------|----------------:|------------------|
-| Planner timeliness | 40% | Overdue planner items as a percentage of planner items with due dates. |
-| Goal progress | 35% | Average current goal progress; goals whose tenant-specific status is **Completed** count as 100%. |
-| Compliance timeliness | 25% | Overdue compliance assignments as a percentage of assignments with due dates. |
-
-No planner items, goals, or compliance assignments means no evidence for those metrics. It does not produce a synthetic Operational score.
+Missing samples do not earn healthy defaults. Source freshness, metric exclusions and evidence coverage affect which observations can contribute.
 
 ## Configure included metrics
 
@@ -299,7 +252,7 @@ See [Health Score Configuration](/user-guides/settings/scoring) for permission a
     The dimension may have no samples, an insufficient sample, an unavailable or stale source, or may not apply to the company. N/A is intentionally different from zero. Check the source integration, company mapping, and the dimension-specific prerequisites above.
   </Accordion>
   <Accordion title="The published scorecard is stale">
-    The warning appears when the oldest required source behind the published scorecard is more than 36 hours old. Review integration sync health, allow the source to update, and then click **Refresh Scores**.
+    The warning appears when the published scorecard has no data-through timestamp or that timestamp is more than 36 hours old. Review integration sync health, allow the source to update, and then click **Refresh Scores**.
   </Accordion>
   <Accordion title="The risk level does not match the score band">
     Look for the **Manual** label. A manual risk flag replaces the displayed risk level without changing the score. Hover over the risk level or open the company to see the calculated level and flag reason.

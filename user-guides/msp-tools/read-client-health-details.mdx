@@ -1,0 +1,88 @@
+---
+title: "Read a company’s health details"
+description: "Interpret scores, dimensions, history and the current Standards list without confusing their meanings."
+icon: "chart-line"
+---
+
+**Audience:** MSP staff. Company portal users cannot open this Client Health detail page.
+
+Open **MSP Tools > Client Health**, then select a company row or Spotlight entry. Check the company title and **Last computed** date before interpreting the results. Use the back arrow to return to the portfolio.
+
+## Read the summary
+
+A numeric **Health Score** uses the published model and its available evidence. It is not an average of every number visible below. Hover over the score to see contributing dimensions and applied weights.
+
+The default model requires at least three scored dimensions and 40% evidence coverage for an overall numeric result. With insufficient evidence, the overall score card can be absent even when individual dimensions have useful values. **N/A** and **Limited data** are not zero scores.
+
+**Risk Level** is the calculated band unless a manual flag overrides it. The standard bands are Thriving from 80, Healthy from 60, At Risk from 40 and Critical below 40. Displayed scores are rounded, so a boundary value should be interpreted with its actual risk label. A manual risk flag changes the label, not the score.
+
+**Standards Compliance**, when available, is the Standards percentage recorded in the published scorecard. Other cards can be omitted when evidence is unavailable.
+
+## Inspect dimensions and drivers
+
+**Dimension Breakdown** shows dimensions with a score or observed evidence. Read the score, applied weight, evidence coverage and metric values together. A 100 score with 0% applied weight does not contribute to the overall score.
+
+A displayed dimension may say **Excluded from health score**. Metrics shown as **Disabled** do not carry scoring weight. Some unavailable or entirely excluded dimensions are omitted; absence is not evidence of a healthy result. Percentages, days, currency and other units describe different measures and should not be compared as raw numbers.
+
+**Top Negative Drivers** identifies the dimensions creating the largest modeled score loss. The points are score impact, not money, ticket counts or proof of a specific fault. Open the relevant product area and check the underlying records before acting. A company can have driver information even when its evidence is insufficient for an overall numeric score.
+
+## Read the 180-day history
+
+The **Health Score Trend (180 days)** uses published scorecards. Select **Show Dimensions** to add individual dimension lines and the legend; use **Hide Dimensions** to return to the overall line. Hover over the chart to inspect available values.
+
+A model revision creates a gap rather than connecting incompatible scores. Other missing values can also leave blank sections. A chart with no overall line can mean its historical overall scores are unavailable; adding dimension lines may reveal useful evidence. With too few history points, an empty-state message replaces the chart.
+
+An upward score is not proof that your latest intervention caused the change. Compare source freshness, model revision, enabled metrics and coverage as well as the values.
+
+## Compare the current Standards list
+
+The Standards table below the score breakdown is read separately from current company deployment records. Its badge counts **deployed items / all listed items**. That raw item count is not the same calculation as applicable required checks or one-of-group scoring.
+
+The table can therefore differ from the saved Standards Compliance percentage because its timing and denominator differ. It is not automatically a score calculation error. Use the [Standards matrix](/user-guides/msp-tools/read-standards-matrix) for current applicability, groups and deployment alignment.
+
+Where available, the table shows item, vendor, category, status and notes, plus an **Open in Planner** icon. Notes prefer the linked item's public notes, falling back to private notes; they are not a guarantee that both note fields are shown. Category is hidden on narrow screens and Notes on smaller layouts. Open the linked Planner item for its full context.
+
+These table statuses are read-only here. To record a deployment, follow [Update Standards deployments](/user-guides/msp-tools/update-standard-deployments). To change a relationship risk label, follow [Manage manual risk flags](/user-guides/msp-tools/manage-client-risk-flags).
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where can I inspect the reasons behind a health score?">
+    Open the company from Client Health and review Dimension Breakdown, applied weights, evidence coverage and Top Negative Drivers.
+  </Accordion>
+  <Accordion title="Why is the Health Score card missing?">
+    There may be insufficient evidence for an overall numeric score, even though some dimensions have usable values.
+  </Accordion>
+  <Accordion title="Does a dimension score of 100 always help the overall score?">
+    No. Check its applied weight and whether it is excluded; a 0% weight contributes nothing.
+  </Accordion>
+  <Accordion title="What do the negative-driver points mean?">
+    They are modeled score impact, not financial loss or a count of incidents.
+  </Accordion>
+  <Accordion title="Can negative drivers appear without an overall score?">
+    Yes. Individual dimensions can have evidence and impact information while the overall score remains unavailable.
+  </Accordion>
+  <Accordion title="How do I see individual dimension trends?">
+    Select Show Dimensions on the 180-day chart, then Hide Dimensions to return to the overall line.
+  </Accordion>
+  <Accordion title="Why is there a gap in the trend?">
+    A model revision intentionally separates comparable segments; missing score values can also leave gaps.
+  </Accordion>
+  <Accordion title="Why is the chart blank although it has dates?">
+    Historical overall scores can be unavailable. Try Show Dimensions and inspect coverage rather than treating the blank line as zero.
+  </Accordion>
+  <Accordion title="Why does the current Standards list differ from Standards Compliance?">
+    The list reads current records and counts deployed items out of all listed items; the scorecard uses a published snapshot and applicable required/group scoring.
+  </Accordion>
+  <Accordion title="Does the Standards notes column show every note?">
+    No. It prefers public Planner notes and falls back to private notes. Open the linked item for full context.
+  </Accordion>
+  <Accordion title="Can I edit deployment status in the health detail table?">
+    No. Use the Standards matrix to update deployments.
+  </Accordion>
+  <Accordion title="Why does a rounded score appear close to another risk band?">
+    Risk is based on the underlying score, while the displayed number is rounded. Also check for a Manual override.
+  </Accordion>
+</AccordionGroup>
+
+For all eight dimensions, source windows and provider coverage, see [Understand Client Health scoring and evidence](/user-guides/msp-tools/understand-health-scoring).

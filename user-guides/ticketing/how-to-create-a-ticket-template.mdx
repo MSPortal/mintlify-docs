@@ -6,9 +6,13 @@ icon: file-lines
 
 Ticket templates streamline repetitive ticket creation by providing pre-configured forms with custom fields. This guide covers creating templates using AI assistance or manual configuration, managing company-specific branches, and importing/exporting templates.
 
+For a focused first template, follow [Create and preview a ticket template](/user-guides/ticketing/create-and-preview-ticket-template). It covers inactive drafts, Home AI Description, Preview, Save Template, and cancellation. The sections below cover additional configuration.
+
+**Audience:** MSP staff. Company users should use [Understand your available request templates](/user-guides/ticketing/understand-request-templates).
+
 ## Prerequisites
 
-- You must have "Manage Tickets" permission
+- You need **write_settings_tickets** or **manage_settings_tickets** permission
 - PSA integration should be configured if using external ticketing systems
 - Categories should be set up in Ticket Settings
 
@@ -16,7 +20,7 @@ Ticket templates streamline repetitive ticket creation by providing pre-configur
 
 <Steps>
   <Step title="Navigate to Templates">
-    Go to **Tickets** in the sidebar, click the menu button, and select **Templates**.
+    Go to **Settings > Tickets > Templates**.
   </Step>
   <Step title="Click New Template">
     Click the **New Template** button in the top-right corner.
@@ -26,7 +30,7 @@ Ticket templates streamline repetitive ticket creation by providing pre-configur
     - **Template Name**: A descriptive name (e.g., "New Employee Setup")
     - **Category**: Select from available categories
     - **Description**: Brief explanation of when to use this template
-    - **Active Status**: Toggle whether the template is available for use
+    - **Active Status**: New templates start active. Turn this off while drafting, then save the inactive state.
   </Step>
 </Steps>
 
@@ -490,8 +494,9 @@ The AI designer works iteratively. You can request changes like "Add a section f
 
 1. Review all sections and fields
 2. Ensure PSA settings are configured if using integrations
-3. Click **Save Template**
-4. Enable the **Active** toggle to make the template available
+3. Click **Save Template** and wait for the result; success returns to Templates
+4. When ready, reopen the template, enable the active switch, and click **Save Template** again
+5. Verify availability for the intended Company and role. Preview alone does not prove access or submit a ticket
 
 ## Best Practices
 

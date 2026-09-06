@@ -1,0 +1,76 @@
+---
+title: 'Find and review invoices'
+description: 'Filter the invoice list, understand synchronized fields, and add an invoice to an existing meeting agenda.'
+icon: 'file-invoice'
+---
+
+Open **Invoices** from the sidebar. You need invoice-viewing access assigned by your MSP. If you can switch companies, check the company selection before looking for a record.
+
+## Find an invoice
+
+1. Use the **Invoice #** filter to find its invoice number.
+2. Narrow the list with available **Reference**, **Apply To**, **PO #**, **Type**, **Status**, **Company**, or invoice-date filters.
+3. Use the column-visibility control to show a field that is hidden. Some columns are only offered when the connected source supplies data for them.
+4. Use supported column headings to sort. The initial sort is invoice number descending, which is not necessarily newest invoice date first.
+5. Move between pages or change the page size to see more records.
+6. Select the invoice number or **... > View PDF** to [open its document](/user-guides/invoices/download-invoices).
+
+The Company column can be hidden when a single company is selected. **Apply To**, when available, describes the related agreement or other source item; it is not a button to apply a payment.
+
+## Read the fields
+
+- **Total** is the synchronized invoice total; **Balance** is the available amount remaining.
+- **Payments**, **Subtotal**, **Sales Tax**, **Terms**, **Bill To**, and **PO #** provide additional source details when populated.
+- **Status**, **Sent**, and **Synced** reflect the source data supplied to the portal. A status label alone does not establish that a new payment has settled.
+- **Due Date** can highlight an overdue invoice with a remaining balance. Check the source document and current balance when investigating it.
+
+The list does not let you edit amounts, change payment status, void an invoice, or send it again. Contact the MSP about corrections or source updates.
+
+## If an invoice is missing
+
+Clear the relevant filters, check the company selection, and move through the pages. Your MSP may exclude particular source invoice statuses from the portal. The invoice may also be waiting for synchronization or company mapping.
+
+An empty list does not prove there are no invoices in the source system. If you expect a specific invoice, give the MSP its invoice number and company so they can check access, source settings, and synchronization.
+
+## Add an invoice to a meeting
+
+When your account can add agenda items:
+
+1. Open the invoice row's **... > Add to Meeting**.
+2. Review the invoice shown in **Items to add**.
+3. Choose an existing upcoming meeting from **Select meeting**.
+4. Select **Add to agenda** and wait for the success message.
+5. Open the meeting to confirm that the invoice appears on its agenda.
+
+For several invoices, select the intended rows and use **Actions > Add to Meeting**. Check the selected items and destination company carefully. Opening the dialog or selecting a meeting does not save the agenda item; **Cancel** closes it without adding the item.
+
+If no suitable meeting is offered, create or arrange the meeting first, then return. This dialog does not create a new meeting, pay the invoice, or send the invoice to recipients.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why is the Company column missing?">
+    It can be hidden when one company is selected. Check the company selector and available column-visibility options.
+  </Accordion>
+  <Accordion title="Why does sorting by invoice number look different from date order?">
+    Invoice numbers are source identifiers. The default sort is invoice number descending; use the Date column when you want chronological order.
+  </Accordion>
+  <Accordion title="Does Apply To apply a payment?">
+    No. It describes the source item associated with the invoice, such as an agreement. Payment is a separate action.
+  </Accordion>
+  <Accordion title="Can I correct an invoice total in the portal?">
+    There is no amount editor in this list. Ask the MSP to correct the invoice in its source system and synchronize the result.
+  </Accordion>
+  <Accordion title="Does No Invoices Found mean my company has no invoices?">
+    Not necessarily. Check filters, company access, status exclusions, mapping, and synchronization with the MSP.
+  </Accordion>
+  <Accordion title="Does Add to Meeting email the invoice?">
+    It adds an agenda item to the selected meeting after Add to agenda succeeds. It is not an invoice-email or payment action.
+  </Accordion>
+  <Accordion title="Can I create a meeting inside Add to Meeting?">
+    The dialog selects an existing upcoming meeting. Create or arrange the meeting first if none is available.
+  </Accordion>
+  <Accordion title="Where is Add to Planner?">
+    The current invoice row menu has View PDF and Add to Meeting. It has no direct Add to Planner action.
+  </Accordion>
+</AccordionGroup>

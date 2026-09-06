@@ -1,0 +1,81 @@
+---
+title: 'Review your subscriptions'
+description: 'Find subscriptions, read quantities and terms, and distinguish request controls from fulfilled license changes.'
+icon: 'layer-group'
+---
+
+Open **Storefront > Subscriptions** to review the products associated with your permitted companies. If your MSP uses both Pax8 and Sherweb, the providers have separate sections.
+
+**Audience:** Company users and MSP staff with Storefront access.
+
+## Find a subscription
+
+<Steps>
+  <Step title="Check your company scope">
+    Select the intended company when a company selector is available. Company users remain limited to their permitted company access.
+  </Step>
+  <Step title="Use the provider’s filters">
+    For Pax8, use **Product**, **Vendor**, and **Status** filters. The initial status is **Active**; change or clear it to find other statuses.
+
+    Sherweb’s table provides product search and company filtering. Use its own pagination when both providers are shown.
+  </Step>
+  <Step title="Review the row">
+    Check the product, SKU when supplied, quantity, status, and billing information. Use the remaining pages as needed; these tables show 25 records per page.
+
+    For Sherweb, check the displayed company, billing/commitment information, recurring price and any setup fee when supplied. Missing prices are not evidence that the product is free.
+  </Step>
+  <Step title="Open Pax8 details when needed">
+    Select a Pax8 row, or use its **… > View Details** action. Review the company, quantity, status, billing term, commitment, dates, and **Last synced** information.
+
+    MSP users with the required management permission can see pricing that is not shown in the Company subscription detail view. A missing price field does not imply a zero price.
+  </Step>
+</Steps>
+
+## Understand quantity controls
+
+A **Self-Service** badge or **Change Quantity** action indicates that quantity-change controls are enabled for that subscription. The Pax8 detail dialog can also show minimum, maximum, increment, and approval requirements.
+
+If available, **Change Quantity** opens a separate dialog. Enter the desired new total quantity, not just the number to add. For example, moving from 10 to 12 means entering 12. Check the displayed constraints and change summary before submitting.
+
+Sherweb uses **Request quantity change** on the subscription row. These request controls do not assign licenses to individual employees. If the control is absent, disabled, or returns an error, ask your MSP to check the allowed change and workflow.
+
+<Note>
+Do not assume that a request, approval, or **Update Quantity** button means the distributor has applied the change. Keep the submission result, check Requests when available, and confirm fulfillment with your MSP before relying on the new quantity.
+</Note>
+
+## Interpret the summary
+
+Pax8 summary cards show information for the selected company scope. They do not necessarily recalculate to match the table’s Product, Vendor, or Status filters. A summary count can therefore differ from the filtered row count.
+
+The subscription quantity is an imported subscription total, not a count of employees who currently have a license assigned. **Last synced** identifies the supplied synchronization date; recent provider changes can appear later.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Where are cancelled or trial subscriptions?">
+    Pax8 starts with the **Active** status filter. Change or clear it and check the available pages.
+  </Accordion>
+  <Accordion title="Does quantity mean the number of licensed employees?">
+    It is the subscription quantity supplied by the provider. Individual user assignments are a separate task.
+  </Accordion>
+  <Accordion title="Do I enter 2 or 12 to increase from 10 to 12?">
+    Enter the new total, **12**, and check the change summary before submitting.
+  </Accordion>
+  <Accordion title="Why is Change Quantity missing?">
+    Your MSP may not allow quantity changes for that subscription. Permission and provider-specific requirements also apply. Ask your MSP to check the request you need.
+  </Accordion>
+  <Accordion title="Can I cancel a subscription by entering zero?">
+    The current request controls require a positive quantity and can impose a higher minimum. Ask your MSP about cancellation and the subscription’s commitment terms.
+  </Accordion>
+  <Accordion title="Can I export the subscription table to CSV?">
+    These subscription tables do not currently provide a CSV export action. Ask your MSP for a distributor report if you need a complete export.
+  </Accordion>
+  <Accordion title="Why does a summary show more subscriptions than the filtered table?">
+    Summary cards describe the company scope; table filters can narrow only the rows. Check the active status and other filters before comparing counts.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Storefront](/user-guides/storefront/index)
+- [Review Azure usage](/user-guides/storefront/view-azure-usage)

@@ -1,295 +1,92 @@
 ---
-title: Microsoft 365 Secure Score
-description: Monitor and improve your Microsoft 365 security posture with actionable recommendations
-icon: shield-check
+title: 'Read Microsoft Secure Score'
+description: 'Review your company’s Microsoft score, control status and available security evidence.'
+icon: 'shield-check'
 ---
 
-The Microsoft 365 module provides comprehensive security monitoring through Microsoft Secure Score. Track your organization's security posture, view recommendations, and create action plans to improve your security configuration.
+Open **Cloud > Posture > Secure Score** to review the latest stored Microsoft security score and recommendations for your company. From the multi-company Posture overview, opening a Microsoft row also opens that company's Secure Score.
 
-## Accessing M365 Secure Score
+**Audience:** Company users with Microsoft 365 read access and MSP staff. Company users ask their MSP to change permissions or security settings.
 
-1. Click **Microsoft 365** in the sidebar
-2. The Secure Score dashboard displays your security metrics and controls
+## Open the right company
 
-<Frame>
-  <img src="/images/microsoft-365/secure-score-main-view.png" alt="M365 Secure Score Overview" />
+1. Open **Cloud**, then **Posture**, then **Secure Score** when available.
+2. Check the company in the top bar. MSP staff should select one company before reviewing its score or planning work.
+3. Read the summary, then use **Needs attention**, **Addressed** or **All** to choose controls.
+4. Click a control's **Title** to read its detail panel.
+5. Company users can [start with the Home AI Assistant](/user-guides/ticketing/open-a-ticket) to request help. Include the company, control title and concern.
+
+An empty page can mean no stored score is available for the selected scope. It does not mean the company passed every security check. Ask the MSP to check the connection and synchronization.
+
+## Read the summary
+
+| Card | What it tells you |
+| --- | --- |
+| **Secure Score** | Stored points achieved out of available points. |
+| **Score Percentage** | Overall score rounded to a whole percentage. |
+| **Industry Comparison** | Available Microsoft comparison data. The current reader selects the all-tenant comparison when supplied; do not assume it matches your industry or company size. A dash means no usable comparison is displayed. |
+| **30-Day Trend** | A comparison using up to 30 stored samples. Samples are not guaranteed to cover 30 consecutive days. See the current limitation below. |
+| **Category cards** | Points and percentages for available categories such as Apps, Data and Identity. Only categories present in the loaded data appear. |
+
+<Warning>
+The current **30-Day Trend** can display the change with its direction reversed. Do not use its plus/minus sign to conclude that security improved or worsened. Ask your MSP to compare dated source scores until this is corrected.
+</Warning>
+
+The summary is separate from the filtered controls table. Changing a table filter does not recalculate these cards. Category totals and the overall score can use different synchronized datasets; their totals need not match. A score is configuration evidence, not a guarantee of security or proof of an incident.
+
+## Choose a control view
+
+<Frame caption="Example counts depend on the company and synchronized controls.">
+  <img src="/images/product/secure-score-view-controls.png" alt="Secure Score Needs attention, Addressed and All views." width="556" height="78" />
 </Frame>
 
-## Summary Dashboard
-
-The summary section displays key metrics and category breakdowns:
-
-### Main Metrics
-
-| Metric | Description |
-|--------|-------------|
-| **Secure Score** | Points achieved out of total available (e.g., 53/64) |
-| **Score Percentage** | Overall progress percentage with visual progress bar |
-| **Industry Comparison** | How your score compares to industry average |
-| **30-Day Trend** | Score change over the past month |
-
-<Tip>
-The Industry Comparison shows how your organization compares to similar organizations. A positive difference means you're ahead of the average.
-</Tip>
-
-### Category Breakdown
-
-The summary also displays score breakdowns by security category:
-
-| Category | Description |
-|----------|-------------|
-| **Identity** | User authentication and access management controls |
-| **Device** | Device security and compliance controls |
-| **Apps** | Application security and permissions controls |
-| **Data** | Data protection and information governance |
-| **Infrastructure** | Infrastructure and network security controls |
-
-Each category card shows:
-- Percentage score for that category
-- Points achieved vs. available
-- Color-coded progress indicator (green, yellow, orange, or red based on score)
-
-### Collapsing the Summary
-
-Click **Collapse Summary** to minimize the summary cards and focus on the controls list.
-
-## Security Controls
-
-### Controls Table
-
-The controls table lists all security recommendations with:
-
-| Column | Description |
-|--------|-------------|
-| **Title** | Name of the security control |
-| **Company** | Associated Microsoft tenant |
-| **Category** | Control category (Identity, Apps, Data) |
-| **Service** | Microsoft service (AzureAD, MS Teams, Exchange) |
-| **Severity** | Critical, High, Medium, or Low |
-| **Max Points** | Points available if implemented |
-| **Status** | Open, Completed, or In Progress |
-
-### Sorting and Filtering
-
-- **Sort by column** - Click column headers to sort
-- **Search** - Use the search box to find specific controls
-- **Filter** - Click the filter icon to apply filters
-
-### Severity Levels
-
-| Severity | Description |
-|----------|-------------|
-| **Critical** | High-impact security issues requiring immediate attention |
-| **High** | Important security gaps that should be prioritized |
-| **Medium** | Moderate security improvements |
-| **Low** | Minor enhancements for comprehensive security |
-
-## Control Details
-
-Click any control row to view detailed information:
-
-<Frame>
-  <img src="/images/microsoft-365/m365-control-details.png" alt="Control Details Panel" />
-</Frame>
-
-### Details Section
-
-| Field | Description |
-|-------|-------------|
-| **Status** | Current implementation state |
-| **Max Points** | Score points available |
-| **Service** | Microsoft service affected |
-| **Category** | Control category |
-| **Severity** | Risk level |
-| **Implementation Cost** | Effort required (Low, Medium, High) |
-
-### Remediation Steps
-
-Each control includes step-by-step remediation instructions:
-
-1. Specific actions to take
-2. Portal navigation paths
-3. Settings to configure
-4. Verification steps
-
-### Impact Information
-
-| Field | Description |
-|-------|-------------|
-| **User Impact** | Effect on end users (Low, Medium, High) |
-| **Remediation Impact** | Overall impact of implementing the fix |
-
-### Recent Scores
-
-View historical score data for the control to track progress over time.
-
-## Taking Action
-
-### Add to Planner
-
-Create a planner task to track implementation:
-
-<Steps>
-  <Step title="Click Add to Planner">
-    From the control details panel, click **Add to Planner**
-  </Step>
-  <Step title="Review Pre-filled Data">
-    The dialog pre-populates with control information
-  </Step>
-  <Step title="Configure Task Details">
-    Set due date, status, business value, and estimates
-  </Step>
-  <Step title="Use AI Draft">
-    Click **AI Draft** to generate a comprehensive summary
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the planner task
-  </Step>
-</Steps>
-
-<Frame>
-  <img src="/images/microsoft-365/secure-score-add-to-planner-dialog.png" alt="Add to Planner Dialog" />
-</Frame>
-
-#### Planner Task Fields
-
-| Field | Description |
-|-------|-------------|
-| **Company** | Associated company |
-| **Title** | Editable task title |
-| **Due Date** | Target completion date |
-| **Status** | Not Started, In Progress, Completed |
-| **Type** | Task categorization |
-| **Business Value** | High, Medium, Low |
-| **Est. Hours** | Estimated implementation time |
-| **Est. Cost** | Estimated implementation cost |
-| **Probability of Success** | Confidence slider (0-100%) |
-
-#### Using AI Draft
-
-The **AI Draft** feature automatically generates professional notes from your selected security controls.
-
-**Before AI Draft** - The Notes section starts empty:
-
-<Frame>
-  <img src="/images/microsoft-365/secure-score-add-to-planner-dialog.png" alt="Add to Planner Dialog - Before AI Draft" />
-</Frame>
-
-**After AI Draft** - Click the **AI Draft** button to generate comprehensive documentation:
-
-<Frame>
-  <img src="/images/microsoft-365/secure-score-ai-draft-generated.png" alt="Add to Planner Dialog - After AI Draft" />
-</Frame>
-
-AI Draft creates:
-- **Summary** - Clear description of what needs to be done and expected impact
-- **Actions Required** - Specific configuration steps for each control
-- **Business Impact** - Security benefits and risk reduction explanation
-- **Next Steps** - Actionable implementation checklist
-
-#### Relationships
-
-Link the task to:
-- **Linked Findings** - Related security controls
-- **Goals** - Strategic objectives
-- **Compliance Items** - Regulatory requirements
-
-### Add to Meeting
-
-Add the control to an upcoming meeting agenda:
-
-<Steps>
-  <Step title="Click Add to Meeting">
-    From the control details, click **Add to Meeting**
-  </Step>
-  <Step title="Select Meeting">
-    Choose an existing or create a new meeting
-  </Step>
-  <Step title="Configure Agenda Item">
-    Set discussion time and presenter
-  </Step>
-</Steps>
-
-### Open in Portal
-
-Click **Open in Portal** to navigate directly to the Microsoft admin portal where you can implement the fix.
-
-## Bulk Actions
-
-### Selecting Multiple Controls
-
-Select multiple security controls to process them together:
-
-1. Use the checkbox next to each control to select individual items
-2. Click **Select All** to select all visible controls
-3. Click the **Actions** dropdown to view bulk action options
-
-<Frame>
-  <img src="/images/microsoft-365/secure-score-bulk-actions.png" alt="Bulk Actions Menu" />
-</Frame>
-
-### Available Bulk Actions
-
-| Action | Description |
-|--------|-------------|
-| **Add to Meeting** | Add selected controls to an upcoming meeting agenda |
-| **Add to Planner** | Create a single planner task combining all selected controls |
-| **Create Individual Tasks** | Create separate planner tasks for each selected control |
-
-## Best Practices
-
-### Prioritization Strategy
-
-1. **Start with Critical** - Address Critical severity items first
-2. **High-Point Items** - Focus on controls with highest point values
-3. **Low Implementation Cost** - Quick wins with minimal effort
-4. **User Impact Consideration** - Balance security with user experience
-
-### Regular Reviews
-
-- **Weekly** - Review Critical and High severity items
-- **Monthly** - Assess overall score progress
-- **Quarterly** - Comprehensive security posture review
-
-### Documentation
-
-- Create planner tasks for all implementations
-- Use AI Draft to document remediation plans
-- Track score changes after implementations
-
-## Prerequisites
-
-Before using M365 Secure Score:
-
-1. **Microsoft 365 Integration** - Enable in Settings → Integrations
-2. **Permissions** - Global Administrator or Security Administrator role
-3. **Tenant Access** - Valid Microsoft 365 subscription
-
-## Troubleshooting
-
-### Score Not Updating
-
-- Microsoft Secure Score updates may have up to 24-hour delay
-- Verify integration permissions are still valid
-- Check Microsoft 365 service health status
-
-### Controls Not Loading
-
-- Refresh the page
-- Check network connectivity
-- Re-authenticate the Microsoft 365 integration
-
-### Implementation Not Reflected
-
-- Allow 24-48 hours for Microsoft to detect changes
-- Verify the configuration was applied to all users/groups
-- Check for policy conflicts
-
-## Related Resources
-
-- [M365 Licenses](/user-guides/microsoft-365/licenses) - License usage monitoring
-- [M365 Domains](/user-guides/microsoft-365/domains) - Domain management
-- [Calendar Module](/user-guides/calendar/index) - Meeting scheduling
-- [Planner Module](/user-guides/planner/index) - Task management
-- [Compliance Module](/user-guides/compliance/index) - Compliance tracking
-- [Settings - Integrations](/user-guides/settings/integrations) - Integration configuration
+| View | Included statuses |
+| --- | --- |
+| **Needs attention** | To address, Planned and Unknown. This is the initial view. |
+| **Addressed** | Risk accepted, Resolved externally, Reviewed and Completed. |
+| **All** | Both groups. |
+
+**Addressed does not mean Completed.** Read each status and its supporting detail. Planning work in MSPortal does not itself update Microsoft's control status. Switching views clears checked rows and can close a detail panel if that control is outside the new view.
+
+## Understand the columns
+
+**Title** opens the control. **Category** and **Service** describe its area. **Max Points** is its maximum value, not the remaining score improvement. **Status** reflects the available Microsoft state, with a score-based fallback when no specific state is supplied. Unrecognized states may retain their provider wording and belong to the Unknown filter group.
+
+**Severity** is derived from the recommendation tier: Core is Critical, Advanced is High, Defense in depth is Medium, and an unrecognized tier is Informational. It does not prove an active threat. The **Planner** column appears with appropriate Planner access and can open linked work. A blank cell does not prove that nobody has planned similar work.
+
+## Related guides
+
+- [Find and filter Secure Score controls](/user-guides/microsoft-365/find-secure-score-controls)
+- [Read a Secure Score control](/user-guides/microsoft-365/read-secure-score-control)
+- [Export Secure Score controls](/user-guides/microsoft-365/export-secure-score)
+- [Plan work from Secure Score](/user-guides/microsoft-365/plan-secure-score-work)
+- [Read cloud security posture](/user-guides/cloud/posture)
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where is Microsoft Secure Score now?">
+    Open Cloud > Posture > Secure Score, or open a Microsoft row in the multi-company Posture overview. The older Microsoft 365 entry is not the current sidebar path.
+  </Accordion>
+  <Accordion title="Does Addressed mean every recommendation was completed?">
+    No. Addressed also includes Risk accepted, Resolved externally and Reviewed. Check the individual status.
+  </Accordion>
+  <Accordion title="Why is a Planned control still under Needs attention?">
+    Planned is an attention status. Creating an MSPortal Planner item does not automatically change Microsoft’s state or complete the control.
+  </Accordion>
+  <Accordion title="Can I trust the direction shown by 30-Day Trend?">
+    Not currently. Its sign can be reversed. Ask the MSP to compare dated source scores instead of relying on the sign.
+  </Accordion>
+  <Accordion title="Does Industry Comparison represent companies in my industry?">
+    Do not assume that. The current reader uses available all-tenant comparison data. Missing comparison data displays a dash.
+  </Accordion>
+  <Accordion title="Why do the summary cards stay the same after filtering?">
+    They summarize the stored score independently of the controls table. Filters narrow controls, not the summary score.
+  </Accordion>
+  <Accordion title="Does Critical mean an attack was detected?">
+    No. Severity comes from the recommendation tier. Review the recommendation and supporting evidence with the MSP.
+  </Accordion>
+  <Accordion title="Can Company administrators change these settings or their own permissions?">
+    Ask the MSP to manage access and security changes. Start with the Home AI Assistant for a support request; viewing a score does not authorize or apply a change.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,68 @@
+---
+title: 'Read a Secure Score control'
+description: 'Open the recommendation, review remediation and dated evidence, and identify the next action.'
+icon: 'shield-check'
+---
+
+**Audience:** Company users with Microsoft 365 read access and MSP staff. Company users request changes from their MSP.
+
+## Open and read a control
+
+1. Open **Cloud > Posture > Secure Score** and find the recommendation. Use **All** if its status is unknown.
+2. Click its linked **Title**. Clicking elsewhere in the row is not the detail action.
+3. In the right-hand panel, review the title, service, status, maximum points, category, severity and implementation cost when available.
+4. Read **Summary** and **Remediation**, which start expanded when present.
+5. Expand any available **User Impact**, **Remediation Impact**, **Threats**, **Recent Scores** or **History** sections.
+6. Close with **Close details** or Escape to return to the table.
+
+<Frame caption="Expand or collapse a section using its heading.">
+  <img src="/images/product/secure-score-remediation-section.png" alt="Expanded Remediation section heading in a Secure Score control." width="1198" height="88" />
+</Frame>
+
+A control can lack some sections. Additional profile and history information loads after opening the panel. An absent section does not prove there is no risk, impact or historical change. If expected guidance stays missing, ask the MSP to check the synchronized source.
+
+## Interpret the evidence
+
+Remediation describes the provider recommendation; reading it does not apply a setting. Threats describe relevant risks, not necessarily detected incidents. Max Points is the control's maximum score value, not a promise of that many additional points.
+
+**Recent Scores** contains up to 30 stored score records, newest first. **History** contains up to 30 available state changes with provider comments and attribution where supplied. These are records, not guaranteed consecutive daily observations. This panel has no edit-status, accept-risk or mark-completed control.
+
+## Choose a follow-up
+
+| Available action | Result |
+| --- | --- |
+| **Open in Planner**, or a linked Planner item | Opens already linked work when your role can read Planner. |
+| **Add to Planner** | Opens an editor for proposed work when allowed. Saving creates work; opening the editor does not. |
+| **Add to Meeting** | Opens a dialog to select an existing upcoming company meeting and add an agenda item. |
+| **Open in Portal** | Opens the supplied external provider link when available. Provider sign-in and permissions still apply. |
+
+Action availability depends on access, linked records and source data. Company users should [start with the Home AI Assistant](/user-guides/ticketing/open-a-ticket) to ask their MSP about remediation. Include the exact control title, company, status and any relevant dated evidence. MSP staff can use [planning actions](/user-guides/microsoft-365/plan-secure-score-work).
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where do I read remediation instructions?">
+    Click the linked Title in Secure Score. Read the Remediation section of the right-hand detail panel when source guidance is available.
+  </Accordion>
+  <Accordion title="Why does clicking the row not open the control?">
+    Use the linked Title. The surrounding row is not the detail-opening control.
+  </Accordion>
+  <Accordion title="Does an absent User Impact section mean there is no impact?">
+    No. Optional sections depend on loaded source information. Missing evidence is not a no-impact result.
+  </Accordion>
+  <Accordion title="Are Recent Scores always the last 30 days?">
+    No. The panel shows up to 30 stored records, newest first; gaps and collection timing can change the date range.
+  </Accordion>
+  <Accordion title="Can I accept risk or mark the control complete here?">
+    The reader has no such status-editing action. Ask the MSP to use the appropriate provider workflow.
+  </Accordion>
+  <Accordion title="Does Open in Portal automatically remediate the recommendation?">
+    No. It opens an external provider page. Authentication, permissions and any actual change happen there.
+  </Accordion>
+  <Accordion title="Why is Open in Planner missing?">
+    It requires an available linked item and Planner read access. A missing link does not prove similar work has not been created.
+  </Accordion>
+  <Accordion title="How should a Company user request help with a control?">
+    Start with the Home AI Assistant. Include the company, exact title, status and relevant dates. Review and submit the prepared support request.
+  </Accordion>
+</AccordionGroup>

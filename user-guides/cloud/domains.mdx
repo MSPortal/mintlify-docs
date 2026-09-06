@@ -1,96 +1,98 @@
 ---
-title: 'Cloud Domains'
-description: 'Review verified domains, primary domains, and authentication configuration across Microsoft 365 and Google Workspace'
+title: 'Read cloud and registrar domains'
+description: 'Review Microsoft, Google, and DNSimple domain records, summary counts, verification labels, and provider-specific fields.'
 icon: 'globe'
 ---
 
-The **Domains** tab lists every domain registered across your connected Microsoft 365 and Google Workspace tenants, with its verification state and authentication configuration. Unverified domains are a common cause of mail delivery problems and they cost points on the Google Workspace posture score, so this tab is worth a periodic sweep.
+Open **Cloud > Domains** to review synchronized Microsoft 365, Google Workspace, and company-mapped DNSimple registrar records. The list reflects your access, connected services and synchronization; it is not an inventory of every domain the company may own.
 
-## Accessing Cloud Domains
+**Audience:** Company users with Microsoft 365 read access and MSP staff. This read permission covers all three providers on this page. Company users ask their MSP to change permissions, domain configuration or provider connections.
 
-1. Click **Cloud** in the sidebar
-2. Select the **Domains** tab
+## Open the inventory
 
-## What the Table Shows
+1. Open **Cloud**, then select **Domains**.
+2. Check the company selector in the top bar. Select one company if your account can choose companies.
+3. Use **Domain** to find a name and **Provider** to distinguish cloud-service records from registrar records.
+4. Read the recorded fields and synchronization date. The rows do not open a domain editor or detail dialog.
 
-| Column | Description |
-|--------|-------------|
-| **Domain** | The domain name, with a **Primary** badge on the tenant's primary domain |
-| **Provider** | Microsoft 365 or Google Workspace |
-| **Company** | The MSPortal company the domain belongs to |
-| **Verification** | **Verified**, **Unverified**, or **Unknown** |
-| **Authentication** | How sign-in is handled for the domain. Microsoft 365 reports **Managed** or **Federated**. Where a platform does not report a value, the column shows **Not available** |
-| **Aliases** | Alias domains that route to this domain |
-| **Created** | When the domain was added to the tenant (hidden by default) |
-| **Last synced** | When this record was last refreshed (hidden by default) |
+<Frame caption="Provider choices depend on the synchronized records in the current company scope.">
+  <img src="/images/product/cloud-domain-provider-options.png" alt="Cloud Domains Provider choices: DNSimple, Google Workspace, and Microsoft 365." width="480" height="344" />
+</Frame>
 
-### Verification Status
+The same domain can appear more than once across providers or company mappings. A Microsoft record describes the cloud tenant; a DNSimple record describes the registrar inventory. Compare Provider and Company before treating rows as duplicates.
 
-| Status | Meaning |
-|--------|---------|
-| **Verified** | Domain ownership is confirmed through DNS. The domain can carry mail and services |
-| **Unverified** | The domain is registered in the tenant but ownership has not been confirmed |
-| **Unknown** | The platform did not report a verification state for this domain |
+## Read the fields
 
-<Warning>
-An unverified domain cannot reliably carry mail or platform services. On Google Workspace, unverified domains also reduce the **Verified domains** check on the [Cloud Posture](/user-guides/cloud/posture) score, which is worth 10 points and has no warning band.
-</Warning>
+| Field | Meaning in this view |
+| --- | --- |
+| **Domain** | Recorded name, with a Primary badge for a cloud primary/default domain and a Secondary badge for a registrar record missing from synchronized cloud inventory. |
+| **Provider / Company** | Source and mapped company. Provider is omitted for single-provider scope; Company is omitted when the top bar selects one company. |
+| **Verification** | Verified when the stored flag is true; otherwise Unverified, including when no flag is available. |
+| **Services** | Recorded Microsoft supported-service names. Google and DNSimple rows do not supply these values here. A dash is not a service-health result. |
+| **Authentication** | Recorded Microsoft authentication type, such as Managed or Federated. Other providers show a dash; this does not diagnose a sign-in failure. |
+| **Expires** | Available DNSimple registrar expiry date. Cloud-only rows do not supply this date. |
+| **Primary** | Hidden by default. Primary or Secondary here means primary versus non-primary. |
+| **Cloud presence** | Hidden by default. In cloud tenant or Secondary domain, using the distinction below. |
+| **Auto-renew / Registrar status** | Hidden by default. Available DNSimple renewal flag and registrar state. |
+| **Aliases** | Hidden by default. Recorded Google domain aliases; Microsoft and DNSimple do not supply aliases here. |
+| **Created / Last synced** | Hidden by default. Recorded creation/source date and synchronization date. Created is not consistently a domain-registration date across providers. |
 
-## Searching and Filtering
+To show hidden fields, click **Columns**, choose the fields, then **Save Changes**. Cancel or closing the panel discards drafts. Reset also requires Save Changes to apply.
 
-- **Search** matches domain names, company names, and email addresses
-- **Cloud provider** narrows to one platform or shows both
-- **Company** is a multi-select column filter, hidden automatically when you are already scoped to one company
-- Tables load 50 rows per page
+<Note>
+DNSimple records do not supply a cloud-verification flag in this inventory, so they currently display **Unverified**. This label alone is not evidence of failed DNS ownership verification, broken email, or an unsafe domain. Check the corresponding Microsoft or Google record and ask your MSP to confirm the provider state.
+</Note>
 
-## Common Use Cases
+## Distinguish the two meanings of Secondary
 
-<CardGroup cols={2}>
-  <Card title="Verification sweep" icon="circle-check">
-    Review the Verification column across all clients to find unverified domains, which are usually resolved with a single DNS record.
-  </Card>
-  <Card title="Migration cleanup" icon="broom">
-    After a client migration or rebrand, find old domains still attached to the tenant that should be removed.
-  </Card>
-  <Card title="Primary domain check" icon="star">
-    Confirm each client's primary domain matches the address they actually send mail from.
-  </Card>
-  <Card title="Posture remediation" icon="shield-check">
-    When the Google Workspace **Verified domains** check flags a gap, this tab names the specific domain to fix.
-  </Card>
-</CardGroup>
+**Primary = Secondary** means the row is not marked as a cloud primary/default domain. Such a domain can still be present in Microsoft or Google.
 
-## Company Scoping
+**Cloud presence = Secondary domain**, and the Secondary badge beside the name, identify a DNSimple record with no matching domain name in the MSP tenant's synchronized Microsoft or Google domain inventory. The comparison spans company mappings in that MSP tenant. **In cloud tenant** does not prove that the matching cloud record belongs to the same company, that email works, or that the domain is actively used.
 
-The page follows the global company selector. Select a single company to review that client's domains, or view every connected tenant at once. Company users who sign in to the portal see only their own organization.
+Missing synchronization or mapping can affect this classification. Ask your MSP before treating a Secondary domain as unused or safe to remove.
 
-## Permissions
+## Understand the summary
 
-Viewing the Domains tab requires the Microsoft 365 read permission (`read_m365`), which also governs the other Cloud tabs.
+The summary shows **Total domains**, **Verified**, **Primary domains**, **Secondary domains**, and **Companies**. These count synchronized records, not unique domain names or a deduplicated ownership inventory.
 
-## Troubleshooting
+When the top bar selects one company, **Primary domain** shows one recorded primary name instead of a count. If several provider records are primary, the summary still shows only one name; inspect the rows and provider before deciding which primary domain matters.
 
-| Issue | Solution |
-|-------|----------|
-| "No cloud domains match these filters" | Clear the search box, set the provider filter to **Microsoft and Google**, and confirm the company selector is not narrowed |
-| Google Workspace domains missing | Confirm **Domains** is enabled under **Sync settings** on the connection, then click **Sync now** |
-| Verification shows **Unknown** | The platform did not report a state for that domain. It resolves on a subsequent synchronization |
-| A newly added domain is not listed | Domains synchronize on the daily schedule. Click **Sync now** on the connection to refresh immediately |
-| A domain was verified but still shows **Unverified** | Verification is read from the platform. Confirm it in the vendor console, then click **Sync now** |
+Summary figures follow company and provider scope across list pages. They do not follow Domain text, Verification, Primary, Cloud presence or Authentication column filters. The table can therefore be empty while the summary still shows domains.
 
-## Related Resources
+## Request a correction
 
-<CardGroup cols={2}>
-  <Card title="Cloud Posture" icon="shield-check" href="/user-guides/cloud/posture">
-    How domain verification affects the posture score
-  </Card>
-  <Card title="M365 Domains" icon="microsoft" href="/user-guides/microsoft-365/domains">
-    Microsoft domain services and authentication detail
-  </Card>
-  <Card title="Cloud Users" icon="users" href="/user-guides/cloud/users">
-    Identities across both platforms
-  </Card>
-  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
-    Set up per-company connections
-  </Card>
-</CardGroup>
+Company users should [open a ticket from the Home AI Assistant](/user-guides/ticketing/open-a-ticket) with the domain, provider, company and discrepancy. MSP staff verify mappings, synchronization and provider settings. Cloud Domains has no add/delete domain, verify DNS, change primary domain, renew, or Sync now action.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Does Domains support DNSimple as well as Microsoft and Google?">
+    Yes. Company-mapped DNSimple registrar records appear alongside Microsoft 365 and Google Workspace domain records when available.
+  </Accordion>
+  <Accordion title="Why does the same domain appear more than once?">
+    Separate provider records and company mappings can produce multiple rows. Compare Provider and Company; the list and summary do not deduplicate domain names.
+  </Accordion>
+  <Accordion title="Does DNSimple Unverified mean my DNS or email is broken?">
+    No. DNSimple records do not supply a cloud-verification flag here, and the current display falls back to Unverified. Ask your MSP to check the relevant provider state.
+  </Accordion>
+  <Accordion title="Is Secondary in the Primary column the same as Secondary domain?">
+    No. The Primary column means non-primary. Secondary domain under Cloud presence means no matching domain name in the synchronized Microsoft/Google inventory for the MSP tenant.
+  </Accordion>
+  <Accordion title="Does In cloud tenant prove the domain is mapped to the same company?">
+    No. The registrar-to-cloud name comparison spans the MSP tenant. Check the provider and company records before drawing that conclusion.
+  </Accordion>
+  <Accordion title="Why do summary counts stay the same when I filter by Verification?">
+    The summary follows company and provider scope, not Verification or other domain-level column filters. The table result count follows the full active filters.
+  </Accordion>
+  <Accordion title="Can I change DNS, verify ownership, or set a primary domain here?">
+    No. This is a reading page. Ask your MSP to make the appropriate provider change and verify it there.
+  </Accordion>
+  <Accordion title="Does a blank Services or Authentication value show a provider failure?">
+    No. Those fields are supplied for Microsoft records in this view; Google and DNSimple do not supply them here. Missing data is not a health check.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Find and export domains](/user-guides/cloud/filter-domains)
+- [Review domain renewal information](/user-guides/cloud/review-domain-renewals)

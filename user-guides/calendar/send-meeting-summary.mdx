@@ -1,0 +1,123 @@
+---
+title: 'Draft and send a meeting summary'
+description: 'Review recipients, write or generate a summary, and distinguish email delivery from PSA notes and QBR follow-up.'
+icon: 'envelope'
+---
+
+Use **Send Summary** on a company-linked meeting page to compose a follow-up email. You can write it yourself or request an AI draft when AI is available.
+
+**Audience:** MSP staff with meeting write access. Company recipients can [understand a meeting summary](/user-guides/calendar/understand-meeting-summary) and ask their MSP for corrections. A visible Send Summary button does not grant permission to generate or send.
+
+## Open the composer
+
+1. Open the meeting's full workspace from **Calendar > List View** or **My Meetings** using **… > Open Meeting Page**.
+2. Check the meeting title and company, then select **Send Summary**.
+3. Review **To**, **Subject**, and **Email Content**. Opening this standalone page does not generate an AI draft or send an email.
+
+The standalone composer requires a company-linked meeting. If it does not open, check the meeting's company and your access with an MSP administrator.
+
+<Warning>
+The unsent email is not a saved draft. Subject, recipients and editor content remain in the open page only. Cancel, leaving, or reloading can discard them. **Save & exit** in wrap-up does not save an unsent email. Keep a separate copy if you need to return later.
+</Warning>
+
+## Set recipients and subject
+
+**To** starts with the meeting participants' email addresses. Review every address; this is not a client-only recipient list. Assigned staff and company contacts are suggestions, not automatic CC recipients.
+
+- Type a name or address and choose a suggestion, or enter a complete email address. A valid typed address can also become a recipient when the field loses focus.
+- Use arrow keys to select a suggestion and **Enter** or **Tab** to add it. Check that the address appears as a recipient chip before sending.
+- Select **CC** to reveal the CC field. Remove a chip with its × control. **Backspace** in an empty recipient field removes its last chip.
+- Hover a named chip to check its email address. Check To and CC for duplicates and unintended recipients.
+- Edit **Subject**, which initially reads **Meeting Summary: [meeting title]**.
+
+Changing email recipients does not change the meeting's invitation list. At least one To recipient is required; up to 50 To and 50 CC addresses are accepted. The subject is limited to 500 characters.
+
+## Write or generate the content
+
+You can type directly in **Email Content** and use its formatting toolbar. AI is optional.
+
+When available, **Generate with AI** requests a new draft. Choose **Length** (Brief, Standard or Detailed) and **Tone** (Friendly, Neutral or Executive) first. The defaults are Standard and Friendly.
+
+<Frame>
+  <img src="/images/product/meeting-summary-generate-button.png" alt="Generate with AI button for requesting a meeting summary draft" width="320" height="80" />
+</Frame>
+
+Once the editor contains text, the button becomes **Regenerate**. Regeneration replaces the editor content when it succeeds, including your manual edits. Changing length, tone or recipients does not automatically rewrite an existing draft. Review the greeting again after changing To recipients.
+
+The wrap-up's Summary step can request its initial AI draft automatically when opened. This differs from the standalone composer. Moving backward and forward within that same open wrap-up keeps the mounted email editor; leaving or reloading the page does not preserve it.
+
+### Understand Based on
+
+After generation, **Based on** reports which source categories were available: **Meeting notes**, **Agenda**, **Action items**, and **Transcript**. It describes the draft's inputs, not independently verified facts or every field in the source records.
+
+The draft uses saved public meeting notes, agenda titles/notes with additional budget context, action-item details and available transcript text. **Private Notes** is not the public meeting-notes source. Do not assume that hidden presentation items are excluded: the summary's agenda inputs are separate from slide visibility.
+
+Long transcripts can be shortened for drafting; **Transcript (shortened)** identifies that case. Generated transcript notes can be used when transcript text is absent. A missing-source message means little material was available for the draft, not that the meeting had no discussion.
+
+Review dates, amounts, recipients, wording and commitments against the actual meeting. Remove internal discussion or details that should not be emailed. Generation does not apply new meeting notes, create action items, or send the draft.
+
+## Optionally add a public PSA ticket note
+
+When a default PSA is configured, the composer can show **Add as note to [provider] ticket**. The provider label follows your configured PSA; this workflow supports ConnectWise, Autotask, Halo and Syncro through the ticket-note integration.
+
+1. Turn on the ticket-note option.
+2. Enter a ticket number or summary in **Search Ticket**.
+3. Choose the intended ticket and verify its number, title and company.
+
+Ticket-note access is separate from meeting write access. The email can send even if you lack permission to add its ticket note.
+
+Searching and selecting do not post a note. The note is attempted **after the email is sent**. It is a public ticket note, not an internal note; use content suitable for the ticket's client audience. Provider formatting and notification behavior can differ.
+
+Search uses the default PSA, meeting company and your ticket visibility. If no result appears, check those settings and synchronization. An empty result can also reflect a search failure; it does not prove that the ticket does not exist. Turn the option off if you intend to send without a ticket note.
+
+## Send and check the outcome
+
+Review the final To/CC chips, subject, body and optional selected ticket, then choose **Send Email**. There is no additional review screen after that button. Wait for the result.
+
+The email is sent from your MSPortal account using the tenant's configured sending identity. Your profile name used in an AI sign-off does not mean the message is sent from your personal mailbox. The composer does not offer delegated Microsoft 365 sending.
+
+| Result | What it means |
+| --- | --- |
+| Missing recipient, subject or content | Correct the indicated field. |
+| Ticket selection required | Select a ticket or turn off the ticket-note option. |
+| Email sent successfully | The sending service accepted the request; this is not proof that every recipient received or read it. |
+| Email sent, but failed to link to ticket | The email was already sent. Check the ticket and resolve the note separately rather than resending the email just to retry the note. |
+| An error or uncertain result | Check for an existing email or ticket note before retrying to avoid duplicates. |
+
+Sending may mark an existing, non-dismissed wrap-up completed. That update is separate from email delivery. Sending does not mark the meeting itself Completed.
+
+## Understand QBR follow-up
+
+For eligible company meetings, automatic QBR logging can run after sending when enabled in Calendar settings. It can create/update a company log entry and add new commitments as meeting action items. A configured QBR PSA sync can also update the provider's company record independently of the optional ticket note.
+
+Automatic logging skips technical visits, service calls and internal meetings, and preserves manually edited entries. Email success does not prove that QBR generation, action-item creation or PSA synchronization succeeded. Review the [QBR log](/user-guides/calendar/account-notes) and meeting action items separately.
+
+Wrap-up may open **QBR Log** after sending; the standalone composer returns to the meeting workspace. A pending QBR indicator does not guarantee an entry will be created.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does opening Send Summary send an email or generate AI content?">The standalone page does neither. Generate with AI drafts content; Send Email sends it. The wrap-up Summary step can automatically request its initial AI draft.</Accordion>
+  <Accordion title="Is an unsent summary saved when I leave?">No. The email editor, recipients and subject are page state. Cancel, leaving or reloading can discard them. Wrap-up Save & exit does not persist the unsent email.</Accordion>
+  <Accordion title="Can I write the summary without AI?">Yes. Write and format Email Content yourself. Sending still requires meeting write access and valid recipients, subject and content.</Accordion>
+  <Accordion title="Does Regenerate keep my manual edits?">No. A successful regeneration replaces the editor content. Keep a copy first if you need those edits.</Accordion>
+  <Accordion title="Does changing recipients update the AI greeting?">Not automatically. Review and edit the existing greeting, or deliberately regenerate using the new To list.</Accordion>
+  <Accordion title="Are all To recipients Company contacts?">No. To is prefilled from meeting participant email addresses, which can include staff or other guests. Review each address.</Accordion>
+  <Accordion title="Does adding a summary recipient invite them to the meeting?">No. It changes the outgoing email's recipients, not the meeting invitation list.</Accordion>
+  <Accordion title="Does Based on prove that the draft is accurate?">No. It reports source categories supplied for drafting. Check the resulting facts, dates, amounts and commitments yourself.</Accordion>
+  <Accordion title="Are agenda items hidden from presentation excluded from the summary?">Not necessarily. Summary agenda inputs are separate from slide visibility. Review the draft before emailing it.</Accordion>
+  <Accordion title="Why does the source say Transcript (shortened)?">The transcript exceeded the portion used for drafting. Review the original transcript and add any important missing discussion.</Accordion>
+  <Accordion title="Is the email sent from my personal Microsoft 365 mailbox?">No. This composer sends through the MSPortal account using the tenant's configured sending identity. An AI sign-off can still use your profile name.</Accordion>
+  <Accordion title="Does selecting a ticket immediately add a note?">No. The public ticket note is attempted after Send Email succeeds. Searching and selecting alone do not post it.</Accordion>
+  <Accordion title="Which PSA providers support the summary ticket-note workflow?">The integration path supports ConnectWise, Autotask, Halo and Syncro. The composer uses your configured default PSA and your visible tickets.</Accordion>
+  <Accordion title="Should I resend if the email succeeded but ticket linking failed?">Do not resend just to retry the note. The email was already sent; verify the ticket and resolve the note separately.</Accordion>
+  <Accordion title="Does a successful send prove delivery or that the recipient read it?">No. It confirms acceptance by the sending service, not delivery to every mailbox or reading by recipients.</Accordion>
+  <Accordion title="Does sending complete the meeting or guarantee a QBR entry?">No. Meeting status is separate. An existing wrap-up can be marked completed, and eligible QBR follow-up runs separately when enabled.</Accordion>
+  <Accordion title="Can I reopen the composer to retrieve the last sent body?">Do not rely on it as sent-email history. The composer starts with an empty body and default recipients/subject. Keep the actual sent email for reference.</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Meeting summaries and wrap-up](/user-guides/calendar/meeting-summaries)
+- [Read a meeting workspace](/user-guides/calendar/read-meeting-workspace)
+- [Understand a meeting summary](/user-guides/calendar/understand-meeting-summary)

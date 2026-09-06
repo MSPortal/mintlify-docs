@@ -1,0 +1,98 @@
+---
+title: "Update a company’s Standards deployments"
+description: "Record a deployment status or implementation choice and check the linked Planner result."
+icon: "circle-check"
+---
+
+**Audience:** MSP staff maintaining deployment records. Company users should [read their shared Standards work in Planner](/user-guides/planner/understand-standards-items).
+
+Open **MSP Tools > Standards**. Viewing needs Standards read access; changing a status needs Planner Write permission and active billing. Catalog management is a separate permission and is not required for these matrix actions.
+
+## Change one company and one standard
+
+1. Check the company scope at the top, then use **Search companies...** to find the company.
+2. Find the intersection of its row and the intended standard column. Read the category and item name, especially when similar names exist.
+3. **Right-click the status cell**. Check that the menu header identifies the correct company and standard.
+4. Select the status or configured deployment option. This saves immediately; there is no second confirmation or Save button.
+5. Wait for the result, then reopen the matrix and check the linked Planner item where present.
+
+Press **Escape** or click outside the menu to dismiss it before choosing. A normal click on a linked cell opens Planner work; it does not open the status menu or create a missing task.
+
+## Choose the recorded status
+
+| Menu choice | Recorded meaning | Linked Planner status |
+| --- | --- | --- |
+| Mark Deployed | The standard is recorded as deployed. | Completed |
+| Mark In Progress | Deployment is underway. | In Progress |
+| Mark Not Started | Deployment has not started. | Not Started |
+| Mark N/A | The standard is not applicable to this company. | Cancelled |
+| Mark Declined | The recommendation was declined. | Cancelled |
+
+N/A and Declined do not count as missing applicable required checks. They describe different situations even though both map to Cancelled in Planner. Deployed is an MSP-maintained record, not a fresh endpoint scan or proof that an integration installed the product.
+
+A direct matrix status change can replace the linked Planner status, including On Hold or Pending Approval. The separate background sync preserves those Planner-only states, but that is not a promise that an explicit matrix change will preserve them.
+
+## Choose a deployment option
+
+When the MSP has [configured deployment options](/user-guides/settings/standards-tiers), the cell menu lists them under tier headings. Select the actual implementation. Choosing an option also marks the standard **Deployed**.
+
+Use **Deployed — option not specified** when the deployment is known but its implementation is not classified. This clears the selected option for that cell. With no configured options, the simpler **Mark Deployed** appears.
+
+Changing to In Progress, Not Started, N/A or Declined does not necessarily erase the previously selected option. Review the option when marking the item Deployed again. A deployment below the target can remain Deployed; its tier shows that an upgrade is still needed.
+
+## Verify the change
+
+A cell updates on screen before the complete save finishes. Read any error, refresh the page and compare it with the linked Planner work. A status update can save in Standards while the later Planner update fails; a visible rollback or error does not guarantee every stored change was undone.
+
+These menus do not edit notes. A single-cell update can clear an existing stored Standards note. If your team relies on those notes, verify them after changing the status. Linked Planner public and private notes are separate from that Standards note.
+
+If the cell has no linked task, changing status can create or update tracking without creating Planner work. Ask the MSP administrator to review [Standards sync](/user-guides/settings/sync-standards) rather than repeatedly clicking the cell.
+
+For several changes, read [Update Standards in bulk](/user-guides/msp-tools/bulk-update-standards) first. Its company and column menus have broader scopes.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where can I mark a standard Deployed for one company?">
+    Open MSP Tools > Standards, find the company/standard intersection, right-click its status cell and choose Mark Deployed or the configured implementation.
+  </Accordion>
+  <Accordion title="What permission is needed to update the matrix?">
+    Standards read access lets you view it; matrix changes require Planner Write permission and active billing. Catalog Manage permission is separate.
+  </Accordion>
+  <Accordion title="Does selecting a status need another Save?">
+    No. Choosing a status or deployment option saves immediately.
+  </Accordion>
+  <Accordion title="How do I dismiss the menu without changing anything?">
+    Press Escape or click outside before selecting an action.
+  </Accordion>
+  <Accordion title="Why does a normal click open Planner instead?">
+    A normal click on a linked cell opens its Planner item. Right-click the status cell to change the deployment record.
+  </Accordion>
+  <Accordion title="What is the difference between N/A and Declined?">
+    N/A means not applicable; Declined means the recommendation was declined. Both map to Cancelled in Planner and are excluded from applicable required checks.
+  </Accordion>
+  <Accordion title="Does Mark Deployed install the product?">
+    No. It records deployment; it does not install software or verify live endpoint health.
+  </Accordion>
+  <Accordion title="How do I classify which implementation a company uses?">
+    Select the configured deployment option under its tier heading in the cell menu. That also marks the standard Deployed.
+  </Accordion>
+  <Accordion title="How do I clear a deployment option while keeping Deployed?">
+    Choose Deployed — option not specified when the standard has configured options.
+  </Accordion>
+  <Accordion title="Does changing away from Deployed erase its option?">
+    Not necessarily. Check the selected implementation when marking it Deployed again.
+  </Accordion>
+  <Accordion title="Can a direct matrix edit replace On Hold in Planner?">
+    Yes. Explicit matrix status changes can replace the linked status; background sync has different preservation behavior.
+  </Accordion>
+  <Accordion title="Does changing a cell create its missing Planner item?">
+    No. It can create tracking without creating linked work. Ask the MSP administrator to review Standards sync.
+  </Accordion>
+  <Accordion title="Can a failed change have partly saved?">
+    Yes. Standards and linked Planner updates are separate. Reopen both before deciding what to retry.
+  </Accordion>
+  <Accordion title="Are existing notes always preserved by a single-cell status edit?">
+    No. A single-cell update can clear a stored Standards note. Linked Planner public and private notes are separate; verify the context your team needs.
+  </Accordion>
+</AccordionGroup>

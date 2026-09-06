@@ -1,253 +1,70 @@
 ---
 title: 'Standards'
-description: 'Track tool deployments across your client base with a compliance matrix and automatic planner integration'
+description: 'Review recorded technology deployments and the related Planner work for your companies.'
 icon: 'wrench'
 ---
 
-Standards (formerly Tool Stack) gives you a bird's-eye view of which tools each company in your portfolio has deployed. Define your recommended technology stack, then track deployment status across all companies using a compliance matrix that automatically creates planner items for tracking.
+**Audience:** MSP staff. Company users can [read Standards work shared in Planner](/user-guides/planner/understand-standards-items). The MSP manages the catalog, deployment choices, permissions and client visibility.
 
-<Note>
-This feature was previously called **Tool Stack**. The page now lives at `/standards` and the settings page lives at `/settings/standards`. Old `/tool-stack` URLs continue to work and redirect.
-</Note>
+Standards, formerly Tool Stack, records deployment progress against your MSP's recommended tools and practices. It is available under **MSP Tools > Standards** when the feature and Standards read access are enabled.
 
-## Overview
+## Choose your task
 
 <CardGroup cols={2}>
-  <Card title="Compliance Matrix" icon="table-cells">
-    A grid view showing every company against every tool in your stack, with color-coded deployment statuses.
+  <Card title="Read the matrix" icon="table-cells" href="/user-guides/msp-tools/read-standards-matrix">
+    Find a company, interpret statuses and required checks, and understand the effect of filters and exclusions.
   </Card>
-  <Card title="Planner Integration" icon="list-check">
-    Automatically creates planner items when tools are synced to companies, so deployment tasks appear in your team's workflow.
+  <Card title="Read the related Planner work" icon="list-check" href="/user-guides/planner/understand-standards-items">
+    Understand the Standards source label, different status names, shared estimates and Company visibility.
   </Card>
-  <Card title="Category Organization" icon="folder">
-    Group tools into categories like Security, Backup, Cloud, and Monitoring for clear organization.
+  <Card title="Update a company’s Standards deployments" icon="circle-check" href="/user-guides/msp-tools/update-standard-deployments">
+    Record a status or implementation for one company and standard.
   </Card>
-  <Card title="Health Score Integration" icon="heart-pulse">
-    Standards deployment percentages feed directly into the Client Health Standards dimension score.
+  <Card title="Update Standards in bulk" icon="table-cells" href="/user-guides/msp-tools/bulk-update-standards">
+    Check company and column scope before changing several records.
+  </Card>
+  <Card title="Exclude or include companies in Standards" icon="eye-slash" href="/user-guides/msp-tools/manage-standards-exclusions">
+    Remove or restore a company’s participation in Standards scoring.
+  </Card>
+  <Card title="Configure Standards" icon="gear" href="/user-guides/settings/standards">
+    MSP settings for categories, standards and synchronization.
+  </Card>
+  <Card title="Review Planner items" icon="calendar-days" href="/user-guides/planner/find-planner-items">
+    Find and open the planning tasks linked to deployment records.
   </Card>
 </CardGroup>
 
-## Setting Up Your Standards
+## Read progress before changing it
 
-Before using the compliance matrix, you need to define the categories and tools you want to track.
+The matrix has company rows and standard columns grouped into categories. It records **Deployed**, **In Progress**, **Not Started**, **N/A** and **Declined**. A deployed result can be unclassified or have a configured tier. Deployment progress and meeting a target tier are separate questions.
 
-### Managing Categories
+Required checks determine the deployment percentage. Optional standards appear separately, while a **1 of N** category counts as one check. Search and company scope change the displayed summary; excluded companies do not contribute even when shown. A percentage alone is not proof that every device is protected or every recommendation is deployed.
 
-Navigate to **Settings > MSP Tools > Standards** to manage your standards.
+<Warning>
+A column's **Mark all companies** action includes non-excluded companies hidden by the matrix search. Review the loaded company scope before any bulk action. Reading the matrix does not grant permission to change it.
+</Warning>
 
-<Steps>
-  <Step title="Create a category">
-    Click **Add Category** to create a new category (e.g., Security, Backup, Cloud, Monitoring).
-  </Step>
-  <Step title="Configure the category">
-    Click the edit button on the category header to set:
-    - **Description** - Optional description of what this category covers
-    - **Planner Type** - Links to a planner item type for automatic categorization of created tasks
-    - **Icon** - Choose an icon to represent this category
-    - **Require one of group** - Optional toggle that turns the entire category into a single "any one of these is fine" check (see below)
-  </Step>
-  <Step title="Add tools to the category">
-    Click **Add Item** within the category to create individual tool entries.
-  </Step>
-</Steps>
+[Read the Standards matrix](/user-guides/msp-tools/read-standards-matrix) explains the symbols, scoring, exclusions, menu scopes and troubleshooting.
 
-### Require One of Group
+## Standards and Planner
 
-Some categories work as alternatives rather than as a checklist. A "Backup" category might list Datto, Cove, and Veeam, where any one of them satisfies the requirement and a company shouldn't be penalized for the two it isn't using.
+A standard can have a linked Planner item for each company. Click a linked matrix cell to open its item; a cell without a link does not create a task on click. The company-name link opens related Planner List View work with the **Standards** source filter.
 
-Flip the **Require one of group** toggle in the category popover to make the category behave as a single check.
+Planner items can be shared with Company users subject to client visibility and access. They carry planning dates and estimates; they are not submitted support tickets, accepted quotes or confirmed appointments. See [Standards work in Planner](/user-guides/planner/understand-standards-items).
 
-When the toggle is on:
-
-- The category counts as **one required check** in compliance scoring, satisfied when any item in the category has status "Deployed".
-- Items inside the category are automatically marked **Optional**, and the per-item Required switch is disabled. The row shows a "Group" pill instead of "Required" or "Optional", so the indicators stay consistent with the group rule.
-- New items added to a one-of category default to Optional.
-- The compliance matrix shows a "1 of N" badge on the category header.
-- The Client Health Standards dimension counts the category as one required check rather than counting each item separately, so the score reflects what you actually configured.
-
-<Tip>
-Use **Require one of group** for categories where you support multiple equivalent products (Backup vendors, EDR vendors, RMM agents, password managers). Leave it off for categories where every listed item is its own required check (Email Security, Antivirus, MFA).
-</Tip>
-
-### Managing Tool Items
-
-Each tool item has the following fields:
-
-| Field | Description |
-|-------|-------------|
-| **Name** | The name of the tool (e.g., "SentinelOne EDR", "Veeam Backup") |
-| **Vendor** | The vendor name (e.g., "SentinelOne", "Veeam") |
-| **Description** | Optional description of the tool's purpose |
-| **Default Price** | The default cost used when creating planner items (shown as a dollar amount) |
-| **Required** | Whether this tool is mandatory for all companies. Disabled and ignored when the parent category has **Require one of group** turned on, since the group rule already supplies the required check. |
-
-<Tip>
-Mark tools as **Required** when they're part of your standard stack that every company should have. Only required tools count toward the Standards health dimension score.
-</Tip>
-
-The settings page shows summary counters at the top:
-- Total number of categories
-- Total number of items
-- Number of required items
-
-### Syncing to Companies
-
-After defining your standards, you need to sync them to your companies to create tracking records.
-
-<Steps>
-  <Step title="Click Sync All Companies">
-    Click the **Sync All Companies** button at the top of the Standards settings page.
-  </Step>
-  <Step title="Review the confirmation">
-    A dialog shows what will happen:
-    - How many items across how many categories will be synced
-    - Existing company statuses (deployed, in progress, etc.) will **not** be overwritten
-    - A planner item is created for each new tracking row
-    - The sync runs as a background task
-  </Step>
-  <Step title="Confirm the sync">
-    Click **Sync All Companies** in the dialog to start the background task.
-  </Step>
-</Steps>
-
-<Note>
-Syncing is non-destructive. It only creates new tracking records and planner items where they don't already exist. Companies that already have a status for a tool will not be affected.
-</Note>
-
-New tool items are also automatically synced to companies when you add them.
-
-## Using the Compliance Matrix
-
-The compliance matrix is accessed from **Standards** in the sidebar under MSP Tools. It has its own dedicated page at `/standards`.
-
-### Reading the Matrix
-
-The matrix displays:
-
-- **Rows** - One row per company
-- **Columns** - Tool items grouped by category (category names appear as group headers)
-- **Cells** - Color-coded status indicators. Click any cell to navigate to its linked planner item for full details.
-
-Categories with **Require one of group** turned on show a small "1 of N" amber badge next to the category name, and the items inside that category render without the optional asterisk since the group rule handles their accounting.
-
-### Status Indicators
-
-Each cell shows one of four statuses:
-
-| Status | Symbol | Color | Meaning |
-|--------|--------|-------|---------|
-| **Deployed** | Checkmark | Green | Tool is fully deployed and operational |
-| **In Progress** | Circle | Amber | Deployment is underway |
-| **Not Started** | X | Gray | Tool has not been deployed yet |
-| **N/A** | Dash | Light gray | Tool is not applicable to this company |
-
-### Summary Statistics
-
-At the top of the matrix, summary statistics show:
-- Total number of companies being tracked
-- Overall deployment percentage across all companies (required only, excluding N/A and one-of-group items that count as a single check per category)
-- Count of deployed required items vs total required checks
-- Informational counts of optional items deployed and N/A items
-
-### Updating Statuses
-
-To change a tool's deployment status for a company:
-
-1. Right-click (or long-press on mobile) the cell you want to update
-2. Select from the context menu:
-   - **Mark Deployed** - Tool is fully deployed
-   - **Mark In Progress** - Deployment has started
-   - **Mark Not Started** - Reset to not started
-   - **Mark N/A** - Mark as not applicable
-
-A success toast confirms the update: "Marked as [status]".
-
-### Searching Companies
-
-Use the search field at the top of the matrix (placeholder: "Search companies...") to filter the company list. This is helpful when you need to quickly find a specific company's tool status.
-
-## Planner Integration
-
-When standards items are synced to companies, MSPortal automatically creates corresponding planner items. This means every tool deployment appears as a trackable task in the Planner.
-
-### How It Works
-
-1. When a tool item is synced to a company, a **planner item** is created with:
-   - Title matching the tool name
-   - Due date set to the end of the current month
-   - Business value set to "Medium"
-   - Cost estimate from the tool's default price
-   - Source marked as "Tool Stack"
-
-2. The planner item and standards tracking record are **linked bidirectionally**:
-   - Updating the standards status automatically updates the linked planner item
-   - Updating the planner item status automatically updates the standards record
-   - Changes flow in both directions, so you can manage from whichever view is most convenient
-
-3. You can view and manage these items in the regular Planner views (list, timeline, monthly).
-
-<Tip>
-We recommend using the Planner **list view** for day-to-day management of tool deployments. The list view gives you sorting, filtering, and bulk actions. Use the compliance matrix for a high-level overview of deployment coverage across companies.
-</Tip>
-
-### Deleting Tool Items
-
-When deleting a tool item that has linked planner items:
-
-- A warning shows how many linked planner items will be deleted
-- You must type the item name to confirm deletion
-- Both the tracking records and linked planner items are permanently removed
-
-## Impact on Health Scores
-
-The Standards deployment percentage feeds directly into the **Standards dimension** of Client Health scores:
-
-- Only **required** items contribute to the score. The denominator is the count of required items that are not marked N/A. The numerator is the count of those that are Deployed.
-- For categories with **Require one of group** turned on, the category contributes a single required check that's satisfied when any item is deployed (and is excluded entirely if every item in the category is marked N/A).
-- The score is a linear mapping: 80% deployed = 80 dimension score.
-- Companies with no applicable required checks show N/A for this dimension.
-
-This creates a direct incentive to drive standardization across your client base without penalizing legitimate alternatives.
-
-## Best Practices
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="Start with your core stack">
-    Begin by adding the 5-10 tools that every company should have (EDR, backup, email security, etc.). Mark these as Required. Add recommended but optional tools later.
+  <Accordion title="Are Standards and Tool Stack different modules?">
+    Tool Stack is the former name. The current page, Planner source label and item badge say Standards. Older links can still contain Tool Stack.
   </Accordion>
-  <Accordion title="Use categories to organize logically">
-    Group tools by function (Security, Backup, Productivity, Monitoring) rather than by vendor. This makes the compliance matrix easier to read.
+  <Accordion title="Where should Company users start?">
+    Start with the Planner work the MSP shares. Company users do not normally have the MSP Tools sidebar switch or control the MSP's Standards catalog.
   </Accordion>
-  <Accordion title="Use Require one of group for alternatives">
-    For categories where any one of several products satisfies the requirement (Backup, EDR, password managers), turn on **Require one of group** on the category. This stops penalizing the company for the products it isn't using and keeps the score honest.
+  <Accordion title="Does a deployed status prove current device health?">
+    No. It records deployment progress. Verify live inventory and protection through the relevant device or security workflow.
   </Accordion>
-  <Accordion title="Set realistic default prices">
-    The default price is used when creating planner items. Set it to the typical per-company cost so your planner accurately reflects deployment budgets.
-  </Accordion>
-  <Accordion title="Link categories to planner types">
-    Set the Planner Type on each category so that automatically created planner items are properly categorized and appear in the right views.
-  </Accordion>
-  <Accordion title="Review the matrix weekly">
-    Use the compliance matrix in your weekly team meetings to track deployment progress. Filter by Not Started to identify gaps.
-  </Accordion>
-  <Accordion title="Use N/A strategically">
-    Mark tools as N/A for companies where they genuinely don't apply (e.g., a backup tool for a company that uses a different backup solution you support). Don't use N/A to hide gaps.
+  <Accordion title="Does the company search restrict every bulk action?">
+    No. A standard column's Mark all companies action covers all non-excluded companies in the loaded scope, including rows hidden by the search.
   </Accordion>
 </AccordionGroup>
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="MSP Tools Overview" icon="heart-pulse" href="./index">
-    Overview of all MSP Tools features
-  </Card>
-  <Card title="Client Health" icon="heart-pulse" href="./client-health">
-    See how Standards scores feed into overall health
-  </Card>
-  <Card title="Planner" icon="list-check" href="/user-guides/planner/index">
-    Manage planner items created by Standards
-  </Card>
-  <Card title="Financial Reporting" icon="dollar-sign" href="./financial-reporting">
-    Analyze revenue and profitability per company
-  </Card>
-</CardGroup>

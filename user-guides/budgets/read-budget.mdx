@@ -1,0 +1,71 @@
+---
+title: 'Read a budget overview'
+description: 'Review budget details, line-item statuses, totals and the available viewing tabs.'
+icon: 'calculator'
+---
+
+**Audience:** Company users with budget read access and MSP staff. Additional controls depend on permissions; the screenshot shows the MSP staff view.
+
+## Review Budget Details
+
+1. [Find the budget](/user-guides/budgets/find-budgets) and choose its row's **View** action.
+2. On **Overview**, check the budget title, overall status, **Company**, **Fiscal Year**, **Period Type** and **Currency**. **Author** appears when supplied.
+3. Read any notes beneath the budget details. Notes are visible here and can appear in PDF and Excel exports; they are not private MSP-only comments.
+4. Review **Total**, **Approved** and **Pending**.
+5. Read the category groups and subtotals. Each line shows **Description**, **Billing**, **Qty**, **Unit Price**, **Total** and **Status**.
+6. Check Billing for recurrence and start month. Open **Monthly Breakdown** to see when the scheduled costs fall.
+
+<Frame caption="Budget Details opens on Overview. Actuals requires invoice access in addition to budget access.">
+  <img src="/images/product/budget-view-tabs.png" alt="Budget Details tabs: Overview, Monthly Breakdown and Actuals." width="690" height="86" />
+</Frame>
+
+## Interpret totals and statuses
+
+Overview line totals are **quantity × unit price**. Its Total includes every displayed line, including rejected lines. Approved and Pending summarize their respective line-item amounts. A monthly line with quantity 10 and unit price USD 20 has a USD 200 Overview total; twelve scheduled monthly charges would total USD 2,400 in Monthly Breakdown if no term limit or override changes them.
+
+An overall **Approved** or **Archived** budget is locked. Individual line statuses can still differ from that overall status. Overview does not offer line approval or editing controls. Ask the MSP about proposed changes or use the separately authorized [approval workflow](/user-guides/budgets/approving-and-locking-budgets).
+
+## Choose the next view
+
+| Tab | Use it for |
+| --- | --- |
+| **Overview** | Budget metadata, category groups, quantities, prices and line statuses. |
+| **Monthly Breakdown** | Scheduled January–December costs, monthly totals and any saved overrides. |
+| **Actuals** | Comparing an approved, locked budget with available synchronized invoice spend. This tab also requires invoice access. |
+
+Returning to the reader starts on Overview. Switching tabs is not an approval or save action.
+
+The header's **...** menu offers **Print**, **Export PDF** and **Export Excel**. PDF and Excel produce the budget document; selecting Monthly Breakdown or Actuals does not turn these into exports of those tabs. The row-level **Export** item in the budgets list currently has no working action—use Budget Details instead. Review notes and amounts before sharing a document.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Are budget notes private internal comments?">
+    No. Notes appear in Budget Details and can be included in PDF and Excel exports. Do not put private MSP-only commentary there.
+  </Accordion>
+  <Accordion title="Does Overview Total annualize recurring charges?">
+    No. It sums quantity times unit price. Use Monthly Breakdown for the scheduled charges across the year.
+  </Accordion>
+  <Accordion title="Can I approve a line from Overview?">
+    No. Overview displays line statuses without approval controls. Approval requires the separate authorized workflow.
+  </Accordion>
+  <Accordion title="Why can an Approved budget contain rejected lines?">
+    The overall budget status and each line's status are separate. Read the line statuses and totals rather than assuming every line was approved.
+  </Accordion>
+  <Accordion title="Why is the Actuals tab missing?">
+    Actuals requires invoice access as well as budget access. Your MSP manages the role permissions. A draft budget must also be approved before it can be reconciled.
+  </Accordion>
+  <Accordion title="Does choosing Export Excel on Actuals export the reconciliation table?">
+    No. The Budget Details export action produces the budget document independently of the active tab.
+  </Accordion>
+  <Accordion title="Where should I export if the list row's Export does nothing?">
+    Choose View, then open the Budget Details header's three-dot menu and use Export PDF or Export Excel.
+  </Accordion>
+  <Accordion title="Why did a saved budget link return me to the list?">
+    Check that the current company scope includes the budget and that your role still has access. Ask the MSP if the record remains unavailable.
+  </Accordion>
+</AccordionGroup>
+
+For document contents, saved-data rules and print limitations, see [Download or print a budget](/user-guides/budgets/export-and-print-budgets).
+
+To arrange category groups in Overview and newly exported documents, see [Arrange budget sections](/user-guides/budgets/arrange-budget-sections). This does not change Monthly Breakdown ordering.

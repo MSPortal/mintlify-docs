@@ -4,11 +4,11 @@ description: 'Review your project portfolio, track health, and open project work
 icon: 'folder-open'
 ---
 
-Open **Projects** to review work across the companies you can access. MSPortal combines synced PSA projects with project updates, milestones, decisions, action items, and deliverables.
+Open **Projects** to review work across the companies you can access. MSPortal combines native projects and synced PSA projects with project updates, milestones, decisions, action items, and deliverables.
 
 ## Before you start
 
-Your role determines which project views and editing controls are available. Select a company in the company selector to focus the portfolio, or use **Global View** to see the companies available to you. Projects and their available detail depend on your connected PSA and project settings.
+Your role determines which project views and editing controls are available. Select a company in the company selector to focus the portfolio, or use **Global View** to see the companies available to you. Native projects run directly in MSPortal. PSA project details also depend on your connected provider. Project settings and permissions control the available views.
 
 <Note>
 Screenshots show the MSP staff experience using Demo data. Client access is limited by company scope, role permissions, and **Settings > Projects > Client project access**.
@@ -18,7 +18,7 @@ Screenshots show the MSP staff experience using Demo data. Client access is limi
 
 | View | Use it to |
 | --- | --- |
-| **Dashboard** | Review portfolio health, the evidence behind each metric, and projects needing attention. |
+| **Dashboard** (MSP only) | Review portfolio health, the evidence behind each metric, and projects needing attention. |
 | **Cards** | Scan project summaries, dates, hours, contacts, and the next action. Displayed fields depend on project settings. |
 | **List** | Compare projects in a table and choose visible columns. |
 | **Kanban** | Review projects by their configured PSA status groups. |
@@ -28,6 +28,8 @@ Screenshots show the MSP staff experience using Demo data. Client access is limi
 
 ### Find a project
 
+Follow [Find and open a project](/user-guides/projects/find-projects) for Company and MSP instructions, or [Filter and sort projects](/user-guides/projects/filter-projects) for dates, managers, health, and remembered choices.
+
 <Steps>
   <Step title="Choose the company scope">
     Use the company selector at the top of the app. Then open **Projects**.
@@ -36,7 +38,7 @@ Screenshots show the MSP staff experience using Demo data. Client access is limi
     In Cards, List, or Kanban, use the search field to search projects, companies, or outcomes. Choose **Open**, **Closed**, or **All**; Open is the initial selection. Use **Project Manager**, **Date**, or **Filters** to narrow the results further.
   </Step>
   <Step title="Open the project">
-    Select a project card or list row to open its workspace. Clear filters or switch to **All** if you cannot find an older project.
+    Select a project card or list row to open its workspace. Use **Clear filters** and separately switch to **All** if you cannot find an older project. Clear filters leaves Open / Closed / All unchanged.
   </Step>
 </Steps>
 
@@ -44,7 +46,7 @@ The health filters distinguish **Needs Input**, **Blocked**, **At Risk**, **On T
 
 ## Understand portfolio health
 
-The **Dashboard** includes **Active schedule**, **On-time delivery**, and **Effort adherence**. Each metric shows its eligible project count; missing evidence does not mean a project is healthy.
+For MSP staff, the **Dashboard** includes **Active schedule**, **On-time delivery**, and **Effort adherence**. Each metric shows its eligible project count; missing evidence does not mean a project is healthy.
 
 - **Active schedule** considers open projects with due dates that are not overdue.
 - **On-time delivery** considers projects completed on or before their due date in the last 12 months.
@@ -72,11 +74,35 @@ Column names are configurable. If a project is missing from a grouped board, che
 | Fields or phases are missing | **Settings > Projects > Display Configuration**, plus whether the project contains phases or tickets. |
 | Health looks incomplete | Eligible sample counts, Unscored projects, source freshness, and active/inactive health statuses. |
 
+## Create and deliver a native project
+
+MSP staff with project write permission can select **New project**, when available, to create from a reusable template. Company users request new work through their MSP. Choose **MSPortal only** to keep the project, phases, and tickets in MSPortal. Follow [Native Projects: Start to Finish](/user-guides/projects/native-projects) for the complete workflow.
+
 ## Related guides
 
 <CardGroup cols={2}>
+  <Card title="Native Projects" icon="folder-open" href="/user-guides/projects/native-projects">Create, deliver, and close out an MSPortal-only project.</Card>
+  <Card title="Project templates" icon="layer-group" href="/user-guides/projects/templates">Build reusable plans with phases, tickets, decisions, and action items.</Card>
+  <Card title="AI, MCP, and client reviews" icon="sparkles" href="/user-guides/projects/ai-and-client-reviews">Connect delivery evidence to reviewed updates, QBR reports, and meetings.</Card>
   <Card title="Project workspace" icon="folder-open" href="/user-guides/projects/workspace">Work with milestones, updates, decisions, action items, and tickets.</Card>
   <Card title="Project calendar" icon="calendar" href="/user-guides/projects/calendar">Navigate Schedule and inspect scheduled project work.</Card>
   <Card title="Project settings" icon="gear" href="/user-guides/settings/projects">Configure access, display, Kanban, status mappings, and custom fields.</Card>
   <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">Connect your PSA and review its configuration.</Card>
 </CardGroup>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where should a Company user start with Projects?">
+    Open Projects and choose Cards or List if your role allows it. Search for the project, check Open / Closed / All and filters, then select its card or row. See [Find and open a project](/user-guides/projects/find-projects).
+  </Accordion>
+  <Accordion title="Why do Company users and MSP staff see different tabs?">
+    Dashboard is MSP-only. Cards, List, Kanban, and Schedule each have separate role permissions. The MSP also controls which projects and fields are shared with Company users.
+  </Accordion>
+  <Accordion title="Does changing a filter update the project?">
+    No. Search, view selection, filters, and sort change the displayed results. Some preferences are remembered in your browser. Record actions such as moving status or rescheduling are separate workflows.
+  </Accordion>
+  <Accordion title="Who can change a Company user's project permissions?">
+    The MSP manages users and permission roles. Company administrators should ask their MSP to review access; see [Company user permissions (MSP)](/user-guides/settings/change-company-user-permissions).
+  </Accordion>
+</AccordionGroup>

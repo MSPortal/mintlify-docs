@@ -1,0 +1,114 @@
+---
+title: 'Understand Planner Analytics charts'
+description: 'Read health, risk, expected value, pipeline, resource and client commitment panels.'
+icon: 'chart-pie'
+---
+
+**Audience:** Company users with Planner read access and MSP staff.
+
+Open **Planner Menu > Analytics** and choose the intended company scope, Currency, Cost type and period first. All panels use that filtered dataset. See [Read and export Planner Analytics](/user-guides/planner/read-analytics) for these controls and CSV export.
+
+<Frame caption="Dashboard and Pipeline use the same Analytics filters. Switching tabs does not change the work items.">
+  <img src="/images/product/planner-analytics-tabs.png" alt="Planner Analytics tabs: Dashboard selected, with Pipeline alongside." width="350" height="74" />
+</Frame>
+
+## Dashboard: Project Health Score
+
+**Overall Health** combines four measures, excluding Cancelled work:
+
+| Measure | Weight | What it measures |
+| --- | --- | --- |
+| On-Time Delivery | 35% | Proportion of items not marked overdue. |
+| Completion Rate | 30% | Completed items divided by non-cancelled items, without Business Value weighting. |
+| Success Probability | 20% | Average probability of unfinished items, defaulting to 50% when unset and 100% when all are completed. |
+| Work Distribution | 15% | In Progress share of unfinished work, scaled by 150% and capped at 100%. |
+
+The gauge labels scores of 75% or above Healthy, 50% to below 75% At Risk, and below 50% Critical. These are planning indicators, not a service-level or security compliance certification.
+
+The **Healthy**, **At Risk** and **Critical** item buttons use separate item rules: Completed is Healthy; overdue, On Hold or probability below 30% is Critical; otherwise probability of at least 60% is Healthy, and the rest are At Risk. The **Overdue** button narrows to overdue items. Selecting a button filters the analysis.
+
+The Completion Rate inside this panel is an unweighted count. The headline Completion Rate is Business Value-weighted, so they can differ without indicating a calculation failure.
+
+## Dashboard: Risk Matrix
+
+The Risk Matrix excludes Completed and Cancelled work. High impact means High or Medium Business Value, or a selected-cadence cost above 10,000 in the selected currency.
+
+| Category | Probability | Impact |
+| --- | --- | --- |
+| High Risk | Below 50% | High |
+| Opportunity | 50% or above | High |
+| Low Priority | Below 50% | Low |
+| Monitor | 50% or above | Low |
+
+Select a quadrant to filter the analysis. A missing probability is treated as 50%. The current classification boundary is 50%, although the information tooltip describes Opportunity as 60% or above. Check the stored probability when that wording appears inconsistent.
+
+A matrix category is not the same as the Project Health category. For example, overdue work can be Critical for health and still appear in Opportunity because of its probability and impact.
+
+## Dashboard: expected value and High Risk Items
+
+**EV by Status** and **EV by Quarter** compare probability-adjusted Expected amounts with Planned selected-cadence costs. Completed contributes full expected cost and Cancelled is excluded. Select a bar to filter by that status or quarter.
+
+Quarter grouping uses an item's due date, falling back to its start date when due date is absent. Items without either date can display under Q1 of the current year; that fallback is not evidence of a scheduled due date. Inspect the item dates when a quarter looks unexpected.
+
+**High Risk Items** shows up to five unfinished, non-cancelled items with positive selected-cadence costs, ranked by **cost × (1 − probability)**. This ranking is different from the Risk Matrix's quadrant rules. Select an item to narrow Analytics to it; open List View to inspect or edit the record.
+
+## Pipeline: status and resources
+
+**Status Pipeline** groups non-cancelled work into Not Started, Pending Approval, In Progress and Completed. Other statuses, such as On Hold, appear separately. Selecting a stage narrows the analysis. The connecting arrows illustrate status order; they are not historical conversion rates or proof that every item passed through each stage.
+
+Its Completion Rate is the unweighted completed share of non-cancelled work. **Blocked Items** counts On Hold items. Stage values and hours are selected-cadence cost and estimated effort.
+
+**Resource Allocation** groups estimated hours by quarter and status, excluding Cancelled work. Darker cells have more hours relative to the largest cell in the filtered chart. This is not technician availability or a capacity limit. Select a cell to filter by its quarter and status. No Hours Allocated can mean the matching work has zero estimated hours.
+
+## Pipeline: Client Commitment Tracker
+
+This panel groups the filtered work by company and shows up to ten companies, ordered by their selected-cadence cost. Its **Committed** amount sums that company's Planner estimates, including statuses that remain in the filter. The label does not establish client approval or a signed commitment.
+
+**Delivered** sums costs on Completed items; **Delivery Rate** is Delivered divided by Committed, or zero when Committed is zero. Hours are still estimates. **Upcoming** counts unfinished, non-cancelled items due within the next 30 days. Selecting a company card narrows the analysis to that company within the current scope.
+
+The company badge uses a separate score: start at 100, subtract 10 per overdue item and 5 per unfinished item below 50% probability, then add 10 for delivery above 75% or subtract 20 for delivery below 25%. The result is limited to 0–100. Good is at least 75, Fair at least 50, and Poor below 50. This badge is not the Project Health gauge and does not verify delivered invoices or actual effort.
+
+## Clear a chart selection
+
+Choose **Clear** in the toolbar to remove the chart selection while keeping the other filters. If the selection produced no data, use **Clear Filter**. A second chart selection replaces the previous one; it does not create a permanent saved report or change the underlying work.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Is Project Health Score the same as the headline Completion Rate?">
+    No. Health combines four measures, and its completion component is unweighted. The headline completion measure weights Business Value.
+  </Accordion>
+  <Accordion title="What makes an item Critical in the health panel?">
+    For unfinished, non-cancelled work: overdue, On Hold or probability below 30%. Completed items are classified Healthy.
+  </Accordion>
+  <Accordion title="What is the Risk Matrix probability boundary?">
+    The classification uses below 50% versus 50% or above. The Opportunity information tooltip currently says 60% or above, which does not match that boundary.
+  </Accordion>
+  <Accordion title="Can one item be Critical and Opportunity?">
+    Yes. Health and Risk Matrix use different rules. Overdue work can be Critical while probability and impact place it in Opportunity.
+  </Accordion>
+  <Accordion title="Does High Risk Items list every high-risk quadrant item?">
+    No. It lists up to five positive-cost unfinished items ranked by cost times one minus probability. The matrix uses probability and impact categories instead.
+  </Accordion>
+  <Accordion title="Does clicking a High Risk Items title open the editor?">
+    It narrows Analytics to that item. Use List View to open the item details.
+  </Accordion>
+  <Accordion title="Why might undated work appear in a quarter chart?">
+    Quarter grouping falls back from due date to start date, and then to Q1 of the current year when both are absent. It does not assign an actual due date.
+  </Accordion>
+  <Accordion title="Do pipeline arrows show historical conversion?">
+    No. The panel shows the current distribution of work by status. It does not measure historical movement through the stages.
+  </Accordion>
+  <Accordion title="Does Resource Allocation show available technician capacity?">
+    No. It groups estimated Planner hours by quarter and status. Color intensity is relative to the largest displayed cell.
+  </Accordion>
+  <Accordion title="Does Committed mean the client approved the amount?">
+    No. It sums filtered Planner estimates by company. It is not proof of an approved budget, signed commitment or payment.
+  </Accordion>
+  <Accordion title="Why does Client Commitment Tracker show fewer companies than my scope?">
+    It shows up to ten companies ordered by selected-cadence cost, after applying the Analytics filters.
+  </Accordion>
+  <Accordion title="Is the company Good/Fair/Poor badge the Overall Health gauge?">
+    No. The company badge uses overdue counts, low-probability work and delivery rate. Overall Health uses four different weighted measures.
+  </Accordion>
+</AccordionGroup>

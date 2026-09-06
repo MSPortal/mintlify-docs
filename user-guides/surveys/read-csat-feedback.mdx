@@ -1,0 +1,94 @@
+---
+title: 'Read and export support satisfaction feedback'
+description: 'Open CSAT dashboards, understand scores and time windows, inspect available comments, and export response records.'
+icon: 'face-smile'
+---
+
+Open **Surveys** from the sidebar, then choose **CSAT Dashboard** from the **Surveys** menu. You can also select the **CSAT** summary link when it appears. For a particular campaign, use its survey row's **... > View Dashboard** action.
+
+Your MSP must make CSAT available and grant your role access to it. General survey access alone is not sufficient. Company users view their permitted company information; the comparison table across companies is an MSP view.
+
+## Read the dashboard
+
+1. Check whether the heading names a particular campaign or shows the overall **CSAT** view.
+2. Check the **Last … days** period below the summary. This period is configured by the MSP.
+3. Compare **CSAT**, **Responses**, **Satisfied**, and **Dissatisfied**.
+4. Read **Trend** and **Score Distribution** together with the number of responses.
+5. Expand **Recent Responses** to inspect available ratings and comments. Section arrows collapse or reopen the content; they do not delete records.
+
+The **CSAT** percentage is the share of included responses classified as satisfied. It is not the average raw rating. Ratings use normalized scores so feedback from different rating scales can be classified consistently: at least 80 is satisfied, 40 to below 80 is neutral, and below 40 is dissatisfied. The response list also displays the original rating and scale, such as 4/5.
+
+Neutral ratings count in **Responses**, so adding Satisfied and Dissatisfied does not necessarily equal the total. A dash or empty view is not a satisfaction score; check the scope, access, and available response data.
+
+The overall dashboard includes CSAT responses mapped to a company. Unmapped responses can exist without appearing in these figures. For an effort-score (CES) campaign, open its own campaign dashboard rather than assuming it is included in the overall CSAT total.
+
+## Comments, names, and technician information
+
+The MSP controls whether the dashboard displays comments, respondent details, and **CSAT by Technician**. A hidden comment section does not establish that no written feedback was collected. When comments are enabled, **No comment** means no comment is present for that displayed response.
+
+Technician results depend on the assigned technician and available mapping to a portal user. **No matching portal user** is a mapping state, not a zero score or proof that the ticket was unassigned.
+
+These are display settings. They are not a guarantee that identifying fields or comments are excluded from an authorized CSV export or other accessible views.
+
+## Check the time window before comparing figures
+
+| View | Which responses it uses |
+| --- | --- |
+| Summary, trend, company and technician figures | The configured dashboard period and applicable campaign/company scope |
+| **Recent Responses** | The configured number of newest available ratings; not necessarily limited to the summary period |
+| MSP company-response panel | Up to 50 newest available responses for the selected company |
+| Dashboard **Export CSV** | The last 90 days by default, with the selected campaign and company scope |
+
+Different counts between these views can be expected. Compare the period, campaign, company, and response limit before treating the difference as missing feedback.
+
+## Export responses
+
+1. Open the overall or campaign dashboard you want to export.
+2. Confirm the company selection if your account can change it.
+3. Select **Export CSV**.
+4. Open the downloaded CSV and check its response dates and scope.
+
+The dashboard export uses a fixed set of fields, including rating, scale, normalized score, source, company identifier, respondent name/email, ticket information, assigned technician identifier, and feedback text where available. It fetches matching records across pages, not only the recent rows currently visible. The default export period is 90 days even when the dashboard uses a different period.
+
+If the download fails or is interrupted, check the browser's download status before using the file as a complete report. Ask the MSP about an unavailable export or a different reporting period.
+
+## MSP: inspect a company's recent responses
+
+In **CSAT by Company**, select a company to open its response panel. The summary at the top refers to the dashboard period; the list contains up to 50 newest available responses. Close the panel to return to the comparison table.
+
+A contact-history link opens feedback for a specified email address and shows up to 100 latest accessible records, including original rating, date, comment, source, and ticket information. It is a separate view and does not mean all historical responses fit on the page.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why can I open Surveys but not CSAT?">
+    CSAT has its own availability and role permission. Ask your MSP to check CSAT access and the connected feedback sources. Company administrators do not assign portal permissions themselves.
+  </Accordion>
+  <Accordion title="Is CSAT the average star rating?">
+    No. It is the percentage of included responses classified as satisfied. The individual response retains its original rating and scale.
+  </Accordion>
+  <Accordion title="Why don't Satisfied and Dissatisfied add up to Responses?">
+    Neutral responses also contribute to the total. Check Score Distribution for all three categories.
+  </Accordion>
+  <Accordion title="Why does Recent Responses include dates outside the summary period?">
+    The summary uses the configured number of days, while Recent Responses retrieves a limited number of the newest ratings without the same period filter.
+  </Accordion>
+  <Accordion title="Does Export CSV match the dashboard period automatically?">
+    No. The dashboard export defaults to the last 90 days. Check dates in the file, especially when the dashboard period is different.
+  </Accordion>
+  <Accordion title="Does hiding respondent names remove them from CSV exports?">
+    No. Dashboard presentation settings are separate from access to exported fields. Authorized exports can include names, email addresses, and comments when stored.
+  </Accordion>
+  <Accordion title="Why can't Company users see the company comparison table?">
+    The cross-company table is an MSP view. Company access is scoped to the information their MSP makes available to them.
+  </Accordion>
+  <Accordion title="Does opening feedback send a reply or publish it?">
+    No. Reading the dashboard is separate from responding to the contact, posting a public review, or publishing a testimonial.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Rate a support experience](/user-guides/surveys/rate-your-support)
+- [Read NPS analytics](/user-guides/surveys/read-nps-analytics)
+- [Find surveys and read questionnaire results](/user-guides/surveys/view-survey-results)

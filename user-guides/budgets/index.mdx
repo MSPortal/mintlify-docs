@@ -1,629 +1,97 @@
 ---
 title: Budgets
-description: Create, manage, and track IT budgets with strategic planning integration in MSPortal.ai
+description: "Read company budgets, plan costs, maintain products, forecast future needs and compare approved plans with actual spend."
 icon: calculator
 ---
 
-The Budgets module helps MSPs create, approve, and measure IT budgets for their clients. Build budgets by importing Microsoft 365 licensing and Planner items, linking strategic goals, and adding products from your catalog or PSA. After approval, compare the locked plan with synchronized customer invoice spend, resolve unmatched costs, and retain the result as an auditable historical baseline.
+Budgets brings together proposed costs, recurring services, approvals and future planning. Company users can follow the guides for the access their MSP grants them. MSP staff prepare and maintain plans, manage permissions and help clients review the results.
 
-![Budget View](/images/budgets/budget-view.png)
+## Start with a company budget
 
-## Overview
+- [Find and open a budget](/user-guides/budgets/find-budgets): choose the company, filter the list and open the right plan.
+- [Read the budget overview](/user-guides/budgets/read-budget): understand metadata, categories, quantities and line statuses.
+- [Read Monthly Breakdown](/user-guides/budgets/read-monthly-breakdown): follow scheduled costs, monthly totals and overrides.
+- [Download or print a budget](/user-guides/budgets/export-and-print-budgets): PDF, Excel, print preview and selected-budget exports.
 
-When you navigate to **Budgets** from the sidebar, you will see the budgets list for the selected company which includes:
+The list Total excludes rejected costs. Overview and document totals sum quantity × unit price for all lines, including rejected ones. Monthly Breakdown projects charges across the year. Read the relevant guide before comparing these different totals.
 
-- **Search Bar** - Filter budgets by title
-- **Create New Budget** - Start building a new budget
-- **Budgets Table** - View all budgets with status, totals, and approval breakdown
-- **Bulk Actions** - Select multiple budgets for batch operations
+## Create and maintain a plan
 
-![Budgets List](/images/budgets/budgets-list-with-new-budget.png)
+Budget editing requires permissions assigned by the MSP. Company users do not grant themselves access.
 
-## Budgets Menu
+- [Create and edit a company budget](/user-guides/budgets/create-and-edit-budgets): company, fiscal year, details and Save.
+- [Adjust one month’s amount](/user-guides/budgets/edit-monthly-overrides): immediate saves, zero overrides and restoring the calculation.
+- [Arrange budget sections](/user-guides/budgets/arrange-budget-sections): category order in Overview and new PDF/Excel documents.
+- [Add and edit line items](/user-guides/budgets/edit-line-items): quantities, prices, categories, recurrence and line approval.
+- [Import line items from Excel](/user-guides/budgets/import-excel): map columns, resolve errors and review duplicates.
+- [Copy recurring costs from an earlier budget](/user-guides/budgets/import-previous-year): inspect the selected source and services.
+- [Add Planner, goal and product costs](/user-guides/budgets/import-planning-and-products): choose the appropriate source and review proposed lines.
+- [Add Microsoft 365 licensing costs](/user-guides/budgets/import-microsoft-365-licensing): match purchased seats with catalog prices.
 
-The **Budgets Menu** provides quick navigation between different budget-related areas:
+Imports into the editor add proposed rows. Review them and choose **Save**. Existing line approval and monthly overrides use their own immediate-save controls; the editing guides explain the distinction. Exports read saved records and do not save pending changes.
 
-![Budgets Menu](/images/budgets/budgets-menu.png)
+Budget notes are visible in the reader and can appear in PDF and Excel. Write them for everyone who can access the budget.
 
-| Menu Option | Description |
-|-------------|-------------|
-| **All Budgets** | View the main budgets list for the selected company |
-| **Products** | Manage your product catalog for budgeting |
-| **Templates** | Access budget templates for quick creation |
-| **Forecast** | Plan future budget projections |
+## Approve and compare actual spend
 
-Click the **Budgets Menu** button in the top-right of any budgets page to navigate between these areas.
+- [Approve and lock a budget](/user-guides/budgets/approving-and-locking-budgets): check the plan and understand the permanent baseline lock.
+- [Track budget Actuals](/user-guides/budgets/tracking-budget-actuals): review synchronized customer invoice spend and matched evidence.
+- [Resolve Actuals exceptions](/user-guides/budgets/resolving-actuals-exceptions): investigate and allocate unmatched spend when authorized.
 
-## Budgets Table
+Actuals requires an approved baseline and invoice access. Overall budget status is separate from the status of each line. Approved and Archived budgets are locked; use the documented duplicate/archive workflow when a replacement plan is required. Exporting or printing does not approve a budget.
 
-The budgets table displays key information for each budget:
+## Copy or remove a budget
 
-| Column | Description |
-|--------|-------------|
-| **Budget Title** | Name of the budget (click to edit) |
-| **Fiscal Year** | The fiscal year the budget applies to |
-| **Status** | Overall budget status: Draft, Pending Approval, Approved, or Archived |
-| **Pending** | Sum of line items with "Pending" status |
-| **Rejected** | Sum of line items with "Rejected" status |
-| **Approved** | Sum of line items with "Approved" status |
-| **Total** | Grand total of all line items (regardless of status) |
-| **Last Modified** | When the budget was last updated |
+To start from an existing plan, [duplicate the budget](/user-guides/budgets/duplicate-budget) from its list row **... > Duplicate**. The copy is created immediately as a Draft. Review every copied line, including lines that were rejected in the original, before approving the replacement.
 
-<Note>
-The **Pending**, **Rejected**, and **Approved** columns show the monetary totals of line items grouped by their individual status. This helps you quickly see how much of the budget has been approved versus what's still pending review.
-</Note>
+To remove a Draft or Pending Approval budget, follow [Delete unwanted draft budgets](/user-guides/budgets/delete-budgets) for single-record, editor and selected-batch confirmation steps. Deletion has no undo. Approved and Archived budgets retain their historical baseline and cannot be deleted; use the [approved-budget archive workflow](/user-guides/budgets/approving-and-locking-budgets) when retiring an approved plan.
 
-## Creating a Budget
+## Maintain reusable products
 
-<Steps>
-  <Step title="Navigate to Budgets">
-    Select a company from the company selector, then click **Budgets** in the sidebar.
-  </Step>
-  <Step title="Click Create New Budget">
-    Click the **+ Create New Budget** button in the top right corner.
-  </Step>
-  <Step title="Configure Budget Details">
-    Fill in the budget header information:
-    - **Budget Title** - A descriptive name (e.g., "IT Infrastructure 2026")
-    - **Author** - The person responsible for the budget
-    - **Status** - Set initial status (typically Draft)
-    - **Fiscal Year** - Select the target year
-    - **Period Type** - Choose Annual, Quarterly, or Monthly
-    - **Currency** - Select the currency (USD, EUR, etc.)
-    - **Notes** - Add internal notes (not shown on exports)
-  </Step>
-  <Step title="Add Line Items">
-    Build your budget with the three builder panels or the **Import** menu:
-    - **Planner Items** - Import tasks from your Planner
-    - **Products and Services** - Add products from your catalog, imported from your PSA or Salesbuildr. A product with a setup fee adds a one-time setup line next to its recurring line.
-    - **Strategic Goals** - Link goals to budget items
-    - **Microsoft 365 Licensing** - Turn a company's purchased seats into priced budget items
-  </Step>
-  <Step title="Save the Budget">
-    Click **Save** to save your budget. You will see a confirmation message.
-  </Step>
-</Steps>
+Open **Budgets Menu > Products** when your role shows the menu. A company view can include company-specific and shared products.
 
-![Create Budget Form](/images/budgets/budget-saved.png)
+- [Find and understand products](/user-guides/budgets/read-product-catalog).
+- [Create and edit products](/user-guides/budgets/manage-products), including billing recurrence and initial company assignment.
+- [Bulk edit and delete products](/user-guides/budgets/bulk-edit-products).
+- [Create products from Planner](/user-guides/budgets/import-products-from-planner).
+- [Import and link integration products](/user-guides/budgets/import-products-from-integrations), an MSP workflow.
 
-## Adding Budget Line Items
+Catalog Create, Save and Import actions persist immediately. They do not add lines to a budget or update prices already copied into a budget. The current catalog table does not provide working column filtering, sorting or CSV export.
 
-The budget builder provides three panels for importing items into your budget:
+## Forecast future costs
 
-### Import Microsoft 365 Licensing
+Select one company and open **Budgets Menu > Forecast**. Opening the worksheet requires budget editing access; Save and the UI Sync controls require budget management permission.
 
-Use **Import Microsoft 365 licensing** to build recurring license costs from the seats a company already owns. MSPortal matches the Microsoft license inventory to your product catalog so the budget uses your pricing and billing cadence.
+- [Read and adjust a company forecast](/user-guides/budgets/read-budget-forecast): base amounts, growth, Include, manual overrides and Save.
+- [Sync a forecast from budgets or Planner](/user-guides/budgets/sync-budget-forecast): source rules, category selection and merge strategies.
 
-#### Prerequisites
+Forecast is separate from budget approval and Actuals. Check what contributes to its base amounts before treating it as an approved-plan total. Sync changes the proposed worksheet; Save persists the forecast rules.
 
-- The budget must be assigned to a company and remain editable
-- The company must have a connected Microsoft 365 tenant with synchronized license data
-- Your role must be able to edit budgets and read Microsoft 365 data
-- The product catalog should contain the Microsoft products you sell, including their SKU or product name, unit price, and default recurrence
+## Navigation and availability
 
-<Steps>
-  <Step title="Open the company budget">
-    Create a budget or open an editable budget for the company whose licensing you want to import.
-  </Step>
-  <Step title="Open the licensing import">
-    Click **Import**, then select **Import Microsoft 365 licensing**.
+**Budgets Menu** offers All Budgets, Products and Forecast for users with budget editing access. Budget Templates is not currently an available menu workflow. Use an existing budget's duplicate workflow or the documented imports to start from earlier work.
 
-    If this option is missing, confirm that your role can read Microsoft 365 data. The Import button is unavailable until the budget has a company.
-  </Step>
-  <Step title="Review product matches">
-    MSPortal suggests exact matches using the license SKU and Microsoft product names. Review every suggestion, and use **Choose an MSP product** for any license that still needs a match.
+For a single budget, the reader has Overview, Monthly Breakdown and an invoice-permission-dependent Actuals tab. The header **...** menu provides Help and the available print/export actions. Export PDF and Export Excel produce the saved budget document; they do not export the active Monthly Breakdown or Actuals tab.
 
-    The picker includes tenant-wide products and products assigned to the current company. It does not offer products belonging only to another company.
-  </Step>
-  <Step title="Select the licenses to add">
-    Select individual rows or use **Select all**. Each row shows purchased and assigned seats, the matched product, its unit price and billing cadence, and the resulting line total.
+## Frequently asked questions
 
-    A product already linked to the budget is marked **Already in budget** and cannot be imported a second time.
-  </Step>
-  <Step title="Import and save">
-    Click **Import licenses**. Review the new line items in the budget, adjust them if needed, and click **Save** to persist the changes.
-  </Step>
-</Steps>
-
-#### How Licensing Values Become Budget Items
-
-| Microsoft 365 or catalog value | Budget result |
-|--------------------------------|---------------|
-| Purchased seats | Line-item quantity |
-| Product unit price | Unit price |
-| Product default recurrence | One-time, monthly, quarterly, annual, or custom recurrence |
-| Product category | Matching budget category, when available |
-| Product description | Line-item notes |
-
-<Note>
-If a company has more than one Microsoft 365 connection, MSPortal combines matching SKUs and creates one line item with the total purchased quantity. Free and trial-only grants are excluded from the import.
-</Note>
-
-<Tip>
-Before importing, give catalog products an exact Microsoft SKU whenever possible. Exact matches are suggested automatically; ambiguous or unmatched licenses stay unselected until you choose the correct product.
-</Tip>
-
-#### Licensing Import Troubleshooting
-
-| Issue | Resolution |
-|-------|------------|
-| **Import Microsoft 365 licensing** is missing | Confirm your role can read Microsoft 365 data |
-| The Import button is disabled | Select a company for the budget and confirm the budget is still editable |
-| No licenses are listed | Confirm the company has synchronized Microsoft 365 licenses with purchased seats |
-| A license says it needs a product | Choose the correct catalog product, or add that product to the catalog first |
-| A match says **Review pricing** | Check the product's zero price or one-time recurrence before importing |
-| A product says **Already in budget** | Review the existing line item instead of importing the same product again |
-
-### Planner Items
-
-Import items directly from your company Planner. Each planner item shows:
-- Task name and icon
-- Due date and status
-- Estimated cost (if set)
-
-Click the **+** button next to any planner item to add it as a budget line item.
-
-### Products and Services
-
-Add products from your PSA or manually created products. Products display:
-- Product name
-- SKU (if available)
-- Vendor
-- Category
-- Unit price
-
-Toggle the **all** checkbox to see products from all tenants or just the current company.
-
-### Strategic Goals
-
-Link strategic goals to your budget for alignment with company objectives. Goals show:
-- Goal title
-- Priority badge (High, Medium, Low)
-- Target date and status
-
-<Tip>
-Linking goals to budget items helps demonstrate how IT spending supports strategic business objectives during budget reviews.
-</Tip>
-
-## Budget Line Items Table
-
-Once items are added, they appear in the Budget Line Items table:
-
-| Column | Description |
-|--------|-------------|
-| **Type** | Line item type: SW (Software), HW (Hardware), LB (Labour), OT (Other) |
-| **Details** | Item name and linked source (Planner, Product, Goal, or Device) |
-| **Quantity** | Number of units |
-| **Unit Price** | Cost per unit |
-| **Total** | Line total (Quantity x Unit Price) |
-| **Category** | Budget category for grouping |
-| **Status** | Line item approval status (Draft, Pending, Approved, Rejected) |
-| **Actions** | Edit, reorder, or delete the line item |
-
-### Line Item Fields
-
-Each line item supports the following fields:
-
-| Field | Description |
-|-------|-------------|
-| **Description** | Name or description of the line item |
-| **Type** | Software, Hardware, Labour, or Other |
-| **Quantity** | Number of units |
-| **Unit Price** | Cost per unit |
-| **Category** | Category for organizing items (from planner item types) |
-| **Status** | Approval status: Draft, Pending, Approved, or Rejected |
-| **Recurrence** | One-Time or recurring expense |
-| **Term (Months)** | Duration in months for recurring items |
-| **Annualized Cost** | Calculated annual cost for recurring items |
-| **Notes** | Additional notes for the line item |
-| **Linked Item** | Optional link to a Planner item, Goal, or Device |
-
-### Linked Items
-
-Line items can be linked to other entities for traceability:
-
-| Link Type | Description |
-|-----------|-------------|
-| **Planner** | Links to a task in the Planner module |
-| **Goal** | Links to a strategic goal |
-| **Device** | Links to a device from the asset inventory |
-| **Other** | Generic linkage for custom items |
-
-Linked items display a badge showing the source, and clicking the link navigates to the original item.
-
-### Budget Totals
-
-The totals section shows spending breakdown by type:
-- **Software** - Total software costs
-- **Hardware** - Total hardware costs
-- **Labour** - Total labour costs
-- **Other** - Other expenses
-- **Grand Total** - Sum of all line items
-
-## Viewing a Budget
-
-To view a budget in read-only presentation mode:
-
-1. Click the **Actions** button on any budget row
-2. Select **View**
-3. The Budget View page displays a clean summary with:
-   - Budget title and status
-   - Company, fiscal year, period, and currency
-   - Summary cards showing Total, Approved, and Pending amounts
-   - Line items table with status indicators
-   - **Overview**, **Monthly Breakdown**, and **Actuals** tabs
-
-![Budget View](/images/budgets/budget-view.png)
-
-### Export Options
-
-From the Budget View, you can:
-- **Print** - Print the budget directly
-- **Export PDF** - Download a professional PDF document
-
-## Comparing a Budget with Actual Spend
-
-Once a budget is approved, open **Budget View > Actuals** to compare its locked baseline with tax-exclusive customer invoice spend from ConnectWise Manage, Autotask PSA, or HaloPSA.
-
-The Actuals workflow provides:
-
-- Overall budgeted, actual, variance, and unallocated totals
-- Source coverage by PSA and invoice detail level
-- Per-line matched spend and variance
-- Short budget references for PSA projects, POs, invoice references, or custom fields
-- An exception queue for unmatched or partially allocated invoice spend
-- Matched evidence and an audit trail of manual allocations
-
-<CardGroup cols={3}>
-  <Card title="Approve and lock" icon="lock" href="/user-guides/budgets/approving-and-locking-budgets">
-    Finalize the baseline and prepare references and links for matching.
-  </Card>
-  <Card title="Track actuals" icon="chart-line" href="/user-guides/budgets/tracking-budget-actuals">
-    Read the summary, line outcomes, source coverage, and matched evidence.
-  </Card>
-  <Card title="Resolve exceptions" icon="list-check" href="/user-guides/budgets/resolving-actuals-exceptions">
-    Allocate unmatched spend and manage reconciliation decisions.
-  </Card>
-</CardGroup>
-
-## Budget Statuses
-
-Budgets progress through these status stages:
-
-| Status | Description | Editable |
-|--------|-------------|----------|
-| **Draft** | Budget is being created or edited | Yes |
-| **Pending Approval** | Budget submitted for review | Yes |
-| **Approved** | Budget has been approved and permanently locked | No |
-| **Archived** | Budget is retired but retained as a locked historical baseline | No |
-
-## Budget Lock (Approval)
-
-When you change a budget's status to **Approved**, a confirmation dialog appears warning that this action is permanent. Click **Approve Budget**, then **Save** to persist the approval and lock the budget.
-
-<Warning>
-**Approval permanently locks the budget.** Once approved:
-- All budget header fields become read-only (title, fiscal year, currency, notes, etc.)
-- Line items cannot be added, edited, deleted, or reordered
-- Line item statuses cannot be changed
-- **This action cannot be undone**
-</Warning>
-
-### What Happens When You Lock a Budget
-
-The lock affects the entire budget:
-
-| Action | Locked Budget |
-|--------|---------------|
-| Edit budget title/details | Disabled |
-| Add new line items | Disabled |
-| Edit existing line items | Disabled |
-| Delete line items | Disabled |
-| Reorder line items | Disabled |
-| Change line item status | Disabled |
-| Delete budget | Disabled; archive instead |
-| Duplicate budget | **Allowed** |
-| Export/Print | **Allowed** |
-| Review Actuals | **Allowed** |
-
-### Making Changes After Approval
-
-If you need to make changes to an approved budget:
-
-<Steps>
-  <Step title="Duplicate the Budget">
-    Click **Actions** > **Duplicate** on the approved budget.
-  </Step>
-  <Step title="Edit the Copy">
-    The duplicate is created in **Draft** status with "(Copy)" appended to the title.
-  </Step>
-  <Step title="Make Your Changes">
-    Edit the duplicate as needed.
-  </Step>
-  <Step title="Archive the Original">
-    Open the approved original, click **Archive** in its read-only banner, and confirm the action.
-  </Step>
-</Steps>
-
-<Tip>
-Keep approved budgets as historical records. Archive superseded budgets to retire them while preserving their locked baseline and Actuals history.
-</Tip>
-
-## Line Item Statuses
-
-Individual line items have their own approval statuses, separate from the overall budget status:
-
-| Status | Color | Description |
-|--------|-------|-------------|
-| **Draft** | Gray | Item is being prepared |
-| **Pending** | Yellow | Awaiting approval |
-| **Approved** | Green | Item has been approved |
-| **Rejected** | Red | Item was rejected |
-
-### Changing Line Item Status
-
-To change the status of individual line items:
-
-<Steps>
-  <Step title="Open the Budget">
-    Click on the budget to open it in edit mode.
-  </Step>
-  <Step title="Find the Status Column">
-    In the line items table, locate the **Status** column.
-  </Step>
-  <Step title="Click the Status Badge">
-    Click the colored status badge to open the status dropdown.
-  </Step>
-  <Step title="Select New Status">
-    Choose the new status from the dropdown. The change saves automatically.
-  </Step>
-</Steps>
-
-<Note>
-Line item statuses can only be changed when the budget is in **Draft** or **Pending Approval** status. Once a budget is **Approved**, all line item statuses are locked.
-</Note>
-
-### Bulk Status Updates
-
-To update multiple line item statuses at once:
-
-1. Click **Actions** on the budget row in the list view
-2. Select **Update Statuses**
-3. Select the items you want to update
-4. Choose the new status to apply
-
-## Managing Budgets
-
-### Editing a Budget
-
-1. Click on the budget title in the table, or
-2. Click **Actions** then **Edit**
-3. Make your changes
-4. Click **Save**
-
-### Duplicating a Budget
-
-To create a copy of an existing budget:
-
-1. Click **Actions** then **Duplicate**
-2. A new budget is created with "(Copy)" appended to the title
-3. Edit as needed
-
-### Deleting a Budget
-
-Only editable Draft and Pending Approval budgets can be deleted. Archive an Approved budget instead; already Archived budgets retain their historical baseline and cannot be deleted.
-
-1. Click **Actions** then **Delete**
-2. Confirm the deletion
-
-<Warning>
-Deleting a budget is permanent and cannot be undone.
-</Warning>
-
-## Budget Actions Menu
-
-Click the **Actions** button on any budget to access:
-
-- **View** - Open read-only presentation mode
-- **Edit** - Open the budget editor
-- **Update Statuses** - Change approval status of line items
-- **Duplicate** - Create a copy of the budget
-- **Export** - Export to PDF or other formats
-- **Delete** - Remove the budget
-
-## Products Catalog
-
-The Products area allows you to manage a centralized product catalog for use across all budgets. Access it via **Budgets Menu > Products**.
-
-![Products Catalog](/images/budgets/budgets-products.png)
-
-### Products Table
-
-The products table displays your catalog with filterable columns:
-
-| Column | Description |
-|--------|-------------|
-| **Name** | Product name (e.g., "Microsoft 365 Business Premium") |
-| **SKU** | Stock keeping unit identifier |
-| **Category** | Product category (Block Time, Managed Services, etc.) |
-| **Unit Price** | Cost per unit |
-| **Vendor** | Supplier or manufacturer (Microsoft, Tech Data, etc.) |
-| **Product Group** | Grouping for organization |
-| **Created By** | System or user who created the product |
-
-### Filtering Products
-
-Use the filter controls in each column header to quickly find products:
-- **Text filters** - Type to search by Name or SKU
-- **Dropdown filters** - Select Category, Vendor, Product Group, or Created By
-- **Price range** - Set minimum and maximum unit price
-
-### Adding Products
-
-<Steps>
-  <Step title="Click New Product">
-    Click the **+ New Product** button in the top-right corner.
-  </Step>
-  <Step title="Enter Product Details">
-    Fill in the product information:
-    - Name (required)
-    - SKU
-    - Category
-    - Unit Price
-    - Vendor
-    - Product Group
-  </Step>
-  <Step title="Save the Product">
-    Click **Save** to add the product to your catalog.
-  </Step>
-</Steps>
-
-### Importing from Integrations
-
-Click **Import from Integrations** to pull products from connected PSA systems:
-- ConnectWise Manage
-- Autotask PSA
-- HaloPSA
-
-Imported products include accurate pricing, SKUs, and vendor information.
-
-<Tip>
-Products are available tenant-wide by default, making them accessible across all company budgets. Toggle the visibility option to show tenant-wide or company-specific products.
-</Tip>
-
-## Budget Forecast
-
-The Forecast feature helps you project future budget trends based on historical data and growth assumptions. Access it via **Budgets Menu > Forecast**.
-
-![Budget Forecast](/images/budgets/budgets-forecast.png)
-
-### Forecast Settings
-
-Configure global parameters that apply to all categories:
-
-| Setting | Description |
-|---------|-------------|
-| **Base Year** | The fiscal year to use as the baseline (e.g., FY 2025) |
-| **Years to Forecast** | How many years to project (1-5 years) |
-| **Default Annual Increase (%)** | The default growth percentage applied to categories |
-| **Apply to All Categories** | Toggle to apply the default increase uniformly |
-| **Hide Empty Categories** | Hide categories with zero base values |
-
-### Forecast Categories
-
-The forecast table breaks down projections by spending category:
-
-- **Backup & DR** - Backup and disaster recovery services
-- **Cloud Services** - Cloud infrastructure and hosting
-- **Hardware** - Physical equipment and devices
-- **Managed Services** - Ongoing IT management services
-- **Other** - Miscellaneous expenses
-- **Projects** - One-time project costs
-- **Renewals** - Software and service renewals
-- **Security Services** - Cybersecurity tools and services
-- **Software** - Software licenses and subscriptions
-- **Training & Adoption** - Training and change management
-
-### Forecast Table Columns
-
-| Column | Description |
-|--------|-------------|
-| **Category** | The spending category name |
-| **Include** | Toggle to include/exclude category from forecast |
-| **Base Year** | The starting amount from the base fiscal year |
-| **FY 20XX Forecast** | Projected amount for each future year |
-| **% Increase** | Custom growth rate for this category |
-| **Use Global** | Use the global default increase percentage |
-
-### Syncing Forecast Data
-
-<Steps>
-  <Step title="Sync from Budget">
-    Click **Sync from Budget** to populate base year values from approved budgets. This pulls actual budget line items into the forecast categories.
-  </Step>
-  <Step title="Sync from Planner">
-    Click **Sync from Planner** to import planned items as forecast data. Useful for projecting costs of planned initiatives.
-  </Step>
-  <Step title="Adjust Category Values">
-    Fine-tune individual category amounts and growth percentages as needed.
-  </Step>
-  <Step title="Save Forecast">
-    Click **Save** to store your forecast configuration.
-  </Step>
-</Steps>
-
-### Understanding Projections
-
-Each forecast year shows:
-- **Projected Amount** - The calculated value based on base year and growth rate
-- **Year-over-Year Change** - The dollar amount increase from the previous year
-- **Percentage Change** - The growth rate expressed as a percentage
-
-<Tip>
-Use different growth rates for different categories to model realistic scenarios. For example, Security Services might grow at 10% while Hardware remains flat.
-</Tip>
-
-<Note>
-The Export feature is coming soon and will allow you to download forecast reports for client presentations and planning meetings.
-</Note>
-
-## Best Practices
-
-<Check>
-- Create budgets well before the fiscal year begins
-- Link budgets to strategic goals for alignment visibility
-- Use categories to organize line items by type
-- Update line item statuses as approvals are received
-- Export PDF versions for client presentations
-- Archive superseded budgets rather than deleting them
-- Review all line items before approving a budget (approval is permanent)
-- Use recurring items with term months for subscriptions to calculate annualized costs
-</Check>
-
-<Warning>
-Avoid these common pitfalls:
-- **Approving too early** - Once approved, budgets cannot be edited; ensure all items are finalized
-- Creating budgets without linking to planner items or goals
-- Leaving budgets in Draft status indefinitely
-- Not updating line item statuses after approval decisions
-- Deleting budgets instead of archiving them for audit trails
-- Forgetting to set recurrence and term for subscription items
-</Warning>
-
-## Integrations
-
-### Planner Integration
-
-Budgets integrate with the Planner module to:
-- Import planner items as budget line items
-- Maintain links between budget items and tasks
-- Show estimated costs from planner items
-
-### Goals Integration
-
-Link strategic goals to demonstrate:
-- How IT spending supports business objectives
-- Alignment between budgets and company strategy
-- Progress on goal-related expenditures
-
-### PSA Integration
-
-Products from connected PSAs (ConnectWise, Autotask, HaloPSA) are available:
-- Import products with accurate pricing
-- Maintain product SKUs and categories
-- Access vendor information
-- Compare approved budgets with synchronized, tax-exclusive customer invoice spend
-- Match invoice events by budget reference, linked project, linked product, or product identity
-
-## Related Resources
-
-- [Approve and Lock a Budget](/user-guides/budgets/approving-and-locking-budgets) - Create the immutable baseline used for actuals
-- [Track Budget Actuals](/user-guides/budgets/tracking-budget-actuals) - Compare approved budgets with invoice spend
-- [Resolve Actuals Exceptions](/user-guides/budgets/resolving-actuals-exceptions) - Allocate unmatched spend and manage matching decisions
-- [Planner](/user-guides/planner/index) - Manage tasks and link to budgets
-- [Goals](/user-guides/goals/index) - Set strategic objectives
-- [Company Overview](/user-guides/company-overview/index) - View company budget status
-
-## Need Help?
-
-For assistance with the Budgets module, contact support@msportal.ai.
+<AccordionGroup>
+  <Accordion title="Which budget guide should a Company user start with?">
+    Start with Find and open a budget, then Read the budget overview and Monthly Breakdown. Your MSP grants any additional editing, management or invoice access.
+  </Accordion>
+  <Accordion title="Why do budget totals differ between views?">
+    The list excludes rejected amounts, Overview and exports sum all line quantities times prices, and Monthly Breakdown schedules recurring charges. Compare the same measure and status scope.
+  </Accordion>
+  <Accordion title="Does importing save changes automatically?">
+    Importing lines into the budget editor requires review and Save. Importing into the product catalog saves catalog records immediately. Forecast sync changes the worksheet and requires its own Save.
+  </Accordion>
+  <Accordion title="Can Company administrators grant themselves budget permissions?">
+    No. The MSP manages Company user permissions. Ask your MSP if a required action or tab is unavailable.
+  </Accordion>
+  <Accordion title="Are Budget Templates available in the menu?">
+    No. Budget Templates is not currently an available menu workflow. Use the documented duplication or import workflows where appropriate.
+  </Accordion>
+  <Accordion title="Does downloading or printing approve the budget?">
+    No. Documents and print previews do not change approval. Approval is a separate authorized workflow that locks the baseline.
+  </Accordion>
+</AccordionGroup>

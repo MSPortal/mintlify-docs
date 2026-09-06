@@ -1,0 +1,66 @@
+---
+title: "Find device backups"
+description: "Filter Cove, Acronis, and NinjaOne records and interpret backup status, dates, and storage."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Backup read access and device-backup data in their permitted scope.
+
+## Find a device
+
+1. Open **Backup > Devices**.
+2. Confirm the company selection. MSP staff should select the company before investigating one client's device.
+3. Use the Device column filter to find a device by name. Use **Provider** or **Status** to narrow the results.
+4. Review **Type**, **Status**, **Protected Size**, and **Last Backup** when shown.
+5. Use pagination to review further results.
+
+The default status filter includes Success, Failed, Warning, Completed, and InProcess. **Not Configured** records are excluded initially. To investigate them, explicitly choose Not Configured in the Status filter. Clearing filters restores the default configured-status selection; it does not necessarily show every status.
+
+The Devices tab itself may be absent when there are no records matching its availability rules. If all expected records are unconfigured, ask your MSP to inspect the provider and company mapping rather than concluding that there are no devices.
+
+## Read the columns
+
+| Column | Meaning |
+| --- | --- |
+| **Device** | The provider's device or resource name. An Acronis usage summary can represent several workloads rather than one endpoint. |
+| **Company** | The mapped portal company. |
+| **Provider** | Cove, Acronis, or NinjaOne. |
+| **Type** | The reported backup plugin, resource type, or backup type. |
+| **Status** | The imported result. Not Configured means the source reports no backup configuration; Unknown means a status is unavailable. |
+| **Protected Size** | Reported storage for that row. Missing or zero storage is not proof of protection. |
+| **Last Backup** | The available backup date. Never or a dash does not establish a successful backup. |
+
+Last Backup is shown when Cove or Acronis is active. A NinjaOne-only list can omit that column; open NinjaOne details for available Last Success, Last Failure, and Last Synced dates.
+
+Provider status text can differ. Read the value and date together instead of relying only on badge color.
+
+## Open details
+
+- Select an **Acronis** device row to open its activity panel.
+- Select a **NinjaOne** row to open its storage and timestamp details.
+- **Cove** device rows currently do not open a device detail panel from this table.
+
+See [Read backup details](/user-guides/backup/read-backup-details).
+
+## Search limits and missing results
+
+The list uses server pagination. In a combined-provider view, each provider is queried separately, so page size and totals can behave differently from a single-provider list. Select one provider when checking completeness. Device name, Status, and Provider are the supported server filters; use the main company selector to scope a company.
+
+If no records appear, check the default status filter and company selection, then ask the MSP to verify the integration. A provider read failure can appear as an empty or partial result. These tables do not provide a Backup CSV export action.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why did Clear filters hide Not Configured devices?">
+    The page restores its default configured-status filter. Choose Not Configured explicitly to inspect those records.
+  </Accordion>
+  <Accordion title="Does one row always mean one physical device?">
+    No. Some Acronis usage rows summarize several workloads. Read the Device and Type labels before comparing the row count with an endpoint inventory.
+  </Accordion>
+  <Accordion title="Can I start a backup by selecting a row?">
+    No. Supported rows open read-only report details. Starting a backup or changing its configuration is a separate provider workflow handled by authorized staff.
+  </Accordion>
+  <Accordion title="Why is Last Backup missing?">
+    The list can omit that column for NinjaOne-only data. Open the NinjaOne detail panel for available timestamps; a missing timestamp is not a success result.
+  </Accordion>
+</AccordionGroup>

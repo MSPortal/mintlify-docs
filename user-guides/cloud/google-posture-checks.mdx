@@ -1,0 +1,107 @@
+---
+title: 'Understand Google posture checks'
+description: 'Read Google check statuses, coverage and points, including missing-data limits and the MSP follow-up workflow.'
+icon: 'calculator'
+---
+
+Google Workspace posture uses a six-check **MSPortal** calculation with 100 available points. It is separate from Microsoft Secure Score. Use it to review recorded coverage and discuss follow-up with your MSP; it is not a comprehensive security assessment.
+
+**Audience:** Company users with Microsoft 365 read access and MSP staff. This permission also governs Google posture readers.
+
+## Open the checks
+
+1. Open **Cloud > Posture** and confirm the company scope.
+2. In a multi-company overview, click the **Google Workspace** row. With one company selected, available Google checks appear directly on the page.
+3. Confirm **Google Workspace**, **MSPortal**, the **Snapshot** date, the percentage and the points total.
+4. Read each row's **Check**, **Status**, **Coverage** and **Points**. On small screens, scroll the table horizontally; the description also includes the counts when the separate Coverage column is hidden.
+5. Record the check and date when requesting help. The rows do not open lists of affected users or edit provider settings.
+
+<Frame caption="Read the provider, MSPortal score source and recorded snapshot date before interpreting the checks. This is an example captured from the MSP view.">
+  <img src="/images/product/cloud-posture-google-source.png" alt="Google Workspace posture identifies MSPortal as its score source and shows the snapshot date." width="702" height="50" />
+</Frame>
+
+## Understand the six checks
+
+Active users here exclude suspended and archived accounts. Administrator checks include active administrators and delegated administrators.
+
+| Check | What earns coverage | Maximum points | Warning begins at |
+| --- | --- | --- | --- |
+| **2-step verification enrollment** | Active users reported enrolled. | 25 | 80% |
+| **2-step verification enforcement** | Active users reported enforced. | 20 | 80% |
+| **Administrator 2-step verification** | Active administrators reported both enrolled and enforced. | 25 | No warning band |
+| **Active account hygiene** | Activity within the default 90-day threshold; creation date is used when a usable last-sign-in date is absent. | 15 | 90% |
+| **Verified domains** | Synchronized Google domain records reported verified. | 10 | No warning band |
+| **License assignment visibility** | Active users with an explicit recorded license-assignment state, including zero assignments. | 5 | 90% |
+
+Enrollment and enforcement are different signals. A known license state measures visibility; it does not establish license compliance, available seats or that every person needs a paid license. Suspended or archived exclusions do not prove that offboarding is complete.
+
+## Read statuses and points
+
+| Status | Meaning |
+| --- | --- |
+| **Pass** | Every item in the check's scope meets the condition. |
+| **Warning** | Coverage is below complete but reaches the check's warning threshold. |
+| **Needs attention** | Coverage falls below that threshold. |
+| **Unknown** | No items or no usable evidence are available, or a required license snapshot is incomplete. The check earns zero points. |
+
+For a check that can be evaluated, **points = passing items / total items × maximum points**, rounded to two decimal places. For example, 18 of 20 enrolled active users earns 22.5 of 25 points. The overall percentage is displayed as a whole number, so use the points when small differences matter.
+
+Unknown items remain in the coverage denominator when some evidence is available. A partially missing dataset can therefore lower a score and show Needs attention instead of making the whole check Unknown. Confirm whether the issue is failed coverage or missing reporting before acting.
+
+Administrator protection and verified domains require complete coverage to Pass and have no Warning band. They still earn proportional points when evaluable: a Needs attention status does not necessarily mean zero points. Unknown checks remain in the 100-point maximum.
+
+## Check freshness
+
+The **Snapshot** date is the date the portal stored the sync's snapshot. Google usage reporting is requested for an earlier date, normally three days before the run, and an older available report may be used. Directory, domain and license inputs are collected separately. The visible date is not a promise that all inputs describe that same day.
+
+If usage reports are unavailable, the sync can defer creating a new posture snapshot while other datasets update. The previous snapshot can remain visible. A new sync is not a guarantee that an Unknown check will resolve.
+
+MSP staff should check the Google connection's **Daily security posture** sync setting, reporting availability and company mapping when a snapshot is missing or stale. See the separate [Google Workspace setup guide](/user-guides/integrations/enable-google-workspace-integration). There is no Run now control on the checks reader.
+
+## Request and track follow-up
+
+Company users should [open a ticket from the Home AI Assistant](/user-guides/ticketing/open-a-ticket). Include the company, snapshot date, check title, status and coverage. The MSP can verify the underlying accounts or domains and decide on the appropriate changes.
+
+MSP staff can use [Cloud Users](/user-guides/cloud/users) and [Cloud Domains](/user-guides/cloud/domains) as related inventories. Their current rows can differ from an older posture snapshot, and the checks panel does not expose its per-user evidence list. Confirm evidence in the connected provider before changing an account. Changes are reflected only after collection and a new posture calculation succeed.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Is this a Google-issued or Microsoft Secure Score?">
+    No. Google rows use the MSPortal calculation, identified by MSPortal in the detail. Microsoft rows use a different source and model.
+  </Accordion>
+  <Accordion title="Does an administrator need both enrollment and enforcement to pass?">
+    Yes. The administrator check counts an active administrator as protected only when both flags are reported true. Delegated administrators are included.
+  </Accordion>
+  <Accordion title="Do suspended and archived users count against user checks?">
+    They are excluded from these user-based checks. This scoring exclusion does not verify complete offboarding.
+  </Accordion>
+  <Accordion title="Does License assignment visibility require a paid license for every user?">
+    No. An explicit zero-assignment state counts as visible. The check measures known assignment state, not purchasing or compliance.
+  </Accordion>
+  <Accordion title="Why can a check show Unknown with zero users?">
+    A zero-size scope is Unknown rather than an automatic Pass. It contributes zero points while the maximum remains 100.
+  </Accordion>
+  <Accordion title="Do missing individual values always make the whole check Unknown?">
+    No. If some evidence is known, missing items remain in the total and lower coverage. The status can be Warning or Needs attention.
+  </Accordion>
+  <Accordion title="Does Needs attention always mean zero points?">
+    No. Evaluable checks earn proportional points. Administrator and domain checks have no warning band but can still earn partial points.
+  </Accordion>
+  <Accordion title="Why can a newly created user pass account hygiene without signing in?">
+    When a usable last-sign-in date is unavailable, the calculation uses account creation time against the 90-day threshold. That is not proof of a successful sign-in.
+  </Accordion>
+  <Accordion title="Why did Cloud Users update while the posture date stayed old?">
+    Usage reports can be unavailable and postpone the new posture calculation while other data syncs. Ask your MSP to check the reports and sync result.
+  </Accordion>
+  <Accordion title="Can I open the affected-user list or fix a check from this panel?">
+    No. It shows check counts, status and points. Use the Home AI Assistant to request MSP help, or have MSP staff investigate the related inventory and provider evidence.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Read cloud security posture](/user-guides/cloud/posture)
+- [Find and filter posture snapshots](/user-guides/cloud/find-posture)
+- [Read cloud user accounts](/user-guides/cloud/users)
+- [Read cloud and registrar domains](/user-guides/cloud/domains)

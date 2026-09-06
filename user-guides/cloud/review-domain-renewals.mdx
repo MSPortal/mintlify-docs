@@ -1,0 +1,76 @@
+---
+title: 'Review domain renewal information'
+description: 'Read synchronized DNSimple expiry and auto-renew fields, identify missing information, and hand renewal decisions to your MSP.'
+icon: 'calendar'
+---
+
+Use **Cloud > Domains** to review DNSimple registrar information available for company-mapped domains. Microsoft and Google domain rows describe cloud-service configuration and do not supply registrar expiry or auto-renew information here.
+
+**Audience:** Company users with Microsoft 365 read access and MSP staff. Company users report concerns to their MSP; MSP staff verify and manage renewals in the registrar.
+
+## Review a registrar record
+
+1. Open Cloud > Domains and confirm the company scope.
+2. In **Provider**, select the checkbox beside **DNSimple** when the column is available. If only one provider is present, check its records and available fields instead.
+3. Find the domain and read **Expires**. Scroll the table horizontally if needed.
+4. Click **Columns**, show **Auto-renew**, **Registrar status** and **Last synced**, then **Save Changes**.
+5. Compare the recorded expiry, renewal flag and synchronization date. Ask your MSP to confirm current registrar information before relying on it.
+
+| Field | How to interpret it |
+| --- | --- |
+| **Expires** | Synchronized registrar expiry date. A dash means no date is available here, not that the domain never expires. |
+| **Auto-renew** | On or Off when the provider supplied a flag; a dash means no value is supplied. On is not a guarantee that a future renewal will succeed. |
+| **Registrar status** | Recorded provider state. It is not a live DNS, website or email-availability test. |
+| **Last synced** | When registrar information was fetched. Changes made afterward may not be reflected. |
+
+## Prepare a review list
+
+The page has no expiry sorting, expiry-date filter, renewal action or auto-renew switch. Use **Export CSV** for the loaded page and repeat for additional pages as needed, then sort the recorded dates in your spreadsheet.
+
+<Frame caption="Export the required loaded pages for a renewal review; this control does not renew a domain.">
+  <img src="/images/product/cloud-domain-export-control.png" alt="Export CSV control on Cloud Domains." width="244" height="64" />
+</Frame>
+
+The export includes Expires, Auto-renew, Registrar status and Last synced even if those columns are hidden. Check Provider and Company when combining files to avoid treating multiple records for the same domain as separate registrations.
+
+## Follow up with your MSP
+
+Company users should [open a ticket through the Home AI Assistant](/user-guides/ticketing/open-a-ticket), including the domain, company, recorded expiry and the concern. Your MSP checks the registrar and handles any renewal or configuration change.
+
+MSP staff should verify the current registrar expiry, renewal settings and account status before acting. For missing DNSimple records, check integration synchronization and company mapping; unmapped registrar records are not shown in this inventory. See [DNSimple integration](/user-guides/integrations/enable-dnsimple-integration) for the separate setup guide.
+
+Neither **Unverified** on a DNSimple row nor **Secondary domain** is a renewal-failure finding. Unverified is the current fallback for absent cloud-verification data. Secondary domain describes missing synchronized Microsoft/Google presence; it does not establish that the domain is unused.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can I renew a domain or enable auto-renew from this page?">
+    No. The page reads synchronized registrar information. Your MSP manages renewal settings in the registrar.
+  </Accordion>
+  <Accordion title="Does an empty Expires field mean the domain never expires?">
+    No. The expiry value may be unavailable, or you may be reading a Microsoft/Google cloud record instead of a registrar record.
+  </Accordion>
+  <Accordion title="Does Auto-renew On guarantee the next renewal?">
+    No. It is a synchronized flag. Your MSP must confirm the current registrar settings and account state.
+  </Accordion>
+  <Accordion title="Why are some DNSimple domains missing?">
+    Only company-mapped registrar records appear. Also check company scope, provider filters, access and synchronization with your MSP.
+  </Accordion>
+  <Accordion title="Can I get expiry fields without changing visible columns?">
+    Yes. Export CSV includes its defined expiry, auto-renew, registrar status and synchronization fields even when their columns are hidden. It still exports only the loaded page.
+  </Accordion>
+  <Accordion title="Is Created always the original registration date?">
+    No. Its source differs by provider. DNSimple uses the recorded registration date; Google uses its domain creation time and Microsoft uses the stored record date.
+  </Accordion>
+  <Accordion title="Does Secondary domain mean I can safely cancel it?">
+    No. It means no matching name was found in synchronized Microsoft/Google inventory for the MSP tenant. It does not establish business use, ownership or renewal requirements.
+  </Accordion>
+  <Accordion title="How should a Company user report a renewal concern?">
+    Start with the Home AI Assistant and request a support ticket. Include the domain, company, recorded expiry and concern so the MSP can verify the registrar.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Read cloud and registrar domains](/user-guides/cloud/domains)
+- [Find and export domains](/user-guides/cloud/filter-domains)

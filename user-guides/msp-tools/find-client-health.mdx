@@ -1,0 +1,106 @@
+---
+title: "Find companies in Client Health"
+description: "Filter the portfolio, review Spotlight and understand the table and export scopes."
+icon: "heart-pulse"
+---
+
+**Audience:** MSP staff with Client Health read access. Company portal users are redirected to Home; this is not a Company self-service dashboard.
+
+Open **MSP Tools > Client Health**. The page uses a published scorecard and your accessible company scope. It is not a live check of every device or service.
+
+## Choose companies to review
+
+1. Use the top Company selector for the available Global, assigned or individual company scope.
+2. Use the table's **Company** filter to select companies within that scope.
+3. When available, use **Company type** and **Filter by Role** to narrow the companies further. Role choices identify company role holders, not permissions granted to the person viewing this page.
+4. Read the table's matching count and use pagination to inspect additional results. The table loads 50 companies per page.
+
+Several choices within one filter can match; different filters must match together. For example, the selected company must be in scope and match a chosen type and a chosen role/person. No matching combination produces an empty result, not a fallback to every company.
+
+Changing the top company scope clears the company, type and role selections. Risk and Limited data filters can remain active; check them if the new scope looks unexpectedly empty.
+
+## Filter risk or Limited data
+
+Select a **Thriving**, **Healthy**, **At Risk** or **Critical** summary chip or colored distribution segment to filter the table. Selecting that same risk again clears it. The table's **Risk Level** filter can select multiple levels.
+
+Select **Limited data** to find companies without enough evidence for an overall numeric score. Selecting it again clears that filter. Choosing Limited data clears risk filtering; choosing a risk level clears Limited data filtering.
+
+| Area | Scope |
+| --- | --- |
+| Summary totals and average | Companies selected by company, type and role scope, before risk or Limited data filtering. |
+| Spotlight | The same company scope; not restricted by risk or Limited data table filtering. |
+| Table and matching count | Company scope plus current risk or Limited data filters. |
+| Export CSV | Current company and table filter scope, subject to the export limit below. |
+
+A table filtered to Critical can therefore show fewer companies than the portfolio summary. **Avg Health Score** averages companies with a numeric score; Limited data is not treated as zero. A company with limited evidence can also carry a manual risk flag, so risk counts and Limited data are not guaranteed to be mutually exclusive.
+
+## Use Spotlight
+
+Expand or collapse **Spotlight** to review two lists, each showing up to five companies:
+
+- **Needs Attention** selects the lowest available numeric scores. Limited data companies are excluded from this list; use their dedicated filter.
+- **Most Improved** ranks positive score changes compared with the previous published scorecard from the same model revision. Its displayed number is the current score, not the size of the improvement.
+
+Select a company in either list to open its detail. An empty Most Improved list can mean there is no comparable earlier score or no positive improvement; it does not prove that every company got worse.
+
+## Read and arrange the table
+
+Select a company row to [read its health details](/user-guides/msp-tools/read-client-health-details). Hover over numeric health or dimension scores for supporting values. **N/A** is different from zero; **Manual** beside a risk level indicates a saved override.
+
+Use **Columns** to show or hide registered columns. Trend, Flag Reason and CSAT Response Rate are optional columns. Dimension columns can be unavailable when the scoped scorecard has no value for them or the dimension is disabled. CSAT columns also depend on the tenant collecting CSAT and Engagement being available/enabled. Column visibility cannot create missing evidence.
+
+Use supported sortable headers to change order. Trend and CSAT columns are display-only. Some filters or available columns may differ between company scopes.
+
+## Export the matching list
+
+**Export CSV** requests matching rows across pages, rather than only the currently loaded 50. The request is capped at **10,000 rows**. If the matching count exceeds that, narrow the company filters and export smaller sets; do not treat a single file as a complete portfolio export.
+
+Check the resulting file's fields and row count before sharing. Client Health is an internal MSP view; a CSV can contain internal scores and manual flag reasons. Exporting does not grant a Company user access to Client Health. An unavailable scorecard or failed export is not an empty successful report.
+
+## Troubleshoot missing results
+
+Check company scope, type/role/company filters, risk and Limited data selections. A missing dimension can be unavailable or disabled. If the page reports **No published Customer Success generation is available yet**, follow [Refresh Client Health scores](/user-guides/msp-tools/refresh-client-health). A load error does not mean the company has no health concerns.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can Company portal users open Client Health?">
+    No. Client Health is an MSP view; Company users are redirected to Home.
+  </Accordion>
+  <Accordion title="Where do I find companies needing attention?">
+    Open MSP Tools > Client Health and review Needs Attention or filter the table by risk level. Use Limited data separately for missing evidence.
+  </Accordion>
+  <Accordion title="Do company type and role filters combine?">
+    Yes. Different filter categories narrow each other; multiple values within one category can match.
+  </Accordion>
+  <Accordion title="Does Filter by Role change user permissions?">
+    No. It filters companies by their role holders; it does not edit access permissions.
+  </Accordion>
+  <Accordion title="Why does the table count differ from the summary?">
+    Risk and Limited data filters narrow the table, while summary totals describe the selected company/type/role scope before those filters.
+  </Accordion>
+  <Accordion title="Does Spotlight follow the risk filter?">
+    No. Spotlight follows company scope, not the risk or Limited data table filters.
+  </Accordion>
+  <Accordion title="Does Needs Attention include Limited data companies?">
+    No. It lists up to five companies with available numeric scores. Use the Limited data filter for the others.
+  </Accordion>
+  <Accordion title="Is the number in Most Improved the improvement amount?">
+    No. The list ranks positive changes but shows each company’s current score.
+  </Accordion>
+  <Accordion title="Why is Most Improved empty?">
+    There may be no comparable earlier scorecard from the same model revision or no positive improvements.
+  </Accordion>
+  <Accordion title="Why is a dimension absent from Columns?">
+    It may have no value across the selected scope or be disabled. CSAT columns also depend on available/enabled Engagement and tenant CSAT collection.
+  </Accordion>
+  <Accordion title="Can I sort by Trend or CSAT?">
+    Those columns are display-only; use a supported sortable score or company header.
+  </Accordion>
+  <Accordion title="Does Export CSV contain only the current page?">
+    It requests matching rows across pages, capped at 10,000 rows. Narrow larger result sets before exporting.
+  </Accordion>
+  <Accordion title="Why do filters still affect a newly selected company scope?">
+    Risk and Limited data selections can remain active when the top company scope changes. Check those filters after switching scope.
+  </Accordion>
+</AccordionGroup>

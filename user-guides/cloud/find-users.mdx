@@ -1,0 +1,87 @@
+---
+title: 'Find and filter cloud users'
+description: 'Find a cloud account by name or email, include disabled accounts, and combine company, directory, and license filters.'
+icon: 'filter'
+---
+
+Use **Cloud > Users** to find the Microsoft or Google accounts you can access. The initial view shows **Enabled** accounts. Change **Status** when searching for a disabled or offboarded account.
+
+**Audience:** Company users with Microsoft 365 read access and MSP staff. The same read permission covers Google Workspace users.
+
+## Find an account
+
+1. Confirm the company selector in the top bar.
+2. Type a display name into the **Name** column's **Filter...** field, or use **Email** for an email address or sign-in name.
+3. Check the **Provider** and **Company** filters where they are shown.
+4. Wait for the result count and rows to update. Filtering searches the matching dataset across list pages and returns you to the first page.
+5. Use **Previous** and **Next** for more results. The table loads 50 users per page.
+
+The Name field matches the stored display name. If the Name cell displays an email because the display name is missing, use the **Email** filter. These text matches ignore letter case and surrounding spaces.
+
+## Show disabled accounts
+
+1. Open the **Status** filter in the table header.
+2. Select **Disabled** to review stored disabled accounts, or **All** to include both statuses.
+3. Keep any company, provider, or license filters that are relevant to your review.
+
+<Frame caption="Status begins at Enabled. Select Disabled or All to include accounts omitted from the initial view.">
+  <img src="/images/product/cloud-users-status-options.png" alt="Cloud Users Status options: All, Enabled, and Disabled." width="256" height="204" />
+</Frame>
+
+**Clear Filters** clears the table's column filters, including the initial Enabled filter and any provider filter. It does not broaden the company scope set in the top bar or your account's access. Reopening the page starts from its initial status and any provider specified by the entry link.
+
+## Combine filters
+
+| Filter | How to use it |
+| --- | --- |
+| **Name** | Match a stored display name. |
+| **Email** | Match either email or user sign-in name; a domain fragment can help locate accounts. |
+| **Provider** | Choose Microsoft 365 and/or Google Workspace when multiple providers are available. |
+| **Company** | Narrow within permitted company data, unless already scoped to one company in the top bar. |
+| **Office / Department** | Choose recorded directory values. Use **Columns** to show Department. |
+| **Job title** | Show the column through **Columns**, then enter text in its filter. |
+| **Account type** | Choose available directory types when more than one type exists in the current scope. It is not an administrator-role filter. |
+| **Status** | Enabled, Disabled, or All. |
+| **Licenses** | Select friendly license names to find users with at least one of the selected licenses. Scroll horizontally if needed. |
+
+Different filters combine: a row must satisfy each active field. Multiple choices within one field are alternatives. Selecting two licenses means **either** selected license, not that the user must hold both. Use [By combination](/user-guides/cloud/view-license-assignments) for a review of complete license sets.
+
+The list's License count, 2-step verification, and date columns do not have dedicated filters. Column sorting is not offered on the current Cloud Users table; use the available filters to narrow the dataset, or [export it](/user-guides/cloud/export-users) for sorting in a spreadsheet.
+
+## If you cannot find someone
+
+Select **Status = All**, clear column filters, and confirm the top-bar company scope. Search using Email when the display name is missing or changed. If the person is still absent, ask your MSP to check the provider connection, company mapping, synchronization, and your permissions. An empty result is not proof that the provider account was deleted.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why are disabled accounts missing when I first open Users?">
+    Status starts at Enabled. Select Disabled or All in the Status column filter to include disabled accounts.
+  </Accordion>
+  <Accordion title="Does Clear Filters return the table to Enabled only?">
+    No. It clears the column filters, including Status and Provider. The top-bar company scope remains. Select Enabled again if that is the view you want.
+  </Accordion>
+  <Accordion title="Why does entering an email in the Name filter find nothing?">
+    Name filters the stored display name, even when a cell falls back to showing an email. Use the Email field for an email or sign-in name.
+  </Accordion>
+  <Accordion title="Does selecting two license names find people holding both?">
+    No. It matches users with at least one selected license. Use Cloud > Licenses > By combination to inspect exact license sets.
+  </Accordion>
+  <Accordion title="Where can I filter by department or job title?">
+    Click Columns, show Department or Job title, and choose Save Changes. Then use that column's filter. Cancel discards unsaved column choices.
+  </Accordion>
+  <Accordion title="Why are Provider, Company, or Account type missing?">
+    Provider is omitted when only one provider is available; Company is omitted when the top bar is scoped to one company. Account type is omitted when the available records have only one directory type. These are scope-dependent columns.
+  </Accordion>
+  <Accordion title="Can I sort by 2-step verification or filter License count here?">
+    The current Users table does not offer column sorting or a License count range filter. Narrow with its supported filters. Export for additional analysis, noting that the CSV does not include 2-step verification.
+  </Accordion>
+  <Accordion title="Does an empty result prove that offboarding is complete?">
+    No. Filters, access, mappings, and synchronization can hide an account. Ask your MSP to confirm the provider state and the remaining offboarding steps.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Read cloud user accounts](/user-guides/cloud/users)
+- [Export cloud users](/user-guides/cloud/export-users)

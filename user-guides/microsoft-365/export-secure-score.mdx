@@ -1,0 +1,59 @@
+---
+title: 'Export Secure Score controls'
+description: 'Export the filtered loaded controls to CSV and understand permission and scope limits.'
+icon: 'shield-check'
+---
+
+**Audience:** MSP staff with Microsoft 365 management permission. Read access alone does not expose **Export CSV**. Company users can ask their MSP for an export.
+
+## Download a CSV
+
+1. Open **Cloud > Posture > Secure Score** and confirm the company scope.
+2. Choose **Needs attention**, **Addressed** or **All**.
+3. Apply the column filters for the records you need.
+4. Select **Export CSV** and wait for the browser download.
+5. Open the file in a spreadsheet application and check the company, statuses and rows before using it.
+
+The export contains the filtered loaded rows across table pages. It is not limited to checked rows or just the current 20-row page. The reader loads at most 5,000 controls for the selected scope; it cannot export records it has not loaded. Export one company at a time when reviewing a large portfolio.
+
+## CSV fields
+
+The English export has these ten fields, even if some corresponding columns are hidden in the table:
+
+| Field | Meaning |
+| --- | --- |
+| Company | Associated company name. |
+| Title | Recommendation title. |
+| Category | Security category. |
+| Service | Related Microsoft service. |
+| Severity | Tier-derived priority label. |
+| Status | Displayed state; an unrecognized Microsoft state can keep its provider wording. |
+| Current Score | Stored points currently achieved for the control. |
+| Max Points | Maximum points for that control, not remaining improvement. |
+| Tier | Underlying recommendation tier when supplied. |
+| Implementation Cost | Provider's implementation-cost value when supplied. |
+
+The CSV is table data. It does not include remediation text, detail history, summary cards or a provider PDF. Use [Read a Secure Score control](/user-guides/microsoft-365/read-secure-score-control) for supporting evidence.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why can I read Secure Score but not export it?">
+    Export CSV requires Microsoft 365 management permission. Ask the MSP to review access or provide the export.
+  </Accordion>
+  <Accordion title="Does the CSV contain only the selected rows?">
+    No. It includes the active view’s filtered loaded rows, independently of checkboxes.
+  </Accordion>
+  <Accordion title="Does the export stop at the current table page?">
+    No. It includes filtered loaded rows across pagination. It remains bounded by the reader’s 5,000-control load limit.
+  </Accordion>
+  <Accordion title="Does hiding a column remove it from the CSV?">
+    No. The export has a fixed set of ten fields.
+  </Accordion>
+  <Accordion title="Can I download remediation and history in this CSV?">
+    No. Those details are not among the export fields. Open the control panel to read them.
+  </Accordion>
+  <Accordion title="Is Max Points the improvement I will gain?">
+    No. It is the control’s maximum value. Some points may already be achieved, and actual changes depend on Microsoft’s subsequent assessment.
+  </Accordion>
+</AccordionGroup>

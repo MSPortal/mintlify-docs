@@ -1,182 +1,62 @@
 ---
 title: 'Documentation'
-description: 'Access IT documentation from Hudu and IT Glue directly within MSPortal'
+description: 'Find Company and MSP guides for shared documents, the resource hub, passwords, IT records, and native portal pages.'
 icon: 'book'
 ---
 
-The Documentation module gives you and your clients access to IT documentation from Hudu or IT Glue without leaving MSPortal. Browse articles, view asset inventories, access passwords securely, follow procedures, and review Liongard inspector data, all in one place.
+Documentation brings together resources your MSP makes available to you. It supports native portal pages and files, shared provider records, and an optional resource hub. Your role, company scope, and the MSP's sharing settings determine what appears.
 
-## Key Features
+## For Company users
 
 <CardGroup cols={2}>
-  <Card title="Articles" icon="file-lines">
-    Browse knowledge base articles and runbooks with folder navigation and company filtering.
+  <Card title="Find and read documents" href="/user-guides/documentation/find-shared-documents" icon="file-lines">
+    Search folders, read pages, preview files, and download attachments.
   </Card>
-  <Card title="Assets" icon="hard-drive">
-    View IT asset inventories organized by layout type (servers, laptops, printers, etc.).
+  <Card title="Use the resource hub" href="/user-guides/documentation/resource-hub" icon="grid-2">
+    Browse the documents, folders, and useful links your MSP has organized.
   </Card>
-  <Card title="Passwords" icon="lock">
-    Securely reveal shared passwords with auto-hide timeout and copy-to-clipboard support.
+  <Card title="Use shared passwords" href="/user-guides/documentation/shared-passwords" icon="key">
+    Reveal or copy credentials explicitly shared with your account.
   </Card>
-  <Card title="Procedures" icon="list-check">
-    Access step-by-step procedures and runbooks with completion tracking.
+  <Card title="View IT records and procedures" href="/user-guides/documentation/view-it-records" icon="server">
+    Read shared assets, configurations, procedures, and inspection results.
   </Card>
 </CardGroup>
 
-## Prerequisites
+## For MSP staff
 
-- An active [Hudu](/user-guides/integrations/enable-hudu-integration) or [IT Glue](/user-guides/integrations/enable-itglue-integration) integration
-- Appropriate user permissions for each tab
-- For Passwords: password sharing must be enabled in the integration settings, and the user must have the `read_documentation_passwords` permission
+- [Create and maintain portal documents](/user-guides/documentation/create-portal-documents)
+- [Connect Hudu](/user-guides/integrations/enable-hudu-integration)
+- [Connect IT Glue](/user-guides/integrations/enable-itglue-integration)
+- [Connect Liongard](/user-guides/integrations/enable-liongard-integration)
+- [Configure Liongard visibility](/user-guides/settings/liongard-visibility)
 
-## Accessing Documentation
+## Available tabs
 
-Click **Documentation** in the sidebar. The page displays tabs based on your active integrations and permissions.
+| Tab | Purpose | Availability |
+| --- | --- | --- |
+| Hub | Curated documents, folders, and links | Enabled by the MSP; it can also appear as a separate page or replace Overview |
+| Documents | Portal pages, uploaded files, and shared articles | Documentation access; native content does not require a provider |
+| Assets | Shared documentation asset records | Hudu or IT Glue and documentation access |
+| Configurations | IT Glue configuration inventory | IT Glue and documentation access |
+| Passwords | Credentials shared with your role and company | Supported documentation provider, password sharing enabled, and password permission |
+| Procedures | Provider runbooks and recorded task status | Supported documentation provider and documentation access |
+| Inspectors | Shared Liongard service and environment records | Liongard and documentation access |
+| Domains | Company domain inventory | Domain-documentation permission |
 
----
+## FAQs
 
-## Articles
-
-The Articles tab displays knowledge base articles synced from your documentation provider.
-
-| Column | Description |
-|--------|-------------|
-| **Name** | Article title (click to view full article) |
-| **Folder** | The folder the article belongs to |
-| **Company** | Which company the article is scoped to |
-| **Updated** | When the article was last modified |
-
-### Folder Navigation
-
-A **folder tree sidebar** on the left lets you browse articles by folder hierarchy:
-
-- Click any folder to filter articles to that folder
-- Click **All Articles** to clear the folder filter and see everything
-- Folders are sorted alphabetically with nested sub-folders
-
-### Searching
-
-Use the search bar to find articles by name. Combine with folder filtering and the company selector to narrow results.
-
----
-
-## Assets
-
-The Assets tab displays IT asset records organized by asset layout type.
-
-| Column | Description |
-|--------|-------------|
-| **Name** | Asset name (click to view full details) |
-| **Company** | Which company owns the asset |
-| **Manufacturer** | Device manufacturer |
-| **Model** | Device model |
-| **Serial** | Serial number |
-| **Updated** | When the asset was last modified |
-
-### Asset Layout Sidebar
-
-A sidebar on the left organizes assets by layout type (e.g., Servers, Laptops, Printers, Phones). Each layout shows an icon and count badge. Click a layout to filter to that asset type.
-
----
-
-## Passwords
-
-The Passwords tab provides secure access to shared passwords from your documentation provider.
-
-| Column | Description |
-|--------|-------------|
-| **Name** | Password entry name |
-| **Username** | Login username (with copy button) |
-| **Company** | Which company the password belongs to |
-| **Folder** | The folder the password is organized under |
-| **URL** | Login URL (opens in new tab) |
-| **Password** | Masked password with reveal button |
-
-### Revealing Passwords
-
-<Steps>
-  <Step title="Click Reveal">
-    Click the **Reveal** button next to any password entry. The password is fetched live from your documentation provider.
-  </Step>
-  <Step title="View or Copy">
-    Once revealed, use the **eye icon** to toggle visibility and the **copy icon** to copy the password to your clipboard.
-  </Step>
-  <Step title="Auto-Hide">
-    Revealed passwords automatically hide after **5 minutes** for security.
-  </Step>
-</Steps>
-
-<Note>
-Passwords are never stored in MSPortal. They are fetched on-demand from Hudu or IT Glue each time you click Reveal.
-</Note>
-
----
-
-## Procedures
-
-The Procedures tab displays step-by-step runbooks and checklists synced from your documentation provider.
-
-| Column | Description |
-|--------|-------------|
-| **Name** | Procedure name (click to view) |
-| **Folder** | The folder the procedure belongs to |
-| **Company** | Which company the procedure is scoped to |
-| **Updated** | When the procedure was last modified |
-| **Progress** | Completion percentage bar |
-
----
-
-## Inspectors (Liongard)
-
-When a [Liongard integration](/user-guides/integrations/enable-liongard-integration) is active, an **Inspectors** tab appears showing configuration audit data from Liongard for all **non-device** inspector types. Device-level inspectors (like Windows Workstation) appear on individual devices in the [Devices module](/user-guides/devices) instead.
-
-This tab is designed for browsing cloud and infrastructure inspectors such as Active Directory, Microsoft 365, Google Workspace, firewalls, DNS providers, and backup systems that audit a service or environment rather than a single device.
-
-### Browsing by Inspector Type
-
-A sidebar on the left lists all non-device inspector types discovered in your Liongard instance (e.g., Active Directory, Microsoft 365, Firewall, Duo, AWS). Each type shows a count of how many systems use it.
-
-Click an inspector type to see all systems of that type in the main area.
-
-### System List
-
-The system list shows:
-
-| Column | Description |
-|--------|-------------|
-| **System Name** | The inspected system name (click for details) |
-| **Company** | Which company the system belongs to |
-| **Last Inspected** | When Liongard last audited this system |
-| **Status** | Active or inactive |
-
-### System Detail View
-
-Click any system to see its full configuration audit data:
-
-- **Summary Cards**: Pass, fail, and warning counts with clickable filtering
-- **System Overview**: System name, environment, inspector type, and last inspection timestamp
-- **Security Metrics**: Dedicated section for security-related checks (firewall, encryption, MFA, antivirus)
-- **Inspected Metrics**: All other configuration metrics with current values and pass/fail/warning status
-- **Recent Changes**: Configuration change detections with inline diffs showing what was added or removed
-
-Use the **search bar** to find specific metrics by name or value. Click **Expand/Collapse** to toggle all metric details at once.
-
-<Note>
-Inspector types that are mapped as device types in your integration settings appear on the Devices page instead of here. This keeps the Inspectors tab focused on cloud and infrastructure audits.
-</Note>
-
----
-
-## Company Filtering
-
-All tabs respect the **company selector** in the header. Select a specific company to see only that company's articles, assets, passwords, procedures, and inspectors.
-
----
-
-## Related Resources
-
-- [Hudu Integration](/user-guides/integrations/enable-hudu-integration) - Set up Hudu as your documentation provider
-- [IT Glue Integration](/user-guides/integrations/enable-itglue-integration) - Set up IT Glue as your documentation provider
-- [Liongard Integration](/user-guides/integrations/enable-liongard-integration) - Set up Liongard for the Inspectors tab
-- [Liongard Compliance Metrics](/user-guides/compliance/liongard-metrics) - Link inspector metrics to compliance checks
-- [Devices Module](/user-guides/devices) - View Liongard data on individual devices
+<AccordionGroup>
+  <Accordion title="Why does my Documentation page have fewer tabs?">
+    Tabs depend on provider connections, sharing settings, and your permissions. Ask your MSP about the specific resource you need.
+  </Accordion>
+  <Accordion title="Does documentation access include passwords?">
+    No. Passwords require separate permission and provider-sharing configuration.
+  </Accordion>
+  <Accordion title="Can Company users manage the document library?">
+    The MSP manages native pages, uploads, folders, and sharing rules. Company users access content made available to them.
+  </Accordion>
+  <Accordion title="How can I get an incorrect document updated?">
+    Give your MSP the document title, selected company, and the information that needs correction. Provider records may need to be changed in Hudu, IT Glue, or Liongard.
+  </Accordion>
+</AccordionGroup>

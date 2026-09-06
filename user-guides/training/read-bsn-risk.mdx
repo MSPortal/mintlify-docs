@@ -1,0 +1,55 @@
+---
+title: "Read a Breach Secure Now learner's risk details"
+description: "Open the BSN detail panel and review security posture, training, simulations, exposure, and account information."
+icon: user-shield
+---
+
+**Audience:** Company users and MSP staff with Security Awareness read access and a mapped Breach Secure Now learner in their permitted company scope. Your MSP handles user administration and provider changes.
+
+## Open the detail panel
+
+1. Open the [security awareness learner table](/user-guides/training/read-awareness-status).
+2. Filter **Provider** to **Breach Secure Now**, then find the learner using **User** and the company selection.
+3. Select the learner's row. Check the name, email, and company at the top of the panel before reading the figures.
+4. Scroll through the five sections below. Close the panel when finished.
+
+The panel uses the learner data already loaded by the table. Opening it is not a fresh provider sync. After changing company scope, close the old panel and select the intended learner again.
+
+## Read the five sections
+
+| Section | Information shown |
+| --- | --- |
+| Security posture | Employee Secure Score, security training score, micro training score, and policy acknowledgment dates. |
+| Training progress | Completed versus available security courses, micro trainings, and additional courses; completion percentages and latest activity dates. |
+| Phishing simulations | Emails sent and clicked, fail rate, captured credentials, and phishes caught. |
+| Dark web exposure | Breach count, last breach date, remediated breaches, and completed remediation training. |
+| Account and delivery | Role, tag, product, creation and login dates, welcome-message state, micro-training delivery, and positive opt-in. |
+
+Badges can indicate **Locked**, bouncing email, micro-training opt-out, or enrollment in an active phishing campaign. **Active** is not a verified sign-in test: the display also uses it when no inactive value was supplied.
+
+A dash means the field was not supplied. Some count fields can display zero when imported values are absent. Scores, simulation outcomes, policy acknowledgments, and breach remediation are different measures; one does not substitute for another.
+
+## Act on a concern
+
+If breach or phishing-click counts are positive, the panel advises reviewing the latest event in Breach Secure Now before remediation. It does not show the full event history or provide a direct remediation action.
+
+Company users should start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket). Identify the provider and learner, describe the concern, and review and confirm the request. Do not include passwords or captured credentials.
+
+MSP staff should verify the company mapping, source event, and latest provider information before arranging follow-up. Use the provider's authorized administration workflow to unlock an account, change delivery preferences, assign training, or perform remediation. Nothing in this read-only panel saves those changes, sends a message, or marks an exposure resolved.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I unlock the learner or change their role in this panel?">
+    No. The panel displays imported account information. Your MSP manages access and provider administration.
+  </Accordion>
+  <Accordion title="Is the overall completion percentage only for security courses?">
+    No. The learner table combines security courses, micro training, and additional courses. The detail panel separates these categories.
+  </Accordion>
+  <Accordion title="Does a phishing click prove a real compromise?">
+    No. These are simulation metrics. Review the source event and context with your MSP before deciding what response is needed.
+  </Accordion>
+  <Accordion title="Does opening this panel refresh Breach Secure Now?">
+    No. It displays the loaded learner record. Ask your MSP to check sync information if the values are unexpected or stale.
+  </Accordion>
+</AccordionGroup>

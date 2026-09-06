@@ -1,144 +1,91 @@
 ---
-title: 'Microsoft 365 Posture'
-description: 'Give clients a clear, plain-language view of how their Microsoft 365 environment is protected and managed'
+title: 'Read Microsoft Current Posture'
+description: 'Review one company’s CIPP-backed account, email, device and security findings.'
 icon: 'radar'
 ---
 
-The Posture page answers the questions clients actually ask: Is MFA on for everyone? Is our email safe? Are our devices protected? Did anything bad happen? It turns Microsoft 365 security and management data into scorecards and findings written in plain business language, making it a natural surface for QBRs and for clients who sign in to the portal themselves.
+Open **Cloud > Posture > Current Posture** to review synchronized Microsoft 365 management and security information from CIPP. This view is separate from Microsoft Secure Score and Google's calculated checks.
 
-## Accessing Microsoft 365 Posture
+**Audience:** Company users with Microsoft 365 read access and MSP staff. The CIPP feature, integration, company mapping and synchronized data must be available. Company users ask their MSP to manage access and connections.
 
-1. Click **Microsoft 365** in the sidebar
-2. Select the **Posture** tab
+## Open your company's posture
 
-<Note>
-The Posture tab only appears when the CIPP integration is connected. See [Configure CIPP Integration](/user-guides/integrations/enable-cipp-integration) to set it up.
-</Note>
+1. Open **Cloud > Posture** and choose **Current Posture** when available.
+2. Select **one company** in the top bar. Global View or several selected companies produces **Select a company** instead of combined scorecards.
+3. Expand **Your Microsoft 365 posture** if it is collapsed.
+4. Read the five headline measures and their detailed metrics, then review **Items needing attention**.
+5. Check **Data as of** and each finding's timestamps before deciding what needs follow-up.
 
-## Prerequisites
+Current Posture does not aggregate several companies into one scorecard. Company users are restricted to their company. A missing Current Posture link can reflect feature or integration availability. An empty-data message is different from a successful check with no findings.
 
-1. **CIPP Integration** - Connected in Settings, with the first sync completed
-2. **Tenant Mapping** - Microsoft 365 tenants mapped to companies during integration setup
-3. **Permissions** - Read Microsoft 365 permission
+## Understand the five areas
 
-## Posture Scorecards
+Each headline shows one metric, not a combined grade for every metric in that area.
 
-The top of the page shows one headline card per domain, followed by detailed cards listing every metric in that domain. Each metric shows a value, a short explanation of why it matters, and a color-coded status indicator.
+| Area | Headline | Other metrics |
+| --- | --- | --- |
+| **Account Security** | People protected by MFA | Admins without MFA; Sign-in protection policies; Unused accounts still active. |
+| **Email Protection** | Domains protected from impersonation | Mailboxes forwarding outside the company; Email filtering layers active. |
+| **Device Health** | Devices meeting security policy | Devices under management. |
+| **Threats and Incidents** | Open security incidents | Active security alerts; Credentials exposed in third-party breaches; Threat emails intercepted; Failed sign-in attempts. |
+| **Managed For You** | Security standards enforced | Device security policies; Email routing and protection rules; Microsoft 365 service issues. |
 
-<CardGroup cols={2}>
-  <Card title="Account Security" icon="user-check">
-    Who can sign in, and how well those sign-ins are protected
-  </Card>
-  <Card title="Email Protection" icon="envelope-circle-check">
-    Defenses that keep phishing, impersonation, and data leaks out of mailboxes
-  </Card>
-  <Card title="Device Health" icon="laptop">
-    Whether the computers and phones used for work meet the security policy
-  </Card>
-  <Card title="Threats and Incidents" icon="shield-halved">
-    What was detected, what was blocked, and what is being handled
-  </Card>
-  <Card title="Managed For You" icon="hand-holding-heart">
-    Protections the service provider actively maintains on the client's behalf
-  </Card>
-</CardGroup>
+Coverage shows counts and a rounded percentage, such as **17 of 18 · 94%**. A metric with unavailable evidence or no usable coverage denominator shows **No data yet**; its headline can show a dash.
 
-### Metrics by Domain
+Colors are display thresholds: coverage is green from 75%, yellow from 50%, orange from 25%, otherwise red. Exception counts are green at zero; unused-account and external-forwarding counts allow one or two as yellow, while most other nonzero exception counts are red. Informational counts carry no health judgment. Green does not mean perfect coverage or prove there are no security issues.
 
-| Domain | Metrics |
-|--------|---------|
-| **Account Security** | People protected by MFA, Admins without MFA, Sign-in protection policies, Unused accounts still active |
-| **Email Protection** | Domains protected from impersonation (SPF, DKIM, and DMARC), Mailboxes forwarding outside the company, Email filtering layers active |
-| **Device Health** | Devices meeting security policy, Devices under management |
-| **Threats and Incidents** | Open security incidents, Active security alerts, Credentials exposed in third-party breaches, Threat emails intercepted, Failed sign-in attempts |
-| **Managed For You** | Security standards enforced, Device security policies, Email routing and protection rules, Microsoft 365 service issues |
+## Interpret what was counted
 
-### Reading the Metrics
+- **MFA coverage** uses active, licensed member accounts and the supplied registration, per-user MFA, Security Defaults or enforced Conditional Access signals. It is not proof that every sign-in was challenged. The admin metric uses a different scope, so the counts need not match.
+- **Domain protection** requires stored SPF pass, DKIM enabled and DMARC present signals together, excluding onmicrosoft.com domains. It does not establish the strength of every policy.
+- **Device compliance** uses the stored compliance status. Device counts depend on collected CIPP datasets, not every possible endpoint inventory.
+- **External forwarding** checks the destination against known company Microsoft domains, as well as the provider signal. An unexpected result can need domain/mapping review.
+- **Incidents and alerts** use the stored status. Other count labels describe collected records; a standards or policy count does not prove every item is correctly enforced. These are not live monitoring totals or a guaranteed fixed reporting period.
 
-- **Counts lead, percentages follow.** Coverage metrics display as "17 of 18 · 94%" so small environments read accurately.
-- **Color coding.** Green means healthy, yellow and orange mean attention is warranted, red means action is needed. Informational metrics (counts of protections in place) carry no color judgment.
-- **No data yet.** A metric shows "No data yet" until its source data has synced. A metric never shows a zero it cannot back up.
-- **Data as of.** The timestamp above the scorecards shows when the data was last synchronized.
+**Data as of** is the latest relevant stored synchronization timestamp, not a guarantee that every dataset refreshed together. A partial sync or another dataset's success can leave a seemingly available count with incomplete company evidence. Check missing or surprising values with the MSP. An empty list or zero must not be treated as proof that no incident occurred.
 
-<Tip>
-Click a metric row to jump to the related findings in the table below. For example, clicking **People protected by MFA** filters the findings to the specific people who still need MFA.
-</Tip>
+MSP-reviewed findings are excluded from the overview's calculations. For coverage metrics, this can change both the numerator and denominator. A changed percentage after review does not mean a provider security setting changed.
 
-## Items Needing Attention
+## Follow up
 
-Below the scorecards, the findings table lists the specific items behind the numbers. It shows exceptions only, never full inventory dumps, so every row is something worth looking at.
+Company users [start with the Home AI Assistant](/user-guides/ticketing/open-a-ticket). Include the company, metric or finding, timestamps and concern. MSP staff should verify the source before acknowledging an exception or changing configuration.
 
-| Finding type | What it lists |
-|--------------|---------------|
-| **People without MFA** | Licensed, active people not yet protected by multi-factor authentication |
-| **External email forwarding** | Mailboxes forwarding to addresses outside the company |
-| **Suspicious inbox rules** | Mailbox rules that warrant review |
-| **Devices needing attention** | Devices that do not meet the security policy |
-| **Email domain protection** | Domains missing SPF, DKIM, or DMARC protection |
-| **Security incidents** | Open security incidents and their status |
-| **Exposed credentials** | Work credentials found in third-party breaches |
-| **Unused accounts** | Active accounts with no recent sign-ins |
-| **Outdated sign-in methods** | Accounts using legacy sign-in protocols |
-| **Admin access** | Accounts holding administrative roles |
-| **Shared mailboxes allowing sign-in** | Shared mailboxes with direct sign-in enabled |
-| **Critical software weaknesses** | Critical vulnerabilities detected on devices |
+- [Find and read Current Posture findings](/user-guides/microsoft-365/find-posture-findings)
+- [Review and reopen posture findings as an MSP](/user-guides/microsoft-365/review-posture-findings)
+- [Configure the CIPP integration](/user-guides/integrations/enable-cipp-integration)
+- [Read Microsoft Secure Score](/user-guides/microsoft-365/index)
 
-Click any row to open the details panel with the full context for that finding.
+## FAQs
 
-### Reviewing Findings
-
-Users with the manage Microsoft 365 permission can mark a finding as reviewed when it is expected or already handled, for example a sanctioned external forward or a scanner account that uses an older sign-in method.
-
-<Steps>
-  <Step title="Open the Finding">
-    Click the finding row to open its details panel.
-  </Step>
-  <Step title="Add Context">
-    Optionally add a short note explaining why the item is expected.
-  </Step>
-  <Step title="Mark as Reviewed">
-    Click **Mark as reviewed**. The finding is removed from the client view and no longer counts against the posture metrics.
-  </Step>
-</Steps>
-
-Reviewed items appear muted in the table for your team, along with the note, and can be reopened at any time with **Reopen finding**.
-
-<Note>
-Company users never see reviewed items. Keeping known-good exceptions reviewed keeps the page focused on what genuinely needs attention.
-</Note>
-
-## Company Scoping
-
-The page follows the company selector. Select a single company to present its posture, or view the aggregate across your selected scope. Company users who sign in to the portal automatically see only their own organization, without company columns or filters.
-
-## Best Practices
-
-- **Review new findings before a QBR.** Mark sanctioned exceptions as reviewed so the client conversation stays focused on real gaps.
-- **Lead with the wins.** The Threats and Incidents and Managed For You cards show the work being done on the client's behalf: threats intercepted, standards enforced, policies maintained.
-- **Use metric click-through.** Jumping from "Admins without MFA" straight to the named accounts turns a number into an action item.
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Posture tab not visible | Connect the CIPP integration in **Settings > Integrations** |
-| Page shows "posture data is not available yet" | Wait for the first synchronization to complete and confirm tenants are mapped to companies in the integration setup |
-| A metric shows "No data yet" | That dataset has not synced yet; data appears automatically once it does |
-| Numbers look different after switching companies | Metrics always reflect the current company selection |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Configure CIPP Integration" icon="cloud" href="/user-guides/integrations/enable-cipp-integration">
-    Connect and map the data source that powers this page
-  </Card>
-  <Card title="Microsoft 365 Secure Score" icon="shield-check" href="/user-guides/microsoft-365/index">
-    Track Microsoft Secure Score and remediation actions
-  </Card>
-  <Card title="M365 Licenses" icon="id-card" href="/user-guides/microsoft-365/licenses">
-    Monitor license usage and spend
-  </Card>
-  <Card title="M365 Users" icon="users" href="/user-guides/microsoft-365/users">
-    Browse Microsoft 365 user accounts
-  </Card>
-</CardGroup>
+<AccordionGroup>
+  <Accordion title="Where do I open Current Posture?">
+    Open Cloud > Posture > Current Posture when the CIPP feature and integration make it available. Select one company.
+  </Accordion>
+  <Accordion title="Can I show several companies in one Current Posture scorecard?">
+    No. The current page requires one selected company. Global or multi-company scope shows Select a company.
+  </Accordion>
+  <Accordion title="Is Current Posture the same as Secure Score?">
+    No. Current Posture uses CIPP management and security datasets. Microsoft Secure Score and Google calculated checks are separate views.
+  </Accordion>
+  <Accordion title="Does the Account Security headline combine every account metric?">
+    No. Each area has one designated headline metric. Read its other metrics separately.
+  </Accordion>
+  <Accordion title="Does green coverage mean everyone is protected?">
+    No. Green starts at 75% in the current display thresholds. Read the numerator, denominator and actual evidence.
+  </Accordion>
+  <Accordion title="Does Data as of prove every dataset is current?">
+    No. It is the latest relevant stored timestamp. Datasets can have different ages or incomplete coverage.
+  </Accordion>
+  <Accordion title="Why did the percentage improve after an MSP review?">
+    Reviewed resources are excluded from calculations, which can change the numerator and denominator. Review does not itself change Microsoft configuration.
+  </Accordion>
+  <Accordion title="Does No data yet mean zero findings?">
+    No. It means the metric has no usable evidence or coverage denominator. Ask the MSP to check the source and synchronization.
+  </Accordion>
+  <Accordion title="Does a zero incident count prove nothing bad happened?">
+    No. Counts reflect stored, scoped data and review exclusions. Confirm the relevant time period and source coverage with the MSP.
+  </Accordion>
+  <Accordion title="Can a Company administrator enable CIPP or fix permissions?">
+    Ask the MSP to manage integration setup and permissions. Start with the Home AI Assistant if you need help with a finding.
+  </Accordion>
+</AccordionGroup>

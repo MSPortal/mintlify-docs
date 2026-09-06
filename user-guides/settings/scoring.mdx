@@ -1,38 +1,43 @@
 ---
 title: 'Health Score Configuration'
-description: 'Choose which metrics count toward Client Health'
+description: 'Include or exclude Client Health metrics, review their shares, and distinguish saving from score publication.'
 icon: 'heart-pulse'
 ---
 
-Health Score Configuration controls which metrics contribute to Client Health. Every metric the scorecard rates is listed under its dimension with a switch, so you can drop the ones that say little about client health for your service model and keep the rest.
+**Audience:** MSP staff. Company users cannot configure Client Health. These settings apply to the MSP's tenant; selecting one company does not make the configuration company-specific.
 
-<Note>
-These settings include or exclude metrics. The current model's base weights, risk bands, evidence rules, and minimum coverage requirements are fixed so scores remain consistent across the portfolio. When you switch a metric off, its share of the dimension is redistributed across the metrics that remain.
-</Note>
+Open **Settings > MSP Tools > Scoring**. The page title is **Health Score Configuration**. Your role needs Client Health settings read or manage access to open it, and **manage** access to save. Access to the Client Health dashboard is separate. Ask your MSP administrator to adjust permissions when needed.
 
-## Prerequisites
+This page includes or excludes metrics. It does not let you edit the model's base dimension weights, risk bands, evidence thresholds or minimum number of scored dimensions.
 
-| Permission | Access |
-|-----------|--------|
-| `read_settings_client_health` | View the scoring configuration |
-| `manage_settings_client_health` | Include or exclude metrics and save changes |
+## Change which metrics count
 
-Client Health itself requires `read_customer_success`.
+1. Review the eight dimension cards and the enabled count. There are **25 metrics** in the current catalog.
+2. Switch individual metrics on or off. These changes are an unsaved preview until you select **Save Changes** in the page header.
+3. Review the percentage beside each enabled metric. It is the metric's share **within that dimension**, not its percentage of the overall health score. Remaining shares update when you exclude a metric.
+4. Review each dimension's enabled count. A dimension switch is on whenever at least one of its metrics is enabled. Switching it off excludes all metrics in that card; switching it on enables all of them. It does not restore a previous partial selection.
+5. Select **Save Changes** once and wait for the result. The button is disabled when there are no unsaved changes or while saving.
+6. Review the resulting Client Health scorecard after the background refresh finishes. A saved configuration or a Refreshing message is not proof that recalculation has completed.
 
-## Open scoring settings
+To discard an unsaved preview, return the switches to their saved positions, or leave and reopen the page. There is no Reset or Cancel button on this configuration page. Record the original choices before making extensive changes; do not rely on a navigation warning. To restore all metrics, enable each dimension and save deliberately.
 
-<Steps>
-  <Step title="Open Settings">
-    Click **Settings** in the main sidebar.
-  </Step>
-  <Step title="Open Scoring">
-    Under **MSP Tools**, select **Scoring**.
-  </Step>
-</Steps>
+<Frame caption="Unsaved preview: Ticket demand trend is excluded, and the four remaining Service Quality metrics share the dimension. Save Changes is required to persist the selection.">
+  <img src="/images/product/client-health-metric-share-preview.png" alt="Service Quality card with four of five metrics enabled and redistributed shares of 33%, 25%, 25% and 17%." width="1856" height="910" />
+</Frame>
+
+## Understand shares and evidence
+
+The displayed metric percentages are rounded to whole numbers and total 100% within an enabled dimension. They describe the selected configuration, while the published company score also depends on applicable, observed evidence and its coverage.
+
+Excluding a metric does not turn its value into zero. The enabled metrics share the dimension's weight proportionally. If every metric in a dimension is excluded, that dimension does not contribute to the overall score. Available observations may still appear in company details for context, with excluded dimensions identified; missing observations are not guaranteed to appear.
+
+Coverage is recalculated against enabled metrics. It can **increase or decrease** depending on whether the excluded metric had observed evidence. Excluding a dimension can also reduce the number of scored dimensions. The default model still requires at least **three scored dimensions** and **40% overall evidence coverage** for a numeric health score.
+
+Enabling a metric does not create missing source data, connect an integration or guarantee a numeric score. Review data availability before excluding relevant metrics solely to remove N/A results.
 
 ## Available metrics
 
-Each dimension keeps its base weight in the overall score. The share column shows how much of the dimension a metric carries when every metric in that dimension is enabled.
+The table lists the default base dimension weights and metric shares when all metrics are enabled. The page's displayed shares change with your selection. Use each metric's on-screen description for context and [Understand Client Health scoring](/user-guides/msp-tools/understand-health-scoring) for scoring evidence requirements.
 
 | Dimension (base weight) | Metric | Share | What it measures |
 |-------------------------|--------|------:|------------------|
@@ -44,9 +49,9 @@ Each dimension keeps its base weight in the overall score. The share column show
 | **Engagement** (18%) | Meeting recency | 40% | Days since the last meeting with the company |
 | | Recent NPS | 20% | Latest NPS response from the last 365 days |
 | | Recent CSAT | 25% | Average CSAT satisfaction across survey responses from the last 90 days (native campaigns and imported responses such as Simplesat) |
-| | CSAT response rate | 15% | CSAT responses as a share of tickets closed in the same period. A company that closes tickets but never answers scores the lowest band |
-| **Financial** (13%) | Reactive hours per endpoint | 17% | Reactive ticket hours per managed endpoint, trailing three months |
-| | Effective hourly rate | 17% | Recurring revenue per hour worked, trailing three months |
+| | CSAT response rate | 15% | Currently, responses from 90 days divided by tickets closed over 13 complete weeks; the windows differ. A silent-company band requires sufficient closed-ticket evidence |
+| **Financial** (13%) | Reactive hours per endpoint | 17% | Reactive ticket hours per managed endpoint, three complete months before the evaluation month |
+| | Effective hourly rate | 17% | Recurring revenue per hour worked, three complete months before the evaluation month |
 | | All-in seat price | 16% | Revenue per seat graded A through F against the target seat price from Financial Reporting |
 | | Overdue invoices | 30% | Share of open invoices that are past due |
 | | Payment speed | 20% | Average days to pay across invoices paid in the last year |
@@ -56,79 +61,84 @@ Each dimension keeps its base weight in the overall score. The share column show
 | | Recent on-time delivery | 40% | Projects completed on or before their due date in the last year |
 | | Effort adherence | 20% | Measured projects at or below 110% of estimated hours |
 | **Standards** (13%) | Required standards deployed | 100% | Applicable required standards checks that are deployed |
-| **Environment** (10%) | Server availability | 60% | Observed servers online and seen within seven days |
-| | Patch coverage | 40% | Devices with a known patch state that are fully patched |
+| **Environment** (10%) | Server availability | 60% | Observed servers not explicitly offline and without a last-seen timestamp older than seven days |
+| | Patch coverage | 40% | Recognized patch records from Datto RMM, ConnectWise Asio and Syncro that are patched |
 | **Operational** (10%) | Planner timeliness | 40% | Overdue planner items as a share of items with due dates |
 | | Goal progress | 35% | Average goal progress; completed goals count as 100% |
 | | Compliance timeliness | 25% | Overdue compliance assignments as a share of assignments with due dates |
 
-See [Client Health](/user-guides/msp-tools/client-health#how-each-dimension-is-calculated) for the complete calculation and data requirements for every metric.
+## Saving and score publication
 
-## Include or exclude metrics
+Save Changes stores the tenant configuration first, then attempts to start a Client Health refresh. If saving succeeds but the refresh cannot start, the saved choices remain. Reopen Scoring to confirm them, then use [Refresh Client Health scores](/user-guides/msp-tools/refresh-client-health) or allow the scheduled refresh to run.
 
-<Steps>
-  <Step title="Review each dimension">
-    Each card shows the dimension, its metrics, how many of them are enabled, and a dimension switch that turns every metric in the card on or off at once.
-  </Step>
-  <Step title="Change the metric switches">
-    Switch off a metric when it does not reflect how you evaluate client health. For example, an MSP with every customer on auto-pay can switch off **Overdue invoices** and **Payment speed** so the Financial dimension is driven by seat price, effective hourly rate, and reactive hours per endpoint.
-  </Step>
-  <Step title="Review the enabled count">
-    The summary shows how many of the 23 metrics are enabled. A dimension with no metrics enabled is labeled **Excluded from the health score**.
-  </Step>
-  <Step title="Save the configuration">
-    Click **Save Changes** in the page header. MSPortal starts a score refresh as soon as the configuration is saved.
-  </Step>
-</Steps>
+The settings page does not track the background job through completion. The previously published scorecard remains visible until a complete replacement is published. Check a relevant company's **Last computed** date, dimension weights and evidence after the refresh. A failure to refresh does not mean the configuration save was rolled back.
 
-## How configuration affects scores
+Saving affects future scorecards; it does not rewrite previous publications. This page does not change source data, manual risk flags, company permissions or provider configuration. There is no per-company scoring override here.
 
-When a metric is excluded:
+If saving fails, reopen the page and inspect the stored choices before retrying. View access alone is insufficient to save, even if a switch can be changed in the current browser session.
 
-- It carries no weight in its dimension, and its share is redistributed across the dimension's remaining metrics
-- Evidence coverage for the dimension is measured against the enabled metrics only, so excluding metrics never lowers coverage on its own
-- Its observed value still appears on the company detail page and in the dashboard breakdown, marked **Disabled**, but it never affects the score
-- Previously published scores remain unchanged; the configuration takes effect in the next completed scorecard
-
-When every metric in a dimension is excluded, the dimension itself is left out of the overall score and its base weight is redistributed across the enabled dimensions. Its metrics are still calculated for context, and the company detail page labels the dimension **Excluded from health score**.
-
-When a metric is enabled, MSPortal still requires real evidence. Enabling a metric does not cause missing data to score zero or receive a healthy default.
-
-<Warning>
-Companies need at least three scored dimensions and 40% overall evidence coverage to receive a numeric health score. Excluding every metric in several dimensions can make it harder to meet that requirement, even when the remaining dimensions have data.
-</Warning>
-
-## When to exclude a metric
-
-Consider excluding a metric when:
-
-- It measures something that is not part of the services you provide
-- Its data source is deliberately not connected and never will be
-- It does not reflect how your team evaluates client health, such as receivables when every customer pays automatically
-
-Do not exclude a metric only to hide temporary N/A results. If the metric is relevant, correct the integration, company mapping, or source data and publish a new scorecard instead.
-
-## Troubleshooting
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="My changes are not visible in Client Health">
-    Saving the configuration starts a refresh automatically. If the refresh could not start, go to **Client Health** and click **Refresh Scores**, or wait for the daily 2:00 AM UTC refresh.
+  <Accordion title="Where do I configure Client Health metrics?">
+    Open Settings > MSP Tools > Scoring. The page is titled Health Score Configuration.
   </Accordion>
-  <Accordion title="More companies show Limited data after I excluded metrics">
-    A numeric score still requires at least three scored dimensions and 40% coverage across the enabled model. Re-enable at least one metric in the affected dimensions or improve evidence coverage for those that remain.
+  <Accordion title="Can Company users change health scoring?">
+    No. This is an MSP settings page. Ask the MSP to review scoring or access questions.
   </Accordion>
-  <Accordion title="An excluded metric still appears on a company">
-    If MSPortal has observed data for the metric, the company detail page shows its value marked **Disabled** for context. It does not affect the health score.
+  <Accordion title="Does the Company selector limit a scoring change to one company?">
+    No. The configuration applies to the MSP tenant and affects its next published scorecards.
+  </Accordion>
+  <Accordion title="What permission lets me save scoring settings?">
+    Client Health settings manage permission. Read access lets you open the configuration but does not authorize saving.
+  </Accordion>
+  <Accordion title="How many metrics can I configure?">
+    The current catalog has 25 metrics across eight dimensions.
+  </Accordion>
+  <Accordion title="Does switching a metric immediately save it?">
+    No. It changes an unsaved preview. Select Save Changes to persist the configuration.
+  </Accordion>
+  <Accordion title="Why is Save Changes disabled?">
+    There are no changes compared with the saved selection, or a save is in progress.
+  </Accordion>
+  <Accordion title="What does a dimension switch do?">
+    Off excludes every metric in that dimension; on enables every metric. It does not restore a prior partial selection.
+  </Accordion>
+  <Accordion title="How do I discard unsaved scoring changes?">
+    Return switches to their saved positions, or leave and reopen the page. There is no Reset or Cancel control on this page.
+  </Accordion>
+  <Accordion title="Can I set my own risk bands or base dimension weights?">
+    No. This page changes metric inclusion; it does not edit model risk bands, base dimension weights or minimum evidence requirements.
+  </Accordion>
+  <Accordion title="Are the percentages beside metrics shares of the overall score?">
+    No. They are rounded shares within that dimension and redistribute among enabled metrics.
+  </Accordion>
+  <Accordion title="Does excluding a metric always improve evidence coverage?">
+    No. Coverage is recalculated using enabled metrics and can rise or fall depending on which observed evidence remains.
+  </Accordion>
+  <Accordion title="Why can disabling dimensions create more Limited data results?">
+    The default model still needs three scored dimensions and 40% overall coverage. Excluding dimensions can prevent a company from meeting that minimum.
+  </Accordion>
+  <Accordion title="Will enabling a metric fill in missing data?">
+    No. It still needs applicable source evidence; enabling it does not connect or sync providers.
+  </Accordion>
+  <Accordion title="Does Save Changes mean the scorecard is already recalculated?">
+    No. Saving persists the configuration and attempts to start a refresh. Wait for the replacement scorecard and check Last computed.
+  </Accordion>
+  <Accordion title="The settings saved but the refresh failed to start. Were my settings lost?">
+    Not necessarily. Saving and refresh submission are separate. Reopen Scoring to confirm the stored choices, then retry Refresh Scores from Client Health.
+  </Accordion>
+  <Accordion title="Will changing scoring rewrite old results?">
+    No. Saved settings affect future scorecards; previous publications remain unchanged.
+  </Accordion>
+  <Accordion title="Does excluding a dimension delete its observed data or manual risk flags?">
+    No. Exclusion changes scoring participation. Available observations may remain visible for context, and manual risk flags are separate.
   </Accordion>
 </AccordionGroup>
 
-## Related resources
+## Related guides
 
-<CardGroup cols={2}>
-  <Card title="Client Health" icon="heart-pulse" href="/user-guides/msp-tools/client-health">
-    Learn how scores, coverage, risk levels, trends, and manual risk flags work.
-  </Card>
-  <Card title="Financial Reporting settings" icon="chart-line" href="/user-guides/settings/financial-reporting">
-    Set the target seat price that grades All-in seat price.
-  </Card>
-</CardGroup>
+- [Find companies in Client Health](/user-guides/msp-tools/find-client-health)
+- [Read a company's health details](/user-guides/msp-tools/read-client-health-details)
+- [Refresh Client Health scores](/user-guides/msp-tools/refresh-client-health)
+- [Financial Reporting settings](/user-guides/settings/financial-reporting)

@@ -1,0 +1,96 @@
+---
+title: 'Filter the Planner timeline'
+description: 'Search work, narrow status and business value, and find items hidden by timeline filters.'
+icon: 'filter'
+---
+
+**Audience:** Company users with Planner read access and MSP staff. Your MSP manages Company permissions and which work is visible to your company.
+
+Filters change the displayed roadmap. They do not edit a work item's status, priority, dates or costs, and they do not grant access to hidden work.
+
+## Search within the company scope
+
+1. Open **Planner > Timeline View** and check the portal's company selection.
+2. Type part of an item's title or description in the search box and wait briefly for results.
+3. Use a specific phrase if a broad search returns too many items.
+4. Check the relevant year and **Unscheduled** if the item has no visible card in the current period.
+
+The exact search terms **high**, **medium** and **low** filter by **Business Value**. They do not search those words in titles. Other text searches title and description, not every note or linked record. Clear the search field to remove that restriction.
+
+## Use the filter drawer
+
+1. Select **Filters**, the sliders button in the toolbar.
+2. Choose the needed **Status**, **Type** and **Business Value** options.
+3. Select **Apply Filters** to close the drawer and review the roadmap.
+4. Reopen Filters to change or clear selections.
+
+Multiple options in one section are alternatives; different sections narrow the results together. For example, selecting High and Medium includes either value, while adding a Type limits those results to that type.
+
+Selections take effect as you change them. **Apply Filters** closes the drawer; it is not a separate data save. Closing with the X does not discard the selections.
+
+## Include finished work or projected costs
+
+**Show Completed & Cancelled** is off initially, so those items are hidden. Turn it on to include them alongside other matching work. Selecting Completed or Cancelled in the Status filter also turns this switch on. A selected status still narrows the results: turning on the switch alone does not remove an existing status filter.
+
+**Project Recurring Costs** is off initially. Turn it on to include applicable monthly and annual costs in later periods. It affects cost summaries, not card placement or estimated hours. See [Read the Planner timeline](/user-guides/planner/read-timeline) for full-period projection rules.
+
+## Understand Filter by Role
+
+When role options are available, **Filter by Role** narrows work to companies where a selected person holds the selected company role. It does not mean that person is assigned to each displayed Planner item. Multiple selected role/person combinations can match any of those companies.
+
+The role filter combines with company scope, search and the drawer filters. If it yields no work, check those other restrictions too.
+
+## Reset and troubleshoot
+
+Choose **Reset** inside Filters to clear search, role selections, Status, Type and Business Value, and return to the current year in Quarterly view.
+
+Reset does **not** return every display preference to its initial state. Check **Show Completed & Cancelled**, **Project Recurring Costs** and View density separately; the two switches and density are retained. Reset does not change company scope or reveal items withheld from Company users.
+
+If an item still seems missing:
+
+1. Verify the company scope and clear search and filters.
+2. Check its due year or open Unscheduled.
+3. Include Completed and Cancelled if appropriate.
+4. Ask the MSP whether the item was archived, hidden from Company users or moved to another accessible company.
+5. If a loading error appears, treat the result as incomplete and reload or ask the MSP for help. An empty screen after an error is not proof there is no planned work.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where are Planner timeline filters?">
+    Use the sliders-shaped Filters button in the toolbar. Search is in the same toolbar; Filter by Role appears when role options are available.
+  </Accordion>
+  <Accordion title="Why are completed items missing?">
+    Show Completed & Cancelled starts off. Turn it on, and check any selected Status, Type, Business Value, search or role restrictions.
+  </Accordion>
+  <Accordion title="Does searching high find titles containing that word?">
+    The exact term high selects High Business Value. The exact terms medium and low behave the same way. Other text searches title and description.
+  </Accordion>
+  <Accordion title="Do filters change the status of my items?">
+    No. They change which items you see. Status changes require the separate editing workflow and permission.
+  </Accordion>
+  <Accordion title="Does closing the filter drawer discard my choices?">
+    No. Choices take effect as you make them. Apply Filters or the close X closes the drawer without discarding them.
+  </Accordion>
+  <Accordion title="Can I include more than one status or type?">
+    Yes. Options within one section are alternatives. Different filter sections combine to narrow the results.
+  </Accordion>
+  <Accordion title="Does Filter by Role show items assigned to that person?">
+    It filters companies where the person holds the selected role. It does not filter by the Planner item's assignee.
+  </Accordion>
+  <Accordion title="What does Reset clear?">
+    It clears search, role selections, Status, Type and Business Value, and returns to the current year in Quarterly view. Company scope stays unchanged.
+  </Accordion>
+  <Accordion title="Why are recurring costs or completed items still shown after Reset?">
+    Reset retains Project Recurring Costs and Show Completed & Cancelled. Set those switches separately; density is retained too.
+  </Accordion>
+  <Accordion title="Do filters also apply to Unscheduled?">
+    Yes. Its items and count follow the timeline's current filters. Clear restrictions before assuming an undated item is absent.
+  </Accordion>
+  <Accordion title="Can Company users reveal work hidden by the MSP?">
+    No. Filters do not override company access, permissions or the MSP's item visibility settings. Ask the MSP about missing work.
+  </Accordion>
+  <Accordion title="Is Project Recurring Costs an approval or a budget save?">
+    No. It changes the displayed cost projection. It does not approve work, save a Budget module plan or write invoice data.
+  </Accordion>
+</AccordionGroup>

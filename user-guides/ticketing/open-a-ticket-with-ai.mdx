@@ -1,246 +1,119 @@
 ---
-title: Create a Ticket with AI Assistance
-description: Learn about create a ticket with ai assistance
+title: 'Create a ticket with AI assistance'
+description: 'Start a support request with the AI Assistant on Home, or use AI inside the New Ticket form.'
+icon: 'wand-magic-sparkles'
 ---
 
-The AI Ticket feature uses artificial intelligence to help users quickly create tickets by automatically selecting the appropriate template and pre-filling fields based on a natural language description.
+Start with the **AI Assistant on Home**. Describe the issue or service you need, answer its follow-up questions, and review the prepared request before sending it. Follow [How to open a ticket](/user-guides/ticketing/open-a-ticket#start-with-the-home-ai-assistant) for the primary Home workflow.
 
-## Overview
+You can also use AI inside **Tickets > New Ticket** to prepare the request form. The instructions below cover that alternative: review the generated answers, complete any missing information, and select **Create Ticket** when ready.
 
-AI Ticket creation:
-- Analyzes user descriptions to select the best template
-- Pre-fills form fields with relevant information
-- Reduces ticket creation time
-- Improves data accuracy and consistency
-- Guides users through required fields
-
-## Prerequisites
-
-- You must have permission to create tickets
-- Ticket templates must be configured
-- AI features must be enabled for your organization
-
-## How AI Ticket Creation Works
-
-The AI system:
-1. Analyzes your problem description
-2. Selects the most appropriate ticket template
-3. Extracts relevant information from your description
-4. Pre-fills form fields where possible — **including fields inside embedded templates** when the parent template uses them
-5. Highlights fields that need review
-6. Validates data before submission
-
-### Embedded Template Awareness
-
-If the selected template includes [Embedded Template](/user-guides/ticketing/how-to-create-a-ticket-template#embedded-templates) fields, the AI also considers each embed's inner questions when pre-filling. For example, if you describe "I need a new computer for John starting Monday — a Lenovo ThinkPad with 32 GB of RAM", the AI may:
-
-- Select the **New Hire** parent template
-- Set the parent's "Need a new computer?" field to **Yes**
-- Pre-fill the embedded **New Computer Request** template's inner fields (Model, RAM) with values from your description
-
-The AI returns a nested object for each embedded template field; defaults configured on the embed's inner fields are merged in afterwards so dropdowns with sensible defaults still apply when the AI didn't supply a value.
-
-The AI Generation Summary on the new-ticket page lists embed inner fields using a `Parent Label > Inner Label` notation so you can see at a glance which embed inner questions were filled, which still need input, and which optional fields are available. Click any unfilled required field to jump straight to it inside the embed sub-card.
+**Audience:** Company users and MSP staff who can create tickets.
 
 <Note>
-Each embedded template still creates its own separate PSA ticket on submit, with its own service board, priority, and status. The AI only assists with **filling** the embed's questions; it doesn't change how embeds route or how many tickets are created.
+Generating ticket details prepares the form. It does not submit the ticket. A “Template Selected” message or completed AI summary is not a ticket-creation confirmation.
 </Note>
 
-## Steps to Create an AI Ticket
+## Before you start
 
-### 1. Navigate to Tickets
+- Your role must allow ticket creation.
+- Your MSP must provide at least one active request template available to you.
+- AI must be available in your portal. You can [open a ticket manually](/user-guides/ticketing/open-a-ticket#use-the-ticket-form-instead) if the AI option is unavailable or you prefer to complete the form yourself.
+- MSP staff creating a request for a client should select the correct company before preparing the request.
 
-Go to [https://msportal.ai/tickets](https://msportal.ai/tickets)
+## Use AI inside the New Ticket form
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/5afd802a-aae0-46c4-9a79-eb774ab5da44/ascreenshot.jpeg?tl_px=93,121&br_px=1813,1083&force_format=jpeg&q=100&width=1120.0)
+<Steps>
+  <Step title="Open the AI Assistant">
+    Go to **Tickets > New Ticket**. The assistant may open automatically. If the request catalog opens instead, select **Open AI Assistant**.
+  </Step>
+  <Step title="Describe the request">
+    Explain what you need, who is affected, when it started, and any relevant error message. Include what you have already tried. Use specific dates when you know them.
 
-### 2. Open AI Ticket Creator
+    For example:
 
-Click the **AI Ticket** button in the top navigation bar.
+    > My laptop cannot connect to the office Wi-Fi this morning. I restarted it and checked that Wi-Fi is on. The error says “Cannot connect to this network.”
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/5afd802a-aae0-46c4-9a79-eb774ab5da44/ascreenshot.jpeg?tl_px=187,0&br_px=1906,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=835,46)
+    Do not include passwords, recovery codes, or unrelated private information. If you know the request type your MSP expects, include its name.
+  </Step>
+  <Step title="Generate the form">
+    Select **Generate**, the sparkle send control in the assistant input. Wait for the result. AI chooses an available template and fills the answers it can infer from your description.
 
-### 3. Describe Your Issue
+    The assistant closes after a successful generation so you can review the form. If generation fails, revise the description and try again, or select a template manually.
+  </Step>
+  <Step title="Review the template and answers">
+    Check the template name, **Subject**, and every populated answer. Confirm names, dates, selected options, and the description of the issue.
 
-In the AI Ticket interface:
+    Use **AI Generation Summary** to see which fields were filled and which required or optional fields still need attention. Selecting a missing required field takes you to the relevant part of the form.
 
-1. **Enter a description** of your issue in natural language
-2. Be specific about:
-   - What the problem is
-   - When it started
-   - Who is affected
-   - What you've already tried
+    <img src="/images/product/ticket-ai-generation-summary.png" alt="AI Generation Summary from a genuine MSP Demo request, listing populated fields and the review reminder" width="1404" height="400" />
 
-Example descriptions:
-- "I need a new employee setup for John Smith starting Monday in the Sales department"
-- "My email isn't syncing on my phone since yesterday afternoon"
-- "Request for Adobe Creative Suite license for the marketing team"
+    A field being filled does not mean its answer is correct. Remove assumptions and correct anything that does not match your request.
+  </Step>
+  <Step title="Complete the request">
+    Fill any remaining required questions and visit every form section. Some questions appear only after you change an earlier answer. Add supporting files where the template provides an upload field.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/ea4f3165-4542-4b88-a1a7-651fe20a0785/ascreenshot.jpeg?tl_px=0,0&br_px=1719,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=422,202)
+    If you need a different request type, return to template selection. Changing templates clears the current answers, so keep a copy of useful information first.
+  </Step>
+  <Step title="Submit when ready">
+    Select **Create Ticket** and wait for the creation result. Keep the ticket number if one is provided.
 
-### 4. Generate the Ticket
+    If the ticket succeeds but attachments or an appointment fail, keep the existing ticket and follow up on the failed part. See [understanding the submission result](/user-guides/ticketing/open-a-ticket#understand-the-result).
+  </Step>
+</Steps>
 
-Click **Generate Ticket** to let AI process your description.
+## Improve the generated answers
 
-The AI will:
-- Analyze your text (takes 2-5 seconds)
-- Select the appropriate template
-- Fill in relevant fields
-- Mark fields that need review
+Reopen the AI Assistant to provide more detail or request changes, then use **Regenerate** when it is shown. Review the new result before submitting; another generation can change the selected template or answers.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/83648798-2ec6-41a4-97b7-7e0d188429ad/ascreenshot.jpeg?tl_px=0,36&br_px=1719,997&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=319,277)
+You can also edit the form directly. This is usually the quickest way to correct a date, choose an option, or replace an assumption with information you know.
 
-### 5. Review Generated Information
+## Requests with additional forms
 
-After AI processing:
+Some templates contain another request form inside them. AI can fill those questions too when your description provides enough information. The summary identifies them using the parent and inner question labels.
 
-1. **Template Selection:** Verify the correct template was chosen
-2. **Pre-filled Fields:** Review all automatically filled fields
-3. **Highlighted Fields:** Pay special attention to fields marked for review
-4. **Missing Information:** Complete any empty required fields
+Review the additional form and complete its required questions. An applicable embedded request can create its own ticket when you submit the main form. AI assistance does not change how your MSP routes those requests.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/93063424-e6a4-462d-b7c1-c09dd86f7047/ascreenshot.jpeg?tl_px=0,0&br_px=1719,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=451,199)
+## Troubleshooting
 
-### 6. Complete Template Sections
+| Problem | What to do |
+| --- | --- |
+| There is no AI option | Use manual template selection and ask your MSP whether AI is enabled for your portal. |
+| AI chose the wrong request | Choose the appropriate template manually, or give a more specific description and generate again. |
+| A field is blank | Fill it directly. AI cannot infer information you did not provide. |
+| A date or selected person is wrong | Correct it in the form. Check actual calendar dates rather than relying on phrases such as “next Monday.” |
+| A required question appears after generation | Complete it. Conditional questions depend on the form's current answers. |
+| Generation fails | Keep your description, try a clearer request, or complete the form manually. Contact your MSP if the problem continues. |
+| The summary says everything is filled | Review all answers, then select **Create Ticket**. The summary does not submit the request. |
 
-The ticket form is organized into sections based on the selected template:
+## Frequently asked questions
 
-#### Employee Information Section
-Complete employee-related fields if applicable.
+<AccordionGroup>
+  <Accordion title="Can AI open a ticket from a plain-language description?">
+    Yes. Start on **Home** and describe the support request to the AI Assistant. Answer its questions and review the request before submitting it. You can also use AI on **Tickets > New Ticket** to prepare a form that you review and submit with **Create Ticket**.
+  </Accordion>
+  <Accordion title="Does Generate send a request to my IT provider?">
+    No. In this ticket-creation flow, **Generate** prepares the form. **Create Ticket** submits it.
+  </Accordion>
+  <Accordion title="Can AI use a template that I cannot normally access?">
+    AI selects from the templates available in your current request context. It does not grant access to hidden templates or change your permissions.
+  </Accordion>
+  <Accordion title="Can I use AI if no templates are available?">
+    No. Your MSP must provide an active request template first. Ask your IT provider to check your company's available templates.
+  </Accordion>
+  <Accordion title="Should I trust every generated answer?">
+    Review all answers before submission, especially dates, people, selected options, and statements about what happened. AI can make mistakes or infer details you did not intend.
+  </Accordion>
+  <Accordion title="Can I attach a screenshot instead of describing the issue?">
+    Add a clear description for AI to work from. Attach supporting files in the request's upload fields when available; file-upload options depend on the template.
+  </Accordion>
+  <Accordion title="Can I continue manually after trying AI?">
+    Yes. Edit the generated form directly, or choose a template manually. Switching to another template clears the current answers.
+  </Accordion>
+</AccordionGroup>
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/d4543628-04e7-41bb-86f9-aca33222021d/ascreenshot.jpeg?tl_px=0,167&br_px=1719,1128&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=413,277)
+## Related guides
 
-#### Software Requirements
-Select required software from dropdowns:
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/36340de7-22a7-44ad-b55d-eeb6103202ab/ascreenshot.jpeg?tl_px=0,0&br_px=1719,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=500,201)
-
-Common software options:
-- Microsoft Office Suite
-- Slack
-- VPN Client
-- Development Tools
-- Design Software
-
-#### Hardware & Peripherals
-Specify any hardware needs:
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/17632bf7-a316-4dc8-b9d6-4b77c5ccded0/ascreenshot.jpeg?tl_px=187,0&br_px=1906,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=600,199)
-
-Options include:
-- Laptop/Desktop
-- Monitor
-- Keyboard/Mouse
-- Headset
-- Mobile Device
-
-### 7. Schedule and Attachments
-
-Configure timing and add supporting documents:
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/f5bf5e8f-495f-468c-aa2c-cb31f8dffd55/ascreenshot.jpeg?tl_px=187,0&br_px=1906,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=721,204)
-
-#### Date Selection
-> **Note:** AI may not accurately parse dates from your description. Always verify and correct date fields manually.
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/f2b15b01-a135-45aa-8779-7f805613041b/ascreenshot.jpeg?tl_px=0,47&br_px=1719,1008&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=339,277)
-
-### 8. Submit the Ticket
-
-Once all information is complete:
-
-1. Review all fields one final time
-2. Click **Create Ticket**
-3. The system will validate required fields
-4. If any required fields are missing, they'll be highlighted
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/703f8fe1-f972-43f9-9b91-71bd877eefb3/ascreenshot.jpeg?tl_px=187,0&br_px=1906,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=949,78)
-
-### 9. Handle Validation Errors
-
-If required fields are missing:
-- The system will display an error message
-- Missing fields will be highlighted in red
-- Complete the required fields
-- Click **Create Ticket** again
-
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-02/a01d5a07-b6cf-4e5e-a6ae-d851292ed210/ascreenshot.jpeg?tl_px=187,0&br_px=1906,961&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=968,33)
-
-## Tips for Better AI Results
-
-### Writing Effective Descriptions
-
-**Do:**
-- Be specific and detailed
-- Include relevant names, dates, and locations
-- Mention any error messages
-- Describe the impact on your work
-
-**Don't:**
-- Use vague language like "it's broken"
-- Include sensitive information (passwords, SSNs)
-- Use excessive technical jargon
-- Write in all caps
-
-### Example Descriptions
-
-**Good:** "I need to set up a new employee named Sarah Johnson who starts on January 15th in the Marketing department. She'll need access to Adobe Creative Suite, Slack, and our project management tools."
-
-**Poor:** "New person needs stuff"
-
-## Manual Template Selection
-
-If AI doesn't select the right template:
-1. Click **Choose Template** instead of using AI
-2. Browse available templates
-3. Select the appropriate one manually
-4. Fill in fields normally
-
-## Common Issues and Solutions
-
-### AI Not Understanding Request
-- Rephrase with more specific details
-- Break complex requests into simpler parts
-- Use standard terminology
-- Avoid abbreviations and slang
-
-### Wrong Template Selected
-- Click **Change Template** after generation
-- Manually select the correct template
-- Consider updating your description for future requests
-
-### Fields Not Populated
-- AI only fills fields it's confident about
-- Manually complete any empty fields
-- Required fields are marked with asterisks (*)
-
-### Date Recognition Issues
-- AI struggles with relative dates ("next Monday")
-- Always verify and correct date fields
-- Use calendar picker for accuracy
-
-### Embedded Template Inner Fields Empty
-- The AI only fills embedded template inner fields when your description provides specific information for them
-- If an embed sub-card appeared but its fields are blank, expand the embed and fill the questions directly — the embed will fire its own ticket on submit either way
-- Required inner fields are surfaced in the AI Generation Summary as `Parent Label > Inner Label`; click them to jump to the field inside the embed
-
-## Best Practices
-
-1. **Start Simple:** Begin with clear, straightforward descriptions
-2. **Review Everything:** Always verify AI-generated content
-3. **Learn Patterns:** Note which descriptions work best
-4. **Save Time:** Use AI for complex tickets with many fields
-5. **Fallback Option:** Know how to create tickets manually
-
-## Benefits of AI Ticket Creation
-
-- **Speed:** Reduces ticket creation time by up to 70%
-- **Accuracy:** Minimizes data entry errors
-- **Consistency:** Ensures proper template usage
-- **User-Friendly:** No training required for end users
-- **Intelligent:** Learns from your organization's patterns
-
-## Related Articles
-
-- [How to Create a Ticket Template](/user-guides/ticketing/how-to-create-a-ticket-template)
-- [Ticketing Overview](/user-guides/ticketing/index)
+- [How to open a ticket](/user-guides/ticketing/open-a-ticket)
+- [Find and follow up on a ticket](/user-guides/ticketing/follow-up-on-a-ticket)
+- [MSP guide: create a ticket template](/user-guides/ticketing/how-to-create-a-ticket-template)

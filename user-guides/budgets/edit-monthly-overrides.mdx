@@ -1,0 +1,111 @@
+---
+title: 'Adjust a budget amount for one month'
+description: 'Set, review or clear individual monthly overrides without changing the line’s price or recurrence.'
+icon: 'calendar-pen'
+---
+
+**Audience:** MSP staff and Company users with budget editing access. Your MSP manages Company permissions. The screenshot shows the staff budget reader.
+
+A monthly override replaces the calculated amount for **one line in one month**. It is useful when a planned charge differs from the normal schedule. It does not change the line's quantity, unit price, recurrence or start month, and it does not record a payment or edit an invoice.
+
+## Open the editable schedule
+
+1. Find the budget and choose its row **... > View**.
+2. Check that it is **Draft** or **Pending Approval**. Approved and Archived budgets are locked.
+3. Select **Monthly Breakdown**. Scroll horizontally to find the correct month and check the line description before editing.
+
+<Frame caption="Open Monthly Breakdown to review or adjust individual scheduled amounts. Editing requires additional permission and an editable budget.">
+  <img src="/images/product/budget-view-tabs.png" alt="Budget Details tabs with Overview, Monthly Breakdown and Actuals." width="690" height="86" />
+</Frame>
+
+If amounts are plain text instead of editable buttons, check the budget status and your permissions. A Company user should ask the MSP for help with access. The schedule can include rejected lines; editing a month does not approve that line.
+
+## Set an amount
+
+1. Select the amount or dash in the chosen line and month.
+2. Enter a nonnegative amount using numbers and a decimal point, without currency symbols or thousands separators. For example, enter **1250.50**.
+3. Press **Enter** or **Tab**, or click outside the field. Leaving the field submits the changed amount immediately; there is no separate page-level Save.
+4. Wait for **Saved.**, then check the line's **Year Total**, the category subtotal, **Monthly Total** and **Running Total**.
+5. Reopen the budget if you need to confirm that the change persisted.
+
+A saved override appears in emphasized blue text. For editors, hovering over its cell shows **Override (computed: …)** with the calculated amount. The displayed month amount is rounded to whole currency units; the input and totals can retain cents. A zero amount appears as a dash, so a dash alone does not tell you whether the cell has an override.
+
+An override can add a charge to a month that had no calculated charge. It replaces only that month's value and does not reschedule the rest of a recurring line. For an ongoing change, review the [line's billing settings](/user-guides/budgets/edit-line-items).
+
+## Cancel an unsaved edit
+
+Press **Escape while the input is still open** to discard what you typed and return to the saved amount. Clicking elsewhere or pressing Tab submits a changed value. Escape does not undo a change that has already saved.
+
+If saving fails, read the error and reopen or reload the schedule to confirm the stored amount. Do not assume the text you entered has persisted.
+
+## Clear an override
+
+1. Open the overridden month cell.
+2. Remove every character so the input is empty.
+3. Press Enter or Tab, or click outside the input.
+4. Wait for **Saved.** and confirm that the calculated amount returns and the override styling disappears.
+
+**Clear the field to restore the calculation.** Typing the calculated amount over an existing override can leave the old override in place. An empty field explicitly removes that month's override.
+
+The restored value comes from the line's current quantity, unit price, recurrence, start month and any term limit. It may be zero if no charge is scheduled for that month. Clearing one month does not clear other months.
+
+## Use zero carefully
+
+Entering **0** on a month with a calculated charge replaces that charge with zero. Clearing the field restores the calculated charge. These are different actions.
+
+<Warning>
+  A saved zero override currently opens as a blank input. If you open it and then click away or press Tab, the blank value can clear the override and restore the calculated charge. Press **Escape** if you opened the cell only to inspect it. Check the result after any edit to a zero override.
+</Warning>
+
+When the calculated amount is already zero, entering zero over a positive override can leave that positive override unchanged. Clear the input instead, then confirm that the displayed amount returns to a dash and the override styling disappears.
+
+## Check the effect on other views
+
+The override affects the monthly schedule and its totals. Overview still uses quantity × unit price, so its total can differ from Monthly Breakdown. The standard budget PDF and Excel exports do not include the monthly schedule or monthly override fields. See [Download or print a budget](/user-guides/budgets/export-and-print-budgets) before sharing a document as evidence of these adjustments.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Where can I change one month's planned charge?">
+    Open the budget with View, choose Monthly Breakdown and select the line's month cell. Editing requires budget editing permission and a Draft or Pending Approval budget.
+  </Accordion>
+  <Accordion title="Can a Company user edit monthly amounts?">
+    Yes, with budget editing access granted by the MSP and an editable budget. Company users do not grant themselves permissions.
+  </Accordion>
+  <Accordion title="When does a monthly override save?">
+    A changed value submits when you press Enter or Tab, or leave the field. Wait for Saved. There is no separate page-level Save for an override.
+  </Accordion>
+  <Accordion title="How do I cancel before saving?">
+    Press Escape while the input is still open. Clicking elsewhere or pressing Tab can submit the edit. Escape cannot undo a value already saved.
+  </Accordion>
+  <Accordion title="How do I remove an override and use the calculation again?">
+    Empty the cell's input and leave the field. Wait for the save result and confirm the calculated amount returns. Typing the calculated number over an override can leave the old override unchanged.
+  </Accordion>
+  <Accordion title="Is zero the same as clearing a month?">
+    No. Zero replaces a calculated charge with zero. Clearing the field removes the override and restores the calculated schedule.
+  </Accordion>
+  <Accordion title="Why did opening a zero override restore a charge?">
+    A saved zero currently opens as a blank input. Leaving that blank input can clear the override. Press Escape when inspecting it without changes, and verify the result after editing.
+  </Accordion>
+  <Accordion title="Why did entering zero leave my positive override unchanged?">
+    If the calculated amount is already zero, entering zero can leave an existing positive override in place. Clear the input to restore the calculated zero, then check that the override styling disappears.
+  </Accordion>
+  <Accordion title="Can I add an amount in a month with no scheduled charge?">
+    Yes. A positive override replaces that month's calculated zero. It does not move or alter the other scheduled charges.
+  </Accordion>
+  <Accordion title="How do I identify an overridden month?">
+    Saved overrides use emphasized blue text. An editor can hover over the cell to see Override and the computed amount. Zero can appear as a dash, so check the styling rather than the dash alone.
+  </Accordion>
+  <Accordion title="Are cents lost when the cell displays a whole number?">
+    No. The month display rounds to whole currency units, while the input and totals can retain cents. Check the exact value by opening the cell and press Escape if you are only inspecting it.
+  </Accordion>
+  <Accordion title="Does an override change the product price or future monthly charges?">
+    No. It replaces one month's amount for one budget line. Change the line's billing settings for an ongoing schedule change.
+  </Accordion>
+  <Accordion title="Can I adjust an Approved or Archived budget?">
+    No. Its baseline and monthly overrides are locked. Ask the MSP about the documented replacement-budget workflow.
+  </Accordion>
+  <Accordion title="Does the budget Excel export include my monthly overrides?">
+    No. The standard PDF and Excel documents do not include the monthly schedule or override fields. Read the export guide before sharing them as evidence of monthly adjustments.
+  </Accordion>
+</AccordionGroup>

@@ -1,112 +1,96 @@
 ---
-title: 'Cloud Users'
-description: 'Every Microsoft 365 and Google Workspace identity in one searchable table, with status, account type, 2-step verification, and assigned licenses'
+title: 'Read cloud user accounts'
+description: 'Review Microsoft and Google identities, account status, recorded security flags, and assigned license names.'
 icon: 'users'
 ---
 
-The **Users** tab lists every identity across every connected Microsoft 365 and Google Workspace tenant on one table. Search a person by name or email and find them regardless of which platform their company runs.
+Open **Cloud > Users** to review synchronized Microsoft 365 and Google Workspace accounts available to you. These are cloud-service identities; appearing here does not give someone an MSPortal login or a portal role.
 
-## Accessing Cloud Users
+**Audience:** Company users with Microsoft 365 read access and MSP staff. Your MSP manages access and account changes. Adobe-only license access does not include Cloud Users.
 
-1. Click **Cloud** in the sidebar
-2. Select the **Users** tab
+## Open and read an account
 
-## What the Table Shows
+1. Open **Cloud**, then select the **Users** header tab.
+2. Check the company selector in the top bar. If you can choose companies, narrow it to the company you are reviewing.
+3. Find the account with the **Name** or **Email** column's **Filter...** field.
+4. Check **Provider**, **Company**, and **Status** before interpreting the record. The page starts with **Status = Enabled**; [show disabled accounts](/user-guides/cloud/find-users) when needed.
+5. Scroll the table horizontally to reach **2-step verification** and **Licenses** when they are off screen.
 
-| Column | Description |
-|--------|-------------|
-| **Name** | Display name, with job title shown beneath it |
-| **Provider** | Microsoft 365 or Google Workspace |
-| **Email** | Primary email address |
-| **Company** | The MSPortal company the user belongs to |
-| **Status** | **Enabled** or **Disabled** |
-| **Account type** | **Administrator**, **Member**, **Guest**, or **User** (hidden by default) |
-| **2-step verification** | **Enforced**, **Enrolled**, or **Not enrolled** |
-| **Licenses** | Assigned license badges, or **No licenses** |
-| **Last login** | Most recent sign-in (hidden by default) |
-| **Last synced** | When this record was last refreshed (hidden by default) |
+Rows are for reading. Cloud Users does not have an account-edit form, password-reset action, or license-assignment action.
 
-Show any hidden column from the column visibility control above the table.
+## Understand the fields
 
-### 2-Step Verification
+| Field | What it shows |
+| --- | --- |
+| **Name / Email** | Synchronized display name and email. A missing display name can fall back to an email or sign-in name. |
+| **Provider / Company** | The source service and mapped company. Provider is omitted for a single-provider scope; Company is omitted when the top bar is scoped to one company. |
+| **Office** | Recorded location, or **No office** when absent. This does not establish whether someone works remotely. |
+| **Department / Job title** | Directory attributes, available through **Columns**. Job title is a separate column. |
+| **Status** | **Disabled** when the stored enabled flag is false; otherwise the display uses **Enabled**. |
+| **Account type** | Member/Guest-style directory type where the current scope has more than one type. A recorded Google administrator flag can display **Administrator** in this column. |
+| **2-step verification** | Recorded Google enrollment/enforcement flags; Microsoft rows show **Not available**. |
+| **Licenses** | One friendly license name and **+N more** when there are additional names. Hover or keyboard-focus the license badges to read the full list. |
+| **License count** | Number of distinct recorded SKU codes, available through **Columns**. |
+| **Last login / Last synced** | Available sign-in and synchronization dates. Both can be shown through **Columns**. |
 
-For Google Workspace users this column reports Google's own account state:
+## Show additional columns
 
-| Value | Meaning |
-|-------|---------|
-| **Enforced** | The administrator requires a second factor. The user cannot turn it off |
-| **Enrolled** | The user has set up a second factor, but it is not enforced by policy |
-| **Not enrolled** | No second factor is configured |
+1. Click **Columns** above the table.
+2. Select the columns you need. You can also drag their handles to change column order.
+3. Click **Save Changes** to apply your column preferences. **Cancel** or closing the panel discards unsaved choices.
+4. **Reset** restores the panel's default selections and order; click **Save Changes** to apply that reset.
 
-Microsoft 365 rows show **Not available** in this column. Microsoft multi-factor coverage is reported through Secure Score instead, on the [Cloud Posture](/user-guides/cloud/posture) tab.
+<Frame caption="Apply column choices with Save Changes; selecting a field in the panel alone does not save it.">
+  <img src="/images/product/cloud-users-save-columns.png" alt="Save Changes button in the Cloud Users column preferences panel." width="248" height="80" />
+</Frame>
 
-<Tip>
-Filter to **Google Workspace** and sort by 2-step verification to produce the exact list of accounts behind the 2-step verification checks in the posture score.
-</Tip>
+Columns that are not applicable to the current scope, such as Account type when every record has the same type, cannot be forced into view through this panel.
 
-### Licenses
+## Interpret account and security information carefully
 
-The Licenses column shows the first two license badges inline. When a user holds more than two, a **+N more** badge appears at the end. Users with nothing assigned show **No licenses**.
+**Enabled** is a stored status, not proof of a successful sign-in today. **No licenses** means no license names are attached to this synchronized record; it does not prove that the person has no subscriptions, costs, or application access elsewhere. Check **Last synced** and ask your MSP to investigate discrepancies.
 
-<Tip>
-**No licenses** combined with **Status = Enabled** is a common finding: an active account nobody is paying for, which is either an unlicensed service account or a person who cannot actually use the platform.
-</Tip>
+For Google, **Enforced** takes precedence when the stored enforcement flag is true. Otherwise a true enrollment flag shows **Enrolled**. **Not enrolled** is the fallback when neither flag is true, including when data is incomplete. Confirm the provider's current settings with your MSP before treating that label as a security finding.
 
-## Searching and Filtering
+For Microsoft, **Not available** in this column does not mean MFA is disabled. Use the appropriate [Cloud posture information](/user-guides/cloud/posture) and ask your MSP to check the provider settings.
 
-- **Search** matches names, email addresses, domains, and company names
-- **Cloud provider** narrows to one platform or shows both
-- **Company** is a multi-select column filter, hidden automatically when you are already scoped to one company
-- Tables load 50 rows per page
+**Account type** is not a complete administrator audit. Microsoft rows do not identify administrator roles here, Google admin labels can be absent when the whole column is omitted, and the type filter uses directory types rather than a dedicated Administrator filter. These values are separate from [MSPortal user permissions](/user-guides/settings/change-company-user-permissions).
 
-## Common Use Cases
+## Request an account change
 
-<CardGroup cols={2}>
-  <Card title="2-step verification gaps" icon="shield-exclamation">
-    Filter to **Google Workspace** and review the 2-step verification column to find the specific accounts lowering the posture score.
-  </Card>
-  <Card title="License reclamation" icon="recycle">
-    Filter by **Status = Disabled** and look for rows that still carry license badges. Those are seats you can recover.
-  </Card>
-  <Card title="Offboarding verification" icon="user-minus">
-    Search a departed employee by name across both platforms to confirm the account is disabled and stripped of licenses everywhere.
-  </Card>
-  <Card title="Administrator audit" icon="user-shield">
-    Show the **Account type** column and review every **Administrator** across all clients in one pass.
-  </Card>
-</CardGroup>
+Company users should [open a ticket from the Home AI Assistant](/user-guides/ticketing/open-a-ticket) and include the company, provider, account, and requested change. Your MSP handles disabling accounts, assignment changes, and provider administration. A missing or disabled row alone does not confirm that every offboarding step is complete.
 
-## Company Scoping
+## FAQs
 
-The page follows the global company selector. Select a single company to see only that client's identities, or view every connected tenant at once. Company users who sign in to the portal see only their own organization.
+<AccordionGroup>
+  <Accordion title="Does a Cloud Users row mean that person can sign in to MSPortal?">
+    No. It represents a synchronized Microsoft or Google identity. MSPortal logins, roles, and company access are managed separately by your MSP.
+  </Accordion>
+  <Accordion title="Can a Company administrator disable users or reset passwords here?">
+    No. Cloud Users is a reading page. Ask your MSP through a support ticket to make the account change.
+  </Accordion>
+  <Accordion title="Why does the same person appear more than once?">
+    Records can represent separate provider accounts, sign-in identities, or company mappings. Compare Provider, Company, and Email before deciding that a record is a duplicate.
+  </Accordion>
+  <Accordion title="Does No licenses mean the account has no cost or access?">
+    No. It means no license names are attached to this synchronized row. It does not measure billing, recent software use, or access through other accounts. Ask your MSP to check the underlying assignment data.
+  </Accordion>
+  <Accordion title="How can I see all the license names behind +N more?">
+    Hover or keyboard-focus the license badge area. The tooltip lists all recorded names. The CSV also includes the full name list, and License count can be shown through Columns.
+  </Accordion>
+  <Accordion title="Does Not available mean Microsoft MFA is turned off?">
+    No. This per-user column does not report Microsoft MFA state. Review the relevant posture information and have your MSP confirm current settings.
+  </Accordion>
+  <Accordion title="Does Google's Not enrolled label prove that 2-step verification is absent?">
+    Not by itself. The label is used when neither stored flag is true, which can include incomplete data. Check synchronization and ask your MSP to confirm the provider state.
+  </Accordion>
+  <Accordion title="Can I use Account type to list every administrator?">
+    No. It is primarily a directory Member/Guest-type field. It does not enumerate Microsoft administrator roles and may be omitted for a single-type scope, including Google-only scopes. Your MSP should verify administrator roles in the relevant provider.
+  </Accordion>
+</AccordionGroup>
 
-## Permissions
+## Related guides
 
-Viewing the Users tab requires the Microsoft 365 read permission (`read_m365`), which also governs the other Cloud tabs.
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| "No cloud users match these filters" | Clear the search box, set the provider filter to **Microsoft and Google**, and confirm the company selector is not narrowed |
-| Google Workspace users missing | Confirm **Users** is enabled under **Sync settings** on the connection, then click **Sync now** |
-| 2-step verification shows **Not available** | Expected for Microsoft 365 rows. Review Microsoft multi-factor coverage on the Posture tab |
-| A recently created user is missing | Both platforms synchronize daily. Click **Sync now** on the connection to pull the change immediately |
-| Suspended Google users still listed | Suspended accounts remain visible for auditing. They are excluded from posture scoring so they do not affect the score |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Cloud Licenses" icon="id-card" href="/user-guides/cloud/licenses">
-    Seat utilization and product breakdowns
-  </Card>
-  <Card title="Cloud Groups" icon="user-group" href="/user-guides/cloud/groups">
-    Group membership across both platforms
-  </Card>
-  <Card title="Cloud Posture" icon="shield-check" href="/user-guides/cloud/posture">
-    How 2-step verification coverage is scored
-  </Card>
-  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
-    Set up per-company connections
-  </Card>
-</CardGroup>
+- [Find and filter cloud users](/user-guides/cloud/find-users)
+- [Export cloud users](/user-guides/cloud/export-users)
+- [Read cloud license usage](/user-guides/cloud/licenses)

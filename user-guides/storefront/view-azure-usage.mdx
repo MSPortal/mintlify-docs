@@ -1,0 +1,57 @@
+---
+title: 'Review Azure usage'
+description: 'Find available Pax8 Azure usage by month and resource group, and understand detail and cost visibility.'
+icon: 'cloud'
+---
+
+Open **Storefront > Azure Usage** when your MSP has enabled Pax8 and made Azure usage available to you. This view reports imported usage; it does not provision resources, change Azure settings, or stop spending.
+
+## Find usage records
+
+1. Check the company scope.
+2. Use **Month** to choose from the available months. The initial view covers recent months, starting two months before the current month.
+3. Use the **Resource Group** text filter to narrow the results. A Company filter is also available in the global view.
+4. Review the month, company when shown, and resource group. Use pagination for additional rows.
+5. Select a row or its **View Details** action to request usage line items when available.
+
+If line details fail to load, keep the summary record and ask your MSP to check the usage connection. A summary row does not guarantee that the provider can return its underlying lines.
+
+## Read available line items
+
+The **Usage Line Items** dialog identifies the month and resource group. Available lines include the product, date, quantity, and unit of measure. Read the unit before comparing quantities: different resource types are not necessarily measured in the same units.
+
+MSP users with the required management permission can see cost and price fields that are hidden from Company readers. Missing amounts or hidden columns do not establish zero cost. This view does not replace your MSP’s invoice or the provider’s billing statement.
+
+## Understand the scope of totals
+
+Company and resource-group summary cards describe the loaded company scope and recent period. Table filters do not necessarily recalculate these summary cards. MSP cost summaries can also use a different aggregation from the rows currently visible.
+
+Keep currencies separate and verify the underlying provider statement before reconciling charges. Recent usage and billing adjustments may not appear until the provider supplies updated data.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why is there no Azure Usage tab?">
+    It requires an enabled Pax8 integration. Ask your MSP whether this area and the relevant usage data are available for your company.
+  </Accordion>
+  <Accordion title="Can I reduce Azure usage or delete a resource here?">
+    This is a reporting view. Ask your MSP to make changes through the appropriate Azure administration workflow.
+  </Accordion>
+  <Accordion title="Why can my MSP see costs that I cannot?">
+    Cost and price fields are restricted by Storefront management permission. Company readers can have usage access without those fields.
+  </Accordion>
+  <Accordion title="Why are line details unavailable when the summary exists?">
+    The detailed provider lookup can fail independently of the imported summary. Ask your MSP to check the connection and source data.
+  </Accordion>
+  <Accordion title="Does an empty view prove there was no Azure usage?">
+    No. Check the month, company scope, filters, load errors, source synchronization, and permissions.
+  </Accordion>
+  <Accordion title="Can I export this table to CSV?">
+    The current Azure Usage table does not provide a CSV export action. Ask your MSP for the appropriate provider report.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Storefront](/user-guides/storefront/index)
+- [Review your subscriptions](/user-guides/storefront/view-subscriptions)

@@ -1,241 +1,65 @@
 ---
 title: 'Dashboards'
-description: 'Create customizable analytics dashboards to monitor tickets, trends, and key metrics'
+description: 'Read available dashboards, investigate metrics and export snapshots, with access controlled by your MSP.'
 icon: 'chart-mixed'
 ---
 
-The Dashboards module is a flexible analytics platform that lets you create personalized views to track tickets, monitor trends, and visualize key performance metrics across your organization.
+Dashboards bring configured charts and summary cards together. Company users see the dashboards and data available to their role; MSP staff can use broader views and configure dashboards with the appropriate permissions.
 
-## Overview
-
-Dashboards provide a centralized hub for data visualization with:
-
-- Customizable widget layouts
-- Interactive drill-down capabilities
-- Multiple dashboard support for different use cases
-- Shareable views for team collaboration
-
-## Dashboard Navigation
-
-Access your dashboards from the main sidebar. The dashboard sidebar shows:
-
-- **Dashboard icons** - Quick access to all your dashboards
-- **Default dashboard** - Marked with a highlight, opens automatically
-- **External links** - Optional links to external resources
-
-## Summary Cards
-
-At the top of each dashboard, summary cards display key ticket metrics:
-
-| Metric | Description |
-|--------|-------------|
-| **Current Open Tickets** | Real-time count of tickets awaiting resolution |
-| **Entered Prev Month** | Tickets created in the last 30 days |
-| **Closed Prev Month** | Tickets closed in the last 30 days |
-| **Entered Prev 3 Months** | Tickets created in the last 90 days |
-| **Closed Prev 3 Months** | Tickets closed in the last 90 days |
-
-<Tip>
-Click any summary card to drill down into the underlying ticket list.
-</Tip>
-
-## Creating a Dashboard
-
-<Steps>
-  <Step title="Open Dashboards">
-    Navigate to **Dashboards** from the main sidebar.
-  </Step>
-  <Step title="Click New Dashboard">
-    Click the **New Dashboard** button in the sidebar.
-  </Step>
-  <Step title="Configure Dashboard">
-    Enter a name and optional description. Choose an icon to identify your dashboard.
-  </Step>
-  <Step title="Create">
-    Click **Create** to initialize your new dashboard.
-  </Step>
-</Steps>
-
-After creation, you'll be taken to edit mode to add widgets.
-
-## Dashboard Icons
-
-Choose from these icons to identify your dashboards:
-
-- Dashboard (grid)
-- Ticket
-- Bar Chart
-- Pie Chart
-- Trending
-- Users
-
-## Widgets
-
-Widgets are the building blocks of your dashboard, displaying data visualizations.
-
-### Available Chart Types
-
-<CardGroup cols={3}>
-  <Card title="Bar Chart" icon="chart-bar">
-    Compare values across categories
-  </Card>
-  <Card title="Line Chart" icon="chart-line">
-    Show trends over time
-  </Card>
-  <Card title="Area Chart" icon="chart-area">
-    Visualize volume trends
-  </Card>
-  <Card title="Pie Chart" icon="chart-pie">
-    Show proportional breakdown
-  </Card>
-  <Card title="Donut Chart" icon="circle-notch">
-    Proportions with center metric
-  </Card>
-  <Card title="Treemap" icon="grid-2">
-    Hierarchical data visualization
-  </Card>
-</CardGroup>
-
-### Widget Sizing
-
-Adjust widget width to create your preferred layout:
-
-- **Half width** (1/2) - Two widgets per row
-- **Third width** (1/3) - Three widgets per row
-- **Quarter width** (1/4) - Four widgets per row
-
-Widget height can also be adjusted to show more or less detail.
-
-## Date Filtering
-
-Control the time range for your dashboard data.
-
-### Global Date Filter
-
-Apply a single date range to all widgets at once using the date picker in the dashboard header.
-
-### Preset Date Ranges
-
-- This Week / Previous Week
-- Previous 2 Weeks
-- Last 30 Days
-- Last 3 Months
-- Last 6 Months
-- Last 12 Months
-- All-time
-- Custom date range
-
-### Widget-Level Dates
-
-Each widget can use its own default date preset, or inherit from the global filter.
-
-## Drill-Down
-
-Click on summary cards or chart elements to see the underlying data:
-
-1. Click a metric card (e.g., "Current Open Tickets")
-2. A modal opens showing the ticket list
-3. View ticket details: ID, title, status, priority, company, contact
-4. Use pagination to browse through results
-
-## Editing Dashboards
-
-<Steps>
-  <Step title="Enter Edit Mode">
-    Click the **Edit** button on your dashboard.
-  </Step>
-  <Step title="Add Widgets">
-    Select widgets from the available palette.
-  </Step>
-  <Step title="Arrange Layout">
-    Drag widgets to reposition them. Resize as needed.
-  </Step>
-  <Step title="Configure Widgets">
-    Click a widget to change its chart type, data source, or date preset.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** when finished.
-  </Step>
-</Steps>
-
-## Sharing Dashboards
-
-Dashboards can be personal or shared:
-
-| Type | Visibility |
-|------|------------|
-| **Personal** | Only visible to you |
-| **Shared** | Visible to team members |
-| **Role-restricted** | Shared but limited to specific user roles |
-
-<Note>
-Only the dashboard owner can modify a shared dashboard.
-</Note>
-
-## Dashboard Settings
-
-Configure your dashboard properties:
-
-- **Name** - Dashboard title (up to 100 characters)
-- **Description** - Optional context about the dashboard's purpose
-- **Icon** - Visual identifier in the sidebar
-- **Display Order** - Position in the sidebar navigation
-- **Default** - Set as the dashboard shown when entering the module
-- **Active** - Enable or disable visibility
-- **Visibility** - Control who can see this dashboard (see [Internal vs External Dashboards](#internal-vs-external-dashboards) below)
-
-## Internal vs External Dashboards
-
-Each dashboard has a **Visibility** setting that controls whether your client (company) users can see it. Use this to build dashboards that surface MSP-only metrics such as margin, internal SLA performance, or bench utilization without exposing them externally.
-
-| Option | Who sees the dashboard |
-|--------|------------------------|
-| **Internal and External (clients can see)** | Both MSP team members and company users. This is the default for new dashboards. |
-| **Internal only (MSP team)** | Only MSP tenant users. The dashboard is hidden entirely from company users, including from their dashboard sidebar. |
-
-To change a dashboard's visibility:
-
-<Steps>
-  <Step title="Open Dashboard Settings">
-    Navigate to **Settings > Dashboards**.
-  </Step>
-  <Step title="Edit the Dashboard">
-    Click the dashboard in the list to open its edit dialog.
-  </Step>
-  <Step title="Select Visibility">
-    Choose **Internal and External** or **Internal only** from the **Visibility** dropdown.
-  </Step>
-  <Step title="Save">
-    Save the change. Company users will immediately stop seeing any dashboard switched to **Internal only**.
-  </Step>
-</Steps>
-
-<Note>
-Visibility applies to both system dashboards and custom dashboards. All existing dashboards default to **Internal and External** to preserve the behavior clients are used to.
-</Note>
-
-## Company Filtering
-
-Filter dashboard data by company:
-
-- View data for a specific company
-- Or see aggregated data across all assigned companies
-
-## Permissions
-
-| Permission | Capability |
-|------------|------------|
-| `read_dashboards` | View shared dashboards |
-| `write_dashboards` | Create and edit personal dashboards |
-| `manage_dashboards` | Full access including settings |
-
-## Related Resources
+Start with [Read and filter a dashboard](/user-guides/dashboards/read-a-dashboard). Check company scope and each metric’s dates before comparing numbers.
 
 <CardGroup cols={2}>
-  <Card title="Reporting" icon="file-chart-line" href="/user-guides/reporting/index">
-    Generate detailed reports from your data
-  </Card>
-  <Card title="Planner" icon="list-check" href="/user-guides/planner/index">
-    Track the work the dashboard metrics measure
-  </Card>
+  <Card title="Read a dashboard" icon="chart-mixed" href="/user-guides/dashboards/read-a-dashboard">Find the right dashboard, select dates, adjust widget width, and understand missing data.</Card>
+  <Card title="Inspect dashboard tickets" icon="ticket" href="/user-guides/dashboards/inspect-dashboard-tickets">Open the records behind a supported metric and understand its filters.</Card>
+  <Card title="Export to PDF" icon="file-pdf" href="/user-guides/dashboards/export-dashboard">Download a snapshot and check known layout limitations before sharing.</Card>
+  <Card title="Understand access" icon="lock" href="/user-guides/account/understand-your-access">Ask the MSP to resolve Company permissions and missing modules.</Card>
 </CardGroup>
+
+## Dashboard types
+
+| Type | What to expect |
+| --- | --- |
+| **System** | Built-in layouts such as Ticketing Dashboard and Risk Dashboard. The normal reader does not offer Edit for system dashboards. |
+| **Personal** | A dashboard associated with its owner. It is not automatically shared with other users. |
+| **Shared** | Available according to active status, sharing, role restrictions and visibility. |
+| **Internal only** | Restricted to eligible MSP staff; unavailable to Company users. |
+| **External** | A linked or embedded external service, with its own access and viewing behavior. Company-specific setup may be required. |
+
+Widgets also depend on module permissions, integrations and selected-company data. Access to Dashboards alone does not make every widget or record available.
+
+## For MSP staff
+
+Follow [Create and edit a dashboard](/user-guides/dashboards/create-and-edit-dashboard) to create a personal dashboard, add widgets and summary cards, rename it, and save permanent changes. Follow [Manage dashboard settings and access](/user-guides/dashboards/manage-dashboard-settings) for sharing, roles, defaults, sidebar links and dashboard row/bulk actions. For external links, follow [Configure external dashboards](/user-guides/dashboards/configure-external-dashboards) and [Assign company URLs](/user-guides/dashboards/assign-external-dashboard-company-urls). These authoring and settings actions require their applicable permissions.
+
+The reader’s date and width controls only change the current view. They do not save a shared layout. Do not assume only the owner can edit every shared dashboard; authorization depends on the dashboard type and granted permissions. Company user permissions are managed by the MSP.
+
+## External dashboard access
+
+Follow [Open an external dashboard](/user-guides/dashboards/open-external-dashboard) for Company and MSP viewing instructions.
+
+External content may load inside the portal or offer **Open in New Tab** when embedding is blocked or not yet checked. The external service may require its own sign-in. If the expected external dashboard is missing for a company, ask the MSP to check its company-specific link and role access.
+
+## Related guides
+
+- [Reporting](/user-guides/reporting/index)
+- [Tickets](/user-guides/ticketing/index)
+
+
+For missing submitters, ticket types or recurring tickets, see [Understand dashboard exclusions](/user-guides/dashboards/understand-dashboard-exclusions). MSP staff can [configure exclusions](/user-guides/dashboards/configure-dashboard-exclusions) in Settings > Dashboards > Exclusions.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Should Company users start with the dashboard editor?">
+    No. Start with Read and filter a dashboard. Ask the MSP for configuration or user-permission changes when needed.
+  </Accordion>
+  <Accordion title="Are all dashboards ticket dashboards?">
+    No. System and custom dashboards can contain different module widgets, including risk information. Ticket summary cards appear only when configured.
+  </Accordion>
+  <Accordion title="Why does an external dashboard ask me to sign in again?">
+    The external service can have its own authentication. Portal dashboard access does not replace that service’s requirements.
+  </Accordion>
+  <Accordion title="Where does an MSP configure dashboards?">
+    Use the custom dashboard editor for permanent layout changes and Settings > Dashboards for configuration, with the applicable permissions. Reader filters do not save a shared layout.
+  </Accordion>
+</AccordionGroup>

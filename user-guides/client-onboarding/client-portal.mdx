@@ -1,199 +1,91 @@
 ---
-title: 'Client Portal'
-description: 'What your clients see and how they interact with their onboarding portal'
+title: 'Understand the client onboarding portal'
+description: 'Find Company onboarding instructions and understand what clients can see, submit, and complete.'
 icon: 'browser'
 ---
 
-The client portal is a branded, secure experience where your clients complete onboarding tasks, upload documents, sign agreements, and track progress. Clients access their portal via a secure invite link and email verification — no account or password required.
+The client onboarding portal is the workspace your IT provider shares for a specific onboarding. Company contacts use it to complete assigned work, supply information, review requests, and follow the provider's progress.
 
 <Note>
-This page describes the experience from the **client's perspective**. Share this with your team so everyone understands what clients see when they interact with the portal.
+Company contacts follow the task guides below. MSP staff can use the same guides to explain the client experience; creating templates, configuring access, and managing submissions are separate MSP workflows.
 </Note>
 
-## Accessing the Portal
+## Find the right guide
 
-Clients receive an email invitation with a secure link to their portal. Access uses a two-step verification process:
+| I want to… | Guide |
+| --- | --- |
+| Open an invitation, verify my email, or return through Your onboarding | [Open your onboarding portal](/user-guides/client-onboarding/open-your-onboarding) |
+| Complete a checklist, provide information, save form entries, or discuss a task | [Complete tasks and forms](/user-guides/client-onboarding/complete-tasks-and-forms) |
+| Upload a requested document, check its review status, or send a secure file | [Upload documents and secure files](/user-guides/client-onboarding/upload-files) |
+| Send requested credentials, pasted details, or a credential file | [Hand over credentials](/user-guides/client-onboarding/hand-over-credentials) |
+| Approve or reject a request, or draw and submit a signature | [Review approvals and sign documents](/user-guides/client-onboarding/review-and-sign) |
+| Join a meeting, open training, submit a survey, or read a reference page | [Meetings, training, surveys, and reference pages](/user-guides/client-onboarding/meetings-training-and-surveys) |
 
-1. The client clicks their unique invite link
-2. They're prompted to verify their email address — a magic link is sent to the email on file
-3. After clicking the magic link, a 24-hour session is created (automatically refreshed while active)
-4. They land on their portal homepage showing progress and pending tasks
+## What appears in the workspace
 
-<Info>
-The email verification step ensures that only the intended recipient can access the portal, even if the invite link is forwarded. Verification codes expire after 30 minutes, and clients can request up to 5 codes per session.
-</Info>
+Your provider chooses the visible phases, tasks, documents, approvals, and reference pages. Access can also depend on the role assigned to your onboarding contact. Another contact may see a different set of items.
 
-<Warning>
-Each access link is unique per contact. Links should not be shared between people — each contact needs their own invitation.
-</Warning>
+- **Your tasks** contain work assigned to the client. Open an item to read its instructions and use its specific controls.
+- **Provider progress** shows the MSP-owned work your provider makes visible.
+- **Documents** include upload requests and reference material. Submitting a file and receiving approval are separate events.
+- **Approvals** request a decision from the client. Already decided items show their result.
+- **Pages** contain read-only reference articles. Reading a page does not sign off a task.
 
-## Portal Layout
+Depending on the workspace layout, an item opens in a dialog or expands in place. A blocked item identifies prerequisites that must be resolved before you can act on it.
 
-The client portal is organized into these sections:
+## Know what saves
 
-### Your Tasks
+| Action | Save behavior |
+| --- | --- |
+| Change a checklist checkbox | Saves that checkbox immediately; overall task completion is separate |
+| Type an information response | Submit with **Mark Complete** |
+| Fill an onboarding form | Submit with **Save Form**, including edits to a saved entry |
+| Answer a linked survey | Submit with **Submit Form** |
+| Select files for a regular document request | Starts uploading immediately |
+| Choose a secure file | Review and confirm **Encrypt & Upload** |
+| Enter credentials or choose a Bulk attachment | Select **Submit Credentials**, then confirm **Submit** |
+| Draw a signature | Submit with **I agree and sign** |
+| Add approval notes | Included when you select **Approve** or **Reject** |
+| Read a page, open a video, or download a calendar file | Does not by itself submit task completion |
 
-Shows all tasks assigned to the client, organized by phase. Each task displays:
+Wait for the result on the item before leaving. If the result is uncertain, check its status before repeating the action.
 
-- Task title and description
-- Evidence type badge (what action is needed)
-- Status indicator (pending, in progress, completed, blocked)
-- Due date (if set)
+## Questions and progress
 
-Clients complete tasks by providing the required evidence — filling forms, uploading files, signing documents, etc.
+Use task comments for discussion about a specific item, or **Ask a Question** for a general onboarding question. Sending a comment does not submit a form or complete its task. Your provider's internal notes are not part of the Company discussion view.
 
-### Our Progress
+Completing all work visible to you does not necessarily finish the entire onboarding. Other contacts, provider tasks, reviews, and dependencies may still be outstanding. Completed workspaces are read-only.
 
-A full timeline view showing **both** MSP and client tasks across all phases. This gives clients transparency into the overall onboarding progress, including what your team is working on.
+## MSP preview
 
-### Documents
+MSP staff can use the portal's **View as** preview to inspect a contact's or role's experience when they have the required onboarding permissions. A preview simulates client submissions locally and does not save them as real client responses. Use it to review presentation; an actual invitation or Company access check is still needed to verify that client's access.
 
-A dedicated section for file uploads. Shows all requested documents with their current status:
+## Frequently asked questions
 
-- **Requested** — Waiting for upload
-- **Uploaded** — Submitted, awaiting review
-- **Approved** — Reviewed and accepted
-- **Rejected** — Needs to be re-uploaded (with reviewer notes)
+<AccordionGroup>
+  <Accordion title="Does a Company administrator manage onboarding users and permissions?">
+    The MSP manages Company users and access. Onboarding contact access is also configured by the provider. Ask them to add the right contact or adjust access.
+  </Accordion>
+  <Accordion title="Can everyone at my company use my invitation?">
+    Each contact needs their own access. Forwarding an invitation does not change the contact assigned to it.
+  </Accordion>
+  <Accordion title="Why does another contact see different tasks?">
+    Your provider controls visibility and contact-role assignments. Ask them to review the missing item and your contact's access.
+  </Accordion>
+  <Accordion title="Can I finish the provider's work?">
+    The client task list and provider progress serve different roles. Complete the items assigned to you; the MSP manages provider-owned work.
+  </Accordion>
+  <Accordion title="Does a successful MSP preview submit a client response?">
+    No. Preview interactions are simulations. They do not prove that an invited Company contact has accessed the portal or submitted the task.
+  </Accordion>
+  <Accordion title="Why can I still read a completed portal but cannot save?">
+    A completed workspace can remain available for reading while submissions are disabled. Contact your provider if further action is needed.
+  </Accordion>
+</AccordionGroup>
 
-### Approvals
+## MSP setup guides
 
-Formal approve/reject decisions. Each approval item shows:
-
-- Description of what needs to be decided
-- Optional supporting document to review
-- Approve or reject buttons with optional comments
-
-### Pages
-
-A reference section titled "Guides and reference information for this onboarding". Each page is an expandable article — a welcome note, support instructions, a security FAQ, or any reference content your MSP has shared. Pages are **read-only**: clients expand and read them, with no action or sign-off required. Only pages your team marked visible appear here.
-
-## Completing Tasks
-
-Each task type has a specific interaction in the client portal:
-
-### Standard Tasks
-
-Click **Mark Complete** to finish the task. Optionally add notes or evidence text.
-
-### Meeting Tasks
-
-Once your MSP schedules a meeting:
-
-- The meeting date, time, and duration are displayed
-- A **Join Meeting** link appears (if a meeting URL was provided)
-- A **Download Calendar Invite** button lets clients add it to their calendar
-
-### Document Upload Tasks
-
-Click the upload area or drag and drop files. Uploaded documents enter the review queue where your MSP team approves or rejects them.
-
-### Signature Tasks
-
-1. Review any attached document (if provided)
-2. Draw your signature on the signature pad
-3. Click **Submit Signature**
-
-The signature is recorded along with the signer's name, email, IP address, and timestamp.
-
-### Credential Handoff
-
-<Tabs>
-  <Tab title="Single Mode">
-    Fill in the credential fields:
-    - Username
-    - Password (with show/hide toggle)
-    - API Key (if applicable)
-    - Notes
-
-    Click **Submit Credentials** to securely send them to your MSP.
-  </Tab>
-  <Tab title="Bulk Mode">
-    Either paste credential text directly or upload a file (up to 10 MB) containing multiple credentials.
-
-    Click **Submit** to send everything securely.
-  </Tab>
-</Tabs>
-
-<Info>
-Submitted credentials are encrypted. Once submitted, they cannot be viewed by the client — only the MSP team can reveal them.
-</Info>
-
-### Secure File Drop
-
-Upload sensitive files that the MSP team can download securely. Files include time-based expiration tracking. Clients can delete submitted files before they're downloaded.
-
-### Training Tasks
-
-<Tabs>
-  <Tab title="Video Training">
-    Watch the embedded video (YouTube, Vimeo, or Loom) directly in the portal. Mark the task complete when finished.
-  </Tab>
-  <Tab title="In-Person Training">
-    View the training instructions and schedule details. Your MSP team marks this complete after the session.
-  </Tab>
-</Tabs>
-
-### Form Tasks
-
-Complete the embedded form directly in the portal. Forms use typed fields — short text, long text, single and multi select, Yes/No, date, email, phone, number, and URL — so answers are captured cleanly. Required fields are marked. Click **Save Form** to submit; a **Saved** badge confirms it. If the form allows multiple entries, submitted entries appear as chips and a **One More** button lets you add another. (Tasks set up with a linked survey instead of a form show the survey inline.)
-
-### Checklist Tasks
-
-Check off individual items in the checklist. Both the client and MSP staff can check items. The task shows overall checklist progress.
-
-### Approval Tasks
-
-Review the description and any attached documents, then click **Approve** or **Reject**. Optionally add comments explaining your decision.
-
-## Asking Questions
-
-Clients can ask questions to your MSP team at any time by clicking the **Ask a Question** button. Questions are:
-
-- Delivered to your team via email notification
-- Recorded in the portal's activity feed
-- Visible to your team in the onboarding admin view
-
-## Task Comments
-
-Clients can participate in discussion threads on individual tasks. These comments are visible to both the client and MSP team, enabling back-and-forth communication without leaving the portal.
-
-<Note>
-Your MSP team can also keep **internal notes** on a task. Internal notes are never shown in the client portal — clients only ever see the shared comment thread.
-</Note>
-
-## Progress Tracking
-
-The portal header shows an overall progress bar indicating what percentage of tasks are complete. The **Our Progress** tab provides a phase-by-phase timeline showing:
-
-- Phase names and status (pending, in progress, completed)
-- Visual indicators for the current phase
-- Completed phases with checkmarks
-
-## Portal Branding
-
-The client portal can be customized with your MSP's branding:
-
-- **Logo** — Your company logo displayed in the portal header
-- **Accent Color** — Applied to buttons, progress bars, and interactive elements
-- **Welcome Message** — Custom text displayed on the portal landing page
-- **Company Display Name** — How your MSP name appears to the client
-
-<Tip>
-Configure portal branding in **Settings > Onboarding** to apply it across all new portals.
-</Tip>
-
-## Security
-
-The client portal uses several security measures:
-
-| Feature | Description |
-|---------|-------------|
-| **Token-based access** | Each contact gets a unique, hashed access token |
-| **Email verification** | Contacts must verify their email via magic link before accessing the portal |
-| **24-hour sessions** | Sessions expire after 24 hours with automatic sliding renewal |
-| **No account required** | Clients don't need to create an account or remember a password |
-| **Credential encryption** | Submitted credentials are securely stored |
-| **Signature verification** | Digital signatures include content hash, IP address, and timestamp |
-| **File expiration** | Secure file drops include time-based access expiration |
-| **Access tracking** | Every portal access is logged with timestamp and IP |
-| **Revocable access** | MSP admins can revoke a contact's access instantly |
+- [Client onboarding overview](/user-guides/client-onboarding/index)
+- [Manage portals](/user-guides/client-onboarding/managing-portals)
+- [Create templates](/user-guides/client-onboarding/templates)
+- [Create reference pages](/user-guides/client-onboarding/pages)

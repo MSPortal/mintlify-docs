@@ -1,0 +1,75 @@
+---
+title: 'Create and manage project milestones'
+description: 'Add milestones, maintain planned and actual dates, set client visibility, and reorder the timeline.'
+icon: 'flag-checkered'
+---
+
+**Audience:** MSP staff with permission to edit project collaboration content. Company users [read shared milestones](/user-guides/projects/read-project-timeline); their MSP manages permissions.
+
+Use **Projects > select a project > Timeline**. Timeline milestones are maintained in MSPortal. Changing one does not by itself change a linked PSA ticket, phase schedule, or project status.
+
+## Add a milestone
+
+<Steps>
+  <Step title="Show Total, then Add Milestone">
+    Clear any status filter with **Total**, then select the **+** control labeled **Add Milestone** or the empty-state button. A **New Milestone** is saved immediately as **Pending**, with **Client Visible** off, and its editor opens.
+  </Step>
+  <Step title="Name and describe the milestone">
+    Replace **Title** with a clear outcome and optionally add **Description**. Keep a nonblank title. Text saves shortly after you stop typing; there is no separate Save button. Clearing the title is not a way to delete the milestone.
+  </Step>
+  <Step title="Set dates and status">
+    Choose **Planned Date** and the appropriate **Status**.
+
+    <img src="/images/product/project-milestone-status-options.png" alt="MSP milestone Status menu: Pending, In Progress, Complete, and Skipped" width="728" height="268" />
+
+    This menu is shown to MSP editors.
+
+    When the milestone is finished, set **Complete** and record **Actual Completion Date**. These are separate controls: selecting Complete does not automatically fill the actual date, and entering an actual date does not automatically mark the milestone complete.
+  </Step>
+  <Step title="Review client visibility">
+    Check all content, then enable **Client Visible** when the milestone is ready for Company users who can access the project. Visibility saves immediately. Later edits to a visible milestone are shared as they save.
+  </Step>
+  <Step title="Verify persistence">
+    Collapse and reopen the row, then revisit the project to check the saved title, status, dates, and visibility. If a save fails, check the saved state before repeating changes.
+  </Step>
+</Steps>
+
+<Warning>
+Do not put confidential information in **Notes (internal)** on a client-visible milestone. The current field does not have a verified separate privacy boundary: the client-facing data filter retains milestone notes. Keep private content off shared milestones until this is corrected.
+</Warning>
+
+For the separate **Mark as Milestone** phase/ticket shortcut, its different defaults, and the currently recorded failure, see [phase and ticket action menus](/user-guides/projects/use-phase-ticket-actions).
+
+## Filter, reorder, and remove
+
+The **Timeline** tab badge counts client-visible milestones. It can show fewer items than your MSP **Total**, which includes internal milestones.
+
+- Select **Completed**, **In Progress**, or **Pending** to filter rows. A change of status can move a row out of the current filter. **Total** includes **Skipped**.
+- To change the list order, select **Total** and drag a milestone by its grip handle. Reordering is disabled while a status filter is active. The order saves; dragging does not reschedule dates.
+- Use **Skipped** when a milestone is no longer part of the plan but should remain in the record. It does not count as Complete.
+- To delete, select the row's delete control and confirm. Revisit the list to verify removal; collapsing the editor does not cancel a new milestone.
+
+See [Read the project timeline](/user-guides/projects/read-project-timeline) for date-delay indicators and [Write project updates](/user-guides/projects/write-project-updates) for progress narratives.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Why did Add Milestone create a record before I finished?">
+    Adding immediately saves the default Pending milestone. Finish its fields or explicitly delete it; closing the editor does not discard it.
+  </Accordion>
+  <Accordion title="Why did a new or edited milestone disappear?">
+    A status filter may hide it. New milestones are Pending. Select Total before assuming a save failed or adding another copy.
+  </Accordion>
+  <Accordion title="Does Complete fill the completion date?">
+    No. Set Status and Actual Completion Date separately. Reopening a completed milestone also does not automatically clear its actual date.
+  </Accordion>
+  <Accordion title="Why can I not drag milestones?">
+    You need editing permission and the unfiltered Total list. Reordering is disabled with a status filter active.
+  </Accordion>
+  <Accordion title="Does Client Visible notify clients or grant project access?">
+    No. It makes the milestone available within a project they can already access. These controls do not send notifications or grant permissions.
+  </Accordion>
+  <Accordion title="Can I rely on Notes (internal) to hide text on a shared milestone?">
+    No. Keep confidential text out of that field on shared milestones until its privacy behavior is verified and corrected. The label alone is not a reliable isolation guarantee.
+  </Accordion>
+</AccordionGroup>

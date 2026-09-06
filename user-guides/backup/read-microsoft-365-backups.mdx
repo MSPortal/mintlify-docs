@@ -1,0 +1,57 @@
+---
+title: "Read Microsoft 365 backups"
+description: "Find Exchange, OneDrive, SharePoint, and Teams backup records from Cove and Acronis."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Backup read access. This guide covers the Cove and Acronis resource tables. For the other providers, see [Kaseya and Spanning health](/user-guides/backup/read-saas-backup-health).
+
+## Open a workload
+
+1. Open **Backup > Microsoft 365**.
+2. Choose **Cove** or **Acronis** if a provider selector appears. With only one available provider, the selector is omitted.
+3. Select **Exchange**, **OneDrive**, **SharePoint**, or **Teams** using the workload cards.
+4. Review the selected workload's table. Use its available filters and pagination to narrow the loaded records.
+5. For Acronis, select a resource row to review available activity.
+
+The workload cards show resource counts labeled as backups. They are not a count of all recovery points or proof that every listed service completed successfully.
+
+| Workload | Resource to look for |
+| --- | --- |
+| **Exchange** | A user's mailbox. |
+| **OneDrive** | A user's personal file backup. |
+| **SharePoint** | A site or site collection. |
+| **Teams** | A team. |
+
+## Read the results
+
+Review the resource's **Company**, **Status**, and **Last Backup**. **Unknown**, **Never**, or a missing date requires investigation; it is not a successful backup result.
+
+**Items** and **Protected Size** appear only when the loaded data supplies nonzero values. They may be absent for a provider or workload. For Acronis, Items comes from its imported activity count; it should not be interpreted as the number of mailbox messages or files. Summary seats and storage can come from provider usage totals rather than the visible resource rows.
+
+For Acronis, [activity details](/user-guides/backup/read-backup-details) can show the operation, result, policy, duration, and a limited result summary. The current row-opening panel is Acronis-specific. Do not use an empty panel opened from a Cove row as evidence that Cove has never backed up that resource.
+
+## Understand the loaded scope
+
+Acronis lists resources with activity within the current 90-day window. Older inactive resources can be absent. The page loads up to 500 records per Acronis resource kind; SharePoint can include both sites and site collections. Its workload card can report a larger total than the rows available in the table.
+
+Cove loads up to 500 Microsoft 365 records in total. Table filters and local pagination do not fetch records beyond these limits. Neither the visible rows nor Cove's loaded count should be treated as an unlimited inventory.
+
+If records are missing, check provider, workload, company selection, and filters. Ask the MSP to compare with the provider and check synchronization. A read problem can result in empty or incomplete results. An active connection alone does not guarantee that the Microsoft 365 tab is available.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why does the Acronis card show more backups than I can browse?">
+    The card can use the provider's total count while the table loads a limited number of records per resource kind. Local pagination does not remove that limit.
+  </Accordion>
+  <Accordion title="Where are older Acronis resources?">
+    The resource list uses a 90-day activity window. Ask your MSP to check the provider when a resource falls outside that window.
+  </Accordion>
+  <Accordion title="Does Items mean every file or email in the backup?">
+    No. Acronis uses an imported activity count for that column. The panel can show selected result details, but neither view is a full backup-content browser.
+  </Accordion>
+  <Accordion title="Can I download a mailbox backup or restore a file here?">
+    This page reports backup information. Ask your MSP for restore or backup-download assistance through the [Home AI Assistant](/user-guides/ticketing/open-a-ticket).
+  </Accordion>
+</AccordionGroup>

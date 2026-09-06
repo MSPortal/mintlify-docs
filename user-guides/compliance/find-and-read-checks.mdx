@@ -1,0 +1,90 @@
+---
+title: "Find compliance checks and understand results"
+description: "Choose company and run scope, use Tree or List, and distinguish completion from successful assessment."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Compliance read access. Available companies, checks, and actions depend on your permissions and what your MSP has shared.
+
+## Choose the scope
+
+1. Open **Compliance** in the sidebar.
+2. Check the selected company or aggregate view. A permitted parent-company view can include child companies.
+3. Choose **Active**, **Completed**, or **All** in the run filter.
+4. Check search and table filters before interpreting an empty result.
+
+<img src="/images/product/compliance-run-states.png" alt="Compliance run filter showing Active selected beside Completed and All" width="366" height="70" />
+
+This image shows the generic controls in an MSP Demo session. Your available records and actions depend on your access.
+
+The run filter refers to whether an **assessment run** is complete. It does not mean every check passed. A completed run can include failed assessments.
+
+## Browse Tree view
+
+1. Select **Tree**.
+2. Use **Search compliance checks...** to narrow the results.
+3. Expand a company or run, then any available group, location, or device to reach a check. The hierarchy depends on the assignment and selected company scope.
+4. Use **Expand all** or **Collapse all** when available to change the visible hierarchy.
+5. Select a check’s title to open its details.
+
+The same check definition can appear in different runs or for different devices and locations. Read the company, run, and target before comparing results.
+
+## Browse List view
+
+1. Select **List** for a flat table of check assignments.
+2. Use the table’s column filters, such as title, company, status, priority, and due date. Additional columns can contain notes, guidance, or source information.
+3. Use available sorting and column-visibility controls to organize the table.
+4. Use pagination to review further results. Page-size choices are 25, 50, 100, and 250.
+5. Select the check title to open the assessment.
+
+A linked Planner shortcut may be available when the check has linked work and you have Planner read access. Following the shortcut does not update the assessment.
+
+## Interpret the result
+
+Statuses come from the check’s configured status list. Your MSP can use different names and determine which statuses count as complete or successful. **Priority** is separate and uses High, Medium, or Low. A **flag** marks an item for attention; it is not a pass or fail result.
+
+The summary can show:
+
+| Metric | What it tells you |
+| --- | --- |
+| **Compliance Score** | A weighted percentage from the configured scoring system, with a grade when available. |
+| **Total Checks** | The number of checks represented in the summary’s loaded scope. |
+| **Failed Checks** | Checks classified as completed without a positive result by the dashboard. |
+| **Passed Checks** | Checks classified as completed with a positive result. |
+| **Past Due** | Incomplete assessments whose due date has passed. |
+| **Completion Rate** | Completed passed and failed assessments as a proportion of the total. |
+
+Completion is not the same as passing. A fully assessed set can still contain failures.
+
+The summary, weighted score, and filtered List can use different scopes or refresh at different times. Per-column List filters do not necessarily recalculate the score or summary. Use the underlying assessments to investigate a mismatch; do not infer a result from the color or grade alone. **N/A** or a load error is not a passing score.
+
+## If a check is missing
+
+- Verify company scope and switch from Active to All when looking for an older run.
+- Clear or adjust search and table filters.
+- Ask your MSP whether the assessment was assigned or shared with your company.
+- If the page reports a load error, retry or reload before deciding that there are no records.
+- A direct check link can include a completed run, but it still requires access to the record.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does Completed mean compliant?">
+    No. Completed is a run-state filter, and completed assessments can pass or fail. Read each check’s status and notes.
+  </Accordion>
+  <Accordion title="Why does the same check appear several times?">
+    Assignments can belong to different runs, companies, locations, or devices. Check the target and run before comparing them.
+  </Accordion>
+  <Accordion title="Why do List filters not change the score?">
+    The weighted score and summary are separate from the per-column List filters. Review scope and underlying checks when comparing numbers.
+  </Accordion>
+  <Accordion title="What does a flag mean?">
+    It marks an assessment for attention or review. It does not itself change the pass/fail status.
+  </Accordion>
+  <Accordion title="Can I configure checks as a Company reader?">
+    Read access does not grant configuration or assessment-editing permission. Your MSP manages setup and Company permissions.
+  </Accordion>
+  <Accordion title="Can I create a ticket just by opening a failed check?">
+    No. Reviewing a failed check does not submit a support request. For a new request, start with the [Home AI Assistant](/user-guides/ticketing/open-a-ticket).
+  </Accordion>
+</AccordionGroup>

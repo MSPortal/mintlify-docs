@@ -1,0 +1,55 @@
+---
+title: "Read backup activity and device details"
+description: "Open Acronis activity or NinjaOne storage and timestamps from the Backup reports."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Backup read access and access to the relevant resource.
+
+## Read Acronis activity
+
+1. Open **Backup > Devices**, or select **Acronis** under **Backup > Microsoft 365**.
+2. Find the device, mailbox, drive, site, or team.
+3. Select its row to open the side panel.
+4. Confirm the resource and company in the panel header.
+5. Review the activity cards and use the arrow controls when more activity pages are available.
+
+Each page shows up to 15 activities. A card can include the operation, policy, resource name, result, completion age, and duration. Result labels include **OK**, **Failed**, **Warning**, and **Running**; other provider values can appear unchanged.
+
+The operation matters. An OK discovery, retention, scan, or deletion activity is not evidence that a backup completed. The result summary shows up to four available nonzero details, such as items, folders, files, or channels. It is not a full log or backup-content listing.
+
+If the panel is empty, confirm that you opened an Acronis resource and check the page number. Return to the first activity page when moving between resources. Missing activity can also reflect a loading or resource-matching problem; it does not prove no backup has ever run.
+
+## Read NinjaOne details
+
+1. Open **Backup > Devices** and find a NinjaOne row.
+2. Select the row to open its details.
+3. Review **Status**, **Total Storage**, and the available storage breakdowns.
+4. Under **Details**, compare **Last Success**, **Last Failure**, and **Last Synced** when supplied.
+
+Storage can be split into **Cloud**, **Local**, and **Revisions**. Available breakdowns include File/Folder, Image, Image v2, Network Share, and Current/Previous/Deleted revisions. Sections and values appear only when reported with data; missing storage is not proof that a backup succeeded.
+
+Last Synced refers to the portal's imported record. Last Success and Last Failure refer to backup outcomes. A newer sync timestamp does not mean a newer successful backup.
+
+## Provider limits
+
+Cove device rows do not open these detail panels. The Microsoft 365 row-opening panel currently queries Acronis activity, so an empty panel opened from a Cove row is not a reliable Cove history result.
+
+Neither panel starts a backup, changes a plan, resolves an alert, or restores data. Ask your MSP for those tasks through the [Home AI Assistant](/user-guides/ticketing/open-a-ticket).
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does OK always mean a successful backup?">
+    Read the operation type. OK can describe other activities, including discovery or retention cleanup.
+  </Accordion>
+  <Accordion title="Why are only a few result counts shown?">
+    The activity card displays up to four nonzero result-summary entries. It is a summary, not the complete provider log.
+  </Accordion>
+  <Accordion title="Why is the next resource empty after paging through activity?">
+    Check the current page and return to page one. If it remains empty, ask the MSP to check resource matching and the provider's activity record.
+  </Accordion>
+  <Accordion title="Does NinjaOne Last Synced mean the device just backed up?">
+    No. It records imported-data freshness. Check Last Success and the reported status separately.
+  </Accordion>
+</AccordionGroup>

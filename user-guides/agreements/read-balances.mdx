@@ -1,0 +1,62 @@
+---
+title: 'Understand agreement balances'
+description: 'Read current and historical hours, incidents, or monetary balances without confusing missing data with zero usage.'
+icon: 'clock'
+---
+
+Open **Agreements** or **Contracts**, select the relevant row, and select **Balances**. Review the units and period before interpreting a remaining balance.
+
+## Read the current balance
+
+**Current** identifies balance rows marked current by the imported data. A period can show its dates, an hourly rate when supplied, and the remaining balance. **As of**, when shown, gives a synchronization timestamp for the displayed balance data; it is not a promise of live usage tracking.
+
+The list summarizes current balance rows. The detail panel shows the individual rows and periods, so use it when you need to understand the breakdown.
+
+| Display | Meaning |
+| --- | --- |
+| “X of Y hrs remaining” | Remaining hours out of the supplied purchased total. |
+| “X of Y incidents remaining” | Remaining incidents, not hours. |
+| A monetary amount remaining | A money-based balance; confirm its currency and terms with your MSP. |
+| A remaining value without a purchased total | The provider supplied a balance but no usable total for a percentage bar. |
+| **Unlimited** | The imported balance is marked unlimited. Check the agreement’s actual scope and terms. |
+| A dash or **No hour balances found** | The view has no applicable balance data. This is not the same as zero remaining. |
+
+When an hours or incidents progress bar is available, its filled portion represents usage. The text shows the remaining balance. Amber indicates less than 25% remaining; a negative remaining value is shown in red rather than being hidden.
+
+## Read previous periods
+
+Scroll to **History**. Past rows are grouped by year, with their own dates and balances. A **Past** row is historical data; do not add its remaining balance to the current period unless your MSP confirms that the agreement carries it forward.
+
+If the detail-load warning appears, the panel may be showing only the list’s current summary. Resolve that warning before treating the history as complete.
+
+## Ask about a discrepancy
+
+Give your MSP the agreement name, period, displayed units and balance, and the **As of** time when available. Ask it to check recent time entries or usage and the provider’s balance calculation. Do not create a new agreement or assume a missing row means unlimited coverage.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does an empty balance mean I have used all my hours?">
+    No. The provider may not supply that balance, or the detail data may not have loaded. Zero, missing data, and Unlimited are different states.
+  </Accordion>
+  <Accordion title="Does the progress bar show hours remaining?">
+    The filled bar represents usage when a purchased total is available. Read the accompanying text for the remaining amount.
+  </Accordion>
+  <Accordion title="Why is my balance negative?">
+    The imported remaining balance is below zero. Ask your MSP to review the period, recorded usage, and agreement terms.
+  </Accordion>
+  <Accordion title="Why does the Hours Remaining column show incidents or an amount?">
+    Agreements can track hours, incidents, or money. Read the displayed units and check the source agreement before comparing values.
+  </Accordion>
+  <Accordion title="Can I edit or top up the balance here?">
+    This is a read-only view of imported balances. Ask your MSP to make the appropriate change in its service or billing system.
+  </Accordion>
+  <Accordion title="Is As of a live freshness guarantee for every row?">
+    No. It is a supplied synchronization timestamp. Check individual periods and ask your MSP about recent changes that are not reflected yet.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Find and review an agreement](/user-guides/agreements/view-agreements)
+- [Open an agreement PDF](/user-guides/agreements/download-documents)

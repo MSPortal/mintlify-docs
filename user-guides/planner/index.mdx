@@ -1,281 +1,127 @@
 ---
 title: 'Planner'
-description: 'Organize tasks, projects, and strategic initiatives with timeline-based planning tools'
+description: 'Find planned work, understand estimates and linked records, and manage items, templates and opportunity imports.'
 icon: 'calendar-days'
 ---
 
-The Planner module provides a visual timeline for managing tasks, projects, and strategic initiatives across your client companies. Plan work, track progress, and align team efforts with business goals.
+**Audience:** Company users with Planner access and MSP staff. Company users see work made visible within their access scope. Your MSP manages permissions, templates and integration configuration.
 
-<Frame>
-  <img src="/images/planner/planner-timeline-view.png" alt="Planner Timeline View" />
-</Frame>
+Planner brings proposed work, dates, estimates and supporting records together. A Planner item does not by itself prove that work is approved, booked into a technician's calendar or completed.
 
 ## Overview
 
-The Planner displays work items on a timeline, allowing you to:
+Start with the task you need:
 
-- **Plan strategic initiatives** - Schedule projects and tasks across months or years
-- **Track progress** - Monitor status and completion of planned work
-- **Allocate resources** - Estimate hours, costs, and assign to companies
-- **Link to findings** - Connect planner items to compliance findings or security actions
-- **Collaborate** - Share notes, use templates, and leverage AI assistance
+| Task | Guide |
+| --- | --- |
+| Read planned work by period | [Read the timeline](/user-guides/planner/read-timeline) |
+| Search for a particular item | [Find items in List View](/user-guides/planner/find-planner-items) |
+| Understand status, notes and visibility | [Read item details](/user-guides/planner/read-item-details) |
+| Understand cost and effort estimates | [Plan costs and hours](/user-guides/planner/plan-costs-and-hours) |
+| Review planning totals and charts | [Read Analytics](/user-guides/planner/read-analytics) and [understand its charts](/user-guides/planner/understand-analytics-charts) |
+| Find past work | [Find archived items](/user-guides/planner/find-archived-items) |
 
 ## Timeline Views
 
-The Planner offers three timeline views to help you plan at different scales. Use the view switcher in the toolbar to change between them.
+Cards appear in the period containing their **due date**. Items without a due date are in **Unscheduled**. Check the year, company scope and filters if expected work is missing.
 
 ### Monthly View
 
-<Frame>
-  <img src="/images/planner/planner-monthly-view.png" alt="Planner Monthly View" />
-</Frame>
-
-The monthly view shows a detailed day-by-day breakdown for the current month. Best for:
-- Short-term planning and scheduling
-- Viewing specific due dates
-- Managing immediate priorities
+Monthly shows January–December columns for the selected year. It is not a day-by-day calendar.
 
 ### Quarterly View
 
-<Frame>
-  <img src="/images/planner/planner-quarterly-view.png" alt="Planner Quarterly View" />
-</Frame>
-
-The quarterly view displays four quarters at a time (Q1-Q4). Best for:
-- Medium-term project planning
-- Quarterly business reviews
-- Balancing workload across months
+Quarterly groups work by quarter, displaying month ranges and years. Check the year when scrolling across consecutive years.
 
 ### Yearly View
 
-<Frame>
-  <img src="/images/planner/planner-yearly-view.png" alt="Planner Yearly View" />
-</Frame>
+Yearly uses one column per year. Scroll across the columns; its year arrows are disabled. **Today** returns to the current period without rescheduling work.
 
-The yearly view shows all 12 months in a single view. Best for:
-- Long-term strategic planning
-- Annual roadmapping
-- Identifying seasonal patterns
-
-<Tip>
-Use the year navigation buttons and year selector to move between years. The **Today** button quickly returns you to the current date.
-</Tip>
+See [Read the timeline](/user-guides/planner/read-timeline) for navigation and recurring-cost projection.
 
 ## View Density
 
-Adjust how much information is displayed for each planner item using the View Density setting. This controls the column width of each time period, allowing you to see more or less detail.
-
-<Frame>
-  <img src="/images/planner/planner-density-dropdown.png" alt="View Density Dropdown" />
-</Frame>
-
-| Density | Column Width | Best For |
-|---------|--------------|----------|
-| **Comfortable** | Widest columns (220-280px) | Detailed item view with full titles |
-| **Compact** | Medium columns (190-240px) | Balanced view for everyday use (default) |
-| **Dense** | Narrow columns (160-200px) | Fitting more time periods on screen |
-
-Click the **View density** button (grid icon) in the toolbar to open the density menu and select your preferred option.
+**View density** changes card detail. Comfortable shows the fullest detail; Compact hides expanded linked-record lists; Dense also hides status and priority badges. Hidden card detail does not remove the underlying data.
 
 ## Creating Planner Items
 
-Click the **Add Item** button to create a new planner item. You can also click the **Add Item** button within any time period column to add an item at that specific date.
+MSP staff with Planner write or manage permission can use **Planner Menu > List View > Add Item**. New items started from List View are hidden from Company users initially. Review the company, dates, status and **Visible to clients** before saving.
 
-### Item Types
-
-Planner items can be categorized by type:
-
-- Security Services
-- Managed Services
-- Professional Services
-- Projects
-- Training
-- Compliance
-- Other
-- Custom types defined in settings
+[Create and edit Planner items](/user-guides/planner/create-and-edit-items) explains the fields, Save and Discard Changes. [Update several items](/user-guides/planner/update-multiple-items) covers List View bulk actions and replacement of cost breakdowns.
 
 ## Importing PSA Opportunities
 
-The **Import Opportunities** dialog pulls existing PSA opportunities into MSPortal as planner items in one click, so you do not have to re-enter deals you already track in your PSA.
+MSP staff with **Manage Planner** and a connected **Halo**, **ConnectWise** or **Autotask** integration can choose **Import** in the Planner header. The dialog selects opportunities already synchronized into MSPortal; it does not upload a spreadsheet.
 
 <Warning>
-**Importing opportunities requires the Manage Planner permission.** Users with only Read or Write access to the Planner can view and edit existing items but cannot run the bulk import. The button is hidden when the permission is missing, and the server action rejects calls from users without it.
+Imported items are **client-visible by default**, subject to company access and Planner permissions. The import dialog has no visibility switch. Review the selected work and initial status mappings before importing, then check the created items.
 </Warning>
 
-<Steps>
-  <Step title="Click Import Opportunities">
-    Click the **Import Opportunities** button in the planner toolbar. The button only appears when you have the **Manage Planner** permission AND at least one PSA with opportunities is connected (Halo, ConnectWise, or Autotask).
-  </Step>
-  <Step title="Search Across PSAs">
-    The dialog searches across every connected PSA at once (Halo, ConnectWise, and Autotask). Type to filter by name, or use the company filter to narrow to a single client's opportunities.
-  </Step>
-  <Step title="Multi-Select Opportunities">
-    Tick the opportunities you want to bring in. Already-imported opportunities are flagged in the dialog so you cannot accidentally add the same deal twice.
-  </Step>
-  <Step title="Import">
-    Click **Import**. MSPortal creates a planner item for each selected opportunity, populated with the title, description, due date, and estimated value pulled from the PSA.
-  </Step>
-</Steps>
-
-<Tip>
-Combine **Import Opportunities** with the **Quarterly Roadmap** reporting block to drop imported opportunities into a client-presentable QBR slide in seconds.
-</Tip>
+[Import PSA opportunities](/user-guides/planner/import-opportunities) covers date filters, selection, status mapping, skipped records and verification. [Understand PSA-linked work](/user-guides/planner/understand-psa-linked-items) explains the resulting items for Company and MSP readers.
 
 ### Auto-Import on PSA Sync
 
-If your PSA integration has **opportunity auto-import** turned on, MSPortal automatically creates planner items as new opportunities show up in the PSA, so you never have to open the Import dialog manually. The auto-import path runs as a background sync task and is not gated by the user-level Manage Planner permission, since no individual user is making the request.
-
-- The link is one-way (PSA to planner) with a per-opportunity unique constraint, so overlapping syncs cannot create duplicates
-- On every sync, MSPortal keeps the linked planner item in sync with the PSA opportunity. Title, description, due date, and estimated value updates flow through automatically. A renamed opportunity in your PSA shows up renamed in MSPortal without anyone touching it
-- Sync runs cover Halo PSA, ConnectWise, and Autotask
-- An **Opportunity types to auto-import** filter on the integration's setup wizard lets you scope auto-import to specific opportunity types (for example "Managed Services Contract" only) so unrelated sales pipeline noise stays out of your planner
-
-<Note>
-Set up auto-import in **Settings → Integrations → [your PSA]** under the Opportunity Settings section. The toggle, minimum value, and type filter all save automatically.
-</Note>
+An MSP can configure automatic opportunity import and field refresh in the PSA integration's **Opportunity Settings**. These settings are separate from the initial status mappings in the manual Import dialog. Turning off creation of new items does not by itself stop refresh of existing linked items. Ask the integration administrator which fields are controlled by the PSA.
 
 ### Creating a New Opportunity
 
-You can also create a new PSA opportunity directly from a planner item. Open any planner item, and the **Create Opportunity** action posts a new opportunity to the PSA the company is linked to. The action is only offered for companies that are linked to a PSA (ConnectWise, Halo, or Autotask), since RMM-only links cannot host opportunities.
+Creating an opportunity from **Relationships > Create**, when available, is a separate external operation. Saving a Planner item does not automatically create a PSA opportunity. See [Link supporting records](/user-guides/planner/link-supporting-records) for the prerequisites and save boundaries.
 
-## Editing Planner Items
+## Reading and Editing Planner Items
 
-Click on any planner item to open the edit dialog with full details.
+Open an item's title in List View or on the timeline. Available sections and editing controls depend on access and the item's source.
 
-<Frame>
-  <img src="/images/planner/planner-edit-dialog.png" alt="Planner Item Edit Dialog" />
-</Frame>
+**Notes** can be read by users with access to the item. **Private Notes (Internal Only)** are for authorized MSP staff. Company users do not receive private notes or the staff assignee picker.
 
-### Basic Information
-
-| Field | Description |
-|-------|-------------|
-| **Title** | The name of the planner item (click to edit) |
-| **Company** | The client company this item is for |
-| **Due Date** | When the item should be completed |
-| **Status** | Current status (Not Started, In Progress, Pending Approval, Complete) |
-| **Type** | Category of work (Security Services, Other, etc.) |
-| **Business Value** | Priority level (High, Medium, Low) |
-| **Assignee** | The staff member who owns this item |
-
-### Estimates
-
-| Field | Description |
-|-------|-------------|
-| **Est. Hours** | Estimated hours to complete |
-| **Est. Cost** | Estimated cost for the work (in dollars) |
-| **Probability of Success** | Likelihood of completion (percentage slider) |
-
-### Relationships
-
-Link planner items to other entities using the **Relationships** section:
-
-- **Goals** - Connect to company goals
-- **Compliance** - Link to compliance findings
-- **Secure Score** - Associate with Microsoft Secure Score actions
-- **Devices** - Connect to device-related work
-- **Projects** - Link to project management items
-- **Opportunities** - Associate with sales opportunities
-
-Click **Add** to create a new relationship or link to an existing item.
-
-### Assigning an Item
-
-Choose an **Assignee** in the edit dialog to give the item an owner. Members of the item's company team are listed first, then the rest of your staff.
-
-The assignee shows on timeline cards and in the **Assignee** column in List view, so ownership is visible without opening anything. Filter by one or more assignees, or by **Unassigned**, to see just your own work or find items nobody owns.
-
-<Note>
-Only staff can set an assignee. Company users see the owner on the card but never the staff list.
-</Note>
-
-### Notes and Description
-
-- **Description** - Brief description of the initiative. Click **Apply Template** to populate from a template
-- **Notes** - Collaborative notes visible to your team with rich text editor
-- **Private Notes (Internal Only)** - Notes only visible to you
-
-Type `@` in either notes field to mention a teammate. Pick them from the list and they receive a notification with a preview of the note that opens this planner item directly. Only active staff can be mentioned, and only staff can send mentions.
-
-### Custom Fields
-
-Expand the **Custom Fields** section to view and edit any custom fields configured for planner items.
-
-### File Uploads
-
-The **Uploads** section allows you to attach files to planner items. Click to upload or drag and drop files (max 10MB per file).
+Ordinary fields and notes require **Save**. File uploads and deletions happen immediately; Discard Changes does not undo those attachment operations. See [Read item details](/user-guides/planner/read-item-details) and [manage files](/user-guides/planner/manage-files).
 
 ## Using Templates
 
-Templates help you quickly populate planner items with predefined content.
+MSP staff with **Manage Planner** maintain reusable defaults under **Planner Menu > Templates**. Company users work with the resulting visible items.
 
-### Applying a Template
-
-1. Open a planner item for editing
-2. Click **Apply Template** in the Description section
-3. The Apply Template dialog opens
-
-<Frame>
-  <img src="/images/planner/planner-template-dialog.png" alt="Apply Template Dialog" />
-</Frame>
-
-4. **Select Template** - Choose from available templates
-5. **Fields to Apply** - Check which fields to import from the template
-6. Use **All** or **None** buttons to quickly select/deselect all fields
-7. Click **Apply Template** to apply the selected fields
-
-<Tip>
-Create templates for common project types like QBR Preparation, Security Assessment, or Onboarding Checklist to standardize your planning process.
-</Tip>
+- [Create and manage templates](/user-guides/planner/manage-templates).
+- [Apply a template to one item](/user-guides/planner/apply-template-to-item), review replacements, then save the item.
+- [Create items for multiple companies](/user-guides/planner/apply-templates-to-companies), which creates new items for selected template/company combinations.
 
 ## AI Features
 
 ### Ask AI
 
-Click the **Ask AI** button in the toolbar to get AI-powered assistance:
-- Generate project plans
-- Suggest tasks based on company context
-- Draft descriptions and notes
+When AI is enabled and you have **Manage Planner**, open the Planner AI assistant. Describe the planning question or draft you need, including the intended company. Review any proposed changes before applying them. An assistant's message that it drafted something is not confirmation that a Planner item was saved; check the actual proposal and resulting item.
 
-### AI Draft Notes
+MSP staff can [ask Planner AI about planned work](/user-guides/planner/ask-planner-ai), check the answer's scope and completeness, then decide what to change.
 
-Within the edit dialog, use **AI Draft** to automatically generate notes based on the item context.
+MSP staff with Manage Planner and enabled AI can [draft a Planner item with AI](/user-guides/planner/draft-item-with-ai), review the proposal, and apply or discard it.
 
 ## Filtering and Search
 
-Use the search box to find planner items by title or description. Click the **Filter** button (funnel icon) to narrow down displayed items by Company, Status, Type, Business Value, or Assignee.
-
-To share a specific item, open its menu on the timeline card and choose **Copy link**. The link opens that planner item directly for anyone on your team with access to it.
+[Filter the timeline](/user-guides/planner/filter-timeline) for visual planning, or use [List View filters](/user-guides/planner/find-planner-items) to locate specific rows. These views have different controls; changing the visible scope does not change the underlying item's company or status.
 
 ## Planner Menu
 
-Click the **Planner Menu** button to access additional views:
+| Option | Use |
+| --- | --- |
+| **Timeline View** | Read work by due period. |
+| **List View** | Search and inspect table rows; authorized staff can manage items. |
+| **Templates** | Manage reusable defaults; requires Manage Planner. |
+| **Analytics** | Review filtered estimates and charts. |
 
-| Option | Description |
-|--------|-------------|
-| **Timeline View** | Main planner timeline (default) |
-| **List View** | Table-based list of all planner items |
-| **Templates** | Manage planner item templates |
-| **Analytics** | View planning analytics and reports |
-| **Settings** | Configure planner settings |
+## Supporting records and files
+
+[Read linked records](/user-guides/planner/read-linked-records), [link supporting records](/user-guides/planner/link-supporting-records) or [read and manage files](/user-guides/planner/manage-files). Access to a Planner item does not automatically grant access to its linked records or external provider pages.
+
+## Past work and shared updates
+
+Company users can [find accessible archived work](/user-guides/planner/find-archived-items). MSP staff can [archive, restore or delete items](/user-guides/planner/archive-restore-delete) and [update selected rows](/user-guides/planner/update-multiple-items). Archiving and completing work are separate actions.
 
 ## Related Resources
 
-<CardGroup cols={2}>
-  <Card title="Goals" icon="bullseye" href="/user-guides/goals/index">
-    Connect planner items to strategic objectives
-  </Card>
-  <Card title="Calendar" icon="calendar" href="/user-guides/calendar/index">
-    Schedule meetings for planner items
-  </Card>
-  <Card title="Compliance" icon="shield-check" href="/user-guides/compliance/index">
-    Link findings to planned remediation
-  </Card>
-  <Card title="Settings" icon="gear" href="/user-guides/settings/index">
-    Configure planner item types and templates
-  </Card>
-</CardGroup>
+For proposal documents, use [Quotes](/user-guides/quotes/view-quotes) and the [Quoter, QuoteWerks and Salesbuildr document guide](/user-guides/quotes/download-quotes). A Planner estimate or opportunity link does not replace the proposal.
 
 ## Need Help?
 
-For assistance with the Planner module, contact support@msportal.ai.
+If you cannot see expected work or controls, ask your MSP to check company scope, Planner permissions and item visibility. Include the item title and the action you need.
+
+[Understand Planner types and budget categories](/user-guides/planner/understand-types). MSP staff can [manage types and defaults](/user-guides/planner/manage-types) or [retire a type with reassignment](/user-guides/planner/retire-types).
+
+For tasks generated by the MSP's technology catalog, [understand Standards work in Planner](/user-guides/planner/understand-standards-items).

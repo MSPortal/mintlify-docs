@@ -1,0 +1,61 @@
+---
+title: "Read the Security Dashboard"
+description: "Understand provider summaries and follow links to the underlying security records."
+icon: shield-halved
+---
+
+**Audience:** Company users and MSP staff with Security read access and an active Cork, Acronis, or Huntress integration.
+
+## Review the selected scope
+
+1. Open **Security > Dashboard**.
+2. Confirm the company selection. An MSP aggregate view can include multiple companies.
+3. Read the provider sections that appear.
+4. Follow a count or status link to inspect its underlying records. Check any filters already applied on the destination page.
+
+The dashboard shows imported provider summaries. It does not run a new scan, start remediation, or prove the current state of every device.
+
+## Read Cork results
+
+**Compliance Events** highlights the number marked **At Risk**, with a total-event count below it. The Compliance Overview includes separate **At Risk** and **Resolved** counts. These are different properties, not complementary categories that must add up to the total.
+
+**Vulnerabilities** highlights **Critical** priority. Its detail card shows Total, Critical Priority, Known Exploited, and Monitored Endpoints when available. Critical and Known Exploited can overlap; do not add them together as a count of distinct findings.
+
+Use [Cork events](/user-guides/security/read-cork-events) or [vulnerabilities](/user-guides/security/read-vulnerabilities) to investigate. An At Risk, Resolved, Critical, or Known Exploited shortcut applies that filter to the relevant table.
+
+## Read Acronis results
+
+**EDR Incidents** shows a total and the number open. The EDR Overview separates Open Incidents, Investigating, and Closed, with Not Mitigated shown when applicable. Incident state and mitigation are separate: a state label alone does not establish that mitigation is complete.
+
+**Endpoints Online** and **Endpoint Health** distinguish Online/Offline from Protected/Unprotected. Online describes connectivity; it does not itself prove protection. Follow an available endpoint or incident shortcut to review the underlying records.
+
+The phrase **All addressed** can appear when the open count is zero, including a zero-total summary. Check the total, other incident states, provider freshness, and mitigation before relying on that wording.
+
+## Read Huntress results
+
+Huntress summaries can show open escalations, active agents, SAT learners and accounts, open incident reports, and pending remediations. The links lead to **Huntress**. They do not necessarily prefilter the destination to the exact category shown on the card.
+
+Active agents, protected-agent totals, and learner counts describe different populations. SAT learner counts do not mean all learners completed their training.
+
+## If numbers are missing or unexpected
+
+Only available provider summaries appear. A provider read failure can omit its section while other providers still render. **No Security Data Yet**, an absent card, or zero totals should not be interpreted as a clean security assessment.
+
+Check company scope, the source provider, and any destination-table filters. MSP staff should verify synchronization when figures appear stale. Company users can request investigation through the [Home AI Assistant](/user-guides/ticketing/open-a-ticket).
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I add Critical and Known Exploited to get a total?">
+    No. A vulnerability can belong to both groups. Use Total for the summary's overall finding count.
+  </Accordion>
+  <Accordion title="Does At Risk plus Resolved equal every Cork event?">
+    Not necessarily. Risk and resolution are separate event properties.
+  </Accordion>
+  <Accordion title="Does Online mean an endpoint is protected?">
+    No. Connectivity and protection are reported separately.
+  </Accordion>
+  <Accordion title="Why did the Huntress shortcut open a broader list?">
+    Dashboard Huntress links open the Huntress section. Review its item-type and search filters rather than assuming the exact card category is already selected.
+  </Accordion>
+</AccordionGroup>

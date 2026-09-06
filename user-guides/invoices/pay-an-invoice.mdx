@@ -1,0 +1,62 @@
+---
+title: 'Use an invoice payment link'
+description: 'Open a provider-configured payment link and distinguish the payment provider confirmation from synchronized invoice status.'
+icon: 'credit-card'
+---
+
+Your MSP can configure a **Pay Now** button on eligible invoice rows through BenjiPays. The button's label may be customized. It opens the configured payment page in a new tab.
+
+## Open the payment page
+
+1. Open **Invoices** and find the correct invoice and company.
+2. Review its invoice number and available balance. Open the PDF if you need the original document.
+3. Select **Pay Now**, or the provider's customized payment button, when displayed.
+4. Check the invoice and amount on the payment provider's page before completing its payment steps.
+5. Use the payment provider's result or receipt to confirm the outcome.
+6. Return to the portal to review the invoice after its source data updates.
+
+Opening the payment link does not itself confirm a charge. The portal sends the configured link its invoice reference and amount due; it does not collect payment details in the invoice table.
+
+The amount in the link comes from the synchronized balance, or the invoice total when a balance is unavailable. If it differs from what you expect, ask the MSP to confirm the invoice before proceeding.
+
+## Why the button may be missing
+
+- The MSP has not enabled a working payment-link integration for the portal.
+- The available invoice data indicates no positive balance, or the invoice is voided or cancelled.
+- The invoice is closed and no balance is supplied.
+- The payment configuration could not be loaded for your session.
+
+A missing button is not definitive evidence that an invoice has been paid. Likewise, a button that remains visible after a payment is not proof that the payment failed; the portal invoice data may not have updated yet.
+
+## If the result is uncertain
+
+Check the payment provider's confirmation or receipt and contact the MSP when the outcome is unclear. Do not use a stale portal balance as the sole reason to repeat a payment. If the link fails, report the invoice number and what happened to the MSP.
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I pay every invoice from the portal?">
+    Only invoices with an available configured payment link offer this route. Ask the MSP how to pay if the button is absent.
+  </Accordion>
+  <Accordion title="Does selecting Pay Now immediately mark the invoice paid?">
+    No. It opens the configured payment provider. Complete its flow and use its confirmation to establish the result; invoice synchronization is separate.
+  </Accordion>
+  <Accordion title="Why is the payment button named something else?">
+    The MSP can customize the button label. It still opens the configured payment page for the invoice.
+  </Accordion>
+  <Accordion title="Why does the payment link show a different amount?">
+    The link uses the synchronized balance, or total when balance is unavailable. Ask the MSP to confirm a discrepancy before proceeding.
+  </Accordion>
+  <Accordion title="I paid but the portal still shows a balance. Should I pay again?">
+    First check the payment provider's confirmation and contact the MSP if needed. The portal can still show earlier synchronized data.
+  </Accordion>
+  <Accordion title="Can Company administrators configure the payment integration?">
+    Your MSP configures the integration and portal access. Ask the MSP about missing or incorrect payment links.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Find and review invoices](/user-guides/invoices/view-invoices)
+- [Download and export invoices](/user-guides/invoices/download-invoices)
+- [MSP: set up BenjiPays](/user-guides/integrations/enable-benjipays-integration)

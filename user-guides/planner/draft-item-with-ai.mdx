@@ -1,0 +1,113 @@
+---
+title: 'Draft a Planner item with AI'
+description: 'Describe proposed work, review its company and field values, then apply or discard the draft.'
+icon: 'sparkles'
+---
+
+**Audience:** MSP staff with **Manage Planner**, when AI is enabled for the MSP. Company users work with the resulting items their MSP makes visible. Company administrator status does not automatically grant the Planner AI management workflow.
+
+For a read-only question about existing work, [ask Planner AI about planned work](/user-guides/planner/ask-planner-ai).
+
+This guide covers drafting **one new Planner item**. Use the item editor for attachments, linked records and detailed cost rows.
+
+## Describe the item
+
+1. Open **Planner > List View** and check the company scope.
+2. Open the **Planner AI** assistant using its floating assistant button.
+3. Choose **Draft a new item** to fill the message box, or write your own request. Review the example before sending; selecting the shortcut alone does not submit it.
+4. Give the company name, a clear title, description, due date, status, business value, estimated hours, cost and recurrence. Specify whether it should be visible to clients.
+5. Send the message. **Enter** sends; **Shift+Enter** starts another line.
+
+For example: “Draft a backup review for Acme Corporation, due 15 October, with Low business value, two hours, no cost and hidden from clients. Leave it Not Started for review.” Replace the company and date with your intended target.
+
+<Frame caption="This shortcut fills the message box. Review the request before sending it.">
+  <img src="/images/product/planner-ai-draft-prompt.png" alt="Planner AI Draft a new item shortcut." width="264" height="64" />
+</Frame>
+
+Use company names rather than inventing identifiers. If the company is ambiguous, clarify which company you mean. Ask for whole hours in this AI workflow; use the normal item editor when you need fractional hours.
+
+## Review the proposal
+
+The assistant's response and the **Create** proposal card are separate. A message saying an item is drafted does not mean it exists in Planner.
+
+1. Find the proposal under **Pending proposals: review and Apply to commit**.
+2. Expand its summary using the chevron if the card is collapsed.
+3. Scroll through the proposed fields. Check the exact company, title, description, status, due date, hours, amount, cost recurrence and client visibility.
+4. If the proposal is wrong, ask for a corrected draft or discard it. Review the latest card before proceeding.
+
+<Note>
+A missing field is not proof that the assistant chose your intended value. Ask it to include important values explicitly, especially company, client visibility and the cost's recurrence. The normal item editor offers more controls than the AI proposal.
+</Note>
+
+**Edit values (advanced)** exposes the proposal's JSON. This is optional. A malformed or invalid edit can prevent Apply; asking the assistant for a corrected draft is usually easier.
+
+## Apply or discard
+
+Choose **Apply** only after reviewing the new item. Wait for the request to finish, then find the item in List View and reopen it to confirm the saved values. A saved proposal can disappear from Pending proposals; the earlier assistant message can still describe it as a draft. Applying the proposal is the save action; it does not need a second Save inside the chat.
+
+Choose **Discard** to remove an unapplied proposal. Discarding a draft does not delete an existing Planner item. Closing the assistant or clearing its conversation is not a way to undo an already applied change.
+
+If a request fails or the result is unclear, search List View for the proposed title before trying again. Repeating a creation request can create another item; a draft card is not a universal duplicate check.
+
+## Finish the item in Planner
+
+After creation, use [Create and edit Planner items](/user-guides/planner/create-and-edit-items) to review visibility and additional fields, [plan costs and hours](/user-guides/planner/plan-costs-and-hours) for a detailed estimate, [link supporting records](/user-guides/planner/link-supporting-records), and [manage files](/user-guides/planner/manage-files).
+
+Creating a Planner item does not itself create an external PSA opportunity, support ticket or project. Use the separate appropriate workflow for those records.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| Planner AI is absent | Manage Planner permission and the MSP's AI availability. |
+| The shortcut did not send a message | It fills the composer; review and send it. |
+| The assistant says drafted but nothing appears in List View | Look for an unapplied Create proposal. |
+| Apply is not visible | Expand the proposal and scroll to its controls. |
+| The company or date is wrong | Request a corrected proposal before applying. |
+| Apply reports invalid values | Correct the draft, keep the title concise and use valid dates and whole hours. |
+| I cannot tell whether Apply succeeded | Search List View before repeating creation. |
+| Company users cannot see the new item | Review Visible to clients, company scope and MSP-granted Planner access. |
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Who can draft Planner items with AI?">
+    MSP staff need Manage Planner and enabled AI. Company administrator status does not automatically grant this management workflow.
+  </Accordion>
+  <Accordion title="Where do I start an AI draft for planned work?">
+    Open Planner, launch Planner AI and choose Draft a new item or write your request. Review the composer and send the message.
+  </Accordion>
+  <Accordion title="Does selecting Draft a new item immediately submit it?">
+    No. It fills the message box so you can review and change the example before sending.
+  </Accordion>
+  <Accordion title="Does an AI draft automatically create the Planner item?">
+    No. Review the Create proposal and choose Apply. Confirm the saved item in List View.
+  </Accordion>
+  <Accordion title="Why can I not see Apply or Discard?">
+    Expand the proposal's summary using its chevron and scroll through the review card to its controls.
+  </Accordion>
+  <Accordion title="What should I check before applying a draft?">
+    Check company, title, description, status, dates, hours, amount, recurrence and client visibility. Ask for important missing values explicitly.
+  </Accordion>
+  <Accordion title="Do I have to edit JSON to use Planner AI?">
+    No. Edit values is an optional advanced control. You can ask for a corrected draft instead.
+  </Accordion>
+  <Accordion title="Can I request fractional hours in this AI workflow?">
+    Use whole hours for AI proposals. Use the normal Planner item editor for fractional-hour estimates.
+  </Accordion>
+  <Accordion title="Does Discard delete a saved Planner item?">
+    No. It removes an unapplied proposal. Use the separate Planner deletion workflow for an existing item.
+  </Accordion>
+  <Accordion title="Does closing the assistant undo Apply?">
+    No. An applied change is already saved. Reopen the Planner item to review or change it.
+  </Accordion>
+  <Accordion title="Should I repeat a creation request when its result is unclear?">
+    First search List View for the title and check the saved item. Repeating creation can produce another item.
+  </Accordion>
+  <Accordion title="Why does the assistant still say drafted after I clicked Apply?">
+    That message describes the earlier drafting step. A successfully saved proposal can leave Pending proposals while the old message remains. Check the actual item in List View before repeating creation.
+  </Accordion>
+  <Accordion title="Does creating a Planner item also create a ticket or PSA opportunity?">
+    No. Those are separate workflows. The Planner draft creates a planning item when applied.
+  </Accordion>
+</AccordionGroup>

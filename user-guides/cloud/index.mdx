@@ -1,134 +1,77 @@
 ---
-title: 'Cloud Overview'
-description: 'Review Microsoft 365 and Google Workspace identities, groups, licenses, domains, and security posture in one place'
+title: 'Cloud overview'
+description: 'Find cloud identities, license usage, domains, and security information available to your role.'
 icon: 'cloud'
 ---
 
-The **Cloud** module brings Microsoft 365 and Google Workspace together on a single set of pages. Instead of checking one console for Microsoft clients and another for Google clients, you review users, groups, licenses, domains, and security posture across every connected tenant in one view, filtered by company and by platform.
+Open **Cloud** to review synchronized information from the services connected by your MSP. Microsoft 365 and Google Workspace share the main Cloud views. **Licenses** also supports Adobe subscription inventory, and **Domains** includes company-mapped DNSimple registrar records.
 
-## Accessing Cloud
+**Audience:** Company users with access to cloud information and MSP staff. Your role, company access, connected providers, and available data determine what you see.
 
-Click **Cloud** in the sidebar, under **Protection**.
+## Choose a Cloud tab
 
-The Cloud item appears once your tenant has at least one connected Microsoft 365 or Google Workspace company.
-
-## The Five Tabs
+Use the header tabs to choose an area:
 
 <CardGroup cols={2}>
   <Card title="Posture" icon="shield-check" href="/user-guides/cloud/posture">
-    Daily security posture scores for both platforms, with Microsoft Secure Score alongside the Google Workspace posture calculation
+    Review available cloud security posture information.
   </Card>
   <Card title="Users" icon="users" href="/user-guides/cloud/users">
-    Every cloud identity with status, account type, 2-step verification, and assigned licenses
+    Review synchronized cloud identities and their recorded attributes.
   </Card>
   <Card title="Groups" icon="user-group" href="/user-guides/cloud/groups">
-    Groups and their full membership across both platforms
+    Review synchronized directory groups.
   </Card>
   <Card title="Licenses" icon="id-card" href="/user-guides/cloud/licenses">
-    License assignments, seat utilization, and product breakdowns
+    Read Microsoft, Google, and Adobe license inventory according to provider access.
   </Card>
   <Card title="Domains" icon="globe" href="/user-guides/cloud/domains">
-    Verified domains, primary domains, and authentication configuration
+    Review Microsoft, Google, and DNSimple domain information.
   </Card>
 </CardGroup>
 
-Switch tabs from the header. The provider filter, search text, and company scope carry across tabs.
+Opening Cloud normally starts at **Posture** when you have Microsoft 365 read access. An account with only Storefront read access is directed to **Licenses** for Adobe inventory; the other Cloud tabs are hidden.
 
-## The Provider Filter
+## Choose the company and provider
 
-Every Cloud page carries a **Cloud provider** selector:
+Start with the company selector in the top bar. Company users can review only the company data their account permits. MSP staff may be able to select one or several companies.
 
-| Option | Shows |
-|--------|-------|
-| **Microsoft and Google** | Both platforms together. This is the default |
-| **Microsoft 365** | Microsoft tenants only |
-| **Google Workspace** | Google Workspace tenants only |
+Within license inventory, use the table's **Provider** and **Company** filters where shown. Provider is omitted when only one provider is available. Company is omitted when the top bar is already scoped to one company. Filters are specific to their page; recheck them after switching header tabs.
 
-Every row also carries a **Provider** badge, so even in the combined view you always know which platform a record came from.
+For account and license reviews, start with these guides:
 
-<Tip>
-The provider selection is stored in the page address. Bookmark **Cloud > Users** filtered to Google Workspace, or send the link to a colleague, and the filter comes with it.
-</Tip>
+- [Read cloud user accounts](/user-guides/cloud/users): account fields, security-data limits, and column preferences.
+- [Find and filter cloud users](/user-guides/cloud/find-users): names, email, disabled accounts, and license filters.
+- [Export cloud users](/user-guides/cloud/export-users): all matching users and the CSV field list.
 
-## Search and Filtering
+- [Read cloud license usage](/user-guides/cloud/licenses): provider differences, capacity, renewal dates, and permissions.
+- [Find, filter, and export licenses](/user-guides/cloud/filter-licenses): name/SKU filters, hidden allocations, spare seats, and CSV.
+- [View license assignments and combinations](/user-guides/cloud/view-license-assignments): Microsoft and Google license holders, domains, offices, and combinations.
 
-- **Search** matches names, email addresses, domains, and company names across the current tab
-- **Company** is a multi-select column filter. It is hidden automatically when your view is already scoped to a single company
-- **Column visibility** lets you show or hide any column, including several that are hidden by default such as **Last synced**
-- Tables load **50 rows per page**
+## Access and missing information
 
-Filters compose. Combine **Google Workspace** with a company and a search term to isolate exactly the records you need.
+Microsoft 365 read access governs Microsoft and Google Cloud data. Adobe license inventory uses Storefront read access. Company administrators should contact their MSP to change user permissions or connect a service.
 
-## Company Scoping
+A missing tab, empty table, or unavailable value does not prove that the company has no service or no issue. Check the company selection and active filters. Ask your MSP to check permissions, provider connections, company mappings, and synchronization when information is still missing.
 
-Cloud pages follow the global company selector in the top bar:
+These pages display synchronized information. Check the relevant date or **Last synced** field where available, and confirm important changes with your MSP. Switching tabs does not trigger a provider synchronization.
 
-| Selection | Behavior |
-|-----------|----------|
-| **All companies** | Every connected tenant, with the Company column visible |
-| **Single company** | That company only, with the Company column hidden |
-| **Assigned scope** | The companies your selector is narrowed to |
+MSP staff manage connected services in **Settings > Integrations**. See [Integrations](/user-guides/integrations/index) for provider setup guides.
 
-Company users who sign in to the portal see only their own organization.
+## Group guides
 
-## Microsoft 365 and Google Workspace Differences
+- [Read cloud groups and members](/user-guides/cloud/groups)
+- [Find and filter cloud groups](/user-guides/cloud/find-groups)
+- [MSP: manage client group visibility](/user-guides/cloud/manage-group-visibility)
 
-Both platforms expose different data, and MSPortal shows what each one actually reports rather than inventing equivalents.
+## Domain guides
 
-| Data point | Microsoft 365 | Google Workspace |
-|------------|---------------|------------------|
-| **Posture score** | Microsoft Secure Score, sourced directly from Microsoft | MSPortal-calculated from Google admin reporting, scored out of 100 |
-| **Purchased seats** | Reported by Microsoft | Not reported by Google. Capacity columns show **Unknown** |
-| **2-step verification** | Covered through Secure Score controls | Reported per user as **Enforced**, **Enrolled**, or **Not enrolled** |
-| **Groups** | Distribution, security, Microsoft 365, and mail-enabled security | Google groups |
+- [Read cloud and registrar domains](/user-guides/cloud/domains)
+- [Find and export domains](/user-guides/cloud/filter-domains)
+- [Review domain renewal information](/user-guides/cloud/review-domain-renewals)
 
-<Note>
-Where a platform does not report a value, MSPortal shows **Not available** or **Unknown** rather than a zero. A blank is never presented as a finding.
-</Note>
+## Posture guides
 
-## Connecting Tenants
-
-| Platform | How to connect |
-|----------|----------------|
-| **Microsoft 365** | [Connecting Companies to Microsoft 365](/user-guides/microsoft-365/connecting-companies) |
-| **Google Workspace** | [Connect Google Workspace](/user-guides/integrations/enable-google-workspace-integration) |
-
-Both connect per company, and both are managed from **Settings > Integrations**.
-
-## Permissions
-
-| Permission | Capabilities |
-|------------|-------------|
-| **Read Microsoft 365** (`read_m365`) | View every Cloud page and apply filters |
-| **Manage company integrations** | Connect, reconnect, and disconnect company tenants in Settings |
-
-<Note>
-The Cloud pages reuse the existing Microsoft 365 read permission, so roles that already had access to Microsoft 365 data keep it without any change.
-</Note>
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Cloud missing from the sidebar | Connect at least one Microsoft 365 or Google Workspace company in **Settings > Integrations** |
-| A tab is empty | Clear the search box and set the provider filter to **Microsoft and Google**, then confirm the company selector is not narrowed |
-| Google Workspace rows missing | Check the connection status on the Google Workspace companies page and confirm the relevant dataset is enabled under **Sync settings** |
-| "You do not have access to this Cloud data" | Your role lacks the Microsoft 365 read permission |
-| Data looks stale | Both platforms synchronize on a daily schedule. Use **Sync now** on the connection to refresh immediately |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Connect Google Workspace" icon="google" href="/user-guides/integrations/enable-google-workspace-integration">
-    Set up per-company Google Workspace connections
-  </Card>
-  <Card title="Microsoft 365 Secure Score" icon="shield-check" href="/user-guides/microsoft-365/index">
-    Microsoft Secure Score controls and remediation planning
-  </Card>
-  <Card title="Reporting" icon="chart-line" href="/user-guides/reporting/index">
-    Build client-facing reports from cloud data
-  </Card>
-  <Card title="Integrations Overview" icon="plug" href="/user-guides/integrations/index">
-    Explore all available integrations
-  </Card>
-</CardGroup>
+- [Read cloud security posture](/user-guides/cloud/posture)
+- [Find and filter posture snapshots](/user-guides/cloud/find-posture)
+- [Understand Google posture checks](/user-guides/cloud/google-posture-checks)
