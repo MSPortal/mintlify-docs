@@ -1,69 +1,107 @@
 ---
 title: 'Warranty Writeback to Hudu and IT Glue'
-description: 'Automatically keep warranty dates up to date in your documentation platform'
-icon: 'shield-check'
+description: 'Map device types and warranty fields, save deliberately and verify the provider result.'
+icon: 'shield-halved'
 ---
 
-Warranty Writeback pushes the warranty dates MSPortal tracks for your devices into your documentation platform, so Hudu assets and IT Glue flexible assets always show current warranty start and expiration dates.
+Warranty writeback copies eligible MSPortal device warranty dates into **Hudu assets** or **IT Glue flexible assets**. It is an optional **MSP integration management** task that changes the connected provider.
 
-Warranty Writeback is available for both **Hudu** and **IT Glue** integrations.
+## Before enabling it
 
-## How Matching Works
+Confirm the documentation connection is active, companies are mapped correctly, and its key can update the intended assets. You need synchronized asset layouts or flexible asset types with usable serial and warranty fields, plus MSPortal device types and devices with successful warranty checks and an expiration date.
 
-MSPortal matches devices to documentation assets **by unique serial number only**, within the mapped company and the asset type you configure.
+Matching uses a unique serial number within the mapped company and selected asset type. It does not fall back to hostname. Missing, placeholder or ambiguous serials are skipped. These checks reduce bad matches; correct company and field mappings are still essential.
 
-<Note>
-MSPortal never matches by device name. Assets with ambiguous, placeholder, or missing serial numbers are skipped, so a bad match can never overwrite the wrong asset.
-</Note>
-
-## Enabling Warranty Writeback
+## Configure and save
 
 <Steps>
-  <Step title="Open the Integration Wizard">
-    Go to **Settings > Integrations** and click **Configure** on your Hudu or IT Glue integration, then open the documentation configuration step.
+  <Step title="Open Warranty Writeback">
+    Open **Settings > Integrations > Configure** for Hudu or IT Glue. In Hudu use **Documentation**; in IT Glue use **Sync & Sharing**. Find **Warranty Writeback**.
   </Step>
-  <Step title="Find the Warranty Writeback Card">
-    Locate the **Warranty Writeback** card and turn on **Enable warranty writeback**. This automatically keeps mapped warranty fields up to date after warranty checks.
+  <Step title="Choose device and asset types">
+    In **Device and warranty field mappings**, map each intended MSPortal device type to a Hudu asset layout or IT Glue flexible asset type. **Not mapped** excludes that device type. This is not an IT Glue Configuration mapping.
   </Step>
-  <Step title="Map Device Types to Asset Types">
-    In **Device and warranty field mappings**, map each MSPortal device type to the corresponding asset type in your documentation platform. Leave a type as **Not mapped** to exclude it.
+  <Step title="Review each field">
+    Choose a **Serial number field** and **Warranty expiration field**. **Warranty start field** is optional and must differ from expiration. Hudu can offer **Primary serial**. Review suggested fields; their names are suggestions, not proof that they contain the intended values.
   </Step>
-  <Step title="Choose the Fields">
-    For each mapped device type, select:
-
-    | Field | Required | Notes |
-    |-------|----------|-------|
-    | **Serial number field** | Yes | The asset field holding the serial number. Hudu also offers a **Primary serial** option |
-    | **Warranty start field** | No | Where to write the warranty start date |
-    | **Warranty expiration field** | Yes | Where to write the warranty expiration date |
-  </Step>
-  <Step title="Save">
-    Click **Save warranty mappings**. Incomplete mappings block saving until the serial and warranty expiration fields are set for every mapped device type.
+  <Step title="Enable and save deliberately">
+    Turn on **Enable warranty writeback**, then select **Save warranty mappings**. The switch and mapping selectors are drafts until this button succeeds. At least one complete mapping is required to enable writeback.
   </Step>
 </Steps>
 
-## When Writeback Runs
+<Warning>
+Saving with writeback enabled requests an immediate background asset sync and provider writeback. It does not wait until the next daily run. This save also enables synchronization for mapped asset types; review those content choices and client visibility separately.
+</Warning>
 
-Warranty dates are written back automatically on a daily schedule after warranty checks complete. Only assets with a unique serial number match inside the mapped company and asset type are updated.
+If multiple device types share an asset type, they must use the same serial and warranty fields. Changing those fields for one row updates the other rows using that asset type in the draft. Review all affected rows before saving.
+
+## Verify the result
+
+Wait for the background outcome, then inspect a known matching asset in Hudu or IT Glue. Confirm the company, serial, selected fields and resulting dates. A settings-save message confirms configuration storage; it does not establish that every external update succeeded.
+
+Writeback uses devices with successful warranty checks and a known expiration date. An optional start date is written only when the source device has one. An unchanged date may need no external update. Missing source dates are not a request to erase the provider's values.
+
+Recurring writeback can run while enabled. A run may skip an asset or fail for a subset, so keep the source dates and provider result under review rather than treating enablement as a guarantee that all assets are current.
+
+## Disable or change the scope
+
+Turn off **Enable warranty writeback** and select **Save warranty mappings** to stop future enabled runs. Previously written provider values remain; disabling is not a rollback of dates or a recall of an already-running update.
+
+Use **Not mapped** to remove a device type from the draft, then save. Saving mappings can enable their asset-type sync even when writeback is off; removing a mapping or disabling writeback does not automatically restore earlier sync choices. Review the surrounding content-sync settings if that is your intention.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| Warranty dates not appearing on an asset | Confirm the asset's serial number matches the device's serial exactly and is unique within the company and asset type |
-| Save is blocked | Complete the serial number and warranty expiration fields for every mapped device type |
-| Some devices never update | Devices with missing or placeholder serial numbers are skipped by design |
+| Symptom | What to check |
+| --- | --- |
+| Save is disabled | Complete the serial and expiration fields, keep start and end different, and include a mapping when enabling. |
+| No asset types or fields | Refresh the provider inventory through the integration workflow; confirm key access and valid active layouts/types. |
+| One asset never changes | Successful device warranty check, known expiration, device type, company mapping, usable unique serial and provider update permission. |
+| Mappings saved but dates stayed old | Check the background sync/writeback outcome and the provider record; saving is not proof of delivery. |
+| Another device-type row changed in the draft | Rows sharing the same asset type share field selections. |
+| Dates remain after disabling | Disabling stops future enabled work; it does not restore provider values already written. |
 
-## Related Resources
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does the warranty writeback switch save immediately?">
+    No. The enable switch and mappings are a draft until **Save warranty mappings** succeeds.
+  </Accordion>
+  <Accordion title="Does warranty writeback wait until the next daily run?">
+    Saving with writeback enabled requests an immediate asset sync and writeback, in addition to recurring runs.
+  </Accordion>
+  <Accordion title="Will documentation warranty writeback match by device name?">
+    No. It uses a unique usable serial within the mapped company and selected asset type. Ambiguous, missing and placeholder serials are skipped.
+  </Accordion>
+  <Accordion title="Can IT Glue Configuration fields be used for this warranty writeback?">
+    This workflow targets IT Glue **flexible assets**, or Hudu assets. Choose the corresponding asset type and fields.
+  </Accordion>
+  <Accordion title="Why did another warranty mapping row change when I selected a field?">
+    Device types mapped to the same asset type must share serial and warranty fields. The draft applies those field changes to all rows using that type.
+  </Accordion>
+  <Accordion title="Does saving warranty mappings leave asset sync settings unchanged?">
+    It enables sync for mapped asset types, and enabling writeback also enables the relevant asset dataset. Review content sync and visibility separately.
+  </Accordion>
+  <Accordion title="Does disabling warranty writeback restore previous dates?">
+    No. Save the disabled setting to stop future enabled runs. It does not undo provider writes or recall work already running.
+  </Accordion>
+  <Accordion title="Does a successful warranty mapping save prove all provider dates were updated?">
+    No. Check the background result and an actual mapped provider asset. Missing source dates, unmatched serials or provider failures can prevent updates.
+  </Accordion>
+  <Accordion title="Which device warranty records are eligible for writeback?">
+    The device needs a successful warranty check and an expiration date, plus the configured device type, company mapping and unique serial match.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
 
 <CardGroup cols={2}>
-  <Card title="Hudu Integration" icon="book" href="/user-guides/integrations/enable-hudu-integration">
-    Connect Hudu documentation
+  <Card title="Hudu setup" icon="arrow-right" href="/user-guides/integrations/enable-hudu-integration">
+    Review Hudu content and optional outbound features.
   </Card>
-  <Card title="IT Glue Integration" icon="book" href="/user-guides/integrations/enable-itglue-integration">
-    Connect IT Glue documentation
+  <Card title="IT Glue setup" icon="arrow-right" href="/user-guides/integrations/enable-itglue-integration">
+    Review IT Glue setup and sharing.
   </Card>
-  <Card title="Devices" icon="laptop" href="/user-guides/devices/index">
-    Manage device warranty tracking
+  <Card title="Devices" icon="arrow-right" href="/user-guides/devices/index">
+    Inspect device inventory and warranty data.
   </Card>
 </CardGroup>

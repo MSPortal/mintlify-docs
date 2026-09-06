@@ -12,6 +12,7 @@ This guide follows a **Client Workspace Launch** from a reusable plan through de
 
 - Use an MSP staff account with project write permission and an active subscription. Project-settings permission is needed to build or maintain templates.
 - Have an available company and a saved project template. If the wizard shows **No templates yet**, follow [Project Templates](/user-guides/projects/templates).
+- Disable **Enable Project Sync** in each connected PSA's sync settings under **Settings > Integrations**, then save. New projects use MSPortal only when no PSA project sync is configured. You can keep the PSA connected for its other features.
 - Check company scope and [project display settings](/user-guides/settings/projects). Client users see only the projects and information their access permits.
 
 ## 1. Create the native project
@@ -23,8 +24,8 @@ This guide follows a **Client Workspace Launch** from a reusable plan through de
   <Step title="Set the company and dates">
     Choose **Company**, enter **Project name**, and choose **Start date**. Review the suggested name rather than accepting it automatically, then select **Next**.
   </Step>
-  <Step title="Choose MSPortal only">
-    Wait for the company integration check, then choose **MSPortal only**. If the company is linked to a supported PSA, the wizard can initially select that PSA; deliberately choose **MSPortal only** for a native project.
+  <Step title="Check the project destination">
+    Wait for the company integration check and confirm the destination is **MSPortal only**. The destination follows your project integration settings. If it shows a PSA, close the wizard, disable that PSA's **Enable Project Sync** setting, save, and reopen the wizard.
   </Step>
   <Step title="Review and create">
     Select **Next** and check the template, counts, company, project name, start date, and **Target**. Select **Create project** once. Wait for the result, check the created counts, and select **Open project**.
@@ -32,7 +33,7 @@ This guide follows a **Client Workspace Launch** from a reusable plan through de
 </Steps>
 
 <Note>
-**Create in your PSA** is a different destination. It creates supported project work in the connected PSA. **MSPortal only** keeps the project local even when the chosen company has a PSA integration.
+While PSA project sync is enabled, new projects use the configured PSA and require a valid company mapping. Disabling project sync does not convert existing PSA projects into native projects. Existing PSA projects retain their provider and require its project sync to be enabled for supported edits.
 </Note>
 
 ## 2. Explain the goal and client access
@@ -118,7 +119,7 @@ Keep the project as the delivery record. Closeout does not require deleting its 
 | --- | --- |
 | **New project** is missing | MSP staff status, project write permission, and whether your page has the current release. |
 | No template can be selected | Create and save a template; check archive state and settings access. |
-| The wizard selected the PSA | Choose **MSPortal only** on the target step before creating. |
+| The wizard shows a PSA destination | Disable **Enable Project Sync** in the PSA integration settings, save, and reopen the wizard. If more than one PSA has project sync configured, disable it on each. |
 | A save fails | Check the visible validation message, required fields, date order, and permissions. Verify whether the record exists before repeating creation. |
 | Clients cannot see the project or an item | Company scope, role access, project visibility, individual item visibility, and display settings. |
 | AI describes a draft but nothing appears in Updates | Review and **Apply** the proposal, then check the register. |
