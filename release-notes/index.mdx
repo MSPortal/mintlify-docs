@@ -5,6 +5,23 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 
 ## September 6, 2026
 
+### Expanded Company and MSP Documentation
+
+Find instructions for the task you want to complete, with separate **Company Guides** and **MSP Guides** navigation. This major documentation refresh adds **211 new guides**, revises **58 existing guides**, and adds **141 product screenshots** across **30 documentation areas**.
+
+**What's included:**
+
+- **Guides for both audiences**: Company users can find help with everyday tasks, while MSP staff get separate instructions for administration, configuration, and client support. Access requirements explain when to ask your MSP for help.
+- **More step-by-step workflows**: Expanded guidance covers Projects, Planner, Budgets, Calendar and meetings, Cloud and Microsoft 365, Dashboards, tickets, training, onboarding, security, and other portal areas.
+- **Screenshots alongside the steps**: Product images show the relevant controls, menus, forms, and settings so you can follow along in your portal.
+- **FAQs and troubleshooting**: Find answers about missing controls, permissions, filters, saving changes, downloads, and provider differences, with links to related tasks.
+- **Help closer to the task**: More page action menus link to the relevant guide, including guidance that changes with the active tab or Company/MSP audience.
+- **Clearer starting points**: Ticket-opening instructions begin with the Home AI Assistant. Quote guides explain the different Salesbuildr, QuoteWerks, and Quoter workflows, and Company user permissions are covered as an MSP responsibility.
+
+Coverage continues to expand. Available workflows depend on your role, enabled features, and connected providers.
+
+[Open a ticket](/user-guides/ticketing/open-a-ticket) · [Use Planner](/user-guides/planner/index) · [Work with budgets](/user-guides/budgets/index) · [Manage dashboards](/user-guides/dashboards/index)
+
 ### Automation Platform Upgrade
 
 Automation rules now run on the schedule you pick, deliver to the person who currently owns the work, and roll a batch of matches into a single message per recipient. Reviewers can edit an approval before it sends.
@@ -31,6 +48,31 @@ Bring the custom fields you already keep in ConnectWise, Autotask, or Halo PSA i
 
 [Documentation: Project Settings](/user-guides/settings/projects)
 
+### Projects Without a PSA
+
+Run projects in MSPortal with no PSA connected. Native projects sit alongside your synced ones and use the same board, schedule, health, planner, and reporting surfaces, so a project you create here is a project everywhere else in the product.
+
+**Key Features:**
+- **Create and run a project natively**: Build phases, tickets, and notes directly in MSPortal. Ticket status, priority, and assignee are chosen from real lists rather than typed, and a phase will not delete while tickets still point at it.
+- **The same views you already use**: Native projects appear on the project Kanban, the schedule view, portfolio health, and reporting next to your PSA projects. Dragging a native ticket between columns updates it in place.
+- **Time tracking**: Log time by hand or run a timer. The timer floats above the app while it runs so you can navigate without losing it, one running timer per person, and an overview rollup shows recent entries with edit and delete for native ones. Entry durations accept `1.5`, `1:30`, or `90m`.
+- **Edit in place**: Native phases and tickets have their own edit dialogs on the project detail, covering names, descriptions, dates, hours, status, priority, and assignee.
+
+### Project Templates
+
+Turn a repeatable delivery into a template, then stand up a whole project from it in one step, into your PSA or as a native MSPortal project.
+
+**Key Features:**
+- **A real template builder**: **Settings > Projects > Templates** holds phases, tickets with estimated hours, date offsets and assignee roles, plus decision and action-item registers. Phases and tickets reorder by drag or by keyboard.
+- **Create a project from a template**: The **New project** button walks through details, target, and review, then reports progress as each phase and ticket is created. Pick a PSA to create into, or create the project natively.
+- **Apply a template to a project that already exists**: Choose the parts you want from a selection tree. Anything already applied from that template is greyed out and cannot be added twice, so re-running the flow adds only what is missing.
+- **Import from your PSA**: Pull in a ConnectWise or Halo PSA project template catalog, or build a template from any synced project, which works for Autotask too. A linked template keeps an **Update from {provider}** action that re-imports in place and preserves the decisions and action items you added in MSPortal.
+- **Design one with AI**: A sidebar in the builder proposes phases, tickets, decisions, and action items, and shows them as a diff you accept or reject section by section before anything is written.
+
+<Note>
+Importing a ConnectWise template catalog needs the API member to hold **Project > Project Templates** at **Inquire Level: All**. Without it ConnectWise returns a permission error and only the create-from-project source is available.
+</Note>
+
 ### Improvements
 
 - **New rules start switched off**: Rules created in the automation editor, the public API, and MCP tools arrive disabled, so you can run the rule test and preview the bundles before anything reaches a client. Turning a rule on stays a deliberate step.
@@ -38,6 +80,7 @@ Bring the custom fields you already keep in ConnectWise, Autotask, or Halo PSA i
 - **Schedule and trigger choices are validated when you save**: The editor accepts the trigger and schedule combinations automation actually runs, so a rule that saves is a rule that will fire. PSA user-defined date fields remain available as conditions.
 - **Approvals recover on their own**: A pending approval that passes its deadline is expired, and an approved message that was interrupted mid-delivery finishes on the next pass without re-sending what already went out.
 - **Automation settings in every language**: The scheduling, recipient, bundling, and approval copy is translated across all 18 supported languages.
+- **Project ticket checklists**: Checklist items on ConnectWise and Halo PSA project tickets can be ticked, unticked, and added from the ticket details modal, writing through to the PSA.
 
 ## September 4, 2026
 

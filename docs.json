@@ -309,14 +309,6 @@
         "tab": "MSP Guides",
         "groups": [
           {
-            "group": "Your account",
-            "pages": [
-              "user-guides/account/manage-your-profile",
-              "user-guides/account/understand-your-access",
-              "user-guides/account/arrange-your-sidebar"
-            ]
-          },
-          {
             "group": "Getting Started",
             "pages": [
               "user-guides/getting-started/index",
@@ -350,6 +342,278 @@
                   "user-guides/getting-started/onboarding/company-users"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Integration setup",
+            "pages": [
+              "user-guides/integrations/index",
+              "user-guides/integrations/faq",
+              "user-guides/integrations/sync-schedules",
+              "user-guides/integrations/import-users",
+              "user-guides/integrations/import-companies",
+              "user-guides/integrations/import-devices",
+              "user-guides/integrations/clear-and-resync-integrations",
+              "user-guides/integrations/documentation-warranty-writeback",
+              {
+                "group": "Addigy",
+                "pages": [
+                  "user-guides/integrations/enable-addigy-integration"
+                ]
+              },
+              {
+                "group": "ConnectWise",
+                "pages": [
+                  "user-guides/integrations/enable-connectwise-integration",
+                  "user-guides/integrations/enable-connectwise-asio-integration",
+                  "user-guides/integrations/connectwise-resync-psa-settings"
+                ]
+              },
+              {
+                "group": "Syncro",
+                "pages": [
+                  "user-guides/integrations/enable-syncro-integration"
+                ]
+              },
+              {
+                "group": "Autotask",
+                "pages": [
+                  "user-guides/integrations/enable-autotask-integration"
+                ]
+              },
+              {
+                "group": "Halo PSA",
+                "pages": [
+                  "user-guides/integrations/enable-halo-integration",
+                  "user-guides/integrations/halo-psa-custom-role-and-user"
+                ]
+              },
+              {
+                "group": "Neo Agent",
+                "pages": [
+                  "user-guides/integrations/neo-agent"
+                ]
+              },
+              {
+                "group": "Cove Backup",
+                "pages": [
+                  "user-guides/integrations/enable-cove-backup-integration"
+                ]
+              },
+              {
+                "group": "Datto RMM",
+                "pages": [
+                  "user-guides/integrations/enable-datto-rmm-integration"
+                ]
+              },
+              {
+                "group": "Cork",
+                "pages": [
+                  "user-guides/integrations/enable-cork-integration"
+                ]
+              },
+              {
+                "group": "Huntress",
+                "pages": [
+                  "user-guides/integrations/enable-huntress-integration"
+                ]
+              },
+              {
+                "group": "Breach Secure Now",
+                "pages": [
+                  "user-guides/integrations/enable-breach-secure-now-integration"
+                ]
+              },
+              {
+                "group": "Phin Security",
+                "pages": [
+                  "user-guides/integrations/enable-phin-integration"
+                ]
+              },
+              {
+                "group": "CyberHoot",
+                "pages": [
+                  "user-guides/integrations/enable-cyberhoot-integration"
+                ]
+              },
+              {
+                "group": "Hudu",
+                "pages": [
+                  "user-guides/integrations/enable-hudu-integration"
+                ]
+              },
+              {
+                "group": "IT Glue",
+                "pages": [
+                  "user-guides/integrations/enable-itglue-integration",
+                  "user-guides/integrations/itglue-sync-folders"
+                ]
+              },
+              {
+                "group": "Acronis",
+                "pages": [
+                  "user-guides/integrations/enable-acronis-integration"
+                ]
+              },
+              {
+                "group": "Spanning Backup",
+                "pages": [
+                  "user-guides/integrations/enable-spanning-integration"
+                ]
+              },
+              {
+                "group": "Liongard",
+                "pages": [
+                  "user-guides/integrations/enable-liongard-integration"
+                ]
+              },
+              {
+                "group": "NinjaOne",
+                "pages": [
+                  "user-guides/integrations/enable-ninjaone-integration",
+                  "user-guides/integrations/enable-ninjaone-ticketing-integration"
+                ]
+              },
+              {
+                "group": "N-able N-central",
+                "pages": [
+                  "user-guides/integrations/enable-ncentral-integration"
+                ]
+              },
+              {
+                "group": "Cisco Meraki",
+                "pages": [
+                  "user-guides/integrations/enable-meraki-integration"
+                ]
+              },
+              {
+                "group": "CloudRadial",
+                "pages": [
+                  "user-guides/integrations/enable-cloudradial-integration"
+                ]
+              },
+              {
+                "group": "Benji Pays",
+                "pages": [
+                  "user-guides/integrations/enable-benjipays-integration"
+                ]
+              },
+              {
+                "group": "Pax8",
+                "pages": [
+                  "user-guides/integrations/enable-pax8-integration",
+                  "user-guides/licensing/setup"
+                ]
+              },
+              {
+                "group": "Adobe Enterprise",
+                "pages": [
+                  "user-guides/integrations/enable-adobe-enterprise-integration"
+                ]
+              },
+              {
+                "group": "Sherweb",
+                "pages": [
+                  "user-guides/integrations/enable-sherweb-integration"
+                ]
+              },
+              {
+                "group": "Quoter",
+                "pages": [
+                  "user-guides/quotes/setup",
+                  "user-guides/quotes/troubleshoot-quoter-quotes"
+                ]
+              },
+              {
+                "group": "Salesbuildr",
+                "pages": [
+                  "user-guides/integrations/enable-salesbuildr-integration",
+                  "user-guides/integrations/map-salesbuildr-companies",
+                  "user-guides/quotes/troubleshoot-salesbuildr-quotes"
+                ]
+              },
+              {
+                "group": "TimeZest",
+                "pages": [
+                  "user-guides/integrations/enable-timezest-integration"
+                ]
+              },
+              {
+                "group": "Simplesat",
+                "pages": [
+                  "user-guides/integrations/enable-simplesat-integration"
+                ]
+              },
+              {
+                "group": "QuoteWerks",
+                "pages": [
+                  "user-guides/integrations/enable-quotewerks-integration",
+                  "user-guides/integrations/map-quotewerks-customers",
+                  "user-guides/quotes/troubleshoot-quotewerks-quotes"
+                ]
+              },
+              {
+                "group": "UniFi",
+                "pages": [
+                  "user-guides/integrations/enable-unifi-integration"
+                ]
+              },
+              {
+                "group": "DNSimple",
+                "pages": [
+                  "user-guides/integrations/enable-dnsimple-integration"
+                ]
+              },
+              {
+                "group": "Kaseya SaaS Protection",
+                "pages": [
+                  "user-guides/integrations/enable-kaseya-saas-protection-integration"
+                ]
+              },
+              {
+                "group": "CIPP",
+                "pages": [
+                  "user-guides/integrations/enable-cipp-integration"
+                ]
+              },
+              {
+                "group": "Domotz",
+                "pages": [
+                  "user-guides/integrations/enable-domotz-integration"
+                ]
+              },
+              {
+                "group": "Intermedia",
+                "pages": [
+                  "user-guides/integrations/enable-intermedia-integration"
+                ]
+              },
+              {
+                "group": "Microsoft Teams",
+                "pages": [
+                  "user-guides/integrations/enable-teams-integration"
+                ]
+              },
+              {
+                "group": "Google Workspace",
+                "pages": [
+                  "user-guides/integrations/enable-google-workspace-integration"
+                ]
+              },
+              {
+                "group": "Microsoft 365",
+                "pages": [
+                  "user-guides/getting-started/onboarding/company-m365"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Your account",
+            "pages": [
+              "user-guides/account/manage-your-profile",
+              "user-guides/account/understand-your-access",
+              "user-guides/account/arrange-your-sidebar"
             ]
           },
           {
@@ -774,267 +1038,6 @@
                   "user-guides/storefront/index",
                   "user-guides/storefront/view-subscriptions",
                   "user-guides/storefront/view-azure-usage"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "user-guides/integrations/index",
-              "user-guides/integrations/faq",
-              "user-guides/integrations/sync-schedules",
-              "user-guides/integrations/import-users",
-              "user-guides/integrations/import-companies",
-              "user-guides/integrations/import-devices",
-              "user-guides/integrations/clear-and-resync-integrations",
-              "user-guides/integrations/documentation-warranty-writeback",
-              {
-                "group": "Addigy",
-                "pages": [
-                  "user-guides/integrations/enable-addigy-integration"
-                ]
-              },
-              {
-                "group": "ConnectWise",
-                "pages": [
-                  "user-guides/integrations/enable-connectwise-integration",
-                  "user-guides/integrations/enable-connectwise-asio-integration",
-                  "user-guides/integrations/connectwise-resync-psa-settings"
-                ]
-              },
-              {
-                "group": "Syncro",
-                "pages": [
-                  "user-guides/integrations/enable-syncro-integration"
-                ]
-              },
-              {
-                "group": "Autotask",
-                "pages": [
-                  "user-guides/integrations/enable-autotask-integration"
-                ]
-              },
-              {
-                "group": "Halo PSA",
-                "pages": [
-                  "user-guides/integrations/enable-halo-integration",
-                  "user-guides/integrations/halo-psa-custom-role-and-user"
-                ]
-              },
-              {
-                "group": "Neo Agent",
-                "pages": [
-                  "user-guides/integrations/neo-agent"
-                ]
-              },
-              {
-                "group": "Cove Backup",
-                "pages": [
-                  "user-guides/integrations/enable-cove-backup-integration"
-                ]
-              },
-              {
-                "group": "Datto RMM",
-                "pages": [
-                  "user-guides/integrations/enable-datto-rmm-integration"
-                ]
-              },
-              {
-                "group": "Cork",
-                "pages": [
-                  "user-guides/integrations/enable-cork-integration"
-                ]
-              },
-              {
-                "group": "Huntress",
-                "pages": [
-                  "user-guides/integrations/enable-huntress-integration"
-                ]
-              },
-              {
-                "group": "Breach Secure Now",
-                "pages": [
-                  "user-guides/integrations/enable-breach-secure-now-integration"
-                ]
-              },
-              {
-                "group": "Phin Security",
-                "pages": [
-                  "user-guides/integrations/enable-phin-integration"
-                ]
-              },
-              {
-                "group": "CyberHoot",
-                "pages": [
-                  "user-guides/integrations/enable-cyberhoot-integration"
-                ]
-              },
-              {
-                "group": "Hudu",
-                "pages": [
-                  "user-guides/integrations/enable-hudu-integration"
-                ]
-              },
-              {
-                "group": "IT Glue",
-                "pages": [
-                  "user-guides/integrations/enable-itglue-integration",
-                  "user-guides/integrations/itglue-sync-folders"
-                ]
-              },
-              {
-                "group": "Acronis",
-                "pages": [
-                  "user-guides/integrations/enable-acronis-integration"
-                ]
-              },
-              {
-                "group": "Spanning Backup",
-                "pages": [
-                  "user-guides/integrations/enable-spanning-integration"
-                ]
-              },
-              {
-                "group": "Liongard",
-                "pages": [
-                  "user-guides/integrations/enable-liongard-integration"
-                ]
-              },
-              {
-                "group": "NinjaOne",
-                "pages": [
-                  "user-guides/integrations/enable-ninjaone-integration",
-                  "user-guides/integrations/enable-ninjaone-ticketing-integration"
-                ]
-              },
-              {
-                "group": "N-able N-central",
-                "pages": [
-                  "user-guides/integrations/enable-ncentral-integration"
-                ]
-              },
-              {
-                "group": "Cisco Meraki",
-                "pages": [
-                  "user-guides/integrations/enable-meraki-integration"
-                ]
-              },
-              {
-                "group": "CloudRadial",
-                "pages": [
-                  "user-guides/integrations/enable-cloudradial-integration"
-                ]
-              },
-              {
-                "group": "Benji Pays",
-                "pages": [
-                  "user-guides/integrations/enable-benjipays-integration"
-                ]
-              },
-              {
-                "group": "Pax8",
-                "pages": [
-                  "user-guides/integrations/enable-pax8-integration",
-                  "user-guides/licensing/setup"
-                ]
-              },
-              {
-                "group": "Adobe Enterprise",
-                "pages": [
-                  "user-guides/integrations/enable-adobe-enterprise-integration"
-                ]
-              },
-              {
-                "group": "Sherweb",
-                "pages": [
-                  "user-guides/integrations/enable-sherweb-integration"
-                ]
-              },
-              {
-                "group": "Quoter",
-                "pages": [
-                  "user-guides/quotes/setup",
-                  "user-guides/quotes/troubleshoot-quoter-quotes",
-                  "user-guides/quotes/troubleshoot-quotewerks-quotes",
-                  "user-guides/quotes/troubleshoot-salesbuildr-quotes"
-                ]
-              },
-              {
-                "group": "Salesbuildr",
-                "pages": [
-                  "user-guides/integrations/enable-salesbuildr-integration",
-                  "user-guides/integrations/map-salesbuildr-companies",
-                  "user-guides/quotes/troubleshoot-salesbuildr-quotes"
-                ]
-              },
-              {
-                "group": "TimeZest",
-                "pages": [
-                  "user-guides/integrations/enable-timezest-integration"
-                ]
-              },
-              {
-                "group": "Simplesat",
-                "pages": [
-                  "user-guides/integrations/enable-simplesat-integration"
-                ]
-              },
-              {
-                "group": "QuoteWerks",
-                "pages": [
-                  "user-guides/integrations/enable-quotewerks-integration",
-                  "user-guides/integrations/map-quotewerks-customers",
-                  "user-guides/quotes/troubleshoot-quotewerks-quotes",
-                  "user-guides/quotes/troubleshoot-salesbuildr-quotes"
-                ]
-              },
-              {
-                "group": "UniFi",
-                "pages": [
-                  "user-guides/integrations/enable-unifi-integration"
-                ]
-              },
-              {
-                "group": "DNSimple",
-                "pages": [
-                  "user-guides/integrations/enable-dnsimple-integration"
-                ]
-              },
-              {
-                "group": "Kaseya SaaS Protection",
-                "pages": [
-                  "user-guides/integrations/enable-kaseya-saas-protection-integration"
-                ]
-              },
-              {
-                "group": "CIPP",
-                "pages": [
-                  "user-guides/integrations/enable-cipp-integration"
-                ]
-              },
-              {
-                "group": "Domotz",
-                "pages": [
-                  "user-guides/integrations/enable-domotz-integration"
-                ]
-              },
-              {
-                "group": "Intermedia",
-                "pages": [
-                  "user-guides/integrations/enable-intermedia-integration"
-                ]
-              },
-              {
-                "group": "Microsoft Teams",
-                "pages": [
-                  "user-guides/integrations/enable-teams-integration"
-                ]
-              },
-              {
-                "group": "Google Workspace",
-                "pages": [
-                  "user-guides/integrations/enable-google-workspace-integration"
                 ]
               }
             ]
