@@ -1,213 +1,103 @@
 ---
-title: 'Liongard Compliance Metrics'
-description: 'Map Liongard configuration audit metrics to compliance checks with custom rules and automated status updates'
-icon: 'gauge-high'
+title: "Liongard Compliance Metrics"
+description: "Browse Liongard evaluations, create linked compliance checks, and understand rule evaluation and active-run updates."
+icon: "gauge-high"
 ---
 
-Liongard compliance metrics let you link automated configuration audit data directly to your compliance checks. Instead of manually assessing configuration-based requirements, you can define rules that automatically evaluate Liongard metric values and update compliance check statuses in real time.
+Open **Settings > Compliance > Metrics** to inspect imported Liongard evaluations and create linked compliance checks. Use an MSP staff account with Compliance settings access; creating checks requires the relevant compliance write permission and an active subscription. An active Liongard integration and synced metric data are prerequisites.
 
-<Info>
-This feature requires an active [Liongard integration](/user-guides/integrations/enable-liongard-integration). Set up Liongard first if you haven't already.
-</Info>
+## Find the metric or system
 
-## Accessing Compliance Metrics
+Use **By Metric** to inspect a metric across systems or **By Device** to inspect the metrics for a system. Search and inspector filters narrow the current view; the device view also offers a company filter. Use pagination to reach later results. Do not treat the visible page as the entire integration or assume the global company selector scopes this tenant integration view.
 
-Navigate to **Settings > Compliance** and click the **Metrics** tab. This page shows all configuration audit metrics synced from your Liongard instance.
+Open a row to inspect its details. Compare the value, status, company/system identity and **Last Evaluated** time. Summary pass/fail/warning counts describe imported evaluations; **Linked** describes a mapping, not a successful compliance assessment.
 
-If no Liongard integration is connected, you will see a prompt to set one up from the Integrations page.
+<Frame caption="Use By Metric to compare a metric across systems, or By Device to inspect a system.">
+  <img src="/images/product/liongard-metrics-view-controls.png" alt="Use By Metric to compare a metric across systems, or By Device to inspect a system." width="462" height="68" />
+</Frame>
 
-## Browsing Metrics
-
-The metrics page offers two views:
-
-<Tabs>
-  <Tab title="Per Metric">
-    Groups data by metric name. Each row shows:
-
-    | Column | Description |
-    |--------|-------------|
-    | **Metric** | The configuration audit data point name |
-    | **Inspector** | The Liongard inspector type (e.g., Windows Workstation, Active Directory) |
-    | **Devices** | Number of devices evaluated for this metric |
-    | **Status** | Pass, fail, and warning counts across all devices |
-    | **Last Evaluated** | When Liongard last evaluated this metric |
-
-    Click any metric row to open a detail panel showing all devices with their individual values and statuses.
-  </Tab>
-  <Tab title="Per Device">
-    Groups data by device/system. Each row shows:
-
-    | Column | Description |
-    |--------|-------------|
-    | **Device** | The system name from Liongard |
-    | **Inspector** | The inspector type |
-    | **Company** | The company the device belongs to |
-    | **Metrics** | Number of metrics evaluated on this device |
-    | **Status** | Pass, fail, and warning counts |
-    | **Last Evaluated** | When Liongard last inspected this device |
-
-    Click any device row to see all metrics evaluated on that device.
-  </Tab>
-</Tabs>
-
-Use the search bar to find specific metrics or devices, and the filter dropdowns to narrow by inspector type or company.
-
-## Summary Strip
-
-At the top of the metrics page, a summary strip shows:
-
-- Total **passing**, **failing**, and **warning** counts across all metrics
-- Number of metrics **linked to compliance** checks
-- **Last synced** timestamp
-
-## Creating a Compliance Check from a Metric
+## Create a linked check
 
 <Steps>
-  <Step title="Find the Metric">
-    Browse or search for the metric you want to track in compliance. Click the metric row to open the detail panel.
+  <Step title="Open an unlinked metric">
+    Open its details and choose **Create Compliance Check**. A metric already linked within this integration shows its linked state instead of another creation action.
   </Step>
-  <Step title="Click Create Compliance Check">
-    In the detail panel, click **Create Compliance Check**. This button only appears for metrics not yet linked to a check. Already-linked metrics show a **Linked to Compliance** badge.
+  <Step title="Review the check details">
+    Review **Check Title**, **Description**, **Status List**, optional **Compliance Group**, and **Check Type**. Device, Company and Control are different scopes; review the suggested type before saving. Choose a status list with suitable positive and negative outcomes.
   </Step>
-  <Step title="Configure the Check">
-    Fill in the compliance check details:
-
-    | Field | Description |
-    |-------|-------------|
-    | **Check Title** | Pre-filled with the metric name. Edit as needed. |
-    | **Description** | Pre-filled with metric and inspector details |
-    | **Status List** | Select which status list to use for pass/fail options |
-    | **Compliance Group** | Optionally assign the check to a compliance group |
-    | **Auto-update** | Enable to have the check status update automatically when Liongard syncs |
+  <Step title="Choose automatic evaluation">
+    **Auto-update from Liongard** starts enabled. When enabled, choose **Use Liongard status (pass/fail/warning)** or **Custom rules** under **Status Evaluation**. These form choices remain a draft until creation.
   </Step>
-  <Step title="Choose Evaluation Mode">
-    When auto-update is enabled, choose how the check status is determined:
-
-    - **Use Liongard status** - Directly uses the pass/fail/warning status from Liongard
-    - **Custom rules** - Define your own rules based on the metric value (see below)
-  </Step>
-  <Step title="Create">
-    Click **Create Compliance Check**. The metric is now linked and will show a **Linked** badge in the metrics table.
+  <Step title="Create and verify">
+    Click **Create Compliance Check**. Reopen the metric and check the created library entry, group membership if selected, and subsequent run results. Creating a link is distinct from completing an assessment.
   </Step>
 </Steps>
 
-## Custom Rules
+Creation involves more than one saved item. A later group or rule failure can leave a created check or mapping. If results are unexpected, inspect what exists before trying again. In particular, a creation success message does not prove every custom rule was stored; verify representative resulting evaluations before relying on the automation.
 
-Custom rules let you define exactly when a metric should pass or fail based on its value. This is useful when Liongard's native pass/fail does not match your compliance requirements, or when you need threshold-based evaluation.
+## Understand evaluation
 
-### How Rules Work
+In native mode, Liongard **Pass** becomes the positive compliance outcome. **Fail**, **Warning**, an unknown status, or a missing status on an available metric value becomes the negative outcome. The compliance bridge does not preserve a third Warning outcome even though the imported metrics view displays warnings.
 
-- Rules are evaluated **in order** from top to bottom
-- The **first matching rule wins** and determines the status
-- If no rules match, the **default result** applies (configurable as pass or fail)
+Custom rules run from top to bottom; the first match wins. **If no rules match** supplies the fallback and initially defaults to **Fail**.
 
-### Available Operators
+| Operators | What to check |
+| --- | --- |
+| Greater than; Greater or equal; Less than; Less or equal | Compare numeric values and thresholds. A value that cannot be parsed as a number does not match. |
+| Equals; Not equals | Compare exact text, including case. Formatting differences can change the result. |
+| Contains; Does not contain | Compare case-sensitive text fragments. Empty values do not satisfy either test. |
+| Is empty; Is not empty | Test whether a value is absent or blank after trimming whitespace. |
 
-| Operator | Description | Example |
-|----------|-------------|---------|
-| **Greater than** | Numeric comparison | Value &gt; 90 = Pass |
-| **Greater or equal** | Numeric comparison | Value &gt;= 100 = Fail |
-| **Less than** | Numeric comparison | Value &lt; 10 = Pass |
-| **Less or equal** | Numeric comparison | Value &lt;= 0 = Fail |
-| **Equals** | Exact string or numeric match | Value = "Enabled" = Pass |
-| **Not equals** | Does not match | Value != "Disabled" = Pass |
-| **Contains** | Substring match | Value contains "error" = Fail |
-| **Does not contain** | Substring absence | Value does not contain "warning" = Pass |
-| **Is empty** | No value present | Empty = Fail |
-| **Is not empty** | Any value present | Not empty = Pass |
+Use **Add Rule** to add each condition, threshold where needed, and Pass/Fail result. Arrange the intended order when building the list. For an illustrative requirement of a numeric value of at least 12, use **Greater or equal** `12` → **Pass**, then keep the fallback **Fail**. This does not let a missing or nonnumeric value pass through a default Pass result. Validate the provider's actual value format before applying any example to an assessment.
 
-### Building Rules
+If no stored custom rules are available, the bridge falls back to native status evaluation. Selecting Custom rules alone is not evidence that custom comparisons ran.
 
-<Steps>
-  <Step title="Select Custom Rules">
-    In the Create Compliance Check dialog, set the evaluation mode to **Custom rules**.
-  </Step>
-  <Step title="Add a Rule">
-    Click **Add Rule**. Each rule has three parts:
-    1. **Operator** - How to compare the value (e.g., Greater than, Contains)
-    2. **Threshold** - The value to compare against (not needed for Is empty/Is not empty)
-    3. **Result** - Pass or Fail when the rule matches
-  </Step>
-  <Step title="Add More Rules">
-    Add additional rules as needed. Rules are evaluated top to bottom, so place your most specific conditions first.
-  </Step>
-  <Step title="Set Default Result">
-    Choose what happens when no rules match: **Pass** or **Fail**. This defaults to Fail for safety.
-  </Step>
-</Steps>
+## Understand automatic updates
 
-<Tip>
-For numeric metrics like password length or patch percentage, use Greater than / Less than operators. For text metrics like "Enabled" or "Disabled", use Equals or Contains.
-</Tip>
+Updates run through background synchronization. They depend on saved mappings, Auto-update, available metric values, a suitable status list and system/device/company matching. They are not a real-time or fixed completion-time guarantee.
 
-### Example: Password Policy Check
+- **Device checks:** linked systems identify devices for individual evaluation. The bridge can create missing device-check assignments in active runs for the matching company, as well as update existing assignments. Consider all active runs for that company before enabling this automation.
+- **Company-level assignments:** the bridge chooses a metric value using the worst imported native status for that company, then evaluates that selected value. With custom rules, this is not an evaluation of every value followed by the worst custom-rule result.
+- **No matching metric data:** the assignment can be skipped; no change is not evidence of a new Pass.
+- **Completed runs:** this bridge skips them. That does not establish that all application features make completed assessments immutable.
 
-To create a rule that fails when the minimum password length is below 12:
+Review the linked checks, assignments and evaluation dates before completing a run. Native warnings in the metric browser and negative compliance outcomes can both be correct for the same evaluation.
 
-1. Add Rule: **Less than** `12` = **Fail**
-2. Default result: **Pass**
+## Frequently asked questions
 
-This means any value below 12 fails, and anything 12 or above passes.
+<AccordionGroup>
+  <Accordion title="Is a Linked badge proof that the compliance check passed?">
+    No. Linked means the metric has a compliance mapping. Verify the actual assignment outcome, matching system/company and evaluation time.
+  </Accordion>
+  <Accordion title="Does a Liongard Warning remain Warning in compliance?">
+    No. The native bridge maps only Pass to the positive outcome. Warning and other non-pass statuses on an available metric value use the negative outcome.
+  </Accordion>
+  <Accordion title="What happens when none of my custom rules match?">
+    The selected fallback applies; it initially defaults to Fail. Keep missing and nonnumeric data in mind before choosing Pass as a fallback.
+  </Accordion>
+  <Accordion title="Are Equals and Contains case-insensitive?">
+    No. They compare case-sensitive text. Exact formatting matters for Equals, and numeric comparisons should use the greater/less operators.
+  </Accordion>
+  <Accordion title="Can the bridge add checks to active runs?">
+    Yes. For mapped Device checks, it can create missing device assignments in active runs for the matching company. Do not assume it only updates assignments you previously added manually.
+  </Accordion>
+  <Accordion title="Does company-level evaluation test every device against my custom rules?">
+    No. It selects a value by the worst imported native status for the company, then evaluates that selected value. This is not the worst result after evaluating every value against custom rules.
+  </Accordion>
+  <Accordion title="Does no data mean the check passes?">
+    No. An assignment with no matching metric value can be skipped. An unchanged status does not prove a fresh successful evaluation.
+  </Accordion>
+  <Accordion title="Can I rely on the creation toast to confirm all custom rules saved?">
+    No. The check or mapping can exist even if a later rule save fails. Verify actual evaluations and inspect existing records before retrying creation.
+  </Accordion>
+  <Accordion title="Are completed runs updated by the Liongard bridge?">
+    This bridge selects non-completed runs and skips completed ones. That behavior does not make every completed-run field immutable throughout the application.
+  </Accordion>
+</AccordionGroup>
 
-### Example: Feature Status Check
+## Related guides
 
-To verify a security feature is enabled:
-
-1. Add Rule: **Equals** `Enabled` = **Pass**
-2. Add Rule: **Equals** `True` = **Pass**
-3. Default result: **Fail**
-
-Any value other than "Enabled" or "True" will fail.
-
-## How Auto-Sync Works
-
-When a metric-linked compliance check has auto-update enabled, the background sync handles updates automatically:
-
-1. **Liongard syncs priority metrics** every 3 hours and performs a full metric reconciliation daily
-2. **The compliance bridge** evaluates each mapped metric against its rules
-3. **Only active compliance runs** are updated - completed runs are frozen as historical snapshots
-4. **Per-device assignments** are matched individually, so each device gets its own pass/fail status based on its specific metric value
-
-<Note>
-The sync only updates **existing** compliance assignments in active runs. You still need to manually add metric-linked checks to your compliance runs (directly or through groups). The sync then keeps those assignments current.
-</Note>
-
-### Active vs. Completed Runs
-
-| Run Status | Behavior |
-|------------|----------|
-| **Active** (not completed) | Metric values update the check status on every sync cycle |
-| **Completed** | Frozen snapshot. The status reflects whatever the metric value was when the run was completed. |
-
-This gives you a historical audit trail. Each compliance run captures the state of your Liongard metrics at that point in time. When you start a new run with the same checks, it begins tracking from the current metric values.
-
-### Device-Level Assignments
-
-When you assign a metric-linked check to a compliance run with device scope, each device that has a corresponding Liongard system gets its own assignment. The sync evaluates each device independently:
-
-- Device A may pass while Device B fails for the same metric
-- Only devices with linked Liongard systems receive updates
-- Company-level assignments (no device scope) use the worst status across all devices in that company
-
-## Best Practices
-
-<CardGroup cols={2}>
-  <Card title="Start with High-Value Metrics" icon="bullseye">
-    Focus on metrics that directly map to compliance requirements: MFA status, backup verification, encryption settings, and firewall rules.
-  </Card>
-  <Card title="Use Custom Rules for Thresholds" icon="sliders">
-    Liongard's native pass/fail may not match your compliance thresholds. Custom rules let you set exact boundaries that align with your policies.
-  </Card>
-  <Card title="Group Metric Checks Together" icon="folder-tree">
-    Assign metric-linked checks to compliance groups so they can be added to runs as a batch instead of individually.
-  </Card>
-  <Card title="Review After Completing Runs" icon="clipboard-check">
-    Before marking a run as completed, review the auto-synced statuses. Once completed, the run becomes a frozen historical record.
-  </Card>
-</CardGroup>
-
-## Related Resources
-
-- [Compliance Module](/user-guides/compliance/index) - Full compliance guide with tree view, runs, and scoring
-- [Configure Liongard Integration](/user-guides/integrations/enable-liongard-integration) - Setup and environment mapping
-- [Adding CIS Benchmarks](/user-guides/compliance/adding-cis-benchmarks) - Another compliance framework integration
+- [Configure Liongard Integration](/user-guides/integrations/enable-liongard-integration)
+- [Liongard Documentation Visibility](/user-guides/settings/liongard-visibility)
+- [Compliance Settings](/user-guides/settings/compliance)
+- [Integration Company Mapping](/user-guides/settings/integration-company-mapping)

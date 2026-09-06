@@ -1,88 +1,88 @@
 ---
-title: 'Liongard Documentation Visibility'
-description: 'Control which Liongard inspector types and individual systems are visible on the Documentation page, per role and company'
-icon: 'radar'
+title: "Liongard Documentation Visibility"
+description: "Share Liongard inspector types or individual systems with Company permission groups, and save each section explicitly."
+icon: "radar"
 ---
 
-Once your Liongard integration is connected, you can choose exactly which inspector types and which individual systems are visible on the **Documentation** page, both to your MSP team and to your clients. Visibility is now controlled by explicit rules, not by default exposure, so Liongard data only appears where you have granted access.
+Use **Settings > Documentation > Liongard** to manage Liongard content on the **Documentation** page. This is an MSP configuration task requiring Documentation settings access and permission to save visibility rules. The Liongard tab depends on an active integration and imported content.
 
-<Note>
-This tab replaces the earlier behavior where all MSP staff could see every Liongard inspector automatically. All users, including your internal team, now need a matching visibility rule for content to appear.
-</Note>
+These rules grant access within the user's allowed tenant and company scope. They do not give a Company user access to other companies, configure compliance metric mappings, or change data in Liongard.
 
-## Accessing Liongard Visibility Rules
+## Share an inspector type
 
 <Steps>
-  <Step title="Open Documentation Settings">
-    Navigate to **Settings > Documentation**.
+The **Inspectors** section lists imported inspector types in use. Sharing a type grants access to its eligible systems, so inspect the scope before choosing a broad group.
+
+<Steps>
+  <Step title="Find the inspector">
+    Use **Search inspectors...** to find the type in the table. Search changes the displayed rows; it does not limit the eventual save to those rows.
   </Step>
-  <Step title="Open the Liongard Tab">
-    Click the **Liongard** tab in the header. The tab only appears when the Liongard integration is active.
+  <Step title="Choose permission groups">
+    Use the row's group picker to add the Company permission groups that should have access. Select **All Permission Groups** explicitly (shown as an **All Groups** chip) when you intend unrestricted group matching within eligible company scope. Leaving the selection empty grants no access through that row.
+  </Step>
+  <Step title="Save the section">
+    Review all pending edits in Inspectors, then click that section's **Save**. Group selections and chip removals are drafts until saved. Edits hidden by your search are included.
   </Step>
 </Steps>
 
-The page has two sections:
+## Share an individual system
 
-- **Inspector Types** controls visibility for entire inspector families, for example "Windows-Server-Inspector". Sharing a type shares all of its systems.
-- **Individual Systems** controls visibility per system, useful when you only want to expose specific hosts from an inspector type.
+In **Individual Inspector Systems**, search by system name, select the correct result and verify its company. Adding a result to the editor alone does not share it: choose the required permission groups, then use this section's own **Save**.
 
-## Creating a Visibility Rule
+An inspector-type rule and an individual-system rule are alternative grants. Removing an individual grant does not hide a system while an applicable type rule still grants access. To withdraw access, review both scopes, remove the relevant group selections and save the affected sections.
 
-<Steps>
-  <Step title="Choose a Scope">
-    Decide whether the rule covers an entire **inspector type** or a single **system**. Use inspector-type rules for broad access and system rules for targeted exposure.
-  </Step>
-  <Step title="Select the Content">
-    Pick the inspector type or system from the dropdown. Only inspector types actually in use in your tenant are listed.
-  </Step>
-  <Step title="Pick a Role">
-    Select which **company role** the rule applies to. Leave blank to make the content visible to all roles within the matched company.
-  </Step>
-  <Step title="Save the Rule">
-    The rule takes effect immediately. Documentation pages re-check visibility on every load.
-  </Step>
-</Steps>
+These sections do not offer a separate arbitrary company-target picker. A system's actual company and the viewer's allowed company scope still matter. **All Groups** does not mean all companies.
 
-## Default Behavior
+## Save and verify access
 
-**No rules, no visibility.** If you have not defined any rules, neither your MSP team nor your clients see any Liongard content on the Documentation page. Add at least one inspector-type or system rule to expose data.
+Saving one section does not save the other. Search does not discard hidden edits. If the page reports that another administrator changed the rules, refresh and reconcile the latest saved rules before retrying; do not assume your changes were applied.
 
-## How Rules Apply to MSP Staff
+For the Liongard Documentation listing, a qualifying inspector-type or system rule is required. MSP staff bypass the Company permission-group match for an existing rule; a staff preview is therefore not proof that a particular Company user can read the same item.
 
-MSP tenant staff skip the role match: they see any inspector type or system that has at least one visibility rule in place. They do not need a role assigned.
+The general **Internal user access** selector above the tabs saves immediately when changed. Do not use it as a substitute for Liongard sharing rules or infer client access from its setting. Verify the Liongard listing and the intended Company account after saving rules.
 
-## How Rules Apply to Company Users
+<Frame caption="General Internal user access control above the Liongard tab. Changing it saves immediately; it does not replace Liongard sharing rules.">
+  <img src="/images/product/liongard-visibility-internal-access-control.png" alt="Internal user access selector showing Show all documentation." width="530" height="80" />
+</Frame>
 
-Company users see content only when two conditions match:
+Missing systems can also reflect company scope, ignored records, device import/type configuration, or incomplete synchronization. A visibility rule does not force every synced system into this listing.
 
-1. A visibility rule exists for the inspector type or system, and
-2. The rule's role matches the company user's assigned role (or the rule has no role restriction).
+## Troubleshoot missing content
 
-## Inspector Types vs Individual Systems
+First confirm the integration is active and the expected inspector/system is imported. Check the saved type and individual grants, the user's Company permission groups, and the system's company mapping. Reopen Documentation to check the result. If staff can see an item but a client cannot, investigate the client's permissions and group match rather than broadening every rule to All Groups.
 
-| Scope | When to use it |
-|-------|----------------|
-| **Inspector Type** | You want all systems of a given inspector (for example every Windows Server) visible with the same rule |
-| **Individual System** | You only want to expose a specific system, such as a single domain controller, without exposing the rest of the inspector output |
-
-A system inherits visibility from any matching inspector-type rule plus any per-system rule. You do not need both, but you can combine them.
-
-## Troubleshooting
+## Frequently asked questions
 
 <AccordionGroup>
-  <Accordion title="A Liongard inspector I expect to see is missing">
-    Check that a visibility rule exists for the inspector type or for at least one of its systems. With no matching rule, the content is hidden from everyone.
+  <Accordion title="Does leaving permission groups blank share the inspector with everyone?">
+    No. An empty group selection creates no grant through that row. Select All Permission Groups explicitly when broad group matching is intended, then save the section.
   </Accordion>
-  <Accordion title="A company user reports missing content">
-    Verify that the rule applies to the user's company role. Rules with a role set only match users in that role, rules with no role match all roles in the same company.
+  <Accordion title="Do group selections save immediately?">
+    No. Inspector and individual-system rules are drafts until their section Save succeeds. The separate Internal user access selector does save immediately.
   </Accordion>
-  <Accordion title="The Liongard tab does not appear in Documentation Settings">
-    The tab is only shown when a Liongard integration is active. Connect Liongard first, see [Configure Liongard Integration](/user-guides/integrations/enable-liongard-integration).
+  <Accordion title="Does saving Inspectors also save Individual Inspector Systems?">
+    No. Each section has its own Save. Review and save changes in both sections when the access change depends on both.
+  </Accordion>
+  <Accordion title="Does the search limit which edits Save applies?">
+    No. Pending edits hidden by the current search remain included in the section save. Review the full set of changes before saving.
+  </Accordion>
+  <Accordion title="Why is a system still visible after I removed its individual rule?">
+    An applicable inspector-type rule can still grant access. Review both type and system rules and the intended user before concluding that access was withdrawn.
+  </Accordion>
+  <Accordion title="Does All Groups expose data across companies?">
+    No. It removes the group-match restriction for that grant within eligible company scope. It does not grant another company or tenant to a user.
+  </Accordion>
+  <Accordion title="Can my MSP preview prove a Company user can see the system?">
+    No. MSP staff bypass the Company group match for an existing Liongard rule. Verify the intended Company user, group membership and allowed company scope separately.
+  </Accordion>
+  <Accordion title="Why is a synced system missing even though I saved a rule?">
+    Check company mapping and scope, ignored status, device import/type configuration and sync state. Sharing rules do not force every synced system into the Liongard Documentation listing.
   </Accordion>
 </AccordionGroup>
 
-## Related Resources
+## Related guides
 
 - [Configure Liongard Integration](/user-guides/integrations/enable-liongard-integration)
-- [Hiding Items from Client Users](/user-guides/getting-started/hiding-items-from-clients)
-- [Company Roles and Permissions](/user-guides/settings/companies)
+- [Liongard Compliance Metrics](/user-guides/compliance/liongard-metrics)
+- [Compliance Settings](/user-guides/settings/compliance)
+- [Integration Company Mapping](/user-guides/settings/integration-company-mapping)
