@@ -4,7 +4,13 @@ description: 'Launch onboarding portals for clients, track progress, manage task
 icon: 'bars-progress'
 ---
 
-Portals are active onboarding instances launched for a specific company. When you create a portal from a template, it copies the template's phases and tasks into a live workspace where you track progress, communicate with clients, and manage the onboarding process.
+**Audience:** MSP staff configuring and managing client onboarding. Company users should start with [Open your onboarding portal](/user-guides/client-onboarding/open-your-onboarding).
+
+## Before you begin
+
+Your organization must have Client Onboarding enabled. Viewing requires onboarding read access; creating or changing templates and portals requires onboarding write access and active billing. **Convert to Client** requires onboarding management access. Your role and company scope can limit what appears.
+
+Portals are onboarding instances launched for a specific company. When you create a portal from a template, it copies the template's phases and tasks into a draft workspace where you track progress, communicate with clients, and manage the onboarding process.
 
 ## Launching a Portal
 
@@ -13,18 +19,21 @@ Portals are active onboarding instances launched for a specific company. When yo
     Navigate to the company you want to onboard and click the **Onboarding** tab.
   </Step>
   <Step title="Start Onboarding">
-    Click **Start Onboarding**. Select a template from the dropdown — this determines the phases, tasks, and structure of the portal.
+    Click **Start Onboarding**. Select one or more **Template Modules**, then review **Portal Name**, description, and **Portal Language**.
   </Step>
   <Step title="Add Client Contacts">
-    Add the client contacts who will access the portal. Enter their name, email, and role. Mark one contact as **Primary**.
+    Add the client contacts who will access the portal. Enter their name, email, and an available role. Contacts may be left empty while preparing a draft. Incomplete name/email rows are not included, so check the saved contact list.
+  </Step>
+  <Step title="Create and review the draft">
+    Click **Create Portal**. The draft is saved before the **Link Project** step. Choose a project system and link or create a project if needed, or click **Skip**. Review any module/configuration warning in the saved draft before trying again.
   </Step>
   <Step title="Activate the Portal">
-    Click **Start Portal** to activate it. This generates secure access links for each contact and optionally sends invite emails.
+    On **Overview**, click **Start Portal**. Review or skip project linking, check the contact count and ticket-creation option, then confirm **Start & Send Invites**. This activates the portal and queues invitation emails; it is not a delivery receipt.
   </Step>
 </Steps>
 
 <Note>
-You can also create a portal in **Draft** mode first, make adjustments to tasks and phases, and activate it later when ready.
+Portal creation saves a **Draft** first. It also runs configured creation automation. Project linking and ticket creation are real actions even before activation. Closing a later dialog does not undo a draft or project link that has already been saved.
 </Note>
 
 ## Portal Lifecycle
@@ -35,13 +44,13 @@ Portals move through these stages:
 |--------|-------------|
 | **Draft** | Being configured, not yet visible to clients |
 | **Active** | Live — clients can access and complete tasks |
-| **Completed** | All phases and tasks finished |
-| **Converted** | Migrated to your permanent systems (optional final step) |
-| **Archived** | Historical record, no longer active |
+| **Completed** | Marked finished by staff; clients can view but cannot modify the portal. The status does not prove every task or document was reviewed. |
+| **Converted** | Conversion activates the company, copies completed tasks into Planner, and revokes existing portal sessions. It does not perform a general migration to external systems. |
+| **Archived** | Retained historical portal with client access revoked; Restore returns it to Draft |
 
 ## The Onboarding Tab
 
-The company onboarding page has five tabs for managing the portal: **Overview**, **Tasks**, **Documents**, **Pages**, and **Activity**.
+The company onboarding page has six tabs for managing the portal: **Overview**, **Tasks**, **Documents**, **Pages**, **Activity**, and **Settings**. Where a company has multiple portals, select the intended portal on Overview and confirm its name before making changes.
 
 ### Overview Tab
 
@@ -52,7 +61,7 @@ The main dashboard showing:
 - **Task summary** with counts by status
 - **Quick actions** for managing the portal lifecycle
 
-The Overview action bar is also where you open **Manage dates** (custom milestones and the portal countdown) and link a **PSA project**. See [Custom Dates and Countdowns](/user-guides/client-onboarding/custom-dates).
+The Overview action bar is also where you open **Manage dates** (custom milestones and the portal countdown) and link an **MSPortal or PSA project**. See [Custom Dates and Countdowns](/user-guides/client-onboarding/custom-dates).
 
 ### Tasks Tab
 
@@ -156,9 +165,13 @@ A review view of the **Client Pages** attached to this portal. The left pane lis
 
 Pages are copied into a portal from the template when it's created. To change which pages appear, edit the template's Client Pages before launching. See the [Client Pages guide](/user-guides/client-onboarding/pages).
 
+### Settings Tab
+
+Configure this portal's client display sections and task interaction mode, then click **Save Changes**. These settings apply to this portal rather than changing the template defaults. Use **View as** afterward to check the result for the relevant contact or role.
+
 ### Activity Tab
 
-A complete audit trail of every portal event, with server-side search and type filtering.
+Recorded portal activity, with server-side search and type filtering. A recorded event is useful evidence of an action, but is not by itself proof of email delivery or successful storage of a downloaded file.
 
 Events tracked include:
 
@@ -186,13 +199,13 @@ Manage who has access to the client portal.
     Click **Add Contact** and enter the contact's name, email, and role.
   </Step>
   <Step title="Send Invite">
-    Click **Send Invite** to email the contact their secure access link.
+    After activation, use **Send invite email** on the contact to send their access link. The draft portal disables this control until it is started. Adding a contact is a separate save.
   </Step>
 </Steps>
 
 ### Contact Roles
 
-Assign roles to help identify each contact's responsibility:
+Select an available client role configured by your MSP. Roles help identify responsibility and can affect task visibility or assignment. Common examples include:
 
 - Primary Contact
 - IT Contact
@@ -202,26 +215,26 @@ Assign roles to help identify each contact's responsibility:
 
 ### Managing Access
 
-- **Resend Invite** — Send the access link again if the contact lost it
+- **Send invite email** — Send the access link again if the contact lost it
 - **Revoke Access** — Immediately disable a contact's portal access
-- **Regenerate Token** — Create a new access link (invalidates the old one)
+- **Regenerate invite link** — Create a replacement access link; the previous link and active sessions are invalidated. Share the replacement deliberately.
 
 Contact activity is tracked — you can see when each contact last accessed the portal and how many times.
 
 ### Previewing as a Client
 
-Use the **View as** dropdown to open the client portal exactly as a specific contact sees it. It appears in three places:
+Use the **View as** dropdown to open the client portal using a selected contact or role context. It appears in three places:
 
 - The portal's **Overview** tab
 - The portal's **Pages** tab
 - The portal list under **Settings > Onboarding**
 
-Pick a contact from the dropdown, and the portal opens in a new tab in that contact's session — same branding, same visible tasks, same pages. If the portal has no contacts yet, preview by **role** instead.
+Pick a contact from the dropdown, and the portal opens in a new tab in an MSP preview with that contact's visibility context. If the portal has no contacts yet, preview by **role** instead.
 
 **Preview works on Draft portals.** You do not have to start the portal or send invites to see what clients will get, which makes this the right way to test a template before it reaches a real client. Build the template, create a Draft portal on a test or internal company, then **View as**.
 
 <Note>
-Preview sessions are **read-only**. The portal shows a "Preview mode" banner and nothing you enter is saved, so you can click through tasks and forms freely without recording progress or triggering notifications. Preview sessions last 24 hours and require onboarding write permission.
+Preview sessions are **read-only**. The portal shows a "Preview mode" banner and nothing you enter is saved, so you can click through tasks and forms freely without recording progress or triggering notifications. Preview requires onboarding write permission. It does not test a real client invitation, email verification, or saved submission.
 </Note>
 
 ## Meeting Scheduling
@@ -249,10 +262,9 @@ Schedule meetings directly from meeting-type tasks.
 
 When a client submits credentials through a credential handoff task:
 
-1. Open the task detail panel
-2. Click **Reveal Credentials** to view the submitted values
-3. Credentials auto-hide after 5 minutes for security
-4. For bulk submissions, download the uploaded file
+1. Open the task detail panel.
+2. Read [Retrieve onboarding credentials and secure files](/user-guides/client-onboarding/retrieve-secure-submissions) before choosing **Reveal & Delete** or **Download & Destroy**.
+3. Prepare to retain the returned information securely. These actions consume the stored submission; opening a task does not retrieve it.
 
 ### Reviewing Signatures
 
@@ -264,7 +276,9 @@ When a client signs a signature task:
 
 ## PSA Integration
 
-Link onboarding portals to your PSA to track onboarding as a project, create tickets from tasks, and log time against onboarding work.
+Use **Link Project** to choose **MSPortal Projects** or the company's available PSA project system. MSPortal Projects supports native project tracking without a PSA. Provider availability, company mapping, permissions, and PSA defaults determine external options.
+
+**Link Project** and **Create & Link** save when used; they are not unsaved selections awaiting portal activation. Creating tickets is another write action in the chosen project system. Review the target and selected tasks first.
 
 ### Linking a Portal to a PSA Project
 
@@ -272,12 +286,12 @@ Link onboarding portals to your PSA to track onboarding as a project, create tic
   <Step title="Open the Portal Overview">
     Navigate to the company's onboarding tab and open the active portal.
   </Step>
-  <Step title="Click Link PSA Project">
-    In the overview actions, click **Link PSA Project**.
+  <Step title="Choose a project system">
+    In the overview actions, click **Link Project** and choose the intended **Project system**.
   </Step>
   <Step title="Choose an Option">
-    - **Link Existing**: Search for and select an existing project in your PSA
-    - **Create New**: Enter a project name and description to create a new project directly from MSPortal
+    - **Select Existing**: Search for and select an existing project in the chosen system, then use the link action
+    - **Create New**: Enter a project name and description, then use the create-and-link action to save a project in the chosen system
   </Step>
 </Steps>
 
@@ -289,7 +303,7 @@ Convert onboarding tasks into PSA tickets to track them in your ticketing workfl
 
 <Steps>
   <Step title="Open Bulk Create">
-    Click **Create PSA Tickets** in the portal actions. This opens a dialog listing all tasks.
+    Click the available **Create … tickets** or **Create … PSA tickets** action. This opens a dialog listing all tasks.
   </Step>
   <Step title="Select Tasks">
     Check the tasks you want to create tickets for. Tasks that already have linked PSA tickets are shown but disabled.
@@ -318,7 +332,7 @@ Log time entries against onboarding tasks directly from the portal.
 </Steps>
 
 <Note>
-PSA integration works with Halo PSA, ConnectWise Manage, and Autotask. The portal must be linked to a PSA project before you can create tickets or log time.
+PSA integration works with Halo PSA, ConnectWise Manage, and Autotask. For PSA tickets and time entries, the portal must be linked to the corresponding PSA project. Native project tracking is a separate available target; do not assume external provider behavior applies to it.
 </Note>
 
 ### PSA Project Defaults
@@ -333,7 +347,7 @@ Set tenant-wide defaults for how onboarding portals connect to your PSA in **Set
 All values are chosen from dropdowns populated from your synced PSA data — there are no IDs to type.
 
 <Info>
-When **Status sync** is enabled, MSPortal refreshes linked onboarding ticket statuses from your PSA every 30 minutes.
+When **Status sync** is enabled, linked ticket updates depend on successful background synchronization. Allow for a delay and investigate a failed sync before treating stale status as completion.
 </Info>
 
 ## Completing a Portal
@@ -345,18 +359,18 @@ When all tasks and phases are complete:
     Verify all tasks show as completed and all documents are approved.
   </Step>
   <Step title="Complete the Portal">
-    Click **Complete Portal** in the overview actions. This marks the portal as finished.
+    Click **Complete Portal** in the overview actions and confirm. This marks the portal as finished; it does not automatically complete every outstanding task or approve every document. Clients retain a read-only view.
   </Step>
   <Step title="Convert (Optional)">
-    If this client is now fully set up in your systems, click **Convert** to mark the portal as converted — a final status indicating the client has been migrated to your permanent tooling.
+    With onboarding management access, **Convert to Client** activates the company, copies completed onboarding tasks into Planner, marks the portal converted, and revokes current portal sessions. This is a data-changing operation, not just a new label or a migration into every external tool. Review the completed work before selecting it.
   </Step>
 </Steps>
 
 ## Managing Portals from Settings
 
-The portal list in **Settings > Onboarding > Portals** provides a centralized view of all portals across companies. Each portal row has an actions menu (three dots) with the following options:
+The portal list in **Settings > Onboarding > Portals** provides a centralized workspace across companies. Use the status filters and search to select a portal, inspect its detail, and open its actions. Available actions depend on its status:
 
-- **View Portal** — Navigate to the company's onboarding page for this portal
+- **Open** — Navigate to the company's onboarding page for this portal
 - **Archive** — Deactivate the portal and revoke all client sessions. Portal data is preserved but clients can no longer access it. A confirmation dialog explains the impact before proceeding.
 - **Restore** — Return an archived portal to draft status so it can be reactivated. Only available for archived portals.
 - **Delete** — Permanently remove the portal and all associated phases, tasks, documents, and contacts. This action cannot be undone. A confirmation dialog requires explicit approval.
@@ -391,5 +405,40 @@ Both are visible only when you have onboarding permissions and there are active 
   </Accordion>
   <Accordion title="Review documents promptly">
     Clients see document status in their portal. Leaving documents in "pending review" for too long creates a poor experience — aim to review within 24 hours.
+  </Accordion>
+</AccordionGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does Completed mean every task passed?">
+    No. Complete Portal is an explicit staff decision. Review outstanding tasks, required evidence, and document approvals before confirming.
+  </Accordion>
+  <Accordion title="Can clients edit a completed portal?">
+    No. Completion leaves a read-only view. Archive and conversion also affect access and existing sessions.
+  </Accordion>
+  <Accordion title="Is Convert to Client only a status change?">
+    No. It activates the company, copies completed tasks into Planner, marks the portal converted, and revokes current portal sessions. It requires onboarding management access.
+  </Accordion>
+  <Accordion title="Does Restore immediately reopen an archived portal to clients?">
+    No. Restore returns the portal to Draft. Review the restored configuration and contacts before starting it again.
+  </Accordion>
+  <Accordion title="Will changing a template rebuild this portal?">
+    No. Its phases and tasks are copies. Review structural template changes in a new draft; check Shared page versus Portal snapshot when reviewing library pages.
+  </Accordion>
+  <Accordion title="Can I close project setup to undo a new portal?">
+    No. Create Portal already saved the draft. Project linking or creation also persists when its action succeeds.
+  </Accordion>
+  <Accordion title="Why do two contacts see different tasks?">
+    Review contact roles, item visibility, ownership, and the portal Settings tab. Use View as to inspect each context; a preview does not prove real client access.
+  </Accordion>
+  <Accordion title="Why is there no PSA project option?">
+    Check the company mapping, active PSA integration, and permissions. MSPortal Projects is the native alternative when offered. Configure required PSA defaults before requesting external tickets.
+  </Accordion>
+  <Accordion title="What should I do after a partial creation or ticket error?">
+    Inspect the saved portal, copied modules, and existing linked tickets first. Retry only the missing work to avoid creating another portal or duplicating tickets.
+  </Accordion>
+  <Accordion title="Can I safely open a credential to see whether it arrived?">
+    Opening the task is separate from retrieval. Reveal & Delete and Download & Destroy consume submissions. Follow the secure retrieval guide and prepare secure local retention before using them.
   </Accordion>
 </AccordionGroup>

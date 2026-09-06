@@ -1,118 +1,82 @@
 ---
-title: Training Settings
-description: Manage courses, categories, and learning content for your organization
+title: "Training settings"
+description: "Choose available courses and create custom training content."
 icon: graduation-cap
 ---
 
-Training Settings allows you to manage the courses and learning content available in your MSPortal.ai Training module. Configure course availability, manage categories, and customize the learning experience.
+**Audience:** MSP staff with Training settings access. Course availability changes require Training settings write access. **Create Course** requires **Manage Training** and active billing. These are separate permissions.
 
-## Accessing Training Settings
+Open **Settings > Training**. Review the company selector before changing availability: a selected company or set of companies scopes course enablement; the organization-wide view changes the broader catalog setting. The Launch setup view uses organization-wide scope.
 
-1. Click **Settings** in the sidebar
-2. Select the **Training** icon from the settings navigation
+## Find and enable courses
 
-## Courses Overview
+Filter the table by its available title, type, category, tags, duration or enabled controls. Review the matching course before changing its **Enabled** switch. The switch saves immediately; there is no confirmation followed by a page Save. The row menu also offers enable/disable and **Preview Course**.
 
-The Training Settings page displays all available courses.
+For a batch, select the exact courses and use the bulk enable/disable action. In the Launch training setup view, **Enable All Included Training** enables included content organization-wide, not merely the currently visible rows. Preview and verify the resulting learner access before a wider rollout.
 
-<Frame>
-  <img src="/images/settings/settings-training-courses.png" alt="Training Courses" />
+Availability, enrollment and Premium entitlement are separate. Enabling a course does not by itself assign every user to it. Disabling is not an enrollment cleanup tool; check the learner's actual course access before assuming an existing enrollment remains usable.
+
+## Create a custom course
+
+1. Click **Create Course**.
+2. Enter **Course Title**, description and a required **Category**.
+3. Choose **SCORM Package**, **Video Course** or **Document**.
+4. Review duration, passing score, maximum attempts, expiry and the mandatory setting. A placeholder is not a saved value.
+5. Provide content using the relevant input described below.
+6. Click **Create Course** to create the record and process its content. **Cancel** closes the unsaved form.
+7. Find the resulting course, check availability and open **Preview Course** to verify its actual content before assigning learners.
+
+<Frame caption="MSP example: blank Basic Information fields in Create Course; the rest of the form continues below.">
+  <img src="/images/product/training-settings-create-course.png" alt="MSP example: blank Basic Information fields in Create Course; the rest of the form continues below." width="1102" height="584" />
 </Frame>
 
-### Course Information
+| Content type | Input |
+| --- | --- |
+| SCORM Package | A ZIP package; package processing follows course creation. |
+| Video Course | Uploaded MP4, WebM or MOV files, or YouTube links. Review the selected source and complete link list. |
+| Document | The picker accepts PDF, DOC, DOCX, PPT and PPTX. Preview the resulting learner experience; accepting a file does not prove every format renders inline. |
 
-Each course shows:
+Creating the course and uploading its content are separate stages. If an upload fails, the course record may already exist. Look for it before repeating Create Course, and inspect the content error rather than treating a closed form as proof of success.
 
-| Field | Description |
-|-------|-------------|
-| **Title** | Course name |
-| **Category** | Topic classification |
-| **Duration** | Estimated completion time |
-| **Status** | Active, draft, or archived |
-| **Enrollments** | Number of users enrolled |
+The creation form does not offer a company selector. Do not assume the page's company filter makes a new custom course private to that company; review its availability separately.
 
-## Managing Courses
+## Preview and manage video questions
 
-### Course Categories
+Use a course's row menu to open **Preview Course** in a new tab. Video courses also offer a questions-management entry. Author questions in that screen and verify the quiz in the preview. A staff preview is not proof that an ordinary Company user has access.
 
-Courses are organized into categories:
+Use [Learning Paths](/user-guides/training/learning-paths) to group courses and assign users or groups. Use [Enable Training](/user-guides/training/enabling-training) to review company and user Premium access. The current library, entitlement and [Billing settings](/user-guides/settings/billing) determine what is available; do not rely on a fixed public course count.
 
-- **Microsoft 365** - Office apps, Teams, OneDrive
-- **Security Awareness** - Phishing, password security, social engineering
-- **Compliance** - HIPAA, GDPR, industry regulations
-- **Technical Skills** - IT fundamentals, troubleshooting
-- **Soft Skills** - Communication, time management
+## Troubleshooting
 
-### Enabling/Disabling Courses
+If a switch or Create button is disabled, check the permission for that action. If a course is absent, check company scope and filters. If a learner cannot launch it, review course availability, Premium entitlement, training permissions and assignment. If creation reports a content error, inspect the existing record and preview before creating a duplicate.
 
-<Steps>
-  <Step title="Find the Course">
-    Use the search or filter to locate the course
-  </Step>
-  <Step title="Toggle Status">
-    Click the status toggle to enable or disable the course
-  </Step>
-  <Step title="Confirm Change">
-    Confirm the status change when prompted
-  </Step>
-</Steps>
+## FAQs
 
-<Note>
-Disabling a course won't remove existing enrollments. Users currently enrolled can still complete the course.
-</Note>
+<AccordionGroup>
+  <Accordion title="Does enabling a course enroll everyone?">
+    No. Course availability and learner enrollment are separate; use assignment or learning-path workflows.
+  </Accordion>
+  <Accordion title="Do enable switches wait for Save?">
+    No. Course enable/disable actions persist immediately for the selected company scope.
+  </Accordion>
+  <Accordion title="Does Enable All Included Training only change this page?">
+    No. That action appears in Launch training setup and enables included content organization-wide, not just visible rows.
+  </Accordion>
+  <Accordion title="Can settings access alone create courses?">
+    No. Create Course requires Manage Training and active billing; availability controls use Training settings write access.
+  </Accordion>
+  <Accordion title="Can a course exist after its upload fails?">
+    Yes. Creation precedes content upload. Inspect the course before repeating creation.
+  </Accordion>
+  <Accordion title="Does the company filter make a new course company-private?">
+    Do not assume that. The creation form has no company selector; review availability after creation.
+  </Accordion>
+  <Accordion title="Does disabling a course erase enrollments?">
+    Do not use disabling as enrollment cleanup or assume an enrolled learner can still launch the course. Verify actual access separately.
+  </Accordion>
+</AccordionGroup>
 
-## Course Details
+## Related guides
 
-Click on any course to view detailed information:
-
-### Course Content
-- **Description** - What the course covers
-- **Learning Objectives** - Skills users will gain
-- **Modules** - Individual lessons within the course
-- **Assessment** - Quiz or test requirements
-
-### Course Settings
-- **Visibility** - Which companies can see this course
-- **Prerequisites** - Required courses to complete first
-- **Certification** - Whether completion grants a certificate
-- **Expiration** - How long until recertification is needed
-
-## Bigger Brains Integration
-
-MSPortal includes access to Bigger Brains training content:
-
-- **Premium IT Training** - Professional courses and certifications
-- **Regular Updates** - New content added frequently
-- **Progress Tracking** - Detailed completion tracking
-
-Bigger Brains add-on is managed in [Billing Settings](/user-guides/settings/billing).
-
-## Custom Content
-
-You can also upload custom training content:
-
-### Supported Formats
-- **Video** - MP4, WebM
-- **Documents** - PDF, PowerPoint
-- **SCORM** - Standard e-learning packages
-
-### Creating Custom Courses
-
-1. Click **Add Course** button
-2. Enter course title and description
-3. Upload content files
-4. Configure settings and visibility
-5. Publish when ready
-
-## Best Practices
-
-- **Start with essentials** - Enable core security awareness first
-- **Track completion rates** - Monitor engagement
-- **Set realistic timelines** - Don't overwhelm users
-- **Regular refresh** - Update training content annually
-
-## Related Resources
-
-- [Training Module](/user-guides/training/index) - Using the training interface
-- [Learning Paths](/user-guides/training/learning-paths) - Creating course sequences
-- [Enabling Training](/user-guides/training/enabling-training) - Initial setup guide
+- [Learner training guide](/user-guides/training/index)
+- [Enable Training](/user-guides/training/enabling-training)

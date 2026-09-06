@@ -1,117 +1,75 @@
 ---
-title: Playbooks Settings
-description: Manage CIS security benchmarks and compliance playbooks
+title: "Playbook settings"
+description: "Browse standard playbooks and import checks into your tenant library."
 icon: book
 ---
 
-Playbooks Settings provides access to security benchmarks and compliance playbooks, including CIS (Center for Internet Security) benchmarks that guide security configurations.
+**Audience:** MSP staff with Playbooks settings read access. Importing requires **Manage Playbooks settings** permission and active billing. Company users do not administer this library.
 
-## Accessing Playbooks Settings
+Open **Settings > Compliance > Playbooks**. Choose **Best Practices** for operational and technology reviews, or **Security Frameworks** for framework-specific content. Use **Search all playbooks** to search names and descriptions. The catalog shown in your account determines available products, versions and check counts.
 
-1. Click **Settings** in the sidebar
-2. Select **Compliance** from the settings navigation
-3. Open the **Playbooks** tab
-
-## Playbooks Overview
-
-The Playbooks page displays all available security benchmarks and guides.
-
-<Frame>
-  <img src="/images/settings/settings-playbooks-list.png" alt="Playbooks List" />
+<Frame caption="MSP example: the released library entry cards. Catalog counts can change.">
+  <img src="/images/product/playbooks-library-paths.png" alt="MSP example: the released library entry cards. Catalog counts can change." width="1856" height="506" />
 </Frame>
 
-### Playbook Information
+## Review before importing
 
-Each playbook shows:
+Open a playbook's title, or the eye control for a CIS variant, to inspect its details and check list. This is a read-only catalog view. **Cancel** closes it.
 
-| Field | Description |
-|-------|-------------|
-| **Name** | Playbook title (e.g., "CIS Microsoft 365 Foundations") |
-| **Version** | Benchmark version number |
-| **Controls** | Number of security controls included |
-| **Status** | Active or archived |
+The details footer's **Copy** button immediately copies the playbook using the default import path. It does not open the status-list/device-type review dialog. If you need to choose those values, close details and use the card's **Add** action instead.
 
-## CIS Benchmarks
+## Add one or several playbooks
 
-MSPortal includes CIS benchmarks for:
+1. Click **Add** on the intended card, or select several playbook checkboxes and use **Add to Tenant** in the page header.
+2. In **Add Playbooks to Tenant**, review every selected playbook and its **Folder** destination.
+3. Choose a **Status list** for each playbook. An existing default can be preselected; verify that its answer choices fit the checks.
+4. For a Device playbook, review **Device types**. Suggested types are preselected when matching types exist. Remove unwanted types or use **Clear** before importing.
+5. Inspect any already-imported warning, then click **Add to Tenant** to perform the import. **Cancel** closes the pending dialog without importing.
+6. Open **Settings > Compliance > Checks** at the displayed folder and review the new checks. Open **Groups** to inspect the imported group and its membership.
 
-| Platform | Description |
-|----------|-------------|
-| **Microsoft 365** | Exchange, SharePoint, Teams, OneDrive configuration |
-| **Azure** | Azure Active Directory, cloud infrastructure |
-| **Windows** | Windows Server and workstation hardening |
-| **Google Workspace** | Gmail, Drive, Admin console settings |
+Selected device types receive the imported group association. That choice is more than a filter for the dialog; verify it before submitting. Company assessment/run assignment remains a separate workflow.
 
-### Using CIS Benchmarks
+## Understand the result
 
-CIS benchmarks provide:
+Import creates a tenant check group and copies its checks into the indicated folder, using the chosen status list. It does not change endpoint security settings, complete assessments or prove a company compliant.
 
-- **Security recommendations** - Best practice configurations
-- **Implementation guidance** - Step-by-step instructions
-- **Audit procedures** - How to verify compliance
-- **Remediation steps** - Fixing non-compliant settings
+An **Imported** badge is informational. Importing again can create another group and another set of checks; it is not an update-in-place button. Before retrying after a failure, inspect the destination. In a multi-playbook operation, earlier playbooks may already have imported before a later one failed.
 
-## Managing Playbooks
+## Maintain imported content
 
-### Viewing Playbook Details
+Edit the tenant copies in [Compliance settings](/user-guides/settings/compliance). Review their guidance, applicability, status list and group assignments before adding them to a run. The standard library is not a tenant editor with a universal active/archived toggle. Importing a newer catalog version should not be treated as silently updating earlier copies.
 
-1. Click on any playbook to open its details
-2. Review the list of controls and recommendations
-3. See implementation guidance for each control
+Use [Adding CIS Benchmarks](/user-guides/compliance/adding-cis-benchmarks) for product/version and profile selection. Use the [Compliance guide](/user-guides/compliance/index) to assess the resulting checks.
 
-### Enabling/Disabling Playbooks
+## Troubleshooting
 
-<Steps>
-  <Step title="Select Playbook">
-    Click on the playbook you want to manage
-  </Step>
-  <Step title="Toggle Status">
-    Use the status toggle to enable or disable
-  </Step>
-  <Step title="Confirm Change">
-    Disabled playbooks won't appear in compliance reports
-  </Step>
-</Steps>
+If Add is disabled, check Playbooks management permission and billing. If the dialog cannot proceed, select a status list for every playbook. If device types are missing, wait for the list to load and review available types; do not assume an empty selector automatically means all devices. If you cannot find imported checks, use the destination folder and group before repeating import.
 
-## Playbook Controls
+## FAQs
 
-Each playbook contains multiple controls:
+<AccordionGroup>
+  <Accordion title="Does Add immediately import the playbook?">
+    The card Add opens the mapping dialog. Import occurs when Add to Tenant is submitted in that dialog.
+  </Accordion>
+  <Accordion title="Is Copy in details another way to open the mapping dialog?">
+    No. Copy immediately performs the default copy operation; use the card Add action to review status lists and device types first.
+  </Accordion>
+  <Accordion title="Does importing apply a playbook to one company?">
+    It imports checks and a group into the tenant library. Company assessments and run assignments are separate.
+  </Accordion>
+  <Accordion title="Does Imported prevent duplicate copies?">
+    No. It is informational; importing again can create another group and set of checks.
+  </Accordion>
+  <Accordion title="Do device-type selections only filter the preview?">
+    No. Selected device types receive the imported group association.
+  </Accordion>
+  <Accordion title="Can a failed bulk import have partially succeeded?">
+    Yes. Inspect the destination groups and checks before retrying; earlier playbooks may already be imported.
+  </Accordion>
+</AccordionGroup>
 
-### Control Levels
+## Related guides
 
-| Level | Description |
-|-------|-------------|
-| **Level 1** | Basic security settings for all organizations |
-| **Level 2** | Advanced settings for higher security requirements |
-| **IG1, IG2, IG3** | Implementation Groups based on organization size |
-
-### Control Details
-
-Each control includes:
-
-- **Title** - What the control addresses
-- **Rationale** - Why this control matters
-- **Audit** - How to check current status
-- **Remediation** - Steps to implement the control
-- **Impact** - Potential effects on users
-
-## Integration with Compliance
-
-Playbooks connect to the Compliance module:
-
-- **Automatic mapping** - Controls link to compliance checks
-- **Progress tracking** - See implementation status
-- **Reporting** - Include in compliance reports
-
-## Best Practices
-
-- **Start with Level 1** - Implement basic controls first
-- **Prioritize by risk** - Focus on high-impact controls
-- **Document exceptions** - Record why controls are skipped
-- **Regular review** - Update as new benchmark versions release
-
-## Related Resources
-
-- [Compliance Module](/user-guides/compliance/index) - Compliance tracking
-- [Compliance Checks](/user-guides/settings/compliance) - Check configuration
-- [Adding CIS Benchmarks](/user-guides/compliance/adding-cis-benchmarks) - Benchmark setup
+- [Compliance settings](/user-guides/settings/compliance)
+- [Playbook settings](/user-guides/settings/playbooks)
+- [Compliance assessments](/user-guides/compliance/index)

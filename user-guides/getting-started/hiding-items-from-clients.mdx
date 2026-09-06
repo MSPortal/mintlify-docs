@@ -1,76 +1,69 @@
 ---
-title: 'Hiding Items from Client Users'
-description: 'Mark planner items, goals, compliance items, onboarding tasks, custom fields, and dashboards as internal so company users cannot see them'
-icon: 'eye-slash'
+title: "Control what Company users can see"
+description: "Use record visibility and roles separately from sidebar preferences."
+icon: "book-open"
 ---
 
-MSPortal distinguishes between your MSP team (tenant users) and your client contacts (company users). Most records are visible to both, but some items are for internal MSP use only, such as a planner item tracking an internal discussion about a client, a draft compliance check, or a goal meant for your team's eyes.
+**Audience:** MSP staff with permission to edit the relevant record or setting. Company users have their own role and company scope; seeing a record in an MSP preview does not establish what a Company user can access.
 
-The **Hide from company users** toggle keeps individual records behind the scenes. When turned on, the item is filtered out of every surface a company user can see, including their dashboard widgets, list pages, detail panels, and the client onboarding portal.
+## Choose the right control
 
-## Where the Toggle Appears
+| Need | Control |
+| --- | --- |
+| Keep a supported record internal | The record’s **Hide from company users** control, then its Save action |
+| Hide a custom field while keeping its parent record available | The custom-field definition’s visibility setting |
+| Restrict a dashboard to MSP staff | The dashboard’s visibility setting |
+| Decide which modules or actions a Company role can use | Company permissions and role assignment |
+| Simplify a sidebar | Navigation preferences; this alone does not revoke access |
 
-The same toggle is available on the following record types:
+Do not assume all record types start with the same visibility. Templates, copied records and existing settings can supply different values. Inspect the actual record before saving or sharing it.
 
-| Record type | Where to find the toggle |
-|-------------|--------------------------|
-| **Planner items** | Planner item edit dialog, in the footer next to Save |
-| **Goals** | Goal edit dialog, next to the action buttons |
-| **Compliance items** | Compliance check detail dialog footer |
-| **Custom field definitions** | Settings > Custom Fields, in the Visibility column on each row |
-| **Onboarding template items** | Template editor, labeled **Visible to client portal** |
-| **Onboarding portal items** | Active portal task editor, labeled **Visible to client portal** |
-| **Dashboards** | Dashboard create/edit dialog, via the **Visibility** dropdown |
+## Make a supported record internal
 
-<Note>
-The toggle is only shown to MSP tenant users. Company users never see it.
-</Note>
+1. Open the intended Planner item, Goal or Compliance record in its editor.
+2. Confirm the company and record identity. Check that you have edit access.
+3. Enable **Hide from company users** where the editor offers it.
+4. Save the record and reopen it to confirm the setting persisted.
+5. Verify the intended Company audience before relying on the change for a rollout. Staff preview and role inspection alone are not a Company-session test.
 
-## Default Behavior
+Changing the checkbox stages the form value; it is not proof of a saved change. Read-only or historical views can disable the control. A hidden parent record, a private note and a hidden custom field are different settings.
 
-All items default to **visible to clients**. You must explicitly turn on "Hide from company users" for a record to become internal.
+## Custom fields and dashboards
 
-## What Company Users See
+Use [Custom Fields](/user-guides/settings/custom-fields) to control a definition’s Company visibility. Hiding a field does not hide its owning company, device or other parent record. Save the definition change through the field editor.
 
-When an item is hidden:
+For dashboards, select the intended visibility when creating or editing the dashboard, then save. Shared/private access, internal/client visibility and company-specific dashboard availability are separate choices; review them together in [Dashboard settings](/user-guides/dashboards/manage-dashboard-settings).
 
-- It is excluded from every list, search, count, widget, and export that a company user can access
-- In the client onboarding portal, the task, document, or phase is filtered out entirely
-- Custom field values are not returned for the owning record
+## Onboarding visibility
 
-Items you hide still appear normally for your MSP team.
+Onboarding editors can use **Visible to client portal**, which has the opposite wording from **Hide from company users**. A template establishes values for launched work; inspect the active portal’s task setting when changing an existing client rollout. Do not assume editing a template retroactively updates every existing portal.
 
-## Onboarding: Template vs Portal
+## Before sharing
 
-Onboarding items expose the toggle at two levels:
+Check the actual sharing or export workflow as well as the record setting. A visibility change cannot recall a file already downloaded or information already sent outside the portal. If a Company account still sees information you intended to hide, record the affected page and audience for support instead of assuming an MSP-only preview proves the issue resolved.
 
-- **Template** sets the default for any portal launched from that template
-- **Portal** lets you override the template default on a per-portal basis, so the same template can behave differently for different clients
+## Frequently asked questions
 
-## Custom Fields
+<AccordionGroup>
+  <Accordion title="Does hiding a sidebar module make its records private?">
+    No. Sidebar preferences change navigation. Use role permissions and the relevant record visibility controls.
+  </Accordion>
+  <Accordion title="Is the visibility checkbox saved immediately?">
+    In the Planner, Goal and Compliance editors, it is part of the form state. Use the record’s Save action and reopen it to verify the result.
+  </Accordion>
+  <Accordion title="Does hiding a custom field hide the entire record?">
+    No. The field’s visibility is separate from the parent record’s visibility.
+  </Accordion>
+  <Accordion title="Does changing a template update every existing onboarding portal?">
+    Do not assume that. Inspect and change the active portal’s visibility where needed; the template and active portal are separate editing contexts.
+  </Accordion>
+  <Accordion title="Does an MSP preview prove the Company audience cannot see a record?">
+    No. Check the intended Company role and session. A staff preview has different access and is not a substitute for audience verification.
+  </Accordion>
+</AccordionGroup>
 
-In **Settings > Custom Fields**, each field row has a Visibility column. Edit a field to flip the "Hide from company users" toggle. When hidden, company users still see the owning record but not the field itself or its value.
+## Related guides
 
-## Dashboards
-
-Dashboards use a slightly different control, a **Visibility** dropdown with two options:
-
-- **Internal and External (clients can see)** is the default and shows the dashboard to both MSP and company users
-- **Internal only (MSP team)** hides the dashboard entirely from company users
-
-See [Dashboards](/user-guides/dashboards/index) for more detail.
-
-## Use Cases
-
-- **Draft compliance checks** you are still writing
-- **Planner items** tracking internal MSP discussion about a client
-- **Goals** for MSP team alignment that should not be shared externally
-- **Onboarding tasks** that only your team performs in the background
-- **Dashboards** exposing internal metrics or margin data
-- **Custom fields** storing private notes or MSP-only flags
-
-## Related Resources
-
-- [Custom Fields](/user-guides/settings/index)
-- [Client Onboarding](/user-guides/client-onboarding/index)
-- [Dashboards](/user-guides/dashboards/index)
+- [MSP Setup Playbook](/user-guides/getting-started/onboarding/index)
+- [Settings directory](/user-guides/settings/index)
+- [Integration directory](/user-guides/integrations/index)

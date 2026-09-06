@@ -1,77 +1,53 @@
 ---
-title: "Email Domain"
-sidebarTitle: "12. Email Domain"
-description: "Configure your email domain for sending notifications"
+title: "Set up a sending domain"
+sidebarTitle: "Set up a sending domain"
+description: "Verify the displayed DNS records and save your notification sender address."
 icon: "envelope"
 ---
 
-The Email Domain step configures MSPortal to send emails from your own domain instead of the default MSPortal domain. This improves email deliverability and presents a professional appearance to your clients.
+**Audience:** MSP administrators with Email settings access and someone authorized to manage the sending domain's DNS.
 
-## Why Verify Your Domain?
+## Add and verify the domain
 
-- **Better Deliverability** - Emails are less likely to be marked as spam
-- **Professional Appearance** - Emails come from your domain (e.g., `notifications@yourmsp.com`)
-- **Brand Consistency** - Reinforces your brand with every notification
+1. Open **Settings > Email > Sending Domain**. Review any existing domain before adding another configuration.
+2. Enter the intended domain and select **Add Domain**. This creates the sending-domain configuration.
+3. Copy the DNS record types, names and values displayed for that domain into your DNS provider. Use those exact values; generic SPF or DKIM examples are not a substitute.
+4. Select **Check Verification** after the records are available. Inspect the resulting status; the action can return pending instead of verified.
+5. Use **Refresh Status** to retrieve the current state. Resolve incorrect or missing records before repeatedly submitting verification.
+6. Review **Default From Address** and save its change using the adjacent control. Domain verification and sender-address saving are separate actions.
 
-## What You'll Configure
+There is no guaranteed propagation time. Your DNS provider and the displayed verification result determine when the configuration is ready. Verification improves sender authentication but does not guarantee inbox placement.
 
-- **Email Domain** - The domain to send emails from
-- **DNS Records** - SPF, DKIM, and verification records
-- **Sender Address** - The "from" address for notifications
+<Frame caption="Start on Sending Domain. This is the unconfigured form, not evidence of DNS verification.">
+  <img src="/images/product/email-sending-domain.png" alt="Start on Sending Domain. This is the unconfigured form, not evidence of DNS verification." width="1850" height="860" />
+</Frame>
 
-## Steps to Complete
+## Understand the boundaries
 
-<Steps>
-  <Step title="Navigate to Email Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Email**.
-  </Step>
-  <Step title="Add Your Domain">
-    Enter the domain you want to send emails from (e.g., `yourmsp.com`).
-  </Step>
-  <Step title="Add DNS Records">
-    MSPortal will provide DNS records that need to be added to your domain. These typically include:
-    - **SPF Record** - Authorizes MSPortal to send email on your behalf
-    - **DKIM Record** - Provides email authentication
-    - **Verification Record** - Proves domain ownership
-  </Step>
-  <Step title="Verify Domain">
-    After adding the DNS records, click **Verify Domain**. DNS propagation can take up to 48 hours, but usually completes within a few hours.
-  </Step>
-  <Step title="Configure Sender Address">
-    Once verified, set up your preferred sender address (e.g., `support@yourmsp.com`).
-  </Step>
-</Steps>
+A sending domain identifies outbound messages. It does not configure ticket delivery, the support mailbox or inbound receiving. Those are separate settings. Launch Center's support-identity check requires the support email; it is not a sending-domain verification check.
 
-## DNS Record Examples
+## Remove or replace a domain
 
-Here's what the DNS records typically look like:
+**Remove Domain** opens a confirmation describing the effects. Review it before confirming: this changes the organization's sending configuration. A refresh does not undo a removal, and removing the MSPortal configuration does not automatically clean up records at your DNS provider.
 
-```
-# SPF Record (TXT)
-Type: TXT
-Name: @
-Value: v=spf1 include:_spf.msportal.ai ~all
+If verification remains pending, compare the exact displayed record name and value with DNS, including any hostname suffix the DNS provider appends. Ask the domain administrator to review conflicting records rather than copying an example from another tenant.
 
-# DKIM Record (TXT)
-Type: TXT
-Name: msportal._domainkey
-Value: [provided by MSPortal]
+## FAQs
 
-# Verification Record (TXT)
-Type: TXT
-Name: _msportal-verify
-Value: [provided by MSPortal]
-```
+<AccordionGroup>
+  <Accordion title="Can I copy generic SPF and DKIM examples from a guide?">
+    No. Use the exact DNS records displayed for your configured domain.
+  </Accordion>
+  <Accordion title="Does Check Verification guarantee that verification succeeded?">
+    No. Inspect the returned status; it can remain pending.
+  </Accordion>
+  <Accordion title="Does a sending domain configure incoming support tickets?">
+    No. Outbound sender identity, receiving and ticket delivery are separate settings.
+  </Accordion>
+</AccordionGroup>
 
-## Auto-Completion
+## Related guides
 
-This step is **automatically marked as complete** when:
-- At least one email domain is verified
-
-<Note>
-  If you don't have access to your DNS settings, you may need to involve your domain administrator or skip this step temporarily.
-</Note>
-
-## Related Documentation
-
-- [Email Settings](/user-guides/settings/email) - Full email configuration guide
+- [Email Settings](/user-guides/settings/email)
+- [AI Settings](/user-guides/getting-started/onboarding/ai-settings)
+- [Ticket Settings](/user-guides/getting-started/onboarding/ticket-settings)

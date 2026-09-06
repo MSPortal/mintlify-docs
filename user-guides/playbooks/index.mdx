@@ -1,163 +1,66 @@
 ---
-title: 'Playbooks'
-description: 'Apply standardized compliance templates to quickly implement security frameworks and regulations'
-icon: 'book'
+title: "Use playbooks to prepare compliance reviews"
+description: "Choose reusable check content, import it, then configure an assessment."
+icon: book
 ---
 
-Playbooks are pre-built compliance templates that help you quickly deploy industry-standard security frameworks and regulatory requirements to your companies. Instead of manually creating compliance checks, apply a playbook to instantly populate your Compliance module with best-practice controls.
+**Audience:** MSP staff preparing compliance reviews. Company users read the assessments shared by their IT provider; they do not import the MSP's playbook catalog.
 
-## Overview
+A playbook is reusable source content for compliance checks. Import it into the tenant library, review the copied checks, then configure the relevant company or device assessment. Import is not a completed security review or a configuration change to a provider.
 
-Playbooks provide:
+## Choose a starting point
 
-- Pre-configured compliance check templates
-- Coverage of major security frameworks and regulations
-- One-click application to any company
-- Consistent implementation across your organization
+Open **Settings > Compliance > Playbooks**. **Best Practices** groups operational and technology reviews. **Security Frameworks** includes the available CIS benchmark catalog. Search by name or description when you already know what you need.
 
-## Available Playbooks
+<Frame caption="MSP example: the released library entry cards. Catalog counts can change.">
+  <img src="/images/product/playbooks-library-paths.png" alt="MSP example: the released library entry cards. Catalog counts can change." width="1856" height="506" />
+</Frame>
 
-MSPortal includes playbooks for common security frameworks and regulations:
+Review the actual card name, version and check count. The page does not guarantee a fixed list of frameworks, every vendor's latest release or the same number of checks in every playbook.
 
-<CardGroup cols={2}>
-  <Card title="CIS Controls v8 Basic" icon="shield-check">
-    Essential security measures for organizations with limited resources
-  </Card>
-  <Card title="HIPAA Security Rule" icon="hospital">
-    Healthcare compliance requirements for protected health information
-  </Card>
-  <Card title="NIST Cybersecurity Framework" icon="building-columns">
-    Industry-standard cyber risk management framework
-  </Card>
-  <Card title="PCI DSS Essentials" icon="credit-card">
-    Payment card industry data security standards
-  </Card>
-  <Card title="Microsoft 365 Security" icon="microsoft">
-    Cloud security best practices for M365 environments
-  </Card>
-  <Card title="SOC 2 Type II Readiness" icon="certificate">
-    Service organization audit compliance preparation
-  </Card>
-  <Card title="ISO 27001 Foundation" icon="globe">
-    Information security management system controls
-  </Card>
-  <Card title="GDPR Data Protection" icon="user-shield">
-    EU data protection regulation essentials
-  </Card>
-  <Card title="Remote Workforce Security" icon="house-laptop">
-    Controls for hybrid and remote work environments
-  </Card>
-  <Card title="Small Business Fundamentals" icon="building">
-    Foundational cybersecurity for SMBs
-  </Card>
-</CardGroup>
+## Move from a playbook to an assessment
 
-## Playbook Contents
+1. Open the playbook details to read its check list. Close the preview when finished.
+2. Use **Add** to review the destination folder, status list and any device-type suggestions.
+3. Submit **Add to Tenant** only after reviewing those choices. The [settings guide](/user-guides/settings/playbooks) explains the distinct immediate Copy action and duplicate-import behavior.
+4. Inspect the imported group and checks under **Settings > Compliance**. Tailor guidance and applicability to the intended review.
+5. Add the relevant group or checks to the appropriate run/template and company scope using [Compliance settings](/user-guides/settings/compliance).
+6. Perform the assessment, record evidence and review the results in [Compliance](/user-guides/compliance/index).
 
-Each playbook contains multiple compliance checks (typically 10-30), with each check including:
+A playbook can help standardize questions across clients. It does not supply missing evidence, decide every exception or certify the client. Check the applicable product version and client scope before assigning a benchmark.
 
-| Component | Description |
-|-----------|-------------|
-| **Title** | Clear description of the control |
-| **Category** | Classification (e.g., Access Control, Asset Management) |
-| **Priority** | High, Medium, or Low importance |
-| **Why Important** | Business justification for the control |
-| **Guidance** | Implementation recommendations |
+## Keep copied content current
 
-## Browsing Playbooks
+Track which catalog version you imported and review later changes before creating another copy. The **Imported** badge helps identify prior imports, but a missing badge is not sufficient reason to repeat an uncertain operation. Inspect the tenant library if a previous import's result is unclear.
 
-<Steps>
-  <Step title="Navigate to Playbooks">
-    Go to **Settings > Compliance** and open the **Playbooks** tab. From the Playbooks home, choose **Best Practices** or **Security Frameworks** (CIS Benchmarks live under Frameworks).
-  </Step>
-  <Step title="Browse or Search">
-    Use the search bar to find playbooks by name, or browse the card grid.
-  </Step>
-  <Step title="Filter by Category">
-    Filter playbooks by type:
-    - Security Framework
-    - Regulation
-    - Best Practice
-    - Technology Specific
-    - General
-  </Step>
-  <Step title="Filter by Industry">
-    Narrow results by industry focus:
-    - Healthcare
-    - Finance
-    - Retail
-    - General
-  </Step>
-</Steps>
+Use [Adding CIS Benchmarks](/user-guides/compliance/adding-cis-benchmarks) when selecting CIS product families and L1/L2 variants. Keep benchmark profiles distinct from CIS Controls Implementation Groups.
 
-## Applying a Playbook
+## Troubleshooting
 
-<Steps>
-  <Step title="Select a Playbook">
-    Click **View & Apply to Company** on any playbook card.
-  </Step>
-  <Step title="Review Checks">
-    A modal displays all checks included in the playbook. Review the controls to ensure they're appropriate for your needs.
-  </Step>
-  <Step title="Choose a Company">
-    Select the company you want to apply the playbook to from the dropdown.
-  </Step>
-  <Step title="Apply">
-    Click **Apply to Company** to add all checks to that company's Compliance module.
-  </Step>
-</Steps>
+If you can browse but cannot import, ask an MSP administrator to check the relevant management permission and billing. If a check group exists but a company has no assessment, review run/company assignment. If results appear incomplete, inspect actual assessment status and evidence rather than treating the imported check count as completed work.
 
-<Tip>
-After applying a playbook, navigate to **Compliance** to see the newly created checks and begin tracking their status.
-</Tip>
+## FAQs
 
-## Bulk Application
+<AccordionGroup>
+  <Accordion title="Is a playbook a completed assessment?">
+    No. It supplies check content. Assign the review, perform the assessment and record evidence separately.
+  </Accordion>
+  <Accordion title="Can Company users import playbooks?">
+    This is an MSP settings workflow. Company users read the assessments shared by their IT provider.
+  </Accordion>
+  <Accordion title="Does importing change endpoint configurations?">
+    No. Import adds tenant check content and associated groups; provider remediation is a separate workflow.
+  </Accordion>
+  <Accordion title="Are every framework and latest benchmark always available?">
+    Use the actual catalog shown in your account, including its product names and versions.
+  </Accordion>
+  <Accordion title="Does an imported group automatically give every company a completed review?">
+    No. Verify the intended company/run assignment and actual assessment results.
+  </Accordion>
+</AccordionGroup>
 
-For applying multiple playbooks or managing playbooks at scale, use **Settings > Compliance > Playbooks**:
+## Related guides
 
-1. Navigate to **Settings > Compliance** and open the **Playbooks** tab
-2. View all playbooks in a table format
-3. Select one or more playbooks using checkboxes
-4. Click **Add** to apply selected playbooks
-5. Choose which status list to assign the checks to
-
-## Playbook Categories
-
-| Category | Description |
-|----------|-------------|
-| **Security Framework** | Industry-standard security control sets (CIS, NIST) |
-| **Regulation** | Compliance with specific laws or regulations (HIPAA, GDPR, PCI DSS) |
-| **Best Practice** | General security recommendations |
-| **Technology Specific** | Controls for specific platforms (Microsoft 365) |
-| **General** | Broad applicability across organizations |
-
-## What Happens When You Apply
-
-When you apply a playbook to a company:
-
-1. All checks from the playbook are copied to the company's **Compliance** module
-2. Checks are assigned to your selected status tracking list
-3. Each check starts with an initial status ready for assessment
-4. You can then track, update, and report on compliance status
-
-<Note>
-Playbooks create copies of checks. Changes to a playbook after application do not affect previously applied checks.
-</Note>
-
-## Permissions
-
-| Permission | Capability |
-|------------|------------|
-| `read_settings_playbooks` | View available playbooks |
-| `manage_settings_playbooks` | Apply playbooks to companies |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Compliance" icon="clipboard-check" href="/user-guides/compliance/index">
-    Manage and track compliance checks
-  </Card>
-  <Card title="Playbook Settings" icon="gear" href="/user-guides/settings/playbooks">
-    Configure playbook options
-  </Card>
-</CardGroup>
+- [Compliance settings](/user-guides/settings/compliance)
+- [Playbook settings](/user-guides/settings/playbooks)
+- [Compliance assessments](/user-guides/compliance/index)

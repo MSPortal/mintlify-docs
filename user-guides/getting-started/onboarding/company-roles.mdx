@@ -1,67 +1,47 @@
 ---
-title: "Company Roles"
-sidebarTitle: "6. Company Roles"
-description: "Define organizational job titles for client company users"
+title: "Account teams and Team Roles"
+sidebarTitle: "Account teams and Team Roles"
+description: "Assign the MSP people responsible for each rollout company."
 icon: "user-cog"
 ---
 
-Company Roles let you define job function labels for your clients' users, such as "Account Manager", "Technician", or "Help Desk". Roles are used for organization and reporting — they do **not** control portal access.
+**Audience:** MSP staff with Company-user settings access. Open **Settings > Users & Roles > Team Roles**, or the account-team step in Launch Center.
 
-## Understanding Roles vs Permission Groups
+Team Roles describe responsibilities such as account manager or technician. They are not merely job-title labels for client users: staff assignments can constrain their company selector and determine who appears in the client's team menu. Access Groups separately control permissions.
 
-<Warning>
-Roles and Permission Groups serve different purposes. Do not confuse them.
-</Warning>
+## Define and assign responsibilities
 
-| Concept | Purpose | Controls Access? |
-|---------|---------|-----------------|
-| **Roles** (this step) | Describe a person's job function | No |
-| **Permission Groups** ([previous step](/user-guides/getting-started/onboarding/company-permission-groups)) | Control what a user can see and do | Yes |
+1. Review existing Team Roles. Add or edit the role name and description when required, then save the row.
+2. Open the company's team-assignment controls and choose the appropriate staff members for each responsibility.
+3. Check the selected company before applying assignments. Bulk assignment controls can apply changes immediately to multiple selected companies.
+4. Review the client team-menu configuration if you want selected roles and their assigned members to appear in the portal. Check displayed contact details before rollout.
 
-A company user is assigned **both** a Role and a Permission Group independently. For example, two users might both have the role "Account Manager" but different permission groups — one with "Full Access" and another with "View Only".
+A role definition alone does not assign anyone to a company. Launch readiness checks that every rollout company has an assignment using a defined Team Role.
 
-## What You'll Configure
+## Provider-managed teams
 
-- **Role Names** - Create roles like "Account Manager", "Technician", "Help Desk"
-- **Descriptions** - Optional descriptions explaining each role's purpose
+Where PSA role mappings are offered, review which responsibilities are synchronized. For mapped ConnectWise roles, synchronization can add and remove members according to the PSA; unmapped responsibilities remain manually managed. Check the provider mapping before correcting an assignment that keeps changing.
 
-## Steps to Complete
+## Troubleshooting
 
-<Steps>
-  <Step title="Navigate to Company Roles">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Companies > Roles**.
-  </Step>
-  <Step title="Review Default Roles">
-    MSPortal includes default company roles. Review these to understand the structure.
-  </Step>
-  <Step title="Create Custom Roles (Optional)">
-    Click **Add Role** to create a new role for specific client needs. Enter a name and optional description.
-  </Step>
-</Steps>
+If a company still lacks team evidence, check for an actual assignment rather than only a named role. If an internal user's company selector changes, review their team assignments and access group. If the client cannot see an expected team member, check the selected company, role assignment and team-menu visibility.
 
-## Common Company Role Examples
+## FAQs
 
-<CardGroup cols={3}>
-  <Card title="Account Manager" icon="user-tie">
-    Primary business contact responsible for the client relationship.
-  </Card>
-  <Card title="Technician" icon="wrench">
-    Technical staff who handle IT issues and infrastructure.
-  </Card>
-  <Card title="Help Desk" icon="headset">
-    Front-line support staff who handle day-to-day requests.
-  </Card>
-</CardGroup>
+<AccordionGroup>
+  <Accordion title="Are Team Roles just client-user job titles?">
+    No. They assign responsibilities, can affect staff company scope and control the client team display.
+  </Accordion>
+  <Accordion title="Does adding a role complete account-team setup?">
+    No. Each rollout company needs an actual user assignment to a defined role.
+  </Accordion>
+  <Accordion title="Why does a mapped ConnectWise team assignment change?">
+    Mapped ConnectWise roles synchronize membership from the PSA, including removals.
+  </Accordion>
+</AccordionGroup>
 
-## Manual Completion
+## Related guides
 
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished setting up your company roles.
-
-<Note>
-Company roles are for your **clients' users**. Your internal MSP team roles are configured in **Settings > Users & Roles**.
-</Note>
-
-## Related Documentation
-
-- [Companies Settings](/user-guides/settings/companies) - Full companies settings reference
-- [Company Permission Groups](/user-guides/getting-started/onboarding/company-permission-groups) - Permission groups configuration
+- [Users & Roles](/user-guides/settings/users-roles)
+- [Companies](/user-guides/settings/companies)
+- [Company Permission Groups](/user-guides/getting-started/onboarding/company-permission-groups)

@@ -1,280 +1,63 @@
 ---
-title: Import/Export Settings
-description: Bulk import and export data using CSV files
+title: "Import and export data"
+description: "Use CSV templates, deliberate import modes and scoped exports."
 icon: file-import
 ---
 
-Import/Export Settings allows you to perform bulk data operations using CSV files. Import new records or export existing data for backup, analysis, or migration purposes.
+**Audience:** MSP staff with Import and/or Export management access. Open **Settings > Import / Export**. Import and Export permissions are separate; an account may see only the tab it can use.
 
-## Accessing Import/Export Settings
+## Import a CSV
 
-1. Click **Settings** in the sidebar
-2. Select the **Import/Export** icon from the settings navigation
+1. Select the intended data type. Current import options include companies, locations, devices, compliance checks/results, Planner items, goals and Company Roles.
+2. Download that type's CSV template and use its current columns. Preserve identifiers and required relationships according to that template.
+3. Prepare a small, reviewed file before a larger import. Select the CSV or drop it into the upload area.
+4. Choose the mode: create, update or both. Confirm the type and mode again before starting the import.
+5. Run the displayed import action and read the complete result. Check the resulting records before retrying rows or importing a larger file.
 
-## Permissions
+Selecting a file does not import it. The import action can create or update stored data; this is not a guaranteed dry run or an all-or-nothing transaction. Inspect failures and the resulting records before rerunning a file that may already have changed data.
 
-Import/Export requires specific permissions:
+<Frame caption="Choose the data type, CSV file and import mode before running Import Data.">
+  <img src="/images/product/csv-import-options.png" alt="Choose the data type, CSV file and import mode before running Import Data." width="1850" height="1410" />
+</Frame>
 
-| Permission | Access |
-|------------|--------|
-| **manage_settings_import** | Access to import data |
-| **manage_settings_export** | Access to export data |
+## Export one data type
 
-<Note>
-If you can only see one tab (Import or Export), you have permission for that specific operation only.
-</Note>
+Choose the data type and company scope, then start the CSV export. The download is a snapshot of that export's supported fields. Company-scoped types use the selected company; tenant-level types do not.
 
-## Import Data
+Compliance checks, Company Roles, custom fields and broadcasts are tenant-level exports and remain organization-wide even when you select one company. Their filenames use **all** for that reason. Check file contents and scope before sharing a download.
 
-### Supported Import Types
+## Export All
 
-| Data Type | Description |
-|-----------|-------------|
-| **Companies** | Client company records with ticketing defaults |
-| **Locations** | Company location information |
-| **Devices** | Device inventory records |
-| **Standards** | Standards/compliance check definitions |
-| **Planner** | Planner items and roadmap entries |
-| **Goals** | Strategic goals for companies |
-| **Company Roles** | User-to-company role assignments |
+**Export All** builds a ZIP of supported CSV exports. Some types can fail while others succeed: inspect the result and missing-type list instead of assuming a downloaded ZIP is complete. If every type fails, there is no successful combined export to rely on.
 
-### Import Process
-
-<Steps>
-  <Step title="Select Data Type">
-    Choose the type of data you want to import from the dropdown menu.
-  </Step>
-  <Step title="Upload CSV File">
-    Either drag and drop your CSV file onto the upload area, or click **Browse Files** to select a file.
-  </Step>
-  <Step title="Choose Import Mode">
-    Select how to handle existing records:
-    - **Create and update records**: Creates new records and updates existing ones
-    - **Create new records only**: Only adds new records, skips existing
-    - **Update existing records**: Only updates existing records, skips new
-  </Step>
-  <Step title="Import Data">
-    Click **Import Data** to process the file.
-  </Step>
-</Steps>
-
-### Import Modes Explained
-
-| Mode | New Records | Existing Records |
-|------|-------------|------------------|
-| **Create and update** | Created | Updated |
-| **Create only** | Created | Skipped |
-| **Update only** | Skipped | Updated |
-
-<Tip>
-Use "Create and update" for initial imports and migrations. Use "Update only" when modifying existing data without adding new records.
-</Tip>
-
-## Export Data
-
-### Supported Export Types
-
-| Data Type | Description |
-|-----------|-------------|
-| **Companies** | Company records with all configured fields |
-| **Locations** | Location details linked to companies |
-| **Devices** | Device inventory with specifications |
-| **Standards** | Standards check definitions |
-| **Compliance** | Compliance results and status history |
-| **Planner** | Planner items and roadmap data |
-| **Goals** | Strategic goals and progress |
-| **Company Roles** | User assignments to company roles |
-| **Contacts & Users** | Portal users and company contacts (name, email, title, department, status) |
-| **Meetings** | Meeting records with notes, schedule, and status |
-| **Meeting Action Items** | Follow-up tasks from meetings with assignee, due date, and status |
-| **Meeting Notes** | Per-user notes attached to meetings |
-| **Meeting Agenda Items** | Agenda entries for meetings with type, content, and notes |
-| **Budgets** | Budgets with one row per budget line item |
-| **Budget Products** | Your budgeting product catalog (name, SKU, vendor, pricing) |
-| **Survey Responses** | CSAT, NPS, and general survey responses with scores and feedback |
-| **Training Records** | Training enrollments with progress, scores, and certificate numbers |
-| **Custom Field Values** | Values of your custom fields across all entity types |
-| **Tool Stack** | Per-company tool stack status and notes |
-| **Goal Updates** | Progress update history on goals |
-| **Onboarding Tasks** | Client onboarding tasks with status, evidence, and completion dates |
-| **Broadcasts** | Broadcast messages with content and delivery counts |
-| **AI Assistant Conversations** | AI assistant chat history (one row per message) |
-
-<Note>
-The types from Contacts & Users onward are export-only: they appear in the Export dropdown but cannot be imported. Exports only include data created and managed in MSPortal — data synced from your PSA (tickets, invoices) is not included because your PSA remains the system of record.
-
-Standards, Company Roles, Custom Field Values, and Broadcasts are tenant-level exports: the company selector does not apply to them, and their files are always labeled `all`.
-
-Onboarding exports cover task data only. Client credentials stored during onboarding are encrypted and are never included in any export. Uploaded files (documents, meeting uploads) are also not part of CSV exports.
-</Note>
-
-### Export Process
-
-<Steps>
-  <Step title="Select Data Type">
-    Choose what data to export from the dropdown.
-  </Step>
-  <Step title="Select Company Scope">
-    Choose to export:
-    - **All Companies**: Export data for all companies
-    - **Specific Company**: Select a single company from the dropdown
-  </Step>
-  <Step title="Export Data">
-    Click **Export Data** to generate and download the CSV file.
-  </Step>
-</Steps>
-
-### Export All
-
-Click **Export All (ZIP)** to download every data type in one operation. Each data type is exported as its own CSV file and bundled into a single ZIP archive. The selected company scope applies to the whole bundle.
-
-Use this when you need a complete copy of your MSPortal data, for example for backup, compliance evidence, or offboarding.
-
-### Export File Naming
-
-Exported files are automatically named with the format:
-
-```
-{datatype}_export_{company}_{date}.csv
-```
-
-Example: `companies_export_all_20251230.csv`
-
-Export All bundles are named `msportal_export_{company}_{date}.zip`.
-
-## Download Templates
-
-Import templates provide the correct column structure for each data type. Always use templates to ensure your data imports correctly.
-
-### Available Templates
-
-<CardGroup cols={3}>
-  <Card title="Companies" icon="building">
-    Client companies with PSA defaults (board, priority, status)
-  </Card>
-  <Card title="Locations" icon="location-dot">
-    Company locations with addresses
-  </Card>
-  <Card title="Devices" icon="desktop">
-    Device inventory records
-  </Card>
-  <Card title="Standards" icon="clipboard-check">
-    Compliance standards definitions
-  </Card>
-  <Card title="Planner" icon="calendar">
-    Roadmap and planner items
-  </Card>
-  <Card title="Goals" icon="bullseye">
-    Strategic goals
-  </Card>
-  <Card title="Company Roles" icon="user-tag">
-    User-to-company role assignments
-  </Card>
-</CardGroup>
-
-### Template Structure
-
-Each template includes:
-
-- **Required columns** with asterisks (*)
-- **Optional columns** that can be left empty
-- **Example row** showing expected data format
-- **Column headers** matching expected field names
-
-<Warning>
-Custom CSV formats may cause import errors. Always start with the provided templates.
-</Warning>
-
-## CSV Format Requirements
-
-### General Requirements
-
-| Requirement | Description |
-|-------------|-------------|
-| **Encoding** | UTF-8 (required for special characters) |
-| **Delimiter** | Comma (,) |
-| **Headers** | First row must contain column headers |
-| **Line Endings** | Windows (CRLF) or Unix (LF) both supported |
-
-### Data Formatting
-
-| Data Type | Format | Example |
-|-----------|--------|---------|
-| **Dates** | YYYY-MM-DD | 2025-12-30 |
-| **Phone Numbers** | Any format | +1 (555) 123-4567 |
-| **Boolean** | true/false or 1/0 | true |
-| **Empty Values** | Leave blank | |
-
-<Tip>
-When editing CSV files, use a spreadsheet application like Excel or Google Sheets. Save as CSV (UTF-8) when done.
-</Tip>
-
-## Best Practices
-
-### Before Importing
-
-<AccordionGroup>
-  <Accordion title="Backup First">
-    Export existing data before major imports. This allows you to restore if something goes wrong.
-  </Accordion>
-  <Accordion title="Test with Small Batches">
-    Import a few records first to verify formatting. Fix any issues before importing the full dataset.
-  </Accordion>
-  <Accordion title="Clean Your Data">
-    Remove duplicates, fix inconsistent formatting, and validate required fields before importing.
-  </Accordion>
-  <Accordion title="Use Templates">
-    Always start with downloaded templates rather than creating CSV files from scratch.
-  </Accordion>
-</AccordionGroup>
-
-### Data Quality
-
-- **Consistent formatting**: Use the same date and phone formats throughout
-- **Required fields**: Ensure all required columns have values
-- **Unique identifiers**: Avoid duplicate IDs or email addresses
-- **Valid references**: Company IDs and other references must exist in the system
+Export-only data can include contacts, meetings and their content, budgets and products, survey responses, training, tool stack, goal updates, onboarding tasks and AI conversations. Not every exported type supports import. The ZIP is not a complete database backup or a one-click restoration package, and it does not promise to include all external PSA records or file attachments.
 
 ## Troubleshooting
 
-### Common Import Errors
+If a CSV is rejected during selection, check that it is a CSV file recognized by the browser, rather than an Excel workbook renamed with a CSV extension. If relationships or updates fail, compare the current template and identifiers with the target records. If an export is incomplete, inspect the per-type result and available history, then retry only the missing export where appropriate.
 
-| Error | Cause | Solution |
-|-------|-------|----------|
-| **Missing required field** | Required column is empty | Fill in all required columns |
-| **Invalid format** | Date/number format incorrect | Use YYYY-MM-DD for dates |
-| **Duplicate record** | Record already exists | Use "Update only" mode or remove duplicate |
-| **File too large** | CSV exceeds size limit | Split into smaller files |
-| **Invalid reference** | Company/user ID doesn't exist | Verify referenced records exist |
-| **Encoding error** | Wrong file encoding | Save as UTF-8 |
+## FAQs
 
-### File Not Uploading
+<AccordionGroup>
+  <Accordion title="Does selecting a CSV import it immediately?">
+    No. Confirm the data type and mode, then run the import action.
+  </Accordion>
+  <Accordion title="Does the company filter constrain every export?">
+    No. Compliance checks, Company Roles, custom fields and broadcasts are tenant-level exports.
+  </Accordion>
+  <Accordion title="Does a downloaded Export All ZIP prove every export succeeded?">
+    No. Inspect partial failures and missing data types.
+  </Accordion>
+  <Accordion title="Can I restore the whole portal from Export All?">
+    No. It is a set of supported CSV exports, not a complete database backup or one-click restore.
+  </Accordion>
+  <Accordion title="Can every exported type be imported?">
+    No. Some supported data types are export-only.
+  </Accordion>
+</AccordionGroup>
 
-- Ensure the file extension is `.csv`
-- Check file size is under the limit
-- Try saving the file with UTF-8 encoding
-- Verify the file isn't open in another application
+## Related guides
 
-### Records Not Importing
-
-- Check that required columns have values
-- Verify date formats match YYYY-MM-DD
-- Ensure referenced IDs (company, user) exist
-- Review the import results for specific error messages
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Import Companies" icon="building" href="/user-guides/integrations/import-companies">
-    Detailed guide for importing company records
-  </Card>
-  <Card title="Import Users" icon="users" href="/user-guides/integrations/import-users">
-    Guide for importing user accounts
-  </Card>
-  <Card title="Settings Overview" icon="gear" href="/user-guides/settings/index">
-    All settings configuration options
-  </Card>
-  <Card title="Companies Settings" icon="buildings" href="/user-guides/settings/companies">
-    Configure company defaults and fields
-  </Card>
-</CardGroup>
+- [import-companies](/user-guides/integrations/import-companies)
+- [Import Devices](/user-guides/integrations/import-devices)
+- [companies](/user-guides/settings/companies)

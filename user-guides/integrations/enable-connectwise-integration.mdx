@@ -1,378 +1,98 @@
 ---
 title: 'Configure ConnectWise Manage Integration'
-description: 'Connect your ConnectWise Manage instance to MSPortal.ai using the step-by-step setup wizard'
+description: 'Connect ConnectWise Manage, choose data scope and import the intended companies and users'
 icon: 'plug'
 ---
 
-This guide walks you through connecting your ConnectWise Manage instance to MSPortal.ai using our streamlined setup wizard.
+Use this **MSP staff** workflow to connect ConnectWise Manage and configure the data available to your portal. The wizard follows **Connect → Permissions → Sync → Configure → Import**. Company users do not administer this connection.
 
-## Prerequisites
+## Before you start
 
-Before you begin, ensure you have:
-- Admin access to both ConnectWise Manage and MSPortal.ai
-- Your ConnectWise company ID (visible on the ConnectWise login screen)
-- Access to create API members and security roles in ConnectWise
+You need integration-management permission, authorized provider credentials and access to the companies you intend to synchronize. Ticket configuration can additionally require Ticket Settings permission. Keep credentials in the connection form and your approved secret store.
 
-## Part 1: Configure ConnectWise Manage
+In ConnectWise PSA, create an active API member under **System > Members > API Members** with a dedicated security role. In its **API Keys** tab, add a named key and save it; securely retain both keys because the private key is shown only when created. Use the API hostname for your region, such as `na.myconnectwise.net`, and your ConnectWise Company ID. The [vendor API-member instructions](https://docs.connectwise.com/ITBoost/100/ConnectWise_Manage_Integration) show key creation; use MSPortal’s permission results for the capabilities you intend to enable, rather than copying another integration’s role wholesale.
 
-Before connecting to MSPortal.ai, you need to create an API member and security role in ConnectWise.
+## Connect the provider
 
-### Create Security Role
-
-<Steps>
-  <Step title="Access System Settings">
-    Login to ConnectWise Manage and navigate to **System > Security Roles**.
-  </Step>
+1. Open **Settings > Integrations**, find **ConnectWise Manage**, and open setup. Use **Configure** for the existing connection.
+2. Enter **API URL**, **Company ID**, **Public Key** and **Private Key**.
+3. Select **Test Connection** when ready to connect. **For a new connection, a successful test also creates and saves the integration.** There is no separate Create Integration button in this PSA wizard.
+4. Review the result and continue to **Permissions**. An existing connection can initialize with a Connected indicator; that is not proof of a fresh test.
 
-  <Step title="Create Security Role">
-    Create a security role named "MSPortal" with the following permissions. These permissions enable MSPortal to sync companies, contacts, tickets, opportunities, agreements, and related data.
-
-    For **every category** listed below, set **Add Level**, **Edit Level**, and **Inquire Level** to **All**. Leave **Delete Level** as **None**.
-
-    | Category | Add | Edit | Delete | Inquire |
-    |----------|-----|------|--------|---------|
-    | Companies | All | All | None | All |
-    | Finance | All | All | None | All |
-    | Marketing | All | All | None | All |
-    | Procurement | All | All | None | All |
-    | Project | All | All | None | All |
-    | Sales | All | All | None | All |
-    | Service Desk | All | All | None | All |
-    | System | All | All | None | All |
-    | Time & Expense | All | All | None | All |
+<Frame caption="MSP example: the setup steps for an existing connection. The Connect checkmark does not represent a new test.">
+  <img src="/images/product/connectwise-setup-steps.png" alt="Connectwise setup steps with Permissions selected" width="1852" height="226" />
+</Frame>
 
-    <Tip>
-      The easiest way to configure this is to expand each category and set all sub-permissions to **All** for Add, Edit, and Inquire. You can leave Delete as **None** for all categories.
-    </Tip>
+## Check permissions
 
-    Click **Save and Close** to finalize the security role settings.
-  </Step>
-</Steps>
+The permission screen checks vendor endpoints and reports required access, optional access and unavailable or unverified results. Required denied access prevents the supported progression. An optional permission that is not granted keeps its corresponding sync off.
 
-### Create API Member
+Read the reported failure before changing the API role. A timeout, unavailable endpoint or unverified check is not automatically proof of a missing permission. Retry after resolving the actual problem. These checks exercise **read access**; they do not prove that ticket creation, comments, warranty updates or other writes will succeed.
 
-<Steps>
-  <Step title="Navigate to API Members">
-    1. Go to **System > Members**
-    2. Click the **API Members** tab
-    3. Click **+** to create a new API member
-  </Step>
+## Select synchronization scope
 
-  <Step title="Configure API Member">
-    1. Name it "MSPortal"
-    2. Select the **MSPortal** security role you created
-    3. Enter your **Business Unit** and **Location**
-    4. Click **Save**
-  </Step>
+Select the intended service boards and excluded ticket statuses. Review company type/status filters and the supported opportunity, project, invoice, product catalog and change-management options. A company excluded by synchronization filters will not be made available merely by changing its portal mapping.
 
-  <Step title="Generate API Keys">
-    1. With the API member open, click the **API Keys** tab
-    2. Click **+** to add a new key
-    3. Name it "MSPortal" and click **Save**
-    4. **Important:** Copy the **Public Key** and **Private Key** immediately
+Review filters before continuing. Synchronizing source records, linking them to companies and importing portal records are separate steps. Automatic company/contact import options can create portal records when matching source records arrive. Review any import preview and the selected categories carefully; do not rely on a confirmation appearing for every save.
 
-    <Warning>
-      The API keys cannot be retrieved again after closing this dialog. Make sure to save them securely before proceeding.
-    </Warning>
-  </Step>
-</Steps>
+Proceeding from Sync saves the selected scope and starts background synchronization. Options in later steps may remain incomplete while it runs. Check errors and the connection’s actual sync result before treating an empty list as the final dataset.
 
----
+Warranty writeback is an optional **vendor write**. Enable it only when you intend resolved warranty data to update the connected PSA records.
 
-## Part 2: MSPortal Setup Wizard
+## Configure portal behavior
 
-MSPortal.ai provides a guided setup wizard that walks you through connecting and configuring your ConnectWise Manage integration in 5 easy steps.
+Configure closed statuses and client-comment status for the selected boards, then review the resolution status groups. Configure opportunity stages/types/probabilities and invoice settings where enabled. Use [Resync PSA settings](/user-guides/integrations/connectwise-resync-psa-settings) when newly created vendor boards or statuses are missing.
 
-### Starting the Wizard
+Configuration forms save changes automatically after editing. Wait for the saved state; wizard navigation waits for pending saves and reports failures. Leaving the screen is not a substitute for checking a failed save. Ticket defaults additionally require Ticket Settings permission.
 
-<Steps>
-  <Step title="Navigate to Integrations">
-    In MSPortal.ai, go to **Settings** > **Integrations**.
-  </Step>
+**Quick Sync** requests ticket synchronization. **Clear & Resync** clears portal ticket data for this connection before reloading it. Use the latter only for an intended rebuild, and check the subsequent result; it is not a harmless refresh.
 
-  <Step title="Start Setup">
-    Find the **ConnectWise Manage** integration card and click **Setup** (or **Configure** if previously connected) to launch the setup wizard.
-  </Step>
-</Steps>
+## Import and finish
 
----
+The Import step offers **Users**, **Companies** and **Locations**. Review the parent company before linking a location. Review existing portal records before creating duplicates. Company links determine which client can see synchronized data.
 
-### Step 1: Connect
+Apply the intended company and user selections and check the result. **Complete Setup** also attempts to apply pending company/user imports before completing the wizard. It can start background work, so setup completion is not proof that every import or sync succeeded. An import-page link only navigates to that workflow.
 
-Enter your ConnectWise API credentials to establish the connection.
+Use **Save & Exit** to save wizard progress when pausing. Reopen the connection to continue and verify the saved state. Portal invitations and client permissions remain separate from discovering provider contacts.
 
-<Steps>
-  <Step title="Enter API Credentials">
-    Fill in the following fields:
+## Maintain the connection
 
-    | Field | Description | Example |
-    |-------|-------------|---------|
-    | **API URL** | Your ConnectWise API URL | `na.myconnectwise.net` or `eu.myconnectwise.net` |
-    | **Company ID** | Your company identifier (shown on login screen) | `YourCompanyID` |
-    | **Public Key** | API public key from API member | `abc123...` |
-    | **Private Key** | API private key from API member | `xyz789...` |
+Reopen setup to inspect scope and errors. A successful retest of changed fields is not proof of credential rotation: this wizard has no separate update-credentials action. Confirm the supported replacement path before revoking working vendor credentials.
 
-    <Note>
-      **API URL Examples:**
-      - Cloud-hosted: `na.myconnectwise.net`, `aus.myconnectwise.net`, `eu.myconnectwise.net`
-      - On-premise: `cw.yourcompany.com` (without https://)
-    </Note>
-  </Step>
-
-  <Step title="Test Connection">
-    Click **Test Connection** to verify your credentials. You'll see a green "Connected" status when successful.
-
-    If the connection fails:
-    - Verify your API URL is correct (no https:// prefix)
-    - Check that your Company ID matches exactly
-    - Confirm the API keys are copied correctly
-    - Ensure the API member has the correct security role assigned
-  </Step>
-
-  <Step title="Proceed">
-    Once connected, click **Next** to continue to the permission check.
-  </Step>
-</Steps>
-
----
-
-### Step 2: Permissions
-
-MSPortal checks which parts of ConnectWise your API member is allowed to read, and shows the result for each area of data.
-
-<Steps>
-  <Step title="Review the results">
-    The check runs automatically when you reach this step. Each area of data is listed as either granted or unavailable.
-
-    Areas marked **Required** must be granted before you can continue: Companies, Contacts and staff, Tickets, and Boards and statuses. Without these the integration cannot function.
-
-    Optional areas cover Configurations, Opportunities, Product catalog, Invoices, Agreements, Projects, and Time entries.
-
-    Importing project templates from ConnectWise into **Settings > Projects > Templates** also needs **Project > Project Templates** with **Inquire Level: All**. If the import dialog reports that ConnectWise refused the request, add that permission to the MSPortal security role and try again.
-  </Step>
-
-  <Step title="Grant anything missing">
-    Any area that is not permitted shows the exact ConnectWise security role setting to change, for example **Procurement -> Product Catalog (Inquire Level: All)**.
-
-    Update the MSPortal security role in **System > Security Roles**, then come back and click **Re-check**.
-  </Step>
-
-  <Step title="Continue">
-    You can continue with optional areas ungranted. Those syncs stay switched off and their toggles are locked on the next step until you grant the permission and re-check.
-  </Step>
-</Steps>
-
-<Tip>
-  If a permission is removed later, MSPortal switches off the affected sync and notifies your integration admins rather than retrying against an endpoint it can no longer read.
-</Tip>
-
----
-
-### Step 3: Sync
-
-Configure what data to sync from ConnectWise and set up company filters.
-
-<Steps>
-  <Step title="Configure Data Sync Options">
-    Enable or disable the following sync options:
-
-    | Option | Description |
-    |--------|-------------|
-    | **Sync Users** | Sync member data from ConnectWise |
-    | **Sync Companies** | Sync company data from ConnectWise |
-    | **Enable Ticket Sync** | Sync service tickets from ConnectWise |
-    | **Enable Opportunity Sync** | Sync opportunities from ConnectWise |
-    | **Enable Project Sync** | Sync projects from ConnectWise |
-    | **Enable Invoice Sync** | Sync invoices from ConnectWise |
-    | **Sync product catalog** | Import the product and service catalog for quoting and budgets |
-  </Step>
-
-  <Note>
-    A toggle appears locked when the permission check found that your API member cannot read that data. Grant the permission named beside it in ConnectWise, then re-run the check on the Permissions step to unlock it.
-  </Note>
-
-  <Step title="Configure Contact Auto-Import">
-    If you want contacts to be automatically imported when companies are added:
-
-    1. Enable **Auto-Import** to automatically create user accounts for active contacts
-    2. Select a **Default Role for Imported Contacts** (e.g., Viewer)
-
-    <Tip>
-      We recommend choosing a role with minimal permissions if you plan to import all contacts.
-    </Tip>
-  </Step>
-
-  <Step title="Configure Company Filters">
-    ConnectWise has additional filtering options for company sync:
-
-    | Setting | Description |
-    |---------|-------------|
-    | **Skip Inactive Companies** | Only sync active companies (recommended) |
-    | **Exclude Company Types** | Select company types to exclude from sync |
-    | **Exclude Company Statuses** | Select company statuses to exclude from sync |
-    | **Exclude Opportunity Types** | Select opportunity types to exclude from sync |
-    | **Exclude Project Types** | Select project types to exclude from sync |
-  </Step>
-
-  <Step title="Configure Ticket Sync Scope">
-    Define which tickets to sync:
-
-    | Setting | Description |
-    |---------|-------------|
-    | **Boards to Sync** | Select which ConnectWise service boards' tickets to sync |
-    | **Exclude Statuses** | Select ticket statuses to exclude from sync |
-
-    <Info>
-      When you proceed to the next step, data sync will begin in the background. This may take a few minutes depending on the amount of data in your ConnectWise instance.
-
-      Syncs are automatically deduplicated - if you navigate back and forth between steps, the same sync will not run multiple times within a 2-minute window.
-    </Info>
-  </Step>
-
-  <Step title="Proceed">
-    Click **Next** to continue to ticket and opportunity configuration.
-  </Step>
-</Steps>
-
----
-
-### Step 4: Configure
-
-Set up ticket status mapping and opportunity defaults.
-
-#### Ticket Settings
-
-<Steps>
-  <Step title="Configure Status Settings">
-    | Setting | Description |
-    |---------|-------------|
-    | **Closed Statuses** | Select statuses that indicate a ticket is closed |
-    | **Client Comment Status** | Status to set when a client comments on a ticket |
-  </Step>
-
-  <Step title="Configure Resolution Status Stepper">
-    The Resolution Status Stepper provides a visual indicator of ticket progress. Map your ConnectWise statuses to each stage:
-
-    | Stage | Description |
-    |-------|-------------|
-    | **New** | Tickets that are newly created or not yet triaged |
-    | **Triaged** | Tickets that have been reviewed and categorized |
-    | **Working** | Tickets actively being worked on |
-    | **Waiting** | Tickets waiting for customer response or external input |
-    | **Resolved** | Tickets that have been completed |
-
-    <Tip>
-      You can map multiple ConnectWise statuses to each stage. The stepper will show the appropriate stage based on the ticket's current status.
-    </Tip>
-  </Step>
-
-  <Step title="Sync Actions">
-    Use these buttons to manage ticket sync:
-
-    | Action | Description |
-    |--------|-------------|
-    | **Quick Sync** | Trigger an immediate sync of ticket data |
-    | **Clear & Resync** | Delete all synced tickets and perform a fresh sync (useful after major configuration changes) |
-  </Step>
-</Steps>
-
-#### Opportunity Settings
-
-<Steps>
-  <Step title="Configure Opportunity Defaults">
-    Set default values for opportunities created from MSPortal:
-
-    | Setting | Description |
-    |---------|-------------|
-    | **Default Stage** | The starting stage for new opportunities |
-    | **Default Status** | The default status for new opportunities |
-    | **Default Type** | The default opportunity type |
-    | **Default Probability** | Starting win probability for new opportunities |
-    | **Fallback Sales Rep** | Sales rep assigned when the user doesn't have a ConnectWise account |
-
-    <Note>
-      Opportunity sync can be enabled or disabled in the Sync step. These settings only apply when opportunity sync is enabled.
-    </Note>
-  </Step>
-
-  <Step title="Proceed">
-    Click **Next** to continue to the import step.
-  </Step>
-</Steps>
-
----
-
-### Step 5: Import (Optional)
-
-Import users, companies, and locations from ConnectWise. This step is optional - you can skip it and import later from the respective settings pages. The step is organized into **Users**, **Companies**, and **Locations** tabs.
-
-<Tabs>
-  <Tab title="Users">
-    Import members (your MSP staff) from ConnectWise to create user accounts.
-
-    1. Select users from the list to create accounts for
-    2. Choose a role for imported users
-
-    <Note>
-      Client contacts are not imported here. They can be managed via Company settings after companies are imported.
-    </Note>
-  </Tab>
-
-  <Tab title="Companies">
-    Import companies from ConnectWise to sync their data.
-
-    1. Select companies to import or link to existing MSPortal companies
-
-    <Tip>
-      Companies will sync automatically based on your sync settings and filters. Use this tab if you want to import specific companies immediately.
-    </Tip>
-  </Tab>
-
-  <Tab title="Locations">
-    Import ConnectWise locations and map them to MSPortal locations. Only locations for mapped companies are shown.
-  </Tab>
-</Tabs>
-
----
-
-### Complete Setup
-
-Click **Complete Setup** to finish the wizard. Your ConnectWise Manage integration is now configured!
-
-<Note>
-You can return to the setup wizard at any time by clicking **Configure** on the ConnectWise Manage integration card. The wizard will resume with your current settings.
-</Note>
-
----
-
-## Managing Your Integration
-
-After setup, you can manage your integration from **Settings** > **Integrations**:
-
-- **Configure**: Re-open the setup wizard to modify settings
-- **Resync**: Trigger a manual sync of data
-- **Sync PSA Data**: Refresh configuration data (boards, statuses, types) from ConnectWise
-- **Import Configurations**: Import device configurations from ConnectWise. The configurations import page lets you map ConnectWise configuration types to MSPortal device types, enable auto-sync, and ignore categories you don't need. See [Import Devices](/user-guides/integrations/import-devices) for the full guide.
-
----
-
-## Next Steps
-
-After connecting, you can explore related guides:
-
-- [Re-sync PSA Settings](./connectwise-resync-psa-settings) - Refresh configuration data from ConnectWise
-- [Clear and Resync Tickets](./clear-and-resync-integrations) - Perform a full ticket resync if needed
-- [Integrations FAQ](./faq) - Common questions about integrations
-
----
+**Delete Integration** opens a named confirmation. Confirm **Delete** only to remove the connection and its associated settings; cancel preserves it. Vendor-side credential revocation is separate.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| Connection test fails | Verify API URL format (no https://), Company ID, and API keys are correct |
-| Missing companies after sync | Check if company types or statuses are excluded in sync settings |
-| Permission errors | Verify the API member has the MSPortal security role assigned |
-| Sync not starting | Ensure the integration shows "Connected" status before syncing |
-| Tickets from wrong boards | Verify the correct boards are selected in Ticket Sync Scope |
-| Contacts not importing | Verify Auto-Import is enabled and a default role is selected in the Sync step |
+| Symptom | What to check |
+| --- | --- |
+| Connection fails | Correct provider fields, credential validity, account/API endpoint and error text. |
+| A data option is unavailable | Permission result and whether this provider supports that option. |
+| Companies or tickets are missing | Saved provider filters, synchronization result and company links. |
+| New statuses are absent | Metadata synchronization, selected board/team/queue scope and latest load. |
+| Setup finished but records are absent | Pending imports, background errors and the correct company context. |
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Does Test Connection only test credentials?">
+    For a new connection, a successful test also creates the integration. Enter credentials only when you intend to connect it.
+  </Accordion>
+  <Accordion title="Does a green permissions result verify ticket writes?">
+    No. The permission checks probe read access. Creating tickets, comments or other vendor changes needs the relevant write permission and a successful action.
+  </Accordion>
+  <Accordion title="Does Complete Setup mean all data is ready?">
+    No. Check the background sync result and verify company, user and device imports separately.
+  </Accordion>
+  <Accordion title="Will every discovered contact receive portal access?">
+    Discovery and import are separate. Review user matches, company links and the permissions assigned to portal users; invitation is a separate workflow.
+  </Accordion>
+  <Accordion title="Can I replace saved credentials by retesting the form?">
+    Do not treat a successful retest as proof that replacement credentials were saved. This wizard does not provide a separate credential-update action; confirm the supported update path before revoking the old credential.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Integration settings](/user-guides/settings/integrations)
+- [Company mapping](/user-guides/settings/integration-company-mapping)
+- [Ticket settings](/user-guides/settings/tickets)

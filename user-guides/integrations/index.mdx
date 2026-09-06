@@ -8,6 +8,12 @@ Use this directory to find the existing setup guide for your provider. Integrati
 
 Choose **MSP Guides > Integration setup** in the documentation sidebar. Select a provider below for its connection instructions and any related mapping or troubleshooting guides.
 
+## Connect, map and verify
+
+Open **Settings > Integrations** and review existing connections before adding another instance. Follow the provider's setup workflow, verify its status, map its organizations to the intended companies and inspect synchronization/import results. A provider connection does not itself prove client visibility or enable every supported data area.
+
+Some controls save immediately; credential forms, mapping proposals and imports can have different persistence boundaries. Review the provider guide before continuing, particularly for consent, writeback, bulk operations and disconnection. Company mappings and user-role rules deserve review before automatic imports are enabled.
+
 ## Provider setup and compatibility
 
 Follow the requirements in the individual guide. Providers differ in authentication, company mapping, synchronization, and supported actions. Some services connect per company or through another system, rather than through a direct integration card.
@@ -68,8 +74,22 @@ Follow the requirements in the individual guide. Providers differ in authenticat
 ## Related setup guides
 
 - [Platform Quick Start](/user-guides/getting-started/quick-start)
-- [Onboarding Wizard](/user-guides/getting-started/onboarding/index)
+- [MSP setup playbook](/user-guides/getting-started/onboarding/index)
 - [Settings](/user-guides/settings/index)
 - [Users and permission roles](/user-guides/settings/users-roles)
 
 If a setup guide describes a control you cannot see, check its prerequisites and ask your MSP administrator or [MSPortal support](mailto:support@msportal.ai) for help.
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Does every provider have identical setup steps?">
+    No. Authentication, company mapping, synchronization, feature availability and supported actions differ by provider.
+  </Accordion>
+  <Accordion title="Does a connected provider prove my clients can see the data?">
+    No. Verify synchronization, mapping/import and Company role visibility separately.
+  </Accordion>
+  <Accordion title="Should I add another connection when an existing one has missing data?">
+    Inspect the intended instance, permissions, scope and mapping first; another connection can create additional work or duplicate records.
+  </Accordion>
+</AccordionGroup>

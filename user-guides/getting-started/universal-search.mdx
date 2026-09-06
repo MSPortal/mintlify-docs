@@ -1,122 +1,88 @@
 ---
-title: 'Universal Search'
-description: 'Find anything in MSPortal instantly with the Cmd+K command palette'
+title: 'Find pages and records with Search'
+description: 'Open the search palette, follow a result, and use Deep Search for matching record notes.'
 icon: 'magnifying-glass'
 ---
 
-## Overview
+**Audience:** Company users and MSP staff. Your role, selected company and connected services affect the results available to you. Your MSP manages Company access.
 
-Universal Search is a command palette that lets you find anything in MSPortal from a single search bar. Press **Cmd+K** (Mac) or **Ctrl+K** (Windows/Linux) from anywhere in the app to open it, type your query, and jump directly to the result.
+Search is a quick way to open an available page or find a matching record. It shows a short set of results, not a complete inventory or report.
 
-## Opening Universal Search
+## Open Search and follow a result
 
-There are two ways to open Universal Search:
+<Steps>
+  <Step title="Open the palette">
+    Select the magnifying-glass **Search** button in the top bar. On a keyboard, press **Ctrl+K** on Windows/Linux or **Command+K** on Mac.
+  </Step>
+  <Step title="Enter a specific term">
+    Type a page name, such as **User Settings**, or a recognizable record title or number. Pause briefly while results load. Use a shorter, distinctive term if the complete phrase does not match.
+  </Step>
+  <Step title="Check the category and destination">
+    Results are grouped by category. Read the title and subtitle so you choose the intended page or record. Select the result to open it. You can also use the arrow keys and Enter within the result list.
+  </Step>
+  <Step title="Close without navigating">
+    Press **Escape** to dismiss Search. Opening and closing the palette does not save changes to the page underneath. Finish or cancel an open editor before navigating to a result.
+  </Step>
+</Steps>
 
-<Tabs>
-  <Tab title="Keyboard Shortcut">
-    Press **Cmd+K** (Mac) or **Ctrl+K** (Windows/Linux) from any page in MSPortal. Press it again to close.
-  </Tab>
-  <Tab title="Search Button">
-    Click the **search icon** in the top navigation bar.
-  </Tab>
-</Tabs>
+A result is a link. Use its browser context menu to open it in another tab when you want to keep the current page. Search is available where the signed-in portal top bar is present; public links and embedded pages can have different controls.
 
-## Searching
+## Understand the results
 
-Start typing in the search bar and results appear automatically as you type. Results are grouped by category with icons so you can quickly identify what you're looking at.
+Depending on access and integrations, result groups can include Navigation, Tickets, Companies, Devices, Training, Compliance, Projects, Budgets, Invoices, Backups, Security, Goals, Planner and Documentation. Deep Search can also add Notes.
 
-### Navigating Results
+The palette normally requests up to **five matches per category**. Matching fields vary by record type. If the record is not shown, refine the term or open that module and use its own filters. The palette's result count is the number returned, not the total number of matching records in your organization.
 
-| Action | Key | Description |
-|--------|-----|-------------|
-| Move down | `↓` | Highlight the next result |
-| Move up | `↑` | Highlight the previous result |
-| Select | `Enter` | Navigate to the highlighted result |
-| Close | `Esc` | Close the search palette |
+Company selection narrows applicable record searches. It does not remove general navigation links or necessarily hide shared catalogs. Confirm the company on the record you open. A result does not grant extra access; the destination can still require permission or an available integration.
 
-<Tip>
-You can also click any result to navigate to it, or right-click to open it in a new tab.
-</Tip>
+**Documentation** results refer to records in your portal's Documentation area. For product how-to instructions, use page **Help** or ask the [Home assistant](/user-guides/ai-assistant/use-home-assistant) for a guide and check its citation.
 
-## What You Can Search
+## Use Deep Search for notes
 
-Universal Search covers 14 categories across MSPortal:
+1. Open Search and select **Deep Search** in the footer.
+2. Check that the prompt changes to **Search everything including notes...**.
+3. Enter or change your search term after switching the mode.
+4. Review any Notes results and their matching snippets. Open the result to read its parent record and surrounding context.
 
-<CardGroup cols={2}>
-  <Card title="Navigation" icon="arrow-right">
-    Jump to any page or settings screen by name
-  </Card>
-  <Card title="Tickets" icon="ticket">
-    Find tickets by title, status, or company name
-  </Card>
-  <Card title="Companies" icon="building">
-    Look up clients by company name
-  </Card>
-  <Card title="Devices" icon="laptop">
-    Search hardware by device name or type
-  </Card>
-  <Card title="Training" icon="book-open">
-    Find courses by title or course type
-  </Card>
-  <Card title="Compliance" icon="shield-check">
-    Search checks and assignments by title or status
-  </Card>
-  <Card title="Projects" icon="folder-kanban">
-    Locate projects by name or status
-  </Card>
-  <Card title="Budgets" icon="landmark">
-    Find budgets by title, fiscal year, or status
-  </Card>
-  <Card title="Invoices" icon="receipt">
-    Search invoices by number, reference, or total
-  </Card>
-  <Card title="Backups" icon="hard-drive">
-    Find Cove backup devices by name or status
-  </Card>
-  <Card title="Security" icon="shield">
-    Search Cork vulnerabilities, compliance events, and endpoints
-  </Card>
-  <Card title="Goals" icon="bullseye">
-    Look up goals by title or status
-  </Card>
-  <Card title="Planner" icon="calendar">
-    Find planner items by title or status
-  </Card>
-  <Card title="Notes" icon="file-lines">
-    Full-text search across all note content (Deep Search only)
-  </Card>
-</CardGroup>
+Deep Search adds indexed ticket, meeting, Planner and project notes where your access permits. It does not guarantee every note, file attachment or recently changed record is searchable. It is a record-search mode, not an AI request or a search of every public product guide.
 
-<Note>
-**Backups** and **Security** categories only appear if you have the Cove Backup or Cork Security integrations enabled. Categories are also filtered based on your user permissions — you'll only see results you have access to.
-</Note>
+The mode is remembered in this browser. Select **Deep Search** again to turn it off. Another browser or a reset of browser storage can have a different preference.
 
-## Deep Search
+## If you cannot find something
 
-Toggle **Deep Search** mode by clicking the sparkle button at the bottom of the search palette. Deep Search enables full-text search across all note content in MSPortal, including:
+| What you see | What to do |
+| --- | --- |
+| No results | Try a shorter term, check company selection and open the relevant module. No results alone does not prove the record does not exist. |
+| A missing category | Ask your MSP about role permissions and whether the service is connected. |
+| Results do not reflect a new record or scope | Close and reopen Search, re-enter the term, and check the module directly. Report persistent mismatches. |
+| A result opens an unavailable page | Check whether the record still exists and whether your access changed. Give your MSP the destination and error. |
+| The keyboard shortcut conflicts with an editor | Use the top-bar Search button after finishing the edit. |
 
-- Ticket notes
-- Meeting notes
-- Planner item notes
-- Project notes
+## FAQs
 
-When Deep Search finds a match in a note, the result shows a snippet preview of the matching text and links directly to the parent item (the ticket, meeting, planner item, or project the note belongs to).
+<AccordionGroup>
+  <Accordion title="Does Search show every matching record?">
+    No. It returns a limited set per category. Refine the term or use the module's own search and filters for a fuller list.
+  </Accordion>
+  <Accordion title="Does searching change records?">
+    Entering a term reads results. Opening a result navigates to that record; it does not submit the form you were editing.
+  </Accordion>
+  <Accordion title="Why do I see different results from a colleague?">
+    Your permissions, company selection, connected services and available records can differ. Ask the MSP to review access when needed.
+  </Accordion>
+  <Accordion title="Will Deep Search search product help articles?">
+    Deep Search adds indexed record notes. Portal Documentation records and public product guides are different sources. Use Help or ask the Home assistant for cited product instructions.
+  </Accordion>
+  <Accordion title="Do I need to enable Deep Search every time?">
+    No. The preference is remembered in the same browser. You can turn it off using the same footer control.
+  </Accordion>
+  <Accordion title="Does an empty result prove that a note or ticket is absent?">
+    No. Permissions, company scope, supported fields, indexing, result limits or a loading failure can affect the result. Check the parent module before concluding that data is missing.
+  </Accordion>
+</AccordionGroup>
 
-<Info>
-Your Deep Search preference is remembered between sessions — toggle it once and it stays on until you turn it off.
-</Info>
+## Related guides
 
-## Company Scoping
-
-Search results automatically respect your currently selected companies. If you have specific companies selected in the company filter, Universal Search only returns results from those companies.
-
-## Permissions
-
-Universal Search respects your user permissions. You will only see results from categories your role has access to. For example, if your role doesn't include compliance permissions, compliance results won't appear in search.
-
-## Tips
-
-- **Use short, specific terms** for the fastest results — searching "acme" is more effective than "acme corporation LLC"
-- **Navigate to pages quickly** by typing the page name, like "settings" or "training"
-- **Enable Deep Search** when you need to find something mentioned in a note but can't remember which ticket or meeting it was in
-- **Right-click a result** to open it in a new browser tab while keeping your current page open
+- [Use keyboard shortcuts](/user-guides/getting-started/keyboard-shortcuts)
+- [Understand your access](/user-guides/account/understand-your-access)
+- [Use the Home assistant](/user-guides/ai-assistant/use-home-assistant)

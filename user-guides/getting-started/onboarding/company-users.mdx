@@ -1,97 +1,52 @@
 ---
-title: "Company Users"
-sidebarTitle: "16. Company Users"
-description: "Import and manage users for your client companies"
+title: "Prepare Company users"
+sidebarTitle: "Prepare Company users"
+description: "Review imported contacts, company assignments and client access."
 icon: "users"
 ---
 
-The Company Users step helps you import and manage users for your client companies. These are the end users at your client organizations who will access the MSPortal client portal.
+**Audience:** MSP staff with Company-user settings access. Open **Settings > Users & Roles > Company Users**, or the client-user step in Launch Center.
 
-## What You'll Configure
+## Prepare the pilot users
 
-- **User Import** - Bring users in from M365 or your PSA
-- **User Assignments** - Assign users to companies and roles
-- **Portal Access** - Enable or disable portal login for users
-- **User Details** - Configure user information and preferences
+1. Review existing users before importing again. Confirm their company, email, active state and access group.
+2. For provider records, follow the integration's user-import workflow and confirm company mappings first. A synchronized contact in staging is not necessarily a portal user.
+3. Assign the intended Company access group. Review provider contact-type rules, company defaults and integration defaults where synchronization manages roles.
+4. Verify the saved user record and intended access. Keep invitations and other communications as separate deliberate actions.
+5. Repeat for each company in the rollout, then review Launch Center's client-user finding.
 
-## Steps to Complete
+Use the detailed [Users & Roles settings](/user-guides/settings/users-roles) and [user import guide](/user-guides/integrations/import-users) for supported actions. Do not assume every provider offers the same Import from M365 or Import from PSA button in the user table.
 
-<Steps>
-  <Step title="Navigate to Company Users">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Companies > Users**.
-  </Step>
-  <Step title="Review Existing Users">
-    If you've connected M365 or a PSA, some users may already be imported. Review the list to see what's been synced.
-  </Step>
-  <Step title="Import Additional Users">
-    Click **Import Users** to bring in users from:
-    - Microsoft 365 (Azure AD/Entra ID)
-    - Your PSA system
-    - Manual entry
-  </Step>
-  <Step title="Assign Roles">
-    For each user, assign an appropriate company role (Admin, Manager, User, etc.).
-  </Step>
-  <Step title="Enable Portal Access">
-    For users who need to log in to the portal, enable their portal access and send invitations.
-  </Step>
-</Steps>
+<Frame caption="Filter Company users by name, email and account type before reviewing individual records.">
+  <img src="/images/product/company-user-review-filters.png" alt="Filter Company users by name, email and account type before reviewing individual records." width="1220" height="124" />
+</Frame>
 
-## User Import Sources
+## What counts as ready
 
-<Tabs>
-  <Tab title="From M365">
-    If a company has M365 connected, you can import users directly from Azure AD:
-    1. Select the company
-    2. Click **Import from M365**
-    3. Choose which users to import
-    4. Assign roles and enable access as needed
-  </Tab>
-  <Tab title="From PSA">
-    If you have a PSA connected, you can import contacts as users:
-    1. Click **Import from PSA**
-    2. Select contacts to import
-    3. Map them to the correct company
-    4. Assign roles
-  </Tab>
-  <Tab title="Manual Entry">
-    Add users individually:
-    1. Click **Add User**
-    2. Enter name, email, and other details
-    3. Select the company and role
-    4. Send an invitation email
-  </Tab>
-</Tabs>
+The launch check requires an active Company user with a company assignment and an access role for every rollout company. A staged contact, inactive record or unassigned user does not satisfy it. A passing check still does not prove that the person can complete every intended task or has received an invitation.
 
-## User Roles
+Access Groups control permissions. Team Roles assign responsibilities and account teams. Assigning a team responsibility does not replace the user's access group.
 
-Company users are assigned roles that determine their permissions:
+## Troubleshooting
 
-| Role | Description |
-|------|-------------|
-| **Admin** | Full access to company data, can manage other users |
-| **Manager** | Access to most features, limited user management |
-| **User** | Standard access for submitting tickets and viewing info |
-| **Training Only** | Limited to training courses |
+If a user's role changes after synchronization, inspect explicit contact-type rules before overriding it again. If the user belongs to the wrong company, correct the source mapping and assess the affected records before importing more. If the user cannot sign in, inspect identity and access status separately from the integration connection.
 
-## Portal Access
+## FAQs
 
-Users with portal access enabled can:
-- Log in to the MSPortal client portal
-- Submit and view support tickets
-- Complete training courses
-- View company dashboards (based on permissions)
+<AccordionGroup>
+  <Accordion title="Does a staged provider contact count as a ready Company user?">
+    No. The check needs an active portal Company user with company and access-role assignments.
+  </Accordion>
+  <Accordion title="Does one active user cover all rollout companies?">
+    No. Every rollout company needs its own qualifying user evidence.
+  </Accordion>
+  <Accordion title="Does importing a contact prove an invitation was sent?">
+    No. Verify user creation and access separately from invitations and communications.
+  </Accordion>
+</AccordionGroup>
 
-## Manual Completion
+## Related guides
 
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished setting up users for your client companies.
-
-<Tip>
-  Start with key contacts at each company—the people who will submit tickets or need training. You can always add more users later.
-</Tip>
-
-## Related Documentation
-
-- [Companies Settings](/user-guides/settings/companies) - Company management reference
-- [Import Users](/user-guides/integrations/import-users) - User import guide
-- [Company Roles](/user-guides/getting-started/onboarding/company-roles) - Role configuration
+- [Users & Roles](/user-guides/settings/users-roles)
+- [Import users](/user-guides/integrations/import-users)
+- [Change a Company user’s permissions](/user-guides/settings/change-company-user-permissions)

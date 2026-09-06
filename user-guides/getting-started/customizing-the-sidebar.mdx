@@ -1,7 +1,7 @@
 ---
-title: 'Customizing the Sidebar'
-description: 'Reorder pages, create your own sections, add custom links, and pin dashboards to the MSPortal sidebar'
-icon: 'table-columns'
+title: "Customize the sidebar"
+description: "Choose a layout scope, stage navigation changes and save the intended override."
+icon: "book-open"
 ---
 
 The sidebar navigation editor lets you shape MSPortal's left-hand navigation to match how your team works. Reorder the built-in pages, group them into your own sections, hide modules you do not use, add up to 20 custom links to outside tools, and pin dashboards directly into the sidebar for one-click access.
@@ -11,12 +11,18 @@ Sidebar layouts cascade across three levels:
 | Level | Where to edit | Who it affects |
 |-------|---------------|----------------|
 | **Tenant default** | Settings > Customization > **Navigation** | Every user, unless a company or personal layout overrides it |
-| **Company override** | Settings > Customization > **Navigation**, with a company selected | Users of that company |
+| **Company override** | Settings > Customization > **Navigation** > **Applies to**, choose a company | Users of that company |
 | **Personal order** | Settings > **User Settings** > Sidebar order | Only you |
 
 <Note>
 The Navigation settings page requires navigation settings permission. Custom links and the dashboards panel are available in the tenant default and company override editors. The personal editor covers reordering, custom sections, and hiding modules.
 </Note>
+
+<Frame>
+  <img src="/images/product/navigation-layout-scope.png" alt="Navigation settings Applies to selector with All companies default selected." width="680" height="204" />
+</Frame>
+
+This MSP settings selector chooses the layout being edited.
 
 ## The Navigation Editor
 
@@ -79,7 +85,9 @@ At the top of the Navigation editor, the **Applies to** selector controls which 
 - **All companies (default)** edits the tenant-wide default sidebar.
 - Selecting a company creates or edits that company's own sidebar. Companies without a saved override use the all-companies default.
 
-Modules disabled at the tenant level appear locked in a company editor and cannot be re-enabled there. Use **Reset all company overrides** to delete every company-specific layout at once and return all companies to the default.
+Modules disabled at the tenant level appear locked in a company editor and cannot be re-enabled there. **Reset all company overrides** is a separate bulk action: its confirmation deletes every company-specific layout immediately. It does not wait for **Save order**, and personal layouts can still affect what an individual sees. Do not use it to reset just one company.
+
+An ordinary editor Reset stages the baseline. Save the unchanged reset to remove that scope’s override and follow its parent default again. Editing the staged baseline before saving creates a customized layout instead. If a company’s layout fails to load, retry before editing; do not replace it with a guessed default.
 
 ## Personal Sidebar Order
 
@@ -99,23 +107,6 @@ Each user can rearrange their own sidebar without affecting anyone else:
 
 Modules your administrator disabled show a lock icon and cannot be re-enabled from the personal editor.
 
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="My changes are not showing up">
-    Edits are staged in the editor until you click **Save order**. A "Not applied until you save" hint appears whenever there are unsaved changes.
-  </Accordion>
-  <Accordion title="I cannot add more custom links">
-    Each layout supports up to 20 custom links. Delete a link you no longer need to make room.
-  </Accordion>
-  <Accordion title="A dashboard is missing from the Dashboards panel">
-    The panel lists client-visible shared dashboards. Dashboards set to internal-only visibility, and private dashboards, are not offered in the tenant and company editors. Check the dashboard's sharing and visibility settings under Settings > Dashboards.
-  </Accordion>
-  <Accordion title="A module in Disabled modules shows a lock">
-    It was disabled at a higher level (tenant or company). Only the level that disabled it can re-enable it.
-  </Accordion>
-</AccordionGroup>
-
 ## Related Resources
 
 - [Dashboards](/user-guides/dashboards/index)
@@ -123,3 +114,23 @@ Modules your administrator disabled show a lock icon and cannot be re-enabled fr
 - [How to Create a New User Role](/user-guides/getting-started/how-to-create-a-new-user-role)
 
 For instructions focused on your own account, see [Arrange your personal sidebar](/user-guides/account/arrange-your-sidebar).
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Are sidebar changes saved as I drag items?">
+    No. The editor stages layout and custom-link changes until Save order. Check the Applies to selector before saving.
+  </Accordion>
+  <Accordion title="Is Reset all company overrides another staged Reset?">
+    No. Confirming Reset all company overrides immediately removes all company layout overrides. Ordinary editor Reset stages a baseline until Save order.
+  </Accordion>
+  <Accordion title="Why is a disabled module locked?">
+    A higher-level tenant or company layout disabled it. Change the responsible parent scope; personal reordering cannot re-enable it.
+  </Accordion>
+  <Accordion title="Does hiding a sidebar item remove access to its data?">
+    No. Sidebar visibility is a navigation preference. Use roles and record visibility controls for access.
+  </Accordion>
+  <Accordion title="Why is a dashboard missing from the editor?">
+    Check its sharing and client visibility. The tenant/company dashboard palette does not offer private or internal-only dashboards.
+  </Accordion>
+</AccordionGroup>

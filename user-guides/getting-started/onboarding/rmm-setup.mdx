@@ -1,74 +1,56 @@
 ---
-title: "RMM Integration"
-sidebarTitle: "10. RMM Integration"
-description: "Connect your RMM to sync devices and monitoring data"
+title: "RMM connection"
+sidebarTitle: "RMM connection"
+description: "Connect the selected RMM and verify its data before continuing."
 icon: "desktop"
 ---
 
-The RMM Integration step connects MSPortal to your Remote Monitoring and Management system. This enables automatic synchronization of devices, sites, and monitoring data.
+**Audience:** MSP staff with integration-management access. Have the provider administrator prepare the credentials and permissions required by its setup guide.
 
-<Note>
-  This step only appears if you selected that you need an RMM integration in the Integration Selection step.
-</Note>
+## Connect the intended instance
 
-## What Gets Synced
+1. In **Launch Center**, review the selected RMM and connection instance, then open its setup step. You can also open the provider from **Settings > Integrations**.
+2. Follow the provider's credential and connection workflow. Exact fields, test controls and supported features differ by provider.
+3. Use the displayed connection/save action and wait for its result. Correct credential, region or permission errors before proceeding.
+4. Review synchronization status and available sites, devices and supported monitoring information. A successful credential check is not the same as a completed import.
+5. Map provider companies or sites to the intended MSPortal company. Review import settings before importing or enabling continuing synchronization.
+6. Return to Launch Center and inspect the selected connection's readiness and the separate client-data findings.
 
-Depending on your RMM, MSPortal can sync:
+<Frame caption="PSA and primary RMM selections have separate controls.">
+  <img src="/images/product/launch-integration-choices.png" alt="PSA and primary RMM selections have separate controls." width="1780" height="650" />
+</Frame>
 
-- **Devices** - Computers, servers, and network devices
-- **Sites/Locations** - Client sites and their device groups
-- **Device Details** - Hardware, software, and status information
-- **Alerts** - Monitoring alerts and their status
+## Connection versus readiness
 
-## Steps to Complete
+The connection check applies to the provider instance selected for the plan. An unrelated active integration does not satisfy it. Data requirements are checked separately for the rollout companies. Do not assume all provider features, records or writeback operations are supported because the connection succeeds.
 
-<Steps>
-  <Step title="Navigate to Integration Setup">
-    Click **Go to Settings** in the onboarding wizard. You'll be taken to the setup page for your selected RMM.
-  </Step>
-  <Step title="Enter API Credentials">
-    Provide the API credentials required by your RMM. Each RMM has different requirements.
-  </Step>
-  <Step title="Test Connection">
-    Click **Test Connection** to verify your credentials work correctly.
-  </Step>
-  <Step title="Configure Sync Settings">
-    Choose what data to sync and how often.
-  </Step>
-  <Step title="Start Initial Sync">
-    Click **Connect** or **Save** to activate the integration. An initial sync will begin automatically.
-  </Step>
-</Steps>
+Next, review device mappings and import actual devices. Staged devices alone do not satisfy inventory readiness.
 
-## RMM-Specific Guides
+## Troubleshooting
 
-For detailed setup instructions, see the guide for your RMM:
+If the selected connection is missing, return to the strategy step and choose the intended instance. If synchronization has no expected records, inspect its status, provider permissions, scope and company mappings. Preserve the current connection while investigating; clearing and resyncing can remove staged or mapped data and is not a harmless refresh.
 
-<CardGroup cols={2}>
-  <Card title="Datto RMM" href="/user-guides/integrations/enable-datto-rmm-integration" icon="server">
-    Setup guide for Datto RMM integration
-  </Card>
-  <Card title="ConnectWise ASIO" href="/user-guides/integrations/enable-connectwise-asio-integration" icon="server">
-    Setup guide for ConnectWise ASIO
-  </Card>
-  <Card title="Syncro" href="/user-guides/integrations/enable-syncro-integration" icon="server">
-    Setup guide for Syncro (includes RMM)
-  </Card>
-</CardGroup>
+Use the specific guide below for credential preparation and provider behavior.
 
-## Auto-Completion
+## FAQs
 
-This step is **automatically marked as complete** when:
-- An active RMM integration exists for your tenant
+<AccordionGroup>
+  <Accordion title="Does a successful RMM credential test complete the rollout?">
+    No. Verify the selected connection, company mapping, actual imported records and remaining readiness findings.
+  </Accordion>
+  <Accordion title="Can any active connection satisfy this step?">
+    No. The check applies to the provider instance selected in the plan.
+  </Accordion>
+  <Accordion title="Should I clear and resync immediately when data is missing?">
+    No. Inspect status, permissions, scope and mappings first; clearing data is a separate consequential operation.
+  </Accordion>
+</AccordionGroup>
 
-## Initial Sync Time
+## Related guides
 
-<Warning>
-  The initial sync may take several minutes depending on the number of devices in your RMM. The next step (Device Import) will wait for the sync to complete before becoming available.
-</Warning>
-
-## Related Documentation
-
-- [Integrations Settings](/user-guides/settings/integrations) - Manage your integrations
-- [Devices Overview](/user-guides/devices/index) - Device management guide
-- [Clear and Resync](/user-guides/integrations/clear-and-resync-integrations) - Troubleshooting sync issues
+- [Configure Datto RMM Integration](/user-guides/integrations/enable-datto-rmm-integration)
+- [Configure NinjaOne Integration](/user-guides/integrations/enable-ninjaone-integration)
+- [Enable connectwise asio integration](/user-guides/integrations/enable-connectwise-asio-integration)
+- [Configure Addigy Integration](/user-guides/integrations/enable-addigy-integration)
+- [Integrations](/user-guides/settings/integrations)
+- [Device Import](/user-guides/getting-started/onboarding/device-import)

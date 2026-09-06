@@ -4,6 +4,8 @@ description: 'Write reusable client-facing documentation pages once and surface 
 icon: 'book-open'
 ---
 
+**Audience:** MSP staff writing and attaching client reference material. Clients read these pages in their onboarding portal; they do not manage the library.
+
 Client Pages are reusable, read-only documentation pages you write once and reference from your onboarding templates and portals. Instead of re-typing the same welcome message, support instructions, or security FAQ into every client's onboarding, build a tenant-level library of pages and attach the relevant ones to a template. Each new portal launched from that template includes the pages automatically, and clients read them as expandable articles inside their portal.
 
 <Note>
@@ -55,7 +57,7 @@ The Pages tab lists every page with these columns:
 Each row has an actions menu with **Edit page** and **Delete page**.
 
 <Warning>
-Deleting a page removes it from every template and portal that references it. A confirmation dialog names the page before you confirm.
+Deleting a shared library page removes its onboarding references and archives it in the shared documentation library. This affects linked templates and portals. A confirmation dialog names the page; review Usage first. Removing one template link is a narrower action than deleting the library page.
 </Warning>
 
 ## Attaching Pages to a Template
@@ -70,7 +72,7 @@ Pages reach a portal by being attached to a template first. In the template buil
     Use the **Select custom page** combobox to search your library and add a page. Pages already linked are not shown again; when everything is linked you'll see "All custom pages are linked".
   </Step>
   <Step title="Set client visibility">
-    Each linked page has a **Visible to client portal** toggle. Turn it off to keep a page attached but hidden from clients (it shows a **Hidden** badge). Use the **Preview** (eye) icon to review the rendered page.
+    Linking, unlinking, and visibility controls save separately from the template header. Each linked page has a **Visible to client portal** toggle. Turn it off to keep a page attached but hidden from clients (it shows a **Hidden** badge). Use the **Preview** (eye) icon to review the rendered page.
   </Step>
 </Steps>
 
@@ -80,17 +82,18 @@ Templates **reference** library pages — they don't copy the text. Update the p
 
 ## Reviewing Pages on a Portal
 
-Each company's onboarding workspace has a **Pages** tab (alongside Overview, Tasks, Documents, and Activity). When a portal is created from a template, the template's visible pages are copied into the portal as a point-in-time snapshot.
+Each company's onboarding workspace has a **Pages** tab (alongside Overview, Tasks, Documents, Activity, and Settings). Portal creation copies the page assignment, visibility, and fallback content while retaining the library link when available. Hidden assignments can also be copied.
 
 The Pages tab is a **review view**:
 
 - The left pane lists the portal's **Assigned pages** with counts of **Visible** and **Hidden** pages and a search box
 - The right pane previews the selected page's content
-- A source badge shows whether the page is still a **Shared page** (linked to the library) or a **Portal snapshot**
-- Use the **View as** dropdown to open the client portal as a specific contact and read the pages in place, exactly as they appear to that person
+- **Shared page** means the portal can display current library content; editing that library page can change what an existing portal shows
+- **Portal snapshot** means the portal uses its saved content rather than a current library link
+- Use the **View as** dropdown to open the client portal as a specific contact and read the pages in place, in an MSP preview of that contact's visibility context
 
 <Note>
-Pages are copied into a portal when it is created. To change which pages appear, adjust the template's Client Pages section before creating (or appending to) the portal. Editing a library page later does not rewrite pages already snapshotted into existing portals.
+Template page assignments are copied when the portal is created. Changing a template link does not rebuild existing portal assignments. Editing a linked library page can update the content shown by Shared pages; an independent Portal snapshot retains its saved content. Check the source badge before editing a page used by clients.
 </Note>
 
 ## What the Client Sees
@@ -111,7 +114,13 @@ Client Pages and Documentation Hub "inline" documents are the **same record**, n
 - An inline page you create in the Documentation Hub appears in your onboarding page library
 - Editing a page in either place updates the one shared page everywhere it's referenced
 
-This means your onboarding reference content and your internal documentation stay unified — there's a single source of truth for each page.
+The shared record makes reuse convenient, but editing internal reference text can also affect client-facing uses. Review the page Usage and its content before saving changes.
+
+## Save and review changes
+
+**Add Page** opens an editor; entering text does not save it. Submit **Add Page** for a new page or **Save Changes** for an existing one and wait for success. **Cancel** closes the unsaved edit. Linking a page to a template, changing its visibility, and removing that link save through their own controls.
+
+After changing shared content, review a linked portal's **Pages** tab and **View as** presentation. Reading a reference page does not complete a task or record an acknowledgement. Create a separate task or approval if you need a client response.
 
 ## Permissions
 
@@ -135,3 +144,26 @@ Creating or editing pages requires an active subscription. No external integrati
     How pages appear to your clients
   </Card>
 </CardGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Will editing a library page change existing client portals?">
+    It can change portals showing that Shared page. A Portal snapshot keeps its saved content. Check Usage and the source badge before editing.
+  </Accordion>
+  <Accordion title="Does removing a page from one template delete the library page?">
+    No. It removes that template link. The library page and existing portal assignments remain. Delete page is the broader shared-library action.
+  </Accordion>
+  <Accordion title="Why is an assigned page absent from the client portal?">
+    Check its client visibility and the portal display settings, then use the relevant contact or role preview. An assigned hidden page can still appear in the MSP review list.
+  </Accordion>
+  <Accordion title="Does reading a page mark onboarding complete?">
+    No. Pages are read-only references. Use a task, approval, or signature workflow when a client must acknowledge or respond.
+  </Accordion>
+  <Accordion title="Does the template Save Changes button save page links?">
+    Page link and visibility controls save separately. The page editor also has its own Add Page or Save Changes action.
+  </Accordion>
+  <Accordion title="Why did a page edit also change Documentation Hub?">
+    They use the same shared library page. Review every intended audience before saving content used in multiple places.
+  </Accordion>
+</AccordionGroup>

@@ -4,20 +4,20 @@ description: Configure organization-wide settings, custom domains, and branding
 icon: building-columns
 ---
 
-Tenant Settings controls organization-wide configuration including company details, custom domains, branding, and security options. Only Primary Admins can access these settings.
+Tenant Settings controls organization-wide configuration including company details, custom domains, branding, and security options. Access depends on your tenant-settings permissions; individual actions can require additional management access.
 
 ## Accessing Tenant Settings
 
 1. Click **Settings** in the sidebar
-2. Select the **Tenant** icon from the settings navigation
+2. Select **Tenant** from the settings navigation
 
 Tenant Settings is organized into three tabs: **Details**, **AI**, and **Branding**.
 
-## Tenant Settings Overview
+## Save behavior
 
-<Frame>
-  <img src="/images/settings/settings-tenant.png" alt="Tenant Settings" />
-</Frame>
+Use the header **Save Settings** for the main form, including Details, AI and custom-domain login-method choices. Wait for the saved result before leaving. Header **Reset** restores the form's saved baseline; it is not a saved undo of earlier changes.
+
+Logo uploads, **Save color**, location changes, custom-domain actions and **Save sign-in page** are separate persisted operations. Inspect the result of the action you used; the header cannot discard an upload or domain change that already succeeded.
 
 ## Tenant Details
 
@@ -29,20 +29,11 @@ Basic organization information:
 | **Billing Email** | Email for billing notifications |
 | **Primary Admin** | Main administrator contact |
 
-## Address & Preferences
+## Locations and preferences
 
-### Company Address
-- **Street Address** - Physical location
-- **City, State/Province** - Location details
-- **Postal Code** - ZIP or postal code
-- **Country** - Country of operation
+Review **Locations** on Details. Create or edit a location in its own dialog, save it there and check the resulting record. Setting a primary location and deleting a location use their own actions; check the target location and any confirmation. These changes are separate from the header form save.
 
-### Timezone
-Select your organization's default timezone. This affects:
-- Scheduled reports
-- Meeting times
-- Audit timestamps
-- User default timezone
+Review the timezone, language/locale and currency preferences offered in Details. Save form changes with **Save Settings**. The data-residency card reports stored-data and application-serving regions; it does not move the tenant's data or offer a region-change control.
 
 ## Tenant Security Settings
 
@@ -57,10 +48,6 @@ When enabled:
 Roles with **Bypass Company Restrictions** enabled will still have access to all companies.
 </Note>
 
-### Advanced Settings
-
-Additional security and configuration options for enterprise deployments.
-
 ## AI Settings
 
 The **AI** tab controls AI-powered features for your organization. Two independent switches let you decide who gets AI: everyone, only your internal team, or no one.
@@ -69,8 +56,7 @@ The **AI** tab controls AI-powered features for your organization. Two independe
 
 The **Enable all AI-powered features** switch turns AI on or off for your entire organization. When disabled:
 
-- No users, automations, or background jobs can generate AI content
-- AI buttons and panels disappear across the app
+Review the affected AI controls and workflows after saving. This switch is not a record-deletion operation or evidence that every already-running background task has stopped.
 
 ### Client-facing AI
 
@@ -108,6 +94,8 @@ Configure custom domains to access MSPortal with your own branding. Custom domai
   </Step>
 </Steps>
 
+Domain creation and **Set Primary** save independently of the header form. **Re-check** retrieves and can update verification status. Inspect the returned state before sharing the domain; waiting or returning to the page is not proof that DNS is active.
+
 ### Domain Status
 
 | Status | Meaning |
@@ -134,6 +122,10 @@ At least one sign-in method must remain enabled, so the last enabled method cann
 
 Customize your organization's branding:
 
+<Frame caption="Current Tenant Branding controls with separate Save color and built-in light/dark previews.">
+  <img src="/images/product/tenant-branding-colors.png" alt="Tenant branding color controls and light/dark sample previews." width="1800" height="1240" />
+</Frame>
+
 ### Brand Color
 
 Set your primary brand color, used for buttons, links, sidebar highlights, and other branded UI across the app.
@@ -149,7 +141,7 @@ Set your primary brand color, used for buttons, links, sidebar highlights, and o
     Preview cards show how buttons, sidebar items, badges, and links will look in both light and dark themes. The dark-mode variant is generated automatically from your chosen color.
   </Step>
   <Step title="Save">
-    Click **Save** to apply. Your color takes effect immediately for every user in your tenant.
+    Click **Save color** and wait for confirmation. Review the resulting light and dark previews and reload a portal page to check the saved brand.
   </Step>
 </Steps>
 
@@ -207,10 +199,10 @@ Use the **Sign-In Page** section to customize the first page clients see when th
     Enable **Frosted glass card** to make the card slightly transparent with a blur effect. The glass effect appears when you use a custom color, gradient, or image background.
   </Step>
   <Step title="Write the welcome message">
-    Enter a **Welcome title** and **Welcome subtitle**. Leave either field blank to use the standard MSPortal sign-in copy.
+    Enter a **Welcome title** and **Welcome subtitle**. Leave either field blank to use the standard MSPortal sign-in copy. Review any help instructions as public-facing text; do not include private support details or credentials.
   </Step>
   <Step title="Preview and save">
-    Review the preview, then click **Save sign-in page**. Open the custom domain in a signed-out or private browser window to verify the complete sign-in experience.
+    Uploading a background prepares a draft asset; use **Save sign-in page** to apply the draft configuration. Review the preview, then click **Save sign-in page**. Open the custom domain in a signed-out or private browser window to verify the complete sign-in experience.
   </Step>
 </Steps>
 
@@ -230,18 +222,9 @@ To remove the custom background, card style, logo size, and welcome copy, click 
 | An image will not upload | Use PNG, JPG, or WEBP and keep the file at or below 3 MB |
 | A sign-in option is missing | Review **Custom domain login methods** under **Branding > Domains** |
 
-### Upload Guidelines
+### Upload and crop
 
-- **Format** - PNG or SVG recommended
-- **Background** - Transparent backgrounds work best
-- **Quality** - High resolution for crisp display
-- **Theme-aware** - Upload separate light/dark versions
-
-### Live Preview
-
-Use the preview panel to see how your branding appears:
-- **Desktop view** - Full sidebar with logo
-- **Mobile view** - Collapsed icon view
+Use the format and size limits shown by the selected upload control. For logos, confirm the crop and wait for the upload result; closing the cropper is not a save. Favicon and reporting-logo uploads have their own behavior. Review light and dark variants separately.
 
 ## Best Practices
 
@@ -249,6 +232,26 @@ Use the preview panel to see how your branding appears:
 - **Test custom domains** - Verify domains work before sharing with users
 - **Document settings** - Record configuration for disaster recovery
 - **Review periodically** - Update branding when company details change
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Does header Reset undo saved uploads or domain changes?">
+    No. Header Reset restores the main form baseline; dedicated uploads and domain actions persist separately.
+  </Accordion>
+  <Accordion title="Does uploading a sign-in background apply the sign-in design?">
+    No. The upload prepares a draft asset; apply the configuration with Save sign-in page.
+  </Accordion>
+  <Accordion title="Can I move tenant data using the residency card?">
+    No. The card is informational and has no data-region change control.
+  </Accordion>
+  <Accordion title="Where do I save custom-domain login methods?">
+    Use the header Save Settings, keeping at least one sign-in method enabled.
+  </Accordion>
+  <Accordion title="Is brand-color Reset the same as header Reset?">
+    No. The color control confirms and saves a return to the default palette; header Reset concerns the main form.
+  </Accordion>
+</AccordionGroup>
 
 ## Related Resources
 

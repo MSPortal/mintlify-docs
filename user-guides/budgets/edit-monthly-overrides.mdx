@@ -45,19 +45,17 @@ If saving fails, read the error and reopen or reload the schedule to confirm the
 3. Press Enter or Tab, or click outside the input.
 4. Wait for **Saved.** and confirm that the calculated amount returns and the override styling disappears.
 
-**Clear the field to restore the calculation.** Typing the calculated amount over an existing override can leave the old override in place. An empty field explicitly removes that month's override.
+**Clear the field to restore the calculation.** Typing the calculated amount saves that number as an explicit override; it does not remove the override. An empty field removes that month's override so future billing changes can recalculate it.
 
 The restored value comes from the line's current quantity, unit price, recurrence, start month and any term limit. It may be zero if no charge is scheduled for that month. Clearing one month does not clear other months.
 
-## Use zero carefully
+## Set a month to zero
 
 Entering **0** on a month with a calculated charge replaces that charge with zero. Clearing the field restores the calculated charge. These are different actions.
 
-<Warning>
-  A saved zero override currently opens as a blank input. If you open it and then click away or press Tab, the blank value can clear the override and restore the calculated charge. Press **Escape** if you opened the cell only to inspect it. Check the result after any edit to a zero override.
-</Warning>
+A saved zero opens as **0**. Opening the cell and pressing Tab without changing it preserves that zero. Press **Escape** to cancel a value you have started changing.
 
-When the calculated amount is already zero, entering zero over a positive override can leave that positive override unchanged. Clear the input instead, then confirm that the displayed amount returns to a dash and the override styling disappears.
+You can also replace a positive override with **0** in a month whose calculated amount is already zero. The displayed dash retains the override styling. To remove the override instead, clear the input and confirm that the override styling disappears.
 
 ## Check the effect on other views
 
@@ -79,16 +77,16 @@ The override affects the monthly schedule and its totals. Overview still uses qu
     Press Escape while the input is still open. Clicking elsewhere or pressing Tab can submit the edit. Escape cannot undo a value already saved.
   </Accordion>
   <Accordion title="How do I remove an override and use the calculation again?">
-    Empty the cell's input and leave the field. Wait for the save result and confirm the calculated amount returns. Typing the calculated number over an override can leave the old override unchanged.
+    Empty the cell's input and leave the field. Wait for the save result and confirm the calculated amount returns. Typing the calculated number saves an explicit override; clearing removes it.
   </Accordion>
   <Accordion title="Is zero the same as clearing a month?">
     No. Zero replaces a calculated charge with zero. Clearing the field removes the override and restores the calculated schedule.
   </Accordion>
-  <Accordion title="Why did opening a zero override restore a charge?">
-    A saved zero currently opens as a blank input. Leaving that blank input can clear the override. Press Escape when inspecting it without changes, and verify the result after editing.
+  <Accordion title="Does opening a saved zero change it?">
+    No. The input opens as 0, and leaving it unchanged preserves the saved zero. Clearing the field removes the override; Escape cancels an unsaved edit.
   </Accordion>
-  <Accordion title="Why did entering zero leave my positive override unchanged?">
-    If the calculated amount is already zero, entering zero can leave an existing positive override in place. Clear the input to restore the calculated zero, then check that the override styling disappears.
+  <Accordion title="Can I replace a positive override with zero?">
+    Yes. Enter 0 and leave the field, then check the save result. This also works when the calculated amount is zero. Clear the input only when you want to remove the override.
   </Accordion>
   <Accordion title="Can I add an amount in a month with no scheduled charge?">
     Yes. A positive override replaces that month's calculated zero. It does not move or alter the other scheduled charges.

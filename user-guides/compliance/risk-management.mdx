@@ -1,143 +1,128 @@
 ---
-title: 'Risk Management'
-description: 'Turn compliance failures into a focused risk register with scoring, ownership, and treatment tracking'
-icon: 'shield-halved'
+title: "Risk Management"
+description: "Assess compliance gaps and strategic risks, track treatment and approval, and control client visibility."
+icon: "shield-halved"
 ---
 
-Risk Management adds a risk register to the Compliance module. Failed compliance checks surface as gaps that you can promote into tracked risks, each with a likelihood and impact score, an owner, a treatment plan, and a target date. Risks feed dedicated reporting blocks so you can show clients their risk posture in reports and dashboards.
+**Audience:** MSP staff managing risks, and Company users reading risks shared with them. Compliance read access and enabled risk tracking are required. Only internal MSP users with Compliance write/manage access can create, edit, approve or dismiss findings. Company users do not manage the register or see **Unaddressed gaps**.
 
-## Enabling Risk Tracking
+Open **Compliance > Risks**. If risk tracking is disabled, an MSP administrator can configure it under **Settings > Compliance > Risk**. See [Risk tracking and categories](/user-guides/settings/compliance-risk).
 
-Risk tracking is off by default. To enable it:
+## Find and inspect a risk
 
-<Steps>
-  <Step title="Open Risk Settings">
-    Go to **Settings > Compliance** and open the **Risk** tab.
-  </Step>
-  <Step title="Choose a Category Starter">
-    Turn on **Enable risk tracking**. You'll be asked to choose a category starter preset:
+1. Check the selected company scope, then open **Risk register**.
+2. Review the summary cards for **Active risks**, **High and critical**, **Overdue treatment** and **Accepted risks**. Use table filters and pagination to find a record; do not equate one visible page with the full register.
+3. Open a row or its **View details** action. Review its statement, likelihood, impact, category, status, owner, target date and treatment plan.
+4. For a compliance-derived risk, follow **Open source** to inspect the underlying finding. Review available linked PSA tickets, Planner work and evidence before deciding what to do. A strategic risk can exist without a source compliance failure.
+5. Review dependency relationships, occurrence history and **Audit history** where available. Client access to linked records is checked separately; a visible risk does not grant unrestricted source access.
 
-    | Preset | Categories |
-    |--------|-----------|
-    | **MSP risk domains** | Governance, cyber, privacy, operations, continuity, third parties, financial, reputation, physical, other |
-    | **NIST CSF** | Govern, Identify, Protect, Detect, Respond, Recover, Other |
-    | **Custom** | Starts with just "Other" so you can build your own list |
-  </Step>
-  <Step title="Customize Categories">
-    In the **Risk categories** section, add, rename, recolor, reorder, or archive the categories used across the register and reports.
-  </Step>
-</Steps>
+A **Source is now compliant** badge describes the source finding. It does not mean that the business risk has been reviewed, its treatment completed or its status automatically closed.
 
-<Info>
-Disabling risk tracking hides the feature without deleting existing data. Re-enable it at any time to pick up where you left off.
-</Info>
+## Promote a compliance gap
 
-### Scoring Matrix
+1. As an MSP writer, open **Unaddressed gaps** and inspect the failed check and company.
+2. Select **Add to risk register**. The editor is prefilled from the finding; nothing is saved by opening it.
+3. Review title, statement, category, likelihood, impact, owner, treatment plan and target date. Check criticality is a starting signal for impact; priority describes remediation urgency. Only likelihood × impact sets the risk score.
+4. Review **Visible to company users** explicitly. A promoted gap can inherit its source finding's visibility choice, so do not assume this switch starts off.
+5. Optionally select **Use this category for future failures**. Saving then also updates this compliance check's category default; it is broader than this individual risk.
+6. Select **Add risk**. Reopen the saved risk and verify the assessment before approving client visibility.
 
-Every risk uses **likelihood × impact** on a fixed 5 × 5 scale. The scoring matrix in settings is a read-only reference showing the four severity bands:
+**Dismiss** is a separate action for findings that should not become risks. Enter a meaningful reason and confirm the dismissal; the reason needs at least three characters. Dismissing does not mark the underlying check passed. A later failure can produce a new gap.
 
-| Severity | Score Range |
-|----------|-------------|
-| **Low** | 1–4 |
-| **Medium** | 5–9 |
-| **High** | 10–16 |
-| **Critical** | 17–25 |
+## Add a strategic risk
 
-## Accessing the Risk Register
+MSP writers can select **Add strategic risk** in the register to record a business risk without a failed check.
 
-Once risk tracking is enabled, a **Risks** tab appears in the Compliance workspace alongside Tree view and List view. Click **Compliance** in the sidebar, then select the **Risks** tab.
+Choose the company, enter a title and risk statement, select a category and review likelihood/impact. Add an owner, target date and treatment plan as appropriate. Strategic drafts begin internal-only. Where offered, **Dependencies** lets you choose upstream risks from the same company. Select **Save changes** to create the risk; Cancel discards the draft.
 
-The Risk Register page shows four summary cards: **Active risks**, **High and critical**, **Overdue treatment**, and **Accepted risks**, above two tabs:
+An empty dependency picker does not mean there are no risks anywhere in the tenant: it is limited to eligible risks for the selected company. Dependency links are relationships to review, not automatic treatment completion or score propagation.
 
-- **Risk register**: All tracked risks with filters for company, category, severity, status, owner, and target date.
-- **Unaddressed gaps** (internal users only): Failed compliance checks that have not yet been promoted to a risk or dismissed.
+## Scoring and treatment
 
-<Note>
-Viewing risks requires compliance read access. Creating and editing risks requires compliance write access and is limited to internal MSP users. Client company users only see the Risk register tab, and only risks you have marked visible to them.
-</Note>
+Likelihood and impact each range from 1 to 5. The score is their product.
 
-## Working with Gaps
+| Severity | Score |
+|---|---|
+| Low | 1–4 |
+| Medium | 5–9 |
+| High | 10–16 |
+| Critical | 17–25 |
 
-Risks are created from compliance findings, so the register always traces back to evidence. On the **Unaddressed gaps** tab, each failed check offers two actions:
+Use the editor's **Status** for Open, Approved, Mitigating, Accepted or Closed. New risks start Open; subsequent edits persist with **Save changes**. An owner or target date records accountability and timing; it does not itself send a ticket, assign Planner work or notify that person.
 
-### Add to Risk Register
+Closed risks are read-only. Review the assessment before closing it. A later failed run creates a new gap rather than reopening the closed record. Repeat occurrences on an existing risk should be reviewed against the source evidence rather than treated as independent risks by default.
 
-Click **Add to risk register** to open the risk editor pre-filled from the failed check. The gaps tab includes a guidance banner explaining how the fields work together: criticality is evidence for impact, priority is remediation urgency, likelihood is company-specific probability, and only likelihood × impact determines the risk score.
+## Approve and share with Company users
 
-### Dismiss
+Client visibility requires both **Visible to company users** and a recorded MSP approval, along with the client's Compliance permission and company scope.
 
-Click **Dismiss** to record why a failed result does not need to become a risk. A reason is required. If the check fails again later, it appears as a new gap.
+1. Create and review the risk internally.
+2. Edit it, enable **Visible to company users** when intended, set **Status** to **Approved**, and save.
+3. Verify access with the intended Company role before relying on the client view. An MSP preview is not proof of that user's access.
+4. To withdraw sharing, turn **Visible to company users** off and save.
 
-## Risk Fields
+Approval is recorded when an MSP user first changes the status to Approved. Moving the status later to Mitigating, Accepted or another state does not clear that recorded approval. Do not use a status change alone to make a previously approved visible risk private.
 
-| Field | Description |
-|-------|-------------|
-| **Risk title** | Short name for the risk |
-| **Risk statement** | The full description of the adverse event and its consequences |
-| **Category** | One of your tenant's risk categories |
-| **Likelihood** | 1 to 5, the probability the event occurs for this company |
-| **Impact** | 1 to 5, the business harm if it occurs |
-| **Risk score** | Calculated automatically as likelihood × impact, with its severity band |
-| **Status** | Open, Mitigating, Accepted, or Closed |
-| **Owner** | The person accountable for treatment |
-| **Target date** | When treatment should be complete |
-| **Treatment plan** | How the risk will be addressed |
-| **Visible to company users** | When on, company users with compliance access can view this risk |
+## Categories and AI assistance
 
-When promoting a gap, you can also turn on **Use this category for future failures** to save the selected category as that compliance check's default.
+Categories are tenant-wide. [Risk settings](/user-guides/settings/compliance-risk) covers adding, renaming, coloring, reordering and archiving them. Archiving a category preserves existing risk references. The risk matrix is fixed; category colors do not change severity.
 
-<Warning>
-Closed risks are read-only. If the same check fails again after a risk is closed, a new gap is created rather than reopening the closed risk.
-</Warning>
+<Frame caption="An MSP administrator's unsaved category editor. Category configuration is separate from an individual risk assessment.">
+  <img src="/images/product/compliance-risk-category-editor.png" alt="Create risk category dialog with a blank name and default teal color." width="1024" height="676" />
+</Frame>
 
-## Viewing a Risk
+Where Compliance AI offers a **Risk assessment** proposal, **Use this assessment** opens the standard editor with a draft. Review every field and the affected company. The proposal is not saved merely by receiving it or opening the editor. Select Add risk deliberately after reviewing; a draft is not confirmed evidence or client approval. See [Compliance AI](/user-guides/compliance/compliance-ai).
 
-Click any row in the register to open the risk detail. Alongside the core fields, the detail shows:
+## Reporting
 
-- **Source compliance finding** with an **Open source** link back to the originating check
-- **Linked remediation work**: the PSA ticket, Planner items, and evidence files attached to the source finding
-- **Failure occurrences**: how many times the source check has failed (repeat failures increment the count instead of creating duplicates)
-- **Risk history**: a field-by-field change log of every edit
-- A **Source is now compliant** badge when the underlying check has since passed
+Enabled risk tracking exposes risk reporting options such as **Risk Summary**, **Risks by Category**, **Risk Matrix**, **Risk Exposure Trend**, and **Risk Register**. Report and dashboard availability can differ. Review the selected company, reporting period, visible scope and block configuration before sharing a report. A dashboard summary is not the complete list, and an empty result does not prove that no risks exist outside the permitted scope.
 
-## Compliance AI and Risks
+## Troubleshooting and related guides
 
-The **Compliance AI** assistant (the floating button on the Compliance page) can help with risk work when risk tracking is enabled:
+If Risks is missing, check feature enablement and permissions. If a client cannot see a risk, check visibility, recorded approval and company access. If editing is unavailable, check whether it is Closed and whether the current user is an MSP writer. If a save fails, keep the draft details, reopen the record and verify what persisted before retrying.
 
-- Use the **Find risk candidates** prompt to rank confirmed compliance gaps that deserve human risk review.
-- The assistant can produce a **Risk assessment** proposal with a drafted title, statement, category, likelihood, impact, and treatment plan.
+- [Configure risk tracking](/user-guides/settings/compliance-risk)
+- [Read compliance evidence](/user-guides/compliance/read-evidence-and-history)
+- [Compliance AI](/user-guides/compliance/compliance-ai)
+- [Reporting](/user-guides/reporting/index)
 
-AI never writes to the register directly. Clicking **Use this assessment** opens the standard risk editor pre-filled with the draft, flagged as an **AI-assisted assessment**. Review and edit every field; nothing is added until you click **Add risk**.
+## FAQs
 
-## Risk Reporting Blocks
-
-Five risk blocks are available in the report builder (and dashboards, where supported) once risk tracking is enabled:
-
-| Block | Shows |
-|-------|-------|
-| **Risk Summary** | Active, high/critical, overdue, and accepted risk metrics, with total exposure at larger sizes |
-| **Risks by Category** | Active risks grouped by category with a stacked severity bar |
-| **Risk Matrix** | The 5 × 5 likelihood and impact heatmap with per-cell risk counts |
-| **Risk Exposure Trend** | Risk exposure over the report period, with a configurable trend metric (Active risks, Total exposure score, or High-Critical risks) |
-| **Risk Register** | A prioritized table of active risks with ownership and target dates (reports only, configurable row limit) |
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| No Risks tab in Compliance | Enable risk tracking in **Settings > Compliance > Risk** |
-| "Risk tracking is disabled" message | Click **Open Risk settings** and turn on **Enable risk tracking** |
-| Cannot edit a risk | Closed risks are read-only, and editing requires compliance write access as an internal user |
-| A client cannot see a risk | Turn on **Visible to company users** on that risk |
-| Risk blocks missing from the report builder | Risk blocks only appear when risk tracking is enabled for your tenant |
-
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Compliance" icon="shield-halved" href="/user-guides/compliance/index">
-    Manage compliance runs, checks, and evidence
-  </Card>
-  <Card title="Reporting" icon="chart-bar" href="/user-guides/reporting/index">
-    Build client reports with risk blocks
-  </Card>
-</CardGroup>
+<AccordionGroup>
+  <Accordion title="Can I create a risk without a failed compliance check?">
+    An MSP writer can use Add strategic risk, select a company and save a business-risk assessment.
+  </Accordion>
+  <Accordion title="Can Company users create or approve risks?">
+    No. Company users read eligible shared risks. MSP writers handle creation, edits and approval.
+  </Accordion>
+  <Accordion title="Does Visible to company users alone share a risk?">
+    No. It also needs recorded MSP approval, Compliance access and the correct company scope.
+  </Accordion>
+  <Accordion title="Will changing Approved to Mitigating make the risk private?">
+    No. The recorded approval remains. Turn Visible to company users off and save to withdraw sharing.
+  </Accordion>
+  <Accordion title="Are promoted compliance gaps always internal-only?">
+    No. Their draft visibility can inherit the source finding. Review the switch before saving.
+  </Accordion>
+  <Accordion title="What calculates risk severity?">
+    Likelihood multiplied by impact, each from 1 to 5. Priority and category color do not directly set the score.
+  </Accordion>
+  <Accordion title="Does Use this category for future failures affect only this risk?">
+    No. Saving with it selected also changes the source compliance check’s category default.
+  </Accordion>
+  <Accordion title="Does dismissing a gap pass its check?">
+    No. Dismissal records why the finding is not being promoted. It does not change the source check result.
+  </Accordion>
+  <Accordion title="Can I edit a Closed risk?">
+    No. Closed risks are read-only; a later failure creates a new gap.
+  </Accordion>
+  <Accordion title="Does a compliant source automatically close a risk?">
+    Do not assume it does. Review the source badge separately from the risk assessment and treatment status.
+  </Accordion>
+  <Accordion title="Does receiving an AI assessment add it to the register?">
+    No. Review the proposed assessment in the editor and deliberately select Add risk.
+  </Accordion>
+  <Accordion title="Does assigning an owner send a notification or create work?">
+    The risk editor records ownership. It does not itself create a ticket or Planner task, or notify the owner.
+  </Accordion>
+</AccordionGroup>

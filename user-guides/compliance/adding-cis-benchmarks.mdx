@@ -1,45 +1,73 @@
 ---
-title: Adding CIS Benchmarks
-description: Learn how to add CIS (Center for Internet Security) benchmarks to your MSPortal tenant for compliance tracking
+title: "Add CIS benchmarks"
+description: "Choose a product and profile, then review the tenant import mapping."
+icon: book
 ---
 
-1\. MSPortal.ai comes with a lot of built in checks that you can utilize from CIS. The center for Internet security. You can add these to your tenant by clicking settings.\
-Playbooks\
-Then searching or clicking on this page. You can easily select multiple or only one check.
+**Audience:** MSP staff with Playbooks management permission and active billing. Read access lets you inspect the catalog; import permission is separate.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-08-29/206f39ba-2c12-4fae-8fd6-96ae34c0a168/stack_animation.webp)
+## Find the product and version
 
+Open **Settings > Compliance > Playbooks > Security Frameworks > CIS Benchmarks**. Search for the product family, or browse the operating-system, cloud, infrastructure and browser sections. Review the displayed version and available variants. A family may offer **L1**, **L2** or a **Full** entry; use the entries actually shown.
 
-2\. These checks are broken down into L1 and L2. For CIS implementation group 1 and implementation group 2. You can easily add both of them by selecting both and then collecting clicking add to tenant.
+<Frame caption="MSP example: one product family with separate L1 and L2 entries. Imported indicates an existing copy, not a completed assessment.">
+  <img src="/images/product/cis-benchmark-levels.png" alt="MSP example: one product family with separate L1 and L2 entries. Imported indicates an existing copy, not a completed assessment." width="916" height="310" />
+</Frame>
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-29/7dd264c3-4f1e-4899-868d-8981b871e58f/ascreenshot.jpeg?tl_px=1040,0&br_px=2416,769&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=957,159)
+**L1** and **L2** are CIS Benchmark configuration profiles. They are not Implementation Groups IG1 and IG2. Level 1 aims for a usable baseline; Level 2 adds stricter security requirements with potentially greater operational impact. Review the applicable benchmark and test configuration changes before rollout. See the [CIS Benchmarks FAQ](https://www.cisecurity.org/cis-benchmarks/cis-benchmarks-faq) and [CIS Controls Implementation Groups](https://www.cisecurity.org/controls/implementation-groups).
 
+## Review the selected checks
 
-3\. Here, you'll see it flex and asks for your status list if you have multiple status. Lists. This is where you would click it to add it.\
-Click here\
-As you can see, this tenant only has one status list, so all I have to do is click add to tenant.
+Use the eye control beside the intended variant to inspect details and the check list. Review its product, profile and version before selecting it. Do not assume an L2 catalog entry contains every L1 check: inspect the actual lists when deciding which variants you need.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-08-29/0323daf9-cbae-4a4b-b923-032258d0f476/stack_animation.webp)
+Close details after review. The details **Copy** action performs an immediate copy; use **Add** on the variant if you need the import-mapping dialog.
 
+## Import with the correct mapping
 
-4\. Then if you go to compliance
+1. Click **Add** for one variant, or select the intended variants and choose **Add to Tenant** in the header.
+2. Review every **Folder** destination in **Add Playbooks to Tenant**.
+3. Choose a **Status list** for each selected playbook.
+4. For Device checks, inspect the suggested **Device types**. Selected types receive the imported group association; remove types you do not intend to target.
+5. Review the duplicate warning if a variant is already imported. Importing again creates another copy rather than updating the previous one.
+6. Click **Add to Tenant** to import. Wait for the result, then inspect the destination folder under **Settings > Compliance > Checks** and its new group under **Groups**.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-29/3b9a47ed-123f-4ca1-8837-efdd1acad8ae/ascreenshot.jpeg?tl_px=0,112&br_px=1376,881&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=373,277)
+Do not repeat a multi-variant import solely because the final operation failed. Some earlier variants may already have been copied; inspect the library first.
 
+## Prepare an assessment
 
-5\. You will see. Those checks have been all added.
-You will have to go to groups and see them there.
+Review the imported checks, guidance and status list. Configure the applicable groups, runs and company/device scope through [Compliance settings](/user-guides/settings/compliance). Import does not harden an operating system or mark a company compliant.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2025-08-29/7ba4d031-f4bb-4e50-a968-1dfc1f852a86/stack_animation.webp)
+Keep a record of the chosen benchmark version. Compare future catalog changes with your tenant copies; a new import does not silently merge into existing customized checks.
 
+## Troubleshooting
 
-6\. And you can click on the groups and see what checks were added.
+If the product is absent, clear the search and inspect the current catalog; do not substitute a different product/version merely because its name is similar. If Add is unavailable, check management permission and billing. If no status list is selected, choose one before submitting. If imported checks are missing from an assessment, inspect the folder/group and the assessment assignment separately.
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-29/0f53e86a-ce1d-4656-a795-8ee72b11ed62/ascreenshot.jpeg?tl_px=283,132&br_px=1659,901&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+## FAQs
 
+<AccordionGroup>
+  <Accordion title="Are L1 and L2 the same as IG1 and IG2?">
+    No. L1/L2 are CIS Benchmark profiles; IG1/IG2/IG3 organize CIS Controls implementation priorities.
+  </Accordion>
+  <Accordion title="Does L2 always include every L1 check in this catalog?">
+    Do not assume that. Review the check lists for the actual variants you plan to import.
+  </Accordion>
+  <Accordion title="Does Add to Tenant secure the selected devices?">
+    No. It imports check content and group associations; assessment and endpoint configuration are separate work.
+  </Accordion>
+  <Accordion title="Can I import an Imported variant again to upgrade it?">
+    A repeated import can create another group and check copies. Review existing content before importing again.
+  </Accordion>
+  <Accordion title="Why choose device types during import?">
+    Selected device types receive the imported check-group association. Review suggested selections before submitting.
+  </Accordion>
+  <Accordion title="Where do the imported checks appear?">
+    Inspect the displayed folder in Settings > Compliance > Checks and the imported group in Groups, then configure the intended assessment.
+  </Accordion>
+</AccordionGroup>
 
-7\. As you can see, there have been a lot of checks added regarding CIS Apple iOS 18.
+## Related guides
 
-![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-29/50529a3e-d1de-4ede-9063-170bcf42004d/ascreenshot.jpeg?tl_px=937,115&br_px=2313,884&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=525,436)
-
-
+- [Compliance settings](/user-guides/settings/compliance)
+- [Playbook settings](/user-guides/settings/playbooks)
+- [Compliance assessments](/user-guides/compliance/index)

@@ -1,112 +1,57 @@
 ---
-title: Templates Settings
-description: Create and manage note templates for meetings, planner items, and more
+title: "Note templates"
+description: "Create reusable starting content for notes, Planner items, meetings and report sections."
 icon: file-lines
 ---
 
-Templates Settings allows you to create and manage reusable templates for meeting notes, planner items, and other content throughout MSPortal.ai.
+**Audience:** MSP staff with Note Templates settings access. Open **Settings > Customization > Note Templates**. Reading, editing and management actions depend on your role.
 
-## Accessing Templates Settings
+## Choose a template type
 
-1. Click **Settings** in the sidebar
-2. Select the **Templates** icon from the settings navigation
+Use **All** or a type tab to review the list. The supported types are Compliance Check Note, Planner Item, Meeting Agenda, Meeting Notes and Report Section. These are reusable content templates; notification email templates are managed separately in [Email settings](/user-guides/settings/email).
 
-## Templates Overview
+## Create or edit
 
-<Frame>
-  <img src="/images/settings/settings-templates.png" alt="Templates" />
+1. Select **Add New Template**, or open an existing template's edit action.
+2. Enter a name, choose the intended type and add the content. Add a description that helps other staff choose it.
+3. Review the content in the editor. If an AI drafting option is offered, review its result before saving; generation is not itself a saved template.
+4. Use the editor's save action. Wait for the result and reopen the template to confirm its type and content.
+
+Opening Add New Template starts an editor; it does not immediately create a record. Read-only users can inspect a template without gaining permission to edit it. Do not assume arbitrary double-brace variables expand in every consuming screen; use only the capabilities offered for that workflow.
+
+<Frame caption="Add New Template opens an unsaved editor. Create Template remains disabled until required content is present.">
+  <img src="/images/product/note-template-editor.png" alt="Add New Template opens an unsaved editor. Create Template remains disabled until required content is present." width="1820" height="1536" />
 </Frame>
 
-### Template Information
+## Set a default
 
-Each template shows:
+The default is chosen per template type. Use the row's default action. When replacing another default of that type, review and confirm the replacement prompt. Setting the first default or removing a default can save immediately.
 
-| Field | Description |
-|-------|-------------|
-| **Name** | Template name |
-| **Type** | What the template is used for |
-| **Created** | When the template was created |
-| **Last Modified** | Most recent update |
+If a replacement reports an error, refresh and inspect both templates before retrying. Clearing the previous default and assigning the new one can leave an intermediate state if an operation fails. A default is starting content for supported workflows; changing it is not a bulk rewrite of existing notes or meetings.
 
-## Template Types
+## Delete and recover
 
-MSPortal supports several template types:
+Use the template's delete action and review the confirmation. Check its name and type before confirming. If the wrong template appears in a picker, verify its type and default state before deleting it. If Save is disabled, check that the required name and content are present.
 
-| Type | Used For |
-|------|----------|
-| **Meeting Notes** | Pre-formatted notes for meetings and QBRs |
-| **Planner Item** | Standard task descriptions and checklists |
-| **Email** | Email templates for communications |
-| **Report** | Formatted sections for reports |
+## FAQs
 
-## Managing Templates
+<AccordionGroup>
+  <Accordion title="Are email templates managed here?">
+    No. Note Templates covers compliance notes, Planner items, meeting agendas/notes and report sections. Use Email settings for notifications.
+  </Accordion>
+  <Accordion title="Does opening Add New Template create a record?">
+    No. Save the editor to create the template.
+  </Accordion>
+  <Accordion title="Is there one default for every template?">
+    Defaults are per template type. Review the replacement confirmation when another default exists.
+  </Accordion>
+  <Accordion title="Does changing a default rewrite existing notes?">
+    No. A default supplies starting content in supported workflows; it is not a bulk rewrite.
+  </Accordion>
+</AccordionGroup>
 
-### Creating a New Template
+## Related guides
 
-<Steps>
-  <Step title="Click Add Template">
-    Select the **+ Add Template** button
-  </Step>
-  <Step title="Select Type">
-    Choose the template type
-  </Step>
-  <Step title="Name the Template">
-    Enter a descriptive name
-  </Step>
-  <Step title="Design Content">
-    Build the template using the editor
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the template
-  </Step>
-</Steps>
-
-### Template Editor
-
-The template editor provides:
-
-- **Rich text formatting** - Bold, italic, headings
-- **Lists** - Bulleted and numbered lists
-- **Tables** - Structured data layouts
-- **Variables** - Dynamic content placeholders
-
-### Using Variables
-
-Insert dynamic content with variables:
-
-| Variable | Inserts |
-|----------|---------|
-| `{{company_name}}` | Company name |
-| `{{date}}` | Current date |
-| `{{user_name}}` | Current user's name |
-| `{{meeting_title}}` | Meeting title |
-
-## Using Templates
-
-### In Meetings
-
-1. Open a meeting page
-2. Click **Add Notes**
-3. Select **Use Template**
-4. Choose from available templates
-5. Template content is inserted
-
-### In Planner
-
-1. Create a new planner item
-2. Click **Use Template**
-3. Select the appropriate template
-4. Customize as needed
-
-## Best Practices
-
-- **Keep templates concise** - Focus on structure, not content
-- **Use variables** - Make templates dynamic
-- **Regular review** - Update templates as needs change
-- **Name clearly** - Use descriptive names for easy selection
-
-## Related Resources
-
-- [Calendar](/user-guides/calendar/index) - Using templates in meetings
-- [Planner](/user-guides/planner/index) - Using templates in tasks
-- [Settings Overview](/user-guides/settings/index) - All settings options
+- [Email Settings](/user-guides/settings/email)
+- [Calendar](/user-guides/calendar/index)
+- [Planner](/user-guides/planner/index)

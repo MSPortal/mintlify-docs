@@ -1,202 +1,54 @@
 ---
-title: Billing Settings
-description: Manage subscriptions, payment methods, and invoices
+title: "Billing settings"
+description: "Review subscription status, usage, invoices and hosted billing management."
 icon: credit-card
 ---
 
-Billing Settings allows you to manage your MSPortal.ai subscription, payment methods, add-on services, and view billing history. Only Primary Admins can access billing settings.
+**Audience:** MSP staff with Billing settings access. Open **Settings > Billing**. Your account's subscription and available billing data determine what appears.
 
-## Accessing Billing Settings
+## Read the billing overview
 
-1. Click **Settings** in the sidebar
-2. Select the **Billing** icon from the settings navigation
+Review subscription or trial status first. Check any service error before interpreting a missing amount or list as zero usage. The page can show company counts, training-user usage, payment methods, invoices and an upcoming invoice, depending on the subscription.
 
-## Billing Overview
+Metered and licensed subscriptions have different usage presentations. Review the displayed billing currency, period and line-item descriptions together. Current company count, synchronized usage and a training-user high-water mark are different measures; a visible account count is not by itself a final invoice calculation.
 
-<Frame>
-  <img src="/images/settings/settings-billing.png" alt="Billing Settings" />
-</Frame>
+## Manage payment and subscription details
 
-## Subscription Management
+1. Use the relevant **Manage** or **View** control to open the hosted billing portal.
+2. Review current details and the effect of the requested change in that portal.
+3. Confirm the change there and inspect its result.
+4. Return to MSPortal, refresh the reader and verify the current account state.
 
-### Current Plan
+There is no local Save button that confirms every hosted billing operation. A failed redirect or a closed window is not proof that a payment, cancellation or subscription update succeeded. Inspect the current state before repeating a consequential action.
 
-View your active subscription details:
+## Review invoices and contact details
 
-| Field | Description |
-|-------|-------------|
-| **Plan Name** | Your current subscription tier |
-| **Status** | Active, Trial, or Expired |
-| **Billing Cycle** | Monthly or Annual |
-| **Next Billing Date** | When your next payment is due |
+Use the available invoice and billing-portal controls to inspect the intended billing period. For the organization's billing email and business preferences, review [Tenant settings](/user-guides/settings/tenant). Keep provider billing details and the local organization record consistent where applicable.
 
-### Choosing a Plan
+Use the actual plan and terms shown for your account. The page does not establish a universal plan-limit table, fixed trial duration, refund policy or immediate effect for every subscription change.
 
-<Steps>
-  <Step title="Click Choose a Plan">
-    Select the plan selection button
-  </Step>
-  <Step title="Compare Plans">
-    Review features and pricing for each tier
-  </Step>
-  <Step title="Select Plan">
-    Choose the plan that fits your needs
-  </Step>
-  <Step title="Complete Payment">
-    Enter payment details to activate
-  </Step>
-</Steps>
+## Troubleshooting
 
-## Payment Methods
+If a billing-service error appears, refresh after checking the error rather than treating missing information as an inactive subscription. If invoice and usage figures differ, compare their period and measures. If a hosted change is unclear, check the provider's current record and contact support with the relevant invoice or account reference; avoid submitting the same payment change repeatedly.
 
-### Setting Up Billing
+## FAQs
 
-<Steps>
-  <Step title="Click Set Up Billing">
-    Open the payment configuration
-  </Step>
-  <Step title="Enter Card Details">
-    Provide credit card or payment information
-  </Step>
-  <Step title="Verify Address">
-    Confirm billing address
-  </Step>
-  <Step title="Save Payment Method">
-    Complete the setup
-  </Step>
-</Steps>
+<AccordionGroup>
+  <Accordion title="Can I treat current company count as the final invoice total?">
+    No. Compare the subscription model, usage period, line items and invoice details.
+  </Accordion>
+  <Accordion title="Does a local Save button manage my subscription?">
+    Billing management uses the hosted portal. Confirm the action and result there.
+  </Accordion>
+  <Accordion title="Does missing billing data mean I have no charges?">
+    No. Check for a billing-service error and inspect the actual subscription and invoices.
+  </Accordion>
+  <Accordion title="Are plan limits and cancellation effects identical for all tenants?">
+    No. Use the actual account plan and the terms shown for the requested change.
+  </Accordion>
+</AccordionGroup>
 
-### Managing Payment Methods
+## Related guides
 
-- **Update card** - Change to a new payment method
-- **Set default** - Choose primary payment method
-- **Remove** - Delete saved payment methods
-
-## Add-on Services
-
-Additional features available for your account:
-
-### Bigger Brains Training
-
-| Detail | Value |
-|--------|-------|
-| **Description** | Premium IT training courses and certifications |
-| **Pricing** | Per-user monthly fee |
-| **Status** | Active or Inactive |
-
-### Managing Add-ons
-
-1. View available add-ons in the Add-on Services section
-2. Click to enable or configure each service
-3. Pricing is shown per-user or per-month
-
-## Billing History
-
-### Viewing Invoices
-
-Access past invoices and receipts:
-
-| Field | Description |
-|-------|-------------|
-| **Date** | Invoice date |
-| **Amount** | Total charged |
-| **Status** | Paid, Pending, or Failed |
-| **Download** | PDF invoice download |
-
-### View All Invoices
-
-Click **View all invoices** to see complete billing history with options to:
-- Download individual invoices
-- Filter by date range
-- Export billing reports
-
-## What Happens if Payment Fails?
-
-<Warning>
-If your payment fails or subscription lapses, your MSP team members will be placed in **read-only mode** until payment is resolved.
-</Warning>
-
-### Read-Only Mode for MSP Team
-
-When your account enters a billing-restricted state, the following occurs:
-
-| Who | Impact |
-|-----|--------|
-| **MSP Team Members** | Read-only access - can view all data but cannot create, edit, or delete |
-| **Your Client Users** | **No impact** - continue working normally with full access |
-| **Primary Admin** | Can still access Billing Settings to resolve payment issues |
-
-### What MSP Team Members Can Do in Read-Only Mode
-
-- View all dashboards, reports, and data
-- Access company and user information
-- Review tickets, projects, and compliance status
-- Export data and run reports
-
-### What MSP Team Members Cannot Do
-
-- Create new records (tickets, projects, meetings, etc.)
-- Edit existing data
-- Delete any records
-- Modify settings or configurations
-- Make changes to client companies
-
-### Billing Status Types
-
-| Status | Description | Access Level |
-|--------|-------------|--------------|
-| **Active** | Subscription is current and paid | Full access |
-| **Trialing** | Free trial period | Full access |
-| **Past Due** | Payment failed, grace period | Read-only for MSP team |
-| **Unpaid** | Multiple payment failures | Read-only for MSP team |
-| **Canceled** | Subscription canceled | Read-only for MSP team |
-| **Incomplete** | Setup not finished | Read-only for MSP team |
-
-### How to Restore Full Access
-
-<Steps>
-  <Step title="Access Billing Settings">
-    Primary Admins can always access **Settings > Billing** even in read-only mode
-  </Step>
-  <Step title="Update Payment Method">
-    Add a new card or update your existing payment information
-  </Step>
-  <Step title="Retry Payment">
-    Process the outstanding payment
-  </Step>
-  <Step title="Access Restored">
-    Once payment succeeds, full access is immediately restored for all MSP team members
-  </Step>
-</Steps>
-
-<Tip>
-Your client users are never affected by your billing status. They can continue using MSPortal normally even if your MSP team is in read-only mode.
-</Tip>
-
-## Billing FAQs
-
-### When am I charged?
-Charges occur at the start of each billing cycle (monthly or annually).
-
-### Can I change my plan?
-Yes, you can upgrade or downgrade at any time. Changes take effect on your next billing cycle.
-
-### How do I cancel?
-Contact support to cancel your subscription. You'll retain access until the end of your current billing period.
-
-### What payment methods are accepted?
-MSPortal accepts major credit cards through Stripe, including Visa, Mastercard, and American Express.
-
-### What happens to my data if I don't pay?
-Your data is never deleted due to billing issues. MSP team members are placed in read-only mode but can still access all existing data. Your client users continue to have full access. Once payment is resolved, full access is restored immediately.
-
-### Why can my clients still work when my team can't?
-MSPortal prioritizes your client experience. Your clients (company users) are never impacted by your MSP's billing status. This ensures continuity of service for the end users you support.
-
-### I'm an admin but can't make changes - what do I do?
-If you're a Primary Admin and see a billing restriction message, navigate to **Settings > Billing** to update your payment method. This menu item is always accessible regardless of billing status.
-
-## Related Resources
-
-- [Tenant Settings](/user-guides/settings/tenant) - Organization configuration
-- [Settings Overview](/user-guides/settings/index) - All settings options
+- [tenant](/user-guides/settings/tenant)
+- [Review billing before launch](/user-guides/getting-started/onboarding/billing)

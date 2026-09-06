@@ -4,16 +4,20 @@ description: Build your compliance check library, organize it with folders and g
 icon: shield-check
 ---
 
-Compliance Settings is where you curate the catalog of checks your team uses when assessing clients. It has three tabs: **Checks** for the check library, **Groups** for bundling related checks, and **Runs** for the templates that schedule those bundles against your companies.
+**Audience:** MSP staff with the relevant Compliance settings access. This tenant library is shared across companies; Company users do not configure it. Viewing settings and writing assessment content are separate permissions, and access to one tab does not guarantee access to all of them.
+
+Compliance Settings curates the checks, groups and templates your team uses to assess clients. Available tabs include **Checks**, **Playbooks**, **Metrics**, **Groups**, **Runs**, **Schedule**, **Scoring** and **Risk**. Their visibility depends on permissions and features; Metrics additionally requires Liongard.
+
+**Runs** here means reusable run templates, not the history of completed company assessments. Use **Schedule** to configure future automated runs from an active template.
 
 ## Accessing Compliance Settings
 
 1. Click **Settings** in the sidebar
 2. Select **Compliance**
-3. Use the tabs at the top of the page to switch between **Checks**, **Groups**, and **Runs**
+3. Choose the task-specific tab. Checks, Groups and Runs use split-pane library editors; Schedule, Scoring and Risk have different controls.
 
 <Tip>
-Every tab in Compliance Settings uses a split-pane layout: the list on the left, the detail on the right. You can collapse the left sidebar with the panel-close button at the top of the list to make more room for the detail view.
+The Checks, Groups and Runs library tabs use a split-pane layout: the list on the left, the detail on the right. You can collapse the left sidebar with the panel-close button at the top of the list to make more room for the detail view.
 </Tip>
 
 ## Checks Tab
@@ -80,7 +84,7 @@ Click any check to open it in the detail pane. The form covers everything about 
 | **Note templates by status** | Per-answer template links (see below) |
 | **Group assignments** | Which groups this check belongs to |
 
-Click **Save** to persist changes. The **Improve with AI** button in the header uses AI to suggest a better description, how-to-check, remediation, and references based on the title.
+Click **Save** to persist the check fields. Changes to note-template links and group membership save separately and immediately; cancelling the main editor does not undo those changes. Save the status-list choice before editing its note-template links. Custom-field values are a separate save operation within the overall save flow: if that section fails, verify the already-saved check before retrying. The **Improve with AI** button in the header uses AI to suggest a better description, how-to-check, remediation, and references based on the title.
 
 ### Linking note templates to statuses
 
@@ -91,7 +95,7 @@ Each check uses a **status list** that defines its answer choices (for example, 
     In the check detail pane, pick a **Status list** from the dropdown. This reveals the **Note templates by status** section.
   </Step>
   <Step title="Pick a template for each status">
-    Every status option in the list gets a template picker. Choose a note template for any status where you want auto-population. Leave others as **No template**.
+    Every status option in the list gets a template picker. Choose a note template for any status where you want auto-population. Leave others as **No template**. Choosing or clearing a template immediately saves that link; it does not wait for the check header Save.
   </Step>
   <Step title="Assessor picks the status">
     In the check dialog during a run, when the assessor picks a status that has a linked template, that template's content is appended to their **Public notes**. If the notes already have content, the template goes underneath it with a blank line in between.
@@ -123,19 +127,25 @@ Groups bundle related checks together so you can assign a whole category (for ex
 
 <Steps>
   <Step title="Click New">
-    Click the **+** icon at the top of the groups sidebar.
+    Select **Add Group** in the header or the **+** icon at the top of the groups sidebar.
   </Step>
   <Step title="Fill in the details">
-    Enter a **Name**, an optional **Description**, and pick a **Compliance type**. The compliance type is important: if you pick one, only checks that match that type can be added to the group. Leave it as **None** to allow any check.
+    Enter a **Name**, an optional **Description**, and pick a **Compliance type**. For a Device group, also review offered device-type associations. These affect which devices receive the group during assignment. The compliance type is important: if you pick one, only checks that match that type can be added to the group. Leave it as **None** to allow any check.
   </Step>
   <Step title="Save">
     Click **Create**. The new group appears at the top of the sidebar and is selected in the detail pane.
   </Step>
 </Steps>
 
+<Frame caption="New group is an unsaved metadata draft. Choose the compliance type before creating it; membership transfers are separate saved actions.">
+  <img src="/images/product/compliance-group-create-draft.png" alt="New group dialog with name, description and compliance type fields and Cancel/Create controls." width="960" height="856" />
+</Frame>
+
+A group save persists its metadata before updating device-type associations. If a later association update fails, reopen the group and verify what saved before creating another group or retrying.
+
 ### Adding and removing checks
 
-The right pane shows two columns — **Available checks** on the left and **Members** on the right. Moving a check between them is always drag and drop.
+The right pane shows two columns — **Available checks** on the left and **Members** on the right. Drag checks between them to change membership. Each completed transfer saves immediately; there is no later page Save. Wait for the result before making another change.
 
 <Steps>
   <Step title="Search and select">
@@ -171,15 +181,19 @@ Run templates bundle groups and individual checks into reusable assessment packa
 
 <Steps>
   <Step title="Click New">
-    Click the **+** icon at the top of the templates sidebar.
+    Select **Add New Template** in the header or the **+** icon at the top of the templates sidebar.
   </Step>
   <Step title="Fill in the basics">
-    Enter a **Name** (for example, "Quarterly security review"), an optional **Description**, and the **Active** toggle. Inactive templates are hidden from quick-assign dropdowns but still visible here.
+    Enter a **Name** (for example, "Quarterly security review"), an optional **Description**, and the **Active** toggle. Inactive templates remain visible here but are omitted from the active-template schedule picker.
   </Step>
   <Step title="Save">
     Click **Create**. The new template opens on the right with empty Groups and Individual Checks tabs.
   </Step>
 </Steps>
+
+<Frame caption="New template starts with Active enabled. Create saves the template; the group and check memberships are added separately afterward.">
+  <img src="/images/product/compliance-run-template-create-draft.png" alt="New template dialog with name, description, Active switch and Cancel/Create controls." width="960" height="772" />
+</Frame>
 
 ### Adding groups to a template
 
@@ -197,7 +211,7 @@ Run templates bundle groups and individual checks into reusable assessment packa
 
 ### Adding individual checks
 
-Switch to the **Individual checks** tab for one-off checks that aren't part of a group. These run in addition to any group membership. The same drag-and-drop transfer UI applies.
+Switch to the **Individual checks** tab for one-off checks that aren't part of a group. These run in addition to any group membership. The same drag-and-drop transfer UI applies. Group and individual-check transfers save immediately; Cancel in the template metadata dialog does not undo them.
 
 <Note>
 Groups and individual checks are independent. You can use either, both, or neither. Many teams use groups for the bulk of a template and drop in a few individual checks for unusual one-off requirements.
@@ -205,7 +219,7 @@ Groups and individual checks are independent. You can use either, both, or neith
 
 ### Activating, editing, and deleting
 
-- **Active toggle** - Each template has an **Active** switch in the header. Inactive templates are hidden from run-assignment UIs throughout the app but preserved in settings.
+- **Active toggle** - Each template has an **Active** switch in the header that saves immediately. Inactive templates remain in settings and are omitted from the active-template schedule picker. Review existing schedules separately before retiring a template.
 - **Edit** - Opens the name/description/active dialog.
 - **Delete** - Removes the template. Runs already created from the template are not affected — they keep their original check assignments.
 
@@ -213,7 +227,21 @@ Groups and individual checks are independent. You can use either, both, or neith
 Deleting a run template does not stop or modify in-flight runs. It only prevents new runs from being created from that template.
 </Warning>
 
+## Schedule, scoring and risk
+
+- [Schedule assessments](/user-guides/settings/compliance-schedules): select an active run template, target companies and a recurrence. All companies is the new schedule's default target.
+- [Configure Compliance Scoring](/user-guides/settings/compliance-scoring): edit weights and grade thresholds, then Save Changes. Confirmed Reset to Defaults immediately changes saved configuration.
+- [Configure risk tracking](/user-guides/settings/compliance-risk): enable the register and maintain categories. Reordering, archiving and disabling are immediate changes.
+- [Playbooks](/user-guides/settings/playbooks): import selected library content before assigning it to companies.
+- [Liongard Metrics](/user-guides/compliance/liongard-metrics): review the provider-backed metrics path when available.
+
+<Frame caption="Scope weight settings have their own save controls; they are separate from check and template editing.">
+  <img src="/images/product/compliance-scoring-scope-weights.png" alt="Scope Weights card in Compliance Scoring." width="904" height="860" />
+</Frame>
+
 ## Permissions
+
+Opening a tab requires the relevant settings read access and feature availability. The table below describes the library editor's content permissions; schedule writes and scoring/risk administration use their own Compliance settings permissions.
 
 | Action | Required permission |
 |--------|---------------------|
@@ -246,3 +274,32 @@ Deleting a run template does not stop or modify in-flight runs. It only prevents
 - [Templated Notes](/user-guides/settings/templates) - Create the note templates that auto-populate on status change
 - [Playbooks](/user-guides/settings/playbooks) - CIS and other pre-built benchmark content
 - [Adding CIS Benchmarks](/user-guides/compliance/adding-cis-benchmarks) - Seed your library from a standard framework
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Does Runs show completed company assessments?">
+    No. Settings > Compliance > Runs contains reusable templates. Review actual company runs in the Compliance workspace.
+  </Accordion>
+  <Accordion title="Are there only three Compliance settings tabs?">
+    No. Additional tabs include Playbooks, provider-dependent Metrics, Schedule, Scoring and Risk, subject to permissions and features.
+  </Accordion>
+  <Accordion title="Does cancelling a check discard changes to note-template links?">
+    No. Choosing or clearing a note-template link saves immediately and separately from check fields.
+  </Accordion>
+  <Accordion title="Do group and run-template transfers wait for Save?">
+    No. Dragging checks or groups between membership columns saves that transfer immediately.
+  </Accordion>
+  <Accordion title="Does turning off a template pause all its schedules?">
+    Do not assume it does. Review saved schedules separately; inactive templates are omitted from the active-template picker.
+  </Accordion>
+  <Accordion title="Does changing a group type affect its membership?">
+    Yes. Type compatibility determines eligible checks, and Device groups also have device-type associations. Review affected memberships and assignments.
+  </Accordion>
+  <Accordion title="Does a successful main check save prove custom fields saved?">
+    No. Custom-field persistence can fail after the main check saves. Inspect section errors and reopen before retrying.
+  </Accordion>
+  <Accordion title="Does creating a run template start an assessment?">
+    No. Create an assessment or an explicit schedule using the template.
+  </Accordion>
+</AccordionGroup>

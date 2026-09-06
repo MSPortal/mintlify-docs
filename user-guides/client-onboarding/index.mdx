@@ -4,14 +4,20 @@ description: 'Guide new clients through structured onboarding workflows with bra
 icon: 'clipboard-check'
 ---
 
-The Client Onboarding module provides a complete system for onboarding new clients to your MSP. Build reusable templates, launch branded portals for each company, and track every step of the process — from initial discovery through full deployment.
+**Audience:** MSP staff configuring and managing client onboarding. Company users should start with [Open your onboarding portal](/user-guides/client-onboarding/open-your-onboarding).
+
+## Before you begin
+
+Your organization must have Client Onboarding enabled. Viewing requires onboarding read access; creating or changing templates and portals requires onboarding write access and active billing. **Convert to Client** requires onboarding management access. Your role and company scope can limit what appears.
+
+The Client Onboarding module provides a workspace for onboarding new clients to your MSP. Build reusable templates, launch branded portals for each company, and track every step of the process — from initial discovery through full deployment.
 
 ## Overview
 
 Client onboarding in MSPortal works in three layers:
 
 1. **Templates** — Reusable blueprints that define your onboarding process (phases, tasks, documents, surveys, approvals)
-2. **Portals** — Active instances of templates launched for a specific company, with their own contacts, progress, and timeline
+2. **Portals** — Draft or active instances of templates created for a specific company, with their own contacts, progress, and timeline
 3. **Client Portal** — A branded, secure experience where clients complete tasks, upload documents, sign agreements, and track progress
 
 <CardGroup cols={2}>
@@ -35,7 +41,7 @@ Client onboarding in MSPortal works in three layers:
 ## Key Features
 
 <CardGroup cols={2}>
-  <Card title="10 Task Types" icon="list-check">
+  <Card title="Tasks and evidence" icon="list-check">
     Standard tasks, meetings, document uploads, digital signatures, credential handoff, secure file drops, training, forms, approvals, and checklists
   </Card>
   <Card title="AI Template Designer" icon="wand-magic-sparkles">
@@ -54,7 +60,7 @@ Client onboarding in MSPortal works in three layers:
     Link portals to PSA projects, create tickets from tasks, and log time — with configurable defaults
   </Card>
   <Card title="Activity Feed" icon="timeline">
-    Complete audit trail of every portal event with search and filtering
+    Recorded portal activity with search and filtering
   </Card>
   <Card title="Communication Tools" icon="envelope">
     Send task summaries and reminders, hold task comment threads, and let clients ask questions from their portal
@@ -74,12 +80,18 @@ Client onboarding in MSPortal works in three layers:
     Go to **Settings > Onboarding > Templates** and click **New Template**. Define your phases, tasks, and evidence requirements. See the [Templates guide](/user-guides/client-onboarding/templates) for details.
   </Step>
   <Step title="Launch a Portal">
-    Open a company page, click the **Onboarding** tab, and click **Start Onboarding**. Select a template, add client contacts, and activate the portal. See [Managing Portals](/user-guides/client-onboarding/managing-portals).
+    Open a company page, click the **Onboarding** tab, and click **Start Onboarding**. Select template modules, add client contacts, and create a draft. Review project linking, configuration, and the client preview before using Start Portal. See [Managing Portals](/user-guides/client-onboarding/managing-portals).
   </Step>
   <Step title="Track Progress">
     Monitor task completion, review documents, and communicate with clients from the company's onboarding tab. Your dashboard also shows active portals and assigned tasks.
   </Step>
 </Steps>
+
+## How changes take effect
+
+Templates define future portals; portal phases and tasks are copied at creation. Template detail edits use **Save Changes**, while many builder item controls save separately. Portal creation saves a draft before optional project linking. **Start & Send Invites** activates the portal and queues invitations; **View as** is a separate MSP preview that does not save client responses.
+
+Review automation and email/report timing before creating a portal. Draft status prevents normal client entry but does not turn configured automation or explicit project actions into previews.
 
 ## Permissions
 
@@ -97,7 +109,7 @@ Client onboarding must be enabled at the tenant level before the feature appears
 
 <CardGroup cols={2}>
   <Card title="Quick Start" icon="rocket" href="/user-guides/client-onboarding/quick-start">
-    Get your first client portal live in under 15 minutes
+    Prepare a draft, preview it, and activate it when ready
   </Card>
   <Card title="Templates" icon="copy" href="/user-guides/client-onboarding/templates">
     Build and manage onboarding templates
@@ -121,3 +133,23 @@ Client onboarding must be enabled at the tenant level before the feature appears
     Configure onboarding settings
   </Card>
 </CardGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Which guide should an MSP use first?">
+    Use Quick Start to prepare a template and draft portal, then Managing Portals for day-to-day work and lifecycle actions.
+  </Accordion>
+  <Accordion title="Is this the same as Launch Center?">
+    No. Launch Center helps MSP staff configure their own portal rollout. Client Onboarding manages onboarding workspaces for individual companies.
+  </Accordion>
+  <Accordion title="Do clients build templates or manage portal contacts?">
+    These guides describe MSP administration. Clients use their assigned portal to complete tasks and provide information according to their access.
+  </Accordion>
+  <Accordion title="Do I need a PSA to use onboarding?">
+    No. Project linking offers MSPortal Projects for native tracking. External PSA options depend on the connected provider and company mapping.
+  </Accordion>
+  <Accordion title="Does an MSP preview prove the portal is ready for clients?">
+    It verifies presentation in a selected contact or role context. Real invitation access, email delivery, and saved responses require separate verification.
+  </Accordion>
+</AccordionGroup>

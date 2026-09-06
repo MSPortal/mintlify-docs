@@ -1,165 +1,61 @@
 ---
-title: Settings
-description: Configure MSPortal.ai to match your organization's needs with comprehensive settings for users, companies, integrations, and more
-icon: gear
+title: "Settings overview"
+description: "Find the right configuration area and understand its access and save behavior."
+icon: "gear"
 ---
 
-The Settings module provides centralized configuration options to customize every aspect of MSPortal.ai. Access Settings from the sidebar to manage your tenant, users, companies, integrations, and more.
+**Audience:** MSP staff configuring the portal. Company users have a narrower set of account and company controls; this directory does not grant them access to MSP settings.
 
-## Settings Navigation
+Open **Settings** at the bottom of the sidebar. The nested settings navigation shows areas available to your role and enabled features. The settings landing page opens User Settings. A missing section can reflect permissions or feature availability, rather than missing configuration.
 
-Settings are organized into categories accessible from the left sidebar:
+## Choose a settings area
 
-<Frame>
-  <img src="/images/settings/settings-tenant.png" alt="Settings Navigation" />
-</Frame>
+| Task | Guide |
+| --- | --- |
+| Personal profile and preferences | [User settings](/msp-guides/account/manage-your-profile) |
+| Staff, Company users, security roles and account teams | [Users & Roles](/user-guides/settings/users-roles) |
+| Client company records and defaults | [Companies](/user-guides/settings/companies) |
+| Organization identity, AI and branding | [Tenant settings](/user-guides/settings/tenant) |
+| Subscription and invoices | [Billing](/user-guides/settings/billing) |
+| Provider connections and mappings | [Integrations](/user-guides/settings/integrations) and [Map companies](/user-guides/settings/integration-company-mapping) |
+| Ticket delivery, visibility and templates | [Ticket settings](/user-guides/settings/tickets) |
+| Dashboard defaults and external resources | [Dashboard settings](/user-guides/dashboards/manage-dashboard-settings) |
+| Course availability and training configuration | [Training settings](/user-guides/settings/training) |
+| Notification templates and sender/receiving configuration | [Email settings](/user-guides/settings/email) |
+| Reusable note content and record fields | [Note Templates](/user-guides/settings/templates) and [Custom Fields](/user-guides/settings/custom-fields) under Customization |
+| Client onboarding configuration | [Onboarding settings](/user-guides/settings/onboarding) |
+| CSV data movement | [Import / Export](/user-guides/settings/import-export) |
+| Rule-driven operations | [Automation rules](/user-guides/settings/automation/index) |
 
-| Category | Description |
-|----------|-------------|
-| **User Profile** | Your personal profile, notifications, and preferences |
-| **Users & Roles** | Manage team members and their permission levels |
-| **Companies** | Configure client companies and their settings |
-| **Training** | Manage courses and learning content |
-| **Tickets** | Configure ticket delivery, display groups, and statuses |
-| **Compliance Checks** | Manage security compliance checks |
-| **Playbooks** | CIS benchmarks and security playbooks |
-| **External Resources** | Links to external documentation and resources |
-| **Templates** | Note templates for meetings and planner items |
-| **Email** | Custom sending domains and email templates |
-| **Scoring** | Configure which health score dimensions are active |
-| **Tool Stack** | Define tool categories and items for your recommended stack |
-| **Financial Reporting** | Map revenue categories and configure profitability reporting |
-| **Custom Fields** | Create custom data fields for your workflows |
-| **Integrations** | Connect to PSA systems and third-party services |
-| **Rules** | Automation rules (coming soon) |
-| **Import/Export** | Bulk data operations with CSV files |
-| **Tenant** | Organization-wide settings and branding |
-| **Billing** | Subscription and payment management |
+For an initial rollout, use the [MSP setup playbook](/user-guides/getting-started/onboarding/index) and [Launch Center](/user-guides/getting-started/launch-center) to coordinate the required work.
 
-## Quick Start
+## Know when a change saves
 
-<Steps>
-  <Step title="Access Settings">
-    Click **Settings** in the sidebar
-  </Step>
-  <Step title="Navigate Categories">
-    Use the vertical icon bar on the left to switch between settings areas
-  </Step>
-  <Step title="Make Changes">
-    Update settings as needed - most changes save automatically
-  </Step>
-  <Step title="Review Changes">
-    For critical settings like Tenant or Billing, click **Save Settings** to confirm
-  </Step>
-</Steps>
+There is no universal autosave rule across Settings. Tenant form fields use **Save Settings**; branding has separate upload and color actions. Editors such as Note Templates save in their dialogs. Other controls, including email defaults or receiving activation, persist immediately. Imports and provider connection actions have their own explicit execution and result.
 
-## Settings Categories
+Read the relevant guide before a bulk action. Table filters may narrow what you see without limiting a tenant-wide cleanup or default change. Inspect selected records and the action's stated scope, then wait for its result.
 
-### User Management
+## Check the result
 
-<CardGroup cols={2}>
-  <Card title="Users & Roles" icon="users" href="/user-guides/settings/users-roles">
-    Add team members, assign roles, and manage permissions across your organization
-  </Card>
-  <Card title="Companies" icon="building" href="/user-guides/settings/companies">
-    Configure client companies, locations, and company-specific settings
-  </Card>
-</CardGroup>
+Reopen the setting to confirm its saved value, then check the affected feature with the intended role and company. Saving a template does not prove delivery; configuring a role does not prove every client workflow works. If an operation partially succeeds, inspect current values before repeating it.
 
-### Operations Settings
+## Troubleshooting
 
-<CardGroup cols={2}>
-  <Card title="Ticket Settings" icon="ticket" href="/user-guides/settings/tickets">
-    Configure ticket delivery methods, display groups, and allowed statuses
-  </Card>
-  <Card title="Training Settings" icon="graduation-cap" href="/user-guides/settings/training">
-    Manage courses, categories, and learning content
-  </Card>
-</CardGroup>
+If Settings opens but an area is absent, ask an administrator to review the relevant read/write/manage permission and feature availability. If a save fails, preserve the error, reopen the current state and retry only the incomplete work. If a user sees unexpected content, check company scope, role and that content's visibility settings together.
 
-### Security & Compliance
+## FAQs
 
-<CardGroup cols={2}>
-  <Card title="Compliance Checks" icon="shield-check" href="/user-guides/settings/compliance">
-    Manage security compliance checks across frameworks
-  </Card>
-  <Card title="Playbooks" icon="book" href="/user-guides/settings/playbooks">
-    CIS security benchmarks and compliance playbooks
-  </Card>
-</CardGroup>
-
-### MSP Tools
-
-<CardGroup cols={3}>
-  <Card title="Scoring" icon="heart-pulse" href="/user-guides/settings/scoring">
-    Configure which dimensions factor into client health scores
-  </Card>
-  <Card title="Standards" icon="wrench" href="/user-guides/settings/standards">
-    Define tool categories and items for your recommended technology stack
-  </Card>
-  <Card title="Financial Reporting" icon="dollar-sign" href="/user-guides/settings/financial-reporting">
-    Map revenue categories and configure the profitability reporting model
-  </Card>
-</CardGroup>
-
-### Customization
-
-<CardGroup cols={2}>
-  <Card title="Planner Types" icon="layer-group" href="/user-guides/planner/manage-types">
-    Manage shared Planner types, budget categories and defaults
-  </Card>
-  <Card title="Templates" icon="file-lines" href="/user-guides/settings/templates">
-    Create and manage note templates for meetings and tasks
-  </Card>
-  <Card title="Email Settings" icon="envelope" href="/user-guides/settings/email">
-    Configure custom sending domains and email templates
-  </Card>
-  <Card title="External Resources" icon="link" href="/user-guides/settings/external">
-    Manage external documentation and resource links
-  </Card>
-</CardGroup>
-
-### System Configuration
-
-<CardGroup cols={2}>
-  <Card title="Integrations" icon="plug" href="/user-guides/settings/integrations">
-    Connect PSA systems like Halo, ConnectWise, Syncro, and more
-  </Card>
-  <Card title="Import/Export" icon="file-import" href="/user-guides/settings/import-export">
-    Bulk import and export data using CSV files
-  </Card>
-</CardGroup>
-
-### Administration
-
-<CardGroup cols={2}>
-  <Card title="Tenant Settings" icon="building-columns" href="/user-guides/settings/tenant">
-    Configure organization-wide settings, domains, and branding
-  </Card>
-  <Card title="Billing" icon="credit-card" href="/user-guides/settings/billing">
-    Manage subscriptions, payment methods, and invoices
-  </Card>
-</CardGroup>
-
-## Permissions
-
-Access to Settings is controlled by custom roles defined in **Users & Roles**. Each role can be assigned specific permissions to control access to different settings areas.
-
-Common permission patterns include:
-
-| Permission Type | Description |
-|-----------------|-------------|
-| **Full Admin Access** | Complete access to all settings including tenant and billing |
-| **Settings Management** | Access to operational settings (tickets, training, compliance) |
-| **Company Management** | Ability to configure company-specific settings |
-| **User Profile Only** | Limited to personal profile settings |
-
-<Note>
-The **Primary Admin** role always has full access to all settings. Custom roles can be configured with granular permissions in [Users & Roles](/user-guides/settings/users-roles).
-</Note>
-
-## Related Resources
-
-- [Getting Started](/user-guides/getting-started/index) - Initial setup and onboarding
-- [Integrations Guide](/user-guides/integrations/index) - Detailed integration setup instructions
-- [Users & Roles](/user-guides/settings/users-roles) - User management and permissions
+<AccordionGroup>
+  <Accordion title="Do all Settings controls autosave?">
+    No. Header forms, editors, immediate controls and provider actions have different save boundaries. Follow the specific guide.
+  </Accordion>
+  <Accordion title="Does a table filter limit every bulk operation?">
+    No. Review the action's scope and selected records; some operations affect tenant-wide configuration.
+  </Accordion>
+  <Accordion title="Why can another administrator see more settings?">
+    Navigation depends on permissions and enabled features. Compare the relevant role and feature access.
+  </Accordion>
+  <Accordion title="Does a saved setting prove the client workflow works?">
+    No. Review the saved value and test the affected workflow with the intended Company role and scope.
+  </Accordion>
+</AccordionGroup>

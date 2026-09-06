@@ -1,86 +1,52 @@
 ---
-title: "Integration Selection"
-sidebarTitle: "7. Integration Selection"
-description: "Choose which integrations you need for your MSP"
+title: "Choose launch integrations"
+sidebarTitle: "Choose launch integrations"
+description: "Select authoritative sources and the correct connection instances for your plan."
 icon: "puzzle-piece"
 ---
 
-The Integration Selection step helps you identify which tools you want to connect to MSPortal. Based on your selections, the wizard will guide you through setting up each integration.
+**Audience:** MSP staff managing Launch Center. Configuring credentials also requires the relevant integration-management access.
 
-## What You'll Choose
+## Choose the systems for this rollout
 
-- **PSA (Professional Services Automation)** - For syncing companies, tickets, and contacts
-- **RMM (Remote Monitoring & Management)** - For syncing devices and monitoring data
+1. Open the integration-strategy step in **Launch Center**.
+2. Decide whether the plan needs a PSA and a primary RMM. Choose the provider for each enabled option.
+3. Select additional integrations relevant to the goals, such as Microsoft 365, documentation, security or backup services. Only use options available to your organization.
+4. Where multiple connections exist for a provider, choose the intended instance. Its nickname helps distinguish environments.
+5. Select **Next** to save the strategy. Review the regenerated steps and readiness findings.
 
-## Supported Integrations
+A PSA chosen as the plan's data source remains required. Similarly, Microsoft 365 remains selected when it is the data source. Available providers can depend on features enabled for your organization.
 
-### PSA Integrations
+<Frame caption="Choose the PSA and primary RMM for the plan; connection setup follows separately.">
+  <img src="/images/product/launch-integration-choices.png" alt="Choose the PSA and primary RMM for the plan; connection setup follows separately." width="1780" height="650" />
+</Frame>
 
-<CardGroup cols={2}>
-  <Card title="HaloPSA" icon="ticket">
-    Full integration with companies, tickets, contacts, and time entries.
-  </Card>
-  <Card title="ConnectWise Manage" icon="ticket">
-    Sync companies, tickets, contacts, and configurations.
-  </Card>
-  <Card title="Autotask" icon="ticket">
-    Import companies, contacts, and tickets from Autotask.
-  </Card>
-  <Card title="Syncro" icon="ticket">
-    Unified PSA/RMM integration with Syncro.
-  </Card>
-</CardGroup>
+## Understand what selection does
 
-### RMM Integrations
+Saving the strategy configures the plan; it does not enter credentials, grant provider consent or import records. Open each connection workspace to perform those tasks. A displayed existing connection is not proof that the selected instance is healthy.
 
-<CardGroup cols={2}>
-  <Card title="Datto RMM" icon="server">
-    Import devices and sites from Datto RMM.
-  </Card>
-  <Card title="ConnectWise ASIO" icon="server">
-    Sync device configurations from ConnectWise.
-  </Card>
-  <Card title="Syncro" icon="server">
-    Device sync included with Syncro PSA integration.
-  </Card>
-</CardGroup>
+The plan supports more than the old PSA-or-RMM questionnaire. Follow the steps generated for the goals rather than expecting an email-domain step to follow every integration choice.
 
-## Steps to Complete
+## Change the selection safely
 
-<Steps>
-  <Step title="Open Integration Selection">
-    When you reach this step, a dialog will appear asking about your integration needs.
-  </Step>
-  <Step title="Select PSA Need">
-    Choose whether you need to connect a PSA system. If yes, select your PSA provider from the list.
-  </Step>
-  <Step title="Select RMM Need">
-    Choose whether you need to connect an RMM system. If yes, select your RMM provider from the list.
-  </Step>
-  <Step title="Confirm Selections">
-    Click **Continue** to save your selections. The wizard will add the appropriate integration steps.
-  </Step>
-</Steps>
+Use the strategy step or **Edit launch plan** to revise the rollout. Review the new requirements after saving. If a chosen instance was removed, choose its replacement explicitly; do not assume another connection for the same provider is interchangeable. Removing a provider from the plan does not itself disconnect or delete that integration.
 
-## Conditional Steps
+## FAQs
 
-Based on your selections:
+<AccordionGroup>
+  <Accordion title="Does selecting a provider connect it?">
+    No. Selection saves the plan; credentials, consent and imports are separate actions.
+  </Accordion>
+  <Accordion title="Which connection is checked when I have several?">
+    Review the selected provider instance. Do not substitute a different connection merely because it is healthy.
+  </Accordion>
+  <Accordion title="Does removing an integration from the plan disconnect it?">
+    No. Plan selection and integration disconnection are separate operations.
+  </Accordion>
+</AccordionGroup>
 
-| Selection | Steps Added |
-|-----------|-------------|
-| PSA needed | PSA Setup → Ticket Settings |
-| RMM needed | RMM Setup → Device Import |
-| Neither | Skip directly to Email Domain setup |
+## Related guides
 
-## Manual Completion
-
-This step requires **manual completion** through the selection dialog. Once you've made your choices and clicked Continue, the step is marked complete.
-
-<Tip>
-  If you're unsure, you can skip integrations during onboarding and set them up later through **Settings > Integrations**.
-</Tip>
-
-## Related Documentation
-
-- [Integrations Overview](/user-guides/integrations/index) - Full integrations guide
-- [Integration FAQ](/user-guides/integrations/faq) - Common integration questions
+- [Integrations](/user-guides/settings/integrations)
+- [PSA Integration](/user-guides/getting-started/onboarding/psa-setup)
+- [RMM Integration](/user-guides/getting-started/onboarding/rmm-setup)

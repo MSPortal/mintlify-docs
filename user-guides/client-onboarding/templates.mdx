@@ -4,6 +4,12 @@ description: 'Build reusable onboarding blueprints with phases, tasks, documents
 icon: 'copy'
 ---
 
+**Audience:** MSP staff configuring and managing client onboarding. Company users should start with [Open your onboarding portal](/user-guides/client-onboarding/open-your-onboarding).
+
+## Before you begin
+
+Your organization must have Client Onboarding enabled. Viewing requires onboarding read access; creating or changing templates and portals requires onboarding write access and active billing. **Convert to Client** requires onboarding management access. Your role and company scope can limit what appears.
+
 Templates are reusable blueprints that define your onboarding process. Each template contains phases (workflow stages) and tasks (individual action items) that get copied into a portal when you launch onboarding for a client.
 
 ## Creating a Template
@@ -13,7 +19,7 @@ Templates are reusable blueprints that define your onboarding process. Each temp
     Go to **Settings > Onboarding > Templates** and click **New Template**.
   </Step>
   <Step title="Set Template Details">
-    Enter a **name**, optional **description**, and **tags** for organization. Set the **estimated duration** to help plan timelines.
+    Enter a **name**, optional **description**, and **tags** for organization. Set the **estimated duration** to help plan timelines. Click **Create Template** before adding phases manually.
   </Step>
   <Step title="Add Phases">
     Click **Add Phase** to create workflow stages. Each phase represents a logical grouping of tasks (e.g., "Discovery", "Setup", "Training", "Go Live"). Drag phases to reorder them.
@@ -22,13 +28,27 @@ Templates are reusable blueprints that define your onboarding process. Each temp
     Click **Add Item** within a phase to create tasks. Configure each task's type, ownership, and evidence requirements.
   </Step>
   <Step title="Save">
-    Click **Save** to save your template. It's now available when launching portals.
+    Use **Save Changes** for template details. Phase and item changes save separately as you work; wait for them to finish before leaving or creating a portal.
   </Step>
 </Steps>
 
+## Understand what saves
+
+| Change | When it persists |
+| --- | --- |
+| New template details | **Create Template** |
+| Existing name, description, tags, duration, invitation template, and portal display defaults | **Save Changes** |
+| Add a phase | **Add Phase** creates it immediately |
+| Phase edits, item fields, and ordering | Their controls save separately; text changes can save after you pause |
+| Dependency selection | Selecting or removing the dependency saves it |
+| Accepted AI changes | **Apply** writes the accepted changes |
+| Linked dates and pages | Their own add/edit/remove controls |
+
+The header save button is not a commit or undo for the entire builder. If an item save fails, stay on the page, record the error, and verify the saved result before launching a portal. A new item needs a title before it can be saved.
+
 ## Phases
 
-Phases are the major stages of your onboarding workflow. They execute sequentially and provide visual progress tracking for both your team and the client.
+Phases are the major stages of your onboarding workflow. Their order organizes the workflow and progress display. Configure dependencies where one item must wait for another; ordering alone is not a substitute for a dependency.
 
 Each phase has:
 
@@ -76,13 +96,13 @@ Securely collect credentials from the client. Supports two modes:
 - **Single mode** — Username, password, API key, and notes fields
 - **Bulk mode** — Text paste or file upload for multiple credentials at once
 
-Submitted credentials are encrypted and auto-hide after 5 minutes when revealed by MSP staff.
+Use [Retrieve onboarding credentials and secure files](/user-guides/client-onboarding/retrieve-secure-submissions) for the consuming retrieval controls. Revealing a credential is not a reusable preview.
 
 **Use for:** Admin passwords, VPN credentials, vendor logins, API keys
 
 ### Secure File Drop
 
-Allows clients to upload files that expire after download. Includes time-based expiration tracking and secure download links.
+Requests a separate secure-file submission. MSP staff retrieve it through **Download & Destroy**; this consumes the stored submission. See the [secure retrieval guide](/user-guides/client-onboarding/retrieve-secure-submissions) before using it.
 
 **Use for:** Sensitive configuration files, license keys, security certificates
 
@@ -115,6 +135,10 @@ Attach a checklist template with granular sub-items. Both MSP staff and clients 
 
 **Use for:** Server setup verification, workstation deployment steps, migration readiness checks
 
+### Document Link, Email, Report, and Access Verification
+
+The item picker also offers **Document Link**, **Email**, **Report**, and **Access Verification**. Use a document link for an existing reference; configure the required link instead of expecting an upload request. Email and report items require their selected templates and timing settings. Review recipient roles and client visibility before enabling automatic actions. Access verification is a dedicated access-check workflow; do not substitute a generic completion checkbox for its requirements.
+
 ## Task Configuration
 
 Beyond the evidence type, each task has several configuration options:
@@ -124,6 +148,7 @@ Beyond the evidence type, each task has several configuration options:
 | **Title** | The task name displayed to both MSP and client |
 | **Description** | Detailed instructions or context |
 | **Owner** | Who is responsible: **MSP** (your team) or **Client** |
+| **Visible to client** | Whether the item is shown in the client portal; separate from ownership |
 | **Priority** | Low, Normal, High, or Critical |
 | **Due Date Logic** | Offset from phase start, portal start, or dependency completion |
 | **Dependencies** | Block this task until another task is completed |
@@ -141,8 +166,8 @@ Tasks can depend on other tasks. A dependent task appears as "blocked" until its
   <Step title="Select Prerequisites">
     Choose one or more tasks from any phase that must complete before this task unblocks.
   </Step>
-  <Step title="Save">
-    The task will show as blocked in the portal until all dependencies are met.
+  <Step title="Check the saved selection">
+    Each selection saves immediately. The task is blocked in the portal until its prerequisites are met. If a circular dependency is rejected, change the selection.
   </Step>
 </Steps>
 
@@ -150,8 +175,10 @@ Tasks can depend on other tasks. A dependent task appears as "blocked" until its
 
 Each task is owned by either the **MSP** or the **Client**:
 
-- **MSP tasks** appear under "Our Progress" in the client portal and are managed by your team
-- **Client tasks** appear under "Your Tasks" in the client portal and require client action
+- **MSP tasks** are managed by your team; visible items can appear in the provider progress section.
+- **Client tasks** request client action, subject to the item visibility, contact-role, and portal display settings.
+
+Ownership does not guarantee visibility to every contact. Review the portal as the relevant role or contact before activation.
 
 ## Documents, Surveys, and Approvals
 
@@ -179,11 +206,11 @@ Open the **Template dates** section in the builder to add dates with a label, op
 
 Generate complete onboarding templates using AI. Describe your onboarding process in plain language and AI creates the phases, tasks, and structure for you.
 
-The AI designer is a sidebar inside the template builder. It's always available and reads whatever template you have open, so there's nothing to enable, connect, or link a template to. Open a template, click **AI**, and start describing what you want.
+The AI designer is a sidebar inside the template builder. It uses the template currently open in the builder. Availability depends on your access and the available AI service. Open a template, select **Assistant** (or **AI Designer** where shown), and describe the change.
 
 <Steps>
   <Step title="Open the AI Sidebar">
-    In the template builder, click the **AI** button on the right side of the screen to open the AI design sidebar.
+    In the template builder, open **Assistant**, or use the **AI Designer** control where shown, to open the design conversation.
   </Step>
   <Step title="Describe Your Process">
     Type a description like "Create an onboarding template for a 50-person law firm migrating from on-prem Exchange to Microsoft 365" or "Add a security hardening phase with MFA enrollment and endpoint protection tasks."
@@ -192,7 +219,7 @@ The AI designer is a sidebar inside the template builder. It's always available 
     AI generates proposed changes shown in a diff preview. Review each change — added phases, tasks, and configuration.
   </Step>
   <Step title="Apply or Adjust">
-    Click **Apply** to accept the changes, or continue the conversation to refine. You can undo the last AI application if needed.
+    Click **Apply** to persist the accepted changes, or continue the conversation to refine them first. Review removals and dependencies carefully. If an application reports a partial failure, inspect the saved template before retrying; do not assume every change was rolled back.
   </Step>
 </Steps>
 
@@ -210,7 +237,7 @@ Templates don't have a preview of their own, because what a client sees depends 
 
 <Steps>
   <Step title="Create a Draft portal">
-    Pick a test or internal company, open its **Onboarding** tab, click **Start Onboarding**, and choose your template. The portal is created in **Draft** — nothing is sent to anyone.
+    Pick a test or internal company, open its **Onboarding** tab, click **Start Onboarding**, and choose your template. The portal is created in **Draft**. Review configured automation first, and skip project creation or ticket creation when you only need a presentation preview.
   </Step>
   <Step title="View as a contact or role">
     On the portal's **Overview** tab, click the **View as** dropdown and select a contact. With no contacts added, select a client **role** instead. The portal opens in a new tab in read-only preview mode.
@@ -228,7 +255,7 @@ Share templates across tenants, back them up, or build them in a spreadsheet usi
 
 <Tabs>
   <Tab title="JSON">
-    JSON preserves the complete template structure — phases, tasks, documents, approvals, and client pages.
+    JSON carries the exported template structure, including phases, tasks, documents, approvals, and client page data. Review linked library items and configuration after import; an export is not a backup of portal progress, submitted files, or external provider records.
 
     - **Export JSON** downloads the full template.
     - **Select JSON File** then **Import Template** validates the file and **updates the current template in place**. A preview shows the phase, task, document, and page counts before you import.
@@ -261,15 +288,15 @@ Checklist templates are reusable sets of sub-items that can be attached to any t
 
 ### Archiving Templates
 
-Archive templates you no longer need. Archived templates are hidden from the template list but can be restored at any time. Existing portals using archived templates are not affected.
+Archive templates you no longer need. Archived templates are excluded from new portal selection. In the template list, find the archived template and use **Restore** when you need it again. Existing portals using archived templates are not affected.
 
 ### Duplicating Templates
 
-Duplicate a template to create a variant. Click the **⋯** menu on any template and select **Duplicate** to create an identical copy you can modify independently.
+Duplicate a template to create a variant. Click the **⋯** menu on any template and select **Duplicate** to save a new copy and open it for editing. Review its linked library content before treating it as an independent version of every form or page.
 
 ### Change History
 
-The template builder records an audit trail of every change. Open the **Change History** panel to see what changed, who changed it, and when — phase and task additions, edits, and reorders; document, approval, survey, and checklist links; automation changes; and duplication, archive, or restore actions. Hover any entry for the exact timestamp, and use **Load More** to page through older history.
+The template builder provides a **Change History** panel for recorded template changes. Open the **Change History** panel to see what changed, who changed it, and when — phase and task additions, edits, and reorders; document, approval, survey, and checklist links; automation changes; and duplication, archive, or restore actions. Hover any entry for the exact timestamp, and use **Load More** to page through older history.
 
 ## Best Practices
 
@@ -288,5 +315,34 @@ The template builder records an audit trail of every change. Open the **Change H
   </Accordion>
   <Accordion title="Use the AI designer for first drafts">
     Start with AI to generate a baseline template, then customize it to match your exact process. This is much faster than building from scratch.
+  </Accordion>
+</AccordionGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Why can I not add a phase to a new template?">
+    Enter a name and click Create Template first. A phase needs a saved template.
+  </Accordion>
+  <Accordion title="Does Save Changes save everything in the builder?">
+    No. It saves template details and display defaults. Phases, item fields, ordering, dependencies, dates, pages, and AI application have separate persistence controls.
+  </Accordion>
+  <Accordion title="Can I cancel item edits by leaving without saving?">
+    Do not rely on that. Item changes can already have saved after you pause. Reopen the item to verify its stored values and deliberately correct them if necessary.
+  </Accordion>
+  <Accordion title="Does changing the template update existing portal tasks?">
+    No. Existing portals retain their copied phases and tasks. Create a fresh draft to review a new structure. Shared page content can still be linked to the library.
+  </Accordion>
+  <Accordion title="Does Apply only preview the AI suggestion?">
+    No. Review the proposal before Apply; applying persists accepted changes. A partial failure requires checking the actual saved template before a retry.
+  </Accordion>
+  <Accordion title="Does importing JSON create a separate template?">
+    The builder JSON import updates the current template. CSV Import as New Template creates a separate template. Check the selected format and destination before importing.
+  </Accordion>
+  <Accordion title="Are MSP-owned tasks automatically hidden from clients?">
+    No. Ownership and visibility are separate. Check Visible to client and the portal display settings, then review the relevant contact or role preview.
+  </Accordion>
+  <Accordion title="Does archiving a template archive its existing portals?">
+    No. Template archiving removes it from future portal selection. Existing portals have their own lifecycle and archive actions.
   </Accordion>
 </AccordionGroup>

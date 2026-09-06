@@ -1,78 +1,56 @@
 ---
-title: "PSA Integration"
-sidebarTitle: "8. PSA Integration"
-description: "Connect your PSA to sync companies, tickets, and contacts"
+title: "PSA connection"
+sidebarTitle: "PSA connection"
+description: "Connect the selected PSA and verify its data before continuing."
 icon: "ticket"
 ---
 
-The PSA Integration step connects MSPortal to your Professional Services Automation system. This enables automatic synchronization of companies, contacts, tickets, and more.
+**Audience:** MSP staff with integration-management access. Have the provider administrator prepare the credentials and permissions required by its setup guide.
 
-<Note>
-  This step only appears if you selected that you need a PSA integration in the Integration Selection step.
-</Note>
+## Connect the intended instance
 
-## What Gets Synced
+1. In **Launch Center**, review the selected PSA and connection instance, then open its setup step. You can also open the provider from **Settings > Integrations**.
+2. Follow the provider's credential and connection workflow. Exact fields, test controls and supported features differ by provider.
+3. Use the displayed connection/save action and wait for its result. Correct credential, region or permission errors before proceeding.
+4. Review synchronization status and available companies, contacts and supported ticket data. A successful credential check is not the same as a completed import.
+5. Map provider companies or sites to the intended MSPortal company. Review import settings before importing or enabling continuing synchronization.
+6. Return to Launch Center and inspect the selected connection's readiness and the separate client-data findings.
 
-Depending on your PSA, MSPortal can sync:
+<Frame caption="The plan identifies which PSA and RMM connections to configure and check.">
+  <img src="/images/product/launch-integration-choices.png" alt="The plan identifies which PSA and RMM connections to configure and check." width="1780" height="650" />
+</Frame>
 
-- **Companies** - Your client list with details
-- **Contacts** - Client contacts and their information
-- **Tickets** - Support tickets and their status
-- **Time Entries** - Billable time tracking
-- **Contracts/Agreements** - Service agreements
+## Connection versus readiness
 
-## Steps to Complete
+The connection check applies to the provider instance selected for the plan. An unrelated active integration does not satisfy it. Data requirements are checked separately for the rollout companies. Do not assume all provider features, records or writeback operations are supported because the connection succeeds.
 
-<Steps>
-  <Step title="Navigate to Integration Setup">
-    Click **Go to Settings** in the onboarding wizard. You'll be taken to the setup page for your selected PSA.
-  </Step>
-  <Step title="Enter API Credentials">
-    Provide the API credentials required by your PSA. Each PSA has different requirements.
-  </Step>
-  <Step title="Test Connection">
-    Click **Test Connection** to verify your credentials work correctly.
-  </Step>
-  <Step title="Configure Sync Settings">
-    Choose what data to sync and how often.
-  </Step>
-  <Step title="Start Initial Sync">
-    Click **Connect** or **Save** to activate the integration. An initial sync will begin automatically.
-  </Step>
-</Steps>
+Next, review ticket delivery, visibility and client-available templates. Do not assume every ticket setting waits on one universal initial-sync timer.
 
-## PSA-Specific Guides
+## Troubleshooting
 
-For detailed setup instructions, see the guide for your PSA:
+If the selected connection is missing, return to the strategy step and choose the intended instance. If synchronization has no expected records, inspect its status, provider permissions, scope and company mappings. Preserve the current connection while investigating; clearing and resyncing can remove staged or mapped data and is not a harmless refresh.
 
-<CardGroup cols={2}>
-  <Card title="HaloPSA" href="/user-guides/integrations/enable-halo-integration" icon="ticket">
-    Setup guide for HaloPSA integration
-  </Card>
-  <Card title="ConnectWise Manage" href="/user-guides/integrations/enable-connectwise-integration" icon="ticket">
-    Setup guide for ConnectWise Manage
-  </Card>
-  <Card title="Autotask" href="/user-guides/integrations/enable-autotask-integration" icon="ticket">
-    Setup guide for Autotask integration
-  </Card>
-  <Card title="Syncro" href="/user-guides/integrations/enable-syncro-integration" icon="ticket">
-    Setup guide for Syncro integration
-  </Card>
-</CardGroup>
+Use the specific guide below for credential preparation and provider behavior.
 
-## Auto-Completion
+## FAQs
 
-This step is **automatically marked as complete** when:
-- An active PSA integration exists for your tenant
+<AccordionGroup>
+  <Accordion title="Does a successful PSA credential test complete the rollout?">
+    No. Verify the selected connection, company mapping, actual imported records and remaining readiness findings.
+  </Accordion>
+  <Accordion title="Can any active connection satisfy this step?">
+    No. The check applies to the provider instance selected in the plan.
+  </Accordion>
+  <Accordion title="Should I clear and resync immediately when data is missing?">
+    No. Inspect status, permissions, scope and mappings first; clearing data is a separate consequential operation.
+  </Accordion>
+</AccordionGroup>
 
-## Initial Sync Time
+## Related guides
 
-<Warning>
-  The initial sync may take several minutes depending on the amount of data in your PSA. The next step (Ticket Settings) will wait for the sync to complete before becoming available.
-</Warning>
-
-## Related Documentation
-
-- [Integrations Settings](/user-guides/settings/integrations) - Manage your integrations
-- [Import Companies](/user-guides/integrations/import-companies) - Company import guide
-- [Clear and Resync](/user-guides/integrations/clear-and-resync-integrations) - Troubleshooting sync issues
+- [Configure Halo PSA Integration](/user-guides/integrations/enable-halo-integration)
+- [Configure ConnectWise Manage Integration](/user-guides/integrations/enable-connectwise-integration)
+- [Configure Autotask PSA Integration](/user-guides/integrations/enable-autotask-integration)
+- [Configure Syncro Integration](/user-guides/integrations/enable-syncro-integration)
+- [Integrations](/user-guides/settings/integrations)
+- [Ticket Settings](/user-guides/getting-started/onboarding/ticket-settings)

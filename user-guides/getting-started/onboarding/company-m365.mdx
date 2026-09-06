@@ -1,81 +1,47 @@
 ---
-title: "Company M365 Setup"
-sidebarTitle: "15. Company M365"
-description: "Connect Microsoft 365 for your client companies"
+title: "Connect rollout companies to Microsoft 365"
+sidebarTitle: "Connect rollout companies to Microsoft 365"
+description: "Verify each selected company connection and its imported data."
 icon: "cloud"
 ---
 
-The Company M365 Setup step guides you through connecting Microsoft 365 tenants for your client companies. This enables user synchronization, license management, and security features.
+**Audience:** MSP staff with integration access and an authorized Microsoft tenant administrator for consent.
 
-## What You'll Configure
+## Connect the right companies
 
-- **M365 Connection** - Link a company to their Microsoft 365 tenant
-- **User Sync** - Automatically import users from Azure AD/Entra ID
-- **License Visibility** - View M365 license assignments
-- **Security Features** - Enable Secure Score monitoring (if applicable)
+1. Open the Microsoft 365 step in **Launch Center**, or the Microsoft 365 company connection area under **Settings > Integrations**.
+2. Identify the intended MSPortal company and the Microsoft tenant it should connect to. Check existing mappings before creating another connection.
+3. Follow the offered connection and administrator-consent workflow. Review the actual requested permissions and target tenant before authorizing it.
+4. Return to the connection list and inspect the saved connection status. A completed browser redirect is not sufficient evidence of a healthy connection.
+5. Review synchronization and the company's expected Microsoft 365 data. Import and user-access configuration are separate from granting consent.
+6. Return to Launch Center and inspect the company-specific findings.
 
-## Steps to Complete
+Do not use a short generic permissions list as the complete consent specification. Required permissions depend on the offered integration capabilities and the actual Microsoft consent screen.
 
-<Steps>
-  <Step title="Navigate to Companies">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Companies**.
-  </Step>
-  <Step title="Select a Company">
-    Click on a company that you want to connect to Microsoft 365.
-  </Step>
-  <Step title="Go to M365 Tab">
-    On the company detail page, click the **Microsoft 365** tab.
-  </Step>
-  <Step title="Initiate Connection">
-    Click **Connect Microsoft 365**. This will redirect to Microsoft's authentication flow.
-  </Step>
-  <Step title="Grant Permissions">
-    Sign in with an administrator account from the client's M365 tenant and approve the requested permissions.
-  </Step>
-  <Step title="Configure Sync Settings">
-    Once connected, configure which users to sync and how often.
-  </Step>
-</Steps>
+## Match the rollout scope
 
-## Required Permissions
+A pilot can focus on its selected company. For a wider rollout, the readiness check requires healthy Microsoft 365 connections for the rollout companies and any explicitly selected Microsoft 365 companies. Connecting one company does not complete every other company's requirement.
 
-To connect M365, you need consent from an administrator in the client's tenant. The permissions requested include:
+## Troubleshooting
 
-- **User.Read.All** - Read user profiles
-- **Directory.Read.All** - Read directory data
-- **Organization.Read.All** - Read organization info
+If consent succeeds but the connection remains unhealthy, check its result and intended tenant before repeating consent. If users are missing, review synchronization, company mapping and import eligibility. If a company should be outside this rollout, correct the plan's scope; do not connect an unrelated tenant simply to clear the finding.
 
-<Note>
-  The client's M365 administrator must approve these permissions. You may need to coordinate with your client contact to complete this step.
-</Note>
+## FAQs
 
-## Benefits of M365 Connection
+<AccordionGroup>
+  <Accordion title="Does one Microsoft 365 connection complete a wider rollout?">
+    No. Review healthy connection evidence for every required rollout or explicitly selected company.
+  </Accordion>
+  <Accordion title="Does consent automatically grant imported users portal access?">
+    No. Review user import, company assignment and access groups separately.
+  </Accordion>
+  <Accordion title="Is the browser redirect proof of a healthy connection?">
+    No. Check the saved connection status and subsequent synchronization.
+  </Accordion>
+</AccordionGroup>
 
-<CardGroup cols={2}>
-  <Card title="User Sync" icon="users">
-    Automatically import and update users from Azure AD.
-  </Card>
-  <Card title="License Management" icon="key">
-    View M365 license assignments and availability.
-  </Card>
-  <Card title="Secure Score" icon="shield-check">
-    Monitor Microsoft Secure Score for security insights.
-  </Card>
-  <Card title="Domain Info" icon="globe">
-    See verified domains and email configuration.
-  </Card>
-</CardGroup>
+## Related guides
 
-## Manual Completion
-
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've connected M365 for at least one company.
-
-<Tip>
-  You don't need to connect M365 for every company during onboarding. Start with one or two companies to learn the process, then connect others as needed.
-</Tip>
-
-## Related Documentation
-
-- [Microsoft 365 Overview](/user-guides/microsoft-365/index) - Full M365 guide
-- [M365 Licenses](/user-guides/microsoft-365/licenses) - License management
-- [M365 Domains](/user-guides/microsoft-365/domains) - Domain configuration
+- [Connecting Companies to Microsoft 365](/user-guides/microsoft-365/connecting-companies)
+- [Read Microsoft Secure Score](/user-guides/microsoft-365/index)
+- [Company Users](/user-guides/getting-started/onboarding/company-users)

@@ -6,7 +6,7 @@ icon: 'server'
 
 After connecting an RMM or PSA integration, MSPortal syncs devices into a staging area. From there, you control which devices get imported into your asset inventory using device type mappings, auto-sync, and category ignore.
 
-This workflow applies to all integrations that sync devices:
+The following providers offer device-related import workflows. Their exact tabs, supported actions and save behavior differ; follow the controls offered for the selected provider:
 
 <CardGroup cols={3}>
   <Card title="Addigy" icon="apple">Devices</Card>
@@ -23,7 +23,7 @@ This workflow applies to all integrations that sync devices:
 
 - An active integration connected in **Settings > Integrations**
 - Companies/sites mapped to MSPortal companies (devices from unmapped companies won't appear)
-- At least one sync completed (the initial sync can take 1-2 hours)
+- Relevant device synchronization completed; inspect the result rather than relying on a fixed initial-sync time
 
 ## Accessing the Device Import Page
 
@@ -52,10 +52,10 @@ Datto RMM shows an additional **Category** column because Datto uses a two-level
 
 <Steps>
   <Step title="Use Quick Match (Recommended)">
-    Click **Quick Match** to automatically map external types to existing MSPortal device types with similar names. This handles most common types like Workstation, Server, and Laptop.
+    Where offered, **Quick Match** matches external types by name. Check that the resulting type is correct before importing; provider implementations can persist mappings during this action.
   </Step>
   <Step title="Use Map with AI">
-    Click **Map with AI** to have AI suggest mappings for any types that name matching could not resolve.
+    **Map with AI** can save generated mappings immediately. Review existing types and the result; do not treat it as an unsaved suggestion dialog.
   </Step>
   <Step title="Use Quick Create for Remaining Types">
     Click **Quick Create** to automatically create new MSPortal device types for any unmatched external types.
@@ -70,7 +70,7 @@ Datto RMM shows an additional **Category** column because Datto uses a two-level
 Check the **Auto-Sync** checkbox for device types you want automatically imported. When enabled:
 
 - New devices of this type are automatically imported during each sync cycle
-- No manual review is needed for these device types
+- Future imports use the saved mapping without an individual approval step; review the mapping before enabling this
 - Requires a device type mapping to be set first
 
 <Tip>
@@ -138,11 +138,17 @@ In addition to ignoring entire categories, you can ignore individual devices:
 
 ## Syncing New Devices
 
-Click **Sync Now** in the page header to trigger an immediate sync from the integration. New devices appear in the staging area after the sync completes.
+Use **Sync Now** where offered to request synchronization. New records appear only after the relevant background work completes; a queued request is not a completed import.
 
 - **Auto-Synced types**: New devices are imported automatically
 - **Ignored types**: New devices are automatically marked as ignored
 - **Other types**: New devices appear in staging for manual review
+
+## Save boundaries and recovery
+
+Some provider mapping controls persist immediately; other mapping screens offer **Save Mappings**. Follow the save controls on your actual screen. **Quick Create** creates device types and is not just a preview. Check the company scope and all mapped types before using Import All Mapped or enabling all auto-sync mappings; a filter does not necessarily limit those actions.
+
+If an operation fails, inspect saved mappings and actual device inventory before retrying. Staging rows alone do not prove that devices were imported. For launch readiness, verify actual records for the selected source and every rollout company. Ignoring a category does not delete already imported inventory.
 
 ## Best Practices
 
@@ -163,9 +169,26 @@ Click **Sync Now** in the page header to trigger an immediate sync from the inte
 
 ## Related Resources
 
-- [Devices Module](/user-guides/devices) - Managing imported devices
+- [Devices Module](/user-guides/devices/index) - Managing imported devices
 - [Addigy Integration](/user-guides/integrations/enable-addigy-integration) - Addigy-specific setup and device import
 - [Datto RMM Integration](/user-guides/integrations/enable-datto-rmm-integration) - Datto-specific setup and device import
 - [NinjaOne Integration](/user-guides/integrations/enable-ninjaone-integration) - NinjaOne-specific setup and device import
 - [Import Companies](/user-guides/integrations/import-companies) - Company import guide
 - [Integrations Settings](/user-guides/settings/integrations) - Managing your integrations
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Is Map with AI always an unsaved preview?">
+    No. Supported device-type workflows save generated mappings immediately; inspect the result before importing.
+  </Accordion>
+  <Accordion title="Do all device mapping screens autosave?">
+    No. Follow the actual provider controls; some save immediately and others offer Save Mappings.
+  </Accordion>
+  <Accordion title="Does ignoring a category delete already imported devices?">
+    No. Category ignore concerns eligible staged/future imports, not deletion of existing inventory.
+  </Accordion>
+  <Accordion title="Does a completed device sync prove the devices were imported?">
+    No. Verify actual portal inventory separately from synchronized staging rows.
+  </Accordion>
+</AccordionGroup>

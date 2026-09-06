@@ -1,67 +1,51 @@
 ---
-title: "Ticket Settings"
-sidebarTitle: "9. Ticket Settings"
-description: "Configure ticket sync settings and status mappings"
+title: "Prepare client ticketing"
+sidebarTitle: "Prepare client ticketing"
+description: "Configure delivery, visibility and available request templates for launch."
 icon: "sliders"
 ---
 
-The Ticket Settings step lets you configure how tickets are displayed and synced from your PSA. You'll set up status mappings, display preferences, and sync behavior.
+**Audience:** MSP staff with Ticket settings access. The client-ticketing launch track separates delivery, visibility and request templates. It is not limited to a PSA status-mapping checklist.
 
-<Note>
-  This step only appears if you selected a PSA integration. It becomes available after the initial PSA sync completes.
-</Note>
+## Configure ticket delivery
 
-## What You'll Configure
+1. Open the ticket-delivery step in **Launch Center**, or **Settings > Tickets**.
+2. Review the ticket creation method and its destination. For email delivery, configure the receiving address or the fallback used by that method.
+3. For PSA delivery, verify the selected PSA connection and configure the fallback email address.
+4. Save using the displayed settings action and wait for the result. Check delivery separately with the intended request workflow before rollout.
 
-- **Status Mappings** - Map your PSA statuses to MSPortal status categories
-- **Display Settings** - How tickets appear in the portal
-- **Sync Settings** - What ticket data to sync and how often
-- **Company Settings** - Per-company ticket visibility options
+A readiness pass checks configuration evidence; it does not prove a test message arrived or a PSA created a ticket.
 
-## Steps to Complete
+## Review visibility
 
-<Steps>
-  <Step title="Wait for PSA Sync">
-    If the initial sync is still in progress, the wizard will show a waiting indicator. This ensures your ticket statuses are available for mapping.
-  </Step>
-  <Step title="Navigate to Ticket Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Tickets**.
-  </Step>
-  <Step title="Configure General Settings">
-    On the **General** tab, set default ticket views and display options.
-  </Step>
-  <Step title="Set Up Status Mappings">
-    On the **Statuses** tab, map your PSA ticket statuses to MSPortal categories (Open, In Progress, Waiting, Closed).
-  </Step>
-  <Step title="Configure Company Settings">
-    On the **Companies** tab, set which ticket types are visible to company users.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** after configuring each section.
-  </Step>
-</Steps>
+Open the ticket-visibility step and review display groups for the primary PSA. Configure access for the intended Company groups and supported ticket categories. Do not assume a single fixed set of four status categories applies to every provider.
 
-## Status Categories
+## Make a request template available
 
-MSPortal uses four status categories to organize tickets:
+Open the template step and review an appropriate enabled template. Confirm company scope, audience visibility and any company-specific enablement override. A template available only to staff does not satisfy the client request requirement.
 
-| Category | Description | Example Statuses |
-|----------|-------------|------------------|
-| **Open** | New tickets awaiting action | New, Unassigned |
-| **In Progress** | Actively being worked on | In Progress, Scheduled |
-| **Waiting** | On hold or waiting for input | Waiting on Customer, On Hold |
-| **Closed** | Completed tickets | Resolved, Closed, Cancelled |
+Every rollout company needs an enabled, client-available template that applies to it. A global template can cover companies only where the effective settings allow it. Follow [create a ticket template](/user-guides/ticketing/how-to-create-a-ticket-template) for authoring and save details.
 
-## Manual Completion
+## Verify the client path
 
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished configuring your ticket settings.
+Review the actual Company role's ability to start a request from Home or Tickets, choose an available template and reach the review/submission flow. A draft is not a submitted ticket. If readiness is blocked, distinguish missing delivery configuration from missing visibility or template evidence instead of changing all three at once.
 
-<Tip>
-  Accurate status mapping is important for reporting. Make sure each PSA status maps to the correct MSPortal category.
-</Tip>
+## FAQs
 
-## Related Documentation
+<AccordionGroup>
+  <Accordion title="Does client ticketing require a PSA?">
+    The delivery configuration supports email and PSA paths. Configure the selected method and its required destination or fallback.
+  </Accordion>
+  <Accordion title="Does a delivery readiness pass prove a ticket was received?">
+    No. It checks stored configuration; verify actual delivery separately.
+  </Accordion>
+  <Accordion title="Does a staff-only template satisfy client readiness?">
+    No. Each rollout company needs an enabled template with applicable client visibility and effective company settings.
+  </Accordion>
+</AccordionGroup>
 
-- [Ticketing Overview](/user-guides/ticketing/index) - Full ticketing guide
-- [Ticket Settings](/user-guides/settings/tickets) - Settings reference
-- [How to Create a Ticket Template](/user-guides/ticketing/how-to-create-a-ticket-template) - Create templates for common tickets
+## Related guides
+
+- [Tickets](/user-guides/settings/tickets)
+- [How to create a ticket template](/user-guides/ticketing/how-to-create-a-ticket-template)
+- [How to open a ticket](/user-guides/ticketing/open-a-ticket)

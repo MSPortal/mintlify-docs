@@ -4,6 +4,8 @@ description: 'Configure templates, pages, forms, checklists, portals, and PSA de
 icon: 'clipboard-check'
 ---
 
+**Audience:** MSP staff configuring client onboarding. Company users follow the [client portal instructions](/user-guides/client-onboarding/open-your-onboarding).
+
 The onboarding settings area is where you build and manage everything reusable in client onboarding — templates, client pages, forms, checklists — and where you review portals and set PSA defaults.
 
 <Note>
@@ -29,9 +31,20 @@ See the [Templates guide](/user-guides/client-onboarding/templates) for detailed
 
 ### Portals Tab
 
-A centralized list of every onboarding portal across all companies, grouped by company. Filter by **All**, **Active**, **Draft**, **Finished**, or **Archived**. Select a portal to see its tasks, documents, contacts, and pages at a glance, and to **Open** it, **Archive**/**Restore** it, **Delete** it, or preview it with **View as**.
+A centralized workspace for portals within your company scope, grouped by company. Filter by **All**, **Active**, **Draft**, **Finished**, or **Archived**. Select a portal to see its tasks, documents, contacts, and pages at a glance, and to **Open** it, **Archive**/**Restore** it, **Delete** it, or preview it with **View as**.
 
 See [Managing Portals](/user-guides/client-onboarding/managing-portals) for the full portal lifecycle.
+
+### Client Roles Tab
+
+Client Roles supplies the role choices used by onboarding contacts, templates, email recipients, and MSP previews. These are onboarding responsibilities, not the portal permission roles managed under Users & Roles.
+
+1. Enter a name in **Add a client role** and click **Add**. This immediately saves the role.
+2. Use **Rename role**, edit the name, then **Save**. **Cancel** discards that rename.
+3. Use **Move up** or **Move down** to save its order in role pickers.
+4. Use **Remove role** to remove it from future assignments. It appears under **Removed roles**, where **Restore role** makes it available again.
+
+Review the usage counts before renaming or removing a role. Removed roles remain on existing templates and portal contacts. Renaming a role is not a reason to assume every older saved role assignment has been rewritten; check affected templates, contacts, recipients, and previews.
 
 ### Pages Tab
 
@@ -56,13 +69,43 @@ Manage reusable checklist templates:
 
 Checklists are attached to tasks in the template builder and appear as checkable sub-items during onboarding.
 
+To build one:
+
+1. Click **New Checklist**. This immediately creates and selects a saved, empty checklist.
+2. Set the name, description, and tags. Add item labels and reorder them using the drag handles.
+3. Use **Import** to append a pasted list, or **AI Generate** to append suggested items. Review the resulting list; neither operation is the final save of the edited checklist.
+4. Click **Save** and wait for success. Empty item labels are omitted. Reopen the checklist before attaching it if a save reported an error.
+
+**Duplicate** creates a saved copy. **Archive** requires confirmation and onboarding management access. A checklist synchronized from an integration is read-only here; use the available Duplicate action when you need an editable local version. Checklist item checks in a portal are separate from editing this reusable definition. Existing portal progress is not reset by editing the library checklist.
+
 ### PSA Projects Tab
 
-Set tenant-wide defaults for linking onboarding portals to your PSA — auto-create tickets, status sync, default billable, and per-provider board/priority/status/type defaults.
+Set tenant-wide defaults for linking onboarding portals to your PSA:
+
+1. Review **Auto-create tickets**, **Status sync**, and the **Default billing status** selection.
+2. In the connected provider section, choose the required board/team, ticket type, priority, status, and other provider-specific defaults from the synced options.
+3. Review the mapping from onboarding task statuses to provider ticket statuses. An automatic mapping uses the available provider defaults; choose explicit mappings where your workflow needs them.
+4. Click **Save Changes**. These controls hold edits until Save Changes succeeds. Leaving without saving is not a saved configuration change.
+
+These are defaults for real project/ticket and synchronization workflows. Saving them does not prove a project was linked, a ticket was created, or a status update reached the provider. Review the project system and ticket-creation choice again when creating or starting a portal. If a required selector is empty, check the provider connection and synced configuration; do not enter guessed identifiers.
 
 <Note>
 The **PSA Projects** tab appears only when a PSA integration (Halo PSA, ConnectWise, or Autotask) is active.
 </Note>
+
+## Choose the right save control
+
+| Area | Save behavior |
+| --- | --- |
+| Templates | Header saves details; phase/item/link controls also save separately |
+| Client Roles | Add, reorder, remove, and restore persist immediately; rename uses Save |
+| Pages | Page editor Add Page/Save Changes; template links save separately |
+| Forms | New Form and row creation/deletion persist immediately; header Save saves edits |
+| Checklists | New Checklist/Duplicate create immediately; edited items and pasted/AI-generated items require Save |
+| PSA Projects | Save Changes persists the edited defaults |
+| Portals | Creation, project linking, activation, and lifecycle actions are separate saves |
+
+Use the linked task guides for partial-save recovery. A success message in one area does not confirm later provider processing or email delivery.
 
 ## Permissions
 
@@ -91,3 +134,26 @@ The **PSA Projects** tab appears only when a PSA integration (Halo PSA, ConnectW
     Launch, track, and complete onboarding portals
   </Card>
 </CardGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Are Client Roles the same as user permission roles?">
+    No. Client Roles supplies onboarding responsibility and recipient choices. Use Users &amp; Roles to manage application permissions.
+  </Accordion>
+  <Accordion title="Does Remove role remove it from existing portals?">
+    It removes the choice from future assignments. Existing template and contact uses remain; review the usage counts and affected assignments. Restore role makes it available again.
+  </Accordion>
+  <Accordion title="Does New Checklist only open a draft editor?">
+    It immediately creates a saved empty checklist. Subsequent item edits, pasted-list imports, and inline AI-generated items still need Save.
+  </Accordion>
+  <Accordion title="Why can I not edit a synchronized checklist?">
+    Integration-managed checklists are read-only in this editor. Use Duplicate to create an editable local version when offered, then review and save that copy.
+  </Accordion>
+  <Accordion title="Why is the PSA Projects tab missing?">
+    It appears for an active supported PSA integration: Halo PSA, ConnectWise, or Autotask. Native MSPortal project linking does not require a PSA connection.
+  </Accordion>
+  <Accordion title="Does saving PSA defaults create tickets immediately?">
+    Saving defaults is separate from the project and ticket workflow. Review the target system and ticket-creation option when linking or starting a portal, and check the actual result.
+  </Accordion>
+</AccordionGroup>

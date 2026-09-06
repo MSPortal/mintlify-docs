@@ -1,113 +1,69 @@
 ---
-title: 'Quick Start'
-description: 'Sign in, find your way around, and run the wizard.'
-icon: 'rocket'
+title: "Quick start for MSP staff"
+description: "Sign in, check your scope and use Launch Center to prepare a client rollout."
+icon: "book-open"
 ---
 
-MSPortal is the operating system for an MSP's account management work: surveys, goals, the planner, budgets, compliance, meetings, and the unified reporting surface. This page gets you oriented in the app. For setup, run the [Onboarding Wizard](/user-guides/getting-started/onboarding/index).
+**Audience:** MSP staff. Company contacts should use their organization’s invitation and Company guides for the access their MSP provides.
 
-## Sign in
+## Sign in and choose your scope
 
-Go to your tenant URL (typically `https://app.msportal.ai` or your custom subdomain) and sign in. New users get an invitation email from a tenant admin with a link to set their password.
+Use the portal URL and sign-in method your administrator supplies. Complete the invitation or account setup instructions when required; available password, Microsoft and Google sign-in methods depend on the organization’s configuration.
 
-## The layout
+Use the company selector to choose the client or portfolio view you intend to work with. Then inspect the page, selected record and any scope selector inside the editor. Some settings apply to the entire organization; other pages and dialogs have their own company or connection choice. Changing the top-bar company is not proof that every subsequent action is company-specific.
 
-There are three regions:
+## Find your way around
 
-- **Top bar.** The company selector sits center-left. To the right are global search, notifications, and your profile menu.
-- **Sidebar.** Collapsible (toggle with `Cmd+B` / `Ctrl+B`). Grouped into Planning, Operations, Protection, and (for tenant staff) MSP Tools. Settings is pinned at the bottom of the sidebar.
-- **Main content.** Whatever module you've clicked into.
+- **Sidebar:** open the module you need. Its contents depend on permissions, enabled features, connected providers and navigation preferences.
+- **Search:** use the top-bar search control or **Ctrl+K / Cmd+K**, then choose a result you can access.
+- **Settings:** open administration and personal preferences. Check whether you are changing your account, a company or the organization.
+- **Help:** use the current page’s Help entry where available to find its workflow guide.
 
-### Sidebar groups
+A missing module does not identify one universal cause. Check the role, provider availability and sidebar settings before creating another connection.
 
-The sidebar items you see depend on which integrations are connected. Anything marked **(integration-gated)** below only appears once the relevant integration is active.
+## Prepare your first rollout
 
-**Planning**
+1. Open [Launch Center](/user-guides/getting-started/launch-center) and choose the setup goals and rollout companies that match your plan.
+2. Review organization details, access and branding in the [MSP Setup Playbook](/user-guides/getting-started/onboarding/index).
+3. Connect the intended provider instances, review imported records and save company mappings. A successful connection test is separate from saving and synchronization.
+4. Select a pilot company and inspect the records that actually loaded. Resolve missing mappings or stale sync results before inviting the wider audience.
+5. Review client permissions, visibility and the selected rollout companies’ readiness. A completed setup task is not proof that every client can access the intended feature.
 
-- Overview
-- Dashboards (integration-gated: PSA)
-- Surveys
-- Goals
-- Planner
-- Budgets
-- Calendar
+<Frame>
+  <img src="/images/product/launch-plan-readiness.png" alt="MSP Launch Center showing the active setup workspace, guide and readiness summary." width="2370" height="1080" />
+</Frame>
 
-**Operations**
+The screenshot is an MSP setup example. Your selected plan and readiness findings determine the steps shown.
 
-- Tickets (integration-gated: PSA)
-- Training
-- Projects (integration-gated: PSA)
-- Compliance
-- Documentation (integration-gated: Hudu, IT Glue, or Liongard)
-- Invoices (integration-gated: ConnectWise, Autotask, or HaloPSA)
-- Storefront (integration-gated: Pax8)
-- Quotes (integration-gated: Quoter)
-- Reports
+## Save deliberately
 
-**Protection**
+Follow the current form’s Save or apply action. Some actions save immediately, including certain row changes, uploads and creation controls. **Reset**, **Cancel**, and closing an editor do not have identical meanings everywhere. Read the task guide before assuming an already saved action will be undone.
 
-- Microsoft 365 (integration-gated: M365)
-- Devices
-- Security (integration-gated: Cork or Acronis)
-- Backup (integration-gated: Cove, NinjaOne, or Acronis)
+Keyboard shortcuts are screen-specific. See [Keyboard shortcuts](/user-guides/getting-started/keyboard-shortcuts) for supported controls rather than assuming Ctrl+S or Ctrl+Enter saves every form.
 
-**MSP Tools** (visible to your internal MSP staff only, not to client users)
+## Start a client workflow
 
-- Client Health
-- Tool Stack
-- Financial Reporting
-- Emergency Broadcast
-- Ticket Trends (integration-gated: PSA)
+Use Surveys and Goals to capture priorities, Planner to organize work, Budgets to review planned spend, and Calendar or Reports to prepare the client discussion. Open the relevant module guide before importing, applying templates or using provider actions; those operations have different save boundaries.
 
-**Settings** is pinned at the bottom of the sidebar and opens a settings drawer with nested navigation.
+## Frequently asked questions
 
-### The company selector
+<AccordionGroup>
+  <Accordion title="Where is the onboarding wizard?">
+    Use Launch Center and the MSP Setup Playbook. The current setup experience follows your selected goals and rollout audience; do not wait for the old floating first-sign-in helper.
+  </Accordion>
+  <Accordion title="Why can a colleague see a module I cannot?">
+    Compare role permissions, enabled features, provider availability and sidebar preferences. An active provider connection alone does not grant access.
+  </Accordion>
+  <Accordion title="Does choosing a company scope every setting to that company?">
+    No. Check the page or dialog’s own scope. Organization settings, personal preferences and individual integration instances can have separate scope.
+  </Accordion>
+  <Accordion title="Does setup completion prove clients can use the portal?">
+    No. Check readiness, saved mappings and the intended Company user’s role and access before expanding the rollout.
+  </Accordion>
+</AccordionGroup>
 
-The selector in the top bar controls scope for everything you see.
+## Related guides
 
-- **Global view.** All companies you have access to. Use it to scan across your book.
-- **Single company.** Pick one client; every page filters to them.
-- **Parent mode** (parent-company users only). The parent and its children together.
-
-<Warning>
-Always check the company selector before you make changes. The selector decides which client's data your action lands on.
-</Warning>
-
-## Your first 30 minutes
-
-1. **Run the [Onboarding Wizard](/user-guides/getting-started/onboarding/index).** It pops up bottom-right on first sign-in. Set tenant details, branding, and tenant roles before anything else.
-2. **Connect your PSA and RMM** in the wizard's integration steps. Tickets, Projects, Dashboards, Invoices, and Ticket Trends only appear once a PSA is active.
-3. **Pick a pilot client** in the company selector and visit **Overview** to see what loaded. From there walk through Planner, Compliance, and Reports to see how the data lines up.
-4. **Read the [Setup Playbook](/user-guides/getting-started/onboarding/index#setup-playbook).** It's the recommended order to take a real client from kickoff survey to first QBR.
-
-## Keyboard shortcuts
-
-| Action | Windows / Linux | Mac |
-|--------|-----------------|-----|
-| Toggle sidebar | `Ctrl+B` | `Cmd+B` |
-| Save in forms | `Ctrl+S` | `Cmd+S` |
-| Submit form | `Ctrl+Enter` | `Cmd+Enter` |
-| Cancel / close dialog | `Esc` | `Esc` |
-
-Full list: [Keyboard Shortcuts](/user-guides/getting-started/keyboard-shortcuts).
-
-## Common workflows by role
-
-**vCIO / Account Manager.** Live in **Planner**, **Goals**, **Budgets**, and **Calendar**. The Planner is where you build the multi-year client roadmap; Goals capture intent from surveys; Budgets roll planner items into spend forecasts; Calendar runs the QBR meeting.
-
-**Service Manager / Owner.** Live in **MSP Tools**: Client Health for portfolio-wide signals, Ticket Trends for week-over-week ticket motion, Financial Reporting for margin and seat pricing.
-
-**Compliance / Security Lead.** Compliance for framework scoring; Security and Backup for posture data flowing in from Cork, Acronis, Cove, or NinjaOne.
-
-**Tenant Admin.** Settings drawer for tenant configuration, integrations, users, roles, and automation rules.
-
-## Where to go next
-
-- [Data flow](/user-guides/getting-started/data-flow). The architecture map: how integrations and assessments become goals, planner items, budgets, meetings, and reports.
-- [Onboarding Wizard](/user-guides/getting-started/onboarding/index). Step-by-step setup, plus the Setup Playbook for the first real client.
-- [Universal search](/user-guides/getting-started/universal-search). The fastest way to jump anywhere.
-- [Hide items from clients](/user-guides/getting-started/hiding-items-from-clients). Tighten what client-portal users see before you invite them.
-
-<Note>
-Modules requiring an integration only show up once that integration is connected. If you don't see Tickets, Projects, or Microsoft 365 yet, that's why; finish the wizard's integration steps and they'll appear.
-</Note>
+- [MSP Setup Playbook](/user-guides/getting-started/onboarding/index)
+- [Settings directory](/user-guides/settings/index)
+- [Integration directory](/user-guides/integrations/index)

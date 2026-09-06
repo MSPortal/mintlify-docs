@@ -1,157 +1,73 @@
 ---
-title: How to Enable Training
-description: Learn how to enable Premium training for companies and manage courses
+title: "Enable training for companies and users"
+description: "Review Premium entitlement, course availability and assignment separately."
+icon: graduation-cap
 ---
 
-The Training module provides cybersecurity awareness training courses for your organization. This guide explains how to enable training for your companies and configure available courses.
+**Audience:** MSP staff. Company users contact their IT provider if training is missing. Managing Premium access requires **Manage Training**; changing available courses also requires the relevant Training settings permission.
 
-## Prerequisites
+Training setup has three separate decisions: which companies and users have Premium access, which courses are available, and which courses or learning paths learners are assigned. Completing one does not automatically complete the others.
 
-- You must have "Manage Training" permission
-- Your subscription must include the Training module
+## Set the company Premium default
 
-## Understanding Training Tiers
+1. Open **Settings > Companies** and find the intended company.
+2. Review the **Training** column.
+3. Open the company row menu and choose **Enable Premium Training** or **Disable Premium Training**.
+4. Wait for the result and review the updated company state. This is an immediate action, not an unsaved draft.
 
-MSPortal offers two tiers of training content:
+For several companies, select their rows and use the corresponding bulk action. Review the selected companies before applying it.
 
-### Standard Training
-- Included with base subscription
-- Core cybersecurity awareness topics
-- Essential compliance training
-- No additional cost
+Premium training can affect billed usage. Review your actual subscription and usage in [Billing settings](/user-guides/settings/billing). Disabling access does not establish that earlier usage or a billing high-water mark has been removed.
 
-### Premium Training (Bigger Brains)
-- Extended course library with 280+ courses
-- Industry-specific content
-- Advanced security topics
-- Billed per user at enabled companies
+## Review individual user overrides
 
-<Tip>
-Download the complete [Bigger Brains Course Catalog](http://tripletech.biz/downloads/course_catalog.pdf) to see all available premium courses.
-</Tip>
+Open **Settings > Company Users** and locate the user. The **Premium Training** column shows effective On/Off access and whether it comes from a **User override** or **Company default**.
 
-## Step 1: Enable Training for Companies
+Use the user row's Premium training action to enable, disable or inherit the company default. The corresponding bulk actions work on selected users. These actions save immediately. Choose **Inherit** when you want future company-default changes to apply; explicitly Off is not the same as inheritance.
 
-Before users can access premium training, you must enable it for their company.
+A company-default change does not erase user overrides. If a user's access seems inconsistent with the company, inspect the source shown in this column.
 
-### Navigate to Companies & Locations
+## Choose the available courses
 
-Go to **Settings** > **Companies** from the main menu.
+Open **Settings > Training**. Confirm company scope, find the intended courses and use their **Enabled** switches or a reviewed bulk selection. The Launch training setup view separately offers **Enable All Included Training** for organization-wide included content; it is broader than a visible table page.
 
-<Frame>
-  <img src="/images/training/settings-companies-overview.png" alt="Companies and Locations page showing Training column" />
-</Frame>
+See [Training settings](/user-guides/settings/training) for previews, custom course creation and the content-upload boundary. Premium entitlement does not guarantee every Premium course is enabled, assigned or available in the current catalog.
 
-The **Training** column shows the current training tier for each company:
-- **Standard** - Basic training only
-- **Premium** - Full access to Bigger Brains courses
+## Assign and verify
 
-### Enable Training for a Single Company
+Use the Training assignment workflow or [Learning Paths](/user-guides/training/learning-paths) to assign the intended learners. Review course and path scope before adding a group. Then verify that a representative learner can see and launch the course and that progress is recorded.
 
-1. Find the company in the list
-2. Click the **...** menu button on the company row
-3. Select **Enable Premium Training**
-
-<Frame>
-  <img src="/images/training/company-row-menu-enable-training.png" alt="Company row menu showing Enable Premium Training option" />
-</Frame>
-
-To disable premium training, use the same menu and select **Disable Premium Training**.
-
-### Enable Training for Multiple Companies (Bulk)
-
-1. Select the checkboxes next to the companies you want to update
-2. Click the **Actions** dropdown at the top of the list
-3. Select **Enable Premium Training** or **Disable Premium Training**
-
-<Frame>
-  <img src="/images/training/companies-bulk-actions-menu.png" alt="Bulk actions menu showing training options" />
-</Frame>
-
-<Note>
-Billing for premium training is calculated per user at enabled companies. When you enable Premium Training for a company, all users at that company will have access to premium courses.
-</Note>
-
-### Per-User Overrides
-
-Premium training access follows the company default, but you can override it for individual users:
-
-1. Open the company's user management page
-2. Use the **Premium Training** toggle on a user's row to set it **On** or **Off**
-3. Select multiple users and apply the toggle in bulk to update them together
-
-A user's explicit setting always overrides the company default. Users without an override inherit the company setting automatically.
-
-<Note>
-Premium training usage is billed on the peak number of enabled users. Turning premium training off for users who don't need it keeps your billed count accurate.
-</Note>
-
-## Step 2: Manage Available Courses
-
-After enabling training for companies, configure which courses are available.
-
-### Navigate to Training Settings
-
-Go to **Settings** > **Training** from the main menu.
-
-<Frame>
-  <img src="/images/training/settings-training-overview.png" alt="Training Settings page showing course list" />
-</Frame>
-
-This page displays all available courses with:
-- **Enabled** toggle - Whether the course is available to users
-- **Course Title** - Name and description of the course
-- **Type** - Premium (Bigger Brains) or Standard
-- **Category** - Course topic area
-- **Tags** - Additional labels for filtering
-- **Duration** - Expected completion time
-- **Enrollments** - Number of users assigned
-
-### Enable Individual Courses
-
-1. Browse the course list
-2. Click the **Toggle** button next to each course you want to enable
-3. The course will become available to users at enabled companies
-
-### Course Filters and Search
-
-- Use the **Search** bar to find courses by title or description
-- Filter by **Category** to view courses by topic
-- Filter by **Type** to see only Premium or Standard courses
-
-### Create Custom Courses
-
-Click **Create Course** to add your own training content alongside the standard library.
-
-## After Enabling Training
-
-Once training is configured:
-
-1. **Assign Courses** - Go to Training > Assignments to assign courses to users
-2. **Set Requirements** - Configure which courses are mandatory vs. optional
-3. **Schedule Reminders** - Set up automated reminder emails
-4. **Monitor Progress** - Track completion rates in the Training Dashboard
-
-## Best Practices
-
-- **Start Small** - Enable a few essential courses first
-- **Communicate** - Inform users before assigning mandatory training
-- **Set Deadlines** - Give reasonable time for course completion
-- **Regular Updates** - Review and update course selections quarterly
-- **Track Metrics** - Monitor completion rates and adjust as needed
+A staff preview verifies the content view only. It does not validate Company permissions, Premium entitlement, assignment or a completed learning attempt. Configure reminders through the actual available workflow; enabling Premium does not by itself schedule a reminder campaign.
 
 ## Troubleshooting
 
-### Premium Courses Not Available
-- Verify Premium Training is enabled for the user's company in Settings > Companies
-- Check the Training column shows "Premium" for the company
+For missing courses, check the user's effective Premium access, course enablement, company scope, training permission and assignment. For unexpected access after a company change, check user overrides. For an unexpected bill, compare the billed period and usage measure rather than only today's enabled-user count.
 
-### Users Can't Access Training
-- Confirm users have been assigned courses
-- Check role permissions include training access
-- Verify user accounts are active
+## FAQs
 
-## Related Articles
+<AccordionGroup>
+  <Accordion title="Does enabling Premium assign all courses?">
+    No. Premium entitlement, course availability and assignment are separate decisions.
+  </Accordion>
+  <Accordion title="Why is a user still Off when the company is Premium?">
+    Check for an explicit user override. Choose Inherit if the user should follow the company default.
+  </Accordion>
+  <Accordion title="Is Off the same as Inherit?">
+    No. Off is an explicit user setting; Inherit follows the company default.
+  </Accordion>
+  <Accordion title="Do Premium changes wait for a page Save?">
+    No. Company and user Premium actions save immediately.
+  </Accordion>
+  <Accordion title="Does disabling Premium remove earlier billed usage?">
+    Do not assume it does. Review the actual billing period, usage measure and subscription.
+  </Accordion>
+  <Accordion title="Does a successful staff preview prove Company access?">
+    No. Verify an actual learner’s scope, permissions, entitlement and assignment separately.
+  </Accordion>
+</AccordionGroup>
 
-- [Learning Paths](./learning-paths) - Create and manage structured training programs
-- [Training Module Overview](./index) - Main training documentation
+## Related guides
+
+- [Training settings](/user-guides/settings/training)
+- [Learner training guide](/user-guides/training/index)
+- [Company user permissions](/user-guides/settings/change-company-user-permissions)

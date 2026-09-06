@@ -18,7 +18,8 @@
             "pages": [
               "user-guides/account/manage-your-profile",
               "user-guides/account/understand-your-access",
-              "user-guides/account/arrange-your-sidebar"
+              "user-guides/account/arrange-your-sidebar",
+              "user-guides/ai-assistant/use-home-assistant"
             ]
           },
           {
@@ -321,7 +322,7 @@
               "user-guides/getting-started/how-to-create-a-new-user-role",
               "user-guides/getting-started/hiding-items-from-clients",
               {
-                "group": "Onboarding Wizard",
+                "group": "MSP Setup Playbook",
                 "pages": [
                   "user-guides/getting-started/onboarding/index",
                   "user-guides/getting-started/onboarding/tenant-details",
@@ -611,15 +612,16 @@
           {
             "group": "Your account",
             "pages": [
-              "user-guides/account/manage-your-profile",
-              "user-guides/account/understand-your-access",
-              "user-guides/account/arrange-your-sidebar"
+              "msp-guides/account/manage-your-profile",
+              "msp-guides/account/understand-your-access",
+              "msp-guides/account/arrange-your-sidebar"
             ]
           },
           {
             "group": "AI",
             "pages": [
               "user-guides/ai-assistant/index",
+              "msp-guides/ai-assistant/use-home-assistant",
               "user-guides/mcp-server/index",
               "user-guides/mcp-server/github-copilot",
               "user-guides/mcp-server/tools-reference"
@@ -887,13 +889,13 @@
                 "group": "Ticketing",
                 "pages": [
                   "user-guides/ticketing/index",
-                  "user-guides/ticketing/open-a-ticket",
-                  "user-guides/ticketing/follow-up-on-a-ticket",
+                  "msp-guides/ticketing/open-a-ticket",
+                  "msp-guides/ticketing/follow-up-on-a-ticket",
                   "user-guides/ticketing/how-to-create-a-ticket-template",
-                  "user-guides/ticketing/open-a-ticket-with-ai",
+                  "msp-guides/ticketing/open-a-ticket-with-ai",
                   "user-guides/ticketing/change-management",
                   "user-guides/ticketing/flow-webhook-recipient",
-                  "user-guides/ticketing/understand-request-templates",
+                  "msp-guides/ticketing/understand-request-templates",
                   "user-guides/ticketing/create-and-preview-ticket-template"
                 ]
               },
@@ -1057,6 +1059,9 @@
                   "user-guides/settings/training",
                   "user-guides/settings/tickets",
                   "user-guides/settings/compliance",
+                  "user-guides/settings/compliance-schedules",
+                  "user-guides/settings/compliance-scoring",
+                  "user-guides/settings/compliance-risk",
                   "user-guides/settings/playbooks",
                   "user-guides/settings/external",
                   "user-guides/settings/onboarding",

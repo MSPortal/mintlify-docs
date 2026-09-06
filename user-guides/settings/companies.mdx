@@ -1,452 +1,149 @@
 ---
-title: Companies Settings
-description: Manage client companies, users, roles, and permission groups
-icon: building
+title: "Companies Settings"
+description: "Create and maintain client companies, review bulk scope, and find user and team administration."
+icon: "building"
 ---
 
-Companies Settings is the central hub for managing your client companies and their users. It contains four tabs: **Companies**, **Users**, **Roles**, and **Permissions**.
-
-## Accessing Companies Settings
+**Audience:** MSP staff. Open **Settings > Companies** with Companies settings access. Write access permits supported edits; manage access is needed for deletion and certain administrative controls. Training, onboarding, users and roles have their own permissions and feature requirements. Company users do not administer this page.
 
-1. Click **Settings** in the sidebar
-2. Select the **Companies** icon from the settings navigation
+Companies Settings manages client company records. Company-user and role administration now lives under **Settings > Users & Roles**. Do not expect the older Companies / Users / Roles / Permissions tab arrangement.
 
-## Tab Overview
+## Find the right company
 
-<CardGroup cols={2}>
-  <Card title="Companies" icon="building">
-    Manage your client company list, details, integrations, and company types.
-  </Card>
-  <Card title="Users" icon="users">
-    View and manage all company users across every company in one place.
-  </Card>
-  <Card title="Roles" icon="shield">
-    Define organizational job titles like Account Manager or Technician.
-  </Card>
-  <Card title="Permissions" icon="user-cog">
-    Create permission groups that control what company users can access in the portal.
-  </Card>
-</CardGroup>
+Use the company list's filters for name, status, industry, integrations, types, training and Microsoft 365 state where offered. Review parent/child relationships and provider badges before editing; similarly named imported companies may be different records.
 
----
+Open **Edit Company** from the row menu, or **View Details & Users** with read access. The detail workspace has **Overview**, **Users**, **Locations**, **Defaults**, **Ticketing**, **Team**, and **Notes**. Each tab has its own controls and save boundaries; there is no single Save for every tab.
 
-## Companies Tab
+## Create a company
 
-The Companies tab displays all client companies in your organization with filtering, sorting, and bulk actions.
-
-### Company Information
-
-Each company entry shows:
-
-| Field | Description |
-|-------|-------------|
-| **Name** | Company name with parent/child and import source indicators |
-| **Status** | Active or Inactive |
-| **Industry** | Business sector |
-| **Integrations** | Connected PSA/RMM badges (ConnectWise, Halo, Autotask, Syncro, Asio, Cove) |
-| **Types** | Every type the company belongs to, manual and PSA-synced (see [Company Types](#company-types) below) |
-| **Training** | Premium or Standard training tier |
-| **M365** | Microsoft 365 connection status |
-| **Contact** | Primary contact name or email |
-
-### Filtering and Searching
-
-Use the built-in filters to narrow down companies:
-
-- **Search** - Filter by company name
-- **Status** - Active or Inactive
-- **Industry** - Business sector
-- **Integrations** - Filter by connected integration (multi-select)
-- **Types** - Filter by one or more company types (multi-select). The picker lists every type in use across the tenant, both manual and PSA-synced
+1. Select **Add Company**. The dialog is titled **Add New Company**.
+2. Enter the required **Name**. Add contact name, email, phone, website, industry, company size and primary domain as appropriate.
+3. Review the address, **Active** state, **Compliance Schedule**, **Business Review Schedule**, and **Year-end Date** further down the form. Scroll inside the dialog to reach all fields.
+4. Select **Save Company** and wait for success. Cancel closes the draft without creating the company.
+5. Find the created company and review its details before importing users or starting onboarding.
 
-### Adding a New Company
+<Frame caption="The top of an unsaved Add New Company form. Address, active state and schedule fields continue below this crop; Save Company is in the dialog footer.">
+  <img src="/images/product/company-create-contact-fields.png" alt="Blank Add New Company form showing the required name and optional contact and website fields." width="1200" height="720" />
+</Frame>
 
-<Steps>
-  <Step title="Click Add Company">
-    Select the **Add Company** button in the top right.
-  </Step>
-  <Step title="Enter Company Details">
-    Fill in the company name, industry, and contact information.
-  </Step>
-  <Step title="Configure Settings">
-    Set company-specific configurations like timezone and preferences.
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the company.
-  </Step>
-</Steps>
+A contact email on the company record does not itself create a portal user or send an invitation. The company's meeting-frequency fields are separate from [automated compliance run schedules](/user-guides/settings/compliance-schedules), which require a run template and explicit targets.
 
-### Importing Companies
+## Edit details and related records
 
-Click the **Import** button to import companies from your connected integrations (Halo PSA, ConnectWise, Autotask, Syncro, or Asio).
+In **Overview**, open the relevant inline field editor, make the change and use its Save control. Cancel closes that field's unsaved edit. Saving one field does not save another tab's pending work. Review provider-managed values when a change is later overwritten by synchronization.
 
-<Note>
-Changes made in your PSA will sync to MSPortal. Some fields may be read-only if managed by your PSA integration.
-</Note>
+| Tab | Task |
+|---|---|
+| Overview | Maintain company, contact, address, language, currency, classification and planning details |
+| Users | Review this company's users; manage access through the linked user controls |
+| Locations | Create and edit physical locations; review provider imports separately |
+| Defaults | Review company defaults before changing inherited or provider-specific behavior |
+| Ticketing | Review the company's ticketing choices and available templates |
+| Team | Assign the MSP staff responsible for this company |
+| Notes | Maintain company notes using the note editor's save controls |
 
-### Bulk Actions
+Use **Add Location** from the company row menu for a new site. A parent company and a physical location are different relationships. Provider user imports, Microsoft 365 connection, onboarding and other row actions depend on the selected company's configuration; opening the company does not connect these services automatically.
 
-Select multiple companies using the checkboxes to perform bulk operations:
+## Import and map companies
 
-- **Assign Roles** - Set account manager or other staff roles for selected companies
-- **Set Parent Company** - Establish parent/child company relationships
-- **Manage Types** - Add, replace, or remove types on the selected companies (see [Company Types](#company-types) below)
-- **Enable/Disable Premium Training** - Toggle Bigger Brains premium training access
+The header **Import** menu appears for active supported company-import providers. Choose the provider and follow [Import Companies](/user-guides/integrations/import-companies). A provider badge or successful connection does not prove that every company has been imported and mapped.
 
-### Per-Company Actions
+Review [Integration Company Mapping](/user-guides/settings/integration-company-mapping) before creating a duplicate for an existing client. Some provider selections create a company before the pending link is applied, and unlinking can be immediate. Follow that guide's save boundaries instead of assuming Cancel reverses every setup action.
 
-Click the actions menu on any company row to:
+## Bulk actions and selection scope
 
-- **View Details & Users** - Open the company detail page
-- **Edit Company** - Update company information
-- **Create Location** - Add a physical location
-- **Manage Types** - Add or remove types on this single company
-- **Import Users** - Pull users from connected integrations
-- **Delete Company** - Remove the company (requires manage permission)
+Select company checkboxes, then open **Actions (count)**. Review whether selection covers the visible page or **all matching companies across pages** before applying an operation. The total can exceed the rows on screen. Clear the selection when switching tasks; a filter is not a substitute for checking the selection count and target names.
 
-### Company Types
+| Action | Review before applying |
+|---|---|
+| Assign teams | Role, people and selected companies; assignments affect responsibility and potentially staff company scope |
+| Set Parent Company | Correct parent/child relationship; a company cannot parent itself or one of its ancestors |
+| Manage Types | Add, Remove or Replace mode and whether types are manual or PSA-synced |
+| Set Language / Set Currency | The override that will apply to each selected company |
+| Set Meeting Schedules | The intended compliance/business-review meeting frequencies |
+| Enable / Disable Premium Training | Training permission, company defaults and possible billing/access impact |
+| Enable / Disable AI Home | Company Home setting; manage access is required |
+| Delete selected | Every target and the permanent-deletion warning |
 
-Company **Types** classify each company so reports, ticket templates, and bulk actions can target specific groups of clients. The Types column on the Companies tab shows every type a company belongs to as a badge stack.
+Dialog-based changes use the dialog's apply/save control. Premium Training and AI Home actions call their update immediately after selection; do not click them expecting an unsaved preview. Training availability, user overrides and enrollment are separate: see [Enable Training](/user-guides/training/enabling-training).
 
-<Note>
-Types replace the older **Groups** feature. Any group you previously created carries over as a manual type with the same memberships and template wiring intact. The bulk action and row-level menu now read **Manage Types**.
-</Note>
+## Company Types
 
-#### Manual vs PSA-Synced Types
+Types classify companies for supported filters and targeting, including ticket-template availability. A company can have multiple types. **Manual** types are maintained in MSPortal; **PSA-synced** types identify provider-owned classification. The table distinguishes their sources.
 
-| Source | How it's created | Visual cue | Editable |
-|--------|------------------|------------|----------|
-| **Manual** | Created inside MSPortal from the bulk dialog or a row action | Filled badge | Yes |
-| **PSA-synced** | Imported from your PSA's company-type list (ConnectWise, Halo, Autotask, ConnectWise Asio, Syncro) | Outline badge with a "Synced from your PSA" tooltip naming the provider | Read-only here, managed in your PSA |
+1. Select the companies and open **Manage Types**, or use the single-company action.
+2. Choose **Add**, **Remove**, or **Replace**. Replace replaces manual memberships while preserving PSA-synced memberships. Remove offers types present on the selected companies.
+3. Select existing types. If you create a new manual type inline, that type definition is saved immediately; cancelling the surrounding dialog does not undo its creation.
+4. Select **Apply** to update company memberships. Reopen or inspect the Types column afterward.
 
-Companies can hold any number of types simultaneously. A single company can be both a "Managed Services Client" (manual) and a "Production - High Priority" (PSA-synced) at the same time, and template gating, reports, and bulk actions all see both.
+Do not treat an imported provider classification as a manual source of truth. Review changes in the PSA and its sync behavior when classifications change unexpectedly. The schedule editor's older **Company groups** wording does not guarantee that every unified or PSA-synced company type is offered there.
 
-#### Adding or Removing Types in Bulk
+## Company users, access roles and Team Roles
 
-<Steps>
-  <Step title="Select Companies">
-    Tick the checkboxes next to the companies you want to update. Use the search bar or column filters first to narrow the list.
-  </Step>
-  <Step title="Open Manage Types">
-    Click the **Manage Types** button in the bulk actions bar.
-  </Step>
-  <Step title="Pick a Mode">
-    - **Add** appends the selected types to each company's existing type list
-    - **Remove** strips the selected types from each company
-    - **Replace** replaces every manual type on each company with the selected list. PSA-synced types are never touched by Replace, so your sync still owns them
-  </Step>
-  <Step title="Pick or Create Types">
-    Choose existing types from the picker, or type a new name and click **Create** to add a new manual type inline.
-  </Step>
-  <Step title="Apply">
-    Click **Apply** to update every selected company in one operation.
-  </Step>
-</Steps>
+| You want to… | Open |
+|---|---|
+| Manage client users | Settings > Users & Roles > Company Users, or the company's Users tab |
+| Define client access | Settings > Users & Roles > Roles > Company Roles |
+| Define internal staff access | Settings > Users & Roles > Roles > Tenant Roles |
+| Define account-team responsibilities | Settings > Users & Roles > Team Roles |
 
-#### Filtering by Type
+**Company Roles** control client access. **Team Roles** describe MSP responsibilities such as account manager or technician; actual staff assignments can affect company scope and the client's team menu. A Team Role definition is not a client permission group, and does not assign a staff member until you make an assignment.
 
-Open the **Types** filter in the column header to filter the table to companies that belong to one or more types. The filter is multiselect, so picking three types shows companies that are in any of them.
-
-#### Why Types Matter
-
-- **Ticket templates can be gated by type.** A template for "Managed Services" only appears on the new ticket page when the selected company is in that type. See [Creating Ticket Templates](/user-guides/ticketing/how-to-create-a-ticket-template) for the gating dialog.
-- **PSA syncs keep memberships current automatically.** When ConnectWise (or any other PSA) adds, removes, or renames a company's type, MSPortal mirrors the change on the next sync, so reports and template gating stay accurate without anyone touching the settings page.
-- **Manual types live alongside synced types.** Use manual types for groupings your PSA does not track (for example "QBR Tier A", "Legacy On-Premise", or internal segmentation) without affecting the PSA-driven types.
-
----
-
-## Users Tab
-
-The Users tab provides a consolidated view of all company users across every company, with powerful filtering and bulk management capabilities.
-
-<Note>
-Company users are your **clients' users** — the end users at each company who access their own portal. These are separate from your internal MSP team members managed in **Settings > Users & Roles**.
-</Note>
-
-### User Information
-
-Each user entry shows:
-
-| Field | Description |
-|-------|-------------|
-| **User** | Avatar, full name, and job title |
-| **Email** | User email address |
-| **Company** | Which company the user belongs to |
-| **Permissions Group** | The permission group assigned to this user |
-| **Source** | How the user was added (Manual, ConnectWise, Halo, Microsoft 365, Autotask) |
-| **Status** | Active or Inactive |
-| **Last Synced** | Last synchronization date from integration |
-
-### Filtering and Searching
-
-- **Search** - Filter by name or email
-- **Company** - Filter by company (multi-select)
-- **Permissions Group** - Filter by assigned permission group
-- **Source** - Filter by import source
-- **Status** - Active or Inactive
-
-### Bulk Actions
-
-Select multiple users using the checkboxes to:
-
-- **Update Permissions Group** - Change the permission group for all selected users
-- **Edit Custom Fields** - Batch update custom fields across selected users
-- **Send Welcome Email** - Send portal invitation emails to all selected users in one operation
-- **Remove Access** - Remove portal access and block re-import for selected users
-
-<Accordion title="Sending Welcome Emails in Bulk">
-  Select the users you want to invite, then click **Send Welcome Email** in the bulk actions bar. A confirmation dialog shows how many users will receive the email. Click **Send** to deliver the invitations.
-
-  The email uses your configured invitation template from **Settings > Email** and includes your tenant branding. Each user receives a personalized email with their name and a link to access the portal.
-
-  After sending, a summary shows how many emails were sent successfully and how many failed (if any).
-</Accordion>
-
-### Per-User Actions
-
-Click the actions menu on any user to:
-
-- **Edit User** - Change permissions, custom fields, or details
-- **Send Welcome Email** - Send or resend a portal invitation
-- **Impersonate** - View the portal as this user (requires impersonate permission)
-- **Remove Access** - Revoke access and block re-import from integrations
-
----
-
-## Roles Tab
-
-The Roles tab lets you define **organizational job titles** for your company users, such as "Account Manager", "Technician", or "Help Desk".
-
-<Warning>
-**Roles are not the same as Permissions.** Roles are simple labels that describe a person's job function. They do **not** control what a user can see or do — that is handled by [Permission Groups](#permissions-tab). See [Understanding the Difference](#understanding-the-difference-roles-vs-permissions) below.
-</Warning>
-
-### What Roles Are For
-
-Roles help you categorize and organize company users by their job function. They are useful for:
-
-- **Reporting** - Filter and group users by role in reports
-- **Organization** - Quickly understand who does what at each company
-- **Communication** - Identify the right contact for different types of issues
-
-### Managing Roles
-
-| Column | Description |
-|--------|-------------|
-| **Role Name** | The name of the role (e.g., "Account Manager") |
-| **Description** | Optional description of the role's purpose |
-
-### Creating a Role
-
-<Steps>
-  <Step title="Click Add Role">
-    Select the **Add Role** button.
-  </Step>
-  <Step title="Enter Details">
-    Provide a role name and optional description.
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the role.
-  </Step>
-</Steps>
-
-Roles can be edited or deleted from the actions column in the table.
+For step-by-step permission changes, defaults, display groups and access review, use [Change Company-user permissions](/user-guides/settings/change-company-user-permissions). Built-in roles and custom roles have different editing options. A broad role does not bypass feature availability, company scope or a workflow's specific restrictions.
 
 ### Auto-Mapping PSA Contact Types to Roles
 
-If you use **Halo PSA** or **Autotask**, MSPortal automatically extracts the manager and contact-type assignments on each synced company and can map them straight to your company roles. This saves you from manually assigning "Account Manager", "Primary Tech", or similar roles to the right MSP users on every company after a sync.
+Where provider team mappings are available, review the chosen PSA role or manager slots before saving. Mappings can reconcile staff assignments on sync; manually changing a mapped assignment may not persist through the next synchronization. [Account teams and Team Roles](/user-guides/getting-started/onboarding/company-roles) covers assignment and client team-menu review.
 
-**What gets extracted on sync:**
+**Send Welcome Email** sends an actual message; it is not a preview or a required step for every user edit. **Remove Access** affects portal access and re-import behavior. Use the existing user-administration instructions before either action. Impersonation is a staff preview, not proof of a real Company user's session.
 
-<Tabs>
-  <Tab title="Autotask">
-    - **Account Manager** from the Company owner resource (`ownerResourceID`)
+## Deletion, blocks and administration
 
-    Autotask exposes a single owner per company, so one role slot is available per synced company.
-  </Tab>
-  <Tab title="Halo PSA">
-    Halo exposes up to eight manager slots from each client record. MSPortal reads the following fields:
+Company deletion requires confirmation. Review dependencies and the displayed warning before confirming: company data, associations and history can be affected. Do not use deletion merely to hide a company or troubleshoot an import. Review Active status and visibility controls for the intended task instead.
 
-    - **Primary Agent** (`pritech`)
-    - **Secondary Agent** (`sectech`)
-    - **Account Manager** (`accountmanagertech`)
-    - **Regional Manager** (`regmanagertech`)
-    - **Logistics Manager** (`logmanagertech`)
-    - **Sales Representative** (`salesreptech`)
-    - **Account Owner** (`accountownertech`)
-    - **CXM Lead** (`cxmleadtech`)
-  </Tab>
-</Tabs>
+**Blocked Companies** is an administrative re-import control. Unblocking permits the company to be considered again; it is not restoration of deleted history or proof that an import completed. **Hardware Defaults** is tenant-wide configuration, not an override for the currently selected row. AI classification and cleanup are deliberate operations; review their proposed scope and apply boundary before use.
 
-**How to set up the mapping:**
+## Troubleshooting and related guides
 
-<Steps>
-  <Step title="Sync Your PSA">
-    After your next Halo or Autotask sync, the Roles tab displays a slot column ("Halo Slots" or "Autotask Slots") showing which PSA slots have been detected.
-  </Step>
-  <Step title="Map Each Slot to a Role">
-    For every MSPortal role, open the slot column and pick the PSA manager slots that should grant this role. For example, map **Account Manager (Halo)** to your **Account Manager** role in MSPortal. You can map more than one slot to a single role.
-  </Step>
-  <Step title="Let the Sync Apply Assignments">
-    After you save, the next sync automatically assigns the matching MSP users to each company in that role. Every future sync reapplies and reconciles assignments, so if someone moves roles in your PSA, MSPortal updates to match.
-  </Step>
-</Steps>
+If a company is missing, clear list filters and check status, permissions and import mapping before adding a duplicate. If a client cannot access the portal, verify their actual user record and Company Role; a company contact field and Team Role are insufficient. If a bulk action affects more companies than expected, inspect page versus all-pages selection before continuing.
 
-<Note>
-Contacts with no matching slot on a company are skipped, no role is assigned. A single user can hold multiple slots on the same company, each mapped slot yields a separate role assignment. Unmapped slots are ignored so you can adopt the feature incrementally.
-</Note>
+- [Users & Roles](/user-guides/settings/users-roles)
+- [Company Overview](/user-guides/company-overview/index)
+- [Import Companies](/user-guides/integrations/import-companies)
+- [Company-user permissions](/user-guides/settings/change-company-user-permissions)
+- [Account teams and Team Roles](/user-guides/getting-started/onboarding/company-roles)
 
-<Tip>
-The slot list only shows slots currently in use in your tenant, so you can see exactly which PSA fields are populated across your clients before deciding how to map them.
-</Tip>
+## FAQs
 
----
-
-## Permissions Tab
-
-The Permissions tab is where you create and manage **Permission Groups** that control what company users can access and do within their company's portal.
-
-### What Permission Groups Control
-
-Permission groups determine:
-
-- **Which modules** a company user can see (Tickets, Training, Devices, Compliance, etc.)
-- **What actions** they can take within each module (Read, Write, or Manage)
-- **Which ticket display groups** they have access to
-
-### Permission Levels
-
-Each module supports three levels of access:
-
-| Level | Description |
-|-------|-------------|
-| **Read** | View data only |
-| **Write** | Create and edit records |
-| **Manage** | Full control including delete |
-
-<Tip>
-Selecting **Manage** automatically enables Read and Write for that module. Selecting **Write** automatically enables Read.
-</Tip>
-
-### Global vs Custom Groups
-
-| Type | Description |
-|------|-------------|
-| **Global** | Built-in permission groups provided by MSPortal. These can be viewed but not edited or deleted. |
-| **Custom** | Permission groups you create. Fully editable and deletable. |
-
-### Creating a Permission Group
-
-<Steps>
-  <Step title="Click Create Permission Group">
-    Select the **Create Permission Group** button.
-  </Step>
-  <Step title="Name and Describe">
-    Enter a name (e.g., "Standard User") and optional description.
-  </Step>
-  <Step title="Configure Permissions">
-    Check the permissions for each module. Permissions are organized by resource (Tickets, Meetings, Goals, Training, etc.).
-  </Step>
-  <Step title="Set as Default (Optional)">
-    Enable **Default Role** if this group should be automatically assigned to new company users.
-  </Step>
-  <Step title="Assign Ticket Display Group (Optional)">
-    Select which ticket display group this permission group has access to.
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the permission group.
-  </Step>
-</Steps>
-
-### Common Permission Group Examples
-
-<CardGroup cols={2}>
-  <Card title="Full Access" icon="lock-open">
-    Access to all available modules. Can view and manage their company's data.
-  </Card>
-  <Card title="Standard User" icon="user">
-    Access to tickets, training, and basic features. Cannot manage company settings.
-  </Card>
-  <Card title="Training Only" icon="graduation-cap">
-    Limited to training courses and compliance acknowledgments.
-  </Card>
-  <Card title="View Only" icon="eye">
-    Can view information but cannot create or modify anything.
-  </Card>
-</CardGroup>
-
----
-
-## Understanding the Difference: Roles vs Permissions
-
-This is an important distinction that affects how you organize and secure your company users.
-
-<Tabs>
-  <Tab title="Roles">
-    ### Company Roles
-
-    **Purpose:** Describe who someone is — their job function.
-
-    - Simple labels with a name and description
-    - Used for organization, reporting, and identification
-    - Do **not** grant or restrict any access
-    - Examples: "Account Manager", "Technician", "Help Desk", "CFO"
-
-    **Think of it as:** A job title on a business card.
-  </Tab>
-  <Tab title="Permission Groups">
-    ### Permission Groups
-
-    **Purpose:** Control what someone can do in the portal.
-
-    - Define module-level access (Read, Write, Manage)
-    - Control which features and data a user can see
-    - Include ticket display group assignments
-    - Examples: "Full Access", "Standard User", "Training Only", "View Only"
-
-    **Think of it as:** A security badge that opens specific doors.
-  </Tab>
-</Tabs>
-
-### How They Work Together
-
-A company user is assigned **both** a Role and a Permission Group:
-
-| Concept | Set In | Controls | Example |
-|---------|--------|----------|---------|
-| **Role** | Roles tab | Organization and reporting | "Account Manager" |
-| **Permission Group** | Permissions tab | Portal access and actions | "Full Access" |
-
-For example, a user might have the role **Account Manager** (describing their job) and the permission group **Full Access** (granting them access to all modules). Another user might also be an **Account Manager** but with a **View Only** permission group if they only need to review information.
-
-<Note>
-Roles and Permission Groups are independent. Changing a user's role does not affect their permissions, and changing their permission group does not affect their role.
-</Note>
-
----
-
-## Required Permissions
-
-To manage Companies Settings, your tenant role needs:
-
-| Permission Level | Capabilities |
-|------------------|-------------|
-| **Read** (`read_settings_companies`) | View companies, users, roles, and permission groups |
-| **Write** (`write_settings_companies`) | Create and edit companies, users, roles, and permission groups |
-| **Manage** (`manage_settings_companies`) | All of the above, plus delete |
-
-## Best Practices
-
-- **Start with fewer permission groups** - Create broad groups first, then add specific ones as needed
-- **Use roles for reporting** - Assign roles consistently to enable useful reporting by job function
-- **Review permissions regularly** - Audit permission groups periodically to ensure appropriate access
-- **Keep company data current** - Regularly update company details and verify contacts
-- **Use consistent naming** - Establish naming conventions for companies, roles, and permission groups
-
-## Related Resources
-
-- [Users & Roles](/user-guides/settings/users-roles) - Manage your internal MSP team roles
-- [Company Overview](/user-guides/company-overview/index) - Company dashboards
-- [Integrations](/user-guides/integrations/index) - PSA and RMM company sync
-- [Onboarding: Permission Groups](/user-guides/getting-started/onboarding/company-permission-groups) - Initial permission group setup
-- [Onboarding: Company Roles](/user-guides/getting-started/onboarding/company-roles) - Initial role setup
+<AccordionGroup>
+  <Accordion title="Where are Company Users now?">
+    Open Settings > Users & Roles > Company Users, or the Users tab inside a company.
+  </Accordion>
+  <Accordion title="Are Team Roles only job labels for client users?">
+    No. They define MSP account-team responsibilities. Actual assignments can affect staff company scope and the client team menu.
+  </Accordion>
+  <Accordion title="Does a company contact email create a portal login?">
+    No. Manage the person as a Company User and assign the appropriate Company Role.
+  </Accordion>
+  <Accordion title="Does the company Compliance Schedule field create automated assessment runs?">
+    No. Automated run schedules use Settings > Compliance > Schedule, with a run template and explicit targets.
+  </Accordion>
+  <Accordion title="Can a bulk selection include off-screen companies?">
+    Yes. All-pages selection resolves companies matching the supported filters, not only the visible page. Review the count and targets.
+  </Accordion>
+  <Accordion title="Does cancelling Manage Types undo a newly created type?">
+    No. Inline type creation saves the definition immediately. Apply separately saves company memberships.
+  </Accordion>
+  <Accordion title="Does Replace remove PSA-synced types?">
+    Replace changes manual memberships while preserving PSA-synced memberships.
+  </Accordion>
+  <Accordion title="Do Premium Training and AI Home bulk choices wait for a page Save?">
+    No. Those actions update the selected companies immediately after you choose them.
+  </Accordion>
+  <Accordion title="Does saving an Overview field save all company tabs?">
+    No. Fields and tabs have their own save boundaries.
+  </Accordion>
+  <Accordion title="Will unblocking a company restore its deleted history?">
+    No. Unblocking changes re-import eligibility; it is not a data restore.
+  </Accordion>
+</AccordionGroup>

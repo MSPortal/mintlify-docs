@@ -1,241 +1,110 @@
 ---
-title: Ticket Settings
-description: Configure ticket delivery methods, display groups, and allowed statuses for your PSA integration
+title: "Ticket settings"
+description: "Configure ticket delivery, request forms, role display groups and company routing."
 icon: ticket
 ---
 
-Ticket Settings control how MSPortal.ai handles tickets from your PSA system. Configure delivery methods, organize tickets into display groups, and define which statuses users can set.
+**Audience:** MSP staff with access to Ticket settings. Editing requires the relevant settings write or manage permission. Company users ask their IT provider to change these rules.
 
-## Accessing Ticket Settings
+Open **Settings > Tickets**. The page has **General**, **Display Groups**, **Companies**, **Compliance**, **Change Approvals** and **Templates**. Available PSA fields depend on the active connection and synchronized lookup data.
 
-1. Click **Settings** in the sidebar
-2. Select the **Tickets** icon from the settings navigation
+## Choose ticket delivery
 
-## General Settings
+In **General**, use **Ticket Delivery Method** to select **PSA Integration** or **Email (SMTP)**. This determines how requests are delivered; it is not a choice between email notifications and portal access.
 
-The General tab contains core ticket configuration options.
+1. For PSA delivery, select the intended active **PSA Integration**.
+2. Review **Fallback Email Address** for delivery when the PSA connection fails.
+3. For email delivery, enter the destination **Email Address**.
+4. Inspect the save result before leaving. Delivery and integration selectors save immediately. Email fields save when you leave the field.
 
-<Frame>
-  <img src="/images/settings/settings-tickets-general.png" alt="Ticket General Settings" />
+Changing delivery does not configure every category, template or company override. Review those separately. Avoid changing a real delivery address merely to preview this screen.
+
+## Set ordinary ticket defaults
+
+In **General**, configure the **Ticket Defaults** card for the selected PSA. Choose from the available board or queue, status, priority and ticket-type fields. Provider-dependent fields can change when the board or ticket type changes. Click **Save Defaults** to persist this card.
+
+These defaults do not guarantee identical routing for every request: templates and company settings can supply their own values. A missing option can mean that the provider lookup has not synchronized or does not belong to the selected board.
+
+## Choose the new-ticket presentation
+
+**New Ticket View** controls whether the AI sidebar starts open, whether request templates appear as **Cards** or **List**, and whether template sections use **Tabs** or **All sections**. Each choice saves immediately; the sample cards are built-in previews.
+
+<Frame caption="MSP example: built-in Cards and List previews. Choosing a presentation saves immediately.">
+  <img src="/images/product/ticket-settings-new-request-view.png" alt="Manual template selection with Cards and List previews in Ticket settings." width="842" height="692" />
 </Frame>
 
-### Ticket Delivery Method
+This configures the new-ticket page. Users can still start a support request from the [Home assistant](/user-guides/ticketing/open-a-ticket-with-ai), or use the [manual ticket form](/user-guides/ticketing/open-a-ticket). Display choices do not grant access to a template or submit a ticket.
 
-Choose how tickets are delivered to end users:
+## Maintain categories
 
-| Method | Description |
-|--------|-------------|
-| **Email** | Tickets sent via email notifications |
-| **Portal** | Users access tickets through the MSPortal interface |
-| **Both** | Tickets available via email and portal |
+Use **Add Category** to draft a category, enter its name and visual details, and save the row. To change an existing category, open its edit control and use the row Save or Cancel control. Where offered, map the category to an existing PSA ticket type.
 
-### Ticket Categories
+A category is not a new ticket type created in your PSA. Deleting a category uses its row delete action; do not expect a separate page-level Save to stage or undo the deletion.
 
-Define categories to organize tickets by type:
+## Create a display group for a role
 
-- **Support** - General technical support requests
-- **Service Request** - New service requests and changes
-- **Incident** - Urgent issues requiring immediate attention
-- **Project** - Project-related tasks and milestones
+Display groups control ticket scope and visible fields for assigned roles and a PSA provider.
 
-<Note>
-Categories sync with your PSA system. Changes here will affect how tickets are categorized across both platforms.
-</Note>
+1. Open **Display Groups** and choose **Create Group**.
+2. Enter a name and optional description.
+3. Choose **All Tickets**, **Same Location Only** or **Own Tickets Only**. These operate within the user's permitted company scope; All Tickets does not grant access to every tenant.
+4. Select the **PSA Provider** and **Assigned Roles**. A role has one display-group assignment per provider, so review existing assignments before moving it.
+5. Optionally restrict boards or queues, choose **Allowed Ticket Statuses**, and hide ticket types. Empty restrictions mean unrestricted choices for that control. Status choices follow the provider and selected boards.
+6. Select the fields to display, using the field sections or select-all controls as needed.
+7. Click **Create Group** or **Update Group**. Reopen the group and verify the result with a representative user of the assigned role.
 
-### Default Settings
+For location-based visibility, first verify the user's assigned location and the tickets' location data. Hiding a column is not the same as restricting which tickets the role can access. Autotask groups can also expose a recurring-ticket setting.
 
-Configure default values for new tickets:
+## Set company routing overrides
 
-- **Default Priority** - Initial priority level for new tickets
-- **Default Status** - Starting status when tickets are created
-- **Default Assignment** - Auto-assignment rules
+Open **Companies**, locate the exact company and review the displayed effective values and their source. Change the needed routing field using its cell editor. These edits save immediately. Clear an override using the available inherit/default choice to return to the applicable default, then inspect the resolved value.
 
-## Display Groups
+Bulk actions affect selected companies. Check the selected set before applying a bulk change; a filtered view alone is not a substitute for reviewing selection.
 
-Display Groups are reusable display-settings configurations that you assign to user **roles**. A single group controls three things at once for everyone holding that role:
+## Configure compliance requests and change approvals
 
-- **Ticket Visibility** - which tickets the role can see (all company tickets, only their own, or only their location's)
-- **Board, queue, and ticket-type scope** - which PSA boards/queues are visible and which ticket types are hidden
-- **Field Visibility** - which ticket fields (columns) appear in the tickets list
+Use **Compliance** for the separate **Compliance Ticket Defaults** card. PSA delivery and an active selected PSA are prerequisites. Choose the provider's available routing fields and click **Save**. Halo can require category, impact and urgency as well as other ticket fields; review the controls actually offered for your provider.
 
-This is how you restrict company (end-customer) users so that most people see only their own tickets, while specific roles can see everything for the company.
+Use **Change Approvals** for the approval policy and approver settings offered to your account, then **Save** that panel. Changing policy is separate from approving an individual request. See [Change management](/user-guides/ticketing/change-management) before using that workflow.
 
-<Frame>
-  <img src="/images/settings/settings-tickets-display-groups.png" alt="Ticket Display Groups" />
-</Frame>
+## Manage request templates
 
-### Ticket Visibility Options
+**Templates** opens the template catalog. Use the [ticket-template guide](/user-guides/ticketing/how-to-create-a-ticket-template) for fields, conditions, routing, company access and embedded requests. A template's saved configuration and a user's permission to request it are separate checks.
 
-When you create a Display Group, the **Ticket Visibility** dropdown sets the scope of tickets the assigned role can see:
+## Troubleshooting
 
-| Option | What the role sees |
-|--------|--------------------|
-| **All Tickets** | Every ticket for the company. Use for managers, owners, or anyone who needs full visibility. |
-| **Same Location Only** | All tickets opened at the user's assigned location. Use for site or branch managers. |
-| **Own Tickets Only** | Only tickets the user opened or is the contact on. Use for standard company users who should not see their coworkers' tickets. |
+If controls are disabled, check settings permissions. If a PSA or lookup is absent, review the connection and synchronization state. If a user sees the wrong tickets, check their company, role, display group and location before changing broad visibility. If routing differs from General defaults, inspect the template and company override. Reopen the affected setting after a failed save before retrying.
 
-<Note>
-**Same Location Only** relies on each company user having a **location** assigned on their profile. If a user has no location set, they will not see location-scoped tickets. Set a user's location from **Settings → Companies → (company) → Users**, or on the user's profile.
-</Note>
+## FAQs
 
-### Creating a Display Group
+<AccordionGroup>
+  <Accordion title="Are delivery methods Email, Portal and Both?">
+    No. The available delivery methods are PSA Integration and Email (SMTP). Portal visibility is configured separately.
+  </Accordion>
+  <Accordion title="Do all ticket settings wait for a page Save?">
+    No. Delivery, PSA selection, New Ticket View and company cells save immediately; email fields save on blur. Default cards and display-group forms have their own Save controls.
+  </Accordion>
+  <Accordion title="Where are Allowed Statuses configured?">
+    Inside the Display Group form for the selected provider, alongside board restrictions and hidden ticket types.
+  </Accordion>
+  <Accordion title="Does All Tickets let a Company user see other companies?">
+    No. It operates within the user’s permitted company scope.
+  </Accordion>
+  <Accordion title="Does a category mapping create a PSA ticket type?">
+    No. It maps the portal category to an existing provider ticket type.
+  </Accordion>
+  <Accordion title="Does hiding a field prevent access to its ticket?">
+    No. Field presentation and ticket visibility are separate controls.
+  </Accordion>
+  <Accordion title="Do ordinary defaults also configure every compliance ticket?">
+    Review the separate Compliance tab and save its defaults. Do not assume all request paths use identical values.
+  </Accordion>
+  <Accordion title="Does changing the new-ticket layout send a request?">
+    No. It changes presentation. A user must still complete and submit the request workflow.
+  </Accordion>
+</AccordionGroup>
 
-<Steps>
-  <Step title="Open Display Groups">
-    From **Settings → Tickets**, open the **Display Groups** tab, then click **Create Group**.
-  </Step>
-  <Step title="Name and describe the group">
-    Enter a **Name** (e.g., "Standard Technician" or "Manager View") and an optional **Description** explaining what the group shows and who should use it.
-  </Step>
-  <Step title="Choose Ticket Visibility">
-    Set **Ticket Visibility** to **All Tickets**, **Same Location Only**, or **Own Tickets Only** based on what this role should be able to see.
-  </Step>
-  <Step title="Select the PSA provider">
-    If you have more than one PSA integration connected, choose the **PSA Provider** this group applies to. With a single PSA, this is selected automatically.
-  </Step>
-  <Step title="Assign roles">
-    Use **Assigned Roles** to pick one or more roles. Everyone holding an assigned role inherits this group's visibility and field settings. A role can be assigned to one group per PSA provider.
-  </Step>
-  <Step title="(Optional) Narrow boards and ticket types">
-    Use **Restrict to Boards / Queues** to limit the role to specific boards or queues (leave empty to allow all). Use **Hide Ticket Types** to keep selected ticket types out of this role's list (leave empty to show all). New boards and types added in your PSA stay visible automatically.
-  </Step>
-  <Step title="Choose Field Visibility">
-    In the **Field Visibility** panel, check the ticket fields (columns) that should appear for this role. Fields are grouped into sections such as Basic Information, Categories, Assets and Location, Timing and SLA, and Resolution. Use **Select All Fields** or a section's **All in...** checkbox to toggle groups quickly.
-  </Step>
-  <Step title="Save">
-    Click **Create Group** (or **Update Group** when editing). The settings apply to the assigned roles immediately.
-  </Step>
-</Steps>
+## Related guides
 
-### Example: Restrict Most Users to Their Own Tickets
-
-To let only certain company users see all company tickets while everyone else sees just their own, create two Display Groups for the same PSA provider:
-
-<Steps>
-  <Step title="Create a 'Standard User' group">
-    Set **Ticket Visibility** to **Own Tickets Only** and assign it to the role most company users hold (e.g., "Company User").
-  </Step>
-  <Step title="Create a 'Company Admin' group">
-    Set **Ticket Visibility** to **All Tickets** and assign it to the role your trusted contacts hold (e.g., "Company Admin").
-  </Step>
-  <Step title="Move users between roles as needed">
-    Promote a company user to the all-access role to give them full visibility, or move them back to the standard role to limit them to their own tickets. No per-user ticket configuration is required.
-  </Step>
-</Steps>
-
-<Tip>
-Visibility is enforced everywhere tickets appear - the tickets list, dashboards, and ticket trends - not just on the main tickets page.
-</Tip>
-
-## Allowed Statuses
-
-Control which ticket statuses users can select when updating tickets. This ensures consistent status usage across your team.
-
-<Frame>
-  <img src="/images/settings/settings-tickets-allowed-statuses.png" alt="Ticket Allowed Statuses" />
-</Frame>
-
-### Configuring Allowed Statuses
-
-1. Review the list of available statuses from your PSA
-2. Check the statuses you want users to be able to select
-3. Uncheck statuses that should be restricted (e.g., internal-only statuses)
-
-### Status Categories
-
-Statuses are typically organized by workflow stage:
-
-- **Open Statuses** - New, In Progress, Researching
-- **Pending Statuses** - Waiting on Customer, Waiting on Vendor, Scheduled
-- **Resolved Statuses** - Resolved, Completed, Closed
-- **Cancelled Statuses** - Cancelled, Duplicate
-
-<Warning>
-Restricting statuses affects all users. Ensure your team understands which statuses are available before making changes.
-</Warning>
-
-## Compliance Ticket Defaults
-
-Each PSA integration's settings tab has a **Compliance Ticket Defaults** card that controls which queue, priority, status, type, subtype, and category compliance-driven tickets land in. Tickets created from a compliance check (manually or by an automation rule) inherit these defaults, so compliance work no longer falls into whatever board your PSA picks at random.
-
-<Steps>
-  <Step title="Open the PSA Tab">
-    From **Settings → Tickets**, open the tab for your PSA (ConnectWise, Halo, Autotask, or Syncro).
-  </Step>
-  <Step title="Find the Compliance Ticket Defaults Card">
-    Scroll to the **Compliance Ticket Defaults** card. The fields available match what your PSA exposes for tickets.
-  </Step>
-  <Step title="Pick the Defaults">
-    Choose the queue or service board, priority, status, type, subtype, and category that compliance tickets should default to. Leave a field blank to fall back to the integration-wide default.
-  </Step>
-  <Step title="Save">
-    Click **Save**. The next compliance ticket created in your tenant inherits the new defaults.
-  </Step>
-</Steps>
-
-### Halo Required Fields
-
-Halo PSA requires **category, impact, and urgency** to create a ticket. The Compliance Ticket Defaults card on the Halo tab persists those three values alongside the others so your defaults stick across saves and the create flow does not silently fall back to Halo's API defaults.
-
-### Coverage by Provider
-
-| Provider | Queue / Board | Priority | Status | Type | Subtype | Category | Impact | Urgency |
-|----------|---------------|----------|--------|------|---------|----------|--------|---------|
-| ConnectWise | Service Board | Yes | Yes | Yes | Yes | - | - | - |
-| Autotask | Queue | Yes | Yes | Yes | Yes | Yes | - | - |
-| Halo PSA | Team / Queue | Yes | Yes | Yes | - | Yes | Yes | Yes |
-| Syncro | - | Yes | Yes | Yes | - | - | - | - |
-
-<Tip>
-The same card pattern appears as a **Ticket Defaults** card for non-compliance tickets right above it. Configure both if you want compliance tickets routed differently from the rest of your service work.
-</Tip>
-
-## Ticket Templates
-
-Ticket templates live under **Settings → Tickets → Templates** and govern the structured forms users fill out on the new-ticket page, the AI ticket assistant, and the browser extension. Each template defines fields, sections, conditional logic, PSA routing, company visibility, and (when needed) per-company branches and embedded child templates.
-
-### Embedded Templates
-
-A field of type **Embedded Template** pulls another template's questions inline as a sub-card. When the parent field is visible (driven by the parent's conditional logic), the embedded template renders inline and, on submit, fires its own separate PSA ticket using its **own** board, priority, status, ticket type, and category.
-
-**Why use embedded templates:**
-- One user request should spawn multiple PSA tickets with **different routing** (e.g. a "New Hire" parent splits into a Procurement ticket for hardware and an IT ticket for software access)
-- You want to keep each child ticket scoped to a single team's responsibilities, with its own SLA, approver, and PSA fields
-- You need to capture per-child attachments (file uploads inside an embed attach to the embed's PSA ticket)
-
-**Key constraints:**
-- An embedded template cannot itself contain embedded templates (depth-1 cap, enforced in the editor and on save)
-- Embeds inherit the parent's company gating — admins do **not** need to enable each embed for every company the parent applies to
-- Both parent and embed land in the tenant's currently selected PSA integration
-
-After every multi-ticket submission, MSPortal posts an internal note on the parent PSA ticket listing every related embed ticket number, so support staff can trace the full chain without leaving the parent record.
-
-<Card title="Full How-To" icon="file-lines" href="/user-guides/ticketing/how-to-create-a-ticket-template#embedded-templates">
-  Learn how to add an Embedded Template field, configure its conditional, and verify the routing in the Form Preview pane.
-</Card>
-
-## PSA Integration Notes
-
-Ticket settings work in conjunction with your PSA integration:
-
-- **Halo PSA** - Syncs ticket types, statuses, and priorities automatically
-- **ConnectWise** - Maps to service board configurations
-- **Autotask** - Syncs with ticket categories and queues
-- **Syncro** - Integrates with ticket types and statuses
-
-<Note>
-Some settings may be overridden by your PSA configuration. Check your [integration settings](/user-guides/integrations/index) if tickets aren't displaying as expected.
-</Note>
-
-## Best Practices
-
-1. **Start with defaults** - Use standard configurations before customizing
-2. **Test with a few users** - Validate settings work before rolling out broadly
-3. **Document changes** - Keep track of display group configurations
-4. **Sync regularly** - Ensure PSA changes are reflected in MSPortal
-
-## Related Resources
-
-- [Ticketing Module](/user-guides/ticketing/index) - Using the tickets interface
-- [Integrations](/user-guides/integrations/index) - PSA integration setup
-- [Settings Overview](/user-guides/settings/index) - All settings options
+- [Ticketing](/user-guides/ticketing/index)
+- [Integrations](/user-guides/settings/integrations)

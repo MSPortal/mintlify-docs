@@ -1,71 +1,46 @@
 ---
-title: "Billing Configuration"
-sidebarTitle: "14. Billing"
-description: "Set up your subscription and payment method"
+title: "Review billing before launch"
+sidebarTitle: "Review billing before launch"
+description: "Check your actual subscription, usage and hosted billing details."
 icon: "credit-card"
 ---
 
-The Billing Configuration step sets up your MSPortal subscription and payment method. This ensures uninterrupted access to the platform and its features.
+**Audience:** MSP staff with Billing settings access. Open the billing step in **Launch Center**, or **Settings > Billing**.
 
-## What You'll Configure
+## Review the account
 
-- **Subscription Plan** - Choose the plan that fits your MSP's needs
-- **Payment Method** - Add a credit card or other payment method
-- **Billing Contact** - Who receives invoices and billing notifications
-- **Billing Address** - Address for invoicing purposes
+1. Check the displayed subscription or trial status and any billing-service error.
+2. Review the current plan, billing currency, usage and upcoming invoice information offered for the account. Metered and licensed subscriptions can show different measures.
+3. Use the billing-management control to open the hosted billing portal when you need to manage payment or subscription details.
+4. Review and confirm any change in that portal. Returning to MSPortal is not itself confirmation that a payment-method or subscription change succeeded.
+5. Reopen or refresh Billing and check the resulting status. Review the organization's billing email in Tenant settings as well.
 
-## Steps to Complete
+Use the actual account's displayed plan and terms. There is no universal Starter/Professional/Enterprise company-limit table in this setup workflow. Do not infer a price, trial duration or cancellation effect from a different tenant's screenshot.
 
-<Steps>
-  <Step title="Navigate to Billing Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Billing**.
-  </Step>
-  <Step title="Review Your Plan">
-    Check your current subscription plan and available features. Upgrade if you need additional capabilities.
-  </Step>
-  <Step title="Add Payment Method">
-    Click **Add Payment Method** and enter your credit card information. We use Stripe for secure payment processing.
-  </Step>
-  <Step title="Verify Billing Contact">
-    Ensure the billing email address is correct. This is where invoices and payment receipts are sent.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** to confirm your billing configuration.
-  </Step>
-</Steps>
+## Save boundaries
 
-## Subscription Plans
+Billing management opens a separate hosted workflow. There is no single local Save button that confirms all payment and subscription actions. Launch progress is also separate from a billing-provider transaction; completing a setup step does not prove a payment succeeded.
 
-MSPortal offers flexible plans based on your needs:
+## Troubleshooting
 
-| Feature | Starter | Professional | Enterprise |
-|---------|---------|--------------|------------|
-| Companies | Up to 25 | Up to 100 | Unlimited |
-| Users | Up to 50 | Up to 500 | Unlimited |
-| Integrations | 2 | 5 | Unlimited |
-| Training | Basic | Full | Full + Custom |
-| Support | Email | Priority | Dedicated |
+If billing data fails to load, inspect the displayed error and retry the reader before repeating any purchase or payment action. If the hosted portal does not open, check the result and browser navigation behavior. If a change is unclear, inspect the current subscription and invoices rather than submitting it again.
 
-<Note>
-  Contact our sales team for custom enterprise pricing or special requirements.
-</Note>
+## FAQs
 
-## Auto-Completion
+<AccordionGroup>
+  <Accordion title="Are the old Starter, Professional and Enterprise limits authoritative?">
+    No. Use the plan, usage and terms displayed for the actual account.
+  </Accordion>
+  <Accordion title="Does returning from the billing portal prove my change succeeded?">
+    No. Check the hosted result and current subscription or payment details.
+  </Accordion>
+  <Accordion title="Does completing a launch step confirm a payment?">
+    No. Launch progress and billing-provider transactions are separate.
+  </Accordion>
+</AccordionGroup>
 
-This step is **automatically marked as complete** when:
-- A valid payment method is on file
-- Your subscription is active
+## Related guides
 
-## Payment Security
-
-<Info>
-  MSPortal uses Stripe for payment processing. Your payment information is never stored on our servers—it's securely handled by Stripe's PCI-compliant infrastructure.
-</Info>
-
-## Trial Period
-
-If you're on a trial, the billing step shows your remaining trial days and what happens when the trial ends. Add a payment method before the trial expires to ensure uninterrupted service.
-
-## Related Documentation
-
-- [Billing Settings](/user-guides/settings/billing) - Full billing reference
+- [Billing](/user-guides/settings/billing)
+- [Tenant](/user-guides/settings/tenant)
+- [Work through your portal launch plan](/user-guides/getting-started/launch-center)

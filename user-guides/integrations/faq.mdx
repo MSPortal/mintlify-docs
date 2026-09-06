@@ -1,133 +1,66 @@
 ---
-title: Integrations FAQ
-description: Common questions and troubleshooting for MSPortal.ai integrations
+title: "Integration troubleshooting"
+description: "Diagnose missing data without confusing connection, synchronization, mapping and access."
+icon: "plug"
 ---
 
-Find answers to frequently asked questions about integrations, data syncing, and troubleshooting common issues.
+**Audience:** MSP staff managing integrations. Company users should report missing data to their MSP with the affected feature and company.
 
-## Why aren't my tickets syncing?
+## Check the four stages
 
-If your tickets aren't appearing in MSPortal, check these common issues:
+1. **Connection:** confirm the correct provider instance and its current status. Credentials, permissions, region and feature availability can affect it.
+2. **Synchronization:** inspect the relevant data area's enabled state, latest job result and expected source scope. A connected badge does not prove every sync succeeded.
+3. **Mapping/import:** confirm provider companies/sites are linked correctly and required records were imported. Staged data may not yet be portal inventory.
+4. **Visibility:** check selected company, role and the record's own visibility rules. An administrator seeing a record does not prove Company users can access it.
 
-<Steps>
-  <Step title="Import Companies First">
-    Tickets are linked to companies. Before tickets can sync, you must import your companies from your PSA.
+Keep these stages separate when investigating. Reconnecting a provider is not a general cure for a missing company link or client permission.
 
-    Go to **Settings > Companies** and ensure your companies have been imported. See the [Import Companies guide](/user-guides/integrations/import-companies) for detailed instructions.
-  </Step>
+## Missing tickets
 
-  <Step title="Select Queues to Sync">
-    Open your PSA integration settings and configure the **Ticket Settings**. You must select which ticket queues/boards to sync.
+Review the provider's supported board, queue, type and status filters and the selected company mapping. Verify the ticket-reading permission in the setup wizard where its permission check is offered. Do not apply a ConnectWise board instruction to a different PSA automatically.
 
-    - **ConnectWise**: Select Service Boards in Ticket Settings
-    - **Autotask**: Select Queues in Ticket Settings
-    - **Halo PSA**: Select Ticket Types in Ticket Settings
-    - **Syncro**: Tickets sync automatically once the integration is connected
-  </Step>
+Where the permission check reports **Could not verify**, investigate availability and retry the check. This is not the same evidence as a denied permission. After correcting permissions, review the sync toggles and current job result rather than assuming every previously disabled area resumed.
 
-  <Step title="Verify Integration Status">
-    Ensure your PSA integration shows as **Active** on the Integrations page (`/settings/integrations`).
+## Source changes have not appeared
 
-    If the status shows as disconnected or errored, your API credentials may have expired or been revoked. Reconnect the integration with fresh credentials.
-  </Step>
+Different entities run on different schedules. Webhooks, scheduled jobs and manual refreshes are separate paths; a webhook connection does not promise instant updates for every data type. Review [Sync Schedules](/user-guides/integrations/sync-schedules) and the current result for the affected area.
 
-  <Step title="Run the Permission Check">
-    Open the integration's setup wizard and go to the **Permissions** step. If Tickets shows as not permitted, your API user cannot read tickets and no amount of resyncing will help.
+Use a supported manual sync when needed, then inspect completion. A queued request is not immediate data delivery. Repeatedly pressing Resync can add work without fixing a provider error or missing permission.
 
-    The step names the exact permission to grant in your PSA. Grant it, click **Re-check**, then resync.
-  </Step>
-</Steps>
+## Duplicates or wrong links
 
-<Tip>
-After making configuration changes, use the **Resync** button on your integration card to trigger an immediate sync rather than waiting for the scheduled sync.
-</Tip>
+Review existing companies and users before importing new records. Quick Match creates proposals that need review; similar names can belong to different organizations. Creating a company and saving its integration link are separate operations. Removing a saved link can persist immediately.
 
-## A sync is switched off, or its toggle is locked
+If automatic imports change a user's role, inspect contact-type mappings first, followed by company and integration defaults. Explicit mapping rules can affect existing users.
 
-MSPortal only runs a sync when your PSA API user is permitted to read that data. When a permission is missing, the matching toggle on the **Sync** step is locked and the sync stays off.
+## Get a useful support diagnosis
 
-<Steps>
-  <Step title="Open the Permissions step">
-    Go to **Settings > Integrations**, open your PSA integration and click through to the **Permissions** step of the setup wizard. Every area of data is listed as granted or unavailable.
-  </Step>
+Record the provider, intended connection, data area, company scope, observed error and last action. Include an example record reference when appropriate. Do not include API secrets or tokens. Avoid clearing data, disconnecting or testing writes on customer records simply to gather evidence.
 
-  <Step title="Grant the named permission">
-    Each unavailable area shows the exact setting to change in your PSA:
 
-    - **ConnectWise**: a security role category under **System > Security Roles**, for example *Procurement -> Product Catalog (Inquire Level: All)*
-    - **Autotask**: a security level setting under **Admin > Resources/Users > Security Levels**
-    - **Halo PSA**: an API application permission under **Configuration > Integrations > API > Applications**
-    - **Syncro**: a token permission under **Admin > API Tokens**
-  </Step>
+## FAQs
 
-  <Step title="Re-check">
-    Return to the Permissions step and click **Re-check**. Once the area shows as granted, the toggle unlocks and you can switch the sync on.
-  </Step>
-</Steps>
+<AccordionGroup>
+  <Accordion title="Why is data missing even though the integration is connected?">
+    Connection, synchronization, company mapping/import and role visibility are separate stages; inspect each for the affected data area.
+  </Accordion>
+  <Accordion title="Does Could not verify mean the API permission is denied?">
+    No. Treat it as unknown verification evidence and investigate availability before changing access.
+  </Accordion>
+  <Accordion title="Does Resync make the data available immediately?">
+    No. It can queue background work; check completion and the expected records.
+  </Accordion>
+  <Accordion title="Will reconnecting fix a wrong company mapping?">
+    Do not assume it will. Review and correct the intended link and its dependent records.
+  </Accordion>
+  <Accordion title="Should I include an API secret in a support request?">
+    No. Provide provider, connection reference, data area, scope and error without credentials.
+  </Accordion>
+</AccordionGroup>
 
-<Info>
-If a permission is revoked after setup, MSPortal switches the affected sync off and notifies your integration admins instead of failing the same call every night. Grant the permission again and re-check to turn it back on.
-</Info>
+## Related guides
 
-<Note>
-An area can also show as **Could not verify**. That means the PSA was slow or unreachable when we checked, not that a permission is missing. Nothing is switched off on that basis; click **Re-check** to try again.
-</Note>
-
-## How often do syncs happen?
-
-MSPortal syncs data from your integrations on regular schedules. Frequencies vary by integration and data type. As a general guide:
-
-| Data Type | Typical Frequency |
-|-----------|-------------------|
-| **Tickets** | Every 5-15 minutes |
-| **Companies & Contacts** | Every 1-4 hours |
-| **Users & Resources** | Every 2-4 hours |
-| **Devices (RMM)** | Every 30 minutes to daily |
-| **PSA Reference Data** | Daily |
-| **Microsoft 365** | Every 6 hours to daily |
-
-For the exact, per-integration breakdown, see the [Sync Schedules](/user-guides/integrations/sync-schedules) page.
-
-<Info>
-**Autotask Webhooks**: If you've enabled webhooks for your Autotask integration, ticket updates are received in near real-time rather than waiting for the scheduled sync.
-</Info>
-
-## I made a change in my PSA and it's not showing up
-
-Changes made in your PSA will appear in MSPortal after the next scheduled sync (typically within 15-30 minutes depending on data type).
-
-If you need the changes immediately:
-
-<CardGroup cols={2}>
-  <Card title="Wait for Auto-Sync" icon="clock">
-    Tickets sync every few minutes; other data syncs on its own schedule. See [Sync Schedules](/user-guides/integrations/sync-schedules) for the exact cadence by integration.
-  </Card>
-  <Card title="Force Manual Sync" icon="rotate">
-    Click the **Resync** (refresh) icon on your integration card at `/settings/integrations` to trigger an immediate sync.
-  </Card>
-</CardGroup>
-
-## My integration shows as disconnected
-
-If your integration status shows as disconnected or has an error:
-
-1. **Check API Credentials** - API keys or secrets may have expired or been rotated in your PSA
-2. **Verify Permissions** - Run the **Permissions** step in the integration's setup wizard, which tests each area of data and names anything your API user cannot read
-3. **Check Rate Limits** - Some PSAs have API rate limits that may temporarily block requests
-4. **Reconnect** - Try disconnecting and reconnecting the integration with fresh credentials
-
-## Related Resources
-
-- [Import Companies](/user-guides/integrations/import-companies) - How to import companies from your PSA
-- [Import Users](/user-guides/integrations/import-users) - Sync PSA users with MSPortal
-- [Clear and Resync](/user-guides/integrations/clear-and-resync-integrations) - How to perform a full data resync
-- [Integration Settings](/user-guides/settings/integrations) - Configure integration options
-
-## Need More Help?
-
-If you're still experiencing issues after following this guide, contact [support@msportal.ai](mailto:support@msportal.ai) with:
-
-- Your PSA type (ConnectWise, Autotask, Halo, or Syncro)
-- A description of the issue
-- Any error messages you're seeing
-- Steps you've already tried
+- [Import companies](/user-guides/integrations/import-companies)
+- [Import users](/user-guides/integrations/import-users)
+- [Import devices](/user-guides/integrations/import-devices)
+- [Clear and resync integrations](/user-guides/integrations/clear-and-resync-integrations)

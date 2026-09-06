@@ -1,74 +1,49 @@
 ---
-title: "Device Import"
-sidebarTitle: "11. Device Import"
-description: "Review and import devices from your RMM"
+title: "Import rollout devices"
+sidebarTitle: "Import rollout devices"
+description: "Map the selected device source and verify actual inventory for each rollout company."
 icon: "server"
 ---
 
-The Device Import step lets you review devices synced from your RMM and import them into MSPortal. You can map devices to companies and configure how they're organized.
+**Audience:** MSP staff with integration-management access. Complete the selected RMM connection and company/site mapping first. The launch device workspace can also use Addigy when selected without a primary RMM.
 
-<Note>
-  This step only appears if you selected an RMM integration. It becomes available after the initial RMM sync completes.
-</Note>
+## Review and import
 
-## What You'll Do
+1. Open the device step in **Launch Center**, or the provider's import area in **Settings > Integrations**.
+2. Check the provider instance and synchronization status. Review staged devices and the source company/site.
+3. Confirm company mappings before importing. A similar company name is not sufficient evidence that the records belong together.
+4. Review device-type mappings and ignored categories. Use the displayed import controls for the intended records and wait for the result.
+5. Open the actual **Devices** inventory for the target company and confirm imported records and their source.
+6. Return to Launch Center and inspect the device finding for each rollout company.
 
-- **Review Synced Devices** - See all devices pulled from your RMM
-- **Map to Companies** - Associate devices with the correct client companies
-- **Import Devices** - Bring devices into MSPortal's device inventory
-- **Configure Device Types** - Set up device categorization
-- **Ignore Unwanted Types** - Exclude device categories you don't need (e.g., printers, sensors)
+Mapping changes and imports can persist independently. In supported mapping screens, **Map with AI** saves generated device-type mappings immediately; inspect the result before importing. Do not treat it as a draft preview.
 
-## Steps to Complete
+## What counts as ready
 
-<Steps>
-  <Step title="Wait for RMM Sync">
-    If the initial sync is still in progress, the wizard will show a waiting indicator. This ensures your devices are available for review.
-  </Step>
-  <Step title="Navigate to Device Import">
-    Click **Go to Settings** in the onboarding wizard. You'll be taken to the device staging area for your RMM integration.
-  </Step>
-  <Step title="Review Staged Devices">
-    Browse the list of devices synced from your RMM. Check that device details look correct.
-  </Step>
-  <Step title="Map Devices to Companies">
-    For devices that aren't automatically matched, select the correct company from the dropdown.
-  </Step>
-  <Step title="Import Devices">
-    Select the devices you want to import and click **Import Selected** or **Import All**.
-  </Step>
-</Steps>
+The check looks for actual devices belonging to every rollout company and matching the selected primary RMM or applicable Addigy source. Pending staging rows, an unrelated manually entered device or a healthy integration alone do not prove that requirement is met.
 
-## Automatic Company Matching
+Review ignored categories when a device count appears lower than expected. Excluded records may deliberately remain outside the import. Import only the intended pilot scope before expanding the rollout.
 
-MSPortal attempts to automatically match devices to companies based on:
-- Site/location names in your RMM
-- Company names in your PSA (if connected)
-- Previous manual mappings
+## Troubleshooting
 
-Devices that can't be automatically matched will need manual assignment.
+If the staged list is empty, check synchronization and provider scope. If devices exist in staging but not inventory, check mapping, ignored types and the import result. If inventory exists but readiness still fails, check the selected provider and company rather than importing duplicates.
 
-## Device Types
+## FAQs
 
-During import, devices are categorized by type:
-- **Workstation** - Desktop computers and laptops
-- **Server** - Physical and virtual servers
-- **Network** - Routers, switches, firewalls
-- **Other** - Printers, UPS, and other devices
+<AccordionGroup>
+  <Accordion title="Do staged devices count as imported inventory?">
+    No. Verify actual Devices records for the selected source and rollout company.
+  </Accordion>
+  <Accordion title="Does one imported device satisfy a wider rollout?">
+    No. The check requires matching device evidence for every rollout company.
+  </Accordion>
+  <Accordion title="Is Map with AI a draft preview?">
+    No. Supported device-type mapping screens save its generated mappings immediately.
+  </Accordion>
+</AccordionGroup>
 
-### Ignoring Categories
+## Related guides
 
-If there are device types you never want to import (such as printers or sensors), check the **Ignore** checkbox in the Device Type Mappings table. Ignored categories are hidden from your pending import counts and will stay ignored even when new devices of that type sync in. You can uncheck Ignore at any time to restore them.
-
-## Manual Completion
-
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished importing your devices.
-
-<Tip>
-  You don't need to import all devices at once. You can import in batches and return to import more later.
-</Tip>
-
-## Related Documentation
-
-- [Devices Overview](/user-guides/devices/index) - Device management guide
-- [Integrations Settings](/user-guides/settings/integrations) - Manage your integrations
+- [Import Devices](/user-guides/integrations/import-devices)
+- [Integrations](/user-guides/settings/integrations)
+- [Devices](/user-guides/devices/index)

@@ -1,103 +1,62 @@
 ---
 title: External Resources Settings
-description: Manage external documentation links and resources for your organization
+description: Find the current external-dashboard settings and configure links, Company URLs, and access
 icon: link
 ---
 
-External Resources Settings allows you to configure links to external documentation, knowledge bases, and resources that appear throughout MSPortal.ai.
+Manage external resources in **Settings > Dashboards > External Dashboards**. The older External Resources settings address opens this tab. Existing links and embedded reports use the same external-dashboard catalog.
 
-## Accessing External Resources Settings
+## Before you start
 
-1. Click **Settings** in the sidebar
-2. Select the **External Resources** icon from the settings navigation
+This is an **MSP staff** configuration task. You need dashboard-settings access and the relevant write or management permission. Company users open resources made available by their IT provider; they do not administer this catalog.
 
-## External Resources Overview
+An external resource can open a dashboard, knowledge base, training service, or another HTTPS page. Its name describes the destination; there is no category selector for Documentation, Tools, or Vendor on the current form.
 
-<Frame>
-  <img src="/images/settings/settings-external-resources.png" alt="External Resources" />
-</Frame>
+## Choose the right task
 
-### Resource Information
+<CardGroup cols={2}>
+  <Card title="Configure external dashboards" icon="gear" href="/user-guides/dashboards/configure-external-dashboards">Create or edit a resource, choose Company roles, manage its active state, and review sidebar and embedding controls.</Card>
+  <Card title="Assign Company URLs" icon="building" href="/user-guides/dashboards/assign-external-dashboard-company-urls">Give each company its own destination and understand immediate saves and CSV behavior.</Card>
+  <Card title="Open an external dashboard" icon="arrow-up-right-from-square" href="/user-guides/dashboards/open-external-dashboard">Understand company scope, external sign-in, and Open in New Tab.</Card>
+  <Card title="Dashboard settings" icon="table-columns" href="/user-guides/dashboards/manage-dashboard-settings">Configure internal dashboards separately from external resources.</Card>
+</CardGroup>
 
-Each resource shows:
-
-| Field | Description |
-|-------|-------------|
-| **Name** | Display name for the resource |
-| **URL** | Link destination |
-| **Category** | Resource classification |
-| **Visibility** | Who can see this resource |
-
-## Managing Resources
-
-### Adding a New Resource
+## Add and review a resource
 
 <Steps>
-  <Step title="Click Add Resource">
-    Select the **+ Add Resource** button
+  <Step title="Open External Dashboards">
+    Go to **Settings > Dashboards**, select **External Dashboards**, and wait for the table to load.
   </Step>
-  <Step title="Enter Details">
-    Fill in the resource name and URL
+  <Step title="Create the catalog entry">
+    Select **Add**. Enter a name and default HTTPS URL; review the optional description, display order, icon, and Company roles. Select **Create** to save, or Cancel to leave the unsaved form.
   </Step>
-  <Step title="Select Category">
-    Choose an appropriate category
+  <Step title="Assign the Company destinations">
+    Use the row menu's **Company URLs** action when a company should have access. In a company context, an assigned Company URL is required; the default URL is not a fallback for a missing assignment.
   </Step>
-  <Step title="Set Visibility">
-    Configure who can access this resource
-  </Step>
-  <Step title="Save">
-    Click **Save** to add the resource
+  <Step title="Verify the intended reader">
+    Open the resource in the intended company scope and check the applicable role. Confirm the destination itself works with that reader's external-service account.
   </Step>
 </Steps>
 
-### Editing Resources
+Company role selections restrict Company readers. An empty role list does not mean staff-only: it imposes no explicit Company-role restriction. Assignments and other access checks still apply. Portal access does not grant access at the destination service.
 
-Click on any resource to edit:
+## Save boundaries
 
-- Update the name or URL
-- Change category assignment
-- Modify visibility settings
-- Delete if no longer needed
+| Action | When it takes effect |
+| --- | --- |
+| Catalog creation or edit | **Create** or **Update** saves the form. |
+| Add, edit, or remove a Company URL | Saves separately in Company URLs. Closing the dialog is not rollback. |
+| Enable/disable, default, or sidebar pin actions | Separate actions that affect the shared catalog/navigation. |
+| Icon upload | Uploads before the catalog form is submitted; do not treat Cancel as upload cleanup. |
+| Delete | Requires the displayed confirmation; review the exact selected resource or bulk selection. |
 
-## Resource Categories
+Use **Check Frame Policy** to request an embedding check. A result applies to the checked default destination; it does not prove every Company URL works. **Force Allow Embedding** cannot override a provider's browser security restrictions or sign-in requirements. When embedding is unavailable, use **Open in New Tab**.
 
-Organize resources by category:
-
-| Category | Use For |
-|----------|---------|
-| **Documentation** | Product docs, user guides |
-| **Knowledge Base** | Internal wikis, FAQs |
-| **Training** | External training links |
-| **Tools** | Utility websites, online tools |
-| **Vendor** | Vendor portals and resources |
-
-## Visibility Options
-
-Control who can see each resource:
-
-- **All Users** - Visible to everyone
-- **Specific Roles** - Only users with certain roles
-- **Specific Companies** - Only users from selected companies
-
-## Use Cases
-
-### For MSP Teams
-- Link to internal documentation
-- Quick access to vendor portals
-- Tool shortcuts for technicians
-
-### For Client Users
-- Company-specific resources
-- Training materials
-- Policy documents
-
-## Best Practices
-
-- **Keep current** - Remove outdated links
-- **Use descriptive names** - Make purpose clear
-- **Organize by category** - Help users find resources
-- **Test links** - Verify URLs work before adding
-
-## Related Resources
-
-- [Settings Overview](/user-guides/settings/index) - All settings options
+<AccordionGroup>
+  <Accordion title="Where did External Resources settings go?">Open Settings > Dashboards > External Dashboards. The old settings address redirects to that tab.</Accordion>
+  <Accordion title="Where is the category selector?">The current external-dashboard form has no Documentation, Tools, or Vendor category selector. Use a clear resource name and description.</Accordion>
+  <Accordion title="Will the default URL give every company access?">No. In a company context, the resource needs an assigned Company URL. An absent assignment does not fall back to the default.</Accordion>
+  <Accordion title="Does leaving roles empty make the resource internal?">No. It removes the explicit Company-role restriction. Review assignments and roles before making a resource available.</Accordion>
+  <Accordion title="Does closing Company URLs discard my changes?">No. Saved additions, edits, and removals take effect separately. Close does not undo them.</Accordion>
+  <Accordion title="Can Force Allow bypass the provider's security policy?">No. Browser restrictions and external authentication still apply. Use Open in New Tab when embedding does not work.</Accordion>
+</AccordionGroup>

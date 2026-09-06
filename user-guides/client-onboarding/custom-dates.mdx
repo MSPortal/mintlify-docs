@@ -4,7 +4,9 @@ description: 'Track onboarding milestones with custom dates and show a live coun
 icon: 'stopwatch'
 ---
 
-Custom dates let you capture the key milestones for an onboarding portal, such as the kickoff, hardware delivery, go-live, or the end of a trial period. Mark one date as the countdown and both you and the client see a live countdown of days remaining at the top of the portal.
+**Audience:** MSP staff setting portal milestones. You need onboarding read access to view the workspace and onboarding write access with active billing to add, edit, or delete dates. Clients can view the displayed countdown; they do not edit these dates.
+
+Custom dates let you capture the key milestones for an onboarding portal, such as the kickoff, hardware delivery, go-live, or the end of a trial period. Mark one date as the countdown and the portal progress summary can show days remaining for a valid target date. Confirm the client presentation through the relevant preview and display settings.
 
 ## Why Use Custom Dates
 
@@ -41,40 +43,37 @@ The dates manager lists every custom date on the portal, with the countdown-mark
     Turn on **Show countdown** to display this date as the active countdown at the top of the portal. Only one date can be the countdown at a time.
   </Step>
   <Step title="Save">
-    Click **Save** to add the date. It appears immediately on both the admin view and the client portal.
+    Click **Add Date** to create it, or **Save Changes** when editing an existing date. Wait for success, then check the saved row and portal summary. **Cancel** discards the unsaved edit. There is no separate global save for the dates dialog.
   </Step>
 </Steps>
 
 ## How the Countdown Displays
 
-When a date has **Show countdown** enabled, a box appears at the top of the portal showing:
+When a date has **Show countdown** enabled and a valid target date, the progress summary can display:
 
-- The label and optional description
+- The milestone label
 - The target date
 - A live calculation of days remaining, or **Today** on the target date, or **X days overdue** once it has passed
 
-Both your admin view and the client's view of the portal show the same countdown.
+The countdown is a calendar-day indicator, not a continuously ticking deadline clock. A blank target can be saved as a milestone, but cannot produce a countdown. An overdue date does not automatically complete, block, or reschedule tasks.
 
 ## Template-Level Dates
 
 You can also define custom dates on an onboarding **template**. Template dates use an **offset in days** from the portal start date rather than an absolute target date.
 
-When you launch a portal from that template, offsets are resolved against the portal's start date to produce target dates automatically. If a template date has no offset, the target date is left empty for you to fill in from the dates manager.
+Review the dates copied into the new draft: offsets are resolved when the portal is created. Do not assume keeping a draft for several days and starting it later will shift its milestone dates automatically. If a template date has no offset, the target date is left empty for you to fill in from the dates manager.
 
 This lets you set up a standard sequence once, for example "Kickoff = day 0, Hardware = day 14, Go-Live = day 45", and have every new portal start with those milestones pre-populated.
 
 ## Editing and Deleting Dates
 
-- Click a date row to edit its label, description, target date, or countdown setting
-- Toggle countdown on a different date to switch which one shows at the top of the portal
-- Delete a date with the row actions menu. Deleting a date does not affect tasks or phases
+- Use the row **Edit** control to change its label, description, target date, or countdown setting, then **Save Changes**.
+- Enabling countdown on a different date and saving clears the previous selection. If saving fails, recheck both dates rather than assuming the old countdown remains selected.
+- Use the row **Delete** control and confirm to remove a date. Removing a milestone does not delete the portal tasks or phases.
 
 ## What the Client Sees
 
-Clients see custom dates in the portal header area:
-
-- The label, description, and target date for each date
-- A live countdown if one date is marked as the countdown
+The portal summary shows the selected countdown milestone when it has a valid target date. Do not treat the MSP dates manager as a complete preview of a client-visible milestone list. Check the actual client presentation before telling a contact where to find a date.
 
 Clients do not see internal fields like template references, created timestamps, or edit controls.
 
@@ -83,3 +82,29 @@ Clients do not see internal fields like template references, created timestamps,
 - [Managing Portals](/user-guides/client-onboarding/managing-portals)
 - [Onboarding Templates](/user-guides/client-onboarding/templates)
 - [Hiding Items from Client Users](/user-guides/getting-started/hiding-items-from-clients)
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can I save a milestone without choosing its date?">
+    Yes. Leave Target Date empty until agreed. It cannot display a countdown until it has a valid target date.
+  </Accordion>
+  <Accordion title="Does closing Manage dates save my edit?">
+    No. Use Add Date or Save Changes inside the editor and wait for success. Cancel discards that unsaved edit; earlier saved dates remain.
+  </Accordion>
+  <Accordion title="Will starting a draft later move its template dates?">
+    Do not assume that. Review the dates copied when the draft was created, then edit actual targets before activation if the schedule changed.
+  </Accordion>
+  <Accordion title="Does moving a milestone reschedule the tasks?">
+    The milestone is a separate date record. Review task due dates and dependencies separately instead of assuming that changing the countdown moved the work.
+  </Accordion>
+  <Accordion title="Why is no countdown visible?">
+    Check Show countdown, a valid Target Date, and the portal presentation. A blank date can exist in the MSP manager without a client countdown.
+  </Accordion>
+  <Accordion title="What happens when I choose another countdown date?">
+    Saving the new countdown selection clears the old selection. If a save fails, inspect both rows and restore the intended choice if needed.
+  </Accordion>
+  <Accordion title="Does an overdue countdown mean onboarding failed or stopped?">
+    No. It shows elapsed calendar days relative to the milestone. Review actual task progress and blockers separately.
+  </Accordion>
+</AccordionGroup>

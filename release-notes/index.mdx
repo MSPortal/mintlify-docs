@@ -5,6 +5,73 @@ description: "Product updates, improvements, and upcoming features for MSPortal.
 
 ## September 6, 2026
 
+### One Assistant, on Every Page
+
+The AI Assistant is no longer just the Home page. A teal **Assistant** button now sits in the corner of every page in the portal. Open it and you get the same conversation you had on Home, plus everything the page you are standing on can do.
+
+**Key Features:**
+
+- **It knows which page you are on**: Ask "What can I do on this page?" and you get an answer about that page's real controls, not a generic feature list. Ask for help and it opens the guide registered for that exact page and tab, including the separate Company and MSP versions of the same instructions.
+- **One conversation that follows you**: The drawer, the Home screen, and the page sidebars now share a single transcript and history. Start a question on Home, carry it on from Projects, and use the expand button to return to the full-screen view when you want more room. Recent conversations are one click away in the history menu, and **New conversation** starts a clean one.
+- **It reads the official guides**: For how-to and setup questions the assistant searches and reads the live documentation at docs.msportal.ai before answering, then cites the pages it used. When the guides do not cover something it says so instead of inventing steps.
+- **Page specialists are built in**: On Planner, Projects, Compliance, the report builder, narrative reports, automation rules, ticket templates, surveys, onboarding templates and settings, company settings, and broadcasts, the assistant hands the work to that page's designer and shows its review controls inside the same panel. The separate AI sidebars and their duplicate chat boxes are gone.
+- **Every change is reviewed before it happens**: Anything the assistant proposes arrives as a review card showing the exact before and after, with the fields spelled out rather than summarized. You press Apply. Chat never commits a change on its own, and the assistant will not report something as saved when it is not.
+- **Your permissions, your companies**: It acts as you. It reaches only what your role allows, stays inside the companies chosen in the company selector, and asks you to change the selector rather than quietly widening a query. Company users stay scoped to their own company.
+- **Move the button where you want it**: Drag the Assistant button anywhere on screen and it stays there the next time you sign in.
+- **In your language**: The assistant answers in your language, and the whole assistant interface is translated across all 18 supported languages.
+
+#### Ask it these before you call us
+
+Every new conversation opens with three shortcuts you can click: **What can I do on this page?**, **Show my open support tickets**, and **Find help for this page**. After that, just type. These all work today:
+
+**Learning the product**
+
+- "What can I do on this page?"
+- "How do I create a budget?"
+- "Where do I find my invoices?"
+- "How do I connect ConnectWise?"
+- "Walk me through building a report template."
+- "Take me to the compliance page."
+- "Search for our onboarding runbook."
+
+**Support tickets**
+
+- "I want to open a ticket."
+- "My laptop will not connect to the VPN." (the assistant picks the right template, prepares the draft, and asks only for what is still missing)
+- "Show me all my open tickets and their status."
+- "What is happening with my printer ticket?"
+- "Add a note to that ticket saying the issue is back."
+
+**Your work**
+
+- "What planner items are due this month?"
+- "Create a planner item to review the firewall renewal."
+- "What is my training progress and what should I take next?"
+- "Show me my goals and how they are tracking."
+- "What meetings do I have this week?"
+- "Add an agenda item to Thursday's review."
+- "List the action items from the last QBR."
+
+**Client and account data**
+
+- "Which devices at this client are offline?"
+- "Show me device alerts from the last week."
+- "What is in the budget for this company this year?"
+- "How many surveys came back last month, and what was the NPS?"
+- "Show me the account notes for this client."
+- "Which automation rules are switched on?"
+- "Run the monthly report schedule for this company."
+
+**Feedback to us**
+
+- MSP staff can say "Send MSPortal feedback: ..." or "Report a bug: ..." and it reaches us directly.
+
+<Note>
+The assistant only ever prepares a change. Reads answer immediately; writes come back as a review card that you approve, so nothing reaches a client because of a conversation.
+</Note>
+
+[Documentation: AI Assistant](/user-guides/ai-assistant/index)
+
 ### Expanded Company and MSP Documentation
 
 Find instructions for the task you want to complete, with separate **Company Guides** and **MSP Guides** navigation. This major documentation refresh adds **211 new guides**, revises **58 existing guides**, and adds **141 product screenshots** across **30 documentation areas**.
@@ -57,6 +124,10 @@ Run projects in MSPortal with no PSA connected. Native projects sit alongside yo
 - **The same views you already use**: Native projects appear on the project Kanban, the schedule view, portfolio health, and reporting next to your PSA projects. Dragging a native ticket between columns updates it in place.
 - **Time tracking**: Log time by hand or run a timer. The timer floats above the app while it runs so you can navigate without losing it, one running timer per person, and an overview rollup shows recent entries with edit and delete for native ones. Entry durations accept `1.5`, `1:30`, or `90m`.
 - **Edit in place**: Native phases and tickets have their own edit dialogs on the project detail, covering names, descriptions, dates, hours, status, priority, and assignee.
+- **Close and reopen a project**: Native projects move through their lifecycle from the project itself, so finished work stops counting as active without anyone editing a status by hand.
+- **Hours come from the time you logged**: Project and phase hour totals are calculated from saved time entries, so a native project's summaries and the portfolio hours rollup reflect the time your team actually recorded.
+- **A contact roster on the overview**: Key contacts are now a validated roster on the project overview rather than free-text fields, and a project sponsor can be picked from the client's own portal users.
+- **Onboarding templates can build them**: An onboarding template can link to a native project, create its tickets, keep status in sync, and log time against it.
 
 ### Project Templates
 
@@ -73,6 +144,71 @@ Turn a repeatable delivery into a template, then stand up a whole project from i
 Importing a ConnectWise template catalog needs the API member to hold **Project > Project Templates** at **Inquire Level: All**. Without it ConnectWise returns a permission error and only the create-from-project source is available.
 </Note>
 
+### Project Team Tracker on the Schedule
+
+The ConnectWise project tracker workbook, rebuilt inside **Projects > Schedule** so the whole portfolio's end dates and the people behind them live in one calendar.
+
+**Key Features:**
+- **Every project's end date on one calendar**: Project bars now carry the ConnectWise team behind the work. A project with no start date still gets a "Project ends" marker on its due date, so nothing drops off the view.
+- **Filter by who is on it**: A tracker bar above the calendar filters by role, team member, and status, built from the projects in the window you are looking at, with a running "shown of total" count.
+- **The seven roles at a glance**: Click a bar or marker for a Project team dialog with status, start and end dates, days until the end date or days past it, and the Project Manager, Tech Lead, Backend Lead, Onsite Lead, Team Resources, Account Manager, and Project Co-Ordinator rows.
+- **Upcoming projects too**: Open ConnectWise opportunities that look like project work, onboardings, migrations, and special projects, appear as amber chips on their expected close date with company, type, stage, sales rep, and estimated revenue, filtered by sales stage and switched on or off from the same bar.
+
+Requires a connected ConnectWise PSA and staff access. Team rosters come from the existing project sync rather than a live call per project.
+
+[Documentation: Filter the project schedule](/user-guides/projects/filter-project-schedule)
+
+### Budget Actuals
+
+Compare an approved budget against what the client was actually invoiced, and see exactly which invoices back each number.
+
+**Key Features:**
+- **An Actuals tab on every approved budget**: Approving a budget locks it as the comparison baseline, then the new **Actuals** tab matches synchronized PSA invoices against it for the budget period. Draft budgets prompt you to approve first rather than showing a half-formed comparison.
+- **Variance you can trust**: Budgeted client spend minus posted, tax-exclusive customer invoice spend, with allocation coverage reported separately so unmatched invoices cannot make a budget look artificially under budget. Positive is under budget, negative is over.
+- **Line by line outcomes**: Each locked budget line shows budgeted, matched actual, variance, and its match outcome, including lines with no actuals yet.
+- **A reference code for exact matching**: Approving a budget assigns each line a short, stable reference. Copy it into a PSA project custom field, a PO field, or an invoice reference and matching becomes exact instead of approximate.
+- **Resolve the exceptions yourself**: Invoice events that cannot be matched without ambiguity land in an exceptions list. Pick a budget line, allocate all or part of the amount, and the split is recorded. A source invoice that changes after allocation is flagged for review rather than silently re-scored.
+- **Source coverage in the open**: A coverage panel names the invoice sources feeding the comparison, whether each matched at invoice line or invoice total, the event counts, the latest event date, and any events using an inferred currency.
+- **Read-only is a real mode**: Anyone who can read the budget can review reconciliation and its audit history. Allocating an exception needs budget write permission.
+
+Open ConnectWise invoices are excluded from actuals, and MSP supplier cost is kept out of variance on purpose. Variance answers what the client was billed, not what the work cost you.
+
+[Track budget actuals](/user-guides/budgets/tracking-budget-actuals) · [Resolve actuals exceptions](/user-guides/budgets/resolving-actuals-exceptions)
+
+### Halo PSA Satisfaction Ratings
+
+An MSP running Halo's own feedback survey can now see those ratings everywhere MSPortal shows CSAT.
+
+**Key Features:**
+- **Two steps to turn on**: Grant the Halo API application feedback read access, which the setup wizard now checks for you as a **CSAT** capability, then tick **Import satisfaction ratings** in the PSA Sync step and pick your rating scale.
+- **It lands in the surfaces you already use**: Imported responses flow into the standard CSAT model, so existing CSAT dashboards, report blocks, CSV exports, and the technician performance scorecard read them unchanged, alongside Simplesat.
+- **You declare the scale, not the guesswork**: Halo sends a bare score with no scale attached, so you choose 3, 5, or 10. A score that scale cannot explain is held back and reported rather than quietly rescaling your whole satisfaction number.
+- **Safe to leave running**: The import re-reads the full feedback history hourly and only writes what actually changed, and it refuses to delete anything unless it can prove it read the complete set.
+
+### Invoice Apply To
+
+ConnectWise invoices now carry their **Apply To** detail, so an agreement or project invoice tells you what it was for without leaving the page. You can filter on it, and project manager filters now persist as you move between dashboard views.
+
+[Documentation: View invoices](/user-guides/invoices/view-invoices)
+
+### Approximate Device Locations
+
+Device details now show an approximate location derived from the device's public IP address, with a lookup control to refresh it. Results are cached, so the same address is not looked up repeatedly.
+
+[Device IP location](/user-guides/devices/ip-location) · [Accuracy and privacy](/user-guides/devices/ip-location-accuracy-and-privacy)
+
+### Ten More Integrations You Can Request
+
+Avanan, Datto Backup, DNSFilter, Fortinet, NinjaOne SaaS Backup, ScoutDNS, Slide, ThreatMate, WatchGuard, and Wirespeed now have setup pages in **Settings > Integrations**. Each one documents exactly what the vendor needs, takes your credentials into the same encrypted vault as every other integration, and notifies our team so we can build your connection against a real tenant. Auvik, Intermedia, NinjaOne Ticketing, and VulScan use the same intake.
+
+### Screenshots on Feedback
+
+Feedback submissions now take images. Upload a file, paste from the clipboard, drag one in, or capture the current tab, and the screenshot travels with the report into the feedback thread and our inbox. Feedback forms also nudge you toward the specifics that make a report actionable, without blocking you from sending it.
+
+### Theme Options
+
+**Right-click the light and dark toggle** in the top bar to choose Light mode, Dark mode, or **Follow operating system**. The portal then switches with your machine at sunset instead of you doing it by hand. Labels are translated across all 18 languages.
+
 ### Improvements
 
 - **New rules start switched off**: Rules created in the automation editor, the public API, and MCP tools arrive disabled, so you can run the rule test and preview the bundles before anything reaches a client. Turning a rule on stays a deliberate step.
@@ -81,6 +217,17 @@ Importing a ConnectWise template catalog needs the API member to hold **Project 
 - **Approvals recover on their own**: A pending approval that passes its deadline is expired, and an approved message that was interrupted mid-delivery finishes on the next pass without re-sending what already went out.
 - **Automation settings in every language**: The scheduling, recipient, bundling, and approval copy is translated across all 18 supported languages.
 - **Project ticket checklists**: Checklist items on ConnectWise and Halo PSA project tickets can be ticked, unticked, and added from the ticket details modal, writing through to the PSA.
+- **Help that matches the page you are on**: Page action menus now resolve to the guide for that exact page and tab, and serve the Company or MSP version of the instructions depending on who is reading. Over a hundred portal routes are mapped.
+- **Task notes on PSA project tickets**: Notes on ConnectWise project tasks can be read and edited from the ticket details modal, alongside the checklist controls.
+- **Project tickets stop going missing**: Changing a project board now triggers a full project-ticket sync, and ConnectWise tickets that lost their project or phase link are reconciled automatically instead of disappearing from the phases view and the Kanban.
+- **Detail rows expand again**: Rows in a detail panel that have no sub-rows now open when you click them instead of silently ignoring the click.
+- **Blocked companies are searchable**: The blocked companies picker gained a search box and a select-all for the rows you can see, with clearer layout on narrow screens.
+- **Company user edits actually save**: Editing a company user's role, email, company, or location works for delegated admins holding the company-users permission, not just the primary admin, and a permission failure now says so instead of showing a success message over a change that never happened.
+- **Planner imports report the row that failed**: An import tells you which row and value it rejected, names duplicate planner types instead of failing generically, and stops rather than clearing existing values when it cannot resolve an item type.
+- **Chrome extension finds your region**: The extension detects whether you are on the US or Europe instance from your open tabs and routes sign-in, API calls, and deep links there. EU users can sign in without a region picker, and a sign-in that fails offers to try the other region.
+- **Consistent tables and summary rails**: Links inside data tables share one style with readable contrast, and the summary rails above tables match the card surfaces around them in both themes.
+- **Satisfaction and training syncs**: CSAT reports are labelled with the date range they actually resolved to, and Curricula and Huntress security awareness training synchronization handles updates more reliably.
+- **Security and reliability hardening across the portal**: Goals, Planner, Projects, Training, Surveys, Storefront, Documentation, Dashboards, MSP calculators, and the Launch Center were reviewed end to end this weekend for tenant and company scoping, permission enforcement, concurrent edits, and error handling.
 
 ## September 4, 2026
 

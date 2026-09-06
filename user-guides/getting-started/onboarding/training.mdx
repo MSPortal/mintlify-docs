@@ -1,80 +1,49 @@
 ---
-title: "Training Setup"
-sidebarTitle: "13. Training"
-description: "Configure training courses and enrollment settings"
+title: "Prepare training for launch"
+sidebarTitle: "Prepare training for launch"
+description: "Enable appropriate courses and assign learning paths for the rollout audience."
 icon: "graduation-cap"
 ---
 
-The Training Setup step configures MSPortal's training module, which lets you deliver security awareness training, onboarding courses, and other educational content to your clients' users.
+**Audience:** MSP staff with Training settings access. Open the training step in **Launch Center**, or **Settings > Training**.
 
-## What You'll Configure
+## Prepare the training audience
 
-- **Training Courses** - Select or create courses for your clients
-- **Enrollment Settings** - How users are enrolled in training
-- **Completion Requirements** - Passing scores and deadlines
-- **Notifications** - Reminders and completion alerts
+1. Review the available course catalog and any provider or subscription prerequisites. Do not assume every tenant has identical content.
+2. Enable the intended courses for the rollout companies, using global or company-specific availability as appropriate.
+3. Prepare a learning path containing accessible courses and assign it to the intended users or groups.
+4. Save through each screen's offered controls and verify the resulting course availability and assignments.
+5. Review the actual Company learner's training view, then return to Launch Center to inspect the findings.
 
-## Steps to Complete
+A course appearing in the catalog is not the same as being enabled for a company. A saved learning-path definition is not the same as an assignment to a learner.
 
-<Steps>
-  <Step title="Navigate to Training Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Training**.
-  </Step>
-  <Step title="Review Available Courses">
-    Browse the built-in training courses. These cover common topics like security awareness, phishing prevention, and password hygiene.
-  </Step>
-  <Step title="Configure Course Settings">
-    For each course you want to use, configure:
-    - Passing score requirements
-    - Time limits (if any)
-    - Certificate options
-  </Step>
-  <Step title="Set Up Enrollment Rules">
-    Decide how users get enrolled in training:
-    - Automatic enrollment for new users
-    - Manual enrollment by administrators
-    - Scheduled enrollment campaigns
-  </Step>
-  <Step title="Configure Notifications">
-    Set up reminder emails for incomplete training and notifications for completed courses.
-  </Step>
-</Steps>
+## Understand readiness
 
-## Training Features
+Course readiness requires enabled course evidence for every rollout company. Assignment readiness looks for learning-path assignments to active users or groups with an accessible course. Merely opening Training settings or marking a step complete does not create either kind of evidence.
 
-<CardGroup cols={2}>
-  <Card title="Built-in Courses" icon="book">
-    Pre-made security awareness and compliance training content.
-  </Card>
-  <Card title="Custom Courses" icon="pencil">
-    Create your own courses with videos, documents, and quizzes.
-  </Card>
-  <Card title="Learning Paths" icon="route">
-    Group courses into sequential learning paths.
-  </Card>
-  <Card title="Certificates" icon="certificate">
-    Generate completion certificates for users.
-  </Card>
-</CardGroup>
+These checks do not prove that anyone watched a lesson, passed an assessment or received a reminder. Completion reporting and communications are separate workflows. Review notification settings before actions that could notify learners.
 
-## Common Training Use Cases
+## Troubleshooting
 
-- **Security Awareness** - Annual security training for all users
-- **New Hire Onboarding** - Orientation training for new employees
-- **Compliance Training** - HIPAA, PCI, or industry-specific requirements
-- **Phishing Awareness** - Training on identifying phishing attempts
+If a company has no course evidence, check global/company availability and provider access. If the assignment finding fails, check that the path is assigned to an eligible active audience and contains a course they can access. If a learner cannot see a course, review both training permissions and effective course availability before creating a duplicate path.
 
-## Manual Completion
+## FAQs
 
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished setting up training.
+<AccordionGroup>
+  <Accordion title="Does a course in the catalog mean clients can take it?">
+    No. Confirm effective course availability for the Company audience.
+  </Accordion>
+  <Accordion title="Does creating a learning path assign it?">
+    No. Save assignments to the intended eligible users or groups separately.
+  </Accordion>
+  <Accordion title="Does training readiness prove course completion?">
+    No. It checks configuration and assignment evidence, not learner completion or message delivery.
+  </Accordion>
+</AccordionGroup>
 
-<Tip>
-  You can enable training for specific companies later. During onboarding, focus on understanding the available courses and basic settings.
-</Tip>
+## Related guides
 
-## Related Documentation
-
-- [Training Overview](/user-guides/training/index) - Full training guide
-- [Enabling Training](/user-guides/training/enabling-training) - Enable training for companies
-- [Learning Paths](/user-guides/training/learning-paths) - Create learning paths
-- [Training Settings](/user-guides/settings/training) - Training configuration reference
+- [Training](/user-guides/settings/training)
+- [Enabling training](/user-guides/training/enabling-training)
+- [Learning paths](/user-guides/training/learning-paths)
+- [Training](/user-guides/training/index)

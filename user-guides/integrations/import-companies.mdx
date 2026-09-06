@@ -1,77 +1,64 @@
 ---
-title: Import Companies
-description: Learn how to import companies from your PSA integration into MSPortal.ai
+title: "Import and link companies"
+description: "Review provider companies, create only missing records and apply the intended links."
+icon: "plug"
 ---
 
+**Audience:** MSP staff with company-import access and a configured provider connection. Open **Settings > Companies > Import** and choose the intended provider connection. Available sources depend on the organization's integrations.
 
-After setting up an integration, importing companies is an essential next step to populate your MSPortal.ai instance with your customer data.
+<Frame caption="Choose a source in Companies > Import. The menu reflects the available Demo connections.">
+  <img src="/images/product/company-import-provider-menu.png" alt="Choose a source in Companies > Import. The menu reflects the available Demo connections." width="480" height="342" />
+</Frame>
 
-## Prerequisites
+## Review the source records
 
-- You must have at least one PSA integration configured (ConnectWise Manage, Autotask, HaloPSA, or Syncro)
-- You must have appropriate permissions to manage companies
+The import screen reads synchronized provider records. It is not a guarantee of a fresh, live request to the PSA whenever you open it. If an expected company is absent, check the integration's sync status, provider scope and company-type filters first.
 
-## Steps to Import Companies
+Review each source name against existing MSPortal companies. Match the actual organization, not merely a similar name. Importing again is not a reliable way to fix a mapping to the wrong company.
 
-### Step 1: Navigate to Companies
+## Link or import
 
-1. Log in to your MSPortal.ai account at [https://app.msportal.ai](https://app.msportal.ai)
-2. Go to **Settings** &gt; **Companies**
+1. Search or filter for the intended source companies.
+2. For an existing MSPortal company, choose it in the row's company selector. Review the pending link.
+3. Use **Quick Match** when useful, then inspect and accept only the proposed matches you intend to apply.
+4. Select source companies that should be imported as new records, or use **Create new company** where offered.
+5. Review both selected imports and pending mappings, including anything outside the visible page.
+6. Use **Import Selected** or the screen's apply/save action, wait for the result and reopen the company list to verify the records and links.
 
-### Step 2: Access the Import Menu
+## Save boundaries
 
-1. On the Companies page, click the **Import** button
-2. The import menu will display all configured integrations for your account
-   - You'll see a list of all available companies from your PSA system
-   - Companies are retrieved in real-time from your integration
+Choosing a match stages a link. Confirming **Create new company** creates the company immediately, then stages its source link; closing the import screen does not remove the created company. Removing a saved link with its unlink control persists immediately. Clearing a pending suggestion only removes that unsaved suggestion.
 
-![Company selection interface](https://colony-recorder.s3.amazonaws.com/files/2025-09-22/7905a38d-7ab1-484e-b619-b7f691514001/stack_animation.webp)
+A broad all-unlinked/all-pages selection can reach beyond the visible page. Review its stated count and scope; do not assume a name filter constrains every bulk import control. Read the result before retrying because record creation and mapping can succeed separately.
 
-### Step 3: Select Companies to Import
+## After importing
 
-1. Review the list of available companies from your PSA
-2. Check the checkbox next to each company you want to import
-   - You can select multiple companies at once
-   - Use the search or filter options if available to find specific companies
-3. Instead of importing as new, you can also:
-   - Link a PSA company to an existing MSPortal company using the **Select company...** dropdown in its row
-   - Click **Quick Match** to automatically propose links to existing companies based on name similarity, then review and apply the matches
-   - Choose **Create new company** in the dropdown to create and map a company on the spot
-
-### Step 4: Import Selected Companies
-
-1. After selecting your desired companies, click the **Import Selected** button
-   - The button will show the count of selected companies (e.g., "Import Selected (2)")
-2. The import process will begin automatically
-
-![Import button location](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-22/1df090c1-7529-4ebc-90e2-a4eb22ba0853/ascreenshot.jpeg?tl_px=530,0&br_px=1907,769&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=624,108)
-
-### Step 5: Verify Import Success
-
-1. Once the import is complete, you'll see a confirmation message
-2. The imported companies will now appear in your Companies list
-3. You can click on any imported company to view and manage its details
-
-![Import confirmation](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-09-22/09ab8aed-e18e-4ea6-824f-1e207af6c463/ascreenshot.jpeg?tl_px=530,0&br_px=1907,769&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=1053,-11)
-
-## Important Notes
-
-- **Data Sync**: Imported companies maintain a connection to your PSA system for ongoing synchronization
-- **Duplicate Prevention**: MSPortal.ai automatically prevents duplicate company imports
-- **Bulk Operations**: You can import multiple companies at once to save time
-- **Updates**: Company data can be refreshed from your PSA at any time using the sync features
+Verify the actual company and provider link before importing contacts or devices. Review company defaults and role mappings before enabling continuing user imports. A company record alone does not grant client access or send an invitation.
 
 ## Troubleshooting
 
-If you don't see any companies available for import:
-1. Verify your integration is properly configured and connected
-2. Check that you have the necessary permissions in both MSPortal.ai and your PSA system
-3. Ensure your PSA contains active company records
+If a company already exists, link the correct record rather than creating a duplicate. If a create succeeds but linking fails, reuse the created company on retry. If records are missing, check synchronization, source eligibility and filters. If the wrong link was saved, assess dependent records before changing it.
 
-## Next Steps
 
-After importing companies, you can:
-- Configure company-specific settings
-- Import users associated with each company
-- Set up company-specific compliance requirements
-- Configure billing and budget settings
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Does opening company import fetch every company live from the PSA?">
+    No. It reads synchronized provider records; inspect sync status and source filters when data is missing.
+  </Accordion>
+  <Accordion title="Does Create new company wait until Import Selected to save the company?">
+    No. Confirming creation saves the company immediately and stages its source link.
+  </Accordion>
+  <Accordion title="Does removing a saved company link wait for a final Save?">
+    No. The saved-link removal action persists immediately.
+  </Accordion>
+  <Accordion title="Should I create another company after its link fails?">
+    No. Inspect and reuse the company that was already created before retrying the link.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Companies](/user-guides/settings/companies)
+- [Integration company mapping](/user-guides/settings/integration-company-mapping)
+- [Import users](/user-guides/integrations/import-users)

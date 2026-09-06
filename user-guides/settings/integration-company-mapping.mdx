@@ -1,183 +1,125 @@
 ---
 title: Integration Company Mapping
-description: Link MSPortal companies to the matching companies in every connected PSA, RMM, documentation, and security integration from one grid
+description: Review links, match suggestions, and unlinked customer records across your connected services
 icon: diagram-project
 ---
 
-The **Settings → Integrations → Companies** page is a single grid that shows every MSPortal company on the rows and every active integration on the columns. Each cell shows the integration company currently linked, with controls to swap, unlink, or add a new link without leaving the page.
+Open **Settings > Integrations > Map companies** to match integration records with the correct MSPortal companies. The page title is **Integration Company Mapping**. Linking a source record is different from importing a new portal company.
 
-This replaces the old per-integration mapping workflow where you had to repeat the same drill on each PSA, RMM, and documentation integration to keep client lists aligned across systems.
+## Before you start
 
-## Accessing the Page
+This is an **MSP staff** task. Your role needs integration company-mapping read access or broader integration-settings access. Linking, unlinking, applying suggestions, and ignoring/restoring records require the corresponding write access. Company users ask their IT provider to correct integration links.
 
-1. Click **Settings** in the sidebar
-2. Open the **Integrations** section
-3. Select **Companies**
+Choose the intended company scope and check the provider connection's name. Different connections to the same provider can have separate columns. Some providers also expose different source types, such as organizations or sites. A missing or unavailable column can depend on connection setup, discovered records, or a feature's availability.
 
-The page is available once at least one integration has been connected. Each connected integration adds its own column to the grid; disconnected or paused integrations still appear so existing mappings stay visible while you reconnect.
+<Warning>
+Changing a link changes which company receives integration data. Links save immediately and can trigger follow-up synchronization. Opening a picker is safe to review; selecting a destination or Unlink is a write. There is no final page-wide Save or rollback when you leave.
+</Warning>
 
-## Page Layout
+## Read and filter the grid
 
-The grid follows a standard table shape:
+| Area | Use it for |
+| --- | --- |
+| **Company** | Identify the MSPortal company row; use its column filter to narrow the table. |
+| Integration source columns | Review the source record linked to that company and connection. Scroll horizontally or use **Columns** for a wide grid. |
+| **Blank links** | Show rows missing any integration link, or links in selected source columns. |
+| **Company mapping cleanup** | Review unlinked integration records and suggested matches. This is a different queue from portal-company rows with blank cells. |
+| **Import** | Open an available provider import workflow when you need to create portal companies. |
 
-| Element | Description |
-|---------|-------------|
-| **Sticky Company column** | The first column shows the MSPortal company name. It stays pinned as you scroll horizontally so you always know which row you are working with |
-| **Provider columns** | One column per active integration (ConnectWise, Autotask, Halo, Syncro, ConnectWise Asio, NinjaOne, Addigy, Cove, Acronis, Datto RMM, Hudu, IT Glue, Cork, Pax8). Only providers your tenant has actually connected appear |
-| **Cells** | Each cell shows the integration company linked to the MSPortal company in that row, or a blank cell if no link exists. Click a cell to add, swap, or unlink |
-| **Header tools** | Search, company count, the **Blank links** filter, and the **Company mapping cleanup** card live above the table |
+**Any integration** finds rows with at least one missing link. If you choose several specific source columns, a row must be missing each selected source to remain visible. Use **Clear filters** to remove the blank-link selections.
 
-<Note>
-Tenants without a particular integration (for example, no Hudu) simply do not see that column. Adding a new integration adds its column to the grid the next time the page loads.
-</Note>
-
-## Linking a Company
-
-<Steps>
-  <Step title="Open the Cell">
-    Click the cell where the MSPortal company row meets the integration column you want to link.
-  </Step>
-  <Step title="Pick the Integration Company">
-    A popover opens with a search box and the integration's company list. Type to filter, then click the company you want to link to.
-  </Step>
-  <Step title="Confirm">
-    The link is saved immediately and the cell updates with the integration company name.
-  </Step>
-</Steps>
-
-To swap an existing link to a different integration company, click the cell and pick a different company from the list. To remove a link entirely, click the cell and choose **Unlink**.
-
-<Tip>
-Every provider on the page is writable. The same dispatcher behind each cell calls the same link, unlink, and quick-match action your provider's setup wizard already uses, so writes are consistent whether you make them on this page or in the per-provider wizard.
-</Tip>
-
-## Company Mapping Cleanup
-
-The **Company mapping cleanup** card above the grid tells you whether anything needs attention. When every record is either linked or deliberately ignored, it says so and there is nothing to do. Otherwise it reports how many integration sources hold unlinked customer records.
-
-Work through it in two passes: take the recommended matches first, then review whatever is left.
-
-### Recommended matches
-
-**Recommended matches** scans every active integration in one pass, proposes name-based matches for every unlinked integration company, and lets you accept or reject the whole batch in a single review.
-
-<Steps>
-  <Step title="Click Review likely matches">
-    Click **Review likely matches** above the grid.
-  </Step>
-  <Step title="Set the Confidence Threshold">
-    Drag the slider to set the minimum match confidence (40 to 100 percent, default 70 percent). Higher thresholds yield fewer but more reliable suggestions; lower thresholds catch fuzzier matches at the cost of more false positives to review.
-  </Step>
-  <Step title="Review Suggestions">
-    The dialog lists every proposed match with the integration name, the suggested MSPortal company, and the confidence score. Use the search bar to filter by integration name, integration subtitle, MSPortal company name, or company subtitle.
-  </Step>
-  <Step title="Accept or Reject Each Match">
-    Tick the matches you want to accept and untick any that look wrong. Use **Select All** or **Clear All** to flip the visible subset (when a search is active, the buttons act on the filtered rows only).
-  </Step>
-  <Step title="Apply">
-    Click **Apply** to write every accepted match in one operation. The grid refreshes in place.
-  </Step>
-</Steps>
-
-<Info>
-Recommended matches preserve the per-provider scoring tweaks each integration's wizard already uses (for example Hudu and IT Glue cross-reference PSA IDs, ConnectWise filters by active flag), so the suggestions match what each provider's own dialog would have shown.
-</Info>
-
-### Reviewing what is left
-
-Click **Review unlinked records** on the cleanup card to open **Unlinked customer records**. These are records that exist in your integrations but are not linked to an MSPortal company.
-
-Records for the same customer across different integrations are grouped into one row, so a single decision covers every integration that holds that customer.
-
-The dialog has two tabs:
-
-| Tab | Contents |
-|-----|----------|
-| **To review** | Customer groups that still need a decision |
-| **Ignored groups** | Groups you have set aside |
-
-Narrow the list with the search box, the integration filter, and the company type filter. Company types come from your PSA, so you can work through customers and leave prospects, vendors, or suppliers alone. Filtering by company type keeps the whole grouped customer row visible rather than hiding the other integrations' records for that customer.
-
-<Steps>
-  <Step title="Link what belongs to a company">
-    Link the record to the MSPortal company it belongs to, the same way you would from a grid cell.
-  </Step>
-  <Step title="Ignore what never will">
-    For a group that should never be linked, such as an internal test account or a vendor record, click **Ignore from cleanup**. Every integration record in that group is removed from the queue.
-  </Step>
-  <Step title="Restore if you change your mind">
-    Open the **Ignored groups** tab and click **Restore** to put a group back in the review queue.
-  </Step>
-</Steps>
-
-<Tip>
-The **Your Companies** dashboard shows a **Likely customer matches to review** banner when your integrations hold customer records that look like companies you already have. It links straight to the recommended matches, so cleanup surfaces itself instead of waiting to be found.
-</Tip>
-
-## Search and Filter
-
-The header above the grid offers two ways to narrow the table:
-
-- **Search** filters companies by name. Combine with the column filters built into the table to drill down faster.
-- **Blank links** dropdown filters to companies missing any link, or missing a link for a specific provider. Useful for "show me every company that does not have a Cove backup link yet" coverage reports.
-
-<Tip>
-Use the **Blank links** filter together with **Recommended matches** to find companies without coverage on a specific provider, then review the suggestions for that provider only.
-</Tip>
-
-## Company Selector and Scope
-
-The page respects the global Company Selector in the top bar:
-
-- **Global view** (no specific company selected) shows every company in the tenant. The Company column collapses out of view since each row already represents one company.
-- **Single company view** narrows the grid to one row, making it easier to review every integration link for one client at a time.
-- **Assigned scope** narrows to the companies the selector is filtered to.
-
-Switching the company selector refreshes the grid in place.
-
-## Read-Only vs Writable Providers
-
-Every provider on this page is writable, but a few have caveats worth knowing:
-
-| Provider | Writable here | Notes |
-|----------|---------------|-------|
-| ConnectWise | Yes | Full link, unlink, quick-match |
-| Autotask | Yes | Full link, unlink, quick-match |
-| Halo PSA | Yes | Full link, unlink, quick-match |
-| Syncro | Yes | Full link, unlink, quick-match |
-| ConnectWise Asio | Yes | Full link, unlink, quick-match |
-| NinjaOne | Yes | Full link, unlink, quick-match |
-| Addigy | Yes | Full link, unlink, quick-match |
-| Cove Backup | Yes | Full link, unlink, quick-match |
-| Acronis | Yes | Full link, unlink, quick-match |
-| Datto RMM | Yes | Saves through the same flow the Datto site mapping uses |
-| Hudu | Yes | Saves through the Hudu organization mapping flow |
-| IT Glue | Yes | Saves through the IT Glue organization mapping flow |
-| Cork | Yes | Saves through the Cork client mapping flow |
-| Pax8 | Yes | Saves through the Pax8 link/unlink flow |
-
-## When to Use This Page vs Setup Wizards
-
-| Scenario | Use this page | Use the setup wizard |
-|----------|---------------|----------------------|
-| Reviewing coverage across every integration | Yes | No |
-| Mapping a handful of newly imported companies in a single integration | Yes (Recommended matches scoped to that provider) | Either |
-| First-time setup of a new integration's company import | Either | Yes (setup wizard walks you through other configuration too) |
-| Bulk auto-matching across every connected tool at once | Yes (Recommended matches) | No |
-| Fixing a single mismatched company link | Yes | Either |
+The global Company Selector narrows the grid to the selected company or assigned companies. Global View shows the available company rows, including their Company column. Changing company scope resets the blank-link filter.
 
 <Note>
-Both flows write the same fields the same way, so changes made on this page show up in the per-integration wizards and vice versa.
+The cleanup queue and recommended-match operation can include tenant-wide integration records. The grid's Company Selector, column filters, and Blank links are not an approval boundary for those dialogs. Review every proposed source and destination before applying changes.
 </Note>
 
-## Required Permissions
+## Link, change, or remove a source record
 
-To open this page, your tenant role needs the **Read** permission for Settings → Integrations. To create or remove links, you need the **Write** permission. Applying recommended matches, and ignoring or restoring a customer group, require the same Write permission as cell-level linking.
+<Steps>
+  <Step title="Find the company and connection">
+    Locate the correct MSPortal company row and integration source column. Check the connection label when the provider has several instances.
+  </Step>
+  <Step title="Open the cell">
+    Search the available source records. An empty cell offers eligible unlinked records; a disabled empty cell can mean there is nothing left to link from that source.
+  </Step>
+  <Step title="Choose the correct source">
+    Selecting a record saves immediately. Wait for the result, then recheck the cell and any additional-links indicator. Do not assume selecting another source automatically removes every existing link.
+  </Step>
+  <Step title="Remove an incorrect link explicitly">
+    Use **Unlink** for the specific linked record. When a cell indicates additional links, open its reconciliation view and inspect each record. Unlinking is not deletion of the company in the external service.
+  </Step>
+</Steps>
 
-## Related Resources
+A successful link does not prove downstream data has finished syncing. If a link or sync reports a problem, recheck the stored mapping before retrying; a follow-up error does not necessarily undo the link.
 
-- [Integrations Overview](/user-guides/integrations/index)
+## Review likely matches
+
+Select **Review likely matches** on the cleanup card. The page requests recommendations for eligible unlinked records from the available integration sources. It does not save those links until you apply them.
+
+<Steps>
+  <Step title="Review the suggested source and destination">
+    Check each integration record, connection label, proposed MSPortal company, and confidence score. Similar names are not proof that two records represent the same customer.
+  </Step>
+  <Step title="Set confidence before fine-tuning selections">
+    The slider ranges from **70 to 100 percent** on this page and starts at 70. It automatically selects returned suggestions at or above the chosen threshold. Changing the slider replaces your current selections; do this before manually checking or unchecking rows.
+  </Step>
+  <Step title="Search and inspect the whole selection">
+    Search matches by source or destination text. **Select All** and **Clear All** affect the visible search results. Hidden selections remain selected. Clear the search and review the total selection before applying; search alone does not narrow what will be saved.
+  </Step>
+  <Step title="Apply or cancel">
+    Apply the checked suggestions and inspect the result. Cancel leaves those proposed links unapplied. If the result reports errors, some links may have succeeded: inspect the refreshed grid and remaining queue before retrying.
+  </Step>
+</Steps>
+
+No recommendations means no returned eligible suggestions, not that every connection synced successfully or every company is correctly mapped. Use **Review unlinked records** and the provider's setup when records are still missing.
+
+## Review unlinked records
+
+Select **Review unlinked records** to open **Unlinked customer records**. Records that appear to represent the same customer are grouped, but expand a group and inspect its members before deciding what to do.
+
+Use **To review** for outstanding groups and **Ignored groups** for records set aside. Search and integration/company-type filters help narrow the list. A company-type filter keeps the whole matching customer group together, including records from other integrations.
+
+- To link a record, return to the mapping grid or the provider's company setup and choose its destination. The cleanup dialog is for inspecting groups and setting their ignored state.
+- **Ignore from cleanup** sets aside the records in that group. It does not import a company, create a link, delete the provider's record, or disable an integration.
+- **Restore** returns an ignored group to the review queue.
+- For bulk ignore/restore, review selected groups and their expanded members before using the bulk action. Hidden selected groups can remain selected after filtering; clear filters and inspect the total selection first. These writes are separate from recommended-match Apply and may partially succeed if an error occurs.
+
+The **Your Companies** dashboard can show a **Likely customer matches to review** banner that opens this review workflow.
+
+## Microsoft 365 column
+
+The unfiltered provider workspace also has a Microsoft 365 connection column. It reports per-company cloud connections rather than a normal PSA/RMM source mapping. Provider-specific mapping workspaces hide this column.
+
+Its menu can offer **Sign in with Microsoft**, **Add tenant**, or **Copy link** for the consent workflow. These are deliberate setup actions: review the company and any displayed consent/compliance prompt before proceeding. Copy link creates a shareable connection link; it is not an unlink action.
+
+For a company with no connection, **Mark not applicable** saves that classification and removes it from the missing-Microsoft-365 calculation. **Restore** reverses the classification. Not applicable is not a successful connection or evidence of security coverage.
+
+## Troubleshooting
+
+| Symptom | Check |
+| --- | --- |
+| The grid is empty | Company scope, Company column filter, Blank links, and available company records. |
+| A provider is missing | Connection setup, supported sources, feature availability, and whether you opened a provider-only workspace. Use **View all providers** to leave that narrowed workspace. |
+| No source record appears in a picker | Source discovery/sync, the connection, ignored state, and whether it is already linked. |
+| Several links appear in one cell | Inspect the additional-links view and unlink only the incorrect record. |
+| Apply reports errors | Recheck successful links and remaining records; the batch is not all-or-nothing. |
+| The company is linked but data is absent | Check subsequent provider sync, record-type permissions, imports, and device mappings separately. |
+
+<AccordionGroup>
+  <Accordion title="Does selecting a company link need a later Save?">No. Selecting the source record or Unlink saves immediately. Recommended matches has a separate Apply step.</Accordion>
+  <Accordion title="Does Blank links filter the recommended matches?">No. Blank links filters the grid. Review the full recommendation selection, and do not assume the grid's company scope limits the cleanup queue.</Accordion>
+  <Accordion title="Will searching recommendations apply only the visible rows?">No. Hidden checked suggestions remain selected. Select All and Clear All affect visible search results, while Apply uses all selected suggestions. Clear the search to inspect the full set.</Accordion>
+  <Accordion title="What happens when I change the confidence slider?">It reselects returned suggestions according to the new threshold and replaces your manual selections. The current page starts at 70 percent and lets you increase it to 100.</Accordion>
+  <Accordion title="Does a failed batch mean nothing was linked?">No. Links are applied individually and some can succeed. Recheck the grid before retrying.</Accordion>
+  <Accordion title="Does Ignore from cleanup delete the external company?">No. It sets the integration records aside from the cleanup queue. Restore makes them reviewable again.</Accordion>
+  <Accordion title="Does a linked company mean its devices have been imported?">No. Company mapping, device-type mapping, import settings, and synchronization are separate checks.</Accordion>
+  <Accordion title="Is Microsoft 365 just another company-name match?">No. It uses per-company cloud consent and connection status. Not applicable is an explicit classification, not a connected or protected status.</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Integration settings](/user-guides/settings/integrations)
+- [Provider setup guides](/user-guides/integrations/index)
 - [Import Companies](/user-guides/integrations/import-companies)
 - [Companies Settings](/user-guides/settings/companies)
-- [ConnectWise Integration](/user-guides/integrations/enable-connectwise-integration)
-- [Halo PSA Integration](/user-guides/integrations/enable-halo-integration)

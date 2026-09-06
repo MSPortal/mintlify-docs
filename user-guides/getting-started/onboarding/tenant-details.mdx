@@ -1,49 +1,47 @@
 ---
-title: "Tenant Details"
-sidebarTitle: "1. Tenant Details"
-description: "Set up your company address, timezone, and basic information"
+title: "Tenant details"
+sidebarTitle: "Tenant details"
+description: "Save your organization name, location and timezone for the launch."
 icon: "building"
 ---
 
-The Tenant Details step configures the foundational information about your MSP. This information appears on invoices, reports, and throughout the portal.
+**Audience:** MSP administrators with Launch Center management or the relevant tenant-settings access.
 
-## What You'll Configure
+## Enter the launch profile
 
-- **Company Name** - Your MSP's business name
-- **Business Address** - Street address, city, state/province, and postal code
-- **Timezone** - Your primary operating timezone
-- **Billing Email** - Where billing notifications are sent
+1. Open **Launch Center** and select the company-profile step in **Setup guide**.
+2. Enter **Company name**, choose the operating **Timezone**, and review **City** and **Country**.
+3. Select **Next** to save through the workspace flow. Correct any highlighted validation error and wait for the result.
+4. Revisit the step and check the saved values and readiness finding.
 
-## Steps to Complete
+The profile readiness check requires a company name, timezone, and at least a city or country. It does not certify the completeness of your billing address.
 
-<Steps>
-  <Step title="Navigate to Tenant Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Tenant** from the sidebar.
-  </Step>
-  <Step title="Enter Company Information">
-    Fill in your company name and billing email address.
-  </Step>
-  <Step title="Add Your Address">
-    Enter your complete business address, including street, city, state or province, postal code, and country.
-  </Step>
-  <Step title="Set Your Timezone">
-    Select your timezone from the dropdown. This affects how dates and times are displayed throughout the portal.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save Changes** at the bottom of the form.
-  </Step>
-</Steps>
+## Maintain the full tenant record
 
-## Auto-Completion
+For billing contact and other organization preferences, open **Settings > Tenant > Details**. Use the header **Save Settings** for form changes. Branding uploads and other dedicated settings controls have separate save actions; do not assume one header save handles every operation.
 
-This step is **automatically marked as complete** when you have:
-- Entered an address (at minimum: street address and city)
-- Selected a timezone
+Choose the timezone deliberately before scheduling client work. Review billing information in [Billing](/user-guides/settings/billing) as well; profile readiness is not payment verification.
 
-<Note>
-  The address you enter here will be used on invoices and client-facing reports. Make sure it's your official business address.
-</Note>
+## Troubleshooting
 
-## Related Documentation
+If Next fails, correct the indicated field and retry the save. If another administrator updated the plan, reopen the current values before applying your changes. If editing is unavailable, check both Launch Center and tenant-settings permissions.
 
-- [Tenant Settings](/user-guides/settings/tenant) - Full tenant settings reference
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Do I need a street address for the profile readiness check?">
+    The check requires a name, timezone and city or country. Billing address completeness is a separate review.
+  </Accordion>
+  <Accordion title="Where is the old bottom Save Changes button?">
+    In Tenant settings, form changes use the header Save Settings. The embedded launch profile saves through Next.
+  </Accordion>
+  <Accordion title="Does entering a billing email activate my subscription?">
+    No. Review subscription and payment status separately in Billing.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Tenant](/user-guides/settings/tenant)
+- [Work through your portal launch plan](/user-guides/getting-started/launch-center)
+- [Billing](/user-guides/settings/billing)

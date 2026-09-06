@@ -1,146 +1,37 @@
 ---
 title: 'AI Assistant'
-description: 'Chat with the built-in MSPortal assistant to open tickets, check on and reply to existing tickets, check training, find your account manager, and get answers in plain language'
+description: 'Use the portal assistant for questions and reviewed actions, and find setup guidance for external AI tools.'
 icon: 'sparkles'
 ---
 
-The **AI Assistant** is a conversational helper built into MSPortal. Instead of clicking through menus, you can simply describe what you need, and the assistant opens tickets, checks on and replies to existing tickets, searches your data, checks your training progress, and points you to the right page, all in plain language.
+**Audience:** MSP staff. Company users should start with [Use the Home AI Assistant](/user-guides/ai-assistant/use-home-assistant).
 
-The assistant always acts as **you**. It can only see and do what your MSPortal permissions allow, and for client users it stays scoped to your own company.
+Use the assistant on **Home** to ask a question, prepare a support request, or find product instructions. Where the shared assistant drawer is available, it can also help from the page you are working on. A page-specific editor may have its own draft and Save controls.
 
-## Where to find it
+## Everyday use
 
-For client users (and for MSPs who have the AI home enabled), the assistant is your **Home** page. After signing in you land on a chat screen with a greeting and a prompt box.
+Read [Use the Home AI Assistant](/msp-guides/ai-assistant/use-home-assistant) for sending a question, shortcuts, product-guide citations, review cards, and recent conversations. Ticket requests start on Home; **Tickets > New Ticket** is the manual alternative.
 
-You'll see:
+The assistant works within the signed-in user's access and selected company scope. Ask it to identify the target record and inspect the proposed values before applying a change. A conversational “yes” does not apply a central-assistant review card, and an editor draft can still require a separate Save.
 
-- A time-based greeting (**Good morning / afternoon / evening**) followed by your first name and **"what can I help with?"**
-- A prompt box that reads **"Ask anything about [your MSP]..."**
-- A row of suggested actions to get you started.
+## Guide questions versus record questions
 
-## Quick-start suggestions
+Ask “How do Company users open a ticket? Cite the product guide” for public product instructions. Ask about a particular ticket only when you intend the assistant to read that ticket. Guides do not grant permissions or prove that a provider-specific control is available to every user.
 
-Four suggestion chips appear before you start a conversation. Click one to send it instantly:
+## External AI tools
 
-<CardGroup cols={2}>
-  <Card title="Find my Account Manager" icon="users">
-    "Who is my account manager and how can I contact them?"
-  </Card>
-  <Card title="Open a support ticket" icon="ticket">
-    "I want to open a ticket"
-  </Card>
-  <Card title="Check training status" icon="graduation-cap">
-    "What is my training progress? What courses should I complete next?"
-  </Card>
-  <Card title="View open tickets" icon="file-lines">
-    "Show me all my open support tickets and their current status"
-  </Card>
-</CardGroup>
+Use [MCP Server](/user-guides/mcp-server/index) for external AI clients and [MCP Tools Reference](/user-guides/mcp-server/tools-reference) for available capabilities. Their connection and approval flows are separate from the portal's Home controls.
 
-You don't have to use the suggestions, they're just shortcuts. Type anything into the prompt box and the assistant will respond.
+## Frequently asked questions
 
-## What you can ask
-
-The assistant can help with a range of everyday tasks:
-
-<CardGroup cols={2}>
-  <Card title="Open a support ticket" icon="ticket">
-    Describe your problem in your own words. The assistant picks the right ticket type, fills in what it can, asks for anything missing, and shows you a draft to confirm before it's submitted.
-  </Card>
-  <Card title="Ask about an existing ticket" icon="list-check">
-    Ask "what's the status of my new computer request?" and the assistant finds the ticket and answers from its latest updates.
-  </Card>
-  <Card title="Reply to a ticket" icon="reply">
-    Ask the assistant to post a response on a ticket. It shows you the exact text first and posts only after you confirm.
-  </Card>
-  <Card title="Find your account manager" icon="address-card">
-    Get your MSP's support contact details, including how to reach your account manager.
-  </Card>
-  <Card title="Track training" icon="graduation-cap">
-    See your training progress and which courses to complete next.
-  </Card>
-  <Card title="Search the portal" icon="magnifying-glass">
-    Find tickets, devices, training, and other records across the modules you have access to.
-  </Card>
-  <Card title="Get around faster" icon="compass">
-    Ask the assistant to take you to a page, like Tickets, Training, or Devices.
-  </Card>
-</CardGroup>
-
-### Opening a ticket, step by step
-
-<Steps>
-  <Step title="Describe the problem">
-    Tell the assistant what's wrong, for example *"My laptop won't connect to the VPN."* You don't need to know which form or category to use.
-  </Step>
-  <Step title="Answer any follow-up questions">
-    The assistant gathers any missing details through the conversation and builds a draft ticket.
-  </Step>
-  <Step title="Review the draft">
-    The assistant shows you the ticket it's about to create so you can check it.
-  </Step>
-  <Step title="Confirm to submit">
-    Nothing is submitted until you confirm. Once you approve, the ticket is created and you'll get its details.
-  </Step>
-</Steps>
-
-<Note>
-The assistant chooses the best ticket type automatically from your description, so you don't pick a template by name. The more clearly you describe the issue, the better the match.
-</Note>
-
-### Asking about an existing ticket
-
-You don't need the ticket number to check on a ticket. Describe it the way you remember it, for example *"What's the status of my new computer request?"* or *"Any update on the printer issue?"* The assistant finds the matching ticket and answers from its actual updates, not just the status field, so you get the latest word from the technician working on it.
-
-When the assistant searches for a ticket, it matches on:
-
-- **Ticket title**, so "the printer issue" finds a ticket titled "Office printer offline"
-- **Ticket number**, if you have it
-- **Company name**, useful when you work across multiple companies
-
-Closed tickets are searchable too, so you can ask about something that was already resolved, like *"How was my VPN ticket fixed last month?"*
-
-### Replying to a ticket
-
-You can respond to a ticket without leaving the chat. Say something like *"Tell them Thursday works for me"* or *"Let the tech know it's still broken."*
-
-<Steps>
-  <Step title="Ask the assistant to reply">
-    Name the ticket and say what you want to communicate, in your own words.
-  </Step>
-  <Step title="Review the exact text">
-    The assistant shows you the exact note it's about to post.
-  </Step>
-  <Step title="Confirm">
-    Nothing is posted until you approve the text. Once you confirm, the reply is added to the ticket where the technicians working on it will see it.
-  </Step>
-</Steps>
-
-<Note>
-MSP staff can ask for a reply to be posted as an internal note that's hidden from the client. Replies from client users are always client-visible.
-</Note>
-
-### In the Chrome extension
-
-The same ticket capabilities are available in the MSPortal Chrome extension's AI chat: ask about a ticket's status, search tickets, and post confirmed replies without opening the portal.
-
-## Privacy and permissions
-
-- The assistant runs with **your** permissions, never more.
-- **Client users** can only access their own company's data. The assistant cannot reach other companies' records.
-- Any action that creates or changes data is shown to you for confirmation first.
-
-## Tips for better answers
-
-<Tip>
-Be specific. "Show me my open tickets from this month" works better than "tickets." Mentioning the system, error message, or timeframe helps the assistant find or create exactly what you need.
-</Tip>
-
-- Ask follow-up questions in the same conversation, the assistant remembers recent context.
-- If a request is outside your access, the assistant will let you know rather than guess.
-
-## Related resources
-
-- [Open a ticket with AI](/user-guides/ticketing/open-a-ticket-with-ai) — more on the AI ticket flow.
-- [MCP Server](/user-guides/mcp-server/index) — connect external AI tools (Claude, ChatGPT, Cursor) to the same secure MSPortal data layer.
-- [Training](/user-guides/training/index) — track and complete assigned courses.
+<AccordionGroup>
+  <Accordion title="Do Company administrators manage portal users through AI?">
+    No. The MSP manages Company user roles and access.
+  </Accordion>
+  <Accordion title="Does a proposal mean the action succeeded?">
+    No. Review and apply the card, then check the result. Follow any page editor's separate Save controls.
+  </Accordion>
+  <Accordion title="Where should staff learn the Home controls?">
+    Use the MSP Home assistant guide linked above. It explains sending questions, reviewing changes, and recent conversations.
+  </Accordion>
+</AccordionGroup>

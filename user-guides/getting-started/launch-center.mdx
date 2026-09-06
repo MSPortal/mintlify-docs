@@ -1,131 +1,126 @@
 ---
-title: 'Launch Center'
-description: 'Build an adaptive, verified setup plan that guides your team from signup to a client-ready portal'
+title: 'Work through your portal launch plan'
+description: 'Choose rollout goals, complete setup work, inspect readiness findings and hand off launch ownership.'
 icon: 'rocket'
 ---
 
-The Launch Center is a guided setup experience that builds a personalized launch plan for your portal. Instead of a fixed checklist, it asks what you want to launch, generates a plan around those goals, and verifies your progress against real portal data as you go. You can leave at any time and resume exactly where you stopped.
+**Audience:** MSP staff responsible for setting up the organization’s portal. Launch Center is not the onboarding task list for a Company user. For client onboarding, use the [client onboarding guides](/user-guides/client-onboarding/index).
 
-## Accessing the Launch Center
+Launch Center organizes configuration around your rollout goals. It checks stored configuration and data alongside your progress, so a completed step and a ready client experience are not the same thing.
 
-- **Sidebar**: Click **Launch Center** in the **Planning** group of the sidebar.
-- **Header pill**: A **Launch** pill in the top bar shows how many readiness checks have passed (for example, 3/12). Click it to jump back into your plan.
-- **After signup**: New tenants land in the Launch Center automatically after completing signup.
+## Access and prerequisites
 
-<Note>
-The Launch Center is visible to users with the **read_launch_center** or **manage_launch_center** permission. Only launch managers (or tenant admins) can change the plan; other users see it read-only.
-</Note>
+Open **Launch Center** from the sidebar, or select **Launch** in the top bar when offered. Availability also depends on your organization’s setup history and whether Launch Center was dismissed.
 
-## Building Your Plan
+Reading requires Launch Center read/manage access or the applicable tenant-settings access. Changing the plan requires Launch Center management or tenant-settings management; the primary administrator also has management access. Company users are excluded. Individual embedded setup screens can require their own settings permissions and provider access.
+
+Have the intended rollout goals, responsible staff member and authoritative data sources ready. Connecting integrations, importing users, changing branding and billing are real configuration actions; a launch plan is not a sandbox for those changes.
+
+<Frame caption="Example MSP launch plan with incomplete readiness findings.">
+  <img src="/images/product/launch-plan-readiness.png" alt="Example MSP launch plan with incomplete readiness findings." width="2370" height="1080" />
+</Frame>
+
+## Choose a plan
 
 <Steps>
-  <Step title="Start from the Welcome Screen">
-    The welcome screen offers two paths:
-
-    - **Build my launch plan**: Answer a short questionnaire and get a tailored plan.
-    - **Explore first**: Skip the questionnaire and preview the portal with a lightweight explore plan. You can build a full plan later.
+  <Step title="Choose how to start">
+    On the welcome screen, select **Build my launch plan** for a guided questionnaire or **Explore first** for an exploration plan. Both start a saved setup workflow. Explore first does not certify the portal as ready for clients.
   </Step>
-  <Step title="Choose Your Focus Areas">
-    On the **What do you want to launch?** screen, pick the areas that matter most:
-
-    - **Client ticketing**
-    - **Self-service portal**
-    - **Security training**
-    - **vCIO planning**
-    - **Compliance**
-    - **Client data foundation**
-    - **Complete portal rollout** (selects everything)
-    - **Explore the platform**
+  <Step title="Choose your focus">
+    Select the outcomes you need: client ticketing, self-service, security training, vCIO planning, compliance or a client data foundation. The complete rollout option combines the tracks. Answer the questions about data sources and the pilot or wider rollout.
   </Step>
-  <Step title="Answer Context Questions">
-    Tell the Launch Center where your client data will come from (PSA integration, Microsoft 365, or CSV import) and how you want to roll out (start with one pilot client, or prepare all clients).
-  </Step>
-  <Step title="Build the Plan">
-    Click **Build my plan**. The Launch Center generates a phased plan with only the steps relevant to your goals. Anything you did not select still appears under **Explore later**, so nothing is hidden.
+  <Step title="Build and review">
+    Select **Build my plan**. Review the phases and dependencies before changing configuration. **Edit launch plan** lets an authorized manager revisit the goals later; review the resulting steps after saving.
   </Step>
 </Steps>
 
-## Plan Phases
+The plan can include Foundation, Connect, Client data, Ticketing, Training, vCIO, Compliance, and Review and launch. Which steps are required depends on the selected goals and systems. Optional work may appear under **Explore later**.
 
-Your plan is organized into phases. Which steps appear, and which are required, depends on the goals you chose.
+## Complete setup work
 
-| Phase | Steps |
-|-------|-------|
-| **Foundation** | Company profile, Branding, Support experience, Access and permissions, Billing |
-| **Connect** | Integrations selection, Connect your PSA, Connect your RMM, Connect Microsoft 365, plus one step per additional integration you choose |
-| **Client data** | Client companies, Client users, Client devices, Client teams |
-| **Ticketing** | Ticket delivery and defaults, Ticket visibility, Ticket request template |
-| **Training** | Training foundation |
-| **vCIO** | vCIO foundation (define standards, review adoption, build the roadmap, schedule the QBR) |
-| **Compliance** | Compliance (import a playbook, review imported checks, create with AI) |
-| **Review and launch** | Readiness review, Review the client experience, Complete launch |
-| **Explore later** | Optional steps from tracks you did not select |
+1. Select a step in **Setup guide**. Read its purpose, affected areas and verification guidance.
+2. Review the embedded setup screen or follow its configuration link. Check the selected integration or company before any save or import.
+3. Use that screen's labeled Save, Connect or Import action where offered. Wait for its result. Some controls save immediately; others stage changes.
+4. Select **Next** when ready. It runs the step's registered save or continuation flow and can require readiness evidence before marking the step complete.
+5. Check the resulting step status and any error before moving on.
 
-### Working Through a Step
+**Back** and choosing another step are navigation actions. Do not use them as a guaranteed discard operation: some workspaces save pending changes during navigation. If **Do this later** is offered for an optional step, it can save the current workspace before recording the deferral. It does not undo configuration already saved.
 
-Each step opens a workspace with a **Setup guide** panel explaining why the step matters, what it affects, and what to confirm. Some steps embed the actual configuration inline, for example:
+Collapse **Setup guide** to make more room for the workspace, and expand it again to choose another step. Your stored plan can be resumed later, but unsaved text in an embedded form is not guaranteed to survive leaving the page.
 
-- **Company profile** and **Support experience** edit your company name, timezone, support email, and portal name directly in the plan.
-- **Integrations** lets you choose the systems you use (PSA, RMM, and other categories such as documentation, security, backup, and quoting) and then configure each one from its own plan step.
-- **Ticket visibility** controls the client ticket experience for your primary PSA, including display groups and the statuses clients can use.
+## Read readiness findings
 
-Use **Next** to save and advance, **Back** to return, or **Do this later** to defer a step without blocking your plan.
+Use the readiness summary and **Live verification** to inspect the evidence. Read both the severity and the outcome of each finding.
 
-## Readiness Verification
+| Finding | How to respond |
+| --- | --- |
+| Passing | The checked evidence currently meets that rule. It is not a test of every provider or client action. |
+| Blocking | Resolve it before completing the launch. Follow the linked setup step and verify the result. |
+| Recommended | Review its effect on the planned rollout even if it does not block completion. |
+| Optional | Decide whether the capability belongs in this rollout. |
+| Unknown or an evaluation error | Inspect the error and underlying setup. Missing evidence is not a pass. |
 
-The Launch Center does not just track clicks; it verifies real portal data.
+Integration and data steps can complete from evidence without a manual checkmark. A later configuration change can make a previously passing check fail. Review the displayed check time and current findings before inviting clients; a progress percentage is not a guarantee that every client workflow works.
 
-- The **Live verification** button in the plan footer shows how many readiness checks currently pass. Open it to see each finding with a severity of **Blocking**, **Recommended**, or **Optional**.
-- Checks cover facts like "A support email address is configured", "At least one active client company exists", "A healthy PSA connection is available when required", and "An active client-visible request template exists".
-- Integration steps and several data steps complete automatically once their readiness checks pass. You do not need to mark them done by hand.
+**Review the client experience** inspects the selected company and role’s readiness and access information. It does not sign you in as that client or replace testing the actual Company experience.
 
-## Completing Your Launch
+## Complete or hand off the launch
 
-The final step, **Complete launch**, is enabled only when every blocking readiness check passes. After you complete the launch:
+On **Complete launch**, review all blocking findings. Completion is available only when the required readiness evidence passes. An exploration-only plan must be expanded into a launch plan before it can certify a rollout.
 
-- The header pill disappears and shows **Portal ready** status behind the scenes.
-- The Launch Center page switches to a monitoring summary: **Your portal setup is complete**. Readiness monitoring stays active and will flag any blocking configuration that regresses.
-- MSPortal re-verifies your readiness every night. If a blocking fact later becomes false, for example an integration disconnects, the Launch Center flips to **Needs attention** until you resolve it, then returns to complete automatically.
+Completing the launch records its completion; it does not itself send client invitations. Readiness monitoring can later report **Needs attention** if required configuration regresses. Resolve the reported cause and recheck the current state.
 
-## Launch Coordinator
+The **Launch coordinator** identifies the accountable person. Where its selection control is offered, the current coordinator, primary administrator or tenant owner can choose an eligible replacement. Selecting a replacement can save immediately; wait for the result and confirm the displayed coordinator. This transfers launch responsibility, not ownership of the tenant or unrestricted settings access.
 
-Each launch has an accountable lead shown as the **Launch coordinator**. The current coordinator, the primary admin, or the tenant owner can use **Assign launch coordinator** or **Reassign** to hand off ownership.
+## Dismiss Launch Center
 
-## Removing the Launch Center
+An authorized manager can select **Dismiss Launch Center**, review the tenant-wide confirmation, and choose **Remove for everyone**. This hides its sidebar and top-bar entry for the organization. It does not delete the saved setup configuration or undo integrations.
 
-If your team prefers not to use the guided experience:
-
-<Steps>
-  <Step title="Open the Dismiss Dialog">
-    Click **Dismiss Launch Center** in the Launch Center.
-  </Step>
-  <Step title="Confirm Removal">
-    Confirm with **Remove for everyone**. This removes the Launch Center from the sidebar and header for everyone at your tenant. Your setup progress and configuration are not deleted.
-  </Step>
-</Steps>
+Choose **Cancel** to keep it available. If it was dismissed accidentally and no restore control is offered, contact support rather than repeating setup or disconnecting services.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| **Complete launch** is disabled | One or more blocking readiness checks are failing. Open **Live verification** to see which findings need attention |
-| A step shows complete without being clicked | Integration and data steps auto-complete from live readiness evidence once their checks pass |
-| The Launch pill vanished | Either the launch completed, or the Launch Center was dismissed for your tenant |
-| Plan is read-only | You need the **manage_launch_center** permission (or tenant settings management) to make changes |
+| Problem | What to do |
+| --- | --- |
+| Launch Center is missing or redirects | Check role access, prior setup completion and whether it was dismissed. Company users use their own onboarding task list. |
+| A plan is visible but cannot be edited | Ask an MSP administrator to review Launch Center management and the embedded screen's permissions. |
+| Next reports a save or validation error | Stay on the step, inspect what actually saved, correct the error and retry only the incomplete action. |
+| Another person updated the plan | Reopen the current plan and compare the latest values before reapplying your changes. |
+| Complete launch is disabled | Resolve blocking or unknown readiness findings and verify the evidence again. |
+| A completed step needs attention again | Check the underlying configuration or connection; an earlier pass does not prevent later changes. |
 
-## Related Resources
+## FAQs
 
-<CardGroup cols={2}>
-  <Card title="Quick Start" icon="bolt" href="/user-guides/getting-started/quick-start">
-    A fast orientation to the portal
-  </Card>
-  <Card title="Integrations" icon="plug" href="/user-guides/integrations/index">
-    Connect your PSA, RMM, and other tools
-  </Card>
-  <Card title="Onboarding Wizard" icon="wand-magic-sparkles" href="/user-guides/getting-started/onboarding/index">
-    The classic step-by-step tenant setup wizard
-  </Card>
-  <Card title="Client Onboarding" icon="users" href="/user-guides/client-onboarding/index">
-    Onboard individual client companies
-  </Card>
-</CardGroup>
+<AccordionGroup>
+  <Accordion title="Is Launch Center the client onboarding portal?">
+    No. It is an MSP setup workflow for the organization. Client onboarding has separate portals, tasks, forms and access.
+  </Accordion>
+  <Accordion title="Does Explore first change anything?">
+    It starts a saved exploration workflow. It does not complete a full client rollout or make subsequent configuration changes temporary.
+  </Accordion>
+  <Accordion title="Does Next always mean the setup succeeded?">
+    Check the action result and readiness status. A validation, permission, connection or evidence failure can prevent completion.
+  </Accordion>
+  <Accordion title="Does Do this later discard my edits?">
+    No. On supported optional steps it saves the workspace before recording the deferral. Review saved configuration before retrying or moving on.
+  </Accordion>
+  <Accordion title="Does a readiness pass prove every client can use the feature?">
+    No. It proves the specific checked evidence met the rule. Test the actual Company role and workflow before rollout.
+  </Accordion>
+  <Accordion title="Will completing launch email or invite my clients?">
+    Completion records setup readiness. Client invitations and communications are separate actions.
+  </Accordion>
+  <Accordion title="Does removing Launch Center disconnect my integrations?">
+    No. Remove for everyone changes organization-wide navigation visibility and leaves saved configuration in place.
+  </Accordion>
+  <Accordion title="Can someone with only read access change the plan?">
+    No. Plan mutations require management access, and individual setup screens can impose additional permissions.
+  </Accordion>
+</AccordionGroup>
+
+## Related guides
+
+- [Connect integrations](/user-guides/integrations/index)
+- [Manage users and roles](/user-guides/settings/users-roles)
+- [Configure portal branding](/user-guides/getting-started/onboarding/branding)
+- [Onboard a client company](/user-guides/client-onboarding/index)

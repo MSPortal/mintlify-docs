@@ -1,74 +1,49 @@
 ---
-title: "Tenant Roles"
-sidebarTitle: "4. Tenant Roles"
-description: "Configure roles and permissions for your team members"
+title: "Staff access groups"
+sidebarTitle: "Staff access groups"
+description: "Configure the permissions your MSP staff need during and after rollout."
 icon: "users"
 ---
 
-The Tenant Roles step lets you define roles for your internal team members (MSP staff). Each role determines what features and data a team member can access within MSPortal.
+**Audience:** MSP administrators with role-management access. The current **Settings > Users & Roles > Roles** area manages permission-bearing roles. Launch Center opens this area for its access setup step.
 
-## What You'll Configure
+<Frame caption="Tenant Roles are the permission-bearing roles for internal staff.">
+  <img src="/images/product/setup-role-scopes.png" alt="Tenant Roles are the permission-bearing roles for internal staff." width="904" height="186" />
+</Frame>
 
-- **Role Names** - Define roles like Admin, Technician, Sales, etc.
-- **Permissions** - Specify what each role can view, create, edit, and delete
-- **Default Role** - Set which role new users receive by default
+## Configure staff access
 
-## Steps to Complete
+1. Review existing access groups and their scope. Use a tenant/staff group for internal MSP users.
+2. Create or edit the appropriate group using the access-group controls. Give it a recognizable name and review permissions module by module.
+3. Save the group in its editor, then assign it to the intended staff users in **Users**.
+4. Check the resulting access using an appropriate staff account. An account-group name alone is not proof of the permissions it contains.
 
-<Steps>
-  <Step title="Navigate to Roles Settings">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Users** and click the **Roles** tab.
-  </Step>
-  <Step title="Review Default Roles">
-    MSPortal includes default roles to get you started. Review these to understand the permission structure.
-  </Step>
-  <Step title="Create Custom Roles (Optional)">
-    Click **Add Role** to create a new role. Give it a descriptive name and configure its permissions.
-  </Step>
-  <Step title="Configure Permissions">
-    For each role, enable or disable permissions across different modules (Tickets, Devices, Compliance, etc.).
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** after configuring each role.
-  </Step>
-</Steps>
+Read, write and management capabilities vary by feature. Review the actual matrix rather than assuming a label such as Technician or Administrator has fixed built-in powers.
 
-## Common Role Examples
+## Check launch readiness
 
-<CardGroup cols={2}>
-  <Card title="Administrator" icon="shield">
-    Full access to all features and settings. Can manage users and configure integrations.
-  </Card>
-  <Card title="Technician" icon="screwdriver-wrench">
-    Access to tickets, devices, and compliance. Cannot manage settings or billing.
-  </Card>
-  <Card title="Sales/Account Manager" icon="handshake">
-    Access to companies, contacts, and meetings. Limited access to technical features.
-  </Card>
-  <Card title="Read-Only" icon="eye">
-    Can view data but cannot make changes. Useful for reporting and oversight roles.
-  </Card>
-</CardGroup>
+Launch Center checks for additional tenant-owned access-group configuration. This is a configuration check, not proof that every staff member has the correct role or that a specific role can open every embedded setup screen. Review assignments and the individual settings permissions as well.
 
-## Permission Categories
+## Recover from access problems
 
-Permissions are organized by module:
-- **Tickets** - View, create, edit, delete tickets
-- **Devices** - View and manage device inventory
-- **Compliance** - Run scans and view compliance status
-- **Companies** - Manage client companies and contacts
-- **Training** - Manage training courses and enrollments
-- **Settings** - Access to configuration and administration
+If a tab is missing, ask an authorized administrator to review the relevant users/roles permission. If a saved group change affects existing members, reassess those users' workflows before applying broader changes. Do not create duplicate groups merely to change the launch progress indicator.
 
-## Manual Completion
+## FAQs
 
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished configuring your roles.
+<AccordionGroup>
+  <Accordion title="Are staff access groups the same as account-team roles?">
+    No. Access groups grant permissions. Team Roles organize responsibility and company assignments.
+  </Accordion>
+  <Accordion title="Does creating an access group assign it to users?">
+    No. Review and save user assignments separately.
+  </Accordion>
+  <Accordion title="Does a launch access check prove every staff permission is correct?">
+    No. Test the intended staff role and review its actual permissions.
+  </Accordion>
+</AccordionGroup>
 
-<Warning>
-  Be careful with admin permissions. Only give full administrative access to users who need to manage system settings.
-</Warning>
+## Related guides
 
-## Related Documentation
-
-- [Users & Roles Settings](/user-guides/settings/users-roles) - Full users and roles reference
-- [How to Create a New User Role](/user-guides/getting-started/how-to-create-a-new-user-role) - Step-by-step role creation guide
+- [Users & Roles](/user-guides/settings/users-roles)
+- [Create and edit permission roles](/user-guides/getting-started/how-to-create-a-new-user-role)
+- [Company Roles](/user-guides/getting-started/onboarding/company-roles)

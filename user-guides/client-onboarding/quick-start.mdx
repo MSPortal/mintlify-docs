@@ -1,10 +1,16 @@
 ---
 title: 'Quick Start'
-description: 'Get your first client portal live in under 15 minutes'
+description: 'Prepare a template, create a draft portal, review the client experience, and activate it when ready'
 icon: 'rocket'
 ---
 
-Follow these six steps to build a template, launch a portal, and send your first client their invite.
+**Audience:** MSP staff configuring and managing client onboarding. Company users should start with [Open your onboarding portal](/user-guides/client-onboarding/open-your-onboarding).
+
+## Before you begin
+
+Your organization must have Client Onboarding enabled. Viewing requires onboarding read access; creating or changing templates and portals requires onboarding write access and active billing. **Convert to Client** requires onboarding management access. Your role and company scope can limit what appears.
+
+Follow these six steps to prepare and launch a client portal. Decide who should receive invitations before activation, and review any configured onboarding automation before creating the draft.
 
 ---
 
@@ -12,20 +18,20 @@ Follow these six steps to build a template, launch a portal, and send your first
 
 <Steps>
   <Step title="Go to Settings > Onboarding > Templates">
-    Click **New Template**. Enter a name and estimated duration.
+    Click **New Template**. Enter a name and optional description and estimated duration, then click **Create Template**. Create the template before manually adding phases or items.
   </Step>
   <Step title="Use the AI Designer">
-    Click the **AI** button on the right side of the screen. Describe your onboarding process in plain language — e.g., *"Onboard a 20-person company migrating to M365 with discovery, setup, migration, training, and go-live phases."*
+    Open **Assistant** in the template builder (or the **AI Designer** control where shown). Describe your onboarding process in plain language — e.g., *"Onboard a 20-person company migrating to M365 with discovery, setup, migration, training, and go-live phases."*
 
-    Review the suggested changes, then click **Apply**.
+    Review the suggested additions, updates, and removals, then use **Apply** to save the accepted changes. AI is optional; you can add phases and items manually.
   </Step>
   <Step title="Edit as needed">
-    Adjust phase names, task descriptions, ownership (MSP vs Client), priorities, and dependencies. Click **Save Changes**.
+    Adjust phase names, task descriptions, ownership (MSP vs Client), priorities, visibility, and dependencies. These structure and item controls save separately as you work; wait for changes to finish. Use **Save Changes** for template details such as the name and description.
   </Step>
 </Steps>
 
 <Tip>
-The AI gets you 80% there. Spend a few minutes tweaking task descriptions and ownership to match your process.
+Review every generated requirement, recipient, dependency, and linked form. An accepted AI proposal changes the saved template; it is not a client preview.
 </Tip>
 
 ---
@@ -50,13 +56,19 @@ The AI gets you 80% there. Spend a few minutes tweaking task descriptions and ow
     Navigate to the company you want to onboard and click the **Onboarding** tab. Click **Start Onboarding**.
   </Step>
   <Step title="Select your template and add contacts">
-    Choose your template from the dropdown. Add each client contact with their **name**, **email**, and **role** (Primary Contact, IT Contact, Decision Maker, etc.).
+    Select one or more **Template Modules**. Review the **Portal Name**, optional description, and **Portal Language**. Add each client contact with their **name**, **email**, and an available **role**, or leave contacts empty while preparing a draft.
 
     Click **Create Portal**.
   </Step>
 </Steps>
 
-The portal is created in **Draft** mode — not live yet.
+The portal is saved in **Draft** status before the **Link Project** step. Choose a project system and an existing or new project if needed, or click **Skip**. Linking or creating a project persists immediately; continuing with ticket creation selected can create project tickets. Closing this later step does not undo the saved portal or project link.
+
+If creation reports that a module or some configuration could not be copied, inspect the existing draft before retrying. A warning can mean the portal already exists.
+
+<Note>
+Draft status prevents normal client entry. It does not make project actions or configured automation a simulation. Keep invitation links private, and use **View as** for a preview.
+</Note>
 
 ---
 
@@ -64,7 +76,7 @@ The portal is created in **Draft** mode — not live yet.
 
 <Steps>
   <Step title="Open the Tasks tab">
-    Review each phase and task. Make sure descriptions are clear, evidence types are correct, and dependencies make sense for this client.
+    Review each phase and task. Make sure descriptions, evidence types, visibility, and dependencies are correct. Portal tasks are copied from the template; changing the original template does not rebuild this draft. Correct the template and prepare a fresh draft if its structure needs changing.
   </Step>
   <Step title="Assign every MSP task">
     Click the assignee area on each task and select a team member. Use **Reassign** in the toolbar for bulk assignment.
@@ -92,12 +104,12 @@ Then see the portal through your client's eyes before anyone else does:
     On the **Overview** tab, click the **View as** dropdown and pick a contact. If you haven't added contacts yet, pick a **role** instead.
   </Step>
   <Step title="Check the client experience">
-    The portal opens in a new tab exactly as that person will see it — branding, visible tasks, pages, and documents. Anything hidden from clients stays hidden.
+    The portal opens in a new tab with a **Preview mode** banner. Inspect branding, visible tasks, pages, and documents. This MSP preview uses the selected contact or role context; it does not prove that a real client can sign in or save a response.
   </Step>
 </Steps>
 
 <Tip>
-**View as** works on a Draft portal, so this is the way to test a template end to end without going live or emailing anyone. Build the template, create a Draft portal on a test company, and preview it. Nothing sends until you click **Start Portal**.
+**View as** works on a Draft portal and simulates client interactions without saving responses. Use it to review presentation. Separately verify a real client access and submission path when you are ready to launch.
 </Tip>
 
 ---
@@ -106,14 +118,14 @@ Then see the portal through your client's eyes before anyone else does:
 
 <Steps>
   <Step title="Activate the portal">
-    Click **Start Portal** on the Overview tab, then confirm with **Start & Send Invites**.
+    Click **Start Portal** on the Overview tab. Review or skip project linking, then review the contact count and any project-ticket option. Click **Start & Send Invites** only when the portal and recipients are ready.
   </Step>
   <Step title="Clients get emailed">
-    Each contact receives a secure invite link. They verify their email, then land on their personalized portal with tasks, documents, and progress tracking.
+    Activation queues invitation emails for the portal contacts. A started portal is not proof that every invitation was delivered. Check the result and contact details; use the contact invite action to recover a missing invitation. Clients follow the [onboarding access steps](/user-guides/client-onboarding/open-your-onboarding).
   </Step>
 </Steps>
 
-Your portal is live. Clients can start completing tasks immediately.
+Once active, correctly authorized contacts can open the portal and work on available tasks. Dependencies and visibility settings still apply.
 
 ---
 
@@ -141,3 +153,32 @@ Your portal is live. Clients can start completing tasks immediately.
     What your clients see
   </Card>
 </CardGroup>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Do I have to use AI to create a template?">
+    No. Create the template, add phases and items manually, and configure their requirements. AI is an optional way to propose changes that you review before applying.
+  </Accordion>
+  <Accordion title="Does Create Portal also start the portal?">
+    No. It saves a draft, then offers project linking. Activation is a separate Start Portal workflow.
+  </Accordion>
+  <Accordion title="Can I combine more than one template?">
+    Yes. Select the required Template Modules and review the resulting draft. If a selected module fails to copy, inspect the saved portal before creating another.
+  </Accordion>
+  <Accordion title="Does closing Link Project cancel portal creation?">
+    No. The draft already exists. A project link or new project you saved also remains; closing the dialog does not roll it back.
+  </Accordion>
+  <Accordion title="Is a draft guaranteed to have no external effects?">
+    No. Draft status prevents normal client access, but configured automation and explicit project or communication actions can still have effects. Review those settings before creating test drafts.
+  </Accordion>
+  <Accordion title="Does View as test a real client sign-in?">
+    No. It is an MSP preview with simulated responses. Real invitation access and saved client submissions require a separate check.
+  </Accordion>
+  <Accordion title="Why did a template change not appear in my draft?">
+    Portal phases and tasks are copied when the portal is created. Review the template changes in a fresh draft; shared Client Pages can follow different update behavior.
+  </Accordion>
+  <Accordion title="The portal is active but a contact has no email. Should I recreate it?">
+    First check the contact address and portal status, then use the contact invite action and investigate any delivery error. Recreating the portal can duplicate work and is not a delivery check.
+  </Accordion>
+</AccordionGroup>

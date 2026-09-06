@@ -1,100 +1,52 @@
 ---
-title: "Company Permission Groups"
-sidebarTitle: "5. Permission Groups"
-description: "Set up permission groups to control what company users can access"
+title: "Company access groups"
+sidebarTitle: "Company access groups"
+description: "Choose what client users can view and do before granting portal access."
 icon: "shield"
 ---
 
-Company Permission Groups define what your clients' users can access when they log into MSPortal. These groups determine which modules, data, and actions are available to company users.
+**Audience:** MSP administrators managing client access. Open **Settings > Users & Roles > Roles** and review Company-scoped groups. The old Companies > Permissions instructions no longer describe the primary settings navigation.
 
-## Understanding Permission Groups
+<Frame caption="Example unsaved Company-role editor. Review permissions before saving and assigning the role.">
+  <img src="/images/product/company-permission-role-editor.png" alt="Example unsaved Company-role editor. Review permissions before saving and assigning the role." width="1536" height="1768" />
+</Frame>
 
-Permission Groups are different from both tenant roles and company roles:
+## Prepare client access
 
-| Concept | For | Purpose |
-|---------|-----|---------|
-| **Tenant Roles** | Your internal MSP team | Control staff access to MSPortal features |
-| **Permission Groups** | Your clients' users | Control company user access to the portal |
-| **Company Roles** | Your clients' users | Organizational labels (job titles) — do **not** control access |
+1. Review the Company-scoped group you intend to use. Check individual permissions, ticket visibility and other available restrictions.
+2. Create or edit a group when the existing configuration does not fit. Save in the group editor.
+3. Assign the group to the correct people under **Company Users**. Verify company, active status and access group together.
+4. Review import defaults and contact-type mappings if a provider imports those users. An explicit mapping can affect existing synchronized users.
+5. Check the actual Company experience before inviting a wider audience.
 
-<Note>
-Permission Groups control access. [Company Roles](/user-guides/getting-started/onboarding/company-roles) are just organizational labels. A user is assigned both independently.
-</Note>
+Access groups are permission-bearing roles. **Team Roles** identify assigned staff responsibilities and can affect company scope and the client team display; they are not a substitute for Company access permissions.
 
-## What You'll Configure
+## Avoid accidental overexposure
 
-- **Group Names** - Create groups like "Full Access", "Standard User", "View Only"
-- **Module Access** - Which modules company users can see (Tickets, Training, Devices, etc.)
-- **Permission Levels** - What actions users can take: Read, Write, or Manage
-- **Ticket Display Groups** - Which ticket categories are visible to this group
-- **Default Group** - Which group is automatically assigned to new users
+A visible navigation item does not prove the user can read all records behind it. Conversely, hiding a sidebar item is not a security rule. Review the group, company scope and the content's own visibility settings.
 
-## Steps to Complete
+Use [change Company-user permissions](/user-guides/settings/change-company-user-permissions) for the assignment workflow. If an imported user's group changes again, review the provider's contact-type rules, company default and integration default instead of repeatedly overriding the same field.
 
-<Steps>
-  <Step title="Navigate to Permission Groups">
-    Click **Go to Settings** in the onboarding wizard, or go to **Settings > Companies > Permissions**.
-  </Step>
-  <Step title="Review Default Groups">
-    MSPortal includes built-in global permission groups. Review these to understand the structure.
-  </Step>
-  <Step title="Create Custom Groups (Optional)">
-    Click **Create Permission Group** to create a new group for specific client needs.
-  </Step>
-  <Step title="Configure Module Access">
-    For each group, select the permission level (Read, Write, or Manage) for each module.
-  </Step>
-  <Step title="Save Changes">
-    Click **Save** after configuring each permission group.
-  </Step>
-</Steps>
+## Verify readiness
 
-## Permission Levels
+A configured access group does not prove that every rollout company has an active, correctly assigned user. Return to Launch Center and inspect both access and client-user findings.
 
-Each module supports three levels of access:
+## FAQs
 
-| Level | Description |
-|-------|-------------|
-| **Read** | View data only |
-| **Write** | Create and edit records (includes Read) |
-| **Manage** | Full control including delete (includes Read and Write) |
+<AccordionGroup>
+  <Accordion title="Where do I manage Company permission groups now?">
+    Use Settings > Users & Roles > Roles and review Company-scoped groups.
+  </Accordion>
+  <Accordion title="Does hiding a sidebar item restrict access?">
+    No. Use permissions, company scope and the content visibility controls.
+  </Accordion>
+  <Accordion title="Why can a synchronized user get a different access group?">
+    Review provider contact-type rules and company/integration defaults; explicit mappings can update existing synchronized users.
+  </Accordion>
+</AccordionGroup>
 
-## Common Permission Group Examples
+## Related guides
 
-<CardGroup cols={2}>
-  <Card title="Full Access" icon="lock-open">
-    Access to all available modules. Can view and manage their company's data.
-  </Card>
-  <Card title="Standard User" icon="user">
-    Access to tickets, training, and basic features. Cannot manage company settings.
-  </Card>
-  <Card title="Training Only" icon="graduation-cap">
-    Limited to training courses and compliance acknowledgments.
-  </Card>
-  <Card title="View Only" icon="eye">
-    Can view information but cannot create or modify anything.
-  </Card>
-</CardGroup>
-
-## Available Modules for Company Users
-
-- **Tickets** - Submit and view support tickets
-- **Training** - Access training courses and track progress
-- **Devices** - View device inventory (if enabled)
-- **Compliance** - View compliance status and complete tasks
-- **Dashboard** - Access company dashboard
-- **Meetings** - View and manage meetings
-- **Goals** - View and track goals
-
-## Manual Completion
-
-This step requires **manual completion**. Click **Mark Complete** in the wizard when you've finished setting up your permission groups.
-
-<Tip>
-Start with fewer, broader permission groups. You can always create more specific groups later as you understand your clients' needs.
-</Tip>
-
-## Related Documentation
-
-- [Companies Settings](/user-guides/settings/companies) - Full companies settings reference including all four tabs
-- [Company Roles](/user-guides/getting-started/onboarding/company-roles) - Organizational role setup (next step)
+- [Users & Roles](/user-guides/settings/users-roles)
+- [Change a Company user’s permissions](/user-guides/settings/change-company-user-permissions)
+- [Integrations](/user-guides/settings/integrations)
